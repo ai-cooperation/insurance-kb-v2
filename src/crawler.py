@@ -1,0 +1,226 @@
+"""RSS + HTTP crawler for Insurance KB v2. No Playwright."""
+
+import hashlib
+import json
+import logging
+import re
+import time
+from dataclasses import dataclass, field
+from datetime import datetime
+from pathlib import Path
+from typing import Optional
+from urllib.parse import urljoin
+
+import feedparser
+import requests
+from bs4 import BeautifulSoup
+
+logger = logging.getLogger(__name__)
+
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+SEEN_PATH = DATA_DIR / "seen.json"
+
+
+@dataclass
+class CrawlResult:
+    """Single crawled article."""
+
+    source_id: str
+    title: str
+    url: str
+    snippet: str = ""
+    published: str = ""
+    uid: str = field(default="")
+
+    def __post_init__(self):
+        if not self.uid:
+            self.uid = hashlib.md5(self.url.encode()).hexdigest()[:12]
+
+
+# ---------------------------------------------------------------------------
+# Deduplicator
+# ---------------------------------------------------------------------------
+class Deduplicator:
+    """Track seen UIDs via data/seen.json."""
+
+    def __init__(self, path: Path = SEEN_PATH):
+        self._path = path
+        self._seen: set = set()
+        self._load()
+
+    def _load(self):
+        if self._path.exists():
+            try:
+                data = json.loads(self._path.read_text(encoding="utf-8"))
+                self._seen = set(data)
+            except (json.JSONDecodeError, TypeError):
+                self._seen = set()
+
+    def save(self):
+        self._path.parent.mkdir(parents=True, exist_ok=True)
+        self._path.write_text(
+            json.dumps(sorted(self._seen), ensure_ascii=False),
+            encoding="utf-8",
+        )
+
+    def is_new(self, uid: str) -> bool:
+        return uid not in self._seen
+
+    def mark(self, uid: str):
+        self._seen.add(uid)
+
+    def filter_new(self, results: list) -> list:
+        """Return only unseen results and mark them."""
+        new = [r for r in results if self.is_new(r.uid)]
+        for r in new:
+            self.mark(r.uid)
+        return new
+
+
+# ---------------------------------------------------------------------------
+# RSS crawling
+# ---------------------------------------------------------------------------
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/125.0.0.0 Safari/537.36"
+    )
+}
+
+
+def crawl_rss(source: dict) -> list:
+    """Crawl an RSS feed and return CrawlResult list."""
+    url = source["url"]
+    source_id = source["id"]
+    results = []
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=15)
+        resp.raise_for_status()
+        feed = feedparser.parse(resp.content)
+        for entry in feed.entries:
+            title = entry.get("title", "").strip()
+            link = entry.get("link", "").strip()
+            if not title or not link:
+                continue
+            snippet = _clean_html(
+                entry.get("summary", entry.get("description", ""))
+            )
+            published = _parse_date(entry)
+            results.append(
+                CrawlResult(
+                    source_id=source_id,
+                    title=title,
+                    url=link,
+                    snippet=snippet[:500],
+                    published=published,
+                )
+            )
+    except requests.RequestException as exc:
+        logger.warning("RSS crawl failed for %s: %s", source_id, exc)
+    return results
+
+
+# ---------------------------------------------------------------------------
+# HTTP crawling
+# ---------------------------------------------------------------------------
+def crawl_http(source: dict) -> list:
+    """Crawl a web page for links and titles."""
+    url = source["url"]
+    source_id = source["id"]
+    results = []
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=15)
+        resp.raise_for_status()
+        encoding = resp.apparent_encoding or "utf-8"
+        html = resp.content.decode(encoding, errors="replace")
+        soup = BeautifulSoup(html, "lxml")
+
+        seen_urls = set()
+        for a_tag in soup.find_all("a", href=True):
+            href = a_tag["href"].strip()
+            if not href or href.startswith("#") or href.startswith("javascript"):
+                continue
+            full_url = urljoin(url, href)
+            if full_url in seen_urls:
+                continue
+            title = a_tag.get_text(strip=True)
+            if not title or len(title) < 10:
+                continue
+            seen_urls.add(full_url)
+            results.append(
+                CrawlResult(
+                    source_id=source_id,
+                    title=title[:200],
+                    url=full_url,
+                )
+            )
+    except requests.RequestException as exc:
+        logger.warning("HTTP crawl failed for %s: %s", source_id, exc)
+    return results
+
+
+# ---------------------------------------------------------------------------
+# Dispatcher
+# ---------------------------------------------------------------------------
+def crawl_source(source: dict) -> list:
+    """Dispatch to the correct crawler based on source method."""
+    method = source.get("method", "rss")
+    if method == "rss":
+        return crawl_rss(source)
+    elif method == "http":
+        return crawl_http(source)
+    else:
+        logger.warning("Unknown method '%s' for source %s", method, source["id"])
+        return []
+
+
+def crawl_all(
+    sources: list,
+    dedup: Optional[Deduplicator] = None,
+    delay: float = 1.0,
+) -> list:
+    """Crawl all sources, deduplicate, return new articles."""
+    if dedup is None:
+        dedup = Deduplicator()
+
+    all_results = []
+    for i, source in enumerate(sources):
+        logger.info(
+            "[%d/%d] Crawling %s (%s)...",
+            i + 1, len(sources), source["id"], source["method"],
+        )
+        raw = crawl_source(source)
+        new = dedup.filter_new(raw)
+        all_results.extend(new)
+        logger.info("  -> %d new / %d total", len(new), len(raw))
+        if i < len(sources) - 1:
+            time.sleep(delay)
+
+    dedup.save()
+    logger.info("Crawl complete: %d new articles total", len(all_results))
+    return all_results
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+_TAG_RE = re.compile(r"<[^>]+>")
+
+
+def _clean_html(text: str) -> str:
+    """Strip HTML tags from text."""
+    return _TAG_RE.sub("", text).strip()
+
+
+def _parse_date(entry) -> str:
+    """Extract published date from feed entry as YYYY-MM-DD."""
+    for attr in ("published_parsed", "updated_parsed"):
+        parsed = getattr(entry, attr, None)
+        if parsed:
+            try:
+                dt = datetime(*parsed[:6])
+                return dt.strftime("%Y-%m-%d")
+            except (TypeError, ValueError):
+                pass
+    return datetime.now().strftime("%Y-%m-%d")

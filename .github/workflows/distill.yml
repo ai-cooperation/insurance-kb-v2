@@ -1,0 +1,49 @@
+name: Monthly Knowledge Distillation
+
+on:
+  schedule:
+    - cron: '0 2 1 * *'  # 1st of each month at 02:00 UTC
+  workflow_dispatch:
+    inputs:
+      period:
+        description: 'Period to distill (e.g. 2026-03 for monthly)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  distill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install openai
+
+      - name: Run monthly distillation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "${{ inputs.period }}" ]; then
+            python -m src.distill --monthly "${{ inputs.period }}"
+          else
+            python -m src.distill --monthly
+          fi
+
+      - name: Commit and push compiled output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add compiled/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: monthly distillation $(date +%Y-%m)"
+            git push
+          fi
