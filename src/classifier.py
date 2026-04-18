@@ -120,7 +120,7 @@ def classify_rule(article: dict) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# LLM batch classification (Chinese title + summary via GitHub Models)
+# LLM batch classification (Chinese title + summary via Groq API)
 # ---------------------------------------------------------------------------
 _LLM_SYSTEM = (
     "你是保險產業翻譯助手。將以下新聞標題翻譯為繁體中文，並生成 100 字中文摘要。\n"
@@ -145,7 +145,7 @@ def classify_llm_batch(
     batch_size: int = 10,
     delay: float = 3.0,
 ) -> list:
-    """Call GitHub Models GPT-4o-mini for Chinese title + summary.
+    """Call Groq API (llama-3.3-70b) for Chinese title + summary.
 
     Returns new list of article dicts with title_zh and summary_zh added.
     """
@@ -156,7 +156,7 @@ def classify_llm_batch(
         return articles
 
     client = OpenAI(
-        base_url="https://models.inference.ai.azure.com",
+        base_url="https://api.groq.com/openai/v1",
         api_key=api_key,
     )
 
@@ -171,7 +171,7 @@ def classify_llm_batch(
 
         try:
             response = client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="llama-3.3-70b-versatile",
                 messages=[
                     {"role": "system", "content": _LLM_SYSTEM},
                     {"role": "user", "content": prompt},
