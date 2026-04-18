@@ -4,35 +4,71 @@ period: 2026-04
 category: market
 region: asia-pacific
 articles_count: 125
-compiled_at: 2026-04-18T13:55:06Z
+compiled_at: 2026-04-18T14:05:10Z
 compiled_by: distill-cli
-model: Meta-Llama-3.1-405B-Instruct
+model: gpt-4.1
 ---
 ### 本月重點
 
-- 亞太地區退休轉變推動年金增長，老齡化人口重新思考收入安全。
-- 能源保險市場在損失、通脹和地緣政治風險下仍然疲軟。
-- 保險公司被敦促將資本投入基礎設施和能源轉型，以促進可持續發展。
+- **能源與地緣政治風險加劇市場波動**：亞洲能源危機、地緣政治衝突（特別是中東局勢）持續影響亞太保險市場，能源保險市場仍然疲軟，航空與海洋保險風險上升。
+- **人口老化與退休需求推動年金與健康保險成長**：亞太地區人口老化帶動年金與健康保險需求，獨立健康保險業務在中國等地表現突出，印度農村人壽保險需求顯著上升。
+- **市場結構調整與資本配置多元化**：韓國放寬資本規則，鼓勵保險資本投入基礎設施與能源轉型；印尼OJK推動黃金ETF等替代投資工具，提升資產配置多元性。
+- **保險科技與業務模式創新**：保險業從傳統人車保障轉向系統與演算法承保，混合模式與數位分銷成為應對市場重疊衝擊與提升效率的關鍵。
+- **區域市場競爭與企業動態頻繁**：蘇黎世、Hanwha、Sompo等公司在亞太區進行領導層調整、業務擴張或創新合作，反映市場競爭加劇與策略調整。
+
+---
 
 ### 時間線
 
-- 2026-04-18：亞太地區退休轉變推動年金增長，老齡化人口重新思考收入安全。
-- 2026-04-18：能源保險市場在損失、通脹和地緣政治風險下仍然疲軟。
-- 2026-04-18：保險公司被敦促將資本投入基礎設施和能源轉型，以促進可持續發展。
+- **2026-04-18**
+  - 能源保險市場在損失、通脹和地緣政治風險下仍然疲軟（#13）
+  - 亞太地區退休轉變推動年金增長，老齡化人口重新思考收入安全（#14）
+  - 保險公司被敦促將資本投入基礎設施和能源轉型，韓國放寬資本規則（#15）
+  - 亞洲能源危機：能源多樣化和獨立的重要性（#17、#35）
+  - 印尼OJK尋求黃金ETF及替代長期投資工具供保險公司和退休基金使用（#18、#21）
+  - 亞洲能源危機：新加坡因依賴進口能源和貿易面臨更高風險（#19、#36）
+  - 澳洲PERILS發布維多利亞州山火的第二次行業損失估算（#20）
+  - 船舶火災持續發生，錯報貨物激增（#22）
+  - 混合模式或許是應對重疊衝擊的解答（#23）
+  - 市場概況：成熟市場，仍有許多成就待達成（#25）
+  - 戰略重組推動頂尖財產與意外保險公司的非汽車業務成長（#26）
+  - 財產與意外保險巨頭在2025年改善承保表現（#27）
+  - 責任保險成為風險控制的關鍵焦點（#28）
+  - 中國人民保險健康保險業務增長超越同行（#29）
+  - 從「保險人與車輛」到「保險系統與算法」（#30）
+  - 衝突監測：中東衝突加深亞洲航空風險（#32）
+  - 衝突監測：兩週停火不太可能立即降低戰爭風險保費（#33）
+  - 印度：農村部門推動人壽保險需求（#38）
+  - 日本郵政保險專注於新投資協議中的分銷（#39）
+  - 香港：家庭保險缺口擴大（#40）
+  - 南韓Hanwha通用保險在Carrot整合後創下汽車保險銷售新紀錄（#41）
+  - 亞太地區：蘇黎世宣布領導層變動（#42）
+  - 損保Sompo擴大在澳洲的業務（#43）
+  - 南韓保險業利潤在2025年下降（#47）
+  - 馬來西亞的高淨值個人在遺產規劃方面領先（#49）
+  - Continuum宣布與持牌保險經紀人合作（#50）
+  - 其他：多篇新聞、專題、會議、技術與風險管理類資源（#1-#12、#24、#31、#34、#37、#44、#45、#46、#48）
+
+---
 
 ### 趨勢分析
 
-本月的趨勢分析顯示，亞太地區的退休轉變和老齡化人口的收入安全問題正在推動年金增長。能源保險市場仍然疲軟，受到損失、通脹和地緣政治風險的影響。保險公司被敦促將資本投入基礎設施和能源轉型，以促進可持續發展。
+- **能源與地緣政治風險成為市場主調**：本月亞太市場高度關注能源危機與地緣政治衝突，相關保險（能源、航空、海洋）風險溢價上升，市場仍處於調整期。與上月相比，能源安全與多元化討論更為頻繁，顯示外部風險對市場影響加劇。
+- **人口結構變化推升長期保障需求**：年金、健康、人壽保險需求明顯增長，特別是中國、印度等人口大國。這一趨勢與上月一致，但本月更強調農村及高齡人口帶來的結構性機會。
+- **資本與投資多元化**：韓國、印尼等地監管政策鬆綁，鼓勵保險資本進入基礎設施、能源轉型及黃金ETF等新型投資工具，反映市場對長期穩健收益的追求。
+- **科技與業務模式創新加速**：保險科技、混合承保模式、數位分銷等創新方案成為市場主流，企業積極調整策略以提升效率與風險管理能力。
+- **區域競爭與企業動態活躍**：多家國際保險集團在亞太區進行領導層調整、業務擴張或合作，反映市場競爭加劇與策略多元化。
 
-與上月相比，本月的趨勢更為明確，亞太地區的退休轉變和能源保險市場的疲軟成為了主要關注點。
+---
 
 ### 跨主題關聯
 
-本月的主題與其他主題或地區的關聯性分析如下：
+- **風險管理與市場策略緊密結合**：能源危機、地緣政治衝突等風險議題直接影響市場策略，促使保險公司加強風險評估、資本配置與產品創新。
+- **人口結構與社會議題影響市場發展**：老齡化、農村經濟發展等社會結構變遷推動保險市場需求，與健康、年金、遺產規劃等主題高度相關。
+- **科技創新與監管政策互為推動力**：數位化、混合模式等創新與監管鬆綁相輔相成，推動市場效率與產品多元化。
+- **地區間經驗交流與競爭**：馬來西亞、南韓、日本、澳洲等地市場動態顯示區域間在資本運用、產品創新、遺產規劃等方面互有學習與競爭。
 
-- 亞太地區的退休轉變與全球的老齡化趨勢相關，各國政府和企業需要共同應對這一挑戰。
-- 能源保險市場的疲軟與全球的能源危機相關，各國政府和企業需要共同努力以確保能源安全。
-- 保險公司將資本投入基礎設施和能源轉型與全球的可持續發展趨勢相關，各國政府和企業需要共同努力以促進可持續發展。
+---
 
 ### 來源文章索引
 
@@ -72,25 +108,4 @@ model: Meta-Llama-3.1-405B-Instruct
 | 32 | 2026-04-18 | 衝突監測：中東衝突加深亞洲航空風險 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95109/Type/eDaily/Conflict-Monitor-Middle-East-conflict-deepens-aviation-risk-landscape-across-Asia |
 | 33 | 2026-04-18 | 衝突監測：兩週停火不太可能立即降低戰爭風險保費 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95096/Type/eDaily/Conflict-Monitor-Two-week-ceasefire-not-likely-to-immediately-reduce-additional-war-risk-premiums |
 | 34 | 2026-04-18 | 亞洲能源危機 | air_news | https://www.asiainsurancereview.com/News-Cat/Cat/Asia's Energy Crisis |
-| 35 | 2026-04-18 | 亞洲能源危機：能源多樣化和獨立的重要性 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95170/Type/eDaily/Asia-s-Energy-Crisis-The-importance-of-energy-diversification-and-independence |
-| 36 | 2026-04-18 | 亞洲能源危機：新加坡因依賴進口能源和貿易面臨更高風險 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95171/Type/eDaily/Asia-s-Energy-Crisis-Singapore-faces-heightened-risks-due-to-reliance-on-imported-energy-and-trade |
-| 37 | 2026-04-18 | Life & Health | air_news | https://www.asiainsurancereview.com/News-Cat/Cat/Life and Health |
-| 38 | 2026-04-18 | 印度：農村部門推動人壽保險需求，根據新研究 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95153/Type/eDaily/India-Rural-sector-driving-life-insurance-demand-says-new-study |
-| 39 | 2026-04-18 | 日本：日本郵政保險專注於新投資協議中的分銷 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95157/Type/eDaily/Japan-Japan-Post-Insurance-focuses-on-distribution-in-new-investment-deal |
-| 40 | 2026-04-18 | 香港：家庭保險缺口擴大 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95154/Type/eDaily/Hong-Kong-Home-insurance-gap-widens |
-| 41 | 2026-04-18 | 南韓：Hanwha 通用保險在 Carrot 整合後創下汽車保險銷售新紀錄 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95065/Type/eDaily/South-Korea-Hanwha-General-Insurance-hits-record-auto-insurance-sales-post-Carrot-integration |
-| 42 | 2026-04-18 | 亞太地區：蘇黎世宣布領導層變動 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95175/Type/eDaily/APAC-Zurich-announces-leadership-changes |
-| 43 | 2026-04-18 | 損保：Sompo 擴大在澳洲的業務 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95176/Type/eDaily/Sompo-expands-operations-in-Australia |
-| 44 | 2026-04-18 | 瑞士再保險股東批准股息支付 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95174/Type/eDaily/Swiss-Re-shareholders-approve-dividend-payouts |
-| 45 | 2026-04-18 | 衝突監測：印度政府支持的1億美元海洋保險池正在建立 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95152/Type/eDaily/Conflict-Monitor-Indian-govt-backed-US-100m-marine-insurance-pool-being-set-up |
-| 46 | 2026-04-18 | 越南：保明保險因員工基金被列為警告狀態 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95063/Type/eDaily/Vietnam-Bao-Minh-Insurance-shares-placed-on-warning-status-over-employee-fund |
-| 47 | 2026-04-18 | 南韓：保險業利潤在2025年下降 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/94998/Type/eDaily/South-Korea-Insurance-industry-profits-down-in-2025 |
-| 48 | 2026-04-18 | Risk Management | air_news | https://www.asiainsurancereview.com/News-Cat/Cat/Risk Management |
-| 49 | 2026-04-18 | 馬來西亞的高淨值個人在遺產規劃方面領先於幾個更富裕的市場 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95142/Type/eDaily/Malaysia-s-HNW-individuals-ahead-in-legacy-planning-compared-to-those-in-several-wealthier-markets |
-| 50 | 2026-04-18 | Continuum宣布與持牌保險經紀人合作 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95100/Type/eDaily/Continuum-announces-partnership-with-licensed-insurance-broker |
-
-### 知識缺口
-
-本月可能遺漏或資料不足的面向包括：
-
-- 亞太地區以外的市場趨
+| 35 | 2026-04-18 | 亞洲能源危機：能源多樣化和獨立的重要性 | air_news | https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/95170/Type/eDaily/Asia-s-Energy-Crisis-The-importance-of-energy-diversification-and-independ

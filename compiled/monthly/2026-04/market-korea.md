@@ -3,47 +3,98 @@ type: monthly
 period: 2026-04
 category: market
 region: korea
-articles_count: 269
-compiled_at: 2026-04-18T13:05:50Z
+articles_count: 283
+compiled_at: 2026-04-18T14:09:12Z
 compiled_by: distill-cli
-model: gpt-4o-mini
+model: gpt-4.1
 ---
 ### 本月重點
-- **漢華生命的競爭力提升**：漢華生命在近期的比賽中表現出色，成功擊敗了競爭對手Gen.G，顯示出其在保險市場中的強勁勢頭。
-- **教保生命的IPO壓力**：由於PIK結構的影響，教保生命面臨IPO的壓力，這可能會影響其未來的資本運作和市場表現。
-- **三星生命的退休金表現**：三星生命在第一季度的DC型退休金收益率表現優異，繼續在市場中保持領先地位，顯示出其產品的競爭力。
-- **保險業整合趨勢**：動向顯示，動洋生命和ABL生命的整合討論正在進行中，這可能會改變韓國保險市場的競爭格局。
+- 韓華生命在電子競技及保險市場表現突出，連續多場比賽獲勝並積極推動產品創新與併購計畫，顯示企業競爭力與多元化發展。
+- 三星生命在退休金管理領域持續領先，DC型退休金收益率表現優異，並擴展至DB、IRP等多元產品線。
+- 教保生命面臨IPO壓力，並積極與穩定幣、SBI儲蓄銀行合作，拓展亞洲市場，顯示韓國保險業國際化趨勢。
+- 東洋生命與ABL生命整合議題再度浮現，金融控股集團討論併購方案，市場關注其對產業結構的影響。
+- 主要GA業績反彈，設計師人均生產力恢復，顯示市場回暖與銷售端動能提升。
+
+---
 
 ### 時間線
-- **2026-04-16**：漢華生命在LCK比賽中以2-0擊敗DN超級隊，展現出強勁的競爭力。
-- **2026-04-16**：三星生命報告其DC型退休金在第一季度的收益率表現優異，繼續領先市場。
-- **2026-04-17**：教保生命面臨IPO壓力，因PIK結構影響其資本運作。
-- **2026-04-17**：動洋生命和ABL生命的整合討論被提上日程，可能影響市場競爭。
+
+**2026-04-16**
+- 韓華生命在DN超級賽以2:0獲勝，展現團隊犧牲精神（#36, #38, #44, #45）。
+- 韓華生命瞄準艾克雲資本，啟動金融控股併購計畫（#40, #41）。
+- 三星生命DC型退休金收益率領先市場，並擴展至DB、IRP領域（#32, #33, #35, #39）。
+- 教保生命與穩定幣合作，攜手SBI儲蓄銀行拓展亞洲據點（#43）。
+- 東洋生命與ABL生命整合檢討公告，最終決定未定（#48, #49）。
+- 主要GA業績反彈，設計師人均生產力恢復至40萬元（#50）。
+- 龍仁三星生命喚醒冠軍DNA，準備翻盤（#46）。
+- 三星與教保生命平均利潤轉換力低，現代海上產險競爭力強（#29, #34）。
+
+**2026-04-17**
+- 韓華生命連續四場獲勝，打破Gen.G九連勝紀錄，市場競爭力提升（#1, #2, #3, #5, #27）。
+- 韓華生命推出‘護理加保險’新產品，保障退休資金與長期護理需求（#28, #42）。
+- 教保生命PIK結構下IPO壓力加劇，需謹慎應對（#4）。
+- 新韓銀行超越三星生命，成為退休金市場第一，重組500兆退休金收益率（#6）。
+- 東洋生命與ABL生命合併論再度浮現，市場關注結構變革（#7, #47）。
+- 我們金融構建綜合金融投資組合，銀行業績略顯疲軟（#9）。
+- Kyobo人壽保險市場關注度提升，與XRP合作推動數位金融（#10, #12, #14）。
+- SK生技美國法人推出癲癇醫療人員教育平台（#8）。
+- 農協生命招募線上客戶面板，提升服務品質（#21）。
+- 富邦現代生命舉辦志願活動，展現企業社會責任（#22）。
+- DB生命舉辦捐血日活動，慶祝創立37週年（#25）。
+- 漢華金融推動殘疾人就業可持續模型（#24）。
+
+**2026-04-18**
+- 韓華生命以2:0橫掃Gen.G，連續四場獲勝，打破對手九連勝紀錄（#1, #2, #3）。
+
+---
 
 ### 趨勢分析
-本月韓國保險市場顯示出整合和競爭加劇的趨勢。漢華生命的表現強勁，顯示出其在市場中的增長潛力，而三星生命則在退休金產品上保持領先。教保生命面臨的IPO壓力可能會促使其加快資本運作的步伐。此外，動洋生命和ABL生命的整合討論顯示出市場對於提高競爭力的需求。與上月相比，市場的整合趨勢更加明顯，且競爭者之間的壓力持續增加。
+
+本月韓國保險市場呈現以下主要趨勢：
+
+1. **企業競爭力提升與多元化發展**  
+   韓華生命在電子競技與保險產品創新、併購等多領域展現強勢，連續獲勝、推出新產品並啟動金融控股併購計畫，顯示企業積極擴展市場與提升品牌影響力。
+
+2. **退休金管理與金融服務重組**  
+   三星生命持續領先DC型退休金收益率，新韓銀行則超越三星生命成為退休金市場第一，反映金融機構對退休金管理的重視與競爭加劇。教保生命與穩定幣、SBI儲蓄銀行合作，推動國際化與數位金融。
+
+3. **產業整合與併購動態**  
+   東洋生命與ABL生命整合議題再度浮現，金融控股集團討論併購方案，市場關注其對產業結構的影響。韓華生命瞄準艾克雲資本，展現金融控股雄心。
+
+4. **市場回暖與銷售端動能提升**  
+   主要GA業績反彈，設計師人均生產力恢復，顯示銷售端動能提升，市場逐步回暖。
+
+5. **社會責任與服務創新**  
+   保險公司積極參與公益活動、推動殘疾人就業、招募線上客戶面板，提升服務品質與社會形象。
+
+**與上月對比**  
+本月明顯加速產業整合、併購與產品創新步伐，企業競爭力與市場活力提升，退休金管理與數位金融合作成為新亮點，銷售端回暖跡象明顯。
+
+---
 
 ### 跨主題關聯
-本月的保險市場動態與金融科技的發展密切相關。例如，Ripple與教保生命的合作，旨在將政府債券結算進行代幣化，這顯示出保險業與金融科技的交叉影響，未來可能會進一步改變保險產品的運作模式。
+
+- **數位金融與國際合作**：教保生命與穩定幣、SBI儲蓄銀行合作，Kyobo與XRP合作，顯示韓國保險業積極與金融科技、國際機構接軌，推動數位化與國際化發展。
+- **產業整合與金融控股**：東洋生命與ABL生命整合、韓華生命併購艾克雲資本，與「併購」主題高度相關，反映韓國保險產業結構調整趨勢。
+- **退休金管理與金融服務**：新韓銀行、三星生命、教保生命等機構在退休金管理領域競爭，與「金融服務」主題緊密連結。
+- **社會責任與公益活動**：富邦現代生命、DB生命、漢華金融等推動公益與多元就業，與「企業社會責任」主題互動。
+
+---
 
 ### 來源文章索引
-| #  | 日期       | 標題                                                         | 來源                  | 連結                                                                 |
-|----|------------|------------------------------------------------------------|---------------------|---------------------------------------------------------------------|
-| 1  | 2026-04-18 | 9연승 기록 지웠다... 한화생명, 젠지 꺾은 완벽한 한 판          | gnews_kr_companies_1 | [連結](https://news.google.com/rss/articles/CBMiRkFVX3lxTFBHM0gxWXpOMC1zRk56SE51SmJsbG1NY1JMZGJqYzY0b2xueEdPTEFGX3dhZWJlME9xTllsaFp3SDZuR0hLRXc?oc=5) |
-| 2  | 2026-04-18 | Hanwha Life Sweeps Gen.G 2-0                               | gnews_kr_en         | [連結](https://news.google.com/rss/articles/CBMiekFVX3lxTE5KSXppWFZ5bWljQ0NIN3EySGEtZHRiRGQzdjdGZHRPLTRHX01XZkhrTXVBSUMyb19HSUdTcGtvVlNqY1JfWHNodkozUWFMeGxOelBnU1R5bnBESmQtdEU2NnpsNTN4dXBfNXQ1S3VPak9HNi02eUJiMEZR?oc=5) |
-| 3  | 2026-04-17 | "시간 번 대신 부담 쌓였다"…PIK 구조에 교보생명 IPO 압박 가중 | gnews_kr_companies_1 | [連結](https://news.google.com/rss/articles/CBMigwFBVV95cUxQN0JqVzVxMEgyUWptM1VTcjlHVXlwUEU1TTVUbjM4RVFmUmdxdmNDWDMwVjQ3bkE2VnBkVzE0dVZEc19EODFpSlNfV0NoYUNFSzVoNHV4VmFCVVJfZFJfeWhxYzVUdW4wUGduMldJdldDSmlleUZWVHlROFc3MHNFcTlaTQ?oc=5) |
-| 4  | 2026-04-17 | 기세 탄 한화생명, 주춤한 젠지 잡아낼까 [이주현의 로그인 e스포츠] | gnews_kr_companies_1 | [連結](https://news.google.com/rss/articles/CBMiVEFVX3lxTFBKSDhXQ096QTZZNGlObFdqY05mRGRHaTJQdnlmeHRKQ2U4Q3dPeDhYNFFsRlBUZ3pWNkpSUUpiRFRaLWlwZGluSnh2ZXpOU2YzTUl4cNIBVEFVX3lxTFBKSDhXQ096QTZZNGlObFdqY05mRGRHaTJQdnlmeHRKQ2U4Q3dPeDhYNFFsRlBUZ3pWNkpSUUpiRFRaLWlwZGluSnh2ZXpOU2YzTUl4cA?oc=5) |
-| 5  | 2026-04-17 | 신한은행, 삼성생명 제치고 '1위로'…500조 퇴직연금 수익률 중심 재편 | gnews_kr_companies_1 | [連結](https://news.google.com/rss/articles/CBMickFVX3lxTE9kSmtzYWpnSnV3eU9UcDhDaC1OTkM4WkFxR1BpNXhnNFVvejVGa2I3dGNvYl9ZeWFad052N3VZZlc1R1dic2l3Qnl4SXNLbXdvMEgzWXdIQ3hhRmR1SnY5R2tvYlVPQXgzNV9ZcHJVNDBRUQ?oc=5) |
-| 6  | 2026-04-17 | ‘한지붕 두 생보’ 끝날까…동양·ABL생명 통합론 재부상            | gnews_kr_companies_2 | [連結](https://news.google.com/rss/articles/CBMia0FVX3lxTE1tNUZUQzRuUWs0WWRkVTZLd1pOODlOWU9UVmluYldpTWxtNDFITHNYMFo3NFRyd0tyM012M3phREQxUF85NUNwTDJYbm0yTW90WlpBa01tNkpWS1RVUmxYUjZ1LUkteVdtMnlv0gFvQVVfeXFMTWZ4VktUUTFiaHFFSGQtRUxHQm1CX1M3VlROM050SE5VbVhmYVVWb09HNGVSVFN2VUFkeS1uT0FjcnRqelFLaE4wclZYM2NUamxuM0VnNUwwMmJyemJHaXRlT2dadmVuZXZwUDR2NHRr?oc=5) |
-| 7  | 2026-04-17 | SK바이오팜 미국법인, 뇌전증 의료진 교육 플랫폼 'Epilepsy Connect' 출시 | gnews_kr_companies_2 | [連結](https://news.google.com/rss/articles/CBMiZkFVX3lxTE9MSEQ2T19Xb0RPcEFHb18tcUwyeHVha2N4OG9Pa0k0Z2E1b2llR3dGd1JCMUVmOFFCR1ZILUdfdTFNUHhPZEo1Z0J0U3FwbTBPNE54eXNBQXR3cjRmV28tQlJkamlvUQ?oc=5) |
-| 8  | 2026-04-17 | 우리금융, 종합금융 포트폴리오 구축… 은행 실적은 주춤         | gnews_kr_companies_2 | [連結](https://news.google.com/rss/articles/CBMiakFVX3lxTE95VmExTkVJdlc3SzYwcWdnYUpRRVR0d0t3S2R5LWQweFRTUk44UEZzcEtkbWVpcVNIM3h0WkhDUm0yRnQtN3lCZTFtdS1wTWVodG84RTdJNUZMcERZWkRhVzZHUWZTRFc1Znc?oc=5) |
-| 9  | 2026-04-17 | Tagged: kyobo life insurance                                  | gnews_kr_en         | [連結](https://news.google.com/rss/articles/CBMiakFVX3lxTE40a1hNeUgtNWphOUJ3clJxYVhWSVVRdm1XVjdCcFNyamRNMmZUNHhWYW9YZDJWcGNfdkpVR0RsRHVFZlItVXpBRThXaWp0UGcxY1pueTNIWlp6TzZKTTY0XzNYRGpaNVhCNUE?oc=5) |
-| 10 | 2026-04-17 | Hanwha Life Esports vs Gen.G | LCK                        | gnews_kr_en         | [連結](https://news.google.com/rss/articles/CBMikwFBVV95cUxObzdsX0dpUVFaWldPTTBoRWo4N2ZXZmpBV1ZFS2ZDV19Jd2VxbTh0ei1hZGQ3bl93ZVpJaUZUUnI3R0NGY3FRUEFYZW1vWlFtMmRQNUlKN29JVUJCb0tnTFczZjNQRWtBX3dmY1NrQzFwNExZMXdoYW13NHprX3RxVExtTHhVVHhfZ3hqVE1nSU13NDQ?oc=5) |
-| 11 | 2026-04-17 | Key facts: SEC: Non‑custodial XRP needn't register; XRP tops $1.40 on Kyobo tie, social buzz | gnews_kr_en         | [連結](https://news.google.com/rss/articles/CBMi4wFBVV95cUxPT1VqMVpGcGlIa3EyQmQ3ek5WRXJLcmZWYzRqSkFvX1poek9aR0l1RmtRR1ZrcGdtQ244Sl9KM08wV3BDNDBMUHVJTHhVYXA2SF9uRkltMXBEdS1fRE5KUFJzMFc4U2RUVUwzQ0R2UDViS0hldDRUcFNtQmN1WXRGRUR3bzRwLUxzQ1RwaG5LWlBjWW1xZU5ZMVVONWNlZ2JZTWlhT1NCelRzNjlKWVRnUXpMSmp2Ri1MQWJpVHRhX0szeHVUVXNBbVh2bXhlTmRPbUhORUFtRDYwbXFvR2RvbnBXcw?oc=5) |
-| 12 | 2026-04-17 | DN SOOPers vs KT Rolster | LCK                            | gnews_kr_en         | [連結](https://news.google.com/rss/articles/CBMikwFBVV95cUxPdklaVkNpb1FvRlBUSV8wcGk1eTF3X3EwUnZMN1pHYUxzeWNsZmhyaFQ1R0c4RVlNTzlQYVdySVRqcmJpNFZmdWRYdWdnZlphdE1VaHlxSXYyOGdGTG1xYTRXOEJKNkxOY29Mb0lQRGthd0tTWnYwa0lpTzZwcWRHNVdKQ21TeDczdzNLWGxKbXhpbTQ?oc=5) |
-| 13 | 2026-04-17 | XRP Surges to $1.43–$1.45 as Ripple-Kyobo Pilot and Rakuten Integration Boost Institutional Momentum | gnews_kr_en         | [連結](https://news.google.com/rss/articles/CBMi2AFBVV95cUxOcm9hNDZQaWhoamliZlpfS0d0RjF6MHJiSlVrZkJQQ0RQek1Wb2tUaUtVVTZsSV9RRnpmOGRyLXNnZlRxOHptVDYxWUx6Sm5pN2VvNzBKTjhjdFoyV0g1RmtMREE1QXlDWnBzZUJBRmRiVURzSGh4Z1otNUN3dUV1eE8wUjVhazhyN0l4SXVsQ21UZV9ialZfc25TU0N5X1FseFVmSGlzdDhfVzIxRHVtU1hIUlNIMHdyVUJ1QUp2TUZqeXdFOFpjZWFvLTQ5b2V1SUZpUXZWYzM?oc=5) |
-| 14 | 2026-04-17 | Invictus Gaming vs Bilibili Gaming | LPL                       | gnews_kr_en         | [連結](https://news.google.com/rss/articles/CBMijwFBVV95cUxPRW0zR01WNTFRWDN6ckFYVDhEX1ZTX0x4eFdWLVBCZUJQWXZyUXFNT3Z0eWJjaGZleTRoYlptaGxMS1FYaUluUUhtUUlhS1VRTUktdnU1dVg0bXMzakpGUW1yOVhHWlhzUWF2TXZDWlBGWTNNaE1fM1JVOFRFOUZOQnBjLUhpZEluUHdsRjAtaw?oc=5) |
-| 15 | 2026-04-17 | Weibo Gaming vs JD Gaming | LPL                          | gnews_kr_en         | [連結](https://news.google.com/rss/articles/CBMijwFBVV95cUxPUzZHaDBVMHJJVXgxYXNpN3ZoY1FZOUNZWnFiSVpYWnVTX0phWW40aU8zX1hIUlpPbzlVTDZ6ZzVGQ3JOR0lZbktJMGhUVHFUV3JGOEhsNzZDUmRncVdjeDNXRV9JRF9sbDFOeGRSNlZ5Rm52ejR3VWxvbFBWcjV5NE5VdFBLcm9YSjJDQmpoSQ?oc=5) |
-| 16 | 2026-04-17 | DetonatioN FocusMe vs MVK Esports | LCP                       | gnews_kr_en         | [連結](https://news.google.com/rss/articles/CBMikwFBVV95cUxOa00zY2t5VV9udmhKbkZqTV9rZzFnbWhOWVR0ZEZrNXA3UFVNYUhIS0xzcVhJLWZnQ3diS3JaR0l0NHhHVUVkWEtMaTU1Zl8wZ2pabEtSTVp3cEwxbVJ6RjRNVUtZNjEzY05fNi05M1hrbWl2RWd0dk5PZ2pPeTJDVmtsXzZzUUZmc1dZeC1HOA?oc=5) |
-| 17 | 2026-04-17 | Weibo Gaming vs JD Gaming | LPL                          | gnews_kr_en         | [連結](https://news.google.com/rss/articles/CBMijwFBVV95cUxOTlJybVI4RXBIMFVMSnpOZG0yaVVFdHVHVzdpZE9Xc21wSW9GOGZtNkZ4eS1Pdnp6LWxCOEZKdXhWVUNwYkx5VmRzemVhcEFHbDZIUEN0RGtyVUZ2NWpnQ1RYejJZajJyOV9OYkdTcUdSc05xY1BRc3BmMEp5T3lHekpkSGVrOGJpOUJUdUV1Zw?oc=5) |
-| 18 | 2026-04-17 | [한투 보험사 M&A] 예별손보서 확인된 의지…KDB생명 '나비효과' | gnews_kr_industry    | [連結](https://news.google.com/rss/articles/CBMibEFVX3lxTE84N0lvR29Hd2
+| # | 日期 | 標題 | 來源 | 連結 |
+|---|------|------|------|------|
+| 1 | 2026-04-18 | 打破9連勝紀錄... 韓華生命完美擊敗Gen.G | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMiRkFVX3lxTFBHM0gxWXpOMC1zRk56SE51SmJsbG1NY1JMZGJqYzY0b2xueEdPTEFGX3dhZWJlME9xTllsaFp3SDZuR0hLRXc?oc=5 |
+| 2 | 2026-04-18 | 韓華生命以2-0橫掃Gen.G | gnews_kr_en | https://news.google.com/rss/articles/CBMiekFVX3lxTE5KSXppWFZ5bWljQ0NIN3EySGEtZHRiRGQzdjdGZHRPLTRHX01XZkhrTXVBSUMyb19HSUdTcGtvVlNqY1JfWHNodkozUWFMeGxOelBnU1R5bnBESmQtdEU2NnpsNTN4dXBfNXQ1S3VPak9HNi02eUJiMEZR?oc=5 |
+| 3 | 2026-04-18 | 韓華生命，完勝Gen.G…連續四場獲勝 | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMiRkFVX3lxTFAxZzlac0VEYm1KTHBxR3lZWHZ3d2dHeDExWHNYOWZoNnBPeWpIZFk2SEsxQVBpTGlXdU1RUlhCb1VBLWRZd0E?oc=5 |
+| 4 | 2026-04-17 | 「時間換來的卻是負擔」…PIK結構下，教保生命面臨IPO壓力 | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMigwFBVV95cUxQN0JqVzVxMEgyUWptM1VTcjlHVXlwUEU1TTVUbjM4RVFmUmdxdmNDWDMwVjQ3bkE2VnBkVzE0dVZEc19EODFpSlNfV0NoYUNFSzVoNHV4VmFCVVJfZFJfeWhxYzVUdW4wUGduMldJdldDSmlleUZWVHlROFc3MHNFcTlaTQ?oc=5 |
+| 5 | 2026-04-17 | 氣勢如虹的韓華生命，能否抓住暫時停滯的Gen.G | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMiVEFVX3lxTFBKSDhXQ096QTZZNGlObFdqY05mRGRHaTJQdnlmeHRKQ2U4Q3dPeDhYNFFsRlBUZ3pWNkpSUUpiRFRaLWlwZGluSnh2ZXpOU2YzTUl4cNIBVEFVX3lxTFBKSDhXQ096QTZZNGlObFdqY05mRGRHaTJQdnlmeHRKQ2U4Q3dPeDhYNFFsRlBUZ3pWNkpSUUpiRFRaLWlwZGluSnh2ZXpOU2YzTUl4cA?oc=5 |
+| 6 | 2026-04-17 | 新韓銀行超越三星生命成為第一，500兆退休金收益率重組 | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMickFVX3lxTE9kSmtzYWpnSnV3eU9UcDhDaC1OTkM4WkFxR1BpNXhnNFVvejVGa2I3dGNvYl9ZeWFad052N3VZZlc1R1dic2l3Qnl4SXNLbXdvMEgzWXdIQ3hhRmR1SnY5R2tvYlVPQXgzNV9ZcHJVNDBRUQ?oc=5 |
+| 7 | 2026-04-17 | 「同一屋簷下的兩家人壽公司」會結束嗎…東洋與ABL生命的合併論再度浮現 | gnews_kr_companies_2 | https://news.google.com/rss/articles/CBMia0FVX3lxTE1tNUZUQzRuUWs0WWRkVTZLd1pOODlOWU9UVmluYldpTWxtNDFITHNYMFo3NFRyd0tyM012M3phREQxUF85NUNwTDJYbm0yTW90WlpBa01tNkpWS1RVUmxYUjZ1LUkteVdtMnlv0gFvQVVfeXFMTWZ4VktUUTFiaHFFSGQtRUxHQm1CX1M3VlROM050SE5VbVhmYVVWb09HNGVSVFN2VUFkeS1uT0FjcnRqelFLaE4wclZYM2NUamxuM0VnNUwwMmJyemJHaXRlT2dadmVuZXZwUDR2NHRr?oc=5 |
+| 8 | 2026-04-17 | SK生技美國法人推出癲癇醫療人員教育平台'Epilepsy Connect' | gnews_kr_companies_2 | https://news.google.com/rss/articles/CBMiZkFVX3lxTE9MSEQ2T19Xb0RPcEFHb18tcUwyeHVha2N4OG9Pa0k0Z2E1b2llR3dGd1JCMUVmOFFCR1ZILUdfdTFNUHhPZEo1Z0J0U3FwbTBPNE54eXNBQXR3cjRmV28tQlJkamlvUQ?oc=5 |
+| 9 | 2026-04-17 | 我們金融構建綜合金融投資組合… 銀行業績略顯疲軟 | gnews_kr_companies_2 | https://news.google.com/rss/articles/CBMiakFVX3lxTE95VmExTkVJdlc3SzYwcWdnYUpRRVR0d0t3S2R5LWQweFRTUk44UEZzcEtkbWVpcVNIM3h0WkhDUm0yRnQtN3lCZTFtdS1wTWVodG84RTdJNUZMcERZWkRhVzZHUWZTRFc1Znc?oc=5 |
+| 10 | 2026-04-17 | 標籤：Kyobo人壽保險 | gnews_kr_en | https://news.google.com/rss/articles/CBMiakFVX3lxTE40a1hNeUgtNWphOUJ3clJxYVhWSVVRdm1XVjdCcFNyamRNMmZUNHhWYW9YZDJWcGNfdkpVR0RsRHVFZlItVXpBRThXaWp0UGcxY1pueTNIWlp6TzZKTTY0XzNYRGpaNVhCNUE?oc=5 |
+| 11 | 2026-04-17 | 韓華人壽電子競技對戰Gen.G | gnews_kr_en | https://news.google.com/rss/articles/CBMikwFBVV95cUxObzdsX0dpUVFaWldPTTBoRWo4N2ZXZmpBV1ZFS2ZDV19Jd2VxbTh0ei1hZGQ3bl93ZVpJaUZUUnI3R0NGY3FRUEFYZW1vWlFtMmRQNUlKN29JVUJCb0tnTFczZjNQRWtBX3dmY1NrQzFwNExZMXdoYW13NHprX3RxVExtTHhVVHhfZ3hqVE1nSU13NDQ?oc=5 |
+| 12 | 2026-04-17 | 關鍵事實：SEC：非保管XRP無需註冊；XRP因與Kyobo合作及社交熱度突破$1.40 | gnews_kr_en | https://news.google.com/rss/articles/CBMi4wFBVV95cUxPT1VqMVpGcGlIa3EyQmQ3ek5WRXJLcmZWYzRqSkFvX1poek9aR0l1RmtRR1ZrcGdtQ244Sl9KM08wV3BDNDBMUHVJTHhVYXA2SF9uRkltMXBEdS1fRE5KUFJzMFc4U2RUVUwzQ0R2UDViS0hldDRUcFNtQmN1WXRGRUR3bzRwLUxzQ1RwaG5LWlBjWW1xZU5ZMVVONWNlZ2JZTWlhT1NCelRzNjlKWVRnUXpMSmp2Ri1MQWJpVHRhX0szeHVUVXNBbVh2bXhlTmRPbUhORUFtRDYwbXFvR2RvbnBXcw?oc=5 |
+| 13 | 2026-04-17 | DN SOOPers對KT Rolster | gnews_kr_en | https://news.google.com/rss/articles/CBMikwFBVV95cUxPdklaVkNpb1FvRlBUSV8wcGk1eTF3X3EwUnZMN1pHYUxzeWNsZmhyaFQ1R0c4RVlNTzlQYVdySVRqcmJpNFZmdWRYdWdnZlphdE1VaHlxSXYyOGdGTG1xYTRXOEJKNkxOY29Mb0lQRGthd0tTWnYwa0lpTzZwcWRHNVdKQ21TeDczdzNLWGxKbXhpbTQ?oc=5 |
+| 14 | 2026-04-17 | XRP因Ripple-Kyobo試點及樂天整合而飆升至$1.43–$1.45 | gnews_kr_en | https://news.google.com/rss/articles/CBMi2AFBVV95cUxOcm9hNDZQaWhoamliZlpfS0d0RjF6MHJiSlVr

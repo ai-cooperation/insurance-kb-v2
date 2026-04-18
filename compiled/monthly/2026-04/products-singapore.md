@@ -4,70 +4,82 @@ period: 2026-04
 category: products
 region: singapore
 articles_count: 44
-compiled_at: 2026-04-18T13:10:41Z
+compiled_at: 2026-04-18T14:13:13Z
 compiled_by: distill-cli
-model: gpt-4o-mini
+model: gpt-4.1
 ---
 ### 本月重點
-- **新產品推出**：大東方保險推出新型的實體黃金投資連結保單，標誌著新投資產品的誕生，旨在吸引對黃金投資感興趣的客戶。
-- **家庭金融規劃**：大東方保險為家庭提供每位子女400新元的免費信用額度，幫助家庭在金融規劃上取得良好開端。
-- **電動車保險**：大東方保險推出獨立的電動車保險計劃，以支持新加坡2030年實現全電動車的願景。
-- **健康保障**：大東方保險推出GREAT CareShield殘疾保險計劃，強調對殘疾人士的支持，並與藝術家合作推廣此計劃。
-- **整合醫療服務**：大東方保險與Doctor Anywhere合作，為其客戶提供24/7的醫療諮詢服務，提升客戶的健康保障體驗。
+- 大東方保險積極推出多元產品，包括新加坡首個實體黃金投資連結保單基金、獨立電動車保險、殘疾保險、重大疾病保障等，滿足市場多樣化需求。
+- 家庭與財務規劃成為焦點，推出Great Legacy計劃、免費COVID-19保障、400美元兒童禮品信用額度，並與政府合作倡導預先規劃。
+- 科技整合與客戶體驗提升，推出全新手機應用程式、UPGREAT獎勵計劃、Doctor Anywhere線上線下醫療服務，並獲得新加坡商業評論科技卓越獎。
+- 受撫養人保障計劃（DPS）增強，近200萬成員獲得更高保障與更多福利，強化社會安全網。
+- 新電信與大東方合作，推出靈活家庭及財物保險，並推動以電信為中心的綜合保險產品，擴展產品服務場景。
 
 ### 時間線
-- **2026-04-06**：大東方保險針對中小企業的保險需求進行報導。
-- **2026-04-10**：大東方保險在新加坡商業評論技術卓越獎中獲獎，表彰其保險規劃功能。
-- **2026-04-18**：多項新產品和服務相繼推出，包括實體黃金投資連結保單、電動車保險計劃、GREAT CareShield殘疾保險計劃及家庭金融規劃信用額度。
+- 2026-04-06：討論MSMEs（微型、中小企業）保障不足問題（#44）。
+- 2026-04-09：新加坡啟動SGX-Nasdaq雙重上市板（#43）。
+- 2026-04-10：大東方保險獲新加坡商業評論科技卓越獎，表彰保險保障規劃功能（#42）。
+- 2026-04-13~14：新加坡因油價衝擊與地緣政治風險收緊貨幣政策，影響金融產品設計與市場需求（#38~41）。
+- 2026-04-18：大東方保險發布多項新產品與服務，包括黃金投資連結保單、電動車保險、殘疾保險、重大疾病保障、家庭財物保險、Doctor Anywhere醫療服務、UPGREAT獎勵計劃、Great Legacy資產傳承規劃、三年期年金計劃等（#1, #4~30）。
+- 2026-04-18：受撫養人保障計劃（DPS）增強，提升保障與福利（#17）。
+- 2026-04-18：大東方與政府合作推動預先規劃理念，提升公眾財務規劃意識（#9）。
+- 2026-04-18：大東方與Intellect合作推出24/7心理健康危機熱線（#12）。
+- 2026-04-18：大東方調查顯示未規劃退休者面臨更高財務耗盡風險（#15）。
+- 2026-04-18：重大疾病患者及照顧者後悔未購買更多保障，醫療費用與收入損失成主要擔憂（#18）。
 
 ### 趨勢分析
-本月新加坡保險市場顯示出對創新產品的強烈需求，尤其是在健康保障和環保車輛保險方面。大東方保險的多項新產品推出，顯示出其在市場上的主導地位和對客戶需求的敏感度。與上月相比，市場對於家庭金融規劃的重視程度有所提升，顯示出消費者對於長期財務安全的關注。
+本月新加坡保險產品呈現以下趨勢：
+- 「產品多元化」明顯提升，涵蓋投資、健康、家庭、車輛、殘疾、年金、獎勵等多領域，反映市場需求細分與個人化。
+- 「科技整合」加速，手機應用程式、線上醫療、獎勵平台等數位服務成為產品標配，提升客戶自主管理與體驗。
+- 「家庭與資產規劃」受重視，產品設計強調資產傳承、兒童保障、退休規劃，並與政府協作倡導預先規劃。
+- 「社會責任與包容性」加強，免費COVID-19保障、殘疾保險、心理健康熱線、MSMEs保障討論等，展現企業對弱勢群體與社會安全網的重視。
+- 與上月相比，產品創新與科技應用進一步深化，家庭與資產規劃相關產品明顯增加，且政策環境（如貨幣政策收緊）對產品設計產生影響。
 
 ### 跨主題關聯
-本月的產品創新不僅限於保險領域，還與新加坡的環保政策相結合，特別是在電動車保險的推出上，顯示出保險產品與政府政策的協同效應。此外，家庭金融規劃的強調也反映出對於個人理財教育的重視，與金融科技的發展密切相關。
+- 「產品」主題與「財務規劃」、「健康」、「科技」、「社會責任」等主題高度交互，產品設計與服務場景緊密結合。
+- 貨幣政策收緊（#38~41）與投資型保單、年金產品設計息息相關，影響收益率與資產配置。
+- 與「馬來西亞」地區的MSMEs保障不足議題（#44）形成對比，顯示新加坡保險市場對包容性與社會安全網的積極推動。
+- 與「金融產品」主題（#35, #36）互補，保險產品與儲蓄、投資工具共同構成個人與機構財務管理方案。
 
 ### 來源文章索引
 | # | 日期 | 標題 | 來源 | 連結 |
 |---|------|------|------|------|
-| 1 | 2026-04-18 | Integrated Shield Plan (IP) | lia_sg | https://www.lia.org.sg/industry-guidelines/integrated-shield-plan-ip/ |
+| 1 | 2026-04-18 | 綜合保障計劃 (IP) | lia_sg | https://www.lia.org.sg/industry-guidelines/integrated-shield-plan-ip/ |
 | 2 | 2026-04-18 | Legacy Planning | lia_sg | https://www.lia.org.sg/tools-and-resources/legacy-planning/ |
 | 3 | 2026-04-18 | Privacy Policy | lia_sg | https://www.lia.org.sg/privacy-policy/ |
-| 4 | 2026-04-18 | Browse all productsEasily find the right product all in one place | greateastern | https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html |
-| 5 | 2026-04-18 | Financial planning | greateastern | https://www.greateasternlife.com/sg/en/personal-insurance/financial-planning.html |
-| 6 | 2026-04-18 | Great Eastern Launches Singapore’s First Physical Gold Investment-LinkedPolicy Fund | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/singapore-first-physical-gold-investment-linked-policy-fund.html |
-| 7 | 2026-04-18 | Great Eastern provides free $400 gift credits per child for families to have headstart in financial planning | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-eastern-provides-free-400-credits-per-child.html |
-| 8 | 2026-04-18 | Great Eastern is first insurer to support Singaporeans in pre-planning with launch of its Great Legacy programme | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/launch-great-legacy-programme.html |
-| 9 | 2026-04-18 | Great Eastern partners Government to advocate pre-planning in Singapore | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-eastern-partners-government-advocate-pre-planning.html |
-| 10 | 2026-04-18 | Singtel and Great Eastern launch Singapore’s most flexible home and contents insurance plan | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/singtel-home-protect-flexi.html |
-| 11 | 2026-04-18 | Great Eastern launches standalone EV insurance plan in support of Singapore’s EV-only vision by 2030 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-ev-protect.html |
-| 12 | 2026-04-18 | Great Eastern partners Intellect to launch 24/7 mental health distress helpline for improved employee well-being | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-eastern-partners-intellect.html |
-| 13 | 2026-04-18 | Critical illness protection is an essential element of comprehensive healthcare financial planning | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-critical-cover-series.html |
-| 14 | 2026-04-18 | Great Eastern launches the first virtual edition of the Great Eastern Women’s Run today | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/first-virtual-edition-of-gewr.html |
-| 15 | 2026-04-18 | Retirees who did not plan for retirement at Greater Risk of Financial Exhaustion, Great Eastern Survey Reveals | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/the-state-of-retirement-survey.html |
-| 16 | 2026-04-18 | Great Eastern offers complimentary COVID-19 protection coverage for all Singapore residents | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-covid-care-plan.html |
-| 17 | 2026-04-18 | Enhanced Dependants’ Protection Scheme (DPS) provides higher insurance coverage and more benefits for close to 2 million DPS members | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/enhanced-dps.html |
-| 18 | 2026-04-18 | Over 80% of Critical Illness patients (and their Caregivers) regret not buying more insurance coverage; medical bills and income loss are the biggest worries – Great Eastern consumer survey | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/consumer-survey-ci.html |
-| 19 | 2026-04-18 | Great Eastern launches GREAT CareShield disability insurance plans and works with artistes with disabilities for its latest Live #Lifeproof brand films | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-careshield.html |
-| 20 | 2026-04-18 | Singtel and Great Eastern partner to offer general insurance products with telco-centric benefits | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/singtel-home-protect.html |
-| 21 | 2026-04-18 | Great Eastern partners RebateMango to launch new dimension of rewards for online shopping in UPGREAT | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/launch-of-rebatemango-rewards-in-upgreat.html |
-| 22 | 2026-04-18 | Great Eastern launches new mobile app to provide customers with active policy management capabilities and better visibility of wealth and protection policy benefits | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/launch-of-great-eastern-app.html |
-| 23 | 2026-04-18 | Great Eastern Integrated Shield policyholders to enjoy affordable online and offline GP consultations island-wide through Doctor Anywhere | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/gp-consultations-through-dr-anywhere.html |
-| 24 | 2026-04-18 | Great Eastern Partners Doctor Anywhere to Launch Tech-Enabled Integrated Health Services for Its Clients | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2019/20190723-media-release-great-eastern-partners-doctor-anywhere-to-launch-tech-enabled-integrated-health-services-for-its-clients.pdf |
-| 25 | 2026-04-18 | Planning for life in the age of disruption | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/advertorials/20190703-planning-for-life-in-the-age-of-disruption.pdf |
-| 26 | 2026-04-18 | Great Eastern Launches Two New ILPs With Innovative Industry-First Riders | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2019/20190426-great-life-advantage-and-great-wealth-advantage-press-release.pdf |
-| 27 | 2026-04-18 | Great Eastern Launches GREAT TripleCare MoneyBack Special | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2018/great-eastern-launches-great-triplecare-moneyback-special.pdf |
-| 28 | 2026-04-18 | Great Eastern Launches GETGREAT and UPGREAT | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2018/20180417-great-eastern-launches-getgreat-and-upgreat.pdf |
-| 29 | 2026-04-18 | Great Eastern Launches Great Eastern Cares in Celebration of its 110th Anniversary | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2018/20180402-great-eastern-cares.pdf |
-| 30 | 2026-04-18 | Great Eastern Launches Three-Year Endowment Plan With Highest Guaranteed Annual Yield of 2.05% | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2017/20170914-great-eastern-launches-three-year-endowment-plan.pdf |
+| 4 | 2026-04-18 | 瀏覽所有產品，輕鬆找到合適的產品，盡在一處 | greateastern | https://www.greateasternlife.com/sg/en/personal-insurance/our-products.html |
+| 5 | 2026-04-18 | 財務規劃 | greateastern | https://www.greateasternlife.com/sg/en/personal-insurance/financial-planning.html |
+| 6 | 2026-04-18 | 大東方推出新加坡首個實體黃金投資連結保單基金 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/singapore-first-physical-gold-investment-linked-policy-fund.html |
+| 7 | 2026-04-18 | 大東方為家庭提供每個孩子400美元的免費禮品信用額度，助力財務規劃 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-eastern-provides-free-400-credits-per-child.html |
+| 8 | 2026-04-18 | 大東方成為首家支持新加坡人預先規劃的保險公司，推出Great Legacy計劃 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/launch-great-legacy-programme.html |
+| 9 | 2026-04-18 | 大東方與政府合作倡導新加坡的預先規劃 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-eastern-partners-government-advocate-pre-planning.html |
+| 10 | 2026-04-18 | 新電信與大東方推出新加坡最靈活的家庭及財物保險計劃 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/singtel-home-protect-flexi.html |
+| 11 | 2026-04-18 | 大東方推出獨立電動車保險計劃，支持新加坡2030年全電動車願景 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-ev-protect.html |
+| 12 | 2026-04-18 | 大東方與Intellect合作推出24/7心理健康危機熱線，提升員工福祉 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-eastern-partners-intellect.html |
+| 13 | 2026-04-18 | 重大疾病保障是全面醫療財務規劃的重要元素 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-critical-cover-series.html |
+| 14 | 2026-04-18 | 大東方今日推出首屆虛擬女性跑步賽 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/first-virtual-edition-of-gewr.html |
+| 15 | 2026-04-18 | 未規劃退休的退休人士面臨更高的財務耗盡風險，大東方調查顯示 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/the-state-of-retirement-survey.html |
+| 16 | 2026-04-18 | 大東方為所有新加坡居民提供免費COVID-19保護保障 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-covid-care-plan.html |
+| 17 | 2026-04-18 | 增強的受撫養人保障計劃(DPS)為近200萬DPS成員提供更高的保險保障和更多福利 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/enhanced-dps.html |
+| 18 | 2026-04-18 | 超過80%的重大疾病患者（及其照顧者）後悔未購買更多保險保障；醫療費用和收入損失是最大擔憂 - 大東方消費者調查 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/consumer-survey-ci.html |
+| 19 | 2026-04-18 | 大東方推出GREAT CareShield殘疾保險計劃，並與殘疾藝術家合作拍攝最新的Live #Lifeproof品牌影片 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/great-careshield.html |
+| 20 | 2026-04-18 | Singtel與大東方合作提供以電信為中心的綜合保險產品 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/singtel-home-protect.html |
+| 21 | 2026-04-18 | 大東方與RebateMango合作推出UPGREAT的全新獎勵維度 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/launch-of-rebatemango-rewards-in-upgreat.html |
+| 22 | 2026-04-18 | 大東方推出新手機應用程式，提供客戶主動管理保單的能力 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/launch-of-great-eastern-app.html |
+| 23 | 2026-04-18 | 大東方綜合護盾保單持有人可透過Doctor Anywhere享受全島負擔得起的線上和線下家庭醫生諮詢 | greateastern | https://www.greateasternlife.com/sg/en/about-us/media-centre/media-releases/gp-consultations-through-dr-anywhere.html |
+| 24 | 2026-04-18 | 大東方與Doctor Anywhere合作推出科技整合健康服務 | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2019/20190723-media-release-great-eastern-partners-doctor-anywhere-to-launch-tech-enabled-integrated-health-services-for-its-clients.pdf |
+| 25 | 2026-04-18 | 在破壞時代規劃生活 | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/advertorials/20190703-planning-for-life-in-the-age-of-disruption.pdf |
+| 26 | 2026-04-18 | 大東方保險推出兩款新型投資連結保單，並附加創新行業首創附加條款 | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2019/20190426-great-life-advantage-and-great-wealth-advantage-press-release.pdf |
+| 27 | 2026-04-18 | 大東方推出GREAT TripleCare MoneyBack特別計劃 | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2018/great-eastern-launches-great-triplecare-moneyback-special.pdf |
+| 28 | 2026-04-18 | 大東方推出GETGREAT和UPGREAT | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2018/20180417-great-eastern-launches-getgreat-and-upgreat.pdf |
+| 29 | 2026-04-18 | 大東方在慶祝110周年之際推出大東方關懷計劃 | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2018/20180402-great-eastern-cares.pdf |
+| 30 | 2026-04-18 | 大東方推出三年期年金計劃，年收益率最高達2.05% | greateastern | https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/homepage/about-us/media-centre/media-releases/2017/20170914-great-eastern-launches-three-year-endowment-plan.pdf |
 | 31 | 2026-04-18 | Monetary Policy | mas_media | https://www.mas.gov.sg/monetary-policy |
-| 32 | 2026-04-18 | Singapore's Monetary Policy Framework | mas_media | https://www.mas.gov.sg/monetary-policy/singapores-monetary-policy-framework |
-| 33 | 2026-04-18 | Inflation and Monetary Policy | mas_media | https://www.mas.gov.sg/monetary-policy/economics-edu-inflation |
-| 34 | 2026-04-18 | Asian Monetary Policy Forum | mas_media | https://www.mas.gov.sg/news/media-releases/2024/11th-asian-monetary-policy-forum |
-| 35 | 2026-04-18 | Products for Individuals | mas_media | https://www.mas.gov.sg/bonds-and-bills/compare-products-for-individuals |
-| 36 | 2026-04-18 | Products for Institutions | mas_media | https://www.mas.gov.sg/bonds-and-bills/compare-products-for-institutions |
-| 37 | 2026-04-18 | Monetary Policy Statements | mas_media | https://www.mas.gov.sg/news/monetary-policy-statements |
-| 38 | 2026-04-18 | More monetary policy tightening moves on the cards this year, but economists split on July vs October decision - The Business Times | gnews_mas | https://news.google.com/rss/articles/CBMizgFBVV95cUxPczhubW9JMmVLOERMX3c4c2hMWEpILVJBblgwWTYyZXhVLTRaUHI1M2N0ZmNpZXhwcDZtUm1TYmZIMm9yS2o4akZuRDJnY0Z1QWxsRGZKaGRjb0lZLXE4bkV1NE1UY25PMGRDVUNTbE85eVE5VVJqSUQ4aWRVOFQ3LUYtaEtNZWtMUFdnTklCU01HSHd2T2ZCMzZjcGpkWmNqUGxuZ3ZuU2tFTGN4V09QQUFSNWNWVUMxSFhZVFd5cWo3Ykh5MUdRaHNWZ1dzQQ?oc=5 |
-| 39 | 2026-04-18 | Singapore leads Asia in tightening policy on oil-price shock - Yahoo News Singapore | gnews_mas | https://news.google.com/rss/articles/CBMiowFBVV95cUxOcDBhdzd2M0t2b2cwYU50eEt2TUFTcFhiN3FBdVZJeXJacWhKaUZraEFZdVJHX3ZSaFYxNXN3QUhtTG10cVpDeVhrYnZiNGtNZUZtOWdzMW1FWDE1MklIQXJHLXlsZ0J0b0dQQTltNVQ1NzZkT0N4SDVzZ213VFk5d0E0Y1NOUmp3blJOMXFOMUNIRFpvTFVzLW5RRk83Zks3MzRz?oc=5 |
-| 40 | 2026-04-18 | Singapore central bank tightens monetary policy as Iran war stokes price risks - MSN | gnews_mas | https://news.google.com/rss/articles/CBMiyAFBVV95cUxQTEJHdWd3d1F4T0M3OXBCcXFYS3pvWWQzTHNaY2NhdFKUV9jNkhqcUUyS2pIcHVwZ0F0Rk96RTBESEgyRjlwdFdYd0VtNndpNXFwelM2ZTNQRFJPNXVrQzd1MGFNbHlMVGdWS2kxNTlkcXBSM0NvN29pUldUdTVZbTM5TzA1OEhpSHdUaW1nb0hDeW42bnBJX2dibG9JVVc2ZVBjV1M3ZjBpeXBUbWJFTnlVQm5paDBrUUg3N0hDMGpOQllERkVaYg?oc=5 |
-| 41 | 2026-04-18 | Singapore may tighten monetary policy as oil shock lifts prices - The Business Times | gnews_mas | https://news.google.com/rss/articles/CBMiswFBVV95cUxOT0h6N0JTalZRMXpQbkd5Q2lTWTZ4Z3RGaENJSHZFQTJSZlp3U0hPaTkzcnJlM3hLM0pIQXZFMmZ1alM2Z09wZVpIbmRzR21fUmVmbEMweHJaWmFvSzZIMGozM19qZm94dnk2NEthemI3UXo3U3prM1dfbkVKYnl5MFJrTDJPX2h0X2tUNW9BNGtYd2hDMTVoQnVnaERIZWZXVUVsSEdSakxBejdHVHYwUW05TQ?oc=5 |
-| 42 | 2026-04-18 | Great Eastern wins at Singapore Business Review Technology Excellence Awards 2026 for insurance coverage planning feature - Singapore Business Review | gnews_greateastern | https://news.google.com/rss/articles/CBMi6wFBVV95cUxQeFFwSGwxZGZ6dDhkU2NYSzI3WHdRdm1ZWExZZWJWNnRjWkg4ZlFWR0dLc3M3M04xSVhOVGQ1cU1sS1BDM0xhTnVUdjM2cnNPbUM5eWhaeURQWHFERDRfSmR4UXVGY0hGWTFDeHFITkJhNGVKeGR5aGpUZ19xT0lKZDc4Vkt6SHpUeVFwa2FvM3NJUHNGU0hMNjlrMEJGLVFSa3huYkJzRUFiWkF1bXNsWUxYTHJ0RGpkSHlsQnNVZDBxZHptZEZqSHpjTn
+| 32 | 2026-04-18 | 新加坡的貨幣政策框架 | mas_media | https://www.mas.gov.sg/monetary-policy/singapores-monetary-policy-framework |
+| 33 | 2026-04-18 | 通脹與貨幣政策 | mas_media | https://www.mas.gov.sg/monetary-policy/economics-edu-inflation |
+| 34 | 2026-04-18 | 亞洲貨幣政策論壇 | mas_media | https://www.mas.gov.sg/news/media-releases/2024/11th-asian-monetary-policy-forum |
+| 35 | 2026-04-18 | 個人產品 | mas_media | https://www.mas.gov.sg/bonds-and-bills/compare-products-for-individuals |
+| 36 | 2026-04-18 | 機構專用產品 | mas_media | https://www.mas.gov.sg/bonds-and-bills/compare-products-for-institutions |
+| 37 | 2026-04-18 | 貨幣政策聲明 | mas_media | https://www.mas.gov.sg/news/monetary-policy-statements |
+| 38 | 2026-04-14 | 今年可能有更多貨幣政策收緊，但經濟學家對7月與10月決策分歧 | gnews_mas | https://news.google.com/rss/articles/CBMizgFBVV95cUxPczhubW9JMmVLOERMX3c4c2hMWEpILVJBblgwWTYyZXhVLTRaUHI1M2N0ZmNpZXhwcDZtUm1TYmZIMm9yS2o4akZuRDJnY0Z1QWxsRGZKaGRjb0lZLXE4bkV1NE1UY25PMGRDVUNTbE85eVE5VVJqSUQ4aWRVOFQ3LUYtaEtNZWtMUFdnTklCU01HSHd2T2ZCMzZjcGpkWmNqUGxuZ3ZuU2tFTGN4V09QQUFSNWNWVUMxSFhZVFd5cWo3Ykh5MUdRaHNWZ1dzQQ?oc=5 |
+| 39 | 2026-04-14 | 新加坡在應對油價衝擊政策收緊方面領先亞洲 | gnews_mas | https://news.google.com/rss/articles/CBMiowFBVV95cUxOcDBhdzd2M0t2b2cwYU50eEt2TUFTcFhiN3FBdVZJeXJacWhKaUZraEFZdVJHX3ZSaFYxNXN3QUhtTG10cVpDeVhrYnZiNGtNZUZtOWdzMW1FWDE1MklIQXJHLXlsZ0J0b0dQQTltNVQ1Nz
