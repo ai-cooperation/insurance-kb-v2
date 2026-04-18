@@ -11,36 +11,46 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 CATEGORY_RULES = {
     "監管動態": [
-        "regulation", "regulatory", "regulator", "compliance",
+        "regulation", "regulatory", "regulator", "compliance", "solvency",
+        "supervision", "penalty", "fine", "sanction", "license", "licence",
         "監管", "法規", "規管", "MAS", "HKIA", "FSA", "IRDAI", "監理",
+        "金管會", "保監局", "銀保監", "C-ROSS", "IFRS 17", "RBC",
     ],
     "科技應用": [
         "insurtech", "digital", "AI", "blockchain", "cyber", "fintech",
-        "科技", "數位", "数字", "人工智能", "區塊鏈", "网络",
+        "automation", "machine learning", "cloud", "API", "platform",
+        "telematics", "IoT", "chatbot", "robo", "parametric",
+        "科技", "數位", "数字", "人工智能", "區塊鏈", "网络", "自動化",
     ],
     "市場趨勢": [
-        "market", "growth", "revenue", "premium", "profit", "earnings",
-        "市場", "營收", "保費", "利潤", "業績", "市场",
+        "market share", "growth rate", "premium volume", "penetration",
+        "M&A", "merger", "acquisition", "IPO", "listing",
+        "市場", "營收", "保費", "利潤", "業績", "市场", "併購", "收購",
     ],
     "產品創新": [
-        "product", "launch", "policy", "coverage", "plan", "rider",
-        "產品", "保單", "保障", "附約", "方案", "产品",
+        "product", "launch", "coverage", "rider", "embedded insurance",
+        "microinsurance", "parametric", "usage-based", "on-demand",
+        "產品", "保單", "保障", "附約", "方案", "产品", "嵌入式", "微保險",
     ],
     "再保市場": [
-        "reinsurance", "reinsurer", "catastrophe", "cat bond",
-        "再保", "巨災", "天災",
+        "reinsurance", "reinsurer", "retrocession", "catastrophe", "cat bond",
+        "ILS", "sidecar", "renewal", "treaty", "facultative",
+        "再保", "巨災", "天災", "分保",
     ],
     "ESG永續": [
-        "ESG", "sustainability", "climate", "green", "carbon",
-        "永續", "氣候", "綠色", "碳排", "可持续",
+        "ESG", "sustainability", "climate", "green", "carbon", "TCFD",
+        "net zero", "biodiversity", "social", "governance", "ISSB",
+        "永續", "氣候", "綠色", "碳排", "可持续", "淨零",
     ],
     "消費者保護": [
-        "consumer", "complaint", "dispute", "claim", "fraud",
-        "消費者", "理賠", "申訴", "爭議", "詐欺", "mis-selling",
+        "consumer", "complaint", "dispute", "claims handling", "fraud",
+        "policyholder", "misselling", "transparency", "disclosure",
+        "消費者", "理賠", "申訴", "爭議", "詐欺", "mis-selling", "保戶",
     ],
     "人才與組織": [
-        "talent", "hiring", "workforce", "CEO", "appoint",
-        "人才", "任命", "人事", "招聘", "board", "executive",
+        "talent", "hiring", "workforce", "CEO", "appoint", "resign",
+        "leadership", "culture", "diversity", "training",
+        "人才", "任命", "人事", "招聘", "board", "executive", "總經理",
     ],
 }
 
@@ -87,12 +97,16 @@ def classify_rule(article: dict) -> dict:
         article.get("title", "") + " " + article.get("snippet", "")
     ).lower()
 
-    # Category
-    category = "市場趨勢"  # default
+    # Category — score each category, pick highest
+    scores = {}
     for cat, keywords in CATEGORY_RULES.items():
-        if any(kw.lower() in title_lower for kw in keywords):
-            category = cat
-            break
+        score = sum(1 for kw in keywords if kw.lower() in title_lower)
+        if score > 0:
+            scores[cat] = score
+    if scores:
+        category = max(scores, key=scores.get)
+    else:
+        category = "市場趨勢"  # default only when zero keywords match
 
     # Region (prefer source region, fall back to keyword detection)
     region = article.get("region", "")
