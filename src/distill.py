@@ -24,7 +24,7 @@ def load_articles() -> list[dict[str, Any]]:
     """Load articles from master index, skipping filtered ones."""
     with open(INDEX_PATH, encoding="utf-8") as f:
         articles = json.load(f)
-    return [a for a in articles if "filter" not in a]
+    return [a for a in articles if not a.get("filter")]
 
 
 def filter_by_month(articles: list[dict[str, Any]], year_month: str) -> list[dict[str, Any]]:
@@ -110,8 +110,11 @@ def run_monthly(year_month: str | None = None) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     for (cat_slug, region_slug), group_articles in sorted(groups.items()):
-        print(f"[distill] Processing {cat_slug}-{region_slug} ({len(group_articles)} articles)")
-        content = distill_monthly(group_articles, cat_slug, region_slug, year_month)
+        # Limit to 50 most recent articles to stay within LLM token limits
+        group_articles.sort(key=lambda a: a.get("date", ""), reverse=True)
+        capped = group_articles[:50]
+        print(f"[distill] Processing {cat_slug}-{region_slug} ({len(capped)}/{len(group_articles)} articles)")
+        content = distill_monthly(capped, cat_slug, region_slug, year_month)
         frontmatter = build_frontmatter(
             "monthly", year_month, cat_slug, region_slug, len(group_articles)
         )

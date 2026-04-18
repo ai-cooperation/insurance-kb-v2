@@ -10,9 +10,9 @@ import openai
 
 def get_client() -> openai.OpenAI:
     """Return OpenAI client configured for GitHub Models API."""
-    token = os.environ.get("GITHUB_TOKEN")
+    token = os.environ.get("MODELS_PAT") or os.environ.get("GITHUB_TOKEN")
     if not token:
-        raise RuntimeError("GITHUB_TOKEN environment variable is required")
+        raise RuntimeError("MODELS_PAT or GITHUB_TOKEN environment variable is required")
     return openai.OpenAI(
         base_url="https://models.inference.ai.azure.com",
         api_key=token,
