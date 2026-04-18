@@ -1,105 +1,98 @@
-import { NavLink } from 'react-router-dom'
-import {
-  BarChart3,
-  Newspaper,
-  BookOpen,
-  MessageCircle,
-  Lock,
-  ChevronLeft,
-} from 'lucide-react'
-import { cn } from '../lib/utils'
-import type { UserLevel } from '../lib/auth'
-import { canAccess } from '../lib/auth'
+import React from 'react';
+import { Icon } from './Icon';
+import type { Route, Tier, NavItem, TierLabelInfo } from '../types';
 
-interface NavItem {
-  readonly label: string
-  readonly path: string
-  readonly icon: React.ReactNode
-  readonly requiredLevel: UserLevel
-}
+export const NAV: readonly NavItem[] = [
+  { id: 'home',  icon: 'home',  zh: '首頁',    req: 'public' },
+  { id: 'cards', icon: 'cards', zh: '卡片',    req: 'member' },
+  { id: 'wiki',  icon: 'book',  zh: '知識 Wiki', req: 'member' },
+  { id: 'chat',  icon: 'chat',  zh: 'AI Chat',  req: 'vip' },
+];
 
-const NAV_ITEMS: readonly NavItem[] = [
-  { label: '總覽', path: '/', icon: <BarChart3 className="h-5 w-5" />, requiredLevel: 'guest' },
-  { label: '卡片', path: '/cards', icon: <Newspaper className="h-5 w-5" />, requiredLevel: 'member' },
-  { label: 'Wiki', path: '/wiki', icon: <BookOpen className="h-5 w-5" />, requiredLevel: 'member' },
-  { label: 'Chat', path: '/chat', icon: <MessageCircle className="h-5 w-5" />, requiredLevel: 'vip' },
-]
+export const TIER_LABEL: Record<Tier, TierLabelInfo> = {
+  guest:  { zh: '訪客模式',   badge: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300' },
+  member: { zh: '會員',       badge: 'bg-blue-50 text-blue-700 dark:bg-blue-500/15 dark:text-blue-300' },
+  vip:    { zh: 'VIP',        badge: 'bg-accent-soft text-accent' },
+};
 
 interface SidebarProps {
-  readonly userLevel: UserLevel
-  readonly collapsed: boolean
-  readonly onToggle: () => void
+  readonly open: boolean;
+  readonly route: Route;
+  readonly setRoute: (r: Route) => void;
+  readonly tier: Tier;
+  readonly collapsed: boolean;
+  readonly setCollapsed: (c: boolean) => void;
 }
 
-export function Sidebar({ userLevel, collapsed, onToggle }: SidebarProps) {
-  return (
-    <aside
-      className={cn(
-        'flex flex-col border-r border-border bg-card transition-all duration-300',
-        collapsed ? 'w-16' : 'w-60',
-      )}
-    >
-      <div className="flex items-center justify-between p-4">
-        {!collapsed && (
-          <span className="text-lg font-bold tracking-tight text-foreground">
-            Insurance KB
-          </span>
-        )}
-        <button
-          onClick={onToggle}
-          className={cn(
-            'inline-flex items-center justify-center rounded-md p-1.5',
-            'text-muted-foreground hover:text-foreground hover:bg-muted transition-colors',
-            collapsed && 'mx-auto',
-          )}
-          aria-label={collapsed ? '展開側邊欄' : '收合側邊欄'}
-        >
-          <ChevronLeft
-            className={cn('h-5 w-5 transition-transform', collapsed && 'rotate-180')}
-          />
-        </button>
-      </div>
+const canAccess = (req: NavItem['req'], tier: Tier): boolean =>
+  req === 'public' ||
+  (req === 'member' && (tier === 'member' || tier === 'vip')) ||
+  (req === 'vip' && tier === 'vip');
 
-      <nav className="flex-1 space-y-1 px-2 py-2">
-        {NAV_ITEMS.map(item => {
-          const accessible = canAccess(item.requiredLevel, userLevel)
-          return (
-            <NavLink
-              key={item.path}
-              to={accessible ? item.path : '#'}
-              onClick={e => {
-                if (!accessible) e.preventDefault()
-              }}
-              className={({ isActive }) =>
-                cn(
-                  'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
-                  isActive && accessible
-                    ? 'bg-primary/10 text-primary'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted',
-                  !accessible && 'opacity-50 cursor-not-allowed',
-                  collapsed && 'justify-center px-2',
-                )
-              }
-            >
-              {item.icon}
-              {!collapsed && (
-                <>
-                  <span className="flex-1">{item.label}</span>
-                  {!accessible && <Lock className="h-3.5 w-3.5" />}
-                </>
-              )}
-            </NavLink>
-          )
-        })}
-      </nav>
-
+export const Sidebar: React.FC<SidebarProps> = ({ open, route, setRoute, tier, collapsed, setCollapsed }) => (
+  <aside
+    className={`shrink-0 h-full border-r border-slate-200 dark:border-slate-900 bg-slate-50/60 dark:bg-slate-950/70 backdrop-blur flex flex-col transition-all duration-300 ease-out ${collapsed ? 'w-[68px]' : 'w-60'} ${open ? '' : 'hidden lg:flex'}`}
+  >
+    {/* brand */}
+    <div className="h-14 flex items-center px-4 border-b border-slate-200 dark:border-slate-900">
+      <div className="w-8 h-8 rounded-lg bg-accent text-white flex items-center justify-center font-bold text-sm shrink-0">保</div>
       {!collapsed && (
-        <div className="border-t border-border p-4">
-          <p className="text-xs text-muted-foreground">
-            Insurance Knowledge Base v2
-          </p>
+        <div className="ml-2.5 min-w-0">
+          <div className="text-[13px] font-semibold truncate">保險知識庫</div>
+          <div className="text-[10.5px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">Insurance KB</div>
         </div>
       )}
-    </aside>
-  )
-}
+    </div>
+
+    {/* nav */}
+    <nav className="flex-1 py-3 px-2 space-y-0.5">
+      {NAV.map(item => {
+        const active = route === item.id;
+        const locked = !canAccess(item.req, tier);
+        return (
+          <button
+            key={item.id}
+            onClick={() => !locked && setRoute(item.id as Route)}
+            title={collapsed ? item.zh : undefined}
+            className={`w-full flex items-center gap-2.5 px-2.5 h-9 rounded-md text-[13.5px] transition
+              ${active ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-sm ring-1 ring-slate-200 dark:ring-slate-800' : 'text-slate-600 dark:text-slate-400 hover:bg-white/60 dark:hover:bg-slate-900/50 hover:text-slate-900 dark:hover:text-slate-200'}
+              ${locked ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={locked}
+          >
+            <Icon name={item.icon} className="w-[18px] h-[18px] shrink-0" />
+            {!collapsed && <span className="truncate flex-1 text-left">{item.zh}</span>}
+            {!collapsed && locked && <Icon name="lock" className="w-3.5 h-3.5 text-slate-400" />}
+            {!collapsed && item.id === 'chat' && !locked && (
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-accent text-white">VIP</span>
+            )}
+          </button>
+        );
+      })}
+    </nav>
+
+    {/* bottom: collapse + tier */}
+    <div className="border-t border-slate-200 dark:border-slate-900 p-2 space-y-1">
+      <button
+        onClick={() => setCollapsed(!collapsed)}
+        className="hidden lg:flex w-full items-center gap-2.5 px-2.5 h-9 rounded-md text-[13px] text-slate-500 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-slate-100"
+        title={collapsed ? '展開' : '收合'}
+      >
+        <Icon name={collapsed ? 'chevR' : 'chevL'} className="w-4 h-4" />
+        {!collapsed && <span>收合側欄</span>}
+      </button>
+      <div className={`flex items-center gap-2.5 px-2 py-2 rounded-md bg-white dark:bg-slate-900 ring-1 ring-slate-200 dark:ring-slate-800 ${collapsed ? 'justify-center' : ''}`}>
+        <div className="w-7 h-7 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-500">
+          <Icon name="user" className="w-4 h-4" />
+        </div>
+        {!collapsed && (
+          <div className="min-w-0 flex-1">
+            <div className="text-[12.5px] font-medium truncate">{tier === 'guest' ? '未登入' : 'Claire Wu'}</div>
+            <div className={`inline-block mt-0.5 px-1.5 py-0.5 rounded text-[10px] font-medium ${TIER_LABEL[tier].badge}`}>
+              {TIER_LABEL[tier].zh}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </aside>
+);

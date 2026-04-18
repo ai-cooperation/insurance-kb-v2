@@ -1,63 +1,55 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Sidebar, NAV } from './components/Sidebar';
-import { Topbar } from './components/Topbar';
-import { TweaksPanel } from './components/TweaksPanel';
-import { HomePage } from './pages/Home';
-import { CardsPage, ArticleModal } from './pages/Cards';
-import { WikiPage } from './pages/Wiki';
-import { ChatPage } from './pages/Chat';
-import type { Route, Tier, Tweaks, Article } from './types';
+// Main app — routing, theme, tweaks wiring
 
-const DEFAULT_TWEAKS: Tweaks = {
-  accentH: 172,
-  density: 'comfortable',
-  cardStyle: 'bordered',
-  dark: false,
-};
+const DEFAULT_TWEAKS = /*EDITMODE-BEGIN*/{
+  "accentH": 172,
+  "density": "comfortable",
+  "cardStyle": "bordered",
+  "dark": false
+}/*EDITMODE-END*/;
 
-export const App: React.FC = () => {
-  const [route, setRoute] = useState<Route>(() => (localStorage.getItem('ikb_route') as Route) || 'home');
-  const [tier, setTier] = useState<Tier>(() => (localStorage.getItem('ikb_tier') as Tier) || 'vip');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [article, setArticle] = useState<Article | null>(null);
-  const [tweaks, setTweaks] = useState<Tweaks>(DEFAULT_TWEAKS);
-  const [tweaksShown, setTweaksShown] = useState(false);
+const App = () => {
+  const [route, setRoute] = React.useState(() => localStorage.getItem('ikb_route') || 'home');
+  const [tier, setTier] = React.useState(() => localStorage.getItem('ikb_tier') || 'vip'); // default to VIP so the demo shows everything
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
+  const [article, setArticle] = React.useState(null);
+  const [tweaks, setTweaks] = React.useState(DEFAULT_TWEAKS);
+  const [tweaksShown, setTweaksShown] = React.useState(false);
 
   // persist
-  useEffect(() => { localStorage.setItem('ikb_route', route); }, [route]);
-  useEffect(() => { localStorage.setItem('ikb_tier', tier); }, [tier]);
+  React.useEffect(() => localStorage.setItem('ikb_route', route), [route]);
+  React.useEffect(() => localStorage.setItem('ikb_tier', tier), [tier]);
 
   // Force route back to public if insufficient tier
-  useEffect(() => {
+  React.useEffect(() => {
     const needed = NAV.find(n => n.id === route)?.req;
     if (needed === 'member' && tier === 'guest') setRoute('home');
     if (needed === 'vip' && tier !== 'vip') setRoute('home');
   }, [route, tier]);
 
   // Dark mode
-  useEffect(() => {
+  React.useEffect(() => {
     document.documentElement.classList.toggle('dark', !!tweaks.dark);
   }, [tweaks.dark]);
 
   // Accent
-  useEffect(() => {
-    document.documentElement.style.setProperty('--accent-h', String(tweaks.accentH));
+  React.useEffect(() => {
+    document.documentElement.style.setProperty('--accent-h', tweaks.accentH);
   }, [tweaks.accentH]);
 
   // Tweaks host wiring
-  useEffect(() => {
-    const listener = (e: MessageEvent) => {
+  React.useEffect(() => {
+    const listener = (e) => {
       if (!e.data) return;
       if (e.data.type === '__activate_edit_mode') setTweaksShown(true);
       if (e.data.type === '__deactivate_edit_mode') setTweaksShown(false);
     };
     window.addEventListener('message', listener);
-    try { window.parent?.postMessage({ type: '__edit_mode_available' }, '*'); } catch { /* ignore */ }
+    try { window.parent?.postMessage({ type: '__edit_mode_available' }, '*'); } catch {}
     return () => window.removeEventListener('message', listener);
   }, []);
 
-  const openArticle = useCallback((a: Article) => setArticle(a), []);
+  const openArticle = (a) => setArticle(a);
 
   return (
     <div data-density={tweaks.density} data-cardstyle={tweaks.cardStyle} className="h-screen w-screen flex overflow-hidden bg-white dark:bg-slate-950">
@@ -92,3 +84,5 @@ export const App: React.FC = () => {
     </div>
   );
 };
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);

@@ -5,3 +5,12 @@ data/seen.json
 logs/
 .DS_Store
 venv/
+node_modules/
+dist/
+frontend/node_modules/
+frontend/dist/
+workers/node_modules/
+package-lock.json
+notes/
+index/
+docs/

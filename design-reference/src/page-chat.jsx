@@ -1,9 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Icon } from '../components/Icon';
-import { Badge } from '../components/Badge';
-import { Btn } from '../components/Button';
-import { ARTICLES, CHAT_HISTORY_SEED } from '../data';
-import type { Article, ChatMessage } from '../types';
+// Chat page — conversation history + streaming AI response
 
 const AI_REPLY = `根據知識庫中最新的 482 篇亞太區文章，我整理出三點觀察：
 
@@ -15,7 +10,7 @@ const AI_REPLY = `根據知識庫中最新的 482 篇亞太區文章，我整理
 
 如需特定子市場的深入分析，可以告訴我想聚焦的國家或條線。`;
 
-const Avatar: React.FC<{ readonly role: 'user' | 'ai' }> = ({ role }) => {
+const Avatar = ({ role }) => {
   if (role === 'user') {
     return (
       <div className="w-7 h-7 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center shrink-0">
@@ -30,7 +25,7 @@ const Avatar: React.FC<{ readonly role: 'user' | 'ai' }> = ({ role }) => {
   );
 };
 
-const CitationChip: React.FC<{ readonly article: Article; readonly onOpen: (a: Article) => void }> = ({ article, onOpen }) => (
+const CitationChip = ({ article, onOpen }) => (
   <button
     onClick={() => onOpen(article)}
     className="group text-left rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2.5 w-[240px] shrink-0 hover:border-accent/60 transition"
@@ -48,7 +43,7 @@ const CitationChip: React.FC<{ readonly article: Article; readonly onOpen: (a: A
   </button>
 );
 
-const MessageBubble: React.FC<{ readonly m: ChatMessage; readonly openArticle: (a: Article) => void }> = ({ m, openArticle }) => {
+const MessageBubble = ({ m, openArticle }) => {
   if (m.role === 'user') {
     return (
       <div className="flex gap-3 justify-end anim-in">
@@ -66,9 +61,9 @@ const MessageBubble: React.FC<{ readonly m: ChatMessage; readonly openArticle: (
         <div className="rounded-2xl rounded-tl-sm bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-100 px-4 py-3 text-[14.5px] leading-[1.7] whitespace-pre-wrap text-pretty">
           <span className={m.streaming ? 'caret' : ''}>{m.content}</span>
         </div>
-        {!m.streaming && m.citations && m.citations.length > 0 && (
+        {!m.streaming && m.citations?.length > 0 && (
           <div className="mt-3">
-            <div className="text-[10.5px] font-mono uppercase tracking-wider text-slate-500 mb-2">來源引用 &middot; {m.citations.length}</div>
+            <div className="text-[10.5px] font-mono uppercase tracking-wider text-slate-500 mb-2">來源引用 · {m.citations.length}</div>
             <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
               {m.citations.map(cid => {
                 const a = ARTICLES.find(x => x.id === cid);
@@ -89,13 +84,9 @@ const SUGGESTIONS = [
   '東南亞嵌入式保險市場規模',
 ];
 
-interface ChatPageProps {
-  readonly openArticle: (a: Article) => void;
-}
-
-export const ChatPage: React.FC<ChatPageProps> = ({ openArticle }) => {
-  const [activeChat, setActiveChat] = useState('c1');
-  const [messages, setMessages] = useState<ChatMessage[]>([
+const ChatPage = ({ openArticle }) => {
+  const [activeChat, setActiveChat] = React.useState('c1');
+  const [messages, setMessages] = React.useState([
     {
       id: 'm0',
       role: 'ai',
@@ -103,24 +94,25 @@ export const ChatPage: React.FC<ChatPageProps> = ({ openArticle }) => {
       citations: [],
     },
   ]);
-  const [input, setInput] = useState('');
-  const [busy, setBusy] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [input, setInput] = React.useState('');
+  const [busy, setBusy] = React.useState(false);
+  const scrollRef = React.useRef(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const el = scrollRef.current;
     if (el) el.scrollTop = el.scrollHeight;
   }, [messages]);
 
-  const send = useCallback((text: string) => {
+  const send = (text) => {
     if (!text.trim() || busy) return;
-    const userMsg: ChatMessage = { id: 'u' + Date.now(), role: 'user', content: text };
+    const userMsg = { id: 'u' + Date.now(), role: 'user', content: text };
     const aiId = 'a' + Date.now();
-    const aiMsg: ChatMessage = { id: aiId, role: 'ai', content: '', streaming: true, citations: ['a4', 'a7', 'a3'] };
+    const aiMsg = { id: aiId, role: 'ai', content: '', streaming: true, citations: ['a4', 'a7', 'a3'] };
     setMessages((prev) => [...prev, userMsg, aiMsg]);
     setInput('');
     setBusy(true);
 
+    // stream
     const full = AI_REPLY;
     let i = 0;
     const step = () => {
@@ -134,7 +126,7 @@ export const ChatPage: React.FC<ChatPageProps> = ({ openArticle }) => {
       setTimeout(step, 18 + Math.random() * 22);
     };
     setTimeout(step, 350);
-  }, [busy]);
+  };
 
   const newChat = () => {
     setMessages([{ id: 'm0', role: 'ai', content: '你好，我是保險知識庫助手。我可以根據 12,596 篇文章回答你的問題。', citations: [] }]);
@@ -217,8 +209,8 @@ export const ChatPage: React.FC<ChatPageProps> = ({ openArticle }) => {
               </Btn>
             </div>
             <div className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
-              <span>按 Enter 送出 &middot; Shift+Enter 換行</span>
-              <span className="font-mono">knowledge-chat-v2 &middot; VIP</span>
+              <span>按 Enter 送出 · Shift+Enter 換行</span>
+              <span className="font-mono">knowledge-chat-v2 · VIP</span>
             </div>
           </form>
         </div>
@@ -226,3 +218,5 @@ export const ChatPage: React.FC<ChatPageProps> = ({ openArticle }) => {
     </div>
   );
 };
+
+window.ChatPage = ChatPage;

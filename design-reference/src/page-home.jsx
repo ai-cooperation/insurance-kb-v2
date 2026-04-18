@@ -1,23 +1,12 @@
-import React from 'react';
-import { Icon } from '../components/Icon';
-import { Badge } from '../components/Badge';
-import { Btn } from '../components/Button';
-import { StatCard } from '../components/StatCard';
-import { ARTICLES, CATEGORIES, IMPORTANCE } from '../data';
-import type { Article, Route, Tier } from '../types';
+// Home page — public landing (always visible)
 
-interface MiniCardProps {
-  readonly a: Article;
-  readonly onOpen: (a: Article) => void;
-}
-
-export const MiniCard: React.FC<MiniCardProps> = ({ a, onOpen }) => {
+const MiniCard = ({ a, onOpen }) => {
   const cat = CATEGORIES.find(c => c.id === a.category);
-  const c = cat ? (await_color(cat.color)) : undefined;
+  const c = CATEGORY_COLORS[cat.color];
   return (
     <button
       onClick={() => onOpen(a)}
-      className={`card-hover group relative text-left rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 hover:shadow-md ${c?.border ?? ''}`}
+      className={`card-hover group relative text-left rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 hover:shadow-md ${c.border}`}
     >
       <div className="flex items-center justify-between gap-2">
         <Badge category={a.category} region={a.region} />
@@ -40,17 +29,7 @@ export const MiniCard: React.FC<MiniCardProps> = ({ a, onOpen }) => {
   );
 };
 
-// Helper to get category color tokens
-import { CATEGORY_COLORS } from '../data';
-function await_color(color: string) { return CATEGORY_COLORS[color]; }
-
-interface HomePageProps {
-  readonly setRoute: (r: Route) => void;
-  readonly setTier: (t: Tier) => void;
-  readonly openArticle: (a: Article) => void;
-}
-
-export const HomePage: React.FC<HomePageProps> = ({ setRoute, setTier, openArticle }) => {
+const HomePage = ({ setRoute, setTier, openArticle }) => {
   const todayArticles = ARTICLES.slice(0, 12);
 
   return (
@@ -60,7 +39,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setRoute, setTier, openArtic
         <div className="max-w-6xl mx-auto px-6 md:px-10 pt-14 pb-12">
           <div className="flex items-center gap-2 text-[11.5px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-[0.18em]">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"/>
-            Live &middot; 每日 06:00 更新
+            Live · 每日 06:00 更新
           </div>
           <h1 className="mt-4 font-semibold tracking-tight text-balance text-[44px] md:text-[56px] leading-[1.05]">
             保險產業
@@ -77,7 +56,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setRoute, setTier, openArtic
               <Icon name="google" className="w-4 h-4" /> 使用 Google 登入
             </Btn>
             <Btn size="lg" variant="outline" onClick={() => document.getElementById('today-grid')?.scrollIntoView({ block: 'start', behavior: 'smooth' })}>
-              瀏覽今日新聞 &darr;
+              瀏覽今日新聞 ↓
             </Btn>
           </div>
         </div>
@@ -166,9 +145,12 @@ export const HomePage: React.FC<HomePageProps> = ({ setRoute, setTier, openArtic
       </section>
 
       <footer className="max-w-6xl mx-auto px-6 md:px-10 pb-10 text-[11.5px] text-slate-500 dark:text-slate-500 font-mono uppercase tracking-wider flex items-center justify-between border-t border-slate-200 dark:border-slate-900 pt-6">
-        <span>&copy; 2026 Insurance KB</span>
-        <span>資料來源不代表本站觀點 &middot; Built with &#10084;&#65039;</span>
+        <span>© 2026 Insurance KB</span>
+        <span>資料來源不代表本站觀點 · Built with ❤️</span>
       </footer>
     </div>
   );
 };
+
+window.HomePage = HomePage;
+window.MiniCard = MiniCard;

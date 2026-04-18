@@ -10,12 +10,7 @@
   },
   "dependencies": {
     "react": "^18.3.0",
-    "react-dom": "^18.3.0",
-    "react-router-dom": "^6.26.0",
-    "lucide-react": "^0.400.0",
-    "date-fns": "^3.6.0",
-    "clsx": "^2.1.0",
-    "tailwind-merge": "^2.4.0"
+    "react-dom": "^18.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.0",

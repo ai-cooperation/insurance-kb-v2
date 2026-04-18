@@ -1,20 +1,8 @@
-import React, { useState } from 'react';
-import { Icon } from '../components/Icon';
-import { Badge } from '../components/Badge';
-import { ARTICLES, WIKI_TREE, WIKI_PAGE } from '../data';
-import type { Article, WikiTreeNode as WikiTreeNodeType } from '../types';
+// Wiki page — tree sidebar + distilled content
 
-interface WikiTreeNodeProps {
-  readonly node: WikiTreeNodeType;
-  readonly activeId: string;
-  readonly setActiveId: (id: string) => void;
-  readonly expandedSet: Set<string>;
-  readonly toggle: (id: string) => void;
-}
-
-const WikiTreeNode: React.FC<WikiTreeNodeProps> = ({ node, activeId, setActiveId, expandedSet, toggle }) => {
+const WikiTreeNode = ({ node, activeId, setActiveId, expandedSet, toggle }) => {
   const expanded = expandedSet.has(node.id);
-  const hasKids = node.children && node.children.length > 0;
+  const hasKids = node.children?.length;
   return (
     <div>
       <button
@@ -35,7 +23,7 @@ const WikiTreeNode: React.FC<WikiTreeNodeProps> = ({ node, activeId, setActiveId
       </button>
       {hasKids && expanded && (
         <div className="ml-5 border-l border-slate-200 dark:border-slate-800 pl-1 mt-0.5 space-y-0.5">
-          {node.children!.map(c => (
+          {node.children.map(c => (
             <button
               key={c.id}
               onClick={() => setActiveId(c.id)}
@@ -51,24 +39,20 @@ const WikiTreeNode: React.FC<WikiTreeNodeProps> = ({ node, activeId, setActiveId
   );
 };
 
-interface WikiPageProps {
-  readonly openArticle: (a: Article) => void;
-}
+const WikiPage = ({ openArticle }) => {
+  const [activeId, setActiveId] = React.useState('market-apac');
+  const [expanded, setExpanded] = React.useState(new Set(['market', 'regulation']));
+  const [period, setPeriod] = React.useState('month');
+  const [sourcesOpen, setSourcesOpen] = React.useState(true);
 
-export const WikiPage: React.FC<WikiPageProps> = ({ openArticle }) => {
-  const [activeId, setActiveId] = useState('market-apac');
-  const [expanded, setExpanded] = useState<Set<string>>(new Set(['market', 'regulation']));
-  const [period, setPeriod] = useState('month');
-  const [sourcesOpen, setSourcesOpen] = useState(true);
-
-  const toggle = (id: string) => {
+  const toggle = (id) => {
     const s = new Set(expanded);
-    if (s.has(id)) s.delete(id); else s.add(id);
+    s.has(id) ? s.delete(id) : s.add(id);
     setExpanded(s);
   };
 
   const page = WIKI_PAGE;
-  const sourceArticles = page.sources.map(id => ARTICLES.find(a => a.id === id)).filter((a): a is Article => a !== undefined);
+  const sourceArticles = page.sources.map(id => ARTICLES.find(a => a.id === id)).filter(Boolean);
 
   return (
     <div className="flex-1 flex overflow-hidden">
@@ -168,7 +152,7 @@ export const WikiPage: React.FC<WikiPageProps> = ({ openArticle }) => {
               className="w-full flex items-center justify-between text-left"
             >
               <h2 className="text-[11.5px] font-mono uppercase tracking-wider text-slate-500">
-                來源文章 &middot; {sourceArticles.length}
+                來源文章 · {sourceArticles.length}
               </h2>
               <Icon name={sourcesOpen ? 'chevD' : 'chevR'} className="w-4 h-4 text-slate-400" />
             </button>
@@ -184,7 +168,7 @@ export const WikiPage: React.FC<WikiPageProps> = ({ openArticle }) => {
                     <div className="min-w-0 flex-1">
                       <div className="text-[13.5px] font-medium truncate text-slate-800 dark:text-slate-100">{a.title_zh}</div>
                       <div className="text-[11.5px] text-slate-500 dark:text-slate-400 mt-0.5">
-                        {a.source} &middot; {a.date}
+                        {a.source} · {a.date}
                       </div>
                     </div>
                     <Icon name="chevR" className="w-4 h-4 text-slate-300" />
@@ -195,10 +179,12 @@ export const WikiPage: React.FC<WikiPageProps> = ({ openArticle }) => {
           </section>
 
           <div className="mt-12 pt-6 border-t border-slate-200 dark:border-slate-900 text-[11.5px] font-mono uppercase tracking-wider text-slate-500">
-            Distilled 2026-04-15 04:00 UTC &middot; Model: knowledge-distill-v3
+            Distilled 2026-04-15 04:00 UTC · Model: knowledge-distill-v3
           </div>
         </article>
       </div>
     </div>
   );
 };
+
+window.WikiPage = WikiPage;

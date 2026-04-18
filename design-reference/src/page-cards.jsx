@@ -1,20 +1,6 @@
-import React, { useState, useMemo } from 'react';
-import { Icon } from '../components/Icon';
-import { Badge } from '../components/Badge';
-import { Btn } from '../components/Button';
-import { Select } from '../components/Select';
-import { Modal } from '../components/Modal';
-import { Empty } from '../components/Empty';
-import { MiniCard } from './Home';
-import { ARTICLES, CATEGORIES, REGIONS, IMPORTANCE } from '../data';
-import type { Article } from '../types';
+// Cards page — filters + responsive grid + expand modal
 
-interface ArticleModalProps {
-  readonly article: Article | null;
-  readonly onClose: () => void;
-}
-
-export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose }) => {
+const ArticleModal = ({ article, onClose }) => {
   if (!article) return null;
   const a = article;
   return (
@@ -65,30 +51,17 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose }) 
   );
 };
 
-const Chip: React.FC<{ readonly children: React.ReactNode; readonly onRemove: () => void }> = ({ children, onRemove }) => (
-  <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-[12px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
-    {children}
-    <button onClick={onRemove} className="p-0.5 hover:text-slate-900 dark:hover:text-white">
-      <Icon name="x" className="w-3 h-3" />
-    </button>
-  </span>
-);
+const CardsPage = ({ openArticle }) => {
+  const [cat, setCat] = React.useState('');
+  const [region, setRegion] = React.useState('');
+  const [q, setQ] = React.useState('');
 
-interface CardsPageProps {
-  readonly openArticle: (a: Article) => void;
-}
-
-export const CardsPage: React.FC<CardsPageProps> = ({ openArticle }) => {
-  const [cat, setCat] = useState('');
-  const [region, setRegion] = useState('');
-  const [q, setQ] = useState('');
-
-  const filtered = useMemo(() => {
+  const filtered = React.useMemo(() => {
     return ARTICLES.filter(a => {
       if (cat && a.category !== cat) return false;
       if (region && a.region !== region) return false;
       if (q) {
-        const hay = `${a.title_zh} ${a.title_en || ''} ${a.summary} ${a.source} ${a.tags.join(' ')}`.toLowerCase();
+        const hay = `${a.title_zh} ${a.title_en||''} ${a.summary} ${a.source} ${a.tags.join(' ')}`.toLowerCase();
         if (!hay.includes(q.toLowerCase())) return false;
       }
       return true;
@@ -159,3 +132,14 @@ export const CardsPage: React.FC<CardsPageProps> = ({ openArticle }) => {
     </div>
   );
 };
+
+const Chip = ({ children, onRemove }) => (
+  <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-[12px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+    {children}
+    <button onClick={onRemove} className="p-0.5 hover:text-slate-900 dark:hover:text-white">
+      <Icon name="x" className="w-3 h-3" />
+    </button>
+  </span>
+);
+
+Object.assign(window, { CardsPage, ArticleModal });

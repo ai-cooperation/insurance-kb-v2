@@ -2,57 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --primary: 160 84% 39%;
-    --primary-foreground: 0 0% 98%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --border: 240 5.9% 90%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --primary: 160 84% 39%;
-    --primary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --border: 240 3.7% 15.9%;
-  }
-
-  * {
-    border-color: hsl(var(--border));
-  }
-
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-  }
+html, body { height: 100%; }
+body {
+  font-family: 'Inter', ui-sans-serif, 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01";
 }
 
-@layer utilities {
-  .scrollbar-thin {
-    scrollbar-width: thin;
-  }
+.font-zh { font-family: 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', system-ui, sans-serif; }
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
 
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
-  }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(100,116,139,0.25); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(100,116,139,0.45); }
 
-  .scrollbar-thin::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--muted-foreground) / 0.3);
-    border-radius: 3px;
-  }
+/* Accent variable — overwritten by Tweaks */
+:root {
+  --accent-h: 172;
+  --accent-s: 85%;
+  --accent-l: 33%;
+  --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l));
+  --accent-soft: hsl(var(--accent-h) 55% 95%);
+  --accent-ring: hsl(var(--accent-h) 70% 45% / 0.35);
 }
+.dark { color-scheme: dark; }
+.dark {
+  --accent-soft: hsl(var(--accent-h) 40% 16%);
+}
+.bg-accent { background: var(--accent); }
+.text-accent { color: var(--accent); }
+.border-accent { border-color: var(--accent); }
+.ring-accent { --tw-ring-color: var(--accent-ring); }
+.bg-accent-soft { background: var(--accent-soft); }
+
+/* Typing caret */
+@keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+.caret::after {
+  content: '\25CD'; margin-left: 2px; animation: blink 0.9s infinite; color: var(--accent);
+}
+
+/* Fade in */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.anim-in { animation: fadeInUp .25s ease-out both; }
+
+/* Card hover subtle lift */
+.card-hover { transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease; }
