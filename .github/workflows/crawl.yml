@@ -31,7 +31,13 @@ jobs:
       - name: Run crawl pipeline
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python run.py
+
+      - name: Copy data to frontend
+        run: |
+          mkdir -p frontend/public/data
+          cp index/master-index.json frontend/public/data/articles.json
 
       - name: Commit and push changes
         run: |

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Icon } from '../components/Icon';
 import { Badge } from '../components/Badge';
 import { Btn } from '../components/Button';
-import { ARTICLES, CHAT_HISTORY_SEED } from '../data';
+import { CHAT_HISTORY_SEED } from '../data';
 import type { Article, ChatMessage } from '../types';
 
 const AI_REPLY = `根據知識庫中最新的 482 篇亞太區文章，我整理出三點觀察：
@@ -48,7 +48,7 @@ const CitationChip: React.FC<{ readonly article: Article; readonly onOpen: (a: A
   </button>
 );
 
-const MessageBubble: React.FC<{ readonly m: ChatMessage; readonly openArticle: (a: Article) => void }> = ({ m, openArticle }) => {
+const MessageBubble: React.FC<{ readonly m: ChatMessage; readonly articles: readonly Article[]; readonly openArticle: (a: Article) => void }> = ({ m, articles, openArticle }) => {
   if (m.role === 'user') {
     return (
       <div className="flex gap-3 justify-end anim-in">
@@ -71,7 +71,7 @@ const MessageBubble: React.FC<{ readonly m: ChatMessage; readonly openArticle: (
             <div className="text-[10.5px] font-mono uppercase tracking-wider text-slate-500 mb-2">來源引用 &middot; {m.citations.length}</div>
             <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
               {m.citations.map(cid => {
-                const a = ARTICLES.find(x => x.id === cid);
+                const a = articles.find(x => x.id === cid);
                 return a ? <CitationChip key={cid} article={a} onOpen={openArticle} /> : null;
               })}
             </div>
@@ -90,10 +90,11 @@ const SUGGESTIONS = [
 ];
 
 interface ChatPageProps {
+  readonly articles: readonly Article[];
   readonly openArticle: (a: Article) => void;
 }
 
-export const ChatPage: React.FC<ChatPageProps> = ({ openArticle }) => {
+export const ChatPage: React.FC<ChatPageProps> = ({ articles, openArticle }) => {
   const [activeChat, setActiveChat] = useState('c1');
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -116,7 +117,8 @@ export const ChatPage: React.FC<ChatPageProps> = ({ openArticle }) => {
     if (!text.trim() || busy) return;
     const userMsg: ChatMessage = { id: 'u' + Date.now(), role: 'user', content: text };
     const aiId = 'a' + Date.now();
-    const aiMsg: ChatMessage = { id: aiId, role: 'ai', content: '', streaming: true, citations: ['a4', 'a7', 'a3'] };
+    const demoCitations = articles.slice(0, 3).map(a => a.id);
+    const aiMsg: ChatMessage = { id: aiId, role: 'ai', content: '', streaming: true, citations: demoCitations };
     setMessages((prev) => [...prev, userMsg, aiMsg]);
     setInput('');
     setBusy(true);
@@ -134,7 +136,7 @@ export const ChatPage: React.FC<ChatPageProps> = ({ openArticle }) => {
       setTimeout(step, 18 + Math.random() * 22);
     };
     setTimeout(step, 350);
-  }, [busy]);
+  }, [articles, busy]);
 
   const newChat = () => {
     setMessages([{ id: 'm0', role: 'ai', content: '你好，我是保險知識庫助手。我可以根據 12,596 篇文章回答你的問題。', citations: [] }]);
@@ -173,7 +175,7 @@ export const ChatPage: React.FC<ChatPageProps> = ({ openArticle }) => {
       <div className="flex-1 flex flex-col min-w-0">
         <div ref={scrollRef} className="flex-1 overflow-auto px-4 md:px-8 py-6">
           <div className="max-w-3xl mx-auto space-y-6">
-            {messages.map(m => <MessageBubble key={m.id} m={m} openArticle={openArticle} />)}
+            {messages.map(m => <MessageBubble key={m.id} m={m} articles={articles} openArticle={openArticle} />)}
             {messages.length === 1 && (
               <div className="pt-4">
                 <div className="text-[10.5px] font-mono uppercase tracking-wider text-slate-500 mb-2">建議提問</div>

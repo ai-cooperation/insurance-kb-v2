@@ -6,6 +6,7 @@ import { HomePage } from './pages/Home';
 import { CardsPage, ArticleModal } from './pages/Cards';
 import { WikiPage } from './pages/Wiki';
 import { ChatPage } from './pages/Chat';
+import { useArticles } from './useArticles';
 import type { Route, Tier, Tweaks, Article } from './types';
 
 const DEFAULT_TWEAKS: Tweaks = {
@@ -23,6 +24,7 @@ export const App: React.FC = () => {
   const [article, setArticle] = useState<Article | null>(null);
   const [tweaks, setTweaks] = useState<Tweaks>(DEFAULT_TWEAKS);
   const [tweaksShown, setTweaksShown] = useState(false);
+  const { articles, loading } = useArticles();
 
   // persist
   useEffect(() => { localStorage.setItem('ikb_route', route); }, [route]);
@@ -80,10 +82,10 @@ export const App: React.FC = () => {
           onMenu={() => setSidebarOpen(!sidebarOpen)}
           onOpenTweaks={() => setTweaksShown(true)}
         />
-        {route === 'home'  && <HomePage  setRoute={setRoute} setTier={setTier} openArticle={openArticle} />}
-        {route === 'cards' && <CardsPage openArticle={openArticle} />}
-        {route === 'wiki'  && <WikiPage  openArticle={openArticle} />}
-        {route === 'chat'  && <ChatPage  openArticle={openArticle} />}
+        {route === 'home'  && <HomePage  articles={articles} loading={loading} setRoute={setRoute} setTier={setTier} openArticle={openArticle} />}
+        {route === 'cards' && <CardsPage articles={articles} loading={loading} openArticle={openArticle} />}
+        {route === 'wiki'  && <WikiPage  articles={articles} openArticle={openArticle} />}
+        {route === 'chat'  && <ChatPage  articles={articles} openArticle={openArticle} />}
       </main>
 
       <ArticleModal article={article} onClose={() => setArticle(null)} />

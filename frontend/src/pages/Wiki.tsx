@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Icon } from '../components/Icon';
 import { Badge } from '../components/Badge';
-import { ARTICLES, WIKI_TREE, WIKI_PAGE } from '../data';
+import { WIKI_TREE, WIKI_PAGE } from '../data';
 import type { Article, WikiTreeNode as WikiTreeNodeType } from '../types';
 
 interface WikiTreeNodeProps {
@@ -52,10 +52,11 @@ const WikiTreeNode: React.FC<WikiTreeNodeProps> = ({ node, activeId, setActiveId
 };
 
 interface WikiPageProps {
+  readonly articles: readonly Article[];
   readonly openArticle: (a: Article) => void;
 }
 
-export const WikiPage: React.FC<WikiPageProps> = ({ openArticle }) => {
+export const WikiPage: React.FC<WikiPageProps> = ({ articles, openArticle }) => {
   const [activeId, setActiveId] = useState('market-apac');
   const [expanded, setExpanded] = useState<Set<string>>(new Set(['market', 'regulation']));
   const [period, setPeriod] = useState('month');
@@ -68,7 +69,7 @@ export const WikiPage: React.FC<WikiPageProps> = ({ openArticle }) => {
   };
 
   const page = WIKI_PAGE;
-  const sourceArticles = page.sources.map(id => ARTICLES.find(a => a.id === id)).filter((a): a is Article => a !== undefined);
+  const sourceArticles = page.sources.map(id => articles.find(a => a.id === id)).filter((a): a is Article => a !== undefined);
 
   return (
     <div className="flex-1 flex overflow-hidden">

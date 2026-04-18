@@ -185,9 +185,19 @@ def main():
         dict(sorted(stats["regions"].items(), key=lambda x: -x[1])),
     )
 
-    # Phase 5: Build Card View
-    logger.info("Phase 5: Building Card View...")
+    # Phase 5: Build Card View + Frontend Data
+    logger.info("Phase 5: Building Card View + Frontend Data...")
     build_card_view(index)
+
+    # Copy master-index.json to frontend/public/data/ for SPA
+    frontend_data_dir = Path(__file__).resolve().parent / "frontend" / "public" / "data"
+    frontend_data_dir.mkdir(parents=True, exist_ok=True)
+    import shutil
+    src_index = Path(__file__).resolve().parent / "index" / "master-index.json"
+    if src_index.exists():
+        shutil.copy2(src_index, frontend_data_dir / "articles.json")
+        logger.info("Copied master-index.json → frontend/public/data/articles.json")
+
     logger.info("Phase 5 complete")
 
     logger.info("=" * 60)

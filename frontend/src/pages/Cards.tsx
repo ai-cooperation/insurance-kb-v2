@@ -6,7 +6,7 @@ import { Select } from '../components/Select';
 import { Modal } from '../components/Modal';
 import { Empty } from '../components/Empty';
 import { MiniCard } from './Home';
-import { ARTICLES, CATEGORIES, REGIONS, IMPORTANCE } from '../data';
+import { CATEGORIES, REGIONS, IMPORTANCE } from '../data';
 import type { Article } from '../types';
 
 interface ArticleModalProps {
@@ -56,9 +56,11 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ article, onClose }) 
           <div className="text-[13px] text-slate-500 dark:text-slate-400">
             來源：<span className="font-medium text-slate-700 dark:text-slate-200">{a.source}</span>
           </div>
-          <Btn variant="primary">
-            查看原文 <Icon name="ext" className="w-3.5 h-3.5" />
-          </Btn>
+          <a href={a.url} target="_blank" rel="noopener noreferrer">
+            <Btn variant="primary">
+              查看原文 <Icon name="ext" className="w-3.5 h-3.5" />
+            </Btn>
+          </a>
         </div>
       </div>
     </Modal>
@@ -75,16 +77,18 @@ const Chip: React.FC<{ readonly children: React.ReactNode; readonly onRemove: ()
 );
 
 interface CardsPageProps {
+  readonly articles: readonly Article[];
+  readonly loading: boolean;
   readonly openArticle: (a: Article) => void;
 }
 
-export const CardsPage: React.FC<CardsPageProps> = ({ openArticle }) => {
+export const CardsPage: React.FC<CardsPageProps> = ({ articles, loading, openArticle }) => {
   const [cat, setCat] = useState('');
   const [region, setRegion] = useState('');
   const [q, setQ] = useState('');
 
   const filtered = useMemo(() => {
-    return ARTICLES.filter(a => {
+    return articles.filter(a => {
       if (cat && a.category !== cat) return false;
       if (region && a.region !== region) return false;
       if (q) {
@@ -93,7 +97,7 @@ export const CardsPage: React.FC<CardsPageProps> = ({ openArticle }) => {
       }
       return true;
     });
-  }, [cat, region, q]);
+  }, [articles, cat, region, q]);
 
   const active = cat || region || q;
 
@@ -131,7 +135,7 @@ export const CardsPage: React.FC<CardsPageProps> = ({ openArticle }) => {
             </Btn>
           )}
           <div className="ml-auto text-[12px] text-slate-500 dark:text-slate-400">
-            共 <span className="font-mono font-semibold text-slate-700 dark:text-slate-200 tabular-nums">{filtered.length}</span> / {ARTICLES.length} 篇
+            共 <span className="font-mono font-semibold text-slate-700 dark:text-slate-200 tabular-nums">{filtered.length}</span> / {articles.length} 篇
           </div>
         </div>
 
@@ -151,6 +155,7 @@ export const CardsPage: React.FC<CardsPageProps> = ({ openArticle }) => {
 
       {/* grid */}
       <div className="px-4 md:px-6 py-6">
+        {loading && <div className="text-center py-12 text-slate-500">載入中…</div>}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {filtered.map(a => <MiniCard key={a.id} a={a} onOpen={openArticle} />)}
           {filtered.length === 0 && <Empty title="找不到符合條件的卡片" sub="試著移除一些篩選條件，或換個關鍵字。" />}

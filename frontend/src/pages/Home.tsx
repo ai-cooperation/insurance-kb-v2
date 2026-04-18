@@ -3,7 +3,7 @@ import { Icon } from '../components/Icon';
 import { Badge } from '../components/Badge';
 import { Btn } from '../components/Button';
 import { StatCard } from '../components/StatCard';
-import { ARTICLES, CATEGORIES, IMPORTANCE } from '../data';
+import { CATEGORIES, IMPORTANCE } from '../data';
 import type { Article, Route, Tier } from '../types';
 
 interface MiniCardProps {
@@ -45,13 +45,15 @@ import { CATEGORY_COLORS } from '../data';
 function await_color(color: string) { return CATEGORY_COLORS[color]; }
 
 interface HomePageProps {
+  readonly articles: readonly Article[];
+  readonly loading: boolean;
   readonly setRoute: (r: Route) => void;
   readonly setTier: (t: Tier) => void;
   readonly openArticle: (a: Article) => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ setRoute, setTier, openArticle }) => {
-  const todayArticles = ARTICLES.slice(0, 12);
+export const HomePage: React.FC<HomePageProps> = ({ articles, loading, setRoute, setTier, openArticle }) => {
+  const todayArticles = articles.slice(0, 12);
 
   return (
     <div className="flex-1 overflow-auto">
@@ -85,9 +87,9 @@ export const HomePage: React.FC<HomePageProps> = ({ setRoute, setTier, openArtic
         {/* Stat bar */}
         <div className="max-w-6xl mx-auto px-6 md:px-10 pb-12">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <StatCard label="累計文章" value="12,596" delta="+200 本週" icon="cards" />
-            <StatCard label="今日新增" value="217"    delta="+12% vs 昨日" icon="sparkle" />
-            <StatCard label="資料來源" value="55"     delta="覆蓋 10 個地區" icon="globe" />
+            <StatCard label="累計文章" value={loading ? '…' : articles.length.toLocaleString()} delta="" icon="cards" />
+            <StatCard label="今日新增" value={loading ? '…' : String(todayArticles.length)} delta="" icon="sparkle" />
+            <StatCard label="資料來源" value="55" delta="覆蓋 10 個地區" icon="globe" />
           </div>
         </div>
       </section>
