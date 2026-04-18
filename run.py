@@ -158,16 +158,16 @@ def main():
     articles = [classify_rule(art) for art in articles]
     logger.info("Phase 2 complete")
 
-    # Phase 3: LLM classification (Chinese title + summary via Groq)
+    # Phase 3: LLM classification (Chinese title + summary via GitHub Models)
     if not args.no_ai:
-        api_key = os.environ.get("GROQ_API_KEY", "")
+        api_key = os.environ.get("MODELS_PAT", "")
         if api_key:
-            logger.info("Phase 3: LLM classification via Groq (batches of 10)...")
+            logger.info("Phase 3: LLM classification via GitHub Models (batches of 10)...")
             articles = classify_llm_batch(articles, api_key)
             logger.info("Phase 3 complete")
         else:
             logger.warning(
-                "Phase 3 skipped: GROQ_API_KEY not set. "
+                "Phase 3 skipped: MODELS_PAT not set. "
                 "Set it for Chinese title/summary generation."
             )
     else:

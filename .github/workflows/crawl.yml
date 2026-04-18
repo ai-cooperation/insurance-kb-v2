@@ -30,8 +30,7 @@ jobs:
 
       - name: Run crawl pipeline
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          MODELS_PAT: ${{ secrets.MODELS_PAT }}
         run: python run.py
 
       - name: Copy data to frontend

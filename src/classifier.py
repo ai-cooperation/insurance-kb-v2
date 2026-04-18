@@ -145,7 +145,7 @@ def classify_llm_batch(
     batch_size: int = 10,
     delay: float = 3.0,
 ) -> list:
-    """Call Groq API (llama-3.3-70b) for Chinese title + summary.
+    """Call GitHub Models API (GPT-4o-mini) for Chinese title + summary.
 
     Returns new list of article dicts with title_zh and summary_zh added.
     """
@@ -156,7 +156,7 @@ def classify_llm_batch(
         return articles
 
     client = OpenAI(
-        base_url="https://api.groq.com/openai/v1",
+        base_url="https://models.inference.ai.azure.com",
         api_key=api_key,
     )
 
@@ -171,7 +171,7 @@ def classify_llm_batch(
 
         try:
             response = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
+                model="gpt-4o-mini",
                 messages=[
                     {"role": "system", "content": _LLM_SYSTEM},
                     {"role": "user", "content": prompt},
