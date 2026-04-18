@@ -1,0 +1,21 @@
+---
+category: 科技應用
+date: '2026-04-14'
+importance: 中
+region: 全球
+source: gnews_neuroscience_insurance
+source_url: https://news.google.com/rss/articles/CBMiiAFBVV95cUxOM1RMVDhDQUdZcDVReGtid1RjODVQNFEtaGhhaHBOQUh2dE15cjRtS0ZNamFOX0lBY0RuVkpWSXpMS2NhSXdUak9QRmFsZng5Wm1jY01NMHgwcVllWFYxRlFKblBYWXlCTlJoMU5TTER4M0w0X3V5Ym1wSVdFX2RQcWFLNlNIYm830gGcAUFVX3lxTE1XenZMWWxrQV94S3BicEVqZEU1UXMybHRZSGxwVEdoMU5jdmY5b2xDTGhmWG11NG5seTdDLVU3SlRDU19tMlN5TWdTTndIZ1NOVjJkeXdsTDVIRV82ZWdBVUpCSVdLMXJBUjBteVdIdkpuVUdGQ0ZCZ3A4MVNna05KNjZ2VkVuSmxoOXVMbjhSbjNJVm1QVWhOV2g1Qg?oc=5
+title: Lee Jin-ho regains consciousness after brain hemorrhage, Kangin summons 119
+  - CHOSUNBIZ - Chosunbiz
+uid: 86a5d9e50fe9
+---
+
+# Lee Jin-ho regains consciousness after brain hemorrhage, Kangin summons 119 - CHOSUNBIZ - Chosunbiz
+
+## 摘要
+
+Lee Jin-ho regains consciousness after brain hemorrhage, Kangin summons 119 - CHOSUNBIZ&nbsp;&nbsp;Chosunbiz
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMiiAFBVV95cUxOM1RMVDhDQUdZcDVReGtid1RjODVQNFEtaGhhaHBOQUh2dE15cjRtS0ZNamFOX0lBY0RuVkpWSXpMS2NhSXdUak9QRmFsZng5Wm1jY01NMHgwcVllWFYxRlFKblBYWXlCTlJoMU5TTER4M0w0X3V5Ym1wSVdFX2RQcWFLNlNIYm830gGcAUFVX3lxTE1XenZMWWxrQV94S3BicEVqZEU1UXMybHRZSGxwVEdoMU5jdmY5b2xDTGhmWG11NG5seTdDLVU3SlRDU19tMlN5TWdTTndIZ1NOVjJkeXdsTDVIRV82ZWdBVUpCSVdLMXJBUjBteVdIdkpuVUdGQ0ZCZ3A4MVNna05KNjZ2VkVuSmxoOXVMbjhSbjNJVm1QVWhOV2g1Qg?oc=5)

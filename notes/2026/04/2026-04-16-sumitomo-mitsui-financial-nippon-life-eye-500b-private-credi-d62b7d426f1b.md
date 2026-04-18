@@ -1,0 +1,20 @@
+---
+category: 市場趨勢
+date: '2026-04-16'
+importance: 中
+region: 日本
+source: gnews_jp_en
+source_url: https://news.google.com/rss/articles/CBMi3gJBVV95cUxNWjlEZGRyT3RCWGNMMHJuUGxuU0h1d0J2WVFxWVkxaENCLTNQcHFVU0wwRFd6ZHkzdG1WRmlRRGh6N1pOekZiTTJUYUYwajRDV0pQai1TbnJFNVJ2Ul9PZm9kUG1RUkdLYUJDTFNFVzE1T0RjTE5DWTRKWmlON2NfSmZFUmtzeDNNUEtHSy1rcHRENVhFWUFJYlZ1UkJ4NzdDazRmNUZPOGEtS2NIamtJanRhcUthcm5tQnNiQmRNckRBXzNkTHdQT2ZFYmh6YkktTXBEY0syZVJZNU1JNkVVRU9keTlsOFBLX2ZkTHhtVWYyMnJjYzNrMU44VE9hT3dfZWNKRHNiRV9rUEY5eHJ0dFZpbHZuR29FUm1Ed0k3Z20wZmM3M3ZhcmxBdU1TSzROQkFQNy1Sb3pjdWNLZG43UzRDUEZPejZKQ3RKS0RFc3E1UVlYVmZrN2hpVmVLUQ?oc=5
+title: Sumitomo Mitsui Financial & Nippon Life eye ¥500B private credit fund - MSN
+uid: d62b7d426f1b
+---
+
+# Sumitomo Mitsui Financial & Nippon Life eye ¥500B private credit fund - MSN
+
+## 摘要
+
+Sumitomo Mitsui Financial & Nippon Life eye ¥500B private credit fund&nbsp;&nbsp;MSN
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMi3gJBVV95cUxNWjlEZGRyT3RCWGNMMHJuUGxuU0h1d0J2WVFxWVkxaENCLTNQcHFVU0wwRFd6ZHkzdG1WRmlRRGh6N1pOekZiTTJUYUYwajRDV0pQai1TbnJFNVJ2Ul9PZm9kUG1RUkdLYUJDTFNFVzE1T0RjTE5DWTRKWmlON2NfSmZFUmtzeDNNUEtHSy1rcHRENVhFWUFJYlZ1UkJ4NzdDazRmNUZPOGEtS2NIamtJanRhcUthcm5tQnNiQmRNckRBXzNkTHdQT2ZFYmh6YkktTXBEY0syZVJZNU1JNkVVRU9keTlsOFBLX2ZkTHhtVWYyMnJjYzNrMU44VE9hT3dfZWNKRHNiRV9rUEY5eHJ0dFZpbHZuR29FUm1Ed0k3Z20wZmM3M3ZhcmxBdU1TSzROQkFQNy1Sb3pjdWNLZG43UzRDUEZPejZKQ3RKS0RFc3E1UVlYVmZrN2hpVmVLUQ?oc=5)

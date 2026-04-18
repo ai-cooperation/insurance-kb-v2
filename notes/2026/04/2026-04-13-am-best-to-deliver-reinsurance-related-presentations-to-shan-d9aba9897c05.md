@@ -1,0 +1,21 @@
+---
+category: 科技應用
+date: '2026-04-13'
+importance: 中
+region: 全球
+source: gnews_insurance_global
+source_url: https://news.google.com/rss/articles/CBMi9wFBVV95cUxNeXFLZEFQTG9FcnhBRFVZYUtwTGQzdE5VdmtEZ3hHVE4zNXZfck5ZUU90anBTZUlYTUFaWk1ZVXZEMjl2NjVHQm9PcFNrNDBxeEMzTloyeG8zdFo5c2RrbzFta3JTSFZ4c0pBaWN5SXNYWHpxeUZHV1FDS0JWbmVwNzMzZ1FyZHlma05UTS1XdVJON09VWEI2amNCckV0SG81Q3lZYUN6TGNIalFTaDhVclR4N2Z0ZEF5SHhUOWpzQ3M1QTA2R3ZHRWxWeEF1aGhQVkhXd0Z5cURwVlpoMmlXZFZkbkIyQmsyUEVkUF95WHk3NVRWWjJZ?oc=5
+title: AM Best to Deliver Reinsurance-Related Presentations to Shanghai International
+  Reinsurance Exchange Members - Business Wire
+uid: d9aba9897c05
+---
+
+# AM Best to Deliver Reinsurance-Related Presentations to Shanghai International Reinsurance Exchange Members - Business Wire
+
+## 摘要
+
+AM Best to Deliver Reinsurance-Related Presentations to Shanghai International Reinsurance Exchange Members&nbsp;&nbsp;Business Wire
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMi9wFBVV95cUxNeXFLZEFQTG9FcnhBRFVZYUtwTGQzdE5VdmtEZ3hHVE4zNXZfck5ZUU90anBTZUlYTUFaWk1ZVXZEMjl2NjVHQm9PcFNrNDBxeEMzTloyeG8zdFo5c2RrbzFta3JTSFZ4c0pBaWN5SXNYWHpxeUZHV1FDS0JWbmVwNzMzZ1FyZHlma05UTS1XdVJON09VWEI2amNCckV0SG81Q3lZYUN6TGNIalFTaDhVclR4N2Z0ZEF5SHhUOWpzQ3M1QTA2R3ZHRWxWeEF1aGhQVkhXd0Z5cURwVlpoMmlXZFZkbkIyQmsyUEVkUF95WHk3NVRWWjJZ?oc=5)

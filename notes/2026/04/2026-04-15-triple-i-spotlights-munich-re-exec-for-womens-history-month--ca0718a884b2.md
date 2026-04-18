@@ -1,0 +1,20 @@
+---
+category: 市場趨勢
+date: '2026-04-15'
+importance: 中
+region: 全球
+source: gnews_reinsurers
+source_url: https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTERjbHZwLUNkeldBZjJOdGJ5ZDA0VWlUQ3BhS1RIUXo4VnlKU2FGdU9RenpsTTJkajVxMERjU0dLbzZyekI0TGFhemJEWHNOU3NQNTlrUVQxRnF1SnFJZ3dCb0FUVFlsTmNuMllhM2tpdVhJQTZfelNYYlhnNERoaHFWV2xvZG80QUo1T1BUTktSY3RlZFo0UXBiZFdvWU85NmVOOWpZd1Bra2_SAbABQVVfeXFMUG4yNEtIX1ZaQ00yYzkxWkJvODdjT29ST2JPSzV2Q3R4QUNrNENkdWRmOUF3OExYOW03OTNISkpHUUZZY3lUUmZZRnpJYkMybG5yUjRqak1hMjQ4bTBCa3cwVk01QjlqLVhGSXU1ZzNLZG85cXNfdGN6NzlDRS1OV3JKSlRLU3U3SngzcUk2cjM3S0Q0dnZFbkZZb09lMXNkZzN3NDNDaFVwRGFybEY4Smo?oc=5
+title: Triple-I spotlights Munich Re exec for Women's History Month - PropertyCasualty360
+uid: ca0718a884b2
+---
+
+# Triple-I spotlights Munich Re exec for Women's History Month - PropertyCasualty360
+
+## 摘要
+
+Triple-I spotlights Munich Re exec for Women's History Month&nbsp;&nbsp;PropertyCasualty360
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMiqwFBVV95cUxPTERjbHZwLUNkeldBZjJOdGJ5ZDA0VWlUQ3BhS1RIUXo4VnlKU2FGdU9RenpsTTJkajVxMERjU0dLbzZyekI0TGFhemJEWHNOU3NQNTlrUVQxRnF1SnFJZ3dCb0FUVFlsTmNuMllhM2tpdVhJQTZfelNYYlhnNERoaHFWV2xvZG80QUo1T1BUTktSY3RlZFo0UXBiZFdvWU85NmVOOWpZd1Bra2_SAbABQVVfeXFMUG4yNEtIX1ZaQ00yYzkxWkJvODdjT29ST2JPSzV2Q3R4QUNrNENkdWRmOUF3OExYOW03OTNISkpHUUZZY3lUUmZZRnpJYkMybG5yUjRqak1hMjQ4bTBCa3cwVk01QjlqLVhGSXU1ZzNLZG85cXNfdGN6NzlDRS1OV3JKSlRLU3U3SngzcUk2cjM3S0Q0dnZFbkZZb09lMXNkZzN3NDNDaFVwRGFybEY4Smo?oc=5)

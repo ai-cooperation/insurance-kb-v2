@@ -1,0 +1,20 @@
+---
+category: 市場趨勢
+date: '2026-04-15'
+importance: 中
+region: 韓國
+source: gnews_kr_en
+source_url: https://news.google.com/rss/articles/CBMikAFBVV95cUxQeVBsa2QzbjZEUUZuNkM4ZHFrYVZDMlBMVGQ1V3pKLXJremhsc2Z5MnI0bGoxODlFUFRjYUpHLTQ4eHpvekVYNUUtX1RlWEJNSWlvWHp1YlB4N2FjeXJ1S3NKMFBfbWh2aW41OXNUTmc4WEgtQ1c5QVdsQlZnRFkxMW1KOVU2TE1qcjZ6T3U1MlHSAZYBQVVfeXFMUEt5WTgxMmkzN3hIZWdXUGF2SU5EcGMzOUdYSUp3MnI2OG9JV1BVQ05WRk9NaF9vRlFiNE5nOFhzN01jYW5WcFNmWk1qcS1TTVpBNmJyZ29iX3kzLVVhdWFyVk9hNEhqWGZNcUJRNnNKRTFQRWFCM2VRemJycnZQSUpLSUNVdVFadi1YMG9qeTlDY0Y2U0F3?oc=5
+title: Ripple Targets $1T Bond Market with Korea’s Kyobo Life - CryptoNinjas
+uid: dc2b04c854c3
+---
+
+# Ripple Targets $1T Bond Market with Korea’s Kyobo Life - CryptoNinjas
+
+## 摘要
+
+Ripple Targets $1T Bond Market with Korea’s Kyobo Life&nbsp;&nbsp;CryptoNinjas
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMikAFBVV95cUxQeVBsa2QzbjZEUUZuNkM4ZHFrYVZDMlBMVGQ1V3pKLXJremhsc2Z5MnI0bGoxODlFUFRjYUpHLTQ4eHpvekVYNUUtX1RlWEJNSWlvWHp1YlB4N2FjeXJ1S3NKMFBfbWh2aW41OXNUTmc4WEgtQ1c5QVdsQlZnRFkxMW1KOVU2TE1qcjZ6T3U1MlHSAZYBQVVfeXFMUEt5WTgxMmkzN3hIZWdXUGF2SU5EcGMzOUdYSUp3MnI2OG9JV1BVQ05WRk9NaF9vRlFiNE5nOFhzN01jYW5WcFNmWk1qcS1TTVpBNmJyZ29iX3kzLVVhdWFyVk9hNEhqWGZNcUJRNnNKRTFQRWFCM2VRemJycnZQSUpLSUNVdVFadi1YMG9qeTlDY0Y2U0F3?oc=5)

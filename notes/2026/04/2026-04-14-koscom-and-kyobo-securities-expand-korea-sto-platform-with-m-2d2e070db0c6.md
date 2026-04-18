@@ -1,0 +1,21 @@
+---
+category: 市場趨勢
+date: '2026-04-14'
+importance: 中
+region: 韓國
+source: gnews_kr_en
+source_url: https://news.google.com/rss/articles/CBMigAFBVV95cUxNX09RYTdkUGtJTEQ5eTNySW1lWFhGbWFXYUgyanBhU0RVNjFQeFVMd0dFWVlDOHE5SGZwSkkxTTRMcmRNeUt1Y1RjQTNlNHBic2x4MnZwd05OVkFVNi1DcGFMeTVkTWNZZlBtLUxDQzlCQXBfZklOSVJwZlh4U2Znd9IBlAFBVV95cUxNWENCZWpZZ2kzTlRGYkp6OWwwaE8tRXFpN2F4MFRLT0IxaEhJakpNZmNCMDNVQ3J6Q3k2UjRHb193dE40YjNjNWtjanVrdEhDUGh2N1FXVEQwTVFPZXVfZWRMeDR4ZEhfaGxCOGZpVTViVERLdjNKMWc5ZmpwTnJQck92a19URUNPU1IxN3RxTnd5ZENf?oc=5
+title: Koscom and Kyobo Securities expand Korea STO platform with MOU - CHOSUNBIZ
+  - Chosunbiz
+uid: 2d2e070db0c6
+---
+
+# Koscom and Kyobo Securities expand Korea STO platform with MOU - CHOSUNBIZ - Chosunbiz
+
+## 摘要
+
+Koscom and Kyobo Securities expand Korea STO platform with MOU - CHOSUNBIZ&nbsp;&nbsp;Chosunbiz
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMigAFBVV95cUxNX09RYTdkUGtJTEQ5eTNySW1lWFhGbWFXYUgyanBhU0RVNjFQeFVMd0dFWVlDOHE5SGZwSkkxTTRMcmRNeUt1Y1RjQTNlNHBic2x4MnZwd05OVkFVNi1DcGFMeTVkTWNZZlBtLUxDQzlCQXBfZklOSVJwZlh4U2Znd9IBlAFBVV95cUxNWENCZWpZZ2kzTlRGYkp6OWwwaE8tRXFpN2F4MFRLT0IxaEhJakpNZmNCMDNVQ3J6Q3k2UjRHb193dE40YjNjNWtjanVrdEhDUGh2N1FXVEQwTVFPZXVfZWRMeDR4ZEhfaGxCOGZpVTViVERLdjNKMWc5ZmpwTnJQck92a19URUNPU1IxN3RxTnd5ZENf?oc=5)

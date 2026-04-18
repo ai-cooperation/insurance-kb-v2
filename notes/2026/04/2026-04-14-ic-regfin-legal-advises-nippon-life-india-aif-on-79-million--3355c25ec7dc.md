@@ -1,0 +1,21 @@
+---
+category: 科技應用
+date: '2026-04-14'
+importance: 中
+region: 日本
+source: gnews_jp_en
+source_url: https://news.google.com/rss/articles/CBMiugFBVV95cUxPMV9aUkV4QUlqUU1JQXJxal9kMTViLXMyVzAweEZpNmdWNXRmYXpmUDA1NTVOVTVNYVZDVHJIRG9ZMndTd2cwbGVGamJHMmVxT3JJUmtwU3ZZUUlPZUg0V1N2bEU1enJ4Ym1femVORFJ6ZHp2Y2Y2T042SV9heDJPb2tCQ1d1TEVxYnFZVEVCcmstemhnVUNRWlFwN0RTTGtwR3g4SmtxeWhJUWVWb0FSQWlDeVdtOGxBUUHSAccBQVVfeXFMTXZiNThiLVRSMjdvMGtZMGd3bi1BdjY3LTRPaEw4cFg3ZkVhUGFXU3RjUHM4LV9aOWVUUFdzVzFDN25pTGtLYUlLWE9wYmdFZ1U0Q244UDRFTUthN1pQa0g3ZkZYUXdBLXVZZDdnaHRlVU52Y2MxajZrUzV6SnVEVndiQlpwRlN5NEZaMWtNcDhsOWZGTTZNLTN4UDFNUlpVTFlaQTM2SnlUQlhlLXRNZVpGS2VZMFl2OUdib000OXFOQXVQX19saw?oc=5
+title: IC RegFin Legal advises Nippon Life India AIF on $79 million investment from
+  DWS - Bar and Bench
+uid: 3355c25ec7dc
+---
+
+# IC RegFin Legal advises Nippon Life India AIF on $79 million investment from DWS - Bar and Bench
+
+## 摘要
+
+IC RegFin Legal advises Nippon Life India AIF on $79 million investment from DWS&nbsp;&nbsp;Bar and Bench
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMiugFBVV95cUxPMV9aUkV4QUlqUU1JQXJxal9kMTViLXMyVzAweEZpNmdWNXRmYXpmUDA1NTVOVTVNYVZDVHJIRG9ZMndTd2cwbGVGamJHMmVxT3JJUmtwU3ZZUUlPZUg0V1N2bEU1enJ4Ym1femVORFJ6ZHp2Y2Y2T042SV9heDJPb2tCQ1d1TEVxYnFZVEVCcmstemhnVUNRWlFwN0RTTGtwR3g4SmtxeWhJUWVWb0FSQWlDeVdtOGxBUUHSAccBQVVfeXFMTXZiNThiLVRSMjdvMGtZMGd3bi1BdjY3LTRPaEw4cFg3ZkVhUGFXU3RjUHM4LV9aOWVUUFdzVzFDN25pTGtLYUlLWE9wYmdFZ1U0Q244UDRFTUthN1pQa0g3ZkZYUXdBLXVZZDdnaHRlVU52Y2MxajZrUzV6SnVEVndiQlpwRlN5NEZaMWtNcDhsOWZGTTZNLTN4UDFNUlpVTFlaQTM2SnlUQlhlLXRNZVpGS2VZMFl2OUdib000OXFOQXVQX19saw?oc=5)

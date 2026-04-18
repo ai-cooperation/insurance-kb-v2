@@ -1,0 +1,21 @@
+---
+category: 科技應用
+date: '2026-04-12'
+importance: 中
+region: 新加坡
+source: gnews_sg_companies_1
+source_url: https://news.google.com/rss/articles/CBMisgFBVV95cUxNS2NBT0hHVUprN3ZvWmlxNnZxd0JiVy1XMS1xeU1qQWVHYlc0Zk8wa1M4S1hGcWZnXzZwcV8tQ2pJSnlURGVRbmE4a1NweThOSHNqODFXMExrYWs1WjBoLWdrMl85Y29vNlZJakIwdWRBbnBhOUJ1aVYyb0prUUNwbEhRamhjT3lMc1dnT05CVkhzdENkNVo4SjcyalBhbExUajVURDRUdmhaUkpoa1hWYzln0gG_AUFVX3lxTE9yZ1JBcDJvRXlXb2xLdTdYRjVSSnM1MU1CdXpBVWpTRFJoNlAtRkVFYl9tdFM5MXFNVGY3MjRWQW5QcnJSdXlzb1pHRG9QS21KdXFMRENjaUZqWml5dEZhaVNVa2RycEpNcXVKSER6bnZId1pnVUhSdHdBZVRLVlEzMEZGVm9TdnQtYWdJb09nbEpKZXpoTThPNEhhajhyWjlONmNhYTFsNVBkbWMzaGh1Smp1Qk02cGM4OU9IdmhJ?oc=5
+title: Indian LPG Carrier Safely Crosses Strait of Hormuz After US-Iran Ceasefire
+  - Outlook India
+uid: 0b0a4971eedc
+---
+
+# Indian LPG Carrier Safely Crosses Strait of Hormuz After US-Iran Ceasefire - Outlook India
+
+## 摘要
+
+Indian LPG Carrier Safely Crosses Strait of Hormuz After US-Iran Ceasefire&nbsp;&nbsp;Outlook India
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMisgFBVV95cUxNS2NBT0hHVUprN3ZvWmlxNnZxd0JiVy1XMS1xeU1qQWVHYlc0Zk8wa1M4S1hGcWZnXzZwcV8tQ2pJSnlURGVRbmE4a1NweThOSHNqODFXMExrYWs1WjBoLWdrMl85Y29vNlZJakIwdWRBbnBhOUJ1aVYyb0prUUNwbEhRamhjT3lMc1dnT05CVkhzdENkNVo4SjcyalBhbExUajVURDRUdmhaUkpoa1hWYzln0gG_AUFVX3lxTE9yZ1JBcDJvRXlXb2xLdTdYRjVSSnM1MU1CdXpBVWpTRFJoNlAtRkVFYl9tdFM5MXFNVGY3MjRWQW5QcnJSdXlzb1pHRG9QS21KdXFMRENjaUZqWml5dEZhaVNVa2RycEpNcXVKSER6bnZId1pnVUhSdHdBZVRLVlEzMEZGVm9TdnQtYWdJb09nbEpKZXpoTThPNEhhajhyWjlONmNhYTFsNVBkbWMzaGh1Smp1Qk02cGM4OU9IdmhJ?oc=5)

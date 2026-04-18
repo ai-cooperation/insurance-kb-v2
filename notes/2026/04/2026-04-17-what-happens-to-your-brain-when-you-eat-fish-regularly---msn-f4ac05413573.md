@@ -1,0 +1,20 @@
+---
+category: 科技應用
+date: '2026-04-17'
+importance: 中
+region: 全球
+source: gnews_neuroscience_insurance
+source_url: https://news.google.com/rss/articles/CBMivwJBVV95cUxObjhhT21KRUFxRG1ZSkg3a2JySWp1Sm5kQ0lsTldIRzZaMUhWR2tsUUxoU2hLRUc0Tkd2b3l0NmQ4NTdqNGVKX1pCdWhUbjlNcHNOa1pVeGt2Mi0xNi0tUi1VbDNMbng3amF0aXFhZzNBQVlOSl9jcWtPX0U4ZzRjQ2d0bXBjbWJXbGU2bzlwOGJWOURERFQ3Vkk5Z0N2Ukd6SEJhNU92NTNOVVVtLWE4YXhwdTdUWFBMS0t4UFdGUElnemJZdUhDUWNEMVNhVXdGOFYzbE1adUdBMWNKa25CX2ZLcnBlZTRhNjIzd3R2YVRLOXlFOU80bmlkRHpoTTM4dVlCUTlQd1g2dXpveGRDcnk5ZzZucTRKU3Jpa1NGVlJVeUxiSnk5NXJMZXdqNVpaRzZtYi0tajZSX3J4NjA4?oc=5
+title: What happens to your brain when you eat fish regularly - MSN
+uid: f4ac05413573
+---
+
+# What happens to your brain when you eat fish regularly - MSN
+
+## 摘要
+
+What happens to your brain when you eat fish regularly&nbsp;&nbsp;MSN
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMivwJBVV95cUxObjhhT21KRUFxRG1ZSkg3a2JySWp1Sm5kQ0lsTldIRzZaMUhWR2tsUUxoU2hLRUc0Tkd2b3l0NmQ4NTdqNGVKX1pCdWhUbjlNcHNOa1pVeGt2Mi0xNi0tUi1VbDNMbng3amF0aXFhZzNBQVlOSl9jcWtPX0U4ZzRjQ2d0bXBjbWJXbGU2bzlwOGJWOURERFQ3Vkk5Z0N2Ukd6SEJhNU92NTNOVVVtLWE4YXhwdTdUWFBMS0t4UFdGUElnemJZdUhDUWNEMVNhVXdGOFYzbE1adUdBMWNKa25CX2ZLcnBlZTRhNjIzd3R2YVRLOXlFOU80bmlkRHpoTTM4dVlCUTlQd1g2dXpveGRDcnk5ZzZucTRKU3Jpa1NGVlJVeUxiSnk5NXJMZXdqNVpaRzZtYi0tajZSX3J4NjA4?oc=5)

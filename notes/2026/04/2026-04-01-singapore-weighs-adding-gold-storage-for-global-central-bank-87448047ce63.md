@@ -1,0 +1,20 @@
+---
+category: 市場趨勢
+date: '2026-04-01'
+importance: 中
+region: 新加坡
+source: gnews_mas
+source_url: https://news.google.com/rss/articles/CBMipgFBVV95cUxPT0VRc013MWM2OUFxang3LU0tbzZ4VTFGeWxwMWZSVW95c2pXNWhHc1g4N0V4N1lXVVVjNTJydG5Rc25KRUFPQWVPdm82SllTZWtTempFRGVGX09GcnRSQ2t4NFp0ZWVKWWI2SWVfTWZicllJdTJFR3FLUHNydmpfME9vUWhyNS1fa1Z2MV9BNGhTTDNUNVBnYlpqU0xNcFpkdi0zZWt30gGuAUFVX3lxTFB1OC02el90SkxiQkozdGhqSTBWVGlCRm1zUmdjd0M1MW1tZjdrYWJDM293NktoYXEydmszSEtHR2taNHVGaFhWWHJhMUxKWGdSLTUyTnNqOGlKVW9LU0tzZ0lKME54SmxpeEJjeUE5TUQ5RjFvbFNKakU5azRKX09fbDVjNXlQWTQ3aEhsQ045aDFlRTVQaW40cEFlUzIwdDV5ZFhRUVdXUXdaM2N6UQ?oc=5
+title: Singapore Weighs Adding Gold Storage For Global Central Banks - NDTV Profit
+uid: 87448047ce63
+---
+
+# Singapore Weighs Adding Gold Storage For Global Central Banks - NDTV Profit
+
+## 摘要
+
+Singapore Weighs Adding Gold Storage For Global Central Banks&nbsp;&nbsp;NDTV Profit
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMipgFBVV95cUxPT0VRc013MWM2OUFxang3LU0tbzZ4VTFGeWxwMWZSVW95c2pXNWhHc1g4N0V4N1lXVVVjNTJydG5Rc25KRUFPQWVPdm82SllTZWtTempFRGVGX09GcnRSQ2t4NFp0ZWVKWWI2SWVfTWZicllJdTJFR3FLUHNydmpfME9vUWhyNS1fa1Z2MV9BNGhTTDNUNVBnYlpqU0xNcFpkdi0zZWt30gGuAUFVX3lxTFB1OC02el90SkxiQkozdGhqSTBWVGlCRm1zUmdjd0M1MW1tZjdrYWJDM293NktoYXEydmszSEtHR2taNHVGaFhWWHJhMUxKWGdSLTUyTnNqOGlKVW9LU0tzZ0lKME54SmxpeEJjeUE5TUQ5RjFvbFNKakU5azRKX09fbDVjNXlQWTQ3aEhsQ045aDFlRTVQaW40cEFlUzIwdDV5ZFhRUVdXUXdaM2N6UQ?oc=5)

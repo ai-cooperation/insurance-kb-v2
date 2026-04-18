@@ -1,0 +1,21 @@
+---
+category: 科技應用
+date: '2026-04-16'
+importance: 中
+region: 全球
+source: gnews_esg_insurance
+source_url: https://news.google.com/rss/articles/CBMilgFBVV95cUxNUzRYdWxoMDFCOUw4N2ZrbE41TjJsMTJ3ZTFMN1o3d3RQRHgtVDVGc0hOMmRjSHRsNlcwMC00ZjBGeVVjU2dzQXMyRjBUX3FOSS1ua0V2cW5LTVJCZWRIbl9aNnhxNXJsZGxrY2FGSm5jTUpRU2dFYUhYaVEyUm8xdVJqZmMzR2Z6TmMteUdyQ25IMS1QZlHSAZsBQVVfeXFMTmNRZ1JWUnJ4cFRhTHNGR2J1bGsyMGpBUWV3cUV3eENwWFJoTnhPamJMb0hJY3dzMFlXRUhrT3o0c3ZsbVpVd0d1VHJGbzRNT3IxOTlpWjdGbDRxdjdfbFRoR0Z2bkRCbXlndTNkTFBsaUJBaG5qa245b1p1dHlUY0FtVkJNMW9LbVZjNTBVamk0Z3lnTjdoa21tNk0?oc=5
+title: UNDP, NAICOM move to expand climate risk insurance in Nigeria - The Nation
+  Newspaper
+uid: cfd4eb49c26b
+---
+
+# UNDP, NAICOM move to expand climate risk insurance in Nigeria - The Nation Newspaper
+
+## 摘要
+
+UNDP, NAICOM move to expand climate risk insurance in Nigeria&nbsp;&nbsp;The Nation Newspaper
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMilgFBVV95cUxNUzRYdWxoMDFCOUw4N2ZrbE41TjJsMTJ3ZTFMN1o3d3RQRHgtVDVGc0hOMmRjSHRsNlcwMC00ZjBGeVVjU2dzQXMyRjBUX3FOSS1ua0V2cW5LTVJCZWRIbl9aNnhxNXJsZGxrY2FGSm5jTUpRU2dFYUhYaVEyUm8xdVJqZmMzR2Z6TmMteUdyQ25IMS1QZlHSAZsBQVVfeXFMTmNRZ1JWUnJ4cFRhTHNGR2J1bGsyMGpBUWV3cUV3eENwWFJoTnhPamJMb0hJY3dzMFlXRUhrT3o0c3ZsbVpVd0d1VHJGbzRNT3IxOTlpWjdGbDRxdjdfbFRoR0Z2bkRCbXlndTNkTFBsaUJBaG5qa245b1p1dHlUY0FtVkJNMW9LbVZjNTBVamk0Z3lnTjdoa21tNk0?oc=5)

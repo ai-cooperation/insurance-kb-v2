@@ -1,0 +1,20 @@
+---
+category: 市場趨勢
+date: '2026-04-17'
+importance: 中
+region: 日本
+source: gnews_jp_en
+source_url: https://news.google.com/rss/articles/CBMiygJBVV95cUxNVG9iYUp4V0YzSHJzTmd6MGNqM242ZmNEX2dvS1VwZmNZZk9yNGViNEEyeTB1TUFlUmotT01fWk9sYzVOXzdCVUpPdXdCbmQzd0Fmd3hnQ1VHLWotZW5LWmpaZDlld2VzajFRRHU5WFlRd0ZoenJoc2FKVEpqQy0xdGItV0EzSGp1Y0N5M29ZUXJFVU1IbmY1bDlwMXl0US11QnMwWnZocC1Za3A1WEs0b0hnYkt3SzhFZGI5Zk5WcXF0VHgta1FiUExSWmNRdjFiOFVwVEpsSTBnNEtnTExtZUgycnJmSE5NcFVZSHg2SHFBalJnelNzQzYwUms1UVpFTmJxcU1KZU5CY3JxRnJDRGNzME9SX21GLWxfdFg5T240WV9wUnNkX25RdElFR2trQjZmOUNNM2lSN2F4MG15UEZUVVNXZzhJVWc?oc=5
+title: Aspen stock jumps on ~$3.5B acquisition by Japan-based Sompo - MSN
+uid: 6902ad3843b6
+---
+
+# Aspen stock jumps on ~$3.5B acquisition by Japan-based Sompo - MSN
+
+## 摘要
+
+Aspen stock jumps on ~$3.5B acquisition by Japan-based Sompo&nbsp;&nbsp;MSN
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMiygJBVV95cUxNVG9iYUp4V0YzSHJzTmd6MGNqM242ZmNEX2dvS1VwZmNZZk9yNGViNEEyeTB1TUFlUmotT01fWk9sYzVOXzdCVUpPdXdCbmQzd0Fmd3hnQ1VHLWotZW5LWmpaZDlld2VzajFRRHU5WFlRd0ZoenJoc2FKVEpqQy0xdGItV0EzSGp1Y0N5M29ZUXJFVU1IbmY1bDlwMXl0US11QnMwWnZocC1Za3A1WEs0b0hnYkt3SzhFZGI5Zk5WcXF0VHgta1FiUExSWmNRdjFiOFVwVEpsSTBnNEtnTExtZUgycnJmSE5NcFVZSHg2SHFBalJnelNzQzYwUms1UVpFTmJxcU1KZU5CY3JxRnJDRGNzME9SX21GLWxfdFg5T240WV9wUnNkX25RdElFR2trQjZmOUNNM2lSN2F4MG15UEZUVVNXZzhJVWc?oc=5)

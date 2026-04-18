@@ -1,0 +1,20 @@
+---
+category: 市場趨勢
+date: '2026-04-17'
+importance: 中
+region: 全球
+source: gnews_consultants
+source_url: https://news.google.com/rss/articles/CBMi9wFBVV95cUxOXzZ2bVlnLUl4bTItWk1JbUZRQnJ1a1prZWJmVTFUUHhGbEJINzQ1UDRxSFVrZUhCOE1ZQUtpc3MwMloybUw2UElsaVpVT2hBUm1FVmpnZ0cwaTVwVXo3OU8zbUhxTmlfRldtSm42bjNGOGhNSXJiQnRuWjAtX080ZW16cHh6RFU1MVVYTFVCc3dLR1lfM202ZmUtelU0VnByU0s3U1Z0Nnlvb1dadTByMEhGbUZ0VlJTZlB2cHl4aklyWjM5bkY2aktkb0NRY3RkWWhCdUJYTG5VVExCdnZmV1ctS1BPekNVTFZ2OGpFYUE2MjViV09j?oc=5
+title: WorldClass - SolarBuddy - Deloitte
+uid: 5ba0119e1760
+---
+
+# WorldClass - SolarBuddy - Deloitte
+
+## 摘要
+
+WorldClass - SolarBuddy&nbsp;&nbsp;Deloitte
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMi9wFBVV95cUxOXzZ2bVlnLUl4bTItWk1JbUZRQnJ1a1prZWJmVTFUUHhGbEJINzQ1UDRxSFVrZUhCOE1ZQUtpc3MwMloybUw2UElsaVpVT2hBUm1FVmpnZ0cwaTVwVXo3OU8zbUhxTmlfRldtSm42bjNGOGhNSXJiQnRuWjAtX080ZW16cHh6RFU1MVVYTFVCc3dLR1lfM202ZmUtelU0VnByU0s3U1Z0Nnlvb1dadTByMEhGbUZ0VlJTZlB2cHl4aklyWjM5bkY2aktkb0NRY3RkWWhCdUJYTG5VVExCdnZmV1ctS1BPekNVTFZ2OGpFYUE2MjViV09j?oc=5)

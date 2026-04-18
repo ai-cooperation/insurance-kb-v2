@@ -1,0 +1,20 @@
+---
+category: 產品創新
+date: '2026-04-15'
+importance: 高
+region: 全球
+source: gnews_munichre
+source_url: https://news.google.com/rss/articles/CBMizwFBVV95cUxQdGZmR3FGYWhUTFFjeGZJWk85REpWLUFMUjg3Unp5QmZaUnFZWjlFTEZMWmRVRlZKZmh2Rmhub1Qxa3JoRmRIVEFkdWRpeEhjQVhjTWJnSFNZVEpPcVI1OUlPLWcwOWktaVdtZ0JNaWNKVlhKakFIZTEzQWJHclFlUkZWVklQak1mQXg4VE5NWmNVNmkzZXNWcGFoZGNqM0hhS3F3aDY1VnBVMGFrSEJ4ak9OQ19LMWd5V0MtNlhpNjVqdVVIUF8xN1BITGgxYVnSAXBBVV95cUxPRjFPYXpydVRVdzdDU1hjQmJqbnBSSDViZUNGYWtrNk9mZnBXVFdQOHpYUzJXeHVacjQtMU54ZkEtZlpiRXVMUkprblVVZjRTb2kyVW5tZERwZnotRnlfVEJwRFRVLWg4Q1ZHR3RkVkQw?oc=5
+title: Risk Agency Drops Munich Re Suit Over Sex Abuse Coverage - Law360
+uid: ee1e11a800a9
+---
+
+# Risk Agency Drops Munich Re Suit Over Sex Abuse Coverage - Law360
+
+## 摘要
+
+Risk Agency Drops Munich Re Suit Over Sex Abuse Coverage&nbsp;&nbsp;Law360
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMizwFBVV95cUxQdGZmR3FGYWhUTFFjeGZJWk85REpWLUFMUjg3Unp5QmZaUnFZWjlFTEZMWmRVRlZKZmh2Rmhub1Qxa3JoRmRIVEFkdWRpeEhjQVhjTWJnSFNZVEpPcVI1OUlPLWcwOWktaVdtZ0JNaWNKVlhKakFIZTEzQWJHclFlUkZWVklQak1mQXg4VE5NWmNVNmkzZXNWcGFoZGNqM0hhS3F3aDY1VnBVMGFrSEJ4ak9OQ19LMWd5V0MtNlhpNjVqdVVIUF8xN1BITGgxYVnSAXBBVV95cUxPRjFPYXpydVRVdzdDU1hjQmJqbnBSSDViZUNGYWtrNk9mZnBXVFdQOHpYUzJXeHVacjQtMU54ZkEtZlpiRXVMUkprblVVZjRTb2kyVW5tZERwZnotRnlfVEJwRFRVLWg4Q1ZHR3RkVkQw?oc=5)

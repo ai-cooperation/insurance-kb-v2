@@ -1,0 +1,21 @@
+---
+category: 科技應用
+date: '2026-04-16'
+importance: 中
+region: 新加坡
+source: gnews_sg_companies_1
+source_url: https://news.google.com/rss/articles/CBMivAFBVV95cUxOUE9wRzVJc21uUnBhQThGZFJyZUNNRDZnTURrRGE3clFIaFRDdXNVd1k2M3B4T0xkaFRxd2tLY09ua1RNa0d5bFd5YzhoVTVWeFRPQXZvSG1mV19zYmZqS1N1S0puZzUyX1VwYnhMdjRzWVh4aTRmRFdveUtUVFFxaFpZdFlCYzd3RlNiaWhHMnNMSzB2aG1hTFU5eEZ5QWs1UVNIeUxhRVhIZXlFV2tpMGdVRElmUWwtdjM3dNIBwgFBVV95cUxQSTdyeEZwWEJiTlVIUGNDc0k2b0EydGVIWnh2MEhKWk5qdlloOGdOVVNIS3k0Y1BVZ1FRT0g5dURCaURwSUZVTk9qNF83ZHY4bmY2OFNVbFhWMUFjM3NZSXBJcU1BVXFBT1JhYmFpY1M1dk5KYjBxVUZ2NG1SNG1EZWJfZnVZV05VTlpsXzFPZ0s0X3ZfaWtfU1h6SnBiSmlqdkdIaG9hOE1YeW5SbjVKQlZBdEk4bGxvYzRzRDVWcmtNQQ?oc=5
+title: No further chances on GEH privatisation, says OCBC chairman Andrew Lee - The
+  Edge Singapore
+uid: 4bb06e007050
+---
+
+# No further chances on GEH privatisation, says OCBC chairman Andrew Lee - The Edge Singapore
+
+## 摘要
+
+No further chances on GEH privatisation, says OCBC chairman Andrew Lee&nbsp;&nbsp;The Edge Singapore
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMivAFBVV95cUxOUE9wRzVJc21uUnBhQThGZFJyZUNNRDZnTURrRGE3clFIaFRDdXNVd1k2M3B4T0xkaFRxd2tLY09ua1RNa0d5bFd5YzhoVTVWeFRPQXZvSG1mV19zYmZqS1N1S0puZzUyX1VwYnhMdjRzWVh4aTRmRFdveUtUVFFxaFpZdFlCYzd3RlNiaWhHMnNMSzB2aG1hTFU5eEZ5QWs1UVNIeUxhRVhIZXlFV2tpMGdVRElmUWwtdjM3dNIBwgFBVV95cUxQSTdyeEZwWEJiTlVIUGNDc0k2b0EydGVIWnh2MEhKWk5qdlloOGdOVVNIS3k0Y1BVZ1FRT0g5dURCaURwSUZVTk9qNF83ZHY4bmY2OFNVbFhWMUFjM3NZSXBJcU1BVXFBT1JhYmFpY1M1dk5KYjBxVUZ2NG1SNG1EZWJfZnVZV05VTlpsXzFPZ0s0X3ZfaWtfU1h6SnBiSmlqdkdIaG9hOE1YeW5SbjVKQlZBdEk4bGxvYzRzRDVWcmtNQQ?oc=5)

@@ -1,0 +1,21 @@
+---
+category: 市場趨勢
+date: '2026-04-15'
+importance: 中
+region: 全球
+source: gnews_consultants
+source_url: https://news.google.com/rss/articles/CBMi8AFBVV95cUxOQ2x6UVFBaWt3bG5iUXJ0a2d6LUlZdDZoVWFudHZ0RU5sTEptSk01eUxVSlNGTG1LX2RMbjhJY1V1cW0wdDhDZjlEWTVTZzBVUE9LbU1NRHplUU02M3d0SkxQM3owZ0pKNzFUQ25vTW9QRVEzYzFXbWZDVE9RSXZGUjA0aXlORjNNT2Q0RlFoT2ZFOXlaYVlGa1d1MEZoVDJjWDJkTWp5UVJQQkpwMERaVzhpU2ZFMGd1UmxKRURnT3k1MlF0NEJXSlZ0VEdYc0JUTWVJeExsMmJrNFdBU1BHOWZVVlp6ZjFZVXF1X3NsZXk?oc=5
+title: Harnessing private capital in turbulent times through infra stimulus programs
+  - Deloitte
+uid: b9d8347e857e
+---
+
+# Harnessing private capital in turbulent times through infra stimulus programs - Deloitte
+
+## 摘要
+
+Harnessing private capital in turbulent times through infra stimulus programs&nbsp;&nbsp;Deloitte
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMi8AFBVV95cUxOQ2x6UVFBaWt3bG5iUXJ0a2d6LUlZdDZoVWFudHZ0RU5sTEptSk01eUxVSlNGTG1LX2RMbjhJY1V1cW0wdDhDZjlEWTVTZzBVUE9LbU1NRHplUU02M3d0SkxQM3owZ0pKNzFUQ25vTW9QRVEzYzFXbWZDVE9RSXZGUjA0aXlORjNNT2Q0RlFoT2ZFOXlaYVlGa1d1MEZoVDJjWDJkTWp5UVJQQkpwMERaVzhpU2ZFMGd1UmxKRURnT3k1MlF0NEJXSlZ0VEdYc0JUTWVJeExsMmJrNFdBU1BHOWZVVlp6ZjFZVXF1X3NsZXk?oc=5)

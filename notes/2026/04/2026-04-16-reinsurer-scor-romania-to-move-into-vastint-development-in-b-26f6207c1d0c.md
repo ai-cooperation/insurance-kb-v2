@@ -1,0 +1,21 @@
+---
+category: 再保市場
+date: '2026-04-16'
+importance: 中
+region: 全球
+source: gnews_reinsurers
+source_url: https://news.google.com/rss/articles/CBMiggFBVV95cUxNS1laQ0tKcy1lUlZqTkRIc2EyVDZldm00aE9FeWt0dy1Tc0F4SnJ1a2RZLUlfVlNQV2s5V3dpRTdMN2l0RFBaQVRNMzNVMnVVUjgzdlItekNaYl9oNVVzelJqeWpnNEJWTllUZWVGWGxKc2dSd3p3c001LU9GS3VnTU1n0gGHAUFVX3lxTE9BazM4SlpQQ2RxNkdoNk1mODJqRzg5dksxS1Q3Mmw4VkVGaXpCUGN3ZkZIc25UUGFES1AwbzY3T1M3QWxFMVJpbjhuX1lIS1lBUGVZV0FybmJ1ZDMxclJPdjFaS01HT0pWa0pYZzJaU0Y1eWhKMF93SG42Q2t1aWVtRGw4Z05Obw?oc=5
+title: Reinsurer SCOR Romania to move into Vastint development in Bucharest - Romania
+  Insider
+uid: 26f6207c1d0c
+---
+
+# Reinsurer SCOR Romania to move into Vastint development in Bucharest - Romania Insider
+
+## 摘要
+
+Reinsurer SCOR Romania to move into Vastint development in Bucharest&nbsp;&nbsp;Romania Insider
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMiggFBVV95cUxNS1laQ0tKcy1lUlZqTkRIc2EyVDZldm00aE9FeWt0dy1Tc0F4SnJ1a2RZLUlfVlNQV2s5V3dpRTdMN2l0RFBaQVRNMzNVMnVVUjgzdlItekNaYl9oNVVzelJqeWpnNEJWTllUZWVGWGxKc2dSd3p3c001LU9GS3VnTU1n0gGHAUFVX3lxTE9BazM4SlpQQ2RxNkdoNk1mODJqRzg5dksxS1Q3Mmw4VkVGaXpCUGN3ZkZIc25UUGFES1AwbzY3T1M3QWxFMVJpbjhuX1lIS1lBUGVZV0FybmJ1ZDMxclJPdjFaS01HT0pWa0pYZzJaU0Y1eWhKMF93SG42Q2t1aWVtRGw4Z05Obw?oc=5)

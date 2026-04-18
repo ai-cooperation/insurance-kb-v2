@@ -1,0 +1,21 @@
+---
+category: 市場趨勢
+date: '2026-04-15'
+importance: 中
+region: 韓國
+source: gnews_kr_en
+source_url: https://news.google.com/rss/articles/CBMilwFBVV95cUxPRXFvalI2MTFzYy1iR3pFOTJuaGxBYUV4RktOem9iVkt0RURKYzlVd2laa3RHaHdscVF1Z2poTGtNM0tmODBZQTA4amM4SU91cUNVUGIyT0VnaWtsZ2NrMGxZczN0WUtvSGxra3p2ZE5fLXB4c3lTTUVPeDNFZGNTQnBmMHI0WGZSajVFZjUzWE51enhLbm5Z0gGXAUFVX3lxTE9FcW9qUjYxMXNjLWJHekU5Mm5obEFhRXhGS056b2JWS3RFREpjOVV3aVprdEdod2xxUXVnamhMa00zS2Y4MFlBMDhqYzhJT3VxQ1VQYjJPRWdpa2xnY2swbFlzM3RZS29IbGtrenZkTl8tcHhzeVNNRU94M0VkY1NCcGYwcjRYZlJqNUVmNTNYTnV6eEtublk?oc=5
+title: '[Photo] Daejeon Hanwha Life Insurance Ballpark sells out all seats - CHOSUNBIZ
+  - Chosunbiz'
+uid: e7ee12cbbdc2
+---
+
+# [Photo] Daejeon Hanwha Life Insurance Ballpark sells out all seats - CHOSUNBIZ - Chosunbiz
+
+## 摘要
+
+[Photo] Daejeon Hanwha Life Insurance Ballpark sells out all seats - CHOSUNBIZ&nbsp;&nbsp;Chosunbiz
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMilwFBVV95cUxPRXFvalI2MTFzYy1iR3pFOTJuaGxBYUV4RktOem9iVkt0RURKYzlVd2laa3RHaHdscVF1Z2poTGtNM0tmODBZQTA4amM4SU91cUNVUGIyT0VnaWtsZ2NrMGxZczN0WUtvSGxra3p2ZE5fLXB4c3lTTUVPeDNFZGNTQnBmMHI0WGZSajVFZjUzWE51enhLbm5Z0gGXAUFVX3lxTE9FcW9qUjYxMXNjLWJHekU5Mm5obEFhRXhGS056b2JWS3RFREpjOVV3aVprdEdod2xxUXVnamhMa00zS2Y4MFlBMDhqYzhJT3VxQ1VQYjJPRWdpa2xnY2swbFlzM3RZS29IbGtrenZkTl8tcHhzeVNNRU94M0VkY1NCcGYwcjRYZlJqNUVmNTNYTnV6eEtublk?oc=5)

@@ -1,0 +1,21 @@
+---
+category: 科技應用
+date: '2026-04-16'
+importance: 中
+region: 全球
+source: gnews_neuroscience_insurance
+source_url: https://news.google.com/rss/articles/CBMi-gJBVV95cUxQU0VZN3d2bmw1MTlRZ1NqLTE4RGl3U19DMC14OEIxRmF1Z2h0b1BVeHNOWURBTWp6N01ydkpQZTVaMlptb1VrZWVHQUVCbnotRjJDT2RlOGM2TGxXaWU4clNfaHhWaGhNZXlVM1VKWmRUbFoxclIzWWhNNTgyT25WRzMwajNSNVhZeTBUQ1hHTUE5OUJjcnhvOUN0NEVUZFJqb0J6cFdpa1hudFdUTlZUSmNKUktZZWVxT29WUVJlOXNuV3hDREFrYTlfeENKUXUwWk1lVFRLSlY2UGFsWlRuRUhjcUFKbzF2ekk3bEUzeTdERDE5enBJWW9Rd0xJVFFYYTRjXzhFYWJMaGtSYTZYX0VBTmVERzQyOGJnSF84RWJNVjBoUS1PWmhRVVZaWnQyS1FLNWt4cXNjLXp4alFIa0pGQ2lzTmtwNHVUMS1pOTRxaHNYeTlneVZHa3pRbXBMR3N3c2FnMkQzYTFTUmFvTFE4WEVjWUVmLXc?oc=5
+title: Brain health startup Ivory develops 'treadmill test' for brain; focusses on
+  cognitive health in India - MSN
+uid: 62af4c6be9d9
+---
+
+# Brain health startup Ivory develops 'treadmill test' for brain; focusses on cognitive health in India - MSN
+
+## 摘要
+
+Brain health startup Ivory develops 'treadmill test' for brain; focusses on cognitive health in India&nbsp;&nbsp;MSN
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMi-gJBVV95cUxQU0VZN3d2bmw1MTlRZ1NqLTE4RGl3U19DMC14OEIxRmF1Z2h0b1BVeHNOWURBTWp6N01ydkpQZTVaMlptb1VrZWVHQUVCbnotRjJDT2RlOGM2TGxXaWU4clNfaHhWaGhNZXlVM1VKWmRUbFoxclIzWWhNNTgyT25WRzMwajNSNVhZeTBUQ1hHTUE5OUJjcnhvOUN0NEVUZFJqb0J6cFdpa1hudFdUTlZUSmNKUktZZWVxT29WUVJlOXNuV3hDREFrYTlfeENKUXUwWk1lVFRLSlY2UGFsWlRuRUhjcUFKbzF2ekk3bEUzeTdERDE5enBJWW9Rd0xJVFFYYTRjXzhFYWJMaGtSYTZYX0VBTmVERzQyOGJnSF84RWJNVjBoUS1PWmhRVVZaWnQyS1FLNWt4cXNjLXp4alFIa0pGQ2lzTmtwNHVUMS1pOTRxaHNYeTlneVZHa3pRbXBMR3N3c2FnMkQzYTFTUmFvTFE4WEVjWUVmLXc?oc=5)

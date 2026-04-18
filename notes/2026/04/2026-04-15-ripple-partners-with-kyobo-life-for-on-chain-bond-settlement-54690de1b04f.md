@@ -1,0 +1,20 @@
+---
+category: 科技應用
+date: '2026-04-15'
+importance: 中
+region: 韓國
+source: gnews_kr_en
+source_url: https://news.google.com/rss/articles/CBMirgFBVV95cUxPNGNkZ2NSdWYwNjBTeVlYN2NYcm9mV0pmb2hSZGJOalh6WVI3SHRWTlZYX25tbV9GZ1VCTWNHRWt6c2Y5eHN0Z2xBUGhRaUx1M3F2VHVfWkpuaVNMeGlDQUd3cmprcjJUYTJvQ0NEN1JEODlZWkRPQkhZRWNZN19GdlM3TkRVeGhfOUZEWUNsNHlRd0FRWC1ZSUpqdmlBVUtGYmJjNlRQeWQyLWJWR1HSAbMBQVVfeXFMTWR0dEM4VXlLdHh4RTVoc3I3S1NlZTB0TUFKa1NST1R1ZmdERnBOTUFMdE0xTnk4ODhMVzkwalpDb0QwNmY3ODhJWlN0end2ZVRGbXNGYUlUblhIRHdaNTI3T2IyWlMyZ3QxbnhEdzhjQXpGaG9pTmRBQ3dWVHRIZTNyM0tnTVdmUkhLUnJqQm9GUkE4UGFiS1RWMFVxeWtBb19pVVpXbHFqS2R4U1N5YzhOMHM?oc=5
+title: Ripple Partners With Kyobo Life for On-Chain Bond Settlement in Korea - Coinpedia
+uid: 54690de1b04f
+---
+
+# Ripple Partners With Kyobo Life for On-Chain Bond Settlement in Korea - Coinpedia
+
+## 摘要
+
+Ripple Partners With Kyobo Life for On-Chain Bond Settlement in Korea&nbsp;&nbsp;Coinpedia
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMirgFBVV95cUxPNGNkZ2NSdWYwNjBTeVlYN2NYcm9mV0pmb2hSZGJOalh6WVI3SHRWTlZYX25tbV9GZ1VCTWNHRWt6c2Y5eHN0Z2xBUGhRaUx1M3F2VHVfWkpuaVNMeGlDQUd3cmprcjJUYTJvQ0NEN1JEODlZWkRPQkhZRWNZN19GdlM3TkRVeGhfOUZEWUNsNHlRd0FRWC1ZSUpqdmlBVUtGYmJjNlRQeWQyLWJWR1HSAbMBQVVfeXFMTWR0dEM4VXlLdHh4RTVoc3I3S1NlZTB0TUFKa1NST1R1ZmdERnBOTUFMdE0xTnk4ODhMVzkwalpDb0QwNmY3ODhJWlN0end2ZVRGbXNGYUlUblhIRHdaNTI3T2IyWlMyZ3QxbnhEdzhjQXpGaG9pTmRBQ3dWVHRIZTNyM0tnTVdmUkhLUnJqQm9GUkE4UGFiS1RWMFVxeWtBb19pVVpXbHFqS2R4U1N5YzhOMHM?oc=5)

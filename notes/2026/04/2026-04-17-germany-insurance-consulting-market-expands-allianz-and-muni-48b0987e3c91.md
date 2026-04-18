@@ -1,0 +1,21 @@
+---
+category: 市場趨勢
+date: '2026-04-17'
+importance: 中
+region: 全球
+source: gnews_reinsurers
+source_url: https://news.google.com/rss/articles/CBMisgFBVV95cUxQS2tqMm1JNV9zM0hFM3BQVVlQcGwtVy1UY1pjTE9GOFdRVkxST2cxLXI3TkdsMEFDbWlmN2lSalpUaXBnTWpEQlU1N3lhOFhWbUZ4Nkx6M1lJZHMzRS1xc1FVTEN6SEh0ZnViQS02WWJ1U3VCSS1yeXRQdEVPVWtwdk5jRzl6T2lMWXVzdFFFS2xtVUNHb0VmTXhTcGY2OFNpb1dweW9ld1BKdC1ITnpSWVdn0gG3AUFVX3lxTE9OSjRpY3ZhZ21aSkNrdkpMNWhLaTFQWnpySXFrM2R6VDVlZUYwa1psaG5TbVZWdXhDWUhVNG1BakV3UWVraVIyeFRjRGRoaW1GY0F3dl9vaHhjeVUyOFJ6T2lqN2R1U3VTMWJ6ZHp3cUg5YTVyc2lTeU1TYl9FVmZXNzRCcmtmbWVYa2NKRXVjZnlCQVV5eFE5dzRrby10MXJZY3U1ejZVeng0RzEzcm9lekVIVG1DYw?oc=5
+title: Germany Insurance Consulting Market Expands; Allianz and Munich Re Lead - EIN
+  News
+uid: 48b0987e3c91
+---
+
+# Germany Insurance Consulting Market Expands; Allianz and Munich Re Lead - EIN News
+
+## 摘要
+
+Germany Insurance Consulting Market Expands; Allianz and Munich Re Lead&nbsp;&nbsp;EIN News
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMisgFBVV95cUxQS2tqMm1JNV9zM0hFM3BQVVlQcGwtVy1UY1pjTE9GOFdRVkxST2cxLXI3TkdsMEFDbWlmN2lSalpUaXBnTWpEQlU1N3lhOFhWbUZ4Nkx6M1lJZHMzRS1xc1FVTEN6SEh0ZnViQS02WWJ1U3VCSS1yeXRQdEVPVWtwdk5jRzl6T2lMWXVzdFFFS2xtVUNHb0VmTXhTcGY2OFNpb1dweW9ld1BKdC1ITnpSWVdn0gG3AUFVX3lxTE9OSjRpY3ZhZ21aSkNrdkpMNWhLaTFQWnpySXFrM2R6VDVlZUYwa1psaG5TbVZWdXhDWUhVNG1BakV3UWVraVIyeFRjRGRoaW1GY0F3dl9vaHhjeVUyOFJ6T2lqN2R1U3VTMWJ6ZHp3cUg5YTVyc2lTeU1TYl9FVmZXNzRCcmtmbWVYa2NKRXVjZnlCQVV5eFE5dzRrby10MXJZY3U1ejZVeng0RzEzcm9lekVIVG1DYw?oc=5)

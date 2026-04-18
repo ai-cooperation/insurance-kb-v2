@@ -1,0 +1,21 @@
+---
+category: 科技應用
+date: '2026-04-14'
+importance: 中
+region: 新加坡
+source: gnews_mas
+source_url: https://news.google.com/rss/articles/CBMikwJBVV95cUxQRTRtbUlwYmoyRXcyVTJwblNXYnp5SjVFMDBtSW1QVVpGdjY2am9ocGFzVHlpdnlwWGZMd2U2SkwweGQxSHlyWEoyUXdlcEVxcDRnYTZFWE9maWh2VWRIMkNuclJDQmtKTVh1NGFReUhJaEQwZzNjM05NU20xWXhDbVNoTThCOHBEcHNmcVltTWZoQ3RoaEVFUFhKUTFRSUpqTGxIZHBraU8tY3dBZXBkLWVsMDlJOXplbGNBeno3TUdvMU1ydk5ZeEJzNG9haUdQeHhiamR4RC1QQkFvQUphRXR1ZDhmaHFxSW1sTlNhSHRIMXZFYVhacHcyd3BrTE1OQ3pTSjRBMzZyVC1MWGV5am02UQ?oc=5
+title: Responsible Fintech Institute Strengthens Global Policy Leadership with Appointment
+  of Two Executive Fellows Amid Growing Complexity in Digital Finance - Chainwire
+uid: 5a8201223973
+---
+
+# Responsible Fintech Institute Strengthens Global Policy Leadership with Appointment of Two Executive Fellows Amid Growing Complexity in Digital Finance - Chainwire
+
+## 摘要
+
+Responsible Fintech Institute Strengthens Global Policy Leadership with Appointment of Two Executive Fellows Amid Growing Complexity in Digital Finance&nbsp;&nbsp;Chainwire
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMikwJBVV95cUxQRTRtbUlwYmoyRXcyVTJwblNXYnp5SjVFMDBtSW1QVVpGdjY2am9ocGFzVHlpdnlwWGZMd2U2SkwweGQxSHlyWEoyUXdlcEVxcDRnYTZFWE9maWh2VWRIMkNuclJDQmtKTVh1NGFReUhJaEQwZzNjM05NU20xWXhDbVNoTThCOHBEcHNmcVltTWZoQ3RoaEVFUFhKUTFRSUpqTGxIZHBraU8tY3dBZXBkLWVsMDlJOXplbGNBeno3TUdvMU1ydk5ZeEJzNG9haUdQeHhiamR4RC1QQkFvQUphRXR1ZDhmaHFxSW1sTlNhSHRIMXZFYVhacHcyd3BrTE1OQ3pTSjRBMzZyVC1MWGV5am02UQ?oc=5)

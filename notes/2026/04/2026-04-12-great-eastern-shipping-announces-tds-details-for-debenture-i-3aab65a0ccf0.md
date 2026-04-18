@@ -1,0 +1,21 @@
+---
+category: 科技應用
+date: '2026-04-12'
+importance: 中
+region: 新加坡
+source: gnews_sg_companies_1
+source_url: https://news.google.com/rss/articles/CBMi-wFBVV95cUxOdVdHQk45ZXlxYlpyQUp5Vk9xOWpma292WWNOa3EzbTBqd1ZoYnFpRlZaRGE3eWhLNXZZeGJELVFQY01QQ05PeHlHLWZ5eENuN3ZoMlNBN3c4Nnpwb1lFcHB4VnRENkt1VE55Nnd1TzR3eW1JRFhmN19qcVhvTEFIVHB3Y3NEeXRWZEk1aVplMk1EZlVhemJkbV80Y1BFRk1YenVQQXRaUmw1Mk52MGxtb2otcGp0RElLZWx6bWc5WVNvVnQzbnUyNS12a1F5ODhhMlV0c1FMNU16d3ZQcm9UMnQ3R1otdUFVcnJvSGw4anBkdlNfNTBaUEg5RQ?oc=5
+title: Great Eastern Shipping announces TDS details for debenture interest payments
+  - Dailyhunt
+uid: 3aab65a0ccf0
+---
+
+# Great Eastern Shipping announces TDS details for debenture interest payments - Dailyhunt
+
+## 摘要
+
+Great Eastern Shipping announces TDS details for debenture interest payments&nbsp;&nbsp;Dailyhunt
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMi-wFBVV95cUxOdVdHQk45ZXlxYlpyQUp5Vk9xOWpma292WWNOa3EzbTBqd1ZoYnFpRlZaRGE3eWhLNXZZeGJELVFQY01QQ05PeHlHLWZ5eENuN3ZoMlNBN3c4Nnpwb1lFcHB4VnRENkt1VE55Nnd1TzR3eW1JRFhmN19qcVhvTEFIVHB3Y3NEeXRWZEk1aVplMk1EZlVhemJkbV80Y1BFRk1YenVQQXRaUmw1Mk52MGxtb2otcGp0RElLZWx6bWc5WVNvVnQzbnUyNS12a1F5ODhhMlV0c1FMNU16d3ZQcm9UMnQ3R1otdUFVcnJvSGw4anBkdlNfNTBaUEg5RQ?oc=5)

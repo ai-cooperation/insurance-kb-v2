@@ -1,0 +1,21 @@
+---
+category: 產品創新
+date: '2026-04-15'
+importance: 中
+region: 韓國
+source: gnews_kr_en
+source_url: https://news.google.com/rss/articles/CBMipgFBVV95cUxORWVleFVwd0ZPVTMzc0EtV2hTbXV1SzRJTm5Hb2hvbnNualhEZW9ueVd4X0JwRDY3aHNZdGtuQ19PRjBpYlpKZDJIVGR4LV9Zb2pXX3NzSVFmelU2QkJveVp3SjN4ckItUjlmSTlJNWp2akwybXpieFRqUkFHbEx2aUlCM1M2LW5QV29EWlNlcUlrb25HNWRsME1yaUhxSW1nbks5VEV30gGrAUFVX3lxTE5ncWxGVGU0bjYtMlMzYmRyWWplYWxsVUpBNlRUaVhpWWJqUFJYWGNxOGoxMG9hUWx1Ti1tR0l0aXdNcmxRT29HOGJ5V3p4WXRTY3VGVk5SS3Y5Vkx2ZTY1bi1NSkFHTlp5N3BoX0l4d29Fa3NPVWhZTzV4aGh4Q2h1NmVCdWZ6ME53bzU2NHlCdVpHeE90LU5zdzRYNFdROXJEZG5FSDF2b016NA?oc=5
+title: Ripple Partners Kyobo Life to Launch Korea’s First Tokenized Bond Settlement
+  - Coinpedia
+uid: fd192f7cff77
+---
+
+# Ripple Partners Kyobo Life to Launch Korea’s First Tokenized Bond Settlement - Coinpedia
+
+## 摘要
+
+Ripple Partners Kyobo Life to Launch Korea’s First Tokenized Bond Settlement&nbsp;&nbsp;Coinpedia
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMipgFBVV95cUxORWVleFVwd0ZPVTMzc0EtV2hTbXV1SzRJTm5Hb2hvbnNualhEZW9ueVd4X0JwRDY3aHNZdGtuQ19PRjBpYlpKZDJIVGR4LV9Zb2pXX3NzSVFmelU2QkJveVp3SjN4ckItUjlmSTlJNWp2akwybXpieFRqUkFHbEx2aUlCM1M2LW5QV29EWlNlcUlrb25HNWRsME1yaUhxSW1nbks5VEV30gGrAUFVX3lxTE5ncWxGVGU0bjYtMlMzYmRyWWplYWxsVUpBNlRUaVhpWWJqUFJYWGNxOGoxMG9hUWx1Ti1tR0l0aXdNcmxRT29HOGJ5V3p4WXRTY3VGVk5SS3Y5Vkx2ZTY1bi1NSkFHTlp5N3BoX0l4d29Fa3NPVWhZTzV4aGh4Q2h1NmVCdWZ6ME53bzU2NHlCdVpHeE90LU5zdzRYNFdROXJEZG5FSDF2b016NA?oc=5)

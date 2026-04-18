@@ -1,0 +1,20 @@
+---
+category: 市場趨勢
+date: '2026-04-13'
+importance: 中
+region: 新加坡
+source: gnews_sg_companies_1
+source_url: https://news.google.com/rss/articles/CBMikgFBVV95cUxPM08zSWNhbEt2dUVPclpXVWUxZWdqM3diR3o1VHJyWDhCXzBSenB1TndpWEcxOGpBZFRjTHozMUU0WUstYl9IZVVSdUU4bUwxY3diOUJQblJZWUNtQkI0Uzd3R1lZU3dwWG1sa25ZU1Z4U19wYU9ZZld1U3pWVUtGc1hEUlloYm9UeE9VM1FqVldvd9IBlwFBVV95cUxNSmM1TnU1YmZQOUp5TlpCZkJjdG5ncXNMSkFoem1qakkwa0VvNXBHTFFOMk53X1pXcVFrQkVjLVJ3ZnJ6SFR4T2hIVzk2MEJYcURtUlJvR2djRUVoTU5tY1RITHBYaEF5QXg4eGVQVVVtZ0N2Si1qbzZQTGlaTndxR3RINmE0MDMzM2doVnFWbHlNOFJNcDNB?oc=5
+title: Man, 31, arrested after Stratford stabbing leaves 2 in hospital - My London
+uid: 8acb61d04a6d
+---
+
+# Man, 31, arrested after Stratford stabbing leaves 2 in hospital - My London
+
+## 摘要
+
+Man, 31, arrested after Stratford stabbing leaves 2 in hospital&nbsp;&nbsp;My London
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMikgFBVV95cUxPM08zSWNhbEt2dUVPclpXVWUxZWdqM3diR3o1VHJyWDhCXzBSenB1TndpWEcxOGpBZFRjTHozMUU0WUstYl9IZVVSdUU4bUwxY3diOUJQblJZWUNtQkI0Uzd3R1lZU3dwWG1sa25ZU1Z4U19wYU9ZZld1U3pWVUtGc1hEUlloYm9UeE9VM1FqVldvd9IBlwFBVV95cUxNSmM1TnU1YmZQOUp5TlpCZkJjdG5ncXNMSkFoem1qakkwa0VvNXBHTFFOMk53X1pXcVFrQkVjLVJ3ZnJ6SFR4T2hIVzk2MEJYcURtUlJvR2djRUVoTU5tY1RITHBYaEF5QXg4eGVQVVVtZ0N2Si1qbzZQTGlaTndxR3RINmE0MDMzM2doVnFWbHlNOFJNcDNB?oc=5)

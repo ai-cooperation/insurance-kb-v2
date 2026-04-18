@@ -1,0 +1,21 @@
+---
+category: 市場趨勢
+date: '2026-04-17'
+importance: 中
+region: 香港
+source: gnews_hk_companies_2
+source_url: https://news.google.com/rss/articles/CBMilgJBVV95cUxQMkVRdDkzcmY5ZUR4TDFtSks4U3MtQ3pRTk9kSDZKRG83Skl3aXZiVEpqSkNSakZRdTZkSnZNWVNTSjFTdjNubE8zV3hrdVByLTNFWTlMNnBLLWZxR3Z6c21GVWlFVEQ4ZU5OcmRmZk5NdTRtMlk0U2tnNURuaUpmdmhHMDhlTm9iTml6cTVsS3hqQzdpWEoxTERNT2tITXV3NmxGTTJfS2pYcWRSM0dUZEZuYmtWTGxsQWxXdWlBTlFhWlMxcmR6SnBTb2Rid05FcWliYTZGZGVpemxMTUJERFhRdkFVTFFvdGM0OHJrOUR3d2dITGlLaDdPN0ZhX3hNdTRLMzNVam5BMWJMbVh6QnlOYVJ1UQ?oc=5
+title: Insurers urged to deploy capital into infrastructure and energy transition
+  as Korea eases capital rules - Asia Insurance Review
+uid: c344fffb1020
+---
+
+# Insurers urged to deploy capital into infrastructure and energy transition as Korea eases capital rules - Asia Insurance Review
+
+## 摘要
+
+Insurers urged to deploy capital into infrastructure and energy transition as Korea eases capital rules&nbsp;&nbsp;Asia Insurance Review
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMilgJBVV95cUxQMkVRdDkzcmY5ZUR4TDFtSks4U3MtQ3pRTk9kSDZKRG83Skl3aXZiVEpqSkNSakZRdTZkSnZNWVNTSjFTdjNubE8zV3hrdVByLTNFWTlMNnBLLWZxR3Z6c21GVWlFVEQ4ZU5OcmRmZk5NdTRtMlk0U2tnNURuaUpmdmhHMDhlTm9iTml6cTVsS3hqQzdpWEoxTERNT2tITXV3NmxGTTJfS2pYcWRSM0dUZEZuYmtWTGxsQWxXdWlBTlFhWlMxcmR6SnBTb2Rid05FcWliYTZGZGVpemxMTUJERFhRdkFVTFFvdGM0OHJrOUR3d2dITGlLaDdPN0ZhX3hNdTRLMzNVam5BMWJMbVh6QnlOYVJ1UQ?oc=5)

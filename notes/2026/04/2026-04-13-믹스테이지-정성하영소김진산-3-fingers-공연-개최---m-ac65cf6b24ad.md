@@ -1,0 +1,20 @@
+---
+category: 市場趨勢
+date: '2026-04-13'
+importance: 中
+region: 韓國
+source: gnews_kr_companies_2
+source_url: https://news.google.com/rss/articles/CBMivgJBVV95cUxPRDJ1M016VENJWkFDV0haaXlDX1Z6LTZwb3pfVFMwbXZNeHBQc3hHYlIxQ1NCSm10M2pnQ0ZtZGlPNWRhcnFlLWltRVpVZlF2Y0NVZ0F3SzNZU1FqX0FfRm5NMDFQT3I1b1hUeGF6RktsYjlqLTdqblJydFBpTi1QYUZSbjlzQ1AxMzJQMmYzOE9yclg4R1B5cXEtZWNSazFhSy1ESlVRN1JRVHRoUXRwMTNxcmdpV1JKWlg4Tm41d2dQVzQ3Yjd2TVlWMG9LVjZldXFPaWZyZUF3SkVPcG83b2lEX2VQNG5SQ0IzMm11T1lrNTEzQ3owMmFvQ3h3TFpnVmZ6Sm9LQllhaHZ0TDFTUjdINDdIc0NFUlFXVHl3OUlLMjI1bDBWM2FGSkJVX0tBM0pJRElzeVhDUXM3NGc?oc=5
+title: 믹스테이지, 정성하·영소·김진산, '3 Fingers' 공연 개최 - MSN
+uid: ac65cf6b24ad
+---
+
+# 믹스테이지, 정성하·영소·김진산, '3 Fingers' 공연 개최 - MSN
+
+## 摘要
+
+믹스테이지, 정성하·영소·김진산, '3 Fingers' 공연 개최&nbsp;&nbsp;MSN
+
+## 來源
+
+[原文連結](https://news.google.com/rss/articles/CBMivgJBVV95cUxPRDJ1M016VENJWkFDV0haaXlDX1Z6LTZwb3pfVFMwbXZNeHBQc3hHYlIxQ1NCSm10M2pnQ0ZtZGlPNWRhcnFlLWltRVpVZlF2Y0NVZ0F3SzNZU1FqX0FfRm5NMDFQT3I1b1hUeGF6RktsYjlqLTdqblJydFBpTi1QYUZSbjlzQ1AxMzJQMmYzOE9yclg4R1B5cXEtZWNSazFhSy1ESlVRN1JRVHRoUXRwMTNxcmdpV1JKWlg4Tm41d2dQVzQ3Yjd2TVlWMG9LVjZldXFPaWZyZUF3SkVPcG83b2lEX2VQNG5SQ0IzMm11T1lrNTEzQ3owMmFvQ3h3TFpnVmZ6Sm9LQllhaHZ0TDFTUjdINDdIc0NFUlFXVHl3OUlLMjI1bDBWM2FGSkJVX0tBM0pJRElzeVhDUXM3NGc?oc=5)
