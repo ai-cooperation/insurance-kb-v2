@@ -19,7 +19,14 @@ def get_client() -> openai.OpenAI:
     )
 
 
-MODEL = "gpt-4o-mini"
+# Distillation uses higher-quality models (low volume, quality matters)
+DISTILL_MODELS = [
+    "gpt-4.1",            # best balance of quality and speed
+    "gpt-4o",             # fallback
+    "DeepSeek-V3-0324",   # strong open-source alternative
+    "Llama-3.3-70B-Instruct",
+]
+MODEL = os.environ.get("DISTILL_MODEL", DISTILL_MODELS[0])
 
 
 def distill_monthly(
@@ -76,16 +83,12 @@ def distill_monthly(
 4. 保持專業客觀的語調"""
 
     client = get_client()
-    response = client.chat.completions.create(
-        model=MODEL,
-        messages=[
-            {"role": "system", "content": "你是保險產業知識庫編輯，專長將大量新聞文章整理成結構化月度報告。"},
-            {"role": "user", "content": prompt},
-        ],
-        temperature=0.3,
+    return _call_with_cascade(
+        client,
+        system="你是保險產業知識庫編輯，專長將大量新聞文章整理成結構化月度報告。",
+        user=prompt,
         max_tokens=4000,
     )
-    return response.choices[0].message.content or ""
 
 
 def distill_quarterly(
@@ -139,16 +142,12 @@ def distill_quarterly(
 3. 不要編造資料"""
 
     client = get_client()
-    response = client.chat.completions.create(
-        model=MODEL,
-        messages=[
-            {"role": "system", "content": "你是保險產業知識庫總編輯，專長季度趨勢綜合分析。"},
-            {"role": "user", "content": prompt},
-        ],
-        temperature=0.3,
+    return _call_with_cascade(
+        client,
+        system="你是保險產業知識庫總編輯，專長季度趨勢綜合分析。",
+        user=prompt,
         max_tokens=4000,
     )
-    return response.choices[0].message.content or ""
 
 
 def distill_annual(
@@ -206,16 +205,43 @@ def distill_annual(
 4. 保持宏觀視角"""
 
     client = get_client()
-    response = client.chat.completions.create(
-        model=MODEL,
-        messages=[
-            {"role": "system", "content": "你是保險產業知識庫主編，專長年度產業趨勢綜合分析與前瞻。"},
-            {"role": "user", "content": prompt},
-        ],
-        temperature=0.3,
+    return _call_with_cascade(
+        client,
+        system="你是保險產業知識庫主編，專長年度產業趨勢綜合分析與前瞻。",
+        user=prompt,
         max_tokens=5000,
     )
-    return response.choices[0].message.content or ""
+
+
+def _call_with_cascade(
+    client: openai.OpenAI,
+    system: str,
+    user: str,
+    max_tokens: int = 4000,
+) -> str:
+    """Call LLM with model cascade — rotate on 429 daily limit."""
+    import logging
+    logger = logging.getLogger(__name__)
+
+    for model in DISTILL_MODELS:
+        try:
+            logger.info("Distill using model: %s", model)
+            response = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": user},
+                ],
+                temperature=0.3,
+                max_tokens=max_tokens,
+            )
+            return response.choices[0].message.content or ""
+        except Exception as exc:
+            if "429" in str(exc) and "86400" in str(exc):
+                logger.warning("Daily limit on %s, trying next model", model)
+                continue
+            raise
+    raise RuntimeError("All distill models exhausted (daily limits)")
 
 
 def _format_articles_for_prompt(articles: list[dict[str, Any]]) -> str:

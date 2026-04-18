@@ -139,14 +139,27 @@ def _build_llm_prompt(articles: list) -> str:
     return "\n".join(lines)
 
 
+# Model cascade for translation — each model has 150 req/day independent quota.
+# On 429 (daily limit), automatically rotate to next model.
+TRANSLATE_MODELS = [
+    "gpt-4.1-nano",       # fastest, best for batch translation
+    "gpt-4.1-mini",       # good quality, fast
+    "gpt-4o-mini",        # proven reliable
+    "gpt-4.1",            # higher quality
+    "gpt-4o",             # high quality
+    "Llama-3.3-70B-Instruct",  # open source fallback
+]
+
+
 def classify_llm_batch(
     articles: list,
     api_key: str,
     batch_size: int = 10,
     delay: float = 3.0,
 ) -> list:
-    """Call GitHub Models API (GPT-4o-mini) for Chinese title + summary.
+    """Translate titles to Chinese via GitHub Models API with model cascade.
 
+    Automatically rotates to next model on 429 (daily rate limit).
     Returns new list of article dicts with title_zh and summary_zh added.
     """
     try:
@@ -160,18 +173,23 @@ def classify_llm_batch(
         api_key=api_key,
     )
 
+    models = list(TRANSLATE_MODELS)
+    model_idx = 0
+    current_model = models[model_idx]
+    logger.info("Starting with model: %s", current_model)
+
     updated = []
     for start in range(0, len(articles), batch_size):
         batch = articles[start : start + batch_size]
         prompt = _build_llm_prompt(batch)
         logger.info(
-            "LLM batch %d-%d / %d",
-            start + 1, start + len(batch), len(articles),
+            "LLM batch %d-%d / %d [%s]",
+            start + 1, start + len(batch), len(articles), current_model,
         )
 
         try:
             response = client.chat.completions.create(
-                model="gpt-4o-mini",
+                model=current_model,
                 messages=[
                     {"role": "system", "content": _LLM_SYSTEM},
                     {"role": "user", "content": prompt},
@@ -199,8 +217,54 @@ def classify_llm_batch(
                 else:
                     updated.append(art)
         except Exception as exc:
-            logger.warning("LLM batch failed: %s", exc)
-            updated.extend(batch)
+            exc_str = str(exc)
+            if "429" in exc_str and "86400" in exc_str:
+                # Daily limit hit — rotate to next model
+                model_idx += 1
+                if model_idx < len(models):
+                    current_model = models[model_idx]
+                    logger.warning(
+                        "Daily limit on %s, rotating to %s",
+                        models[model_idx - 1], current_model,
+                    )
+                    # Retry this batch with new model
+                    try:
+                        response = client.chat.completions.create(
+                            model=current_model,
+                            messages=[
+                                {"role": "system", "content": _LLM_SYSTEM},
+                                {"role": "user", "content": prompt},
+                            ],
+                            temperature=0.3,
+                            max_tokens=2000,
+                        )
+                        text = response.choices[0].message.content.strip()
+                        if text.startswith("```"):
+                            text = text.split("\n", 1)[1] if "\n" in text else text[3:]
+                        if text.endswith("```"):
+                            text = text[:-3]
+                        translations = json.loads(text.strip())
+                        for i, art in enumerate(batch):
+                            if i < len(translations):
+                                t = translations[i]
+                                updated.append({
+                                    **art,
+                                    "title_zh": t.get("title_zh", ""),
+                                    "summary_zh": t.get("summary_zh", ""),
+                                })
+                            else:
+                                updated.append(art)
+                    except Exception as retry_exc:
+                        logger.warning("Retry with %s also failed: %s", current_model, retry_exc)
+                        updated.extend(batch)
+                else:
+                    logger.error("All models exhausted. Remaining articles untranslated.")
+                    updated.extend(batch)
+                    updated.extend(articles[start + batch_size :])
+                    break
+            else:
+                logger.warning("LLM batch failed: %s", exc)
+                updated.extend(batch)
 
         if start + batch_size < len(articles):
             time.sleep(delay)
