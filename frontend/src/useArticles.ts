@@ -49,7 +49,17 @@ function cleanText(s: string): string {
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
     .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
     .trim();
+}
+
+/** GNews RSS snippets are just "title  source" — detect and discard */
+function cleanSummary(summary: string, title: string): string {
+  const cleaned = cleanText(summary);
+  // If summary is mostly the title repeated, it's not a real summary
+  if (!cleaned || cleaned.length < 20) return '';
+  if (title && cleaned.startsWith(title.slice(0, 30))) return '';
+  return cleaned;
 }
 
 function toArticle(raw: RawEntry, idx: number): Article {
@@ -62,7 +72,7 @@ function toArticle(raw: RawEntry, idx: number): Article {
     source: raw.source || '',
     title_zh: cleanText(raw.title) || '',
     title_en: cleanText(raw.title_en) || '',
-    summary: cleanText(raw.summary) || '',
+    summary: cleanSummary(raw.summary, raw.title),
     tags: [],
     url: raw.source_url || '#',
   };
@@ -91,7 +101,8 @@ export function useArticles(): ArticleStore {
         if (cancelled) return;
         const mapped = raw
           .filter(e => !e.filter)
-          .map((e, i) => toArticle(e, i));
+          .map((e, i) => toArticle(e, i))
+          .filter(a => a.title_zh.length >= 15 && a.summary.length >= 10);
         setArticles(mapped);
         setLoading(false);
       })

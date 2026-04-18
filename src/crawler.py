@@ -124,6 +124,34 @@ def crawl_rss(source: dict) -> list:
 # ---------------------------------------------------------------------------
 # HTTP crawling
 # ---------------------------------------------------------------------------
+def _is_article_url(url: str) -> bool:
+    """Heuristic: article URLs typically have date segments or long paths."""
+    from urllib.parse import urlparse
+    path = urlparse(url).path
+    # Skip bare category/section pages, login, search, about, contact
+    skip_patterns = (
+        '/category/', '/tag/', '/author/', '/page/',
+        '/login', '/register', '/search', '/about', '/contact',
+        '/privacy', '/terms', '/subscribe', '/newsletter',
+    )
+    if any(p in path.lower() for p in skip_patterns):
+        return False
+    # Article URLs usually have 3+ path segments or contain digits (dates)
+    segments = [s for s in path.split('/') if s]
+    if len(segments) < 2 and not any(c.isdigit() for c in path):
+        return False
+    return True
+
+
+# Navigation/boilerplate titles to reject
+_NAV_TITLES = {
+    'advanced search', 'newsletter', 'home', 'about', 'contact',
+    'subscribe', 'login', 'register', 'search', 'archives',
+    'supplements', 'conference dailies', 'privacy policy',
+    'terms of use', 'terms and conditions', 'sitemap',
+}
+
+
 def crawl_http(source: dict) -> list:
     """Crawl a web page for links and titles."""
     url = source["url"]
@@ -145,7 +173,12 @@ def crawl_http(source: dict) -> list:
             if full_url in seen_urls:
                 continue
             title = a_tag.get_text(strip=True)
-            if not title or len(title) < 10:
+            if not title or len(title) < 20:
+                continue
+            # Skip navigation and boilerplate links
+            if title.lower().strip() in _NAV_TITLES:
+                continue
+            if not _is_article_url(full_url):
                 continue
             seen_urls.add(full_url)
             results.append(
