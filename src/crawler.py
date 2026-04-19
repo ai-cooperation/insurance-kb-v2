@@ -109,18 +109,46 @@ HEADERS = {
 }
 
 
-def _resolve_gnews_url(url: str) -> str:
-    """Resolve Google News redirect URL to the actual article URL."""
-    if "news.google.com/rss/articles" not in url:
-        return url
+def resolve_gnews_urls(results: list, max_resolve: int = 200) -> list:
+    """Batch-resolve Google News redirect URLs after crawl.
+
+    Only resolves up to max_resolve URLs per run to avoid timeout.
+    Returns new list with resolved URLs.
+    """
     try:
         from googlenewsdecoder import new_decoderv1
-        result = new_decoderv1(url, interval=1)
-        if result.get("status"):
-            return result["decoded_url"]
-    except Exception as exc:
-        logger.debug("GNews URL decode failed: %s", exc)
-    return url
+    except ImportError:
+        logger.info("googlenewsdecoder not installed, skipping URL resolution")
+        return results
+
+    gnews = [(i, r) for i, r in enumerate(results)
+             if "news.google.com/rss/articles" in r.url]
+    if not gnews:
+        return results
+
+    to_resolve = gnews[:max_resolve]
+    logger.info("Resolving %d/%d GNews URLs...", len(to_resolve), len(gnews))
+
+    resolved = 0
+    updated = list(results)
+    for i, r in to_resolve:
+        try:
+            result = new_decoderv1(r.url, interval=1)
+            if result.get("status"):
+                updated[i] = CrawlResult(
+                    source_id=r.source_id,
+                    title=r.title,
+                    url=result["decoded_url"],
+                    snippet=r.snippet,
+                    published=r.published,
+                    uid=r.uid,
+                )
+                resolved += 1
+        except Exception:
+            pass
+
+    logger.info("Resolved %d/%d GNews URLs", resolved, len(to_resolve))
+    return updated
 
 
 def crawl_rss(source: dict) -> list:
@@ -143,12 +171,11 @@ def crawl_rss(source: dict) -> list:
                 entry.get("summary", entry.get("description", ""))
             )
             published = _parse_date(entry)
-            resolved_url = _resolve_gnews_url(link)
             results.append(
                 CrawlResult(
                     source_id=source_id,
                     title=title,
-                    url=resolved_url,
+                    url=link,
                     snippet=snippet[:500],
                     published=published,
                 )

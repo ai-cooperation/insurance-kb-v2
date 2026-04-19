@@ -12,7 +12,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from src.classifier import classify_llm_batch, classify_rule
-from src.crawler import CrawlResult, Deduplicator, crawl_all
+from src.crawler import CrawlResult, Deduplicator, crawl_all, resolve_gnews_urls
 from src.index_manager import get_stats, update_index
 from src.md_generator import generate_all
 from src.sources import SOURCES
@@ -146,6 +146,8 @@ def main():
     logger.info("Phase 1: Crawling %d sources...", len(SOURCES))
     dedup = Deduplicator()
     results = crawl_all(SOURCES, dedup, delay=1.0)
+    # Resolve GNews redirect URLs (batch, max 200 per run to stay under timeout)
+    results = resolve_gnews_urls(results, max_resolve=200)
     articles = _results_to_dicts(results, SOURCES)
     logger.info("Phase 1 complete: %d new articles", len(articles))
 
