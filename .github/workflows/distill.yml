@@ -24,7 +24,13 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install openai
+        run: pip install openai requests
+
+      - name: Monthly quality audit
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: "8550440980"
+        run: python -m src.monthly_audit
 
       - name: Run monthly distillation
         env:
