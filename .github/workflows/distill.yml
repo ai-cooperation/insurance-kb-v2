@@ -28,6 +28,7 @@ jobs:
 
       - name: Run monthly distillation
         env:
+          MODELS_PAT: ${{ secrets.MODELS_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ -n "${{ inputs.period }}" ]; then
