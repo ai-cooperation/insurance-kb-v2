@@ -33,11 +33,27 @@ app.use("/api/*", async (c, next) => {
 });
 
 // --- Auth middleware ---
+// Public endpoints: status, stats, search (no auth required)
+// Protected endpoints: chat, sessions (require Cloudflare Access JWT)
 app.use("/api/*", async (c, next) => {
   const email = extractEmail(c.req.raw);
   c.set("email", email);
   await next();
 });
+
+// Require real authentication for sensitive endpoints
+const requireAuth = async (c: any, next: any) => {
+  const email = c.get("email");
+  if (!email || email === "dev@localhost") {
+    return c.json({ error: "Authentication required" }, 401);
+  }
+  await next();
+};
+
+app.use("/api/chat", requireAuth);
+app.use("/api/chat/*", requireAuth);
+app.use("/api/sessions", requireAuth);
+app.use("/api/sessions/*", requireAuth);
 
 // --- Rate limit middleware (chat only) ---
 app.use("/api/chat", async (c, next) => {

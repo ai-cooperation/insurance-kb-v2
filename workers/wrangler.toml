@@ -7,8 +7,7 @@ mode = "smart"
 
 [[kv_namespaces]]
 binding = "KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-preview_id = "REPLACE_WITH_PREVIEW_KV_NAMESPACE_ID"
+id = "d57f70351eb94f7c8b13d338f0f811ad"
 
 [vars]
 CORS_ORIGIN = "https://insurance-kb.cooperation.tw"
