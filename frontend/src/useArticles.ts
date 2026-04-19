@@ -102,7 +102,7 @@ export function useArticles(): ArticleStore {
         const mapped = raw
           .filter(e => !e.filter)
           .map((e, i) => toArticle(e, i))
-          .filter(a => a.title_zh.length >= 15 && a.summary.length >= 10);
+          .filter(a => a.title_zh.length >= 10);
         setArticles(mapped);
         setLoading(false);
       })

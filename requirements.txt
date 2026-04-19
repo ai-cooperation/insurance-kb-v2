@@ -3,4 +3,5 @@ feedparser
 beautifulsoup4
 lxml
 openai
+googlenewsdecoder
 pyyaml

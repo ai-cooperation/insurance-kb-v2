@@ -136,11 +136,51 @@ def classify_rule(article: dict) -> dict:
 # ---------------------------------------------------------------------------
 # LLM batch classification (Chinese title + summary via Groq API)
 # ---------------------------------------------------------------------------
+_CATEGORIES = [
+    "監管動態", "科技應用", "市場趨勢", "產品創新",
+    "再保市場", "ESG永續", "消費者保護", "人才與組織",
+]
+
 _LLM_SYSTEM = (
-    "你是保險產業翻譯助手。將以下新聞標題翻譯為繁體中文，並生成 100 字中文摘要。\n"
-    "輸出 JSON array，每個元素包含 title_zh 和 summary_zh。\n"
-    "只輸出 JSON，不要加任何其他文字。"
+    "你是保險產業分析師。對每篇新聞做三件事：\n"
+    "1. 將標題翻譯為繁體中文（title_zh）\n"
+    "2. 用繁體中文寫 80 字摘要（summary_zh）\n"
+    "3. 分類（category）：從以下 8 類選 1\n"
+    "   - 監管動態：法規、監管機構政策、罰款、牌照、IFRS 17、RBC\n"
+    "   - 科技應用：InsurTech、AI、區塊鏈、數位轉型、平台、自動化\n"
+    "   - 市場趨勢：保費成長、市佔率、併購、IPO、業績、財報\n"
+    "   - 產品創新：新產品上市、保障範圍、嵌入式保險、微保險、UBI\n"
+    "   - 再保市場：再保險、巨災債券、ILS、續約條件\n"
+    "   - ESG永續：氣候風險、碳排、TCFD、永續投資、淨零\n"
+    "   - 消費者保護：理賠糾紛、申訴、詐欺、銷售不當、資訊揭露\n"
+    "   - 人才與組織：高管任命、人事異動、企業文化、DEI\n"
+    "4. 重要性（importance）：高/中/低\n"
+    "   - 高：重大政策、法規變革、大型併購、破產、危機\n"
+    "   - 中：業績報告、產品發佈、會議摘要\n"
+    "   - 低：評論、部落格、活動預告\n\n"
+    "輸出 JSON array，每個元素含 title_zh, summary_zh, category, importance。\n"
+    "如果文章與保險產業完全無關（如體育、娛樂），category 填 \"無關\"。\n"
+    "只輸出 JSON，不加任何其他文字。"
 )
+
+
+def _parse_llm_json(text: str):
+    """Parse LLM response as JSON array, stripping code fences. Returns None on failure."""
+    text = text.strip()
+    if text.startswith("```"):
+        text = text.split("\n", 1)[1] if "\n" in text else text[3:]
+    if text.endswith("```"):
+        text = text[:-3]
+    text = text.strip()
+    try:
+        result = json.loads(text)
+        if isinstance(result, list):
+            return result
+        logger.warning("LLM returned non-array JSON: %s", type(result))
+        return None
+    except json.JSONDecodeError as exc:
+        logger.warning("JSON parse error: %s | text[:100]=%s", exc, text[:100])
+        return None
 
 
 def _build_llm_prompt(articles: list) -> str:
@@ -149,8 +189,41 @@ def _build_llm_prompt(articles: list) -> str:
     for i, art in enumerate(articles, 1):
         source = art.get("source_id", "unknown")
         snippet = art.get("snippet", "")[:200]
-        lines.append(f"{i}. {art['title']} - {source} - {snippet}")
+        title = art.get("title_en") or art.get("title", "")
+        lines.append(f"{i}. {title} - {source} - {snippet}")
     return "\n".join(lines)
+
+
+def _merge_llm_results(batch: list, translations: list) -> list:
+    """Merge LLM classification results into article dicts."""
+    valid_cats = set(_CATEGORIES)
+    merged = []
+    for i, art in enumerate(batch):
+        if i < len(translations):
+            t = translations[i]
+            llm_cat = t.get("category", "")
+            llm_imp = t.get("importance", "")
+            # Mark irrelevant articles for filtering
+            filter_reason = ""
+            if llm_cat == "無關":
+                filter_reason = "irrelevant"
+                llm_cat = art.get("category", "市場趨勢")
+            elif llm_cat not in valid_cats:
+                llm_cat = art.get("category", "市場趨勢")
+            # Normalize importance
+            imp_map = {"高": "高", "中": "中", "低": "低"}
+            importance = imp_map.get(llm_imp, art.get("importance", "中"))
+            merged.append({
+                **art,
+                "title_zh": t.get("title_zh", ""),
+                "summary_zh": t.get("summary_zh", ""),
+                "category": llm_cat,
+                "importance": importance,
+                "filter": filter_reason,
+            })
+        else:
+            merged.append(art)
+    return merged
 
 
 # Model cascade for translation — each model has 150 req/day independent quota.
@@ -212,24 +285,13 @@ def classify_llm_batch(
                 max_tokens=2000,
             )
             text = response.choices[0].message.content.strip()
-            # Strip markdown code fences if present
-            if text.startswith("```"):
-                text = text.split("\n", 1)[1] if "\n" in text else text[3:]
-            if text.endswith("```"):
-                text = text[:-3]
-            text = text.strip()
-
-            translations = json.loads(text)
-            for i, art in enumerate(batch):
-                if i < len(translations):
-                    t = translations[i]
-                    updated.append({
-                        **art,
-                        "title_zh": t.get("title_zh", ""),
-                        "summary_zh": t.get("summary_zh", ""),
-                    })
-                else:
-                    updated.append(art)
+            translations = _parse_llm_json(text)
+            if translations is not None:
+                updated.extend(_merge_llm_results(batch, translations))
+            else:
+                logger.warning("JSON parse failed, keeping originals for batch %d-%d",
+                               start + 1, start + len(batch))
+                updated.extend(batch)
         except Exception as exc:
             exc_str = str(exc)
             if "429" in exc_str and "86400" in exc_str:
@@ -253,21 +315,11 @@ def classify_llm_batch(
                             max_tokens=2000,
                         )
                         text = response.choices[0].message.content.strip()
-                        if text.startswith("```"):
-                            text = text.split("\n", 1)[1] if "\n" in text else text[3:]
-                        if text.endswith("```"):
-                            text = text[:-3]
-                        translations = json.loads(text.strip())
-                        for i, art in enumerate(batch):
-                            if i < len(translations):
-                                t = translations[i]
-                                updated.append({
-                                    **art,
-                                    "title_zh": t.get("title_zh", ""),
-                                    "summary_zh": t.get("summary_zh", ""),
-                                })
-                            else:
-                                updated.append(art)
+                        translations = _parse_llm_json(text)
+                        if translations is not None:
+                            updated.extend(_merge_llm_results(batch, translations))
+                        else:
+                            updated.extend(batch)
                     except Exception as retry_exc:
                         logger.warning("Retry with %s also failed: %s", current_model, retry_exc)
                         updated.extend(batch)

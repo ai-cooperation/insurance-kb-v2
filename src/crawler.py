@@ -20,6 +20,22 @@ logger = logging.getLogger(__name__)
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 SEEN_PATH = DATA_DIR / "seen.json"
 
+# Noise patterns: sponsorship-related content (insurance company name appears
+# only as a sponsor, not as the subject of insurance news)
+_NOISE_PATTERNS = re.compile(
+    r"百年構想|J[123]リーグ|Jリーグ|SVリーグ|B\.?LEAGUE|"
+    r"アントラーズ|レッズ|ガンバ|ホーリーホック|フロンターレ|"
+    r"レイソル|グランパス|コンサドーレ|サンフレッチェ|"
+    r"ヴィッセル|エスパルス|ベガルタ|アルビレックス|"
+    r"ブレックス|ジェッツ|ブレイザーズ|サンバーズ|"
+    r"vs\.\s*\S+\s*(第\d+節|試合)|ハイライト.*CHAMPIONSHIP|"
+    r"サッカー.{0,10}(試合|結果|戦)|"
+    r"バレーボール.{0,10}(試合|結果)|"
+    r"電子競技|esports?.{0,5}(defeat|win|lose)|"
+    r"女籃|男籃|冠軍戰.{0,5}(僅剩|勝)",
+    re.IGNORECASE,
+)
+
 
 @dataclass
 class CrawlResult:
@@ -89,6 +105,20 @@ HEADERS = {
 }
 
 
+def _resolve_gnews_url(url: str) -> str:
+    """Resolve Google News redirect URL to the actual article URL."""
+    if "news.google.com/rss/articles" not in url:
+        return url
+    try:
+        from googlenewsdecoder import new_decoderv1
+        result = new_decoderv1(url, interval=1)
+        if result.get("status"):
+            return result["decoded_url"]
+    except Exception as exc:
+        logger.debug("GNews URL decode failed: %s", exc)
+    return url
+
+
 def crawl_rss(source: dict) -> list:
     """Crawl an RSS feed and return CrawlResult list."""
     url = source["url"]
@@ -103,15 +133,18 @@ def crawl_rss(source: dict) -> list:
             link = entry.get("link", "").strip()
             if not title or not link:
                 continue
+            if _NOISE_PATTERNS.search(title):
+                continue
             snippet = _clean_html(
                 entry.get("summary", entry.get("description", ""))
             )
             published = _parse_date(entry)
+            resolved_url = _resolve_gnews_url(link)
             results.append(
                 CrawlResult(
                     source_id=source_id,
                     title=title,
-                    url=link,
+                    url=resolved_url,
                     snippet=snippet[:500],
                     published=published,
                 )
@@ -174,6 +207,8 @@ def crawl_http(source: dict) -> list:
                 continue
             title = a_tag.get_text(strip=True)
             if not title or len(title) < 20:
+                continue
+            if _NOISE_PATTERNS.search(title):
                 continue
             # Skip navigation and boilerplate links
             if title.lower().strip() in _NAV_TITLES:

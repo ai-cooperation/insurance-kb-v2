@@ -90,12 +90,14 @@ _GNEWS_EXISTING = [
          _gnews('"AM Best" OR "Fitch Ratings" OR "Moody" insurance')),
     _src("gnews_ratings_2", "評級機構 2",
          _gnews('KBRA OR "Japan Credit Rating" insurance')),
+    # Narrowed: site: queries returned too much noise (90%+ unrelated)
     _src("gnews_wsj_insurance", "WSJ 保險",
-         _gnews("site:wsj.com insurance"), type_="新聞媒體"),
+         _gnews('"insurance" "insurer" OR "underwriting" site:wsj.com'),
+         type_="新聞媒體"),
     _src("gnews_bloomberg_insurance", "Bloomberg 保險",
-         _gnews("site:bloomberg.com insurance"), type_="新聞媒體"),
-    _src("gnews_nyt_insurance", "NYT 保險",
-         _gnews("site:nytimes.com insurance"), type_="新聞媒體"),
+         _gnews('"insurance" "insurer" OR "reinsurance" site:bloomberg.com'),
+         type_="新聞媒體"),
+    # Removed: gnews_nyt_insurance — consistently low relevance to insurance
     _src("gnews_sina_insurance", "新浪保險",
          _gnews("新浪 保险 OR 保險", lang="zh-Hans", country="CN"),
          region="中國", type_="新聞媒體"),
@@ -103,8 +105,7 @@ _GNEWS_EXISTING = [
          _gnews("insurance ESG sustainability climate")),
     _src("gnews_hive_insurance", "Hive 保險",
          _gnews("Hive insurance services platform")),
-    _src("gnews_neuroscience_insurance", "腦科學保險",
-         _gnews("neuroscience OR brain health insurance")),
+    # Removed: gnews_neuroscience_insurance — 99% brain health articles, not insurance
     _src("gnews_tw_insurance", "台灣保險",
          _gnews("台灣 保險 壽險 產險", lang="zh-TW", country="TW"),
          region="台灣"),

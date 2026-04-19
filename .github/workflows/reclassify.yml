@@ -1,0 +1,63 @@
+name: Reclassify Articles (LLM)
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max articles to reclassify (0=all)'
+        required: false
+        default: '0'
+        type: string
+      dry_run:
+        description: 'Dry run (no save)'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  reclassify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run reclassify
+        env:
+          MODELS_PAT: ${{ secrets.MODELS_PAT }}
+        run: |
+          ARGS="--batch-size 10 --delay 3"
+          if [ "${{ inputs.limit }}" != "0" ]; then
+            ARGS="$ARGS --limit ${{ inputs.limit }}"
+          fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          python reclassify.py $ARGS
+
+      - name: Rebuild frontend data
+        run: |
+          mkdir -p frontend/public/data
+          cp index/master-index.json frontend/public/data/articles.json
+          python build_wiki_json.py
+
+      - name: Commit changes
+        if: ${{ inputs.dry_run != 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index/master-index.json frontend/public/data/
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "chore: reclassify articles via LLM"
+          git push

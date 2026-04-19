@@ -37,6 +37,7 @@ jobs:
         run: |
           mkdir -p frontend/public/data
           cp index/master-index.json frontend/public/data/articles.json
+          python build_wiki_json.py
 
       - name: Commit and push changes
         run: |

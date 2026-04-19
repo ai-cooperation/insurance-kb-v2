@@ -27,7 +27,7 @@ def _make_entry(article: dict) -> dict:
         "importance": article.get("importance", "medium"),
         "summary": article.get("summary_zh") or article.get("snippet", ""),
         "note_path": article.get("note_path", ""),
-        "filter": "",
+        "filter": article.get("filter", ""),
     }
 
 

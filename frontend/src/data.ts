@@ -1,7 +1,7 @@
 // Data: categories, regions, wiki, chat sources
 // Articles are now fetched from /data/articles.json via useArticles hook
 
-import type { Category, CategoryColorTokens, ImportanceInfo, WikiTreeNode, WikiPageData, ChatHistoryItem } from './types';
+import type { Category, CategoryColorTokens, ImportanceInfo, ChatHistoryItem } from './types';
 
 export const CATEGORIES: readonly Category[] = [
   { id: 'regulation', zh: '監管動態', color: 'blue' },
@@ -34,57 +34,22 @@ export const IMPORTANCE: Record<string, ImportanceInfo> = {
 };
 
 // Articles are fetched at runtime — see useArticles.ts
+// Wiki data is fetched at runtime from /data/wiki.json — see Wiki.tsx
 
-export const WIKI_TREE: readonly WikiTreeNode[] = [
-  { id: 'market', icon: '\u{1F4C8}', zh: '市場趨勢', children: [
-    { id: 'market-apac', zh: '亞太' },
-    { id: 'market-global', zh: '全球' },
-    { id: 'market-tw', zh: '台灣' },
-  ]},
-  { id: 'regulation', icon: '\u{1F4CB}', zh: '監管動態', children: [
-    { id: 'reg-tw', zh: '台灣' },
-    { id: 'reg-hk', zh: '香港' },
-    { id: 'reg-cn', zh: '中國' },
-  ]},
-  { id: 'tech', icon: '\u{1F52C}', zh: '科技應用', children: [
-    { id: 'tech-ai', zh: 'AI / LLM' },
-    { id: 'tech-claims', zh: '理賠自動化' },
-  ]},
-  { id: 'esg', icon: '\u{1F331}', zh: 'ESG 永續', children: [
-    { id: 'esg-climate', zh: '氣候風險' },
-    { id: 'esg-disclosure', zh: '揭露' },
-  ]},
-  { id: 'reins', icon: '\u267B\uFE0F', zh: '再保市場', children: [
-    { id: 'reins-rates', zh: '費率週期' },
-  ]},
-  { id: 'people', icon: '\u{1F465}', zh: '人才與組織', children: [
-    { id: 'people-apac', zh: '亞太人事' },
-  ]},
-];
-
-export const WIKI_PAGE: WikiPageData = {
-  title: '市場趨勢：亞太 — 2026 年 4 月',
-  subtitle: '基於 482 篇文章蒸餾，涵蓋 2026 年 3 月 15 日至 4 月 15 日。',
-  highlights: [
-    '東南亞數位保險保費佔比首度突破 15%，印尼與越南成長最快，嵌入式保險是主要推力。',
-    '日本車險市場進入技術競賽期，東京海上、MS&AD 與 Sompo 均在本月公布 AI 理賠平台。',
-    '韓國壽險業面臨新一波高層更替，Samsung Life、Kyobo 與 Hanwha 皆於本季迎接新任 CEO。',
-    '香港保監局加強 ESG 揭露，與日本、新加坡的 ISSB S2 對齊進度一致。',
-    '亞太再保市場 1/4 續約費率上漲 2–4%，巨災層級為主要漲幅來源。',
-  ],
-  timeline: [
-    { date: '2026-04-17', region: '亞太',   event: 'Zurich 任命新數位負責人' },
-    { date: '2026-04-13', region: '東南亞', event: '數位保險滲透率突破 15%' },
-    { date: '2026-04-12', region: '韓國',   event: 'Samsung Life 任命新 CEO' },
-    { date: '2026-04-11', region: '香港',   event: '保監局加強 ESG 披露' },
-    { date: '2026-04-10', region: '日本',   event: '東京海上 AI 車險理賠上線' },
-    { date: '2026-04-09', region: '新加坡', event: 'Singlife 發布長壽年金' },
-  ],
-  analysis: '亞太保險市場在 2026 年 4 月呈現三條清晰主線：第一是數位化從實驗階段走入規模化，表現為嵌入式保險的滲透率突破與 AI 理賠系統上線；第二是監管框架向 ISSB 氣候揭露收斂，香港、新加坡與日本同步推進；第三是人事更替集中發生於韓國與跨國公司的亞太區，顯示區域戰略重心正在重新配置。',
-  sources: [
-    'a4', 'a5', 'a6', 'a7', 'a8', 'a1'
-  ],
+const CATEGORY_ICONS: Record<string, string> = {
+  market: '\u{1F4C8}',
+  regulation: '\u{1F4CB}',
+  tech: '\u{1F52C}',
+  esg: '\u{1F331}',
+  reinsurance: '\u267B\uFE0F',
+  consumer: '\u{1F6E1}',
+  product: '\u{1F4E6}',
+  people: '\u{1F465}',
 };
+
+export function getCategoryIcon(id: string): string {
+  return CATEGORY_ICONS[id] || '';
+}
 
 export const CHAT_HISTORY_SEED: readonly ChatHistoryItem[] = [
   { id: 'c1', title: '亞太再保費率走勢', date: '今天' },
