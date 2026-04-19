@@ -190,19 +190,23 @@ def run_monthly_audit(notify=True):
 
 
 def _send_telegram(message):
-    """Send message to Telegram bot."""
+    """Send message to Telegram bot (Insurance KB topic in AC系統監控 group)."""
     bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "8550440980")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "-1003856903916")
+    topic_id = int(os.environ.get("TELEGRAM_TOPIC_ID", "4"))  # Insurance KB topic
     if not bot_token:
         logger.info("TELEGRAM_BOT_TOKEN not set, skipping notification")
         return
     try:
         url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-        resp = requests.post(url, json={
+        payload = {
             "chat_id": chat_id,
             "text": message,
             "parse_mode": "HTML",
-        }, timeout=10)
+        }
+        if topic_id:
+            payload["message_thread_id"] = topic_id
+        resp = requests.post(url, json=payload, timeout=10)
         if resp.ok:
             logger.info("Telegram notification sent")
         else:

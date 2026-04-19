@@ -29,7 +29,8 @@ jobs:
       - name: Monthly quality audit
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: "8550440980"
+          TELEGRAM_CHAT_ID: "-1003856903916"
+          TELEGRAM_TOPIC_ID: "4"
         run: python -m src.monthly_audit
 
       - name: Run monthly distillation
