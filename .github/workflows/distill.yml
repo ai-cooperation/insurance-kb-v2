@@ -46,5 +46,6 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: monthly distillation $(date +%Y-%m)"
+            git pull --rebase origin main || true
             git push
           fi

@@ -46,4 +46,5 @@ jobs:
           git add -A
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           git commit -m "chore: daily crawl $(date -u +%Y-%m-%d_%H:%M)"
+          git pull --rebase origin main || true
           git push
