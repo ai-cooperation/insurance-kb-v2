@@ -15,6 +15,7 @@ from src.classifier import classify_llm_batch, classify_rule
 from src.crawler import CrawlResult, Deduplicator, crawl_all, resolve_gnews_urls
 from src.index_manager import get_stats, update_index
 from src.md_generator import generate_all
+from src.quality_gate import run_quality_gate
 from src.sources import SOURCES
 
 LOG_DIR = Path(__file__).resolve().parent / "logs"
@@ -174,6 +175,17 @@ def main():
             )
     else:
         logger.info("Phase 3 skipped (--no-ai flag)")
+
+    # Phase 3.5: Quality gate
+    logger.info("Phase 3.5: Quality gate...")
+    gate = run_quality_gate(articles)
+    logger.info(
+        "Quality gate: %d total, %d irrelevant, %d duplicates, %.1f%% noise",
+        gate["total"], gate["irrelevant"], gate["duplicates"], gate["noise_pct"],
+    )
+    if not gate["passed"]:
+        for w in gate["warnings"]:
+            logger.warning("  !! %s", w)
 
     # Phase 4: Generate MD files + update index
     logger.info("Phase 4: Generating MD files + updating index...")
