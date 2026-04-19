@@ -203,14 +203,10 @@ def main():
     logger.info("Phase 5: Building Card View + Frontend Data...")
     build_card_view(index)
 
-    # Copy master-index.json to frontend/public/data/ for SPA
-    frontend_data_dir = Path(__file__).resolve().parent / "frontend" / "public" / "data"
-    frontend_data_dir.mkdir(parents=True, exist_ok=True)
-    import shutil
-    src_index = Path(__file__).resolve().parent / "index" / "master-index.json"
-    if src_index.exists():
-        shutil.copy2(src_index, frontend_data_dir / "articles.json")
-        logger.info("Copied master-index.json → frontend/public/data/articles.json")
+    # Build slim articles.json for frontend (25MB limit)
+    from build_frontend_data import build as build_frontend
+    build_frontend()
+    logger.info("Built slim articles.json for frontend")
 
     logger.info("Phase 5 complete")
 

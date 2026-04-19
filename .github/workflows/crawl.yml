@@ -33,10 +33,9 @@ jobs:
           MODELS_PAT: ${{ secrets.MODELS_PAT }}
         run: python run.py
 
-      - name: Copy data to frontend
+      - name: Build frontend data
         run: |
-          mkdir -p frontend/public/data
-          cp index/master-index.json frontend/public/data/articles.json
+          python build_frontend_data.py
           python build_wiki_json.py
 
       - name: Commit and push changes
