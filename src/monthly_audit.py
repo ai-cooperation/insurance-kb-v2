@@ -213,4 +213,6 @@ def _send_telegram(message):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
-    run_monthly_audit(notify=False)
+    import os
+    should_notify = bool(os.environ.get("TELEGRAM_BOT_TOKEN"))
+    run_monthly_audit(notify=should_notify)
