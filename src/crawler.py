@@ -23,6 +23,7 @@ SEEN_PATH = DATA_DIR / "seen.json"
 # Noise patterns: sponsorship-related content (insurance company name appears
 # only as a sponsor, not as the subject of insurance news)
 _NOISE_PATTERNS = re.compile(
+    # Japanese sports (J-League, B.League, SV League)
     r"百年構想|J[123]リーグ|Jリーグ|SVリーグ|B\.?LEAGUE|"
     r"アントラーズ|レッズ|ガンバ|ホーリーホック|フロンターレ|"
     r"レイソル|グランパス|コンサドーレ|サンフレッチェ|"
@@ -31,8 +32,11 @@ _NOISE_PATTERNS = re.compile(
     r"vs\.\s*\S+\s*(第\d+節|試合)|ハイライト.*CHAMPIONSHIP|"
     r"サッカー.{0,10}(試合|結果|戦)|"
     r"バレーボール.{0,10}(試合|結果)|"
-    r"電子競技|esports?.{0,5}(defeat|win|lose)|"
-    r"女籃|男籃|冠軍戰.{0,5}(僅剩|勝)",
+    # Korean sports (basketball, baseball, esports)
+    r"역전승|꺾고.{0,5}(강|승)|4강\s*PO|플레이오프|"
+    r"승\s*\d+패|連勝|女籃|男籃|冠軍戰.{0,5}(僅剩|勝)|"
+    # Esports
+    r"電子競技|esports?.{0,5}(defeat|win|lose)|e스포츠",
     re.IGNORECASE,
 )
 

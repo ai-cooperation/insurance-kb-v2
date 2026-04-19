@@ -184,7 +184,7 @@
     "importance": "中",
     "summary": "德勤與OECD討論全球轉讓定價政策，旨在協助企業理解國際稅務規範，提升跨國經營合規性。此議題對全球稅務環境具有重要影響。",
     "note_path": "notes/2026/04/2026-04-18-unlocking-global-tax-insights-deloitte-oecd-discuss-transfer-86cff6c4150d.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "0d393c6029ee",
@@ -8599,7 +8599,7 @@
     "importance": "中",
     "summary": "韓華生命展現強勁增長，面對競爭對手Gen.G的停滯，業界關注其是否能擴大市場份額並提升競爭力，反映保險公司在市場競爭中的策略調整。",
     "note_path": "notes/2026/04/2026-04-17-기세-탄-한화생명-주춤한-젠지-잡아낼까-이주현의-로ᄀ-d7095c189c3d.md",
-    "filter": ""
+    "filter": "noise_sports"
   },
   {
     "uid": "3d606bd19fd0",
@@ -9449,7 +9449,7 @@
     "importance": "中",
     "summary": "德勤公司目前有CA和MBA職位的空缺，尋求優秀人才加入其專業團隊，推動業務增長。",
     "note_path": "notes/2026/04/2026-04-17-ca-mba-vacancy-in-deloitte---taxscan-0046b2ed3d55.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "c8251a906682",
@@ -9823,7 +9823,7 @@
     "importance": "中",
     "summary": "比特幣復甦脆弱，可能引發重大空頭擠壓，市場分析師警告投資者注意價格波動，影響加密貨幣市場穩定。",
     "note_path": "notes/2026/04/2026-04-17-bitcoins-fragile-recovery-sets-up-a-big-short-squeeze-risk---8812bb04f77c.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "2230fd5fb9ca",
@@ -9891,7 +9891,7 @@
     "importance": "中",
     "summary": "英國與法國計劃在霍爾木茲海峽舉行峰會，討論地區安全與經濟問題，促進國際合作。",
     "note_path": "notes/2026/04/2026-04-17-uk-france-to-host-summit-on-strait-of-hormuz---bloomberg-041971733550.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "692984207c57",
@@ -10435,7 +10435,7 @@
     "importance": "中",
     "summary": "文章提供年長者保護大腦的建議，強調早期介入的重要性，與健康與保險相關，重要性較高。",
     "note_path": "notes/2026/04/2026-04-17-if-you-want-to-protect-your-brain-as-you-age-start-here---no-0e05ae4d3905.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "22dcba83b780",
@@ -10452,7 +10452,7 @@
     "importance": "中",
     "summary": "介紹五種富含Omega-3的魚類，有助於提升認知功能，預防腦部疾病，與健康保險相關。",
     "note_path": "notes/2026/04/2026-04-17-the-5-best-types-of-fish-for-brain-health-according-to-scien-22dcba83b780.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "8759e0e531b7",
@@ -11472,7 +11472,7 @@
     "importance": "中",
     "summary": "阿布達比的Axight公司與Brookfield完成交易，推動海灣地區併購熱潮，反映金融市場活躍。",
     "note_path": "notes/2026/04/2026-04-17-abu-dhabis-axight-adds-to-gulf-ma-wave-with-brookfield-deal--8a007cc3d8b6.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "7171a62129fd",
@@ -11693,7 +11693,7 @@
     "importance": "中",
     "summary": "德國政治內部對KNDS股份控制權分歧，可能影響國防政策與軍事投資，對國防產業產生深遠影響。",
     "note_path": "notes/2026/04/2026-04-17-德國聯盟就坦克製造商knds的股份大小爭論不休-68374560e485.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "5c1d2a4c0aca",
@@ -11778,7 +11778,7 @@
     "importance": "中",
     "summary": "德國內部對KNDS股份增持問題意見不一，可能影響國防支出與軍事政策，產生長遠影響。",
     "note_path": "notes/2026/04/2026-04-17-德國聯盟在坦克製造商-knds-的股份大小上爭論不休-c6cff9b76d96.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "9beda4b0a844",
@@ -14651,7 +14651,7 @@
     "importance": "中",
     "summary": "動態金融創業為政府提供新思路與解決方案，推動金融發展，促進經濟增長。",
     "note_path": "notes/2026/04/2026-04-16-kinetic-finance-startup-for-government-moving-finance-forwar-a757d9889b17.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "dde633008785",
@@ -14668,7 +14668,7 @@
     "importance": "中",
     "summary": "制定有效的資金與融資策略是智慧城市發展的關鍵，將影響未來城市建設與發展。",
     "note_path": "notes/2026/04/2026-04-16-funding-and-financing-strategies-for-smart-cities---deloitte-dde633008785.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "e4b3ec32a163",
@@ -14702,7 +14702,7 @@
     "importance": "中",
     "summary": "財富與資產管理 4.0 探討數位、社會及經濟變遷對產業的影響，預示著未來的轉型趨勢。這些變化將重塑企業運作模式，促進創新與效率，並為客戶提供更具價值的服務。",
     "note_path": "notes/2026/04/2026-04-16-wealth-and-asset-management-40-how-digital-social-and-econom-7d4e34f810d5.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "d4a78352ca91",
@@ -14719,7 +14719,7 @@
     "importance": "中",
     "summary": "德勤提出針對疫情後的勞動力策略，重點在於重建工作環境與提升員工福祉，促進企業持續發展。",
     "note_path": "notes/2026/04/2026-04-16-workforce-strategies-for-post-covid-19-recovery---deloitte-d4a78352ca91.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "b8025aa515f3",
@@ -14736,7 +14736,7 @@
     "importance": "中",
     "summary": "德勤強調透過職業實驗室提升技能，幫助求職者與企業促進人才發展與職場多元化。",
     "note_path": "notes/2026/04/2026-04-16-unlocking-opportunity-one-career-lab-at-a-time---deloitte-b8025aa515f3.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "b61056c741b7",
@@ -14753,7 +14753,7 @@
     "importance": "中",
     "summary": "德勤分析2022年女性在職場的情況，探討性別平等進展與挑戰，提出促進女性職業發展的建議。",
     "note_path": "notes/2026/04/2026-04-16-women-at-work-2022---deloitte-b61056c741b7.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "b70a3baa595f",
@@ -14770,7 +14770,7 @@
     "importance": "中",
     "summary": "德勤提供企業應對供應鏈挑戰的策略，強調靈活調整與創新以促進業務持續成長。",
     "note_path": "notes/2026/04/2026-04-16-how-to-tackle-supply-chain-challenges-and-thrive---deloitte-b70a3baa595f.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "3fb3bec2c702",
@@ -14787,7 +14787,7 @@
     "importance": "中",
     "summary": "德勤探討顛覆性併購的趨勢，強調企業在面對市場變化時，需制定靈活策略以塑造未來發展，應對快速變動的商業環境。",
     "note_path": "notes/2026/04/2026-04-16-disruptive-ma-are-you-ready-to-define-your-future-deloitte-f-3fb3bec2c702.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "b82716e59b19",
@@ -14804,7 +14804,7 @@
     "importance": "中",
     "summary": "德勤報告指出，企業領導者需展現靈活性與前瞻性，以引導組織適應變化，確保持續創造價值與長期成功。",
     "note_path": "notes/2026/04/2026-04-16-leading-beyond-the-great-disruption---deloitte-b82716e59b19.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "effe31ace7df",
@@ -14821,7 +14821,7 @@
     "importance": "中",
     "summary": "德勤分析遠端與靈活工作模式對職場的影響，建議企業調整策略以適應數位轉型與新常態，促進工作效率與員工滿意度。",
     "note_path": "notes/2026/04/2026-04-16-the-future-of-work-post-covid-19---deloitte-effe31ace7df.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "6d3adb6f127d",
@@ -14838,7 +14838,7 @@
     "importance": "中",
     "summary": "KPMG建議卡塔爾推行六點策略，強調創新與永續發展，以促進旅遊與酒店業的經濟復甦與長遠成長。",
     "note_path": "notes/2026/04/2026-04-16-qatar-should-consider-a-six-point-strategy-to-support-post-w-6d3adb6f127d.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "e24b9ff36b13",
@@ -14855,7 +14855,7 @@
     "importance": "中",
     "summary": "HarianBasis.co報導指出，全球地緣政治風險影響企業增長策略，CFO需密切監控局勢，制定相應的風險管理措施。",
     "note_path": "notes/2026/04/2026-04-16-geopolitical-risks-top-cfo-concerns-for-2026-growth---harian-e24b9ff36b13.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "e428e974f5a2",
@@ -15705,7 +15705,7 @@
     "importance": "中",
     "summary": "本文分析美國經濟中金融活動的過度程度，探討過多金融資源可能帶來的經濟影響，關注金融過熱的潛在風險。",
     "note_path": "notes/2026/04/2026-04-16-how-much-finance-is-too-much-for-the-us-economy---bloomberg-f1a5cf1126f1.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "ccd3407b905a",
@@ -15722,7 +15722,7 @@
     "importance": "中",
     "summary": "橋水基金在中國市場面臨5.6%的損失，宏觀對沖基金在當地市場遇到挑戰，反映全球經濟不確定性。",
     "note_path": "notes/2026/04/2026-04-16-macro-hedge-funds-slammed-in-china-as-bridgewater-loses-56---ccd3407b905a.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "b0a1247dadad",
@@ -15739,7 +15739,7 @@
     "importance": "中",
     "summary": "隨著美伊達成停火協議，米倫尼姆、Point72及Jain等基金獲得了顯著的投資回報。",
     "note_path": "notes/2026/04/2026-04-16-millennium-point72-and-jain-post-gains-after-us-iran-ceasefi-b0a1247dadad.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "f7b02f5cb0b7",
@@ -15756,7 +15756,7 @@
     "importance": "中",
     "summary": "杜拜政府放寬對沖基金的規範，幫助其應對戰爭帶來的經濟與市場波動，促進金融市場穩定。",
     "note_path": "notes/2026/04/2026-04-16-dubai-gives-hedge-funds-flexibility-to-navigate-war-fallout--f7b02f5cb0b7.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "7085ef1e5446",
@@ -15824,7 +15824,7 @@
     "importance": "中",
     "summary": "百格在線數字科技有限公司專注於數字科技領域，致力於創新和技術發展。",
     "note_path": "notes/2026/04/2026-04-16-baige-online-digital-technology-co-ltd---bloomberg-6bc01d0fb8cf.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "b396e57b2c34",
@@ -15841,7 +15841,7 @@
     "importance": "低",
     "summary": "Keshav Fincap Pvt Ltd專注於金融服務，提供多樣化的金融解決方案，支持企業與個人需求。",
     "note_path": "notes/2026/04/2026-04-16-keshav-fincap-pvt-ltd---bloomberg-b396e57b2c34.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "efa10d2b0362",
@@ -15858,7 +15858,7 @@
     "importance": "中",
     "summary": "Visionaire Global Engineering Pvt Ltd專注於全球工程解決方案，致力於創新與技術的結合。",
     "note_path": "notes/2026/04/2026-04-16-visionaire-global-engineering-pvt-ltd---bloomberg-efa10d2b0362.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "e2ee82b5185c",
@@ -16300,7 +16300,7 @@
     "importance": "低",
     "summary": "康威地區神經科學中心專注於記憶護理，提供先進診療與研究，改善患者生活質量並推動相關科學進展。",
     "note_path": "notes/2026/04/2026-04-16-face-of-memory-care-conway-regional-neuroscience-center---ar-5db962585d31.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "96326227ce6e",
@@ -16317,7 +16317,7 @@
     "importance": "中",
     "summary": "研究指出，電動自行車與滑板車事故導致的住院人數近年來顯著增加，呼籲加強安全措施與交通規範。",
     "note_path": "notes/2026/04/2026-04-16-hospital-admissions-due-to-e-bike-and-e-scooter-injuries-hav-96326227ce6e.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "47329b2ea5dc",
@@ -16334,7 +16334,7 @@
     "importance": "中",
     "summary": "最新分析顯示，阿茲海默症藥物對病情的影響不具意義，引發專家質疑與討論，呼籲進一步研究。此結果可能影響患者治療預期與保險理賠政策。",
     "note_path": "notes/2026/04/2026-04-16-alzheimers-drugs-have-no-meaningful-effect-new-analysis-says-47329b2ea5dc.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "5273199cc502",
@@ -16351,7 +16351,7 @@
     "importance": "中",
     "summary": "Ozempic藥物可能引起情緒變化，導致生活感到無趣。專家分析此現象的原因，並討論其對患者心理健康與保險理賠的潛在影響。",
     "note_path": "notes/2026/04/2026-04-16-what-is-ozempic-personality-and-why-does-it-make-life-feel-m-5273199cc502.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "2491d7dfdccc",
@@ -16368,7 +16368,7 @@
     "importance": "中",
     "summary": "數位健康公司近日分享了針對醫療保險ACCESS模型的計劃，旨在提升醫療服務的可及性和效率，並促進數位健康技術的應用，以改善患者的醫療體驗。",
     "note_path": "notes/2026/04/2026-04-16-digital-health-companies-share-plans-for-medicares-access-mo-2491d7dfdccc.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "483f6922446e",
@@ -16385,7 +16385,7 @@
     "importance": "中",
     "summary": "Prisma Health新開設的影像中心提供先進醫療檢查服務，提升當地醫療品質，對醫療保險需求與市場具有積極推動作用。",
     "note_path": "notes/2026/04/2026-04-16-prisma-health-opens-anderson-imaging-center---scbiz-483f6922446e.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "2cedfc2e1826",
@@ -16402,7 +16402,7 @@
     "importance": "中",
     "summary": "該醫療機構專注於兒童腸道健康，改善兒童醫療服務，對家庭醫療保險需求與健康管理具有正面影響。",
     "note_path": "notes/2026/04/2026-04-16-mercy-family-health-reopens-in-dubois-pa---pediatric-gut-hea-2cedfc2e1826.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "e4b1857b77e9",
@@ -16419,7 +16419,7 @@
     "importance": "中",
     "summary": "一款新開發的AI工具專注於早期癡呆症的檢測，旨在提高診斷的準確性和效率。這一技術的推出有望幫助醫療專業人員及早識別患者的需求，改善治療效果。",
     "note_path": "notes/2026/04/2026-04-16-new-ai-tool-targets-early-dementia-detection---app-developer-e4b1857b77e9.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "13cbd4c21d92",
@@ -16436,7 +16436,7 @@
     "importance": "高",
     "summary": "一項重要評估指出抗澱粉樣蛋白藥物對阿茲海默症的療效有限，可能影響患者預期與保險理賠政策，具有較高影響力。",
     "note_path": "notes/2026/04/2026-04-16-alzheimers-hope-questioned-as-major-review-finds-limited-ben-13cbd4c21d92.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "7c9bc3e85a6d",
@@ -16453,7 +16453,7 @@
     "importance": "中",
     "summary": "Ivory公司開發新型腦部測試工具，提升印度認知健康管理，可能促進相關保險產品創新與市場擴展。",
     "note_path": "notes/2026/04/2026-04-16-brain-health-startup-ivory-develops-treadmill-test-for-brain-7c9bc3e85a6d.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "62af4c6be9d9",
@@ -16470,7 +16470,7 @@
     "importance": "中",
     "summary": "同上，內容重複，已在前一則中描述。",
     "note_path": "notes/2026/04/2026-04-16-brain-health-startup-ivory-develops-treadmill-test-for-brain-62af4c6be9d9.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "59e2bdc4bb71",
@@ -17286,7 +17286,7 @@
     "importance": "中",
     "summary": "德國的天然氣發電計劃因可再生能源的推廣而遇到新的挑戰，未來的能源政策亟需調整。",
     "note_path": "notes/2026/04/2026-04-16-german-plans-for-gas-power-face-new-hurdles-over-renewables--c39e8ee98a5c.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "b302d2d9ee80",
@@ -17303,7 +17303,7 @@
     "importance": "低",
     "summary": "這篇文章介紹了當代資訊公司的最新動態及其在市場中的角色。",
     "note_path": "notes/2026/04/2026-04-16-contemporary-information-corp---bloomberg-b302d2d9ee80.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "8e8c9464c676",
@@ -17558,7 +17558,7 @@
     "importance": "中",
     "summary": "陽光製藥與格倫恩塔爾競爭收購Organon，專注女性健康，擴展市場份額，對醫藥產業及相關投資具有影響。",
     "note_path": "notes/2026/04/2026-04-16-陽光製藥與格倫恩塔爾據說競爭美國上市的organon-380ebf5798e5.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "35c96a4323d2",
@@ -20431,7 +20431,7 @@
     "importance": "中",
     "summary": "三星生命女子籃球隊以3勝1負晉級冠軍賽，展現團隊合作與競技實力，期待在決賽中再創佳績。",
     "note_path": "notes/2026/04/2026-04-15-여자농구-삼성생명-하나은행-3승-1패-잡고-챔프전행-3305f7573c16.md",
-    "filter": ""
+    "filter": "noise_sports"
   },
   {
     "uid": "819e9b0ea4e7",
@@ -21944,7 +21944,7 @@
     "importance": "中",
     "summary": "德勤分析在經濟不穩定時期，利用基礎設施刺激方案吸引私人資本，促進經濟復甦與投資。",
     "note_path": "notes/2026/04/2026-04-15-harnessing-private-capital-in-turbulent-times-through-infra--b9d8347e857e.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "8f7e2f158086",
@@ -21961,7 +21961,7 @@
     "importance": "中",
     "summary": "德勤美國任命 Cathleen Domes 為雲端業務首席營運官，推動公司雲端解決方案的發展與創新。",
     "note_path": "notes/2026/04/2026-04-15-cathleen-domes-chief-operating-officer-cloud-deloitte-us-del-8f7e2f158086.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "7355063a3af2",
@@ -21978,7 +21978,7 @@
     "importance": "中",
     "summary": "法院對涉及知識產權的德勤商業秘密案件中的證據範圍進行限制，案件進入新階段。",
     "note_path": "notes/2026/04/2026-04-15-judge-limits-evidence-in-revived-deloitte-trade-secret-case--7355063a3af2.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "9c006fe6bbc9",
@@ -22709,7 +22709,7 @@
     "importance": "中",
     "summary": "隨著人工智能技術的應用，比特幣礦工的收入結構發生變化，正朝著實現70%收入里程碑的目標邁進。",
     "note_path": "notes/2026/04/2026-04-15-ai-pivot-pushes-bitcoin-miners-toward-a-70-revenue-milestone-7d64bc01d238.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "67f141a043af",
@@ -22726,7 +22726,7 @@
     "importance": "中",
     "summary": "興業銀行推出美元穩定幣，旨在促進數字資產的普及，並擴展至數百萬加密錢包用戶，推動數位金融創新。",
     "note_path": "notes/2026/04/2026-04-15-socgen-takes-usd-stablecoin-to-millions-of-crypto-wallet-use-67f141a043af.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "eaf7857aa1d1",
@@ -22743,7 +22743,7 @@
     "importance": "中",
     "summary": "少數銀行為對沖基金提供高槓桿引發市場擔憂，可能影響金融穩定，需密切監控相關風險。",
     "note_path": "notes/2026/04/2026-04-15-hedge-fund-leverage-powered-by-a-few-key-banks-sparks-concer-eaf7857aa1d1.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "f18909f3090b",
@@ -22811,7 +22811,7 @@
     "importance": "中",
     "summary": "亞洲家族財富逆勢增長，展現經濟韌性，對全球經濟具有重要影響，值得持續觀察。",
     "note_path": "notes/2026/04/2026-04-15-asian-family-fortunes-defy-geopolitical-headwinds---bloomber-1bed593ecefd.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "ef25d017d720",
@@ -22828,7 +22828,7 @@
     "importance": "中",
     "summary": "Standard Life以20億英鎊收購Aegon UK，彰顯養老金市場的活躍與成長潛力，影響行業格局。",
     "note_path": "notes/2026/04/2026-04-15-pensions-get-punchy-as-standard-life-buys-aegon-uk-for-2-bil-ef25d017d720.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "233c04946754",
@@ -22845,7 +22845,7 @@
     "importance": "中",
     "summary": "介紹實用退休規劃策略，幫助讀者達成財務自由，提升退休生活品質，具有實用價值。",
     "note_path": "notes/2026/04/2026-04-15-the-ultimate-retirement-plan---bloomberg-233c04946754.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "6148f45e3f82",
@@ -22862,7 +22862,7 @@
     "importance": "低",
     "summary": "內容與前一篇相同，聚焦退休計劃與財務自由，提供實用建議，適合理財規劃。",
     "note_path": "notes/2026/04/2026-04-15-the-ultimate-retirement-plan---bloomberg-6148f45e3f82.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "393844f54674",
@@ -23355,7 +23355,7 @@
     "importance": "中",
     "summary": "研究指出電動自行車與滑板車事故頻發，造成腦部損傷病例上升，強調安全措施的重要性，與保險風險管理相關。",
     "note_path": "notes/2026/04/2026-04-15-e-bike-and-scooter-crashes-are-leading-to-more-brain-injurie-2d06f9ecfafa.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "6f9c0cef74cf",
@@ -23372,7 +23372,7 @@
     "importance": "中",
     "summary": "探討經常食用魚類對改善認知功能與降低神經退化風險的正面影響，與健康保險的預防醫學相關。",
     "note_path": "notes/2026/04/2026-04-15-what-happens-to-your-brain-when-you-eat-fish-regularly---eat-6f9c0cef74cf.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "1e8fef242f5d",
@@ -23389,7 +23389,7 @@
     "importance": "中",
     "summary": "研究指出，通過在生活中持續進行某些活動，可以將患阿茲海默症的風險降低多達 38%。",
     "note_path": "notes/2026/04/2026-04-15-doing-this-throughout-life-may-cut-alzheimers-risk-by-38---s-1e8fef242f5d.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "89c1acddb294",
@@ -23406,7 +23406,7 @@
     "importance": "低",
     "summary": "最新研究證實氟化物不會損害智商或腦部功能，消除相關健康疑慮，對公共健康政策具有參考價值。",
     "note_path": "notes/2026/04/2026-04-15-fluoride-in-drinking-water-has-no-effect-on-iq-or-brain-func-89c1acddb294.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "9847f19edb9a",
@@ -23423,7 +23423,7 @@
     "importance": "中",
     "summary": "密西根大學新任校長被診斷患腦癌，事件引發關注，彰顯健康風險與企業領導力的挑戰。",
     "note_path": "notes/2026/04/2026-04-15-university-of-michigan-president-elect-diagnosed-with-brain--9847f19edb9a.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "af4f832d2c65",
@@ -23440,7 +23440,7 @@
     "importance": "中",
     "summary": "文章提醒讀者警惕社交媒體上的錯誤資訊，提供尋找可靠心理健康資訊的方法，促進正確認知。",
     "note_path": "notes/2026/04/2026-04-15-adhd-and-autism-misinformation-is-spreading-on-social-mediah-af4f832d2c65.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "63e96f92f743",
@@ -23457,7 +23457,7 @@
     "importance": "中",
     "summary": "中巴合作建立腦健康走廊，推動醫療旅遊新模式，吸引更多患者尋求專業治療，促進國際醫療合作。",
     "note_path": "notes/2026/04/2026-04-15-chinapakistan-brain-health-corridor-transforms-medical-trave-63e96f92f743.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "56effda93973",
@@ -23474,7 +23474,7 @@
     "importance": "中",
     "summary": "腦健康初創公司 Ivory 推出創新的“跑步機測試”，旨在提升認知功能評估與預防性健康護理的效率。",
     "note_path": "notes/2026/04/2026-04-15-brain-health-startup-ivory-launches-innovative-treadmill-tes-56effda93973.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "a73a618192c9",
@@ -23491,7 +23491,7 @@
     "importance": "中",
     "summary": "澳洲政府將持續推行國家援助卡，支援塔斯馬尼亞的殘障人士，幫助他們融入社會並獲得必要服務，彰顯政府對弱勢群體的關懷。",
     "note_path": "notes/2026/04/2026-04-15-national-assistance-card-to-continue-supporting-people-with--a73a618192c9.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "cdaf97e0271a",
@@ -23508,7 +23508,7 @@
     "importance": "中",
     "summary": "前明星阿莉亞·歐謝亞正接受腦癌治療，朋友們發起募款活動提供經濟支持，展現社會對健康保障與醫療援助的關注。",
     "note_path": "notes/2026/04/2026-04-15-former-soap-star-alea-oshea-undergoing-treatment-for-brain-c-cdaf97e0271a.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "798ac45d8f97",
@@ -27758,7 +27758,7 @@
     "importance": "低",
     "summary": "三星生命在季後賽中逆轉韓亞銀行，展現出色的競技實力與團隊合作精神。",
     "note_path": "notes/2026/04/2026-04-14-역대급-역전승-삼성생명-하나은행-꺾고-4강-po서-2-9e41454a957e.md",
-    "filter": ""
+    "filter": "noise_sports"
   },
   {
     "uid": "99bb8f42d098",
@@ -28659,7 +28659,7 @@
     "importance": "中",
     "summary": "德勤提供了一份關於生成式人工智能在客戶關係管理中的應用指南，幫助企業提升客戶互動。",
     "note_path": "notes/2026/04/2026-04-14-guide-to-genai-for-crm---deloitte-ff4757060b27.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "6be9026494d6",
@@ -28693,7 +28693,7 @@
     "importance": "中",
     "summary": "德勤探討在疫情期間提供稅務援助，協助弱勢群體渡過難關，促進社會公平與經濟復甦。",
     "note_path": "notes/2026/04/2026-04-14-providing-tax-support-to-the-most-vulnerable-during-covid-19-3722767efd0d.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "695162ab34fa",
@@ -28710,7 +28710,7 @@
     "importance": "中",
     "summary": "德勤致力於支援英國弱勢女性，提供資源與支持，促進其職業發展與生活改善。",
     "note_path": "notes/2026/04/2026-04-14-supporting-the-uks-most-disadvantaged-women-to-reach-their-p-695162ab34fa.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "701ef76f1447",
@@ -28727,7 +28727,7 @@
     "importance": "中",
     "summary": "德勤協助疫情受影響社區提供資源與援助，促進社區復原與長遠發展。",
     "note_path": "notes/2026/04/2026-04-14-aiding-communities-affected-by-the-pandemic---deloitte-701ef76f1447.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "4977485b4cdb",
@@ -28744,7 +28744,7 @@
     "importance": "中",
     "summary": "德勤開發COVID-19分診與預測平台，利用創新技術改善疫情期間的醫療服務效率與準確性。",
     "note_path": "notes/2026/04/2026-04-14-innovating-for-good-with-a-covid-19-triage-and-clinical-pred-4977485b4cdb.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "7d233d5a7f97",
@@ -28761,7 +28761,7 @@
     "importance": "低",
     "summary": "安娜·瑪麗亞·科斯塔是德勤的專業人士，因其專業知識與貢獻受到公司內部高度評價。",
     "note_path": "notes/2026/04/2026-04-14-ana-maria-costa---deloitte-7d233d5a7f97.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "fad07ad058f3",
@@ -28778,7 +28778,7 @@
     "importance": "中",
     "summary": "德勤協助數百萬德國學生獲取教育洞察，促進教育資源普及與公平。",
     "note_path": "notes/2026/04/2026-04-14-providing-millions-of-german-students-with-access-to-educati-fad07ad058f3.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "c86c1ff1a34c",
@@ -28795,7 +28795,7 @@
     "importance": "中",
     "summary": "德勤通過導師計劃支持年輕人才成長，培養未來領導者，促進人才發展。",
     "note_path": "notes/2026/04/2026-04-14-empowering-the-next-generation-of-leaders-one-mentorship-at--c86c1ff1a34c.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "13cf2536e315",
@@ -28812,7 +28812,7 @@
     "importance": "低",
     "summary": "德勤推出品牌影片，展示公司使命、價值觀及對社會的影響力，強化品牌形象。",
     "note_path": "notes/2026/04/2026-04-14-who-we-are-brand-film---deloitte-13cf2536e315.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "efb01852d9b1",
@@ -29237,7 +29237,7 @@
     "importance": "中",
     "summary": "新加坡針對通膨的政策決策被視為全球經濟的警示，可能促使其他國家採取更嚴格的經濟措施。",
     "note_path": "notes/2026/04/2026-04-14-singapores-tough-inflation-call-is-a-warning-for-global-trad-e9b870abf955.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "16716f44b264",
@@ -29271,7 +29271,7 @@
     "importance": "中",
     "summary": "部分加密貨幣投資者被指可能逃避稅務申報，引發監管機構關注，影響加密市場的合規與監管環境。",
     "note_path": "notes/2026/04/2026-04-14-crypto-bros-appear-to-be-dodging-reporting-sales-to-the-irs--2388dd6861ac.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "adadc8918f71",
@@ -29288,7 +29288,7 @@
     "importance": "中",
     "summary": "由於美國與伊朗和平談判前景樂觀，比特幣價格升至四周高點，反映市場對地緣政治緩和的反應。",
     "note_path": "notes/2026/04/2026-04-14-bitcoin-climbs-to-four-week-high-on-hopes-of-us-iran-peace-t-adadc8918f71.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "12ff4f236c75",
@@ -29305,7 +29305,7 @@
     "importance": "中",
     "summary": "德意志證券交易所宣布投資2億美元入股Kraken，顯示傳統金融機構積極布局數字資產市場。",
     "note_path": "notes/2026/04/2026-04-14-deutsche-borse-takes-200-million-stake-in-crypto-exchange-kr-12ff4f236c75.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "ca0bc03e7cfb",
@@ -29322,7 +29322,7 @@
     "importance": "中",
     "summary": "PolyPeptide正考慮潛在合作或收購方案，吸引多家私募股權基金，可能影響企業未來發展策略。",
     "note_path": "notes/2026/04/2026-04-14-polypeptide-studies-strategic-options-as-private-equity-circ-ca0bc03e7cfb.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "363eeff3e84e",
@@ -29339,7 +29339,7 @@
     "importance": "中",
     "summary": "貝萊德計劃在私人信貸市場波動中擴展佈局，尋求增加市場份額，反映資產管理策略調整。",
     "note_path": "notes/2026/04/2026-04-14-blackrock-sees-private-credit-tumult-as-way-to-take-market-s-363eeff3e84e.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "9952bd3e45ba",
@@ -29356,7 +29356,7 @@
     "importance": "中",
     "summary": "德國政府推動太陽能發電廠配備儲能電池，以提升能源效率與可再生能源的穩定供應，促進能源轉型。",
     "note_path": "notes/2026/04/2026-04-14-germany-pushes-for-new-solar-farms-to-be-equipped-with-batte-9952bd3e45ba.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "51b006fa3a04",
@@ -29373,7 +29373,7 @@
     "importance": "中",
     "summary": "貝萊德亞洲私人信貸基金遭遇借款人違約事件，凸顯該地區信貸市場的風險與挑戰，影響投資信心。",
     "note_path": "notes/2026/04/2026-04-14-blackrocks-asia-private-credit-fund-sees-china-borrower-defa-51b006fa3a04.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "f8e16b7ac185",
@@ -29390,7 +29390,7 @@
     "importance": "低",
     "summary": "專家指出，英國牙科系統的核心問題不在牙冠價格，而在於整體醫療體系的結構性挑戰。",
     "note_path": "notes/2026/04/2026-04-14-2000-crowns-arent-the-uks-dental-problem---bloomberg-f8e16b7ac185.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "2c8374866cbc",
@@ -29407,7 +29407,7 @@
     "importance": "高",
     "summary": "德國政府推行醫療改革，旨在控制不斷上升的醫療支出，確保醫療系統的長期可持續性。",
     "note_path": "notes/2026/04/2026-04-14-germany-unveils-cost-cutting-revamp-as-healthcare-spending-s-2c8374866cbc.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "8f656b517b9e",
@@ -29492,7 +29492,7 @@
     "importance": "中",
     "summary": "歐洲央行提議放寬限制，促進銀行在歐盟內部更靈活的跨境資本調動，增強金融穩定。",
     "note_path": "notes/2026/04/2026-04-14-ecb-wants-to-allow-banks-to-shift-more-capital-across-border-bfd024617260.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "9332f857dca5",
@@ -29509,7 +29509,7 @@
     "importance": "低",
     "summary": "Plant LLC專注於提供高效的創新產品與服務，滿足市場多樣化需求，推動行業發展。",
     "note_path": "notes/2026/04/2026-04-14-plant-llc---bloomberg-9332f857dca5.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "73c3d0eccf80",
@@ -29543,7 +29543,7 @@
     "importance": "中",
     "summary": "Conduit Health專注於醫療健康領域，提供創新方案以改善患者健康與醫療服務。",
     "note_path": "notes/2026/04/2026-04-14-conduit-health-inc---bloomberg-943d53a5e461.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "366378199b34",
@@ -29951,7 +29951,7 @@
     "importance": "中",
     "summary": "拉斯維加斯的拉丁裔社群在癡呆症護理和醫療資源獲取方面遇到較大困難，揭示健康服務中的不平等現象，對保險業的健康保障策略具有啟示意義。",
     "note_path": "notes/2026/04/2026-04-14-las-vegas-latinos-face-a-higher-hurdle-for-dementia-care-and-cd368c1b6284.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "3e6b045a07cb",
@@ -29985,7 +29985,7 @@
     "importance": "中",
     "summary": "Depo Provera相關的法律訴訟將於2026年4月進入進一步的法律程序，涉及藥物安全與責任，對醫療責任與保險理賠具有重要影響。",
     "note_path": "notes/2026/04/2026-04-14-depo-provera-lawsuit-settlement-april-2026-litigation-update-ac057e408bcd.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "8088203b694a",
@@ -30002,7 +30002,7 @@
     "importance": "中",
     "summary": "兩家公司合作推動創新技術，改善胎兒醫學護理，促進孕期健康管理，對醫療保險產品創新具有推動作用。",
     "note_path": "notes/2026/04/2026-04-14-aegis-ventures-and-wavelet-medical-aim-to-redefine-the-stand-8088203b694a.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "7167948e215a",
@@ -30036,7 +30036,7 @@
     "importance": "中",
     "summary": "演員 Selma Blair 與 Mersea 品牌合作，通過慈善活動為腦健康研究籌集資金，支持相關醫學突破。",
     "note_path": "notes/2026/04/2026-04-14-selma-blair-partners-with-mersea-to-fund-brain-health-resear-ffea14a03772.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "86a5d9e50fe9",
@@ -30053,7 +30053,7 @@
     "importance": "中",
     "summary": "韓國藝人李鎮浩腦出血後恢復，救援行動展現緊急應對能力，與醫療保險的急救與理賠相關。",
     "note_path": "notes/2026/04/2026-04-14-lee-jin-ho-regains-consciousness-after-brain-hemorrhage-kang-86a5d9e50fe9.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "dd39e27d3066",
@@ -31124,7 +31124,7 @@
     "importance": "中",
     "summary": "債券市場資深人士Bassman因薪酬糾紛對ETF經理提起訴訟，該案件可能揭示金融行業內部薪酬分配的爭議與挑戰，反映人才管理與薪酬問題。",
     "note_path": "notes/2026/04/2026-04-14-bond-market-veteran-bassman-sues-etf-manager-over-compensati-0a5653be8ff4.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "d4dac6e09dd1",
@@ -31141,7 +31141,7 @@
     "importance": "中",
     "summary": "捷克總理對央行高利率政策表達不滿，認為此舉阻礙國內貸款活動，可能影響經濟增長及企業融資能力，涉及宏觀經濟與金融政策議題。",
     "note_path": "notes/2026/04/2026-04-14-czech-premier-chides-central-bank-rates-for-hindering-lendin-d4dac6e09dd1.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "847f6cc555a9",
@@ -34337,7 +34337,7 @@
     "importance": "中",
     "summary": "德勤介紹如何運用先進科技提升稅務管理效率，推動稅務數位轉型，促進企業合規與創新。",
     "note_path": "notes/2026/04/2026-04-13-tax-tech-bytes-unleashing-the-power-of-technology---deloitte-11ab760b71bc.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "1f1db949cc7e",
@@ -34354,7 +34354,7 @@
     "importance": "中",
     "summary": "德勤調查顯示英國財務主管對經濟前景信心下降，地緣政治風險成為主要影響因素，企業需謹慎應對未來挑戰。",
     "note_path": "notes/2026/04/2026-04-13-deloittes-cfo-survey-uk-finance-leaders-confidence-drops-as--1f1db949cc7e.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "bd3432836ecd",
@@ -34405,7 +34405,7 @@
     "importance": "低",
     "summary": "德勤協助瑞士250名難民獲得就業機會，促進其社會融入與經濟穩定，展現企業社會責任與永續發展的實踐。",
     "note_path": "notes/2026/04/2026-04-13-empowering-250-refugees-in-switzerland-to-find-jobs-and-stab-4cac33c906ce.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "064719f689b1",
@@ -34422,7 +34422,7 @@
     "importance": "低",
     "summary": "德勤推動「WorldClass」計畫，支持印尼年輕可可農提升技能與永續發展，促進農業社區經濟與環境保護。",
     "note_path": "notes/2026/04/2026-04-13-worldclass---empowering-the-next-generation-of-cocoa-farmers-064719f689b1.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "8cc4f3894287",
@@ -34762,7 +34762,7 @@
     "importance": "中",
     "summary": "微軟內部員工表示，公司正暫停與部分碳捕捉技術公司的合作，可能影響相關碳減排產業的發展與投資動向。",
     "note_path": "notes/2026/04/2026-04-13-microsoft-staff-tell-some-carbon-capture-companies-its-pausi-e3907acfc21e.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "a33dd57c253c",
@@ -34779,7 +34779,7 @@
     "importance": "中",
     "summary": "伊朗與美國的外交僵局可能導致國際油價波動，進而影響全球經濟與美國即將舉行的中期選舉結果。",
     "note_path": "notes/2026/04/2026-04-13-watch-what-iran-us-stalemate-means-for-oil-prices-midterms---a33dd57c253c.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "fc7666b21e5a",
@@ -34796,7 +34796,7 @@
     "importance": "中",
     "summary": "德國政府同意採取多項措施，旨在緩解能源價格快速上漲對經濟和民眾造成的負擔，穩定市場情緒。",
     "note_path": "notes/2026/04/2026-04-13-germany-agrees-on-measures-to-cushion-jump-in-energy-prices--fc7666b21e5a.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "c06b9c459479",
@@ -34813,7 +34813,7 @@
     "importance": "中",
     "summary": "韓國銀行行長提名人申表示，目前利率已接近中性水平，反映出經濟趨於穩定，未來貨幣政策將保持謹慎。",
     "note_path": "notes/2026/04/2026-04-13-bank-of-korea-governor-nominee-shin-says-rate-near-neutral-l-c06b9c459479.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "185b0208032a",
@@ -34830,7 +34830,7 @@
     "importance": "中",
     "summary": "經濟學家魯比尼探討伊朗可能爆發戰爭的多種情境，分析其對地緣政治與全球經濟的潛在影響。",
     "note_path": "notes/2026/04/2026-04-13-watch-escalate-or-de-escalate-economist-roubini-on-iran-war--185b0208032a.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "e0a55177eeff",
@@ -34847,7 +34847,7 @@
     "importance": "中",
     "summary": "奧尼克斯評論特朗普對霍爾木茲海峽封鎖的威脅缺乏合理性，並分析此舉對地區安全與能源市場的可能影響。",
     "note_path": "notes/2026/04/2026-04-13-watch-trumps-hormuz-blockade-threat-makes-no-sense-onyx---bl-e0a55177eeff.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "4e6295bed621",
@@ -34898,7 +34898,7 @@
     "importance": "中",
     "summary": "由於Banco Master的風險，巴西存款擔保機構暫緩對BRB銀行的貸款決策。",
     "note_path": "notes/2026/04/2026-04-13-brazil-deposit-guarantor-holds-off-on-brb-loan-amid-banco-ma-366d2762c1f4.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "78eabe02f502",
@@ -34915,7 +34915,7 @@
     "importance": "低",
     "summary": "哈斯琳達·阿敏主持的節目深入分析當前經濟與社會議題，提供專業見解與市場趨勢解讀。",
     "note_path": "notes/2026/04/2026-04-13-watch-insight-with-haslinda-amin-04132026---bloomberg-78eabe02f502.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "52c58daf9a5e",
@@ -35170,7 +35170,7 @@
     "importance": "中",
     "summary": "利用生成式AI技術的研究發現，不同個體在大腦結構與心理健康方面存在顯著差異，顯示AI在神經科學與心理健康領域的潛力。",
     "note_path": "notes/2026/04/2026-04-13-generative-ai-use-reveals-divergent-brain-and-mental-health--efe6b9c1b388.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "014633718f85",
@@ -35187,7 +35187,7 @@
     "importance": "低",
     "summary": "神經技能中心被評為2026年美國最佳中型醫療工作場所之一，彰顯其優秀的工作環境與專業水平，對醫療及相關保險領域有正面影響。",
     "note_path": "notes/2026/04/2026-04-13-centre-for-neuro-skills-named-to-newsweeks-americas-greatest-014633718f85.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "b5401b4aabc8",
@@ -35204,7 +35204,7 @@
     "importance": "低",
     "summary": "專業雜誌介紹如何通過調配飲品來改善情緒穩定性與認知功能，促進心理健康，對健康保險產品設計有參考價值。",
     "note_path": "notes/2026/04/2026-04-13-formulating-beverages-for-improved-mood-and-cognitive-health-b5401b4aabc8.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "80f042604b8c",
@@ -35221,7 +35221,7 @@
     "importance": "低",
     "summary": "探討L-肉鹼補充劑在提升能量、促進脂肪代謝及健康方面的潛在益處，對健康保險及相關產品有一定啟示。",
     "note_path": "notes/2026/04/2026-04-13-what-do-l-carnitine-supplements-really-do---verywell-health-80f042604b8c.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "9807dde71b06",
@@ -35238,7 +35238,7 @@
     "importance": "低",
     "summary": "鼓勵提名在腦部與心理健康領域的創新者，表彰其對社會的貢獻與推動力，促進相關產業發展與創新。",
     "note_path": "notes/2026/04/2026-04-13-nominate-your-brain-and-mental-health-innovators-before-its--9807dde71b06.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "e6c798964930",
@@ -35255,7 +35255,7 @@
     "importance": "低",
     "summary": "研究指出假期與旅行不僅能放鬆心情，還有助於減壓與提升免疫力，對健康管理與保險產品設計有參考價值。",
     "note_path": "notes/2026/04/2026-04-13-8-surprising-health-benefits-of-holidays-and-travel---sagaco-e6c798964930.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "d70cde4f1a52",
@@ -36275,7 +36275,7 @@
     "importance": "中",
     "summary": "德國施壓歐盟放寬汽車排放標準，以促進汽車產業發展與調整環保政策，將影響未來歐盟汽車市場與環保規範。",
     "note_path": "notes/2026/04/2026-04-13-germany-tightens-pressure-on-eu-to-ease-auto-emissions-rules-62f9e782db1b.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "28e495f45343",
@@ -37652,7 +37652,7 @@
     "importance": "中",
     "summary": "亞洲最富有的20個家族利用人工智慧的繁榮，創下財富新高，展現科技帶來的經濟機遇。",
     "note_path": "notes/2026/04/2026-04-12-asias-20-richest-families-ride-ai-boom-to-record-wealth---bl-cdd190d27150.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "24ea83d7da19",
@@ -37737,7 +37737,7 @@
     "importance": "中",
     "summary": "彭博社報導Growthcurve Capital Sunrise共同投資有限合夥的投資策略與市場動態，展示其投資布局。",
     "note_path": "notes/2026/04/2026-04-12-growthcurve-capital-sunrise-co-invest-lp---bloomberg-c6d9503a1d97.md",
-    "filter": ""
+    "filter": "noise_unrelated"
   },
   {
     "uid": "c4ecbea60c21",
@@ -39505,7 +39505,7 @@
     "importance": "中",
     "summary": "克利夫蘭診所推出針對女性的阿茲海默症風險降低護理服務，強調預防與早期干預，旨在降低女性罹患阿茲海默症的風險，提升健康管理效果。",
     "note_path": "notes/2026/04/2026-04-11-get-alzheimers-disease-risk-reduction-care-for-women---cleve-ce3d17f92521.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "85089493082a",
@@ -39522,7 +39522,7 @@
     "importance": "中",
     "summary": "在CMEF展會上，侵入式腦機介面和復健機器人等尖端技術展出，探討這些技術如何推動智慧醫療發展，開拓新的市場機會，促進醫療與保險科技融合。",
     "note_path": "notes/2026/04/2026-04-11-invasive-brain-computer-interface-debuts-and-rehabilitation--85089493082a.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "38e6ec0eb47b",
@@ -39539,7 +39539,7 @@
     "importance": "中",
     "summary": "文章介紹多種簡單習慣，如規律運動、均衡飲食及充足睡眠，有助於提升大腦功能和認知能力，促進整體健康。",
     "note_path": "notes/2026/04/2026-04-11-boost-brain-power-simple-habits-to-improve-cognitive-functio-38e6ec0eb47b.md",
-    "filter": "noise_unrelated"
+    "filter": ""
   },
   {
     "uid": "ae375d0d71a9",
