@@ -4,70 +4,72 @@ period: 2026-03
 category: regulation
 region: global
 articles_count: 409
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+compiled_at: 2026-04-18T12:00:00Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
+
 ### 本月重點
 
-- 美國財政部 reportedly 將與保險監管機構會面討論私人信貸問題
-- AM Best 確認伯克希爾哈薩克家庭保險公司及其附屬公司的信評
-- 為什麼投資者對Blue Owl的14億美元交易是有理由的
-- 意見 | 人造草地播客
-- 德國瞄準€60億歐元醫療費用削減
+- **伊朗衝突與霍爾木茲海峽危機**：波斯灣戰爭風險保護遭主要P&I保險公司撤回，霍爾木茲海峽運輸保險費用大幅飆升，美國承諾200億美元海上再保險支持，船舶保險計劃即將啟動
+- **蘇黎世保險收購Beazley**：蘇黎世保險以110億美元收購Beazley，啟動50億美元股票出售籌資，AM Best與穆迪均認為影響可控
+- **美國健康保險壓力加劇**：CVS Health旗下Aetna須支付11.77億美元解決虛假索賠指控，健康保險費用大幅上漲，AM Best警告美國健康保險市場面臨更明顯壓力
+- **監管資本與合規動態**：奈及利亞NAICOM推動20家保險公司資本重組驗證，SEC擬廢除季度報告要求，全球反洗錢系統自動化加速
+- **高盛調查**：逾半壽險業者估計美國未來三年將經濟衰退，私人信貸風險引發美國財政部與保險監管機構會面
 
 ### 時間線
 
-- 2026-03-31：美國財政部 reportedly 將與保險監管機構會面討論私人信貸問題
-- 2026-03-31：AM Best 確認伯克希爾哈薩克家庭保險公司及其附屬公司的信評
-- 2026-03-31：為什麼投資者對Blue Owl的14億美元交易是有理由的
-- 2026-03-31：意見 | 人造草地播客
-- 2026-03-31：德國瞄準€60億歐元醫療費用削減
-- 2026-03-31：為什麼抓捕罪犯比懲罰更重要？
-- 2026-03-31：Arch Capital Group 股票：商業模式優勢和投資者考慮因素在競爭激烈的保險市場
-- 2026-03-31：甘比亞保險業表現韌性，儘管市場佔有率僅1%
-- 2026-03-31：德勤報告：迦納保險業有巨大的成長潛力
-- 2026-03-31：AM Best 將信評機構評級指派給 AXA XL Excess & Surplus Lines Insurance Company
+- 2026-03-07：主要P&I保險公司撤回波斯灣戰爭風險保護；蘇黎世保險啟動50億美元股票出售為收購Beazley籌資；美國承諾200億美元海上再保險支持；IRDAI提議採用Ind AS會計標準
+- 2026-03-08：Cigna任命Brian Evanko為CEO接替David Cordani
+- 2026-03-11：伯克希爾哈薩威營業利潤大幅下滑；印度IRDAI批准安聯吉奧再保險和Kiwi General Insurance；AM Best預期美國健康保險壓力加劇
+- 2026-03-12：CVS Health旗下Aetna須支付11.77億美元解決虛假索賠指控；美國計劃解除霍爾木茲海峽封鎖遇到全球保險現實；監管機構計畫放寬部分資本規範
+- 2026-03-17：霍爾木茲海峽船舶攻擊後運輸保險費用大幅上升；2025年全球保險業併購趨於穩定
+- 2026-03-18：GCC保險公司資本緩衝抵消戰爭風險；SEC準備提案廢除季度報告要求；Allianz SE面臨歐洲保險業波動和監管壓力
+- 2026-03-24：Everest出售加拿大零售保險業務給Wawanesa；Allianz SE宣布董事會管理層改動
+- 2026-03-27：霍爾木茲海峽船舶保險計劃即將啟動；全球監管動態聚焦綠色金融
+- 2026-03-28：2026年保險業併購將更加「有針對性」；德勤報告指出非洲保險未來由信任而非科技定義
+- 2026-03-31：美國財政部將與保險監管機構會面討論私人信貸問題；高盛調查顯示逾半壽險業者估美國未來三年經濟衰退；德國瞄準60億歐元醫療費用削減
 
 ### 趨勢分析
 
-本月監管動態主題在全球地區共有 409 篇相關報導。報導量大，顯示該領域活動頻繁。
+**伊朗衝突重塑全球保險風險版圖**
+
+2026年3月，伊朗衝突成為全球保險業的核心風險事件。主要P&I保險公司撤回波斯灣戰爭風險保護，直接衝擊全球航運保險市場。霍爾木茲海峽作為全球石油運輸的咽喉，其保險費用在船舶攻擊事件後大幅飆升近50%。美國政府雖承諾200億美元海上再保險支持並計劃解除海峽封鎖，但面臨全球保險市場的現實制約——保險公司基於風險評估拒絕提供覆蓋。穆迪、Fitch與S&P Global三大評級機構均就此發表分析，共識是GCC保險公司因資本緩衝而影響有限，但全球保險公司風險可能隨衝突延燒而上升。
+
+**監管改革與資本充足性成為全球焦點**
+
+多國監管機構在本月推動重要改革。奈及利亞NAICOM要求20家保險公司進行資本重組驗證，凸顯新興市場對保險業資本充足性的關注。美國SEC擬廢除季度報告要求，可能對上市保險公司的資訊揭露產生深遠影響。印度IRDAI提議從2026年4月起採用Ind AS會計標準，推動保險業會計透明度提升。全球反洗錢系統的自動化趨勢也在加速，尼日利亞央行率先自動化AML系統以保護銀行和金融科技公司。
+
+**健康保險費用與併購整合雙線並進**
+
+美國健康保險市場面臨雙重壓力：費用大幅上漲迫使企業財務長尋找替代方案，而CVS Health旗下Aetna的11.77億美元虛假索賠和解案則暴露了行業合規風險。AM Best警告美國健康保險市場可能已達轉折點。與此同時，全球保險業併購趨於穩定但更具針對性，蘇黎世保險以110億美元收購Beazley是本月最大交易，標誌著大型保險集團向專業險種領域的戰略擴張。德國瞄準60億歐元醫療費用削減，則反映了歐洲對健康保險成本的系統性應對。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+- **地緣政治風險 × 再保市場**：伊朗衝突直接推高戰爭風險保費，迫使再保險公司重新評估中東曝險，瑞士再保和慕尼黑再保的股價均受影響
+- **資本充足性 × 信評動態**：AM Best本月發布大量信評動態，升級超越降級的趨勢反映美國非壞險市場的改善，但Bell United和Cadence Indemnity等公司遭降級或撤回評級
+- **私人信貸 × 保險投資**：美國財政部與監管機構會面討論私人信貸問題，黑盒子基金推動保險公司私人貸款狂潮引發風險關注，中國平安海外投資平台重新考慮美國敞口
+- **ESG合規 × 監管壓力**：金融科技增長推動反洗錢合規需求，綠色金融監管動態持續推進，InsurTech優先事項受監管壓力重塑
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-31 | 美國財政部 reportedly 將與保險監管機構會面討論私人信貸問題 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMiggFBVV95cUxOcnczVzM5bDVKME83MkZPRmFhSDZ0WDc4cXROejVjb3c5eUM1YkYzYzladXZYMHBJTGgwX1BtWXpEamZfNUpzeHByYUU5Nk9qRnlfMEdNazMwQlBkVHBObVU2X2ktampXMV8wUzR0T0wwcVlhYnFGM2hiWVpFejBmYWZ3?oc=5 |
-| 2 | 2026-03-31 | AM Best 確認伯克希爾哈薩克家庭保險公司及其附屬公司的信評 | gnews_ratings_1 | https://news.google.com/rss/articles/CBMihgFBVV95cUxNS0U5cUs1cU9PM0RYb2FMN3lVQndLa2FPSFphd3FoWlhtWngzNkFtRXBqZW43Q0VzOHpKdXNUMlJPSTY0YTBsQmItSXN1VTJYUURjRWpFQm1INUM2dDZsM1FlbThqTjc5enI2aldZWkltQVdmWFZvNm0xTGJjZkNqNWRMbDFhUQ?oc=5 |
-| 3 | 2026-03-31 | 為什麼投資者對Blue Owl的14億美元交易是有理由的 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMitwNBVV95cUxOQ0tDWnF1WU1jTkdTS3hoUEZLVjZ2M2hST2tFYWZVZ0k3dnI5bkhXcUtfWUFFUXNNcHhtVGUyejBlbG1kR1dWUmVUVTZ6SC1IOWVYQjVRRno2Q1d6dnloZ0pkN2t6bXJ2N2g5Qy1LZHBLdUtWaWEtdjlMRlZMTzBCeFlpUEZqdVEyMkk0eTYwSlUyc1VaZGdjeDZSOHZTUVE4SENUUUw3Q3VqR245YTBLU0JlQzR2RHdRZ2JJQXFzVzhrNUZpRTRGNGphSGV4THJRX182SElSMWpUWDUySktjM1JhWG5MOFVRWjZNcXpLNE5ISkdtLTVYaVVnbWpVQ1F2UUlub2IycmM4VVpOTkJ4MUxWTzA0eDlVeXpWaFhWQlZEYXc0bDJaR2F0R0MxUUtwS19PYTN2d080WnFPVXl4NHhqUFVNSmFjVEZPYXNCX2RmcHlUNXJwc3JHZnFsSmdVT05tcUNJeS1PTkQwUGRWWWhzSnlNWHdlV2w0R1hFZnhpd1B3azhsamJKaEUzcWIyR1ByUk9UaWtVTFpIaXJjTFZiNExUUEI0X0wtd24telR0YmVjd1JN?oc=5 |
-| 4 | 2026-03-31 | 意見 | 人造草地播客 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMi8AJBVV95cUxPUmZTemY2RmtGbkNyNUVSUUhQQmtfTl82THJMUTR3UU1OYXNocTdUM1p5X0JtQUUyWHlscVNRQjBwTWFsdGE5R19Hck1ncTRsNmllWU9TZHhHcENDR2J1bS1zTzN4N1gzekwtZTlHczVzQjVGTzJzZWJmS2FnRVQ4Ml9DOUdRanVHc28xNUZCdE0zazh5eFVzMkZwWTdldjJPWDIwcHVyY0xFanU3emZNRzB0QWU5WW9zNmpBQlZXRlFmUkxXT3NVWExOLTctVjBsWEJneFBGX3IxV1NnNm8tTnRmdjRRa1BESENTekdvU3Y5ZmU2T3Jzb0RXX3JJMnN1LXBuT0p3cnplM0dFdVNUTHpqSnBaNGtDQmZrYkw4YUM4MFhiMWsxUnpWSlF4NTE5WkNzNk5ZZFJIZTRPUld4c2RBd1hSN0Npd2QwdjYxNm5rUEdxSjZtMlkyNE1nTlNydnhXbWZYZ1NXUXdRQkdIdQ?oc=5 |
-| 5 | 2026-03-31 | 德國瞄準€60億歐元醫療費用削減 | gnews_bloomberg_insurance | https://news.google.com/rss/articles/CBMirAFBVV95cUxNMGRDalJSczY2a1NsWWVwTDA1dUF1OFBpOVVfVVQ5SzBRRDl4OW9fWnZzVDRXRWY1MkhsNHdCSWItVExHbHRYYU1XTWtuZjdONGdXeHltOGxuRTRibTlQUXVOb2ljX3Itczc3aTFkdXo0Qmd1MVJSci1WNlFkWk5FVFJNdnhVb3dOUktMWElmc3VaSzVMM3A4VzBoUnJVdU5MWFl2bk9FRnduMU8w?oc=5 |
-| 6 | 2026-03-31 | 為什麼抓捕罪犯比懲罰更重要？ | gnews_bloomberg_insurance | https://news.google.com/rss/articles/CBMiwgFBVV95cUxOWWJmaFY3YV9ZVmtwSy1RajdadWZkUUJGZVk2OVpjbVAzcmRVTjY5bFRPLVJ2N1loTndiZzUtU1VZSmlad0hWY1h1RjVJaUpfdTlTeUVHbVRiVEI1N2dldU9xaVlXVXVfOTVWWVVNNGg1ZUdaSl9FY2hVeV9KR2xZYWVPUWlDUUR1WGZZREktNDRNLWFfbmJVS0RuOHhuYkJYZGhBT1E4NEVFeWgxTU5DT0EyMG5XWklPOWxBd0dQNDd5dw?oc=5 |
-| 7 | 2026-03-31 | Arch Capital Group 股票：商業模式優勢和投資者考慮因素在競爭激烈的保險市場 | gnews_insurance_global | https://news.google.com/rss/articles/CBMitwFBVV95cUxPV25BUVdmcEdsVHg4TVdBMU9EY1Jod2V4Z1J3NzhXQlpKUDVaYl9wTENLSnF3VTZaeE9KX2ZUcl9ISTcxVEdacXZuT2x2ZmhuNlBCUlA0MGdmQ2pwSzhFXzNqM1ItNzJ5VUFMR1hQZWx2OWdYM1huR1lXVDBvSFFwVUdkUXRHekRzVzhMVEpxZDBSaXlLSXkwQ2lqVW04ZnBVYnFKazFoeWJXcXB4a0hfOWhjMzhoNG8?oc=5 |
-| 8 | 2026-03-31 | 甘比亞保險業表現韌性，儘管市場佔有率僅1% | gnews_consultants | https://news.google.com/rss/articles/CBMidEFVX3lxTE1fTXNnbE5NcFU1YWlydzBoUDlXUzJKVkxtZHpSaTN2U2oxNUFHUS1FdmVNQlZoWm1qT3JFdk9VSTZXSmR3ZHNjUGY2ckxPdXc5SFFMR1pxSnpxUTgzd3NaR3FTYlVHVnZ1dEtPNFhsdm93XzJm?oc=5 |
-| 9 | 2026-03-31 | 德勤報告：迦納保險業有巨大的成長潛力 | gnews_consultants | https://news.google.com/rss/articles/CBMioAFBVV95cUxQREE3dkJBVHJSZ1FiNEdWckFYQVU4QmZRNVEyVHA1SjBJWFdGM3JGb1dMTWVkc2MzQVVlckRMcU5DYkFOVWtBWFoyQ3JGNHplaG1pMXFhUFROSm0zbUlSUnJHQjJ0b2pBSlppWWRaWF9VcGdaOW1zOVZ6Q0Y5eTVCRF9ySEdCT05rUjczVGtOWW04anVTWEh4SWhPOEplUVc4?oc=5 |
-| 10 | 2026-03-31 | AM Best 將信評機構評級指派給 AXA XL Excess & Surplus Lines Insurance C | gnews_ratings_1 | https://news.google.com/rss/articles/CBMimwFBVV95cUxPbHBHZ2VmZF9QaGZsMXpQZnRKS3pYSjEwUGhvOVZJY2N4QXd4WGxmUVdCMXhfRFZNVG5MMTlPS3RrbEtreXJSRWFvUXRRWVppQnMteVB6ZXhYbE43SWpoUkd3Nm9rTWRWdnVWMlBneXFoQ0Nya1dGckVWMnhzSTZzXzJMOHR2TlV0MjA5SEYyN3BzTWROTTAxRGlJbw?oc=5 |
-| 11 | 2026-03-31 | A.M. Best 確認 AmTrust Financial Services, Inc. 和其子公司評級 | gnews_ratings_1 | https://news.google.com/rss/articles/CBMikgFBVV95cUxPV2xyY3ktQjFGQVN5N0dHZ3BjbmlqOERlNnU3bUoxazBDTmFPbWRKNVBmczZkSUd1SkNYZ1dfUl9kYzY4bmlybWdXQzc3QWlOVmk5X3RvdDhpNnBtZnhuMnZfSVhzazZZVWhHVmpBeUlhR2c1R0NCVHljWk1mLWhiNEk4WFlDNXRSYkVQU090cWxMdw?oc=5 |
-| 12 | 2026-03-31 | 觀點 | 藍色州的藍調 - WSJ | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMijwNBVV95cUxNV0dQY2l1QTNnTUxJR2JpVGpjSkhkQ0l6UDlHckFXTW1wM2ZFQWZuMXZUbzVVQTJzdDRUVW05bWR5aE1LdGlDdkFBZklBOUxCaUhwU1ZCM3ZSMHdTV3hWNDlzTnZmYUhVY05aVlBxZkZuZkZaa3p6T0NvdGZNMkZDelJmcDhtWUFvUXZQdm1JbHhfTVBsbS1NR1R4WTRUcnZvS1VJMlVmVnNFWl9UaXNUbmUtbDhrTVdubnNWcEhWdGFYOE9oOTFzaDdfOTg1Wi05QzRsVFFWXzhzWkxhWDdiTEU4bjQ4OWd0YmpPQTF0SkVSempLTHktZThjSVVvTklwMmZhQkNVUnVPRmhnV0g2OVhVLTBqTDBxbkgtdWx6ZGlsaFlmemlPa2VzZzdZUkdZX3dYc1hNNE9KTDctLVlJak1uTUp6dHY5UWU2S0VKU2tlZFhQZ1FMeE44eEVxRnZxdmVoVmVWdWNrWVZDUEIwQTZtMDNCN3B6NUtyaFJoMVJaeDlDWk9aMXloUzVjdkE?oc=5 |
-| 13 | 2026-03-31 | 意見 | 人造草地播客 - WSJ | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMi8AJBVV95cUxPSExtZVozUTRuR0IxLVB5RGdKdkxTWXV0cElnSEM0cjVUNlVHQmZYcU5sUUNkNENlV2JJUDIxTXBxaUZPdkFqRzM5UzBzUVRFQzBIak9YVGtNbmxIQkFRQ1pDLVV6eDZsR29Dck40NWpsZ3hqOFkzZHVteGY0UkVOeVUteENZWUl1YUVSNVpzY0kwN2w0UVVtN1M1bmhTdXdBNEpBaWg2bUMzOUVKV0hQY3MzNDc4LWNmVHNvYzRGbG9oSlRwRW1xbkYzTXNlMEQ1Nlo4WG9CdS11N2RaelhtQ1BidVVTd181eHVWdk9FV1hUcllGS01TRDhLYlJEM1JBS3ZaZHBFNmM3aDJZYmtYQmVXdmRwbEcwUm1FUlpLSFhSZ3cwVk1DZUlEMURSbjlIM1VMZHhETldOOUtuY2ZRTmFwWnRHanlPdHoxZ19pdE9uOWNJSzZ1dV9oRnRJV1pJdFNoUERyazdOUG9QY1VjNA?oc=5 |
-| 14 | 2026-03-31 | 高盛第15屆年度全球保險業調查：逾半壽險業者估美未來三年將經濟衰退 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiX0FVX3lxTE5YeUtjbVVJOU1zRkQtelBIZmJrZTg1NWJQdWlqTDhNUHVucEg1MVFNdVhqX1ZnaUhsVUFfUjE2QTFuT1BMX2VTdWNseE9IakRFRlRGWW80SDk0cGI4X3Uw0gFfQVVfeXFMTlh5S2NtVUk5TXNGRC16UEhmYmtlODU1YlB1aWpMOE1QdW5wSDUxUU11WGpfVmdpSGxVQV9SMTZBMW5PUExfZVN1Y2x4T0hqREVGVEZZbzRIOTRwYjhfdTA?oc=5 |
-| 15 | 2026-03-30 | Lloyd's跟隨PartnerRe進入印度再保險樞紐 | gnews_ratings_1 | https://news.google.com/rss/articles/CBMiwgFBVV95cUxNQjFhT1B1MFF6bHo1ampHYWNzZThGekJoelJXa3ZkdTVXeloyeldkY2d5Z2lkaXY4dldtOXExakRZUkdtbGRHWTZFMHloR0F0cU1HREFuYUZrOTI5X0FMem9vSGRXX20xeXJ4NjZHR3A5OV9tUTlhTFRGdmN4eksyX0xFakRRUzVVMWdwMl9lSHZacXUzd3AxQXJkb1BzNDRaX0w0MVZNZnM5VmRuQy0zbHVaU25UYkNqQTNQVkVLQ0t1dw?oc=5 |
-| 16 | 2026-03-30 | 埃弗雷斯特集團加拿大業務出售和評級審查引發估值問題 | gnews_ratings_1 | https://news.google.com/rss/articles/CBMiyAFBVV95cUxOLVBvNU9lRENBM1l6bmtlMm52LW1PYnJXQ2lub3VDdlF0dUZneE44ekw5bXFvSGtYUXZfcTNOYWdYN3hJZVI1VS1xX2hsZDdyWllJRTl5bjFfeWpuWE1PTVlKcE9oWTJTUVdKenJwTW1mQ2RFY1NDSnYwOXQyakNWaE1nSkRkQWxoalh2SklaTDkxZjg5QWtLdmRiSWhCclIyZ0NBdFlsVmFjaG9vUS1aYmY1ZXhINFBrVGk2cHEwSXFzRFhIQWhlTtIBzgFBVV95cUxNM2lMMVk3a1FMLTJEX1NOeHNKa3ZyRUZPT3FjUi1tZkEtX0NueTdJLWY1SFhCMkVUVmNUekxhVG1PMmx2N3lOZzZ2Z3ZjRjU4YWZmcTJ3MTlLZy04LUxGVkI2NWh6V2tGckRuWW01ei0xSlZwdzdrV0tXM1B3ZWhkdnZkSzVBTjZMWXpCN0pmbnF1NEpOVWpfU041MERsYlp1ZHhOSlgySG55ZjNtVG9sU0tlNE81eXh3Ym81NWJTXzFZSUlKeUVlMXVwWHZrUQ?oc=5 |
-| 17 | 2026-03-30 | 為什麼投資者對Blue Owl的14億美元交易感到擔憂 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMitwNBVV95cUxNTi1scmRHU2p0aHZTa2tzQUcxenY2ZW9PYk11NkVWREdTTnh0YzZZWXdLX0ZmNW91VkRrQXBPZ3hFNWFWSHoxRVN0cG9xQzlPU2psejhzV0RIVUpfZV90TUgyS0hOS0YxQWNEeUtHUTA3Yi1GTExZbkdueFl1QVp1akVPYk94c1JQWXVRcV9VS0xwMmduUzhwdDhjc2tyelZYRWpkc1ZpS0gxNUl6aXIzY1c3dFJWSWJjTG8tRXFwNTlPZEtSNW41Yk1MWjIybEpKRjA3WVJ1REE1VHktMVUwZ2VFMGRJdmZBYmtFajEyN2NDVUdxN3p4ZlhZc1hGN05rekhDVnBtSmU4R0pmUzBsLU1LZFROS2J3UlQ3ZWE0RVJoQVZWcHVXVVNTRFI1MjQzMWtRdEo4UVFzeWZQQmlITU5vWFJNTGZRYUt0R19OekMwV3dhVkVOYm1PQ0UzQ2NKQnNSc0JyVE1TdC1HeHFTMUNTaTNvNTdURFdydkxLaW9ESG1QNklxM01KOVZLQmtBUVNtRkY0cVJDRzhuUENhdE9nV1ViVG5aejdvaWFsWkJ6OTRHN1Uw?oc=5 |
-| 18 | 2026-03-30 | ‘No Kings’：政治如壞的團體治療 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMihgNBVV95cUxOaW8yYXdxQ1FUekVjS09JQzZoMzNCLXRjdFB2WW5uRW1TdC1uZ0wwMWlUYUw0bnBrSWh3TWQ2Z2xoWTJjNHVhSHk0TEZQc2hKYmFOV2Frb0Z2STVKbmtzYkhDdHpOQlZWRGVPdEJ1dmstVXlKbVRZR1cxSTJheTZpTWFMLTY2SEFXZzNwMEhIT3VWVnV3NHlSQjc4R09fcnRmZXFBZUVQaEMwYVBYLW8tNEs3Y0JkUUMzZGhRcWxKd1M5QjRWbVpZWi1jZDhqZGptUTUtVm1VVzY5bE9lYmhTSjRtYXp4SHFhR2JZdGdRUHMybkxnVkx0T3cwRDlvcFpPZWt6OTZONlgzdnVIN29TdWQwNmFDTlJxOGpSdHFCbWczVXNvM1NmMmRoeHhqUkN5dlNRdTlEN3U0OHBabHVFX1pNU0gyay1mblhrcU1VT0NKREl4SVlOV1gzMnRFcTlpM2hjdzJKeHpISHRKR1V5bHFnQnpwU2Rhc21EOEg0YzdDZ0QwblE?oc=5 |
-| 19 | 2026-03-30 | 意見 | 人造草地播客 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMi8AJBVV95cUxOc0Z5M3B4dGZJbGpIcDEwcnhkbHdZMTdYWlUyUWxwMUpHT0VIQS1Oa0lNWm10WjZrZEVFYjh4ckQ4MGx2UDBLR2NNeVRKdkp1Wnlad3o2M3V1bjcwYk9SVkN2RzhqN21oMUxWNDBfS3ZpaDJrYkkxVGlCTjh1c09GcGhpeDE3cDVTQ0FNRERWWTNxbGYtMlZvU0NqNmJsMEctdW00anhqd2hUZUlHMzAxNGNVTmlFampraDkxdVhnbWpaQnV6NU1RTk9vU3VaNGY0NHcyOWhFYlUxakNEX1VTOER5REZsY1cxRTZtTEdSUFQxMmtzelNaRkxyNjVoTThHVEdhMmdud3I4NGQ4Y2VqM2FwdWw2bWxQeTBiWDk0VktLeHNmXzFtTmlHSE5ySDNsdUlVaG5ySnVsejdtTUkybkN1N0xsSmpXa2NJY2RyMzJNT3YyVVhIM2x3YUFqNGNFajFlbHNVMnpJX25VcVM4MQ?oc=5 |
-| 20 | 2026-03-30 | 澳洲計劃為私人企業提供燃油購買保險 | gnews_bloomberg_insurance | https://news.google.com/rss/articles/CBMisgFBVV95cUxPaDl2blFYVWlSN243SDFRRVgwc0pJRk1NczljQWNSc3N1bkJuRk1vcVFyc2NjektJTmVHaUlfYWpwSnFlbF9xVjdmQXh0d2ZreVBlSlJGcExHdjcwSGlKejlqZUJkLU12QVhzeTU3VExqR0ZGUlh1OTUtRUlRalB2S3BzY3RaVkdZcnRFcG4zd0xEZlVDUW0tNmtOQlNaTGRZZ3owRXJEbkluRmZiQmxsYlpB?oc=5 |
-| 21 | 2026-03-30 | 五角大樓官員考慮部署空降部隊參與伊朗戰爭 | gnews_nyt_insurance | https://news.google.com/rss/articles/CBMigAFBVV95cUxOSjlUNk94RmN3YWJVRkFqVkwxcTktYldFbWF0SF9tcXY3Q19xSzBpYk1wbGNuX3hGUjRna0pqaks1SzNGb0V0bWZiYWpZMUVqNlRrbXQ1RHlwdmhYMlltajU5MnBLQkNJNEFuaXlnblc4VkJBeEtyeUw0ZmZ1ZWJxYQ?oc=5 |
-| 22 | 2026-03-30 | AM Best 將信評機構分配給 AXA XL Excess & Surplus Lines Insurance Com | gnews_ratings_1 | https://news.google.com/rss/articles/CBMi6AFBVV95cUxPdDBRUVlpb0tlRVhfZnh4SENILW1ZdGxnUE9Gck1ScnZSYVlFUzdVWVZ5Ri1IWFYzZGZDR1Y4TmV5M1E1VHRvdjhKd1BFa2tPMVQ2ZnUtOS0yaDM2cF9pMEI5d2RmeWlzR0VMb3c1TTljWVYzWkNONnBmY24xQ1hCN0pLT1ViV2JzYml3aVp0N2VxSUlOcXJDLURtUzNwVG10ZnFEQjlBSldsMVppd3FLTDhKNFJUMGhSRFVZSDFxLVZIdzlWY0M4OGROSmhBc0JDOUxSNFNCRVpQalpIZFpnV3dCazlBeXBf?oc=5 |
-| 23 | 2026-03-30 | AM Best針對Wawanesa Mutual Insurance Company評級反應 | gnews_ratings_1 | https://news.google.com/rss/articles/CBMinAFBVV95cUxOb0hycTF3dVloQWwzNG01Q3VNdnFNdjhvYW5qOFlXelFtNXR0Zy1rZU1NaVFlZWhLaGNoVERBLS1CYzN0RjdFMlJnQmRvcWdQa0F1OFlPNXRocGI4eXFFU1hFT2ZMQzVBd3pJekF3NlMxVC1XNHRLa3Qwek1iRTg5VHJXUU5Pblg4STNSWFM3TElLR1ZBaXNOQkpXZGM?oc=5 |
-| 24 | 2026-03-30 | AM Best 對 Equitable Holdings, Inc. 和其子公司的信評評級進行評估，預示著發展性影響 | gnews_ratings_1 | https://news.google.com/rss/articles/CBMi1gFBVV95cUxOaWhRRzNNVTVFdGR5aDFiYnZfZk1JX0RqdDdQSndockF0ZG5rbnBzQ28xTzBvT09HQ2doUFRWT3pLNWJZWVdRVTF2U1E3b0loUVZNblBfdVQxeUx5TTBxWlU4MVpZeFZjTFBVVDBWLWJFYTdaMmZJNEtLOFNSWW03LVZUc2NMNWJfSU8yWDBMeERjUmdqMHdSNkprY3BUTmV5V0dQd05OU2ZvMnliRXZmbFZNMWZQZHlQRmwtOTlMY20zcHFKMTVfYmFWYmMxRm1VSE9UdGFR?oc=5 |
-| 25 | 2026-03-30 | AM Best 確認 Premier Land Title Insurance Company 信評 | gnews_ratings_1 | https://news.google.com/rss/articles/CBMimwFBVV95cUxPb3VKYmlSXzNxeEV5OGJLMUFZOGxwZ3VPaGhfWWFCNjE3NWZhZ2x4em85dE9xZ3lvM3BySUd2dUl5RzJMTXpIeVV1VEZyNzczcG9hYTkydWFMaFVPaG5ncmhZaHlVelctQUFXLXRERUxnUWZaZXViWGpMVjhJNUt6aVk0R3JveXBreVM3Sjh2cklDMWFva1hrdkxhbw?oc=5 |
-| 26 | 2026-03-30 | AM Best 確認澳洲太平洋信評機構評級 | gnews_ratings_1 | https://news.google.com/rss/articles/CBMiV0FVX3lxTFBaUEVnTkFrcjBvcklPSi1oZkNENnQ3VXR6WEI4a0syQk40SVBSck9hbC1YRWlfVlh1Q2VoY3lSbFBpNEhYWW1HTzBUWE80RW9Xalljelk2WQ?oc=5 |
-| 27 | 2026-03-30 | AM Best 確認 Nan Shan General 優良評級 | gnews_ratings_1 | https://news.google.com/rss/articles/CBMiYkFVX3lxTFA1QkhXZzB0dm04TmdGOVppclc4ZFV6VXNQZFJibUhNekNjQS1yY05XOWg5SGtRcXg3aUpPeFlsMUxsN204dVFCbGM2dllCSnVFVHNYQ1UtQ3o2b3R3OVNYbXpB?oc=5 |
-| 28 | 2026-03-30 | AM Best 將信評機構評級指派給 The Progressive Corporation 的長期無保證票據 | gnews_ratings_1 | https://news.google.com/rss/articles/CBMi5AFBVV95cUxOUHV0b0tlYnFzVlpESzVUd25aU3Itank0SzR2VUF0TFo2MlVVdVdCUDZ3THQ3V0lTYWlkbHZ2TXVEME5qOURtbEI5Z0FLODZRV1RZdUkyc1dhS2ZpUS1BQ0RtWGFfaTFTYVpXWXB1LWNzWnlXZnl1YVpKdDZMSVZyNVJOVmR2cklwUkZpRDBRMVJFSDlUdjdaUmVIc2VrcXI0ZGN4S1YzcmpQa29EYU4za0xTcC01a1kxdEp4UFN0VEZDSy0wSmJ5NGFVOHdDVlVrMVpZYnNZOVg2dWJ1cUMwbTVqVlg?oc=5 |
-| 29 | 2026-03-30 | 獨家報導：被支付 34 萬美元/患者的自閉症治療公司被剔除 Medicaid | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMixgNBVV95cUxPMGdmZDhDTmFEQVJpTUtDU0VvZDZBb3VfNlNUd21IaGZCNUN5SFhsUVJSRmJlZWx5T1RXaDhsZDA1U1hSMTB4Ti1QXzVVeTNka2UzWFNYYjZBSnByVk1iNGFET1d4bEFQd2tqNFFGQ05qZ3lhMTdMRUNIQUpYbzBJYllyNU1tQWhmMEhKZWJGdW1pamViMzNrdGdvQXRvMlM5MUFIaXZjNFRYZ1IycnI1d0lvc2JjaG5zSk14N0VoYzBLWXBvdHdsLU1OZlBRQ2pZTkRlY3Y4Y0c4SS1aR2xacDFPeTgtS1lUX0VzWlp2SlE0NDhnM0VaRXJRVjl1RU41dTV0eGJLSkpUaE9sTGtCOVd4d0FrUWU4VWFHbm15eVF3ZlBIMVB1Nm1FT2Jjcml2LVJucktqOEVvN2tDVnJIREU1THNhWGZRNDR0MmpRT3g3aHFEOTdBcEtxY1UzaThUcmRnMXVnejFvWHkxUnBQRzdoRjFvNW9WNFVkSnFzaG9EYkpnWTZxVUFsUTA4cWtDOFVrTkJ0eENVZUxoLWxOeUNXN0FydVBzQXozS29kMzNJOFA1d2YtTVFLeXVZcWdkWTJ4ZjNB?oc=5 |
-| 30 | 2026-03-30 | $136 萬億美元的意義 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMikwNBVV95cUxOR0xDSVRBUk1Pa0xQc3V5Vy1pZEp6T3pkQlVOQnJfSUFjR3dyZWwwa0t1eUU0QmlDX2xDOWxvOUo5VWQtb2dwcjV6YnBDRnhSRUxBRng2ODZKR1hJUDhHTU1ndklzbXBETjlvX21aRE1jd2hfcHplYVV2YmxIc3Yxa2xZRkNhWWphTnFNN2pHZnFPd3RJRllUUGtLc0RUWkctT2RWc3VjLWhscENYOXRYd01fZFBSQnVWOGtCZmZsT3VqMWpGeXNfdnFUMEhwNzZQcjJEcnpXTmxzMkNkRzhfcG81cjk0Tk8wcnh1UWJoMzlCaVRuUkJ3cFQzSmtudklTdkd6cDRxcXBpWTY2MFdxQUp2aDljWlRXNTA0YXBqMnZWeS1tZjNIWXJsT2VCSjdiVFM1TXpsTkgyUHA0ZkRGRjg4cmhoc1lNRG5ScC0tN0pvaF92SUNoRENsbkJ4LU4yNjBsN2FGd0pKRWpuS1RyS0t6c2FYSWN0blZWbTVtUmNlQ29yVldqNEdMLWNCbjlTWW1N?oc=5 |
+| # | 日期 | 標題 | 來源 |
+|---|------|------|------|
+| 1 | 2026-03-07 | 全球：主要P&I保險公司撤回波斯灣戰爭風險保護 | gnews_insurance_global |
+| 2 | 2026-03-07 | 蘇黎世保險啟動50億美元股票出售，為收購Beazley提供資金 | gnews_insurance_global |
+| 3 | 2026-03-07 | 美國承諾200億美元為海上再保險提供支持 | gnews_insurance_global |
+| 4 | 2026-03-12 | CVS Health的Aetna須支付11.77億美元解決虛假索賠法案指控 | gnews_wsj_insurance |
+| 5 | 2026-03-12 | 美國計劃解除霍爾木茲海峽封鎖遇到全球保險現實 | gnews_insurance_global |
+| 6 | 2026-03-17 | 霍爾木茲海峽船舶攻擊後運輸保險費用大幅上升 | gnews_insurance_global |
+| 7 | 2026-03-18 | GCC保險公司被視為堅韌，資本緩衝抵消戰爭風險：S&P Global | gnews_insurance_global |
+| 8 | 2026-03-27 | 霍爾木茲海峽船舶保險計劃即將啟動 | gnews_insurance_global |
+| 9 | 2026-03-31 | 美國財政部將與保險監管機構會面討論私人信貸問題 | gnews_hk_regulator |
+| 10 | 2026-03-31 | 高盛第15屆年度全球保險業調查：逾半壽險業者估美未來三年將經濟衰退 | gnews_tw_insurance |
+
+### 知識缺口
+
+- 霍爾木茲海峽船舶保險計劃的具體條款和承保範圍尚不明確
+- 美國財政部與監管機構會面後的政策走向待追蹤
+- 蘇黎世收購Beazley的監管審批進度和整合計劃細節不足
+- SEC廢除季度報告提案對保險業的具體影響分析欠缺
+- 伊朗衝突對亞太地區保險市場的溢出效應報導較少

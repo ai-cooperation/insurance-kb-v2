@@ -3,71 +3,59 @@ type: monthly
 period: 2026-03
 category: products
 region: japan
-articles_count: 364
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+articles_count: 418
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
+
 ### 本月重點
 
-- 日本保險公司朝日生命與製藥大手合作介護及認知症保險
-- 伯克希爾哈撒韋將投資 180 億日元在東洋海上保險
-- 伯克希爾購入日本保險公司股份，該公司被譽為日本的『皇冠珍珠』
-- 伯克希爾哈薩威投資大手 Tokio Marine，該股是否值得購買？
-- 是否購買 MS&AD 保險集團控股公司 (TSE:8725) 前股利發放？
+- **伯克希爾哈撒韋大舉投資日本保險業**：巴菲特投資 180 億日元入股東京海上（Tokio Marine），同步購入 MS&AD 股份，日本保險公司被譽為「皇冠珍珠」
+- **朝日生命打造認知症保險生態系統**：與製藥大手合作推出介護及認知症保險，搭配 AI 會話型「頭腦健康度」判斷應用程式「TalkLab KIBIT」及 Cotomo AI 對話系統
+- **娛樂票務與自行車保險等新興場景興起**：Kanfeti 推出 100% 補償的票券取消保險；au 損保調查自行車保險加入率並配合「青切符」制度
+- **SBI 損保自主開發雹災預測模型**：首次在直接型損保領域應用降雹預測，開始發送降雹警報郵件
+- **東京海上與 NTT Data 共繪老年照護未來**：以數字技術和 AI 驅動的智慧照護方案成為日本壽險公司新戰場
 
 ### 時間線
 
-- 2026-03-31：日本保險公司朝日生命與製藥大手合作介護及認知症保險
-- 2026-03-31：伯克希爾哈撒韋將投資 180 億日元在東洋海上保險
-- 2026-03-31：伯克希爾購入日本保險公司股份，該公司被譽為日本的『皇冠珍珠』
-- 2026-03-31：伯克希爾哈薩威投資大手 Tokio Marine，該股是否值得購買？
-- 2026-03-31：是否購買 MS&AD 保險集團控股公司 (TSE:8725) 前股利發放？
-- 2026-03-31：伯克希爾哈撒韋繼承華倫巴菲特兩大遺產
-- 2026-03-31：東洋海上保險控股公司 (TSE:8766) 值得關注，將即將發放股利
-- 2026-03-31：評估東洋海上保險控股 (TSE:8766) 的估值在最近股價下跌後
-- 2026-03-31：HCICU新聞與活動
-- 2026-03-31：人工智慧和全球夥伴關係正在重塑保險未來
+- **2026-03-07 ~ 03-14**：月初以日本保險公司財務報告與股票分析為主，MS&AD 及東京海上股價動態受關注
+- **2026-03-15 ~ 03-20**：SBI 損保推出雹災預測模型；au 損保啟動自行車保險加入率調查及「青切符」意識調查
+- **2026-03-21 ~ 03-25**：日本國民年金基金（かんぽ生命）投資見直し本舗強化保險商品提案；明治安田 J 聯賽百年構想活動密集展開
+- **2026-03-26 ~ 03-28**：伯克希爾哈撒韋投資東京海上消息引爆市場，多家媒體跟進報導
+- **2026-03-29 ~ 03-31**：朝日生命宣布與製藥大手合作認知症保險，AI 健康判斷工具同步上線；Kanfeti 推出票券取消保險；東京海上與 NTT Data 發布老年照護報告
 
 ### 趨勢分析
 
-本月產品創新主題在日本地區共有 364 篇相關報導。報導量大，顯示該領域活動頻繁。
+**國際資本加碼日本保險股**：本月最具衝擊力的事件是伯克希爾哈撒韋以 180 億日元投資東京海上，並同步購入 MS&AD 股份。巴菲特稱日本保險公司為「皇冠珍珠」，這一評價帶動了整個日本保險板塊的重新估值。MS&AD 股價單日大漲 3.11% 創新高，東京海上股價雖因前期下跌而出現估值修正機會，但外資持續流入的趨勢明確。這反映國際機構投資者對日本保險業穩健的承保能力和投資組合品質的長期信心。
+
+**認知症與老年照護成為產品創新核心**：日本高齡化社會的壓力正轉化為具體的保險產品創新。朝日生命與製藥企業合作推出的介護及認知症保險，不僅是傳統保障產品，更搭建了完整的「認知症生態系統」——從 AI 會話型頭腦健康度判斷工具「TalkLab KIBIT」到 Starley 公司的「Cotomo」AI 對話系統，形成預防、檢測、保障的閉環。東京海上與 NTT Data 共同發布的老年照護願景報告，則描繪了數字化智慧照護的未來圖景。這些舉措顯示日本壽險公司正從單純的風險轉移角色，轉型為健康管理與生活品質的整合服務提供者。
+
+**場景化微型保險快速擴張**：Kanfeti 推出的票券取消保險（100% 補償）反映了場景化嵌入式保險在日本的加速滲透。au 損保配合政府「青切符」制度推動自行車保險，SBI 損保則以自主開發的雹災預測模型切入氣象風險保障。這些產品共同特徵是：精準場景、即時觸發、自動化理賠，代表日本損保業正從傳統的綜合保單模式，走向更細分、更嵌入生活場景的產品設計。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+- **科技應用**：朝日生命的 AI 頭腦健康度判斷工具、SBI 損保的雹災預測模型、東京海上與 NTT Data 的數位照護方案，均為科技驅動的產品創新
+- **資本市場**：伯克希爾投資帶動日本保險股重新估值，MS&AD 和東京海上的股利政策成為投資者關注焦點
+- **監管政策**：自行車「青切符」制度推動保險需求，顯示政策變動對產品創新的直接影響
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-31 | 日本保險公司朝日生命與製藥大手合作介護及認知症保險 | gnews_jp_companies_2 | https://news.google.com/rss/articles/CBMiVEFVX3lxTE55RnRVc3c3OGMtMzdSSm1PaWljMlk4Tm0tR2ZkaU10eks2SnY4ZmdsMTJ3anJwYVBTd2l6VVlzUExzbEFvek5lOV9vUG1hWGdIUFgxNg?oc=5 |
-| 2 | 2026-03-31 | 伯克希爾哈撒韋將投資 180 億日元在東洋海上保險 | gnews_jp_en | https://news.google.com/rss/articles/CBMimAFBVV95cUxQLUc0S0dqM25qQ1dYWnlfaEx5Mm1yZzZYNVJUQjVlaXVfVS1Sc1V5TThoeGdxWkRfMjJtSHZhcVJLbHNoUkdnUS03VWp0TFlDUE44YmU5T2t6ME1fclZJa0swQXZMcWNGRUZRM2VvSEhnOHhsOUIxeXpvVmk1WWNMdV9uYVBCNG1WUUZvajRmcnk0UDVpX2tCOQ?oc=5 |
-| 3 | 2026-03-31 | 伯克希爾購入日本保險公司股份，該公司被譽為日本的『皇冠珍珠』 | gnews_jp_en | https://news.google.com/rss/articles/CBMihwNBVV95cUxQc2tLaDFuY2l4ekItSnZOeGk2R1NqVnltTU5TVDNHb00zQUxIU1pvTEFhRHlLVXktTFB2STI3VkJhTzRKejFKOU9NUko4QVJyU0RmbkFLV3RWOHZoYU5WVWdNZHllX3hxT1ZOUVIyX2VJVWhXNEZNT3lxSmp3UHUwZFZ5N0s5c1BQODZlVkFOQjZyUnFzM3VBVm5VUElVemJvMFB5c1BCQVg4SW51Xzg0OUJQWUdjTV9MVFNob0ZFdzM0eHRSdTI3czRld2doemVFVERLb2RVdm40SXJSbkVBUHpUR2JhNjV6WG9kZmEtbTlhYWZibFcwWnQxcUJLOWpiTUNoWGRZTEtpSXJ0eXU4MWk2SWY1cUNjMTgzRHd1dlBYWmZWN2hvWExDMDdhdm9kYlM5ZHJ0TlhNTl9aTnpDazlfNm5yd0NHNGFmS19KZXZQaFlBN1pGRUg0ZWk4X25CTjJQUUdXNnF2OWpPOWQ5QllOakpCUmpnX2YwbkpKbWtrTjcyemV3?oc=5 |
-| 4 | 2026-03-31 | 伯克希爾哈薩威投資大手 Tokio Marine，該股是否值得購買？ | gnews_jp_en | https://news.google.com/rss/articles/CBMipAFBVV95cUxNZTRTNkRwY0RPeFNfOHZacjZXR1Z1REMyd0l5d3M0cmxLUmc2cUYyYUhwZ094ZGw4dFFzSm5wWXJEVmc4WUx5Yl9vbmlmejNfVUpQLWtkRUJOY2xBbEtSVlJIVC1EWWhDRDRrTmpyXzdWRXVKaXJsQVVhUV9vT010Qnkycy1RWTFYODA0TVhtV2JZUC1kU2VOakhZOThyWmNEYkRTXw?oc=5 |
-| 5 | 2026-03-31 | 是否購買 MS&AD 保險集團控股公司 (TSE:8725) 前股利發放？ | gnews_jp_en | https://news.google.com/rss/articles/CBMi6wFBVV95cUxQS1c5R2N1a0hzM0x3VlFka3R6MmZrTlVBMlcwUVpYLTEtR2dfSEZROFpwM1lKUC1feUpqSGtQYTJ5clpTbk1Fa1NlT2xZZ1UwV0IxVWtRa2JRdGU4VXNCSk5TX3V0aWZqMHJtbFYzbVVTSDVGd0R2dm9hdllYWnNJWGNyWnh3VHhmV2xNRk1LTnhnSEM3NnJjQmFGbWVoUElCV0N3ckpxeDZub1ZBVHp1dFlsbEdELVI0X2RONENZSGxxMlhCLWUwcGdiQVJfMjd4RXM1Z3dSQjdZcGcxYU9lLXRoSjJnQkRSWm1r0gHwAUFVX3lxTE1qNEh0T0p5dGxJVGJrazBmOXpXR0NWeW9PMEh6SERQWnRNWDI0ck14UEozSGczQkpyMUpxbkF4QXJxLVR4dGZMcWRTb2o1YnpqYXFDWVFpVENUN09uZ3diSU9PY0ZvUldlVHVEMDhFUllPVy1qejlONlZ3YjFqSlREcWZ2RlB5cmdDMTZFdVEwUURkTTFUM21FNC1qX25ERHYzZ0tZZGQzYjdyR2hrb0FQS3dIOU92QUlwT3hzNkZfaS1BcXkxQWh3Q0tVYVg5ckNyTzRZN2lvZE5pRHpEdlZ3bHp4UVZuOXgzelJDWEpzNg?oc=5 |
-| 6 | 2026-03-31 | 伯克希爾哈撒韋繼承華倫巴菲特兩大遺產 | gnews_jp_en | https://news.google.com/rss/articles/CBMiygFBVV95cUxQRjJHa2NJdVU3M0pYVjB4U09vQ3gtQ29vYlpXdjF2bXNEbEdPZS04blB6WUtTZHh0NUxRSGtjZGRsQ3FJUEdMUUhoWm1JVktHQW80T0c4ZkxfZ01fd2FuZDdLSC1meUdWM1NmTFR2YUZkUnV0RHBoUWZrZE1USGNPYXpOSWhPNFRTYVRKeDBjUUcwaVFwVTVrVWR1QzVxNVZjMERqTEFIdF9QSHg5QVpMWW1nZk91Z1JBMlRyZkJMQkVMOW5IUXFCUmdB?oc=5 |
-| 7 | 2026-03-31 | 東洋海上保險控股公司 (TSE:8766) 值得關注，將即將發放股利 | gnews_jp_en | https://news.google.com/rss/articles/CBMi4gFBVV95cUxOU09XSTNTdGRHMVM5X1VINmcyazFBa0JEUFpsU25HNkFrcnFLY3FJRXREVWR4Z2M4WHIwZTVNTkl2VlRuRFF2dzBkSDNVWHI5M0ZTWDlkcTE3MU5IVWE1WkcwUzB4Q0lFVmdCQlVzbTYwS2ZVZkwzM0FqYlQ0V1JKaEhYenhwU2duOWxWNEFKS1g1SFpmNkotNm5JZmVIOFhISGdraUpyTGE1WDN3d0FrUWJvdkd3em5iWFNZRVU5d0ZBN2ltSHhGUnVmeVJXNHhxb2JocG5mYmFHS3lBSUw2UXR30gHiAUFVX3lxTE5TT1dJM1N0ZEcxUzlfVUg2ZzJrMUFrQkRQWmxTbkc2QWtycUtjcUlFdERVZHhnYzhYcjBlNU1OSXZWVG5EUXZ3MGRIM1VYcjkzRlNYOWRxMTcxTkhVYTVaRzBTMHhDSUVWZ0JCVXNtNjBLZlVmTDMzQWpiVDRXUkpoSFh6eHBTZ245bFY0QUpLWDVIWmY2Si02bklmZUg4WEhIZ2tpSnJMYTVYM3d3QWtRYm92R3d6bmJYU1lFVTl3RkE3aW1IeEZSdWZ5Ulc0eHFvYmhwbmZiYUdLeUFJTDZRdHc?oc=5 |
-| 8 | 2026-03-31 | 評估東洋海上保險控股 (TSE:8766) 的估值在最近股價下跌後 | gnews_jp_en | https://news.google.com/rss/articles/CBMi3gFBVV95cUxOeDNuS2JhRXdiVm9SSElocmlnLTZaOFdMemdVWWRDTU5CeTVmTGlNU09DVEF6ZHZubG51RDN6VGFLSjlWQk81c3pNa2ljcDNfTlNCMklKMXRXN18zYkVSdk9HR0xqTVpJMThfRGpuUGQ0WFBKTUFBOE9WZzJmb0psZGUwMGs0aUs1bl83NWEyUUthYjV5WkNCc1I3aTVCSGpDbjFGN0lLWktaemlBOW1VMm5Gem9MQllYQVpaM2UydzhrSDhmU2FfTjNFOWNhWVlaWUc5eDdJaXFrY3E2NXfSAeMBQVVfeXFMTkdOTDlpSlVzSmQ0UF9FODIyaW9VV1BkMXo0SGp2ajE2Yno2U1c3ZUE5OUlkRTlEdDNyc20wOEZPSmtTbmFXOFVIRTFtRU4zRWpIVDZlUkQzajBVRVdWMTRuMkUzNkJkTjN6MUF2MTFmLV9sRmFOMHJEb2FiWElqcmFTdGhBOTZvN0xnME82MHd4S3BwaW44cTBjdWdjWnlEcEE1c1l2ekw5ZTVMNi1BUnd3d0ZpVmtwcjVnb3RFR0R0MjVwN09aVU5BVzdjamZPaWZzcFJUc1hJNmh5N1RxUjJBcU0?oc=5 |
-| 9 | 2026-03-31 | HCICU新聞與活動 | gnews_jp_en | https://news.google.com/rss/articles/CBMiUEFVX3lxTFA0RHY1WkdfWmR2N004SHdxXzdRQXpvUE9HTnBMWUVWcDRraFdSTXZJYkRQYXUxQkhVUk9qUmxWQS1wYVdqTl9ubnoyR3cxVy1U?oc=5 |
-| 10 | 2026-03-31 | 人工智慧和全球夥伴關係正在重塑保險未來 | gnews_jp_en | https://news.google.com/rss/articles/CBMiwAFBVV95cUxNck9WRi1wa2xEa0RmN2NwZDdhQmc1bmJJVjhFaDZNc1BKNnRBdFVReUp4SHRMZFowWjhRV0N1cGo3TFlnV3FHWlFkMHRVMTJLenZ4RWNzeUNIZ3RTZWF0SzF6cXpBekJ1NUpFTVlpVG5MV2Fnd3V3enFtb2FHaDJuWWZ5TnNCcmxYZzJjTk45bTF3OVBwXzJvcUVodWVtSVBHTE5KRHQ5OHluSDFXM25DeVkxOU54cVNiTG1qMkdFSzY?oc=5 |
-| 11 | 2026-03-31 | 日本尼龜生產力印度資產股價面臨市場波動和高估值壓力 | gnews_jp_en | https://news.google.com/rss/articles/CBMiwwFBVV95cUxOZnBaSjJ6US1WWGtiTkRJcnh4aE9fcjlkRmF2RXZWV2hVWkRqOFphTzBIUUhmeGJZVm0tejNJWXlTQ2tsTVN3SGRHQmt0OWNrSmxjVEU2SjVjQmN1ekp2UjFhV1BhTVRVOXNPeHZsa3RnbzZkWXY1NlRrdUVpdkhrNTNoRkd6STcyMW84TUpHS3BwUUFpVlgwaVY2TkFaTmJ0UFNEZWlDV1ltMENVRHMxcVJpN29sa2tUdXJfazJtMEdvZXc?oc=5 |
-| 12 | 2026-03-31 | MS&AD保險公司日內大幅上漲3.11%創新高 | gnews_jp_en | https://news.google.com/rss/articles/CBMiuAFBVV95cUxOTE41MHVZQkxxSUVQTWM3Q2ZHZXpzdFFPLWYzZWNRc0VWdnlYUWE1UkNHczBlZlBlTDlSVEhYVFZQODlZb3liN0MwWXN2YW5FN3kya3hXQjNKaS1Od29BZzd5Y2U2dzE1U2lCS0E3S1JtZDlWT2Q0OTVIcWFrTElQWmo5c1ZINHMySnJPNDVqZmJzZUhBMXBpVFBNYmc2MzQ4bWVmWC1MdlViWmlzaFUtUkdVcnpqLXBk?oc=5 |
-| 13 | 2026-03-31 | 伯克希爾哈薩威投資大手 Tokio Marine，是否該在此買入股票？ | gnews_jp_en | https://news.google.com/rss/articles/CBMi3wFBVV95cUxNVkpicDR4Z0habk1xRTMzZXBvZFhQWW1Sa1liR3dwV3gyNXQtM2ZUWnRCMDRPdG9HcF94YmdWZTlUTjVhLXlBNnh4ckM2M1BSV2JyMlRGQUs3WDdVT0M0NmwwM1duVmg2QXdNYWsxTHNTdVUxaXVpenE3b3RpWlRFeTRXeTJvdFlpdGRGamI1SFhNeEtYOWpRcWdqS3ZxY1BTSEJtOVlVNGFiUU9kTWZ4c2pMUi1uUmxwUDFXVS1wY01yTmFJN211enJCcWZ3UXFCUEtUYlJHNjdoMUZoRTNJ?oc=5 |
-| 14 | 2026-03-31 | 日本國民年金基金公司投資見直し本舗數十億日元強化保險商品提案 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiTkFVX3lxTE1tYkZrWmVkbkFEVHdIWW1NeUhoUG9qSFpCOWUzMWthV0hYU2U0OE1LSUJzTk8xRzZIQUZuTFZKNVotMHJ1eEVhTHEwb1g4dw?oc=5 |
-| 15 | 2026-03-31 | 2026年3月個人向け国債募集金利公布 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiTEFVX3lxTFBjXzkzQlFPVzFYZ3J5RDRjeHpWTlNDNUlRQ184OTJIQ1hvSUtqYnJHNlRYSnlvN2Y3NERvdldKaThWaEQ5ZUVlT2MzWHo?oc=5 |
-| 16 | 2026-03-31 | 娛樂票務網站「Kanfeti」推出「票券取消保險」，可100%補償票券費用 | gnews_jp_mini | https://news.google.com/rss/articles/CBMiR0FVX3lxTE1KcnBFQXpTajduZFFvbzZsWXRGZEFpYjhWNTBRSmZRZnowdnZ2V2ZDM2ZyQVN5NFR2bmxYZE5qMVNKaU9zX1Vr?oc=5 |
-| 17 | 2026-03-31 | 東京海上日動和NTT Data共同描繪的老年照護未來 | gnews_jp_companies_ja | https://news.google.com/rss/articles/CBMib0FVX3lxTE05eXB3aWoxODJScHRSTW5lR0FvaU94Wm1FMzJjXy1xT2JacDBBZlJlRjBZT3hlOEp3UTR2S2xfSzE4czBGRzRWSWVPSHZaODVURFFpZjBwUFNKVTg5dWdkRVVhck91dEMwQy1lN3RfRQ?oc=5 |
-| 18 | 2026-03-31 | AI解析會話型「頭腦健康度」判斷網頁應用程式「TalkLab KIBIT」於朝日生命「人人安心100年計畫」提供 | gnews_jp_companies_2 | https://news.google.com/rss/articles/CBMiakFVX3lxTFBWSVNqOTBCQ3VlZHFMNWhIQzY5UDZndUJ3WjRPTWNYTlNUWktOVTFPYkpGbERXVHNnMDA3SHBhd0pYTlpHREd1dGFOYmJHbkNuR1BsazRRMHQtUFptd2JmWXlrUHZHWi0xa0E?oc=5 |
-| 19 | 2026-03-31 | Starley株式会社參與朝日生命「みんなのあんしん100年プロジェクト」，運營認知症的生態系統 | gnews_jp_companies_2 | https://news.google.com/rss/articles/CBMiW0FVX3lxTE84VkdNNWZRT0F4ZXJhQ19ydlhoeFlQNWQwdzJPSzh4Z3BjSWotWk5hb2Mxb0oxSXFKN1BsNVBzX3I3VXA3TlhhcWxQMXBrUy1mS25LejAxbGI2ZkE?oc=5 |
-| 20 | 2026-03-31 | 伯克希爾購入日本保險公司股份，該公司被譽為日本的『皇冠珍珠』 | gnews_jp_en | https://news.google.com/rss/articles/CBMihwNBVV95cUxQZWE3RVhJZ0ZkVmU2cmY5bHV2NGNrMk9VS2xhZVgyVWx4OVBEMVVIRzNkWGJOcXAya0dzWTN0cTBkY3owTzRJcHVOLUxtMWdmdFNVdG45QzV1UjhvcmxvRVJfaHc1LW1VNzRZdm5uRS1yaU1MRkRmV1BiWElDOVJwV3NsY2tiVV9jdDhQU1M0ZWZMQXF1Z2Y5dHdSRXZLc0tHUmNyYXVoeXRROU4wcmJkc004bzB6a2Q4OFNKYnZuXzktTlZPNGwxcXBTRjhUNmdQdjlNaG9rTG5ucGJHMTl1X2wxZVEzT1VVd3U3STZFUGFvbWd3RzczN3VtVzBDOElqOFZ6Zy1oWHJ2V1JJSWM2eWtpSW00ZUYzN2gzOWNUQ1FDSEJPWWYtSGp2NE1QTWp4TFlBMmhFX3F5YzcxNkRzSnNSckxLV0E5M1dSOTdUZ0IzX1A3NDlqazRzQS1xYkY5RlBmSGlRLVlzLThza2lYXzZhQlA5TEJhVTl4UjVRRWxmUTBkeVow?oc=5 |
-| 21 | 2026-03-31 | 華倫·巴菲特再次勝利。伯克希爾最新投資收益35%。 | gnews_jp_en | https://news.google.com/rss/articles/CBMinwNBVV95cUxPamZFV1JtZGFicjhTanVubzdOcWRzTkFiaTNEeC02OXdUSVJSUF9KaWt2YlNVLThjR0tUSkl1QVJ6QjA1ZTdrc1FxMkt6SE9lY3l1eGxPYVpDVjQ3elFCdTZXaEh5WURBTENVYTFLODF1ZzM3MGU1ak0zdVVvYlJnNFBPbTE5SHRsQXQ1WDI0RmlHdU1COGh5b1VpRlFtRDhDQ3lyQlJnWDFOMVhHTEdyMUQ0OE5zR2Vvcm9xUkdBQ1h3N29ZMFpvY3VoNWtzUDE2SzROX3hESTdtc1Z3NkRMMF9PbUFHcFBpZWsyUmdCSlQ4b3F4a2xUT3F0bkJDT09nMEZjYkR3NVFScGdWanFHNVlFMU0wc0ZPSmZBMzJ2UERjRXJQWkVvX1FlcE5BTlRVZ1VJeWowNG0yYnd1ZWdNTEVWUGpyWFphbEM3Q2VxSFNLTUFlVUQwbnFlb0tzRnVoaUhoZVA2TFFKM1hGU2hJVTJNRHFCOVR0OU5iZlVjWGd3bDl2aW52UzZBcVoyc2Zvb1RibTlXTjFvYlJfMDRR?oc=5 |
-| 22 | 2026-03-31 | 伯克希爾哈薩威的華倫巴菲特入股日本東洋海上 | gnews_jp_en | https://news.google.com/rss/articles/CBMitgFBVV95cUxOR1JfbGJWZWJCY3NwTXp1SDhIdzctTkc4RDJCQUwzOTdIWGZKVkhyX0dSeXp5bkxwcVNHQjRNRjYwYk0zeE9kekdYb0NMTHhja0poN3dUNWdKb2tuNC1DOFlubDVHNkJLWW1lanlIcTI4cDU2ckg2aS15UlphTWtnV3BWLTlPSVd5SWxSb1d1SHNzNlI1ZXRBVGZSYVZpdjlvRFhvcjljc2xUNU5wU3ZOWm1CemI5QQ?oc=5 |
-| 23 | 2026-03-31 | 22家公司參與HERALBONY Art Prize 2026 | gnews_jp_en | https://news.google.com/rss/articles/CBMiUEFVX3lxTFB0WXRBVHRnR0VkSlo4c2xpdGJnWnlRR1FEX2N0TjUtSHI4SEFuRFh2ajgxdVpzUGpKS1VNRThNb2VhWF9xTkNmM3RqLWpUMG10?oc=5 |
-| 24 | 2026-03-31 | au損保調查2025年度自行車保險加入率 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiakFVX3lxTE55Nllwd3pTdkFxLURjaXFrN3RhQUsweFBRRkI2VGVsS0hXbzJ1c3FITDctZE9TeWlOZzFNVjZZNldSZ1RBbTd1T0JzZThZdklNNGxEVUNrZm9ZRG1aV2UzSTFlM3k2Z2Y3dmc?oc=5 |
-| 25 | 2026-03-31 | au損保實施自行車「青切符」意識調查 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiakFVX3lxTFAxVm5jdmIwbjE3TTVZS0J2UjdFMU1ZemRoOGgwcnBwdjR0clpodVFfc3lIOXJ6WUh4S0oyWGJ4TXU3UmdGSm1JSHdIalhmTjBIX05NcEIzbTd6X3FWSzBGc1VlZzZDVmE4eGc?oc=5 |
-| 26 | 2026-03-31 | SBI損保首次推出自主開發的雹災害發生預測模型，開始發送降雹警報郵件 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiakFVX3lxTE9mSDBUc3ozNElFSy1MRkdEWUV6TnUwY0Z2SkZ2dkh1cGRoRGczNWtNMU50Q1hvQjFVVHhaNWRJaEFDLWo5ZWNtU0ZNb1V1c3R6enRsRC1aYmRCTXZRSC1JODhOLVI3azFROUE?oc=5 |
-| 27 | 2026-03-31 | 日本保險產業推出 AI 保險見積もり系統 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiakFVX3lxTE9uQVFXdE1OaGU3OWw5WVF1a3Vhek9mNGxEZktEN0JjUHJ4TWh2THEzT0RiZ0ZGRHoxNWJ3WER1UjVwVmtWZGc5MDdnZEFGeFpmSU1felViVEdMSlNpaUNCM3VEWVpDTUlGTlE?oc=5 |
-| 28 | 2026-03-31 | 團體登山保險計劃 | gnews_jp_mini | https://news.google.com/rss/articles/CBMi5AFBVV95cUxQbG44OVpuMUNjc1Z5WHFvbVpGVGdNaVVsZTRxTU5KaXVnWG1EdmhyYUpvUUFJbFpqUVFOUDhJTVFheWpLNHlWalZDbWxHcHl3OWxmSUIzc29JZkUxYm1EdzJUdjJ2OEZGMDFIV1NMY1JJQ1dtQnVpN0xibktOWUJ5SjI2c2ZzQ284WnN4czcxbC1qZUlsV0NBZEpyTEw2RThVX2MtZ0p0QWIwVF9DbkV6bFRLcUtHMTk3VmJDUzVrd25mQ2tMVkRpV0tMTXhCMTBpVDgyQ1E4N1RyNXM5TlRnMTdrbXI?oc=5 |
-| 29 | 2026-03-31 | 山と溪谷的登山保險 | gnews_jp_mini | https://news.google.com/rss/articles/CBMiaEFVX3lxTE9Pd2VqUmR6bXVJaG1uNTNuSmNmNzdwN0ZPVEJ6amxCRkhQeEpaU3BNYUJJb3ZBZXBSZWNyWE5TUFdXbF9aTzNaRXdXYnRKNzJVYlNmbXhqSTgyM1lOdE81MjlaZUZpN3Rx?oc=5 |
-| 30 | 2026-03-31 | 財團法人智慧財險控股公司：智慧財險的「票券取消險」於長期規劃公司營運的票券銷售網站「康費蒂」中採用 | gnews_jp_mini | https://news.google.com/rss/articles/CBMiakFVX3lxTFBQUUJQS3hrSktGQk9lOFBFMHBFbnVCQm9WMjdhX0JOSEJKUjdiNl9fdFRyeWZaQVZNNWNmT2dsbll0dHE3SHdTMUE0c2dGbUhyOUlhUTJMNFRLRlU3bjEzc1NtT3BTMUxiSUE?oc=5 |
+| # | 日期 | 標題 | 來源 |
+|---|------|------|------|
+| 1 | 2026-03-31 | 朝日生命與製藥大手合作介護及認知症保險 | gnews_jp_companies_2 |
+| 2 | 2026-03-31 | 伯克希爾哈撒韋將投資 180 億日元在東洋海上保險 | gnews_jp_en |
+| 3 | 2026-03-31 | 伯克希爾購入日本保險公司股份，該公司被譽為日本的『皇冠珍珠』 | gnews_jp_en |
+| 4 | 2026-03-31 | 東京海上日動和NTT Data共同描繪的老年照護未來 | gnews_jp_companies_ja |
+| 5 | 2026-03-31 | AI解析會話型「頭腦健康度」判斷應用程式「TalkLab KIBIT」提供 | gnews_jp_companies_ja |
+| 6 | 2026-03-31 | 娛樂票務網站「Kanfeti」推出「票券取消保險」 | gnews_jp_companies_ja |
+| 7 | 2026-03-31 | au損保實施自行車「青切符」意識調查 | gnews_jp_companies_ja |
+| 8 | 2026-03-31 | SBI損保首次推出自主開發的雹災害發生預測模型 | gnews_jp_companies_ja |
+| 9 | 2026-03-31 | MS&AD保險公司日內大幅上漲3.11%創新高 | gnews_jp_en |
+| 10 | 2026-03-31 | 日本國民年金基金公司投資見直し本舗強化保險商品提案 | gnews_jp_companies_ja |
+
+### 知識缺口
+
+- 伯克希爾投資東京海上的具體持股比例與策略意圖（純財務投資 vs 業務合作）未明
+- 朝日生命認知症保險的保費結構、理賠條件及與既有介護保險的差異化定位缺乏細節
+- 場景化微型保險（票券取消、自行車）的實際投保率與理賠數據尚未披露
+- 明治安田 J 聯賽贊助活動的保險業務轉化效果（品牌曝光 → 保單銷售）缺乏量化數據

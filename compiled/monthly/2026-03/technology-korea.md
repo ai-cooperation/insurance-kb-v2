@@ -4,17 +4,14 @@ period: 2026-03
 category: technology
 region: korea
 articles_count: 13
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+compiled_at: 2026-04-20T03:24:39Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
+
 ### 本月重點
 
-- 新韓生命保險公司下月起可無紙化保險金申請
-- 韓華生命金融服務5年內收入增長7倍，淨利潤超過1000億韓元，成為成功的保險分離模式
 - 金融業加速人工智慧驅動的數字轉型
-- 韓華生命退休年金產品收益率在所有業者中排名第一
-- 興國生命保險公司在全國金融廣場推出AI實時字幕服務
 
 ### 時間線
 
@@ -28,14 +25,27 @@ model: claude-opus-4-6
 - 2026-03-18：SBI控股公司修改向京保人壽出售SBI儲蓄銀行股份的條款
 - 2026-03-18：韓國金融簡報：KB國民卡、하나卡、興國生命、NH農協損保
 - 2026-03-15：韓國保險公司受電子化轉型計劃影響評價上升
+- 2026-03-13：韓國股市開盤升高，交易近5,680點無明顯波動...韓國股市指數KOSDAQ表現相似
+- 2026-03-12：[照片] 金泰勛奮力擲球 - CHOSUNBIZ - Chosunbiz
+- 2026-03-12：韓國股市指數KOSPI上漲3%，電信、金融和生物科技領域領跑
 
 ### 趨勢分析
 
-本月科技應用主題在韓國地區共有 13 篇相關報導。
+本月韓國地區科技應用主題共有 **13** 篇相關報導，涵蓋 10 個報導日。
+
+**人工智慧應用**：共 3 篇涉及 AI、機器學習與生成式 AI 在保險業的應用，為本月最受關注的技術趨勢。
+
+**數位轉型**：6 篇關注數位化、自動化與雲端技術的導入，保險業數位轉型持續推進。
+
+**保險科技生態**：1 篇報導 InsurTech 新創與保險科技生態發展。
+
+**資安與隱私**：2 篇涉及網路安全、資料保護與隱私議題。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+- **人才與組織**：科技導入帶動技術人才需求，組織需同步調整以適應數位化轉型
+- **產品創新**：新技術賦能個人化產品設計、動態定價與即時理賠等創新服務
+- **監理法規**：AI 應用與資料使用涉及監理合規要求，技術發展需在法規框架內推進
 
 ### 來源文章索引
 
@@ -51,6 +61,9 @@ model: claude-opus-4-6
 | 8 | 2026-03-18 | SBI控股公司修改向京保人壽出售SBI儲蓄銀行股份的條款 | gnews_kr_en | https://news.google.com/rss/articles/CBMivwFBVV95cUxOVUlTWWtWdnJwVUJRcTR2QzNSMTUwMU9tX1F0eGpndEpfUXFyWUZQSGFYRmNMazBKME5DOThZbHRycF9KLWNpSHpiTG9qMEFGdDBUZTloSERTZUdMRlhwUHBEbGZNX29YOHdqQnZhWEwwa0FUdlhBOWUtNzVwbUNFRHY0WTdNcEFUZ1B3dmFyanB1Y3VRcnJUUE1nWHltWks4ME51VjB4bjRVLUYyYjJWMUc2QjVjVWdrUXE3Q0lHZw?oc=5 |
 | 9 | 2026-03-18 | 韓國金融簡報：KB國民卡、하나卡、興國生命、NH農協損保 | gnews_kr_companies_2 | https://news.google.com/rss/articles/CBMibkFVX3lxTE5uRk1XRHY5dlZkZURHcFJtbEFTdE55b3M3ZDY3MnhTRlUzTjZSa3hXN3pwdVdYS1FoMDh4ZVRmbW0waUNoU25hSDhUdmdfRHZSRVdWUEdHX0kxX191azl5UHR3RFRKZDI5MHFVYm9n0gFyQVVfeXFMTUUtbkd1cW9zTUd3X0V6Qi10aHZNczh3WjNpUzRzS0VWc1ZGbHlmZTBadVViZnFYTHN0RnFiYlJJOEl4SDI5X3pvY1VLWXdfaHJSQTRSZDE5cy0tQ2gyNmh3eFQwUnJWSU50c2ZxSHVGT0Nn?oc=5 |
 | 10 | 2026-03-15 | 韓國保險公司受電子化轉型計劃影響評價上升 | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMiVEFVX3lxTFB2djQyZzJCSm81X2dhMnBZdS1jUWEwNEpFeTNyRDd6c0sxOWkyclQzc0haUjhNNE5jNlk5VnhVcnNrZml3ZXdUanpuUklYZmNHMEVoMA?oc=5 |
-| 11 | 2026-03-13 | 韓國股市開盤升高，交易近5,680點無明顯波動...韓國股市指數KOSDAQ表現相似 | gnews_kr_en | https://news.google.com/rss/articles/CBMiZEFVX3lxTE1NdFFObDFMNGNLVnVzdkdrM3VyQkdmVDJHQnBRaVhfd1R5cUNKTmg5RTJkTF9lR3ctSF84d3NsM2FRX2dCZGtmUkFQR0VXUTNxd2xPLTFXWGFNQ3JOZlhZektzQ0Q?oc=5 |
-| 12 | 2026-03-12 | [照片] 金泰勛奮力擲球 - CHOSUNBIZ - Chosunbiz | gnews_kr_en | https://news.google.com/rss/articles/CBMigwFBVV95cUxPOExFT3hIbHVvZGV1R09lZDdlblRIdTV0dmhEalRuQ3d4Mmd6d0Y1V2lob1VaNXA0NWFfdXJVaWp3Uk5yNFNwWkZtZmJERl9EWkN3cTJubVpkRTd1YkV4eGtIbnBoRzBqTm9KbFpIUXNxMFFMY0tQQllMejlkUWVfanlrY9IBlwFBVV95cUxPeWtRR3lkVGFFbnhGZDhUU2V4a0NHYjFsTTJMWWctd21GZGFxMURRS1pCcTFZbmhXUnJlVURfbUl3SXFOQnFMQVdDandzODB0S3UxalNYMko4d2VlMTQyVUhEVXNlTnlRZU9DUFVOa1IxOVdsdXZDVE53RFUtc3Y4VlVDU29HYjM2d3E3UEFyUzA0VUJoMVFF?oc=5 |
-| 13 | 2026-03-12 | 韓國股市指數KOSPI上漲3%，電信、金融和生物科技領域領跑 | gnews_kr_en | https://news.google.com/rss/articles/CBMiT0FVX3lxTE1xY3dncVBMZTlkZDMtUXdENTYxVlJ0YzZIQXVscmwyeW4wQzVJbUtiT3hhdHJyNE1Vdk5HcXF2TjlZbUl0R1dsaWNGWHlXRnc?oc=5 |
+
+### 知識缺口
+
+- 韓國 InsurTech 新創的融資規模與生態發展數據不足
+- 保險業開放 API 生態系統的發展進展缺乏報導
+- AI 理賠自動化的具體成效數據較少被公開

@@ -3,71 +3,108 @@ type: monthly
 period: 2026-03
 category: products
 region: hongkong
-articles_count: 46
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+articles_count: 47
+compiled_at: 2026-04-20T03:26:19Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
+
 ### 本月重點
 
-- 平保(02318)去年壽險及健康險業務新業務價值年增29.3%
-- 曼盈保險押注香港推動亞洲人工智慧擴張
-- 韓國保險中介公司Simon Global在香港成立MGA SXG Underwriting
-- AXA推出限時優惠「WealthAhead II Savings Insurance」系列2年付款期
-- AXA安盛推出「盛利 II 儲蓄保險」系列限時限額發售的2年保費繳付期
+- **曼盈保險押注香港推動亞洲人工智慧擴張**
+  曼盈保險（Manulife）近日宣布，將在香港設立人工智慧（AI）中心，旨在推動亞洲人工智慧擴張。
+- **富衛香港推指數型萬用壽險：全港首創提供無上限派息潛力及保證穩定回報**
+  富衛香港近日推出指數型萬用壽險產品，該產品為香港首創，提供無上限派息潛力及保證穩定回報。
+- **HashKey Chain 支持香港首個監管的銀幣 RWA "銀幣令牌" 上鏈發行**
+  HashKey Chain 宣佈支持香港首個監管的銀幣 RWA "銀幣令牌" 上鏈發行。
+- **香港:威利斯推出亞洲首個收藏家和畫廊的保險設施**
+  威利斯在香港推出了一個針對收藏家和畫廊的保險設施，這是亞洲地區的首個。
+- **香港加密貨幣無限公司 RedotPay 在IPO驅動中更換高管**
+  香港加密貨幣無限公司 RedotPay 正在為首次公開募股 (IPO) 做準備，公司正在進行高管更換。
+
+本月香港地區產品創新領域共收錄 47 篇報導，涵蓋 2026-03-07 至 2026-03-31 期間。
+主要涉及企業包括HashKey Chain、AIA、MEXC、香港保監局、安達人壽等。
+其中 11 篇被標記為高重要性。
 
 ### 時間線
 
-- 2026-03-31：平保(02318)去年壽險及健康險業務新業務價值年增29.3%
-- 2026-03-31：曼盈保險押注香港推動亞洲人工智慧擴張
-- 2026-03-31：韓國保險中介公司Simon Global在香港成立MGA SXG Underwriting
-- 2026-03-31：AXA推出限時優惠「WealthAhead II Savings Insurance」系列2年付款期
-- 2026-03-31：AXA安盛推出「盛利 II 儲蓄保險」系列限時限額發售的2年保費繳付期
-- 2026-03-28：富衛香港推指數型萬用壽險：全港首創提供無上限派息潛力及保證穩定回報
-- 2026-03-27：HashKey Chain 支持香港首個監管的銀幣 RWA "銀幣令牌" 上鏈發行
-- 2026-03-27：醫起通再添4家醫院 壽險理賠數位化邁向新里程
-- 2026-03-25：HashKey Chain 支持香港首個監管的銀幣抵押 RWA 代幣的鏈上發行
-- 2026-03-25：安達人壽「鼎吉美利」分紅保單 彰銀獨家首賣 多元特色滿足資產傳承與保障需求
+- **2026-03-31**：平保(02318)去年壽險及健康險業務新業務價值年增29.3%（平保(02318)）
+- **2026-03-31**：曼盈保險押注香港推動亞洲人工智慧擴張（曼盈保險）
+- **2026-03-31**：韓國保險中介公司Simon Global在香港成立MGA SXG Underwriting（Simon Global, SXG Underwriting）
+- **2026-03-31**：AXA推出限時優惠「WealthAhead II Savings Insurance」系列2年付款期（AXA）
+- **2026-03-31**：AXA安盛推出「盛利 II 儲蓄保險」系列限時限額發售的2年保費繳付期（AXA安盛）
+- **2026-03-28**：富衛香港推指數型萬用壽險：全港首創提供無上限派息潛力及保證穩定回報（富衛香港）
+- **2026-03-27**：HashKey Chain 支持香港首個監管的銀幣 RWA "銀幣令牌" 上鏈發行（HashKey Chain, MEXC）
+- **2026-03-27**：醫起通再添4家醫院 壽險理賠數位化邁向新里程（醫起通）
+- **2026-03-25**：HashKey Chain 支持香港首個監管的銀幣抵押 RWA 代幣的鏈上發行（HashKey Chain, 香港保監局）
+- **2026-03-25**：安達人壽「鼎吉美利」分紅保單 彰銀獨家首賣 多元特色滿足資產傳承與保障需求（安達人壽, 彰銀）
 
 ### 趨勢分析
 
-本月產品創新主題在香港地區共有 46 篇相關報導。
+**報導量分布**：上旬 18 篇、中旬 11 篇、下旬 18 篇。
+下旬報導量最集中，顯示該時段有較多重要事件發生。
+
+**主要議題**
+
+- **科技與數位轉型**（13 篇）
+  代表報導：「曼盈保險押注香港推動亞洲人工智慧擴張」— 曼盈保險（Manulife）近日宣布，將在香港設立人工智慧（AI）中心，旨在推動亞洲人工智慧擴張。根據曼盈保險的計畫，該公司將在香港設立一個全新的AI中心，該中心將負責開發和應用人工智慧技術，為曼盈保險的業務提供支持。
+- **投資與財務表現**（8 篇）
+  代表報導：「平保(02318)去年壽險及健康險業務新業務價值年增29.3%」— 平保(02318)近日發布財務報告，顯示去年壽險及健康險業務的新業務價值年增29.3%。這表明平保在壽險及健康險市場上取得了顯著的成長。
+- **產品與創新**（4 篇）
+  代表報導：「韓國保險中介公司Simon Global在香港成立MGA SXG Underwriting」— 韓國保險中介公司Simon Global近日宣布在香港成立了一家全新的管理保險公司（MGA），名為SXG Underwriting。這是Simon Global繼續拓展其業務在亞太地區的最新一步。
+- **監管與政策**（4 篇）
+  代表報導：「HashKey Chain 支持香港首個監管的銀幣 RWA "銀幣令牌" 上鏈發行」— HashKey Chain 宣佈支持香港首個監管的銀幣 RWA "銀幣令牌" 上鏈發行。這項發行是由香港保監局監管的，標誌著香港的數字資產市場進一步發展。
+
+**企業動態**
+
+- **HashKey Chain**（4 次）：HashKey Chain 宣佈支持香港首個監管的銀幣 RWA "銀幣令牌" 上鏈發行。這項發行是由香港保監局監管的，標誌著香港的數字資產市場進一步發展。
+- **AIA**（4 次）：AIA秉持「為您超越」的精神，致力於提供360度全方位的客戶服務。這一服務理念體現了AIA對於客戶需求的重視和對於服務質量的追求。
+- **MEXC**（2 次）：HashKey Chain 宣佈支持香港首個監管的銀幣 RWA "銀幣令牌" 上鏈發行。這項發行是由香港保監局監管的，標誌著香港的數字資產市場進一步發展。
+- **香港保監局**（2 次）：根據最近的新聞報導，HashKey Chain 支持香港首個監管的銀幣抵押 RWA 代幣的鏈上發行。這一事件標誌著香港金融科技的又一重要里程碑。
+- **安達人壽**（2 次）：安達人壽推出「鼎吉美利」分紅保單，該保單由彰銀獨家首賣，結合了多元特色，旨在滿足客戶的資產傳承和保障需求。這款保單提供了豐厚的分紅收益和穩定的保證利率，讓客戶可以享受長期的財富增值和風險保障。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+香港地區在 2026 年 3 月的其他保險議題分布如下：
+
+- **監管動態**：189 篇
+- **市場趨勢**：100 篇
+- **科技應用**：36 篇
+- **人才與組織**：19 篇
+- **消費者保護**：16 篇
+- **ESG永續**：7 篇
+- **再保市場**：3 篇
+
+與產品創新最密切相關的議題為「監管動態」（189 篇）。
+監管動態方面共有 189 篇報導，監管環境變化直接影響產品創新走向。
+科技應用方面有 36 篇報導，數位轉型持續推動保險業創新。
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-31 | 平保(02318)去年壽險及健康險業務新業務價值年增29.3% | gnews_hk_zh | https://news.google.com/rss/articles/CBMilwFBVV95cUxOb0NSc2RkRTA5Ty1jVGx3NUQ3QjZqNmY4RkxyR1FFcmtkTlVkQ3dXR2tZRUNOaFZCdTF4eGFKdnVmOV9NcnRKRXFJUUZlQXlIMFZnR3YxMG1RNUpxRDZ4NWgwWkRIQ0ZYRHJRTWVRMDhRcWVGTGdTZk42enVFMVRUNFo1SnBCT0pfT2xiY3ZaUE5lMzkzT2FJ?oc=5 |
-| 2 | 2026-03-31 | 曼盈保險押注香港推動亞洲人工智慧擴張 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMiWEFVX3lxTFBwZjlFOXRjM2NKZWMwTlI1VjdGQXd1MFB1QTFZRGc1bV9wYXEtYW5yekR4ZGVBOV9iSXYzaHpZeU5GamJMVUJaTVVxWkEwRzhkLW5JQjhIaVQ?oc=5 |
-| 3 | 2026-03-31 | 韓國保險中介公司Simon Global在香港成立MGA SXG Underwriting | gnews_hk_regulator | https://news.google.com/rss/articles/CBMipgFBVV95cUxQaTF0MEFwaTFfTGRYdGU1SDQyVTI2T1BzSU1oQnV2azZjTkMtSklBYm1sYzFucm8xQXlmQ3Vpa21sTUFtMGVQMnRqZ01uNUZ4NE5IbXJkV25ZLUpEd2F5eHVLRDFIOVdPdUlqSWpTZFlTd3JNbDA0TVBUYlA5UFRNU0E0U3EtRS1MTEhpVkhXYXRWSmNxTGpLb1NTQUZyNzZ6azNjU3BR?oc=5 |
-| 4 | 2026-03-31 | AXA推出限時優惠「WealthAhead II Savings Insurance」系列2年付款期 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMi6AFBVV95cUxNNXZaTnNzWVlfUm5sSFdMVHNVczRyZjJyc1hFd0NDNXFCUW5taFdNeE8zb3RqTzVHRzNpSElmeFpNdWRaWldiVl9GdWQ5blRzZVRrMEJ3bzBPdXRaNE1wT3BQdjZCSUE2OFNwdi0yMmxzMHAxZG5XR3BPamV6ckZjdTFncXdmd1VhZGNreC1iaWRZNVl6MWJ4N1BGREg0SFZ3SGxDWEVXdWJkX2dUXy1xSnNFdl9aY2xnTFN0Zjh5UDNQNVJjdU9CN09iVW1kSmc0cDVJanByaUc1eTNuQnp1RGhueFhPV0dB?oc=5 |
-| 5 | 2026-03-31 | AXA安盛推出「盛利 II 儲蓄保險」系列限時限額發售的2年保費繳付期 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiYkFVX3lxTE54NmdRLW9ZQXUwb3Axcmp1UmNDQXM1NkpkcjhOckw1U2RYb3pWNjctTDhoVXY4MDhEZ1F1YjhrVHZiaFpweXZnbHdZandvZUp0cXhmS0c5VTh4b2k5VTlkZlVB0gFiQVVfeXFMTng2Z1Etb1lBdTBvcDFyanVSY0NBczU2SmRyOE5yTDVTZFhvelY2Ny1MOGhVdjgwOERnUXViOGtUdmJoWnB5dmdsd1lqd29lSnRxeGZLRzlVOHhvaTlVOWRmVUE?oc=5 |
-| 6 | 2026-03-28 | 富衛香港推指數型萬用壽險：全港首創提供無上限派息潛力及保證穩定回報 | gnews_hk_zh | https://news.google.com/rss/articles/CBMi6gJBVV95cUxOUEZ4SXd5TEU0WjlBSWU4MDA0QTB1UGxPZjJ2blBnOUN2ZHlteTVzdllueHR4RExfakRjRHZrOWdwX1ItVmFyODJycm5JVmtmbmI1UHFQSGVIX1RydVlPMEZRX1N6M0dmdFZ4R3RnUTgxdVZ2anJlUEF0Zld2Qm9xOUdWWDJYcnUwMzlkNnNhSUg2cEFvNEtxWTFzT3E4S1ZDMEVrWm40UDJ4ODdlbjhRQjM3MkhMekxZRS0xalZXT3dWakRhZDZwTTdwSngwOFlvcGdTdlk1UnBlVnNreFpnTUEycUR3VzlnUGg1YjJ1Z1MybDBjVkp1ZDFhRDdXQXgtNkFudEZvRGZxSWRidjJ3MWxWS255dzJ0Q3Q2LXpyTHRhZjVqV2VNenRTQnBidEhHQ1lIejU1T3RLaFNQRDRTT1dqMFFNcU5GdWdyYUxiVmg4enIyS0ZKLTNPVjhRQ2xNc0djeHdBMGdjQQ?oc=5 |
-| 7 | 2026-03-27 | HashKey Chain 支持香港首個監管的銀幣 RWA "銀幣令牌" 上鏈發行 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMiR0FVX3lxTFByWHRfU3J0MllPaWNJNXhJSnhadHYwbXBZTnVybUJaLW9LYkxOdUFiN3otS1dzTW5VaGZZVnppZENnaTB6RXU0?oc=5 |
-| 8 | 2026-03-27 | 醫起通再添4家醫院 壽險理賠數位化邁向新里程 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiUkFVX3lxTFBCVGVXMVUtcTFHZGROS2NiTGEwTTNyaDhRWm9DR0I1RFBQek5UVC1mS3NTNzQ1U1dscHpNNDlOOE9ZTndOZGF2blJ1b0xFVGRBbmc?oc=5 |
-| 9 | 2026-03-25 | HashKey Chain 支持香港首個監管的銀幣抵押 RWA 代幣的鏈上發行 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMigAJBVV95cUxNZVZxc2NLekdqRkZyazIzam1xYU5oRGRKbXdwaGI0TU8zeko1N19GdWZDbzNXb1FDczg0aEYwWjFzYms5SjhoLTJQeGN4am1PY3ZXbVFGeXNBcnBRS1RhU3hxNklrbTQ0WjFOTm9tUjFoTXloakwyMXZTM3dmTFRRRzhTS3Qtb2RYU3M2clVfTjJiYnYzX2M3SEREVzVHeUYxMVplNEx5LTRMdWcxOHptbzNOZW96R3RoTXBMZjhJeUpwLVczZWlWNGZkNF9oUE9VVjhCcF8wbldjbmRibjhlNjVNZUpXbEtmTnF3VVFVOXJlMmo0clhMOThxUTcweWx10gGGAkFVX3lxTFBVdTNsTURmb3YycVR0ektJMEFuR0Fab2xETERwUFE5WmNjemdfZFVHVktlR1dBcENFU2lfODN0WXg4THZUQzlnajJNU3dMTDVvaUp0UDBmS20xTVU4WjcxeG1iQXFsaXBhQzNjX1ZYQVBic000cjYyWTRhVGxuQ2pGaVVySlZYd1hERXdURHFXQ1B3YXRVSlFUUnYxT0hqZVNJYlV3M3h6SWlwY1BWWk5Ybi1RM3ExWWV5UVR5S09QLTVxdnIzYkx3ZGJmdFdqMy04ZjA1Rnp4b0hnUHhib1pzbGVKZndNV1lGeVpUcklFc0M0dk9CS2tObW9KY01lNzd5VEp6ZlE?oc=5 |
-| 10 | 2026-03-25 | 安達人壽「鼎吉美利」分紅保單 彰銀獨家首賣 多元特色滿足資產傳承與保障需求 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiUkFVX3lxTE5PY1E5RTIxV1gzd0ZXWi1INVBpbjhFVEZVNjVpV0NNNlo5elJxSDlnUUo3RjMySjlIS1NrV2o1c3pKcFNRTWhfaWhNN1cySDNzeXc?oc=5 |
-| 11 | 2026-03-25 | AIA秉持「為您超越」精神 提供360度全方位客戶服務 | gnews_hk_zh | https://news.google.com/rss/articles/CBMilwFBVV95cUxNN3lBRGFuMGF6MnJmUDMzMXZ5NEh1SEp2RkhkX05xZ2kwUWNTek9wM2NxX2h5V0ZucDg3ZlN2dnlUemdKX2NQOVowYkZuU01ZUmlkVTBDMTZPSVBqWkd5QXNBT2Vsa0F3MVlidUVMMjVOMmpseGhqZ2NaOVhwRm9SSXVsSGxCWmlfT1Ztd1JjS3IxR2NPc0I0?oc=5 |
-| 12 | 2026-03-25 | 安達人壽攜手彰銀推「鼎吉美利」分紅保單 四大特色一次看 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiWkFVX3lxTE9pR0poRzEwSW4xOUJtR0lyWFkxdk1RLTl3RHJkUWE0WjNNSTBrOXJkQV9CaUwwZmtkOXNIaDgzNDdXQjllcE02VkM2YUpWdV9KZ0diQlRVSm1IQdIBX0FVX3lxTE5pbGN6cjIyaURtQkJYbEF3aXZzYTJxRDYtczN4VTh6QzVwalVSU1R5bG05SDRKTmxOMmZfM2tVaXZkVTVKQUZUaFV4TWFUbTM2WXFjREZuSDlxekZsc3l3?oc=5 |
-| 13 | 2026-03-25 | 香港:威利斯推出亞洲首個收藏家和畫廊的保險設施 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94917/Type/eDaily/Hong-Kong-Willis-launches-Asia-s-first-insurance-facility-for-collectors-and-galleries |
-| 14 | 2026-03-25 | HashKey Chain 支持香港首個監管白銀 RWA 「白銀令牌」在鏈發行 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMif0FVX3lxTE15ZE1TVHhLWWtqNS1OMGxNaXNQRFRLcENnY2tVMzRYRF9STzdaQjJrYzNBcEUwOXZBQXRFUmphWlJxWFJtUUpidDRMdzJab0NHemNVa2tLb1dDZTRBbXlhVXZBSkNORUdsWDFDZHczSnFZWUxNaEUweExUQm9TdGM?oc=5 |
-| 15 | 2026-03-25 | Eddid Financial 支持香港首個監管的白銀 RWA 投資產品 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMi1wFBVV95cUxPYTFoT2NqUk5ZY3hySUM0ZzNmQXYwRHdGZWtDRzBkTGdVeFphREZEV0I5YU5OQWc0cTUyN0MzbW1lOVJoSlZscjV0aXNZc3FUYnR4QnMtTWY5SVp0aVZqRmVFZlpSQ01fekVqRWNSUGhlSlh1Q3BjZlUyT0F0UTcwUWc2NkFoek5VLWwxTkpJZnk1dmw1QlRZNS1FQ0YzXzVhbmhrRGgteDJyX0JVdGw3N0QyN0FWd0daNzdTLV94dW5wY0hTbWhjWWRYVkFQaEJMS1NZQkhpd9IB3AFBVV95cUxQZEdSamxWRVFidnBJXzJjT01aaUtUQ3QyalkwdDF3QzU3RkU3cXRlcmU0NGZWck5zU3NGOGd5UGRCRTd2RzJtRWFwMlZVTVVXc3hTZS1OWXhjYnVWYkdFcXl2aVJGQXVxd0w5aGZnUFRoek0wNFZXWThBN0FwZ1BLUG9xSmhKUEtndXgxQmVnQ2FvNFlQWFdoQlZraEVmN2dyenlHMW9ENU5tV3hvV1FOX2NsRUd6RkVsclFXX2JwWXhheGkyUkZqR2FvUHpsWFNPQUhUb29od0Y2a1pJ?oc=5 |
-| 16 | 2026-03-25 | HashKey Chain 支持香港首個監管的銀幣抵押 RWA 代幣的鏈上發行 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMi7AFBVV95cUxPT25PcGNmN0g1MGVwUFRsVFBCTWczTkgyRzhXX0xtWjFXQXJxWXRaWVpUdDFray1CNW5qMlhianFLSFQzQXhzRG5MNG81aFFuN0tSaDdmNDZ2LVBZUEM0ZTdhQUxzdTJxNl9pX05nUTRJUC0zRW8xQWtwb29UckxRTG1Ba1hKM05iU2RwbW5ZVXBQZ3R4dW1HeWJWSkE2TXdXbnloS0JlR0YtU2xKOWNhMWZEMzdzRUstZnctcnozLXNsRzhicER0dG9CUUR5M3N0a2p5eTBBd1o0WTA4cDllQXBnSEpraGtuQVd6RdIB7AFBVV95cUxPT25PcGNmN0g1MGVwUFRsVFBCTWczTkgyRzhXX0xtWjFXQXJxWXRaWVpUdDFray1CNW5qMlhianFLSFQzQXhzRG5MNG81aFFuN0tSaDdmNDZ2LVBZUEM0ZTdhQUxzdTJxNl9pX05nUTRJUC0zRW8xQWtwb29UckxRTG1Ba1hKM05iU2RwbW5ZVXBQZ3R4dW1HeWJWSkE2TXdXbnloS0JlR0YtU2xKOWNhMWZEMzdzRUstZnctcnozLXNsRzhicER0dG9CUUR5M3N0a2p5eTBBd1o0WTA4cDllQXBnSEpraGtuQVd6RQ?oc=5 |
-| 17 | 2026-03-23 | MSIG與林盛斌合作，全新家傭保險推廣聚焦家庭保障 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMirwFBVV95cUxNSEtxRjRZRXYzV3hESmt3Wl8tSzJVOWhMWTM1c1pXZ1UzaWl3QUthU2VnSGZaVnRldW9uVW1RS2pPcEV2Z2NFTE8wVy14bFBJcFMwejFVOHBaLUZRRjZCZjBVdXhWVTZMWkZHZ3NPV0hmZ1g3bGdYcVRfeTJVc21pRlIyRHl4aDZrNUJBb2twR0tkMGZJZFlXVV8zcFhJRnF5UU9wMk45QmdpOWM0SGd3?oc=5 |
-| 18 | 2026-03-22 | 陽光保險2025業績透視：多項核心指標增長，壽險新業務價值高增48% | gnews_hk_zh | https://news.google.com/rss/articles/CBMitwFBVV95cUxQeHBMSlRfNmkteFphcFRsdVNOcVphTmhyMFJfM1hJWnZTM2JWTzVsa2xjNTRpXzd4RWJBZzZJeHdBRkRlRkRlQ0k0NU1rcFJsaFQ4VFV2ekpIMW54Wm9IUWJYSHVsMDVLWnNXT1RSX2dMdG5hbndCbHNZay1OUHBWYmFjTkwwR0NRajBIRzJCLVdGYWZuLXUxYnlYNnVQUC1DcEZWZjJjUWowMk56ajlBbnBTNWJvR1E?oc=5 |
-| 19 | 2026-03-19 | 香港壽險業前二月總保費收入逾5,074億元 新契約保費成長逾四成 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiUEFVX3lxTE0teG5sbEFIMFRxMTVuTjN0NnJPWDRPOC1PY0dYSW4yeXFfdUxhR1Z5VUlqSWJDYUZZT05yeF96U0swbmRfVjgzVDJNWmc3elFs0gFWQVVfeXFMT0I2UWJIRzc3RFhxeGNvUGE3eXBScmxpX2F5WTRjTmtZZjgzSnQzbHdCUWVPZ2o1TWdCOFVxWUxvZ2hxaTVZeG1YVFMxYU1MTktDb3VTUFE?oc=5 |
-| 20 | 2026-03-16 | 富衛港澳業務去年新業務價值增長44%至4.78億美元 | gnews_hk_zh | https://news.google.com/rss/articles/CBMimAFBVV95cUxOSEdpVElicXdyTGZPaGZNVW1iRS1NTklLZkI5UGI3XzdoNTlYa3NraUk3ZXhoSDE2c3JVR1U3V3FOSy00a0VmTkJqYUJSWmVieTNkanlDeURrQm9OMXRmTVhFdnU5X0RiVnIzTGVFdm1GMW9IRkpxYVBoNHNoaFVlMUVabmJldjhwWEJPQnd0UFhNSWY0WXFXZA?oc=5 |
-| 21 | 2026-03-15 | PAObank儲蓄保險限時優惠 8年保證期滿回報最高4.3% | gnews_hk_zh | https://news.google.com/rss/articles/CBMiugJBVV95cUxNam4zNm9qaDFsNTNDXzBpSUZPUVAxS0NkSEg2d0owQVVOZDN2OEpzVEhYZi1TV09qODdPVWtKSTZyN0lpeXZ5RE1MQVI4MzBaYl9YYUFXNU5zNktHRXlkRG1ORlhkSTFvdHhZaXhFTXRGazU1TDlyNjhXb0IteFpvX1VKOEJTQkFPdnhvUmJKdGZzd2lfS3huMkU4OFdTUURQLWxhVV9sb3plVHhmbWU3dXRvSy10NTNWTFo2T1hhRG5zdzlmUFZOTkVkVWZ2NGQ0REdXMFotamozMVFubk5mUVlfOGJSeFpRMElHX0l3RkZDRDZGWUJJNlMtNE1RdjN5X3h1TXNaZ3JRZDBnRXFNSllUQXhMXzlzSjFUUU1WLWlHVGpPTFNjQUdQNHlmcWlSblljazFzN3NoQQ?oc=5 |
-| 22 | 2026-03-15 | AIA Alta Prestige Wealth Centre 在 AIA Central 開幕 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMioAFBVV95cUxNajNmaGg4dkZ5VTBJTGg5R2ktUzZDb3FpakZEdjlCUkZ4WUFHZ0tCcDh2am83OTh2ZDh5bUdaNGFuNkE1SXBjdFhjTDdxQXhPZndadGNpMmo1NElIaENfaHh4ejE1OW5mNV9pdUVjdmo5SV9TeHhOY1N1aVNadlBVMjJoTnkweVRwMXVGYW5LRG8zTDFoNlNIWU9RMER0eDBm?oc=5 |
-| 23 | 2026-03-13 | 保險動態：滿地可、安達保險 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMirgFBVV95cUxPN0hzYUVQZGE1ZlFZSDFvdHFtM2tHTUY1RmI2ZUIzdHh4S2xCVF9wUktzVGpTOTdRYVdaOFR4dEVMX2dWZF83X0hDXzZLbW0xaFhHOE1KUnNTbTZHdEVhYXh1Z1ZJUFlRSEo2LXFVSDBzOUFabzkzRzlqYUljRFVCTE94ZTRaellBODRURmRvZXF4R2pFTHZrcnc4OFJPZVg3T18yakp0Z3E1N1pWZmc?oc=5 |
-| 24 | 2026-03-12 | PAObank儲蓄保險限時優惠 8年保證期滿回報最高4.3% | gnews_hk_zh | https://news.google.com/rss/articles/CBMixwJBVV95cUxQZ081RDhaMHJhanFyWTBndUE1T1NPb2xtTDN2Yl81WmFxMVhPMnppU0NENHQ5NmhGbjNXeU9ZZGE0N2E1R1g3T1pLNTJPRkwtVkZLX1FoTUVqaG91bEJmZWh0R1dxUGVJdmExbjgtUmRhaXhUV0hxdGlmblo1b2F4ZWNMSHFiUXAtQ3Z0ckxIUnhXdmo0S044SFRBc19nRUtqdkNiSl9FcDVsQ2JvYjgzQjQtZWx6UlRaLXR1dURQU2lWNnhGb1BoYXlIT2haZk9PUVZLZGRac3gtT0JybjVQcEl4R1FBVnhrQURsS1plU291RURLcHdrVzF6bER2TVNPTnF5Zm9LLXVrRUNpWTJZTTdLYVZCS1ZNSGo4WEZrNm9fYnZjWjY2TEFNSEN6QllEMmktQ1pEa2tWd3drS21PZGxLdVVOeDg?oc=5 |
-| 25 | 2026-03-12 | 安盛香港及澳門推出Max Goal II保險計劃 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMivwJBVV95cUxNTGR6b19OSHo2LThsenJEbFkwMmEzNGZmRVExYmJKVUJ4YVQxQ1Nja0V3MEZqWDliNFdaVzd2V09CcGEzQ1QzN1pOanRGZG5FRmtkRHdSZ3ZXbnhrYktLTC1IVHFmZ29Ja2xLRHlSN2JIejg1NThxTVctR2g2bl82ZV9GVXhZQm1VaW1xNjAzdXlOSmdaLWI2V0ZFN0hVRnRFZVdsWFUyZ05oOUpXNTk2NW1ZT1VFSWRXblcxTTBfZnF3eGllZTcxZ3JVVFM2YlllOVFRVDVKV2RjUHpOS09PNDZISzdyeGwza19meDlNME0yX2drdGllaG1LaEJHbWZjZlVaOXFnaXhacms2Ti1zNHpkNXBPVTlXRWFtb01UU3ptSWJENXhlX01oVTdKOVFSNVlLeTdrNlNlb05HbUtN?oc=5 |
-| 26 | 2026-03-11 | HashKey vs Bitget：2026年最佳英國加密貨幣交易平台比較 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMivwFBVV95cUxPT20tcUQwYXZqd0FNOU9oOHEzMmx2OFhTU0VscmZGQ1o2QmhweS01Q29oRFlvQU04LTRhTkQ0VTF2R2tocU9TOWFBek1DYko4eGQxMkN0T1BrSDNlUi1jVktTampiZENOR3FMN3E1RVkxR0JjU2diZE05Wk1tOFZVcWNxRF9LUFljcDBsSnlEYlhGa2FSWmQzRHA0anA2SEpJTEM5VEhYendPNFpVOFdhc294Z0NpSTFzU2I2Rjc4ONIBvwFBVV95cUxPT20tcUQwYXZqd0FNOU9oOHEzMmx2OFhTU0VscmZGQ1o2QmhweS01Q29oRFlvQU04LTRhTkQ0VTF2R2tocU9TOWFBek1DYko4eGQxMkN0T1BrSDNlUi1jVktTampiZENOR3FMN3E1RVkxR0JjU2diZE05Wk1tOFZVcWNxRF9LUFljcDBsSnlEYlhGa2FSWmQzRHA0anA2SEpJTEM5VEhYendPNFpVOFdhc294Z0NpSTFzU2I2Rjc4OA?oc=5 |
-| 27 | 2026-03-11 | 业绩平稳增长＋港股通加持，彰显周大福创建(0659.HK)的长期底色 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiZkFVX3lxTE41LXBZU283el9UTklFRDVxcWFkRU9tVHpnOW5NbThnczVqYXRqRmwyQkR0WW5YWXVleU5JaUlDcm9kc3FqVVlpR3FVYmM1UWtYRS1NajY1ckFvMFJZZVVmNnFiMlpxZw?oc=5 |
-| 28 | 2026-03-11 | 香港養和醫院攜手中國人壽海外，為高端客戶打造一站式醫療服務 | gnews_cn_companies_1 | https://news.google.com/rss/articles/CBMiOkFVX3lxTE9KLTZsaWxJVFNtTGZKd0lSanF0dGVfZUxsTmg5YkRxeDRLZVN6MjlIN1o0YTA3MVpzbkE?oc=5 |
-| 29 | 2026-03-09 | AIA Alta Club 推出腦健康計劃 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMie0FVX3lxTFBMYjMyaW5ZQlRKNmtJQ1FYUHBELXV3SWJYd2huWE5vS1RXT3o5NVZDT3FRS1lrbHNKUmZzZ0lfZnlnSlp1b2R0MHVnNEpwTmRfZmZ0eHMzYmpoT2VnRFZQRFdIc21UOXpBZXY4Ym1mT0xibzJod3Nod0g4NA?oc=5 |
-| 30 | 2026-03-07 | 太保壽險在香港開「卷」，新品攪局跨境儲蓄險 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiUkFVX3lxTE9HSWpXbnZkcTVlY0lZbThyWWEtRnVFVEd3bHV3WE9oNjJNTUdRT09zMXVPNFJHZVV0Q0JnbElPdDM0VENtMUpIeWZhaDJ6MlBGdFE?oc=5 |
+1. [2026-03-31] **平保(02318)去年壽險及健康險業務新業務價值年增29.3%**｜平保(02318)
+   https://news.google.com/rss/articles/CBMilwFBVV95cUxOb0NSc2RkRTA5Ty1jVGx3NUQ3QjZqNmY4RkxyR1FFcmtkTlVkQ3dXR2tZRUNOaFZCdTF4eGFKdnVmOV9NcnRKRXFJUUZlQXlIMFZnR3YxMG1RNUpxRDZ4NWgwWkRIQ0ZYRHJRTWVRMDhRcWVGTGdTZk42enVFMVRUNFo1SnBCT0pfT2xiY3ZaUE5lMzkzT2FJ?oc=5
+2. [2026-03-31] **曼盈保險押注香港推動亞洲人工智慧擴張**｜曼盈保險
+   https://news.google.com/rss/articles/CBMiWEFVX3lxTFBwZjlFOXRjM2NKZWMwTlI1VjdGQXd1MFB1QTFZRGc1bV9wYXEtYW5yekR4ZGVBOV9iSXYzaHpZeU5GamJMVUJaTVVxWkEwRzhkLW5JQjhIaVQ?oc=5
+3. [2026-03-31] **韓國保險中介公司Simon Global在香港成立MGA SXG Underwriting**｜Simon Global, SXG Underwriting
+   https://news.google.com/rss/articles/CBMipgFBVV95cUxQaTF0MEFwaTFfTGRYdGU1SDQyVTI2T1BzSU1oQnV2azZjTkMtSklBYm1sYzFucm8xQXlmQ3Vpa21sTUFtMGVQMnRqZ01uNUZ4NE5IbXJkV25ZLUpEd2F5eHVLRDFIOVdPdUlqSWpTZFlTd3JNbDA0TVBUYlA5UFRNU0E0U3EtRS1MTEhpVkhXYXRWSmNxTGpLb1NTQUZyNzZ6azNjU3BR?oc=5
+4. [2026-03-31] **AXA推出限時優惠「WealthAhead II Savings Insurance」系列2年付款期**｜AXA
+   https://news.google.com/rss/articles/CBMi6AFBVV95cUxNNXZaTnNzWVlfUm5sSFdMVHNVczRyZjJyc1hFd0NDNXFCUW5taFdNeE8zb3RqTzVHRzNpSElmeFpNdWRaWldiVl9GdWQ5blRzZVRrMEJ3bzBPdXRaNE1wT3BQdjZCSUE2OFNwdi0yMmxzMHAxZG5XR3BPamV6ckZjdTFncXdmd1VhZGNreC1iaWRZNVl6MWJ4N1BGREg0SFZ3SGxDWEVXdWJkX2dUXy1xSnNFdl9aY2xnTFN0Zjh5UDNQNVJjdU9CN09iVW1kSmc0cDVJanByaUc1eTNuQnp1RGhueFhPV0dB?oc=5
+5. [2026-03-31] **AXA安盛推出「盛利 II 儲蓄保險」系列限時限額發售的2年保費繳付期**｜AXA安盛
+   https://news.google.com/rss/articles/CBMiYkFVX3lxTE54NmdRLW9ZQXUwb3Axcmp1UmNDQXM1NkpkcjhOckw1U2RYb3pWNjctTDhoVXY4MDhEZ1F1YjhrVHZiaFpweXZnbHdZandvZUp0cXhmS0c5VTh4b2k5VTlkZlVB0gFiQVVfeXFMTng2Z1Etb1lBdTBvcDFyanVSY0NBczU2SmRyOE5yTDVTZFhvelY2Ny1MOGhVdjgwOERnUXViOGtUdmJoWnB5dmdsd1lqd29lSnRxeGZLRzlVOHhvaTlVOWRmVUE?oc=5
+6. [2026-03-28] **富衛香港推指數型萬用壽險：全港首創提供無上限派息潛力及保證穩定回報**｜富衛香港
+   https://news.google.com/rss/articles/CBMi6gJBVV95cUxOUEZ4SXd5TEU0WjlBSWU4MDA0QTB1UGxPZjJ2blBnOUN2ZHlteTVzdllueHR4RExfakRjRHZrOWdwX1ItVmFyODJycm5JVmtmbmI1UHFQSGVIX1RydVlPMEZRX1N6M0dmdFZ4R3RnUTgxdVZ2anJlUEF0Zld2Qm9xOUdWWDJYcnUwMzlkNnNhSUg2cEFvNEtxWTFzT3E4S1ZDMEVrWm40UDJ4ODdlbjhRQjM3MkhMekxZRS0xalZXT3dWakRhZDZwTTdwSngwOFlvcGdTdlk1UnBlVnNreFpnTUEycUR3VzlnUGg1YjJ1Z1MybDBjVkp1ZDFhRDdXQXgtNkFudEZvRGZxSWRidjJ3MWxWS255dzJ0Q3Q2LXpyTHRhZjVqV2VNenRTQnBidEhHQ1lIejU1T3RLaFNQRDRTT1dqMFFNcU5GdWdyYUxiVmg4enIyS0ZKLTNPVjhRQ2xNc0djeHdBMGdjQQ?oc=5
+7. [2026-03-27] **HashKey Chain 支持香港首個監管的銀幣 RWA "銀幣令牌" 上鏈發行**｜HashKey Chain, MEXC
+   https://news.google.com/rss/articles/CBMiR0FVX3lxTFByWHRfU3J0MllPaWNJNXhJSnhadHYwbXBZTnVybUJaLW9LYkxOdUFiN3otS1dzTW5VaGZZVnppZENnaTB6RXU0?oc=5
+8. [2026-03-27] **醫起通再添4家醫院 壽險理賠數位化邁向新里程**｜醫起通
+   https://news.google.com/rss/articles/CBMiUkFVX3lxTFBCVGVXMVUtcTFHZGROS2NiTGEwTTNyaDhRWm9DR0I1RFBQek5UVC1mS3NTNzQ1U1dscHpNNDlOOE9ZTndOZGF2blJ1b0xFVGRBbmc?oc=5
+9. [2026-03-25] **HashKey Chain 支持香港首個監管的銀幣抵押 RWA 代幣的鏈上發行**｜HashKey Chain, 香港保監局
+   https://news.google.com/rss/articles/CBMigAJBVV95cUxNZVZxc2NLekdqRkZyazIzam1xYU5oRGRKbXdwaGI0TU8zeko1N19GdWZDbzNXb1FDczg0aEYwWjFzYms5SjhoLTJQeGN4am1PY3ZXbVFGeXNBcnBRS1RhU3hxNklrbTQ0WjFOTm9tUjFoTXloakwyMXZTM3dmTFRRRzhTS3Qtb2RYU3M2clVfTjJiYnYzX2M3SEREVzVHeUYxMVplNEx5LTRMdWcxOHptbzNOZW96R3RoTXBMZjhJeUpwLVczZWlWNGZkNF9oUE9VVjhCcF8wbldjbmRibjhlNjVNZUpXbEtmTnF3VVFVOXJlMmo0clhMOThxUTcweWx10gGGAkFVX3lxTFBVdTNsTURmb3YycVR0ektJMEFuR0Fab2xETERwUFE5WmNjemdfZFVHVktlR1dBcENFU2lfODN0WXg4THZUQzlnajJNU3dMTDVvaUp0UDBmS20xTVU4WjcxeG1iQXFsaXBhQzNjX1ZYQVBic000cjYyWTRhVGxuQ2pGaVVySlZYd1hERXdURHFXQ1B3YXRVSlFUUnYxT0hqZVNJYlV3M3h6SWlwY1BWWk5Ybi1RM3ExWWV5UVR5S09QLTVxdnIzYkx3ZGJmdFdqMy04ZjA1Rnp4b0hnUHhib1pzbGVKZndNV1lGeVpUcklFc0M0dk9CS2tObW9KY01lNzd5VEp6ZlE?oc=5
+10. [2026-03-25] **安達人壽「鼎吉美利」分紅保單 彰銀獨家首賣 多元特色滿足資產傳承與保障需求**｜安達人壽, 彰銀
+   https://news.google.com/rss/articles/CBMiUkFVX3lxTE5PY1E5RTIxV1gzd0ZXWi1INVBpbjhFVEZVNjVpV0NNNlo5elJxSDlnUUo3RjMySjlIS1NrV2o1c3pKcFNRTWhfaWhNN1cySDNzeXc?oc=5
+
+*（共 47 篇，僅列出前 10 篇）*
+
+### 知識缺口
+
+- 缺少產品比較與競爭分析的系統性追蹤
+- 未涵蓋產品實際銷售表現與消費者反饋

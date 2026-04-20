@@ -3,71 +3,108 @@ type: monthly
 period: 2026-03
 category: market
 region: taiwan
-articles_count: 54
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+articles_count: 55
+compiled_at: 2026-04-20T03:26:19Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
+
 ### 本月重點
 
-- 許舒博當選第15屆保險管理學會理事長 - Yahoo股市
-- 元大人壽：投資與保障兼具 「元大的」投資型保單 全新推出美元投資帳戶 - rmim.com.tw
-- 新台幣暴力升值，惠譽點名國泰、富邦、南山等5大壽險列入負向評等觀察名單
-- 六大壽險CSM釋出率上看7% 成穩健獲利關鍵指標
-- 壽險市場回溫！新契約保費重返兆元
+- **壽險業前2月保費收入逾5000億 投資型商品FYP年增逾6成**
+  根據台灣保險業的統計數據，前兩個月壽險業的保費收入已經超過5000億元新台幣。
+- **美光科技股價大幅上漲　計劃在台灣興建第二個記憶體晶片工廠**
+  美光科技（Micron Technology）近日宣布計劃在台灣興建第二個記憶體晶片工廠，該消息引起市場的關注。
+- **國泰金控（ISIN: TW0002882008）在保險業務逆風下，面臨台灣市場挑戰**
+  新聞背景：國泰金融控股公司是台灣資產規模最大的金融集團之一，其核心子公司國泰人壽保險更是台灣壽險業的龍頭。
+- **失速高齡社會》壽險資金從周邊邁向核心**
+  隨著台灣人口老化的趨勢，壽險業面臨著新的挑戰和機會。
+
+本月台灣地區市場趨勢領域共收錄 55 篇報導，涵蓋 2026-03-07 至 2026-03-30 期間。
+主要涉及企業包括台灣壽險業、法巴產險、國泰金控股份有限公司、國泰、富邦等。
+其中 4 篇被標記為高重要性。
 
 ### 時間線
 
-- 2026-03-30：許舒博當選第15屆保險管理學會理事長 - Yahoo股市
-- 2026-03-30：元大人壽：投資與保障兼具 「元大的」投資型保單 全新推出美元投資帳戶 - rmim.com.tw
-- 2026-03-30：新台幣暴力升值，惠譽點名國泰、富邦、南山等5大壽險列入負向評等觀察名單
-- 2026-03-27：六大壽險CSM釋出率上看7% 成穩健獲利關鍵指標
-- 2026-03-27：壽險市場回溫！新契約保費重返兆元
-- 2026-03-27：買利變保單5大提醒：不要只看宣告利率
-- 2026-03-26：傳法巴產險結束在台業務 保險局回應
-- 2026-03-26：合庫壽股權整併起跑 林衍茂：Q2向法方提議買回49%股權
-- 2026-03-25：高盛第15屆年度全球保險業調查：逾半壽險業者估美未來三年將經濟衰退 - 聯合新聞網
-- 2026-03-25：法巴產險擬停在台業務 彭金隆： 非台灣投資環境惡化 - MSN
+- **2026-03-30**：許舒博當選第15屆保險管理學會理事長 - Yahoo股市
+- **2026-03-30**：元大人壽：投資與保障兼具 「元大的」投資型保單 全新推出美元投資帳戶 - rmim.com.tw
+- **2026-03-30**：新台幣暴力升值，惠譽點名國泰、富邦、南山等5大壽險列入負向評等觀察名單（國泰, 富邦, 南山）
+- **2026-03-27**：六大壽險CSM釋出率上看7% 成穩健獲利關鍵指標（六大壽險公司）
+- **2026-03-27**：壽險市場回溫！新契約保費重返兆元（台灣壽險公司）
+- **2026-03-27**：買利變保單5大提醒：不要只看宣告利率
+- **2026-03-26**：傳法巴產險結束在台業務 保險局回應（法巴產險）
+- **2026-03-26**：合庫壽股權整併起跑 林衍茂：Q2向法方提議買回49%股權（合庫壽險, 合庫金融控股）
+- **2026-03-25**：高盛第15屆年度全球保險業調查：逾半壽險業者估美未來三年將經濟衰退 - 聯合新聞網
+- **2026-03-25**：法巴產險擬停在台業務 彭金隆： 非台灣投資環境惡化 - MSN
 
 ### 趨勢分析
 
-本月市場趨勢主題在台灣地區共有 54 篇相關報導。報導量大，顯示該領域活動頻繁。
+**報導量分布**：上旬 26 篇、中旬 11 篇、下旬 18 篇。
+上旬報導量最集中，顯示該時段有較多重要事件發生。
+
+**主要議題**
+
+- **投資與財務表現**（11 篇）
+  代表報導：「新台幣暴力升值，惠譽點名國泰、富邦、南山等5大壽險列入負向評等觀察名單」— 近期新台幣對美元的匯率出現了快速升值的趨勢，這對於台灣的壽險業界產生了不小的影響。國際評級機構惠譽（Fitch Ratings）最近點名了國泰、富邦、南山等五大壽險公司，將其列入負向評等觀察名單。
+- **醫療與壽險**（10 篇）
+  代表報導：「合庫壽股權整併起跑 林衍茂：Q2向法方提議買回49%股權」— 根據最新消息，合庫壽險的股權整併進程已經啟動。合庫金融控股董事長林衍茂表示，預計在第二季度（Q2）向法方股東提出買回49%股權的提議。這一舉動標誌著合庫壽險在股權結構上將進行重大調整，可能對公司的經營和發展產生深遠影響。
+- **其他市場動態**（4 篇）
+  代表報導：「傳法巴產險結束在台業務 保險局回應」— 根據最新消息，法巴產險可能結束在台業務，引起保險業界的關注。保險局對此事進行了回應，表示將密切關注相關情況，並確保消費者的權益受到保護。法巴產險在台業務結束的原因尚未明確，但業界人士認為可能與公司的全球戰略調整有關。
+- **監管與政策**（3 篇）
+  代表報導：「國泰金控（ISIN: TW0002882008）在保險業務逆風下，面臨台灣市場挑戰」— 新聞背景：國泰金融控股公司是台灣資產規模最大的金融集團之一，其核心子公司國泰人壽保險更是台灣壽險業的龍頭。然而，台灣的壽險產業普遍面臨共同的結構性挑戰，主因在於其龐大的海外投資部位，使其營運極易受到全球金融市場波動與新台幣匯率變動的影響。
+
+**企業動態**
+
+- **台灣壽險業**（3 次）：根據台灣保險業的統計數據，前兩個月壽險業的保費收入已經超過5000億元新台幣。其中，投資型商品的年增率達到逾6成。這表明壽險業在投資型商品方面有著顯著的成長趨勢。
+- **法巴產險**（2 次）：根據最新消息，法巴產險可能結束在台業務，引起保險業界的關注。保險局對此事進行了回應，表示將密切關注相關情況，並確保消費者的權益受到保護。
+- **國泰金控股份有限公司**（2 次）：國泰金控股份有限公司（Cathay Financial Holding Co Ltd）是一家台灣的金融控股公司，旗下業務包括保險、銀行、證券等。近日，該公司公佈了最新的財報，顯示其保險業務的盈利下滑。
+- **國泰**（1 次）：近期新台幣對美元的匯率出現了快速升值的趨勢，這對於台灣的壽險業界產生了不小的影響。國際評級機構惠譽（Fitch Ratings）最近點名了國泰、富邦、南山等五大壽險公司，將其列入負向評等觀察名單。
+- **富邦**（1 次）：近期新台幣對美元的匯率出現了快速升值的趨勢，這對於台灣的壽險業界產生了不小的影響。國際評級機構惠譽（Fitch Ratings）最近點名了國泰、富邦、南山等五大壽險公司，將其列入負向評等觀察名單。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+台灣地區在 2026 年 3 月的其他保險議題分布如下：
+
+- **監管動態**：148 篇
+- **產品創新**：70 篇
+- **消費者保護**：10 篇
+- **再保市場**：10 篇
+- **人才與組織**：8 篇
+- **ESG永續**：8 篇
+- **科技應用**：7 篇
+
+與市場趨勢最密切相關的議題為「監管動態」（148 篇）。
+監管動態方面共有 148 篇報導，監管環境變化直接影響市場趨勢走向。
+科技應用方面有 7 篇報導，數位轉型持續推動保險業創新。
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-30 | 許舒博當選第15屆保險管理學會理事長 - Yahoo股市 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMingJBVV95cUxPTTkzcTZ1S3g0R0xRaEx0bUNsNXRaUjh1SEhsREl1dFE1R1d0THFWdFd5cnNwUmRNbDRkck5VNVh0TFVCR0hxTGh5U2ljX0tFb1VxQ0dTQzR6YjRXNGpZNDBLV3RTNFI2UnItcmx2UmpuRXRhbHlSUmYyS2xzSGhuanlpMUZPMWN4ZTNHWHMxQ2cyUGJxbHZaWl8ydzd5TklkTU1EcnowQ0toNDYxNDZUcVl0cUtiRHdla1Zuc3EzYXMxWjZrMXpuMmxmQmZod2dRZzFmQjN0dWtUUDRFU0Nic2lsYXRadUgxRG5iaHdxaHhHT1pnZWd0SHBfOXRUbkhUWHE3R0s3anJGT3ZPazMzSkQ4SGxLRjlUVnQyeDB3?oc=5 |
-| 2 | 2026-03-30 | 元大人壽：投資與保障兼具 「元大的」投資型保單 全新推出美元投資帳戶 - rmim.com.tw | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiU0FVX3lxTE5MbXBRbjRveEFHNGJYNDEyc0tQZVVlVmFSOFB3NVBjc2lNTEhoZlV0NzZVbVlOYnEyQ01QNERTb1kyUUlBM3RFRFZxRGtLU3NaRFdn?oc=5 |
-| 3 | 2026-03-30 | 新台幣暴力升值，惠譽點名國泰、富邦、南山等5大壽險列入負向評等觀察名單 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiowVBVV95cUxOMkxacnFHNHQ2S19ZelQzdVZRTU4xeUZwa3ZodGxZY0JodmVwUUR4Qm5CMUM3cnJYYjd4UVhmMDBUTVdWbEdWSUNTQm5kZ3U4czhIcWV5OG41NF85UEtnZVdpVjMzQnhlSG9YSlNFTEZETmZxSV9uM3JraHMzU1dpenh2MUFVbEtpenFYMlB2SlI1aUJhME1EbVh0SmhvS2p4YmgxRXVvOTctNWN5dXNRRTR6WXRHRjQ0RHM3S1JuaUpURXZlc0RSNGZKZ2ZDUWhvWXhTdUVHQTVZUUlLd1VNdWJNelRad1dDYzFwajF0NTJiS2YwYk5EbE82NUxQTGF1UUZ6bURXTi1FRDFSVEFlRFEyOE93UlBYd3pvNGhqdWhiM1NsdlpOdEZuWENGQzVHR25YOUZLdEMwZ0FxZ2pTR0dDelRmckQxZnNfQzU5bDhhNzRMZjVfZDdrMTRTVjAyVnBkOGJNeHFkdU9UZl9PNDZROUE3bWgyX1BFM3RfSHhLNlhWeFRTV3pqMHpCQ1FxSnB2TXlxeFM4c1haeFB0M20wRWJFVzN6YjFubldCWlZ2TlZqQnNfQkJDeGR2RnVFQk55akxLd3ZzeGJFdkZxQlZfWEZzQUtGWUY4clBkUzRLaFRqZlFGMFFmcm1NYzU0TzhNempaQkhnY0hRMFhMTjV0R0tyblFGeE1kRTloRkhUMWFsT2JTUFFZVDFvTDZ4R1BDY2JzNWo1VE1mOHBiR1JpdlZpbXZCelE2M2hrbkZxN1dHT0tZQ0JYQmlJT0JIdDM4ZmhDRGdDWjRMYzE4SElObkd4ZTRTNTU5MFBUSi1YNmNQZGkwUlMzeHA1Mm8zaEpQTkxMdE5PZlN5N0twa04tczlzbHdIV1A2d25obmhXMDA?oc=5 |
-| 4 | 2026-03-27 | 六大壽險CSM釋出率上看7% 成穩健獲利關鍵指標 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiX0FVX3lxTE0tNk5XRVo4a05WMElLRGlxM28wTlljd0IzemgzMExOYjJJaGl3cWJPR3RRNVlBTVJndlN2YV9tNVFCaEUzcmZYM0pObTY5LW5ncGtsY2dmdnkzZjZOTkN3?oc=5 |
-| 5 | 2026-03-27 | 壽險市場回溫！新契約保費重返兆元 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiU0FVX3lxTE9SMUh0NTBLd0JxWENKQkd2ckkxNHlON05uZklqd3dDUm1rV1BWTExSX2d0bXFibGs4LVFidkkwb0dHWWgtVTlHNkpjT0FyNlhzdXc4?oc=5 |
-| 6 | 2026-03-27 | 買利變保單5大提醒：不要只看宣告利率 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiVkFVX3lxTFBteHh1NGw3cE1WMnl3NjdzMktOcHRid3pxN1ZrdG5VbTJCSGxMeU5rZEhrbjNrd3EyT0w3ZTJmeXlCVnBra0tJQk1zWF9uY0xHY092MTJR?oc=5 |
-| 7 | 2026-03-26 | 傳法巴產險結束在台業務 保險局回應 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMi9AJBVV95cUxQbzRqSFVlMVgyRHhpRUdhNGhhdHBNN291ZWdTQWNVcmdPX3NtWDQyQWlka29ZbHA2WFh3MnBVZmpPNTJONWN3dTN5T3JxR201Qmg4Y1RkdFVnRzZ5R3R4czZSSWNFVUllYVRXRElUTG5Qb1NMdU1qR2oydVdjblZORTVLeHphUnNvOWFqNHhoTVVFQk5keEh6ZnpaMGR6V2JORGtFNXk0eFpiLXRPNDlGY1cyV3lmUHpGMDRMTDRwY05GVTFmZzdHM2h3Q2VqaF83Q0Z3V1VaQWdaR0xoSTc1NE5LZEo3MWVDSU4yUWZ0R21JbW9ZN3hXM1hfN1FwbFNFZm5tSXg3Z2ctU2tmTXRETGEzMV9wQmY4Q0VZQ1JQaTJucS1YUFN5bDluMzd4ZVEzeU9RenN1OGNQNnlaZUFGTktGSy0wWmNJdThraXdpYUJXNk5XVVhMVFpnLVNRTWZnQ1lteVZoVnJrWmxyTWE0bnBZdU4?oc=5 |
-| 8 | 2026-03-26 | 合庫壽股權整併起跑 林衍茂：Q2向法方提議買回49%股權 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TU3g2VWduWTN4NTJxUDlwcDE2cDUwQUR1bkxhX2xvY1FnUkZ6clk0U3kwbUtvS3pYQ21VVl9tdDY3NEtNeFFBU25zbVYzV0JvWmpUWTZn?oc=5 |
-| 9 | 2026-03-25 | 高盛第15屆年度全球保險業調查：逾半壽險業者估美未來三年將經濟衰退 - 聯合新聞網 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiUEFVX3lxTE9WTVF2UVF6b21pZ01VZmRRempCZm43dUVpRE50MVBBTGZac2xJRFJ4UGRQWm5ZR3NSbV9OVG9SVnFKVWlrRkVXU3BqUFktTE9G0gFWQVVfeXFMTjNyNnBncFRvWVpWNkJibmFtOW5PQTBnejM4S05vU0dTQTFfV0VPX0t1S1BwYzhSSXQ1LTFYaW85TS1FdGtqOGN6dkVCSGpweUNmcWwzblE?oc=5 |
-| 10 | 2026-03-25 | 法巴產險擬停在台業務 彭金隆： 非台灣投資環境惡化 - MSN | gnews_tw_insurance | https://news.google.com/rss/articles/CBMi6AJBVV95cUxNVlMzSFBEcVMzTzI0ekNFZU1BeTBqejdOUmdBMkZWa3RRSTdic0RXMDZQempnbkVGVmg0T0hEWGZ3dE1yd3pBR1RpSUNYREVMdEowcGUzY3hrY2pZOWU0T0NTVE1ZNHpiOFV4Y1pIYVlrNm9VU2QyUmtNX1d3TzZmNmcwMW9Gd1BtcUttUjJROG5vazVhZzBSQ29TNFo5YUVGTkZJNVIzcTJJM1hyQ3REd29sejMtbjY1SXNCMnV3bUpCaGs1ZmtPYVNlUmlVclJFUm8wdjg1Skt2bDFpTk9LVEx3NDJTV2Zscm5OaThrWmFWVmdqdHBabW5xYkQ5STJORHBWU1FDQ2F0N3ZnZVJFQ3hkZ3hGVjNJYnFwSnF2S2VYcVRRTFhZb0NYQUNrRmR4LWstdXhKOUZudzc0WDhkOXBWTkpGb3FSY01PMGVGXzZ2MFBzZktEQ19neGRHVFBVWEJibzFXdnU?oc=5 |
-| 11 | 2026-03-25 | 壽險業前2月保費收入逾5000億 投資型商品FYP年增逾6成 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiX0FVX3lxTE1FcXExQ21LbERpQmVYNkdIVk85aVA2d3h4bXR6TjBRY3pRYk5PWW10WHRjZjd5Mml6dXhxSFI2N3U3TWZRaTVMOU9uY1l1TjhTbmNaZXpadzc4akRxYjhv0gFkQVVfeXFMUG1LYWhOSmEwaUVLRUtzdWdSb2IwbUFzaGM1R25UejhSLVk5SFVaZF8tS044czBqMXRENEs1bmxvTXBTcHFial8zMGdDZ3dJaGl5ODhqTFoxSE5mZFFuaXVxMzJsdg?oc=5 |
-| 12 | 2026-03-25 | 法巴產險擬停在台業務 彭金隆：非台灣投資環境惡化 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiXkFVX3lxTE9rM0xZRXlReDItVXJtQ2UwaF8yNHRTQkpvZGFoOEpzYXgxMmxFS0hZVFAwNVg1c3pob29VdFlfc254U1cyYVBQeldna0Uzb0x2TllUS1M4UHQyTnVlLVE?oc=5 |
-| 13 | 2026-03-25 | 台灣：國家衛生當局推出糖尿病風險評估計劃 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMi9AFBVV95cUxQZF9VV3NxUk40anhOOG85ZmpSdjl1enJmOFMtbVJ6a1pEU1FKRG81VFFRMWJhdnU2WXFwd3pGQTd4SmoxTkMxVTR1X0Zwazl2bzZiVEhEaHlkZEstMnlhZWwxaUJZZGdBMzEtYUx1VnppZ2tsN3VGNVZPc1FFSkxNc0tyT19QVnQ0eG84YkVxakRkTjNQMENENC1mWVJqRjJoMElTOFpRci1iSENWeUZlQWRJVVBFcHhpMUVpT29DU2l1eWUtXzRGZHpGVjc5dG82TUk4WDFiU24yYl9rWXdJeFJkQ2hDOW53NHRwcld1anZtZU0x?oc=5 |
-| 14 | 2026-03-25 | 新壽強化業務通路戰力 - 經濟日報 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiXEFVX3lxTE8tai04QzRIekpzLWRHVDFYbGY0SnBfZFdaSUdVZ1NvaElXTWJBZVpDTEV1NXVRSU5faE1kRWpteGNXWWJLRGhCWFBlVkhzS1RoQ25pNFEzUlFCRmZs0gFiQVVfeXFMTVBCaFZsdGpHb1NyZTB3UksyVlhGZ2JOa0xrRkJNVnRHdy12cHROdGFrVHpFX2pYT1hNWWNLSVBTbjBsX2IzS2RlU0xrQlhmLThKWGkxX3BDQlJPTWVHclVJa0E?oc=5 |
-| 15 | 2026-03-24 | 台灣：國家衛生當局推出糖尿病風險評估計劃 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMi9AFBVV95cUxQWkxGWHZxZVp3cnlhQ0xNX1lGaG1zWnZ4WGVad0I0X0lvWmxhM0t3OHBhSzVpTnpOdTlxRnRJSDc3ZGNlUXBBdDBkR0NpWXpjM2k4dVRsWExWM2RyTjd6YWlLR0pnNno1MTRRV1lnNGJ2Nk83OENIZXlXenF0bEVKTncxWHgydGZ5Y0lIRHVublE1N1N1TFJyYmtBYWtDTXNiZ3hwSFhROXQwZV9WeC1TeWFhMnBTTTgybHk0YldYRURmaTdTWFFicEV5RU1TM2lFUnJxTXhHLV9vbzBaVWRrNENDM1RndXl4d0dxZU5rUUNtNU4w?oc=5 |
-| 16 | 2026-03-23 | 壽險業前二月總保費收入逾5,074億元 新契約保費成長逾四成 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiWkFVX3lxTFBnX1hvam92cU9Nci1kS3dXWThuUnZiZkdwaHFKaUxkVWR4S0hNNWxLOTc1M1hUMFdMT0x0b2JLQmhtc2Z6bU1jUFRZTUpYRC00djlVTzF4THFlZ9IBX0FVX3lxTE9yb2s4cHlSSmRMWmc5LWNHdHZ5bHNLRVpiejlKdHZIZ2NMR0poNGNVLTRJeDdLNFNoVW5UZjdPd180RS1XYnluNTRQZU0zZlFCTXZOUXF0aGpwcVZRT3FF?oc=5 |
-| 17 | 2026-03-23 | 法國巴黎產險將結束在台業務 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiiAFBVV95cUxPMk5ueVFQUVVKaUZnM29FYkNNVURxYjB1OW1obTdRRVR3STgtNUpLbDlpV1RVVHhsZ1VxczBxZEVDUjVpQUx0MmxUdVdzUTFZekRoeVc5d2NuMHc2TjdsNVFWMmV0UzhDRnZmMWVRNS1UT3RvbEExejEwa1lDSmdMNDdfWVF2VlZz?oc=5 |
-| 18 | 2026-03-22 | 中國信託連霸青世代最嚮往金控、 壽產險夢想企業 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMi8gNBVV95cUxPTGNlelRXVFAyMjF0eDVkMDhwS2JZU18xYUxWNm11aVhITDV5M3JyaEQ5cjZHSUlTdGtqQUhJRnl0ZlZjSkVRbEtjM2RuOUlVSUVWd0dMRE9uTEZGZDVHQlBlelk1VWVLRU9ZTVZCTVAtYmJobGdERHpjU013di1aNHVGRGl3MzRxUUFBZEtndldRcWk0bWo0M3hQQzhVMDB3aWNJMHgxYUtUUmI2U1g2WFhZNXBOZm5qcHJycnFaTGNTN1R5ZU81UHd6YnMzbmtLSHQ1NUpUa1ZIU3RuQmFDLWJVTWtIWjd4M0dlVUp6dG1XQkdPdjBkbi1OMmtLcmhuTVlBMlFUUURMdWdjWmNtU3ExSFJxZmsxOXBJTXVhQlJxLWM5bnY4R3pTM3lQVWNlclI0MHBCT1UzSVpOdm5YYlpRWjQ1eGxmZTJSUEdzajlLRFg1X0lxX0JxalQzS2RQdUFkU05Ubm9WSVVhamQ4QnduQU04TkgxNmVTMDFsc1hLQWxSVDlFbkdVX0ttcGRmalFrSlp2U0NnWDlYQ28wdGl6elA5WHp6cUpLYXdnTV9KdHZ1X0E2a1l5bHN3YVRrVG9OWjFTM1V4NnVORWg1eU9lS1hweHpXOTNIQ0VtNUs3ZFlGeXpWbjFNeFRFY2dickE?oc=5 |
-| 19 | 2026-03-18 | 台灣：國家衛生當局推出糖尿病風險評估計劃 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMi8gFBVV95cUxNbWl4NE4tdXU1UTlFazl6OHBhWkk2dDJlNFZKZ0JURFFTLWFabHBJUlFnTXo3S0g2SEFsVElsUjZwUUY4QmNLVVV0d2RZWHpYOGZhbjhUbjg5TGdNOTN1VUY0SGZQVVZvTEQ4NXdzNmZnRlM0d0diR001QTB3djA4bXFrN0EwbTVuTEtqdnFJWnFhVlZhZnE5aFRseUtXNUtQZm5jdU5GcGxXOWdBT01keU4wczJQekdTWUNpUE1LUEptNWp4b0ZOVGhVNHNzdWZBV0wxYVZpekdGM0lIUTgwMVFCTWRXWTNoR3R2dXR5ZGNiUQ?oc=5 |
-| 20 | 2026-03-17 | 國泰金控股份有限公司股價（ISIN：TW0002882008）因台灣保險業績下滑而下跌 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiwgFBVV95cUxPNEMzeHRRLXNGQ0ZiZGtTTGdQY2h0cndSZ1RyUVk4SDlrd2E5S3lMR28tWnVOMVhGMWd2ak1xV1dyVFNjYS1EUWJ6cnllYjBRZVhZUTYwY2FFb05QRWd3LU96SDFFaGlWUnc3bmlCOV80ZU9jcTFsdHlDYjVKNnhKVVgtT2ZQX3VtZkZKR2lSV3cyOFUzNFV2Wk5hdjh5YUhnOHB0RGF3cjJRd3NXNlpEcTZEYl9vMlluOEg5ZjZhUXowdw?oc=5 |
-| 21 | 2026-03-17 | 國泰金控股份有限公司股價（ISIN: TW0002882008）因台灣保險業績下滑而下跌 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiyAFBVV95cUxQOURhdEdySXk1aFlVd3IzZXZaYXZjMy1jRFdNLXVHTnpFRHJZRUY1a0RrdlVwZnhiMzRJRU5SWFNUZEZyRk5pcnRZY0dhWDhZcVB4S0JBQVZBc25leG9URnd2U0xFMG9mLXdsanBpU1J1Zk5sTG1mUDZMNGpSd2JqcnM2ajYxNmF1bTJFVTVHTmgxdV9WRlRYSURkaGJvZDcwQ0dYc0xBajFfczRmRVVwUWNOWkR4bnd5WWxLUi1fNmM1TlJlNDRnQw?oc=5 |
-| 22 | 2026-03-15 | 強制汽車責任險費率是否因男女及年紀而有別 保險局提二大重點 - 聯合新聞網 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiUEFVX3lxTE02ZzRmTTdlb3VoRVJtbzgxbmlpVVJBNTJRenpzOG1RaDZSR3I1TndodEN3cU9LYlFfUG01aXI4bE9RMjdWUFVkU3ZaR0F2d3VD0gFWQVVfeXFMT0ZyMUpOQkVCb0g4S2RrN1kwMG45YlpxV1pHN1ZMTC1yTTBWNk51R3NRaThHUzk2Y1NlMWlmYVFMeVB5Qm9rZENoVXJ2SXR1MGp1clpBVXc?oc=5 |
-| 23 | 2026-03-15 | 國泰金控（ISIN: TW0002882008）在保險業務逆風下，面臨台灣市場挑戰 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMivwFBVV95cUxOMWJlN2pNTC1VaWh3YW9tR0QxYzlxYW1qUGViUGVnWThGVEZPbVhOUFFFcnRhNUUybDhQVlVzWmRhclZjQW5TdmlDV25IXzdiVVNaN2dqVnBfTThiQkJSUG9IZWVGeERiODZjUzJBbVZuNHI4S0g5Nm5rR2poWGljQzhOb1JaZXR4LTRvZkRXN0JOeVVpclhfeE15cUtoSGJLTTc3MlU2aG1ZNjNpb1pZYk1mMkE0NnM0SEpOZXJyYw?oc=5 |
-| 24 | 2026-03-14 | 富邦金融控股股份有限公司創紀錄盈利，台灣保險業績亮眼 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiwwFBVV95cUxQaGV0QWVtaDNLTks0Zi1TdDNUS1hWZEVKb3JyYnBKRk00N2xpU0p5cUFoaTU3TDVJU21ncUh0NDF3bkZqSXlUbWFIUmwzUnhna2k2THotNnF5TlVwYWFKQWdfR1MycFBZdFJ4TmZreDFxdjFEVndTTTBPNUhYUElNT3lSUE5BTWZQbWhUV2ZDdVBrdzVzRkY0eGpEQXN4NzBrTEdoaGhYV0F3OUN4M1h6cUdRZHdhb29nYnk0WllVTnd3Q1U?oc=5 |
-| 25 | 2026-03-14 | 一名公務員護航37兆元資金 台灣20家壽險公司不能沒有的「便當王」多重要？ - Yahoo新聞 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMi2gNBVV95cUxQUWNLOHpRa0ZPaUp0dXhscnhuOXQ5aDhaNnlpZHFybklrdC1rdjJ6c29jN3dSNUtOcG9PekVZSVJQRUhlcmVZTG1nenk5bmtTVk1kSDRXREI4TmVGODY2ZU10OWxmT01PQ1VzaHJ6NkR0bXMtRlFDanhuRmZtZkhmcFdqUlZlTVcyeS1pcFZYLTM1c2lPWWVjcmpHNnM4Wno0dmZvUGx6cXVIcGxKcUI0YnFtMGZSUXktTF9qa3hmLVNrcFlKQWxYaG1uOV91NU9qc09SSXJVX0NtODBQNEFGSXR5VUE2SVhLVjFKQ0t6THJmS2UtUVVRbVBKeE1yeGtjb0dGUEhvMG1uZmU1Q3dvYUVYUHktZzRqSjNSMERKVFVwYnhCV3NtTkZIdWFwVXJ1Q1FSTkhaN2FOejlsLXkzNE9uX1BUTUFicUhXcWM2WU45TDN3eWRUY3hHbzctRWs4c2JnS1plb3Q0OUpoWTVkSWN0aXU2Q2Z1eDJQQ3pra1h3RGFIa3hSNGY0NXBXRVh4dGIyRU1JUlZwbC1pckxCRmRJaTNWMWlvSGpQcWNmUUZJTUtDenNTZDhSMlluY2JmWU1leHA3VG9vODl1T2tRZ2tybjk1TkZvX0E?oc=5 |
-| 26 | 2026-03-14 | 安聯人壽投資型市占穩居外資壽第一 七月加入分紅保單行列 - 翻爆 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMib0FVX3lxTE94RWUzVjRoREdkdHIxazhMYy1IWUpnaDBzOGpURHh3cEJNMXZCdk5iYUJxb3lKbU1IV0taeHJZUWhpSlZCT3JrOHRqa09hMHRreDAyVTBBckFFQWY3WkdpamdIV3lhcm9EZFlIZDBRVQ?oc=5 |
-| 27 | 2026-03-11 | 失速高齡社會》壽險資金從周邊邁向核心 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMia0FVX3lxTFB3QXhlUGRmLUZvcndfMWtQbEFhU1lkc3JLR1lDcjRsbkdWTFRpSk5FVkpES2tMck5QMjdiZHU0anhleGtSX3A1b25EaUxNaU1FT2REa29RNGJyZkRCLWJfVk4xT29RSWJraDZN?oc=5 |
-| 28 | 2026-03-11 | 壽險、保經代業務員將迎黃金交叉- 日報 - 工商時報 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiX0FVX3lxTE9yTmlxZXpQSll1SGtsdm1URTlpU3ZVa3BaMW9ZRTFWZEs0T3o3dnc0YW1vaDZRcU1qVzBmZ2d6U3R2T1hLX1Q4QjI5RG1ESThyT0IyWUtxc1JQS2l3Nlpn?oc=5 |
-| 29 | 2026-03-10 | 安聯人壽培育壽險菁英實力 百萬領袖創業計畫不間斷 - 經濟日報 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiWkFVX3lxTE5CMVlNRDFxR2FpSFFrT21KQkFSdkRrTUtGTjFkeVI1VzZQWVJiem1kRmJjeTBWRktZaldxX05SX2Y5OGhCSUQwZU1EZHh4aUdpSkM2cWdhMm9WQdIBX0FVX3lxTE5ELWxNSFB1cTBmQWdQcmExS3ZfVkk5N0I3SC1JQUtfb2FmeVd4dU8ySnFFdWE2NmVqRHpzd1lvVzJPNkNOS0JUNXZ1dXBOZUNmSGpDLTF4RUFBSVIzTTdz?oc=5 |
-| 30 | 2026-03-10 | 企業生日快樂／友邦人壽 打造跨時間保障 - 經濟日報 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiWkFVX3lxTE82YXZTT0Y0TzZCODNDdFFjQXB4OW5JaWdOel9US05IYjZfRkUxVFZid2RHNEM0aVUzTHowS093NFM5SE1NWXdvQ3RyeDc0VkhjdzlndVM5S3NtQdIBX0FVX3lxTFBfa2x5ZEhxUUVWNm4wd3lsVzEzLTY5UG5BdEdjdkxWT0huOUxwSFB0ajJMRmFvcUtJS3lhZTZqQzR1N2U0dndxQ041QzgzbVd6bG5oUlVNVU1lb2ttNFZv?oc=5 |
+1. [2026-03-30] **許舒博當選第15屆保險管理學會理事長 - Yahoo股市**
+   https://news.google.com/rss/articles/CBMingJBVV95cUxPTTkzcTZ1S3g0R0xRaEx0bUNsNXRaUjh1SEhsREl1dFE1R1d0THFWdFd5cnNwUmRNbDRkck5VNVh0TFVCR0hxTGh5U2ljX0tFb1VxQ0dTQzR6YjRXNGpZNDBLV3RTNFI2UnItcmx2UmpuRXRhbHlSUmYyS2xzSGhuanlpMUZPMWN4ZTNHWHMxQ2cyUGJxbHZaWl8ydzd5TklkTU1EcnowQ0toNDYxNDZUcVl0cUtiRHdla1Zuc3EzYXMxWjZrMXpuMmxmQmZod2dRZzFmQjN0dWtUUDRFU0Nic2lsYXRadUgxRG5iaHdxaHhHT1pnZWd0SHBfOXRUbkhUWHE3R0s3anJGT3ZPazMzSkQ4SGxLRjlUVnQyeDB3?oc=5
+2. [2026-03-30] **元大人壽：投資與保障兼具 「元大的」投資型保單 全新推出美元投資帳戶 - rmim.com.tw**
+   https://news.google.com/rss/articles/CBMiU0FVX3lxTE5MbXBRbjRveEFHNGJYNDEyc0tQZVVlVmFSOFB3NVBjc2lNTEhoZlV0NzZVbVlOYnEyQ01QNERTb1kyUUlBM3RFRFZxRGtLU3NaRFdn?oc=5
+3. [2026-03-30] **新台幣暴力升值，惠譽點名國泰、富邦、南山等5大壽險列入負向評等觀察名單**｜國泰, 富邦, 南山
+   https://news.google.com/rss/articles/CBMiowVBVV95cUxOMkxacnFHNHQ2S19ZelQzdVZRTU4xeUZwa3ZodGxZY0JodmVwUUR4Qm5CMUM3cnJYYjd4UVhmMDBUTVdWbEdWSUNTQm5kZ3U4czhIcWV5OG41NF85UEtnZVdpVjMzQnhlSG9YSlNFTEZETmZxSV9uM3JraHMzU1dpenh2MUFVbEtpenFYMlB2SlI1aUJhME1EbVh0SmhvS2p4YmgxRXVvOTctNWN5dXNRRTR6WXRHRjQ0RHM3S1JuaUpURXZlc0RSNGZKZ2ZDUWhvWXhTdUVHQTVZUUlLd1VNdWJNelRad1dDYzFwajF0NTJiS2YwYk5EbE82NUxQTGF1UUZ6bURXTi1FRDFSVEFlRFEyOE93UlBYd3pvNGhqdWhiM1NsdlpOdEZuWENGQzVHR25YOUZLdEMwZ0FxZ2pTR0dDelRmckQxZnNfQzU5bDhhNzRMZjVfZDdrMTRTVjAyVnBkOGJNeHFkdU9UZl9PNDZROUE3bWgyX1BFM3RfSHhLNlhWeFRTV3pqMHpCQ1FxSnB2TXlxeFM4c1haeFB0M20wRWJFVzN6YjFubldCWlZ2TlZqQnNfQkJDeGR2RnVFQk55akxLd3ZzeGJFdkZxQlZfWEZzQUtGWUY4clBkUzRLaFRqZlFGMFFmcm1NYzU0TzhNempaQkhnY0hRMFhMTjV0R0tyblFGeE1kRTloRkhUMWFsT2JTUFFZVDFvTDZ4R1BDY2JzNWo1VE1mOHBiR1JpdlZpbXZCelE2M2hrbkZxN1dHT0tZQ0JYQmlJT0JIdDM4ZmhDRGdDWjRMYzE4SElObkd4ZTRTNTU5MFBUSi1YNmNQZGkwUlMzeHA1Mm8zaEpQTkxMdE5PZlN5N0twa04tczlzbHdIV1A2d25obmhXMDA?oc=5
+4. [2026-03-27] **六大壽險CSM釋出率上看7% 成穩健獲利關鍵指標**｜六大壽險公司
+   https://news.google.com/rss/articles/CBMiX0FVX3lxTE0tNk5XRVo4a05WMElLRGlxM28wTlljd0IzemgzMExOYjJJaGl3cWJPR3RRNVlBTVJndlN2YV9tNVFCaEUzcmZYM0pObTY5LW5ncGtsY2dmdnkzZjZOTkN3?oc=5
+5. [2026-03-27] **壽險市場回溫！新契約保費重返兆元**｜台灣壽險公司
+   https://news.google.com/rss/articles/CBMiU0FVX3lxTE9SMUh0NTBLd0JxWENKQkd2ckkxNHlON05uZklqd3dDUm1rV1BWTExSX2d0bXFibGs4LVFidkkwb0dHWWgtVTlHNkpjT0FyNlhzdXc4?oc=5
+6. [2026-03-27] **買利變保單5大提醒：不要只看宣告利率**
+   https://news.google.com/rss/articles/CBMiVkFVX3lxTFBteHh1NGw3cE1WMnl3NjdzMktOcHRid3pxN1ZrdG5VbTJCSGxMeU5rZEhrbjNrd3EyT0w3ZTJmeXlCVnBra0tJQk1zWF9uY0xHY092MTJR?oc=5
+7. [2026-03-26] **傳法巴產險結束在台業務 保險局回應**｜法巴產險
+   https://news.google.com/rss/articles/CBMi9AJBVV95cUxQbzRqSFVlMVgyRHhpRUdhNGhhdHBNN291ZWdTQWNVcmdPX3NtWDQyQWlka29ZbHA2WFh3MnBVZmpPNTJONWN3dTN5T3JxR201Qmg4Y1RkdFVnRzZ5R3R4czZSSWNFVUllYVRXRElUTG5Qb1NMdU1qR2oydVdjblZORTVLeHphUnNvOWFqNHhoTVVFQk5keEh6ZnpaMGR6V2JORGtFNXk0eFpiLXRPNDlGY1cyV3lmUHpGMDRMTDRwY05GVTFmZzdHM2h3Q2VqaF83Q0Z3V1VaQWdaR0xoSTc1NE5LZEo3MWVDSU4yUWZ0R21JbW9ZN3hXM1hfN1FwbFNFZm5tSXg3Z2ctU2tmTXRETGEzMV9wQmY4Q0VZQ1JQaTJucS1YUFN5bDluMzd4ZVEzeU9RenN1OGNQNnlaZUFGTktGSy0wWmNJdThraXdpYUJXNk5XVVhMVFpnLVNRTWZnQ1lteVZoVnJrWmxyTWE0bnBZdU4?oc=5
+8. [2026-03-26] **合庫壽股權整併起跑 林衍茂：Q2向法方提議買回49%股權**｜合庫壽險, 合庫金融控股
+   https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TU3g2VWduWTN4NTJxUDlwcDE2cDUwQUR1bkxhX2xvY1FnUkZ6clk0U3kwbUtvS3pYQ21VVl9tdDY3NEtNeFFBU25zbVYzV0JvWmpUWTZn?oc=5
+9. [2026-03-25] **高盛第15屆年度全球保險業調查：逾半壽險業者估美未來三年將經濟衰退 - 聯合新聞網**
+   https://news.google.com/rss/articles/CBMiUEFVX3lxTE9WTVF2UVF6b21pZ01VZmRRempCZm43dUVpRE50MVBBTGZac2xJRFJ4UGRQWm5ZR3NSbV9OVG9SVnFKVWlrRkVXU3BqUFktTE9G0gFWQVVfeXFMTjNyNnBncFRvWVpWNkJibmFtOW5PQTBnejM4S05vU0dTQTFfV0VPX0t1S1BwYzhSSXQ1LTFYaW85TS1FdGtqOGN6dkVCSGpweUNmcWwzblE?oc=5
+10. [2026-03-25] **法巴產險擬停在台業務 彭金隆： 非台灣投資環境惡化 - MSN**
+   https://news.google.com/rss/articles/CBMi6AJBVV95cUxNVlMzSFBEcVMzTzI0ekNFZU1BeTBqejdOUmdBMkZWa3RRSTdic0RXMDZQempnbkVGVmg0T0hEWGZ3dE1yd3pBR1RpSUNYREVMdEowcGUzY3hrY2pZOWU0T0NTVE1ZNHpiOFV4Y1pIYVlrNm9VU2QyUmtNX1d3TzZmNmcwMW9Gd1BtcUttUjJROG5vazVhZzBSQ29TNFo5YUVGTkZJNVIzcTJJM1hyQ3REd29sejMtbjY1SXNCMnV3bUpCaGs1ZmtPYVNlUmlVclJFUm8wdjg1Skt2bDFpTk9LVEx3NDJTV2Zscm5OaThrWmFWVmdqdHBabW5xYkQ5STJORHBWU1FDQ2F0N3ZnZVJFQ3hkZ3hGVjNJYnFwSnF2S2VYcVRRTFhZb0NYQUNrRmR4LWstdXhKOUZudzc0WDhkOXBWTkpGb3FSY01PMGVGXzZ2MFBzZktEQ19neGRHVFBVWEJibzFXdnU?oc=5
+
+*（共 55 篇，僅列出前 10 篇）*
+
+### 知識缺口
+
+- 11 篇報導缺少摘要，影響深度分析的完整性
+- 約 39 篇（70%）未標記相關企業，企業動態追蹤不完整
+- 缺少量化市場數據（保費收入、市佔率變化、增長率等）的系統性追蹤
+- 未涵蓋中小型保險公司動態，報導偏向大型企業

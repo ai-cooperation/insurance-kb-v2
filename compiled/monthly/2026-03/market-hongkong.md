@@ -3,71 +3,107 @@ type: monthly
 period: 2026-03
 category: market
 region: hongkong
-articles_count: 93
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+articles_count: 100
+compiled_at: 2026-04-20T03:26:19Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
+
 ### 本月重點
 
-- AXA Launches Limited Offer of a 2-Year Premium Payment Term for 'WealthAhead II Savings Insurance' Series - The Manila T
-- 香港摩天輪「友邦峻宇會尊屬水晶車廂」隆重揭幕
-- 中國平安CSI香港高息股ETF-3070.HK-ETF配息狀況
-- 投保醫療險 健康增值保險金是關鍵
-- Manulife expands Hong Kong investment following re-domiciliation - Captive Insurance Times
+- **AXA Launches Limited Offer of a 2-Year Premium Payment Term for 'WealthAhead II **
+- **香港摩天輪「友邦峻宇會尊屬水晶車廂」隆重揭幕**
+  香港摩天輪「友邦峻宇會尊屬水晶車廂」於近日隆重揭幕，標誌著香港旅遊業的又一新景點。
+- **中國平安CSI香港高息股ETF-3070.HK-ETF配息狀況**
+  中國平安CSI香港高息股ETF是一種投資於香港高息股的ETF基金，該基金的目的是為投資者提供穩定的股息收入。
+- **中國的月神計畫AI在香港上市面臨加強審查**
+  中國的月神計畫AI是一家人工智慧公司，目前正在尋求在香港上市。
+- **投保醫療險 健康增值保險金是關鍵**
+  隨著醫療費用不斷上升，投保醫療險已成為現代人的一項重要投資。
+
+本月香港地區市場趨勢領域共收錄 100 篇報導，涵蓋 2026-03-03 至 2026-03-31 期間。
+主要涉及企業包括富衛、富衛集團、友邦香港、10Life、陽光保險等。
 
 ### 時間線
 
-- 2026-03-31：AXA Launches Limited Offer of a 2-Year Premium Payment Term for 'WealthAhead II 
-- 2026-03-30：香港摩天輪「友邦峻宇會尊屬水晶車廂」隆重揭幕
-- 2026-03-30：中國平安CSI香港高息股ETF-3070.HK-ETF配息狀況
-- 2026-03-29：投保醫療險 健康增值保險金是關鍵
-- 2026-03-28：Manulife expands Hong Kong investment following re-domiciliation - Captive Insur
-- 2026-03-27：陽光保險2025年業績解讀：壽險價值增長強勁，保證險巨虧15億拖累財險板塊
-- 2026-03-27：港股異動丨保險股下挫 中國人壽績後大跌超8% 創去年11月初以來新低
-- 2026-03-26：滙豐銀行：遺產規劃需求激增，因風險增加
-- 2026-03-26：萬通保險在香港重新設立據點後擴大投資
-- 2026-03-26：物流公司GLP的債券價格創下單周最大跌幅，陷入困境
+- **2026-03-31**：AXA Launches Limited Offer of a 2-Year Premium Payment Term for 'Wealt...
+- **2026-03-30**：香港摩天輪「友邦峻宇會尊屬水晶車廂」隆重揭幕（友邦保險）
+- **2026-03-30**：中國平安CSI香港高息股ETF-3070.HK-ETF配息狀況（中國平安）
+- **2026-03-30**：中國的月神計畫AI在香港上市面臨加強審查（月神計畫AI）
+- **2026-03-29**：投保醫療險 健康增值保險金是關鍵
+- **2026-03-28**：Manulife expands Hong Kong investment following re-domiciliation - Cap...
+- **2026-03-27**：陽光保險2025年業績解讀：壽險價值增長強勁，保證險巨虧15億拖累財險板塊（陽光保險）
+- **2026-03-27**：寶馬香港打吡大賽2026圖輯 - 賽馬新聞
+- **2026-03-27**：港股異動丨保險股下挫 中國人壽績後大跌超8% 創去年11月初以來新低（中國人壽）
+- **2026-03-27**：中國投資者日內交易信號顯示香港信心不足（彭博社）
 
 ### 趨勢分析
 
-本月市場趨勢主題在香港地區共有 93 篇相關報導。報導量大，顯示該領域活動頻繁。
+**報導量分布**：上旬 9 篇、中旬 57 篇、下旬 34 篇。
+中旬報導量最集中，顯示該時段有較多重要事件發生。
+
+**主要議題**
+
+- **投資與財務表現**（19 篇）
+  代表報導：「中國平安CSI香港高息股ETF-3070.HK-ETF配息狀況」— 中國平安CSI香港高息股ETF是一種投資於香港高息股的ETF基金，該基金的目的是為投資者提供穩定的股息收入。根據MoneyDJ理財網的資料，該ETF的配息狀況表明其具有相對穩定的股息支付能力。
+- **風險與消費者保障**（4 篇）
+  代表報導：「友邦香港堅守承諾 保障每刻 線上線下無縫服務 滿足客戶多元需要」— 友邦香港一直堅守其承諾，致力於為客戶提供無縫的線上線下服務，以滿足客戶的多元需要。這一承諾體現在友邦香港的各個方面，從線上平台到線下服務，均致力於提供便捷、快速和高質量的服務。
+- **其他市場動態**（3 篇）
+  代表報導：「香港摩天輪「友邦峻宇會尊屬水晶車廂」隆重揭幕」— 香港摩天輪「友邦峻宇會尊屬水晶車廂」於近日隆重揭幕，標誌著香港旅遊業的又一新景點。這個摩天輪車廂由友邦保險贊助，提供給遊客一個全新的視角來觀賞香港的天際線。這個水晶車廂採用先進的技術和設計，讓遊客可以在高空中享受舒適和豪華的體驗。
+- **產品與創新**（2 篇）
+  代表報導：「富衛首季香港銷售勢頭溫和增長」— 根據最新的財經新聞，富衛（01828.HK）在首季的香港銷售勢頭出現了溫和增長。這一增長表明富衛在香港市場的銷售表現相對穩定，可能是由於公司的市場策略和產品推廣努力所致。富衛作為一家領先的保險公司，始終致力於為客戶提供優質的保險服務和產品。
+
+**企業動態**
+
+- **富衛**（13 次）：香港賽馬界即將迎來一場激動人心的賽事，「嘉應高昇」馬匹正在積極備戰短途錦標賽，並將目標鎖定在富衛保險冠軍賽馬日。這場賽事不僅是香港賽馬界的一大盛事，也是保險業界的一個重要活動。
+- **富衛集團**（7 次）：富衛保險冠軍賽馬日是香港賽馬季的春季壓軸盛事，也是全球馬壇的焦點之一。該活動由亞洲領先的保險集團富衛保險（FWD）冠名贊助，彰顯了該公司透過高端體育賽事進行品牌建設和市場滲透的戰略意圖。
+- **友邦香港**（5 次）：友邦香港一直堅守其承諾，致力於為客戶提供無縫的線上線下服務，以滿足客戶的多元需要。這一承諾體現在友邦香港的各個方面，從線上平台到線下服務，均致力於提供便捷、快速和高質量的服務。
+- **10Life**（5 次）：近年來，扣稅年金產品在香港保險市場上漸漸受到關注。扣稅年金是一種可以幫助個人節省稅款的保險產品，同時也提供一定的投資回報。
+- **陽光保險**（3 次）：陽光保險近日公佈了2025年的業績報告，顯示公司的壽險業務價值增長強勁，然而保證險業務卻出現了巨額虧損，達到15億元，嚴重拖累了財險板塊的業績。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+香港地區在 2026 年 3 月的其他保險議題分布如下：
+
+- **監管動態**：189 篇
+- **產品創新**：47 篇
+- **科技應用**：36 篇
+- **人才與組織**：19 篇
+- **消費者保護**：16 篇
+- **ESG永續**：7 篇
+- **再保市場**：3 篇
+
+與市場趨勢最密切相關的議題為「監管動態」（189 篇）。
+監管動態方面共有 189 篇報導，監管環境變化直接影響市場趨勢走向。
+科技應用方面有 36 篇報導，數位轉型持續推動保險業創新。
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-31 | AXA Launches Limited Offer of a 2-Year Premium Payment Term  | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMiiwJBVV95cUxOcVk0ZU9temJXQUZ6MlE4a2Z6eWVldm5jTzZTVWRSYzRPa3ZwUW52SzNqUkdKMTN5RVhFZGt6Ym1HOVUxZjZNMVhyRXh4Y29Ud1lTWE8yc0RubWFwclV2d0p1d2QtV0FsOFI2azBKS3VXMFpnU3QzeFZFUHMyUkI4T0lvaW9zZGRqeTU3QzlQTkRueVRvalFYeGtxZzZuNlIwRlhpU3o3MUU4WW1qUDF1RnowQk0yQl9DeG1IbWo4cE1fSjNaQk00OV9YQ2RiNGVXcUdBRzFEMXBDNXNkZzk4d01RVHZUSV9JNmlWdDFBdS1nSkhpWEdVck9CV0o1eWMyWGo2YmNnNUVlYTTSAYsCQVVfeXFMTnFZNGVPbXpiV0FGejJROGtmenllZXZuY082U1VkUmM0T2t2cFFudkszalJHSjEzeUVYRWRremJtRzlVMWY2TTFYckV4eGNvVHdZU1hPMnNEbm1hcHJVdndKdXdkLVdBbDhSNmswSkt1VzBaZ1N0M3hWRVBzMlJCOE9Jb2lvc2Rkank1N0M5UE5EbnlUb2pRWHhrcWc2bjZSMEZYaVN6NzFFOFltalAxdUZ6MEJNMkJfQ3htSG1qOHBNX0ozWkJNNDlfWENkYjRlV3FHQUcxRDFwQzVzZGc5OHdNUVR2VElfSTZpVnQxQXUtZ0pIaVhHVXJPQldKNXljMlhqNmJjZzVFZWE0?oc=5 |
-| 2 | 2026-03-30 | 香港摩天輪「友邦峻宇會尊屬水晶車廂」隆重揭幕 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiWEFVX3lxTE1sVTg5WGJoY1Y2eTZLaDVGR29UU2pCODF3YWFMa3NKOFpSMEdsaFRFZlByWVlfNXRoR0FWSUJQUVpDSEU2Y3hxanZCbkNYeERWX2N4OHVYU24?oc=5 |
-| 3 | 2026-03-30 | 中國平安CSI香港高息股ETF-3070.HK-ETF配息狀況 | gnews_cn_companies_1 | https://news.google.com/rss/articles/CBMie0FVX3lxTFBGX3dXbVFXZ3FkZllhX3dDSDVGRWZZdWg2bkx5cUdiVHlYVXh0eC1fX2lnYjZ1Q2ZtM3Y4QzFyZGJ6TldmYzJYeFU2UFhYa3pOaEprRXZ3QXAxZENDTFZiellNYTQxc3lMSXdaU2l1SlNCSGZvb1A1UDhVdw?oc=5 |
-| 4 | 2026-03-29 | 投保醫療險 健康增值保險金是關鍵 | gnews_hk_zh | https://news.google.com/rss/articles/CBMilgJBVV95cUxQWC1MYmxHaUNuVWRDMWJMbmJRbXBiQjdQMXZENW9SMFp3b0NJSkx1MjhTWnJvVy1PQ2NERjUxY3NGRUZ0VWV5dTdQMlJNQjRxT0dIaUFtcnBmZ0lpdnRjX2VMWjlPa3RtcGR2dWZNX19OOXB5U1NNRm55S19vTFRQY1g4ZkFxM1k0amFkQ2hwcWxudGJrbFcxeDJQaWpvMDZIQ2VPWDlUeWlEYnhfN3dQVzhXZGY1QVk4YlBIVDRybFJhZzNGQ1B3a0VibDRxcURCb2pXZndvY19MdXR3TjhBeEFTNXZkdVk5NW9DSzk2bXF4WmNkQ3BDcEFIRE5FWmhOU0d5Tmd1XzBQSHE5S1hna2JwaEJtQQ?oc=5 |
-| 5 | 2026-03-28 | Manulife expands Hong Kong investment following re-domicilia | gnews_hk_regulator | https://news.google.com/rss/articles/CBMi1gFBVV95cUxQYURTT01ZUUhJT3FWN05tMnV2dXRCRUxPTlFud3dDUWRrSzhWZ0h5YjZUQjJId1MxWEZNbHVsMEhiVnVIelhWMldsZS1zRlhIZkJUbnVoSkRsSXZhU1YxOVlvbG1JczEyX1N2MldQX0liNEloQW9yVHdpZW43c1QyUW80ZTd5d0NRT3Jqb05HalYtaWkyZFhvQUswOE1XQnlBMzVpa0syZURUQXY2LWVJTlRHZllsZ3VfZDZTTFlCZmFsUWpLUTBiTGVrdWxGVVNUUEF2LTh3?oc=5 |
-| 6 | 2026-03-27 | 陽光保險2025年業績解讀：壽險價值增長強勁，保證險巨虧15億拖累財險板塊 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiUkFVX3lxTE9CdFowYkV0UHFfLThVYmtCN01HM1VmbVI0T0lDSzN1X0VlLTZvRzdjOWFfV0laMUtOZGVjZVdfQnAzNUFCeWVybmstRElSeDhJY1E?oc=5 |
-| 7 | 2026-03-27 | 港股異動丨保險股下挫 中國人壽績後大跌超8% 創去年11月初以來新低 | gnews_cn_companies_1 | https://news.google.com/rss/articles/CBMigwFBVV95cUxNZExJeW1ickp0akxMczFLR1lzLWtwcERQWjVVcXRmOU15cnJCUlpERk5QMGFYRFpFWVhHeFFVb21LdHQ5aGNPclFURWpSc0JSa0QzV3pFWTF2c01vbHpUcVJOb2ZOZk1Xc3lEQ0ZrVDZmX19YZ0laNm5BQ255R0gzQ0dXdw?oc=5 |
-| 8 | 2026-03-26 | 滙豐銀行：遺產規劃需求激增，因風險增加 | gnews_hk_companies_2 | https://news.google.com/rss/articles/CBMixgFBVV95cUxNOVpOVWltWlJfM1Nuc1NZZm5XclJYOWxnNWJ4LThWbllQTV9OQm5Td01nR3RrRGlxRDhNWlNRRjVpMUxWODVtd2xzdHhRS2R2cURRRWpKTXJxWV9NSDluZm11d2JBUUZFZ3NvZktoYktpMjhsU2NaQjRXYmVlcUZFODI3OVpwd1c2Y3ktME4xSHNmeWRDb2JwaGYxNEJxQ2xpOXBManZIM1RCbUtsMWRTdV81WEZaY3UzN0taWHFaLV9Ka09xRlE?oc=5 |
-| 9 | 2026-03-26 | 萬通保險在香港重新設立據點後擴大投資 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMi5gFBVV95cUxORGFEOWVEMVhPMzY2Q2lKS0EyU3lLampYSEMySnpaeTRrU21YcGtJTWxSUnNhNDFMU2k0bm05UlNJRlNGbVVrQ2tQaVdhdm5BNmhPVXUzVWJ2UVZXSzNEODkzcmtFVEVBZm0wUkJJOUVMOE9oOERGc1h3dkx0NmFNVDREYXlOU1hMN3RtMkZZMDVpeThBeTNqRDJBRm1VeG1MTnZQMXI5VFlzT1JWc3Zna0RBdzhHbk0tM3lUTVJia3hFdmVtZFNheG1pWWtxOUI3QlEwRUdHeUliOGdZdVdJY3RlQTR0UQ?oc=5 |
-| 10 | 2026-03-26 | 物流公司GLP的債券價格創下單周最大跌幅，陷入困境 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMitAFBVV95cUxPR1FzZ0NVd1FFYVpjWkZTaFhmN3VDcHk4cnI5ZlJNMmN3U1g1ZXBveHM1RDJYTU9HRmpUMFZuS0lBZ05xeWlocERPYnliYS1Zb2lhSHJYLUFiU1R0S2R5YlpIUGVaVXBhekp5T1d1VE41cjhkMnRzRlJ5b1BRcnBYbXIyWUhwZ2VzaUFBRW03TXpSWkJQUXcwcVI1OHR3c1VHUnkydEZ2SENFMWItZEdHdWZnckY?oc=5 |
-| 11 | 2026-03-26 | 友邦香港堅守承諾 保障每刻 線上線下無縫服務 滿足客戶多元需要 | gnews_hk_zh | https://news.google.com/rss/articles/CBMisgNBVV95cUxQNTk5V3lsUV9OOUNqX180OVloNWJER1BIaXI2Z252TGxwSjdnam1NbFhZTDBsVlhIci15UWlBS2ZaSS1TRS1tRkJ5NHNCUjYwY2N5WnVGV0Y4WHFWX1hCVk5ma1JuRkY5M09vWTlheGNERXRHaEJyOFFzYmdmWko0SkRtTmVndzVDNUZOOHFiY005a25HS2RsTE93MXRiNlhXSTkydHJ4V3NqV3FtLUkyWjBzTDl2aDBmQmduN3ZLYlpJTEJQTGFFNlJJYjhEcXBYVkg1bmZ5RzZraXdiVU14ZkhZUVFEWklnN0U3UDJGblpBSGthSmx4NnU3bjk0ZmdraGVObW5UcnRoZmRyNVQzOTVtdXRvLWhrVlpoeXl5VTJMeEwteVlIUDlMN1A1cGYta0x2N29MXzdFY3h4VmFCejdnRDlMeWp6SmRJWnE0czluaHlPOTIxZDRXQ2stQ2JtRlloWXZQd1BBWkNrcnBhVlc0eEhYQk1Cb0RieHYxRVVlZ0dnWG1oRHFCWW1PYzJZeE56MVZvZkZFazVhUTUyRk1oYkZvZDd0dlRyNzJ5dG5wdw?oc=5 |
-| 12 | 2026-03-25 | 滙豐銀行：因風險增加，遺產規劃需求大幅增加 | gnews_hk_companies_2 | https://news.google.com/rss/articles/CBMirwFBVV95cUxPVTVMWHBmUmwyM1QtZlBjM1R5TDFuZ24yYUdLSkxkbTdveElZYmVEZGZ1MFFMc3cxWHhPMktweFYwck81ZzRVVUhKSVVEQzBYN1NXM1g1MnVBc1dkb0tVN1pUNnVnTXJyMnZ5ZWJBbGw2cGZsbDdmaWpuZ3VtcGtWZEZJcHlhTFA2eWpLaE5KbzE3NUJDQ0pNMzJ3MmtVS3RKWjFTWFNsQmpMeTk0YmJ3?oc=5 |
-| 13 | 2026-03-25 | 農夫《全香港最好笑嘅演唱會》公售一小時賣爆 開心宣佈加多一場！ | gnews_hk_zh | https://news.google.com/rss/articles/CBMi7wJBVV95cUxNWVVydnRVamhUYlJKc3NKZnFHdmZtZUxzdVFLWnc2MTQ1VjJxZU5PVGFFSXFUV00wTXdIQmF2X043dm1hRmdCMER4TXY1ekNzODFfRDN6TGV4XzhQb2ZUZ1B0QTV0MnRObTNkNXJkeWVVTi1RQ0JYdTFMY2NZd3dBZzhXQkxnbS1mclB3VGlaYU5veUt4a1FxTXlPc29PY1lKdlRVMjFpb3l0cXZSRFhINHJuTnNrUzBlb2ZZXzhpSFZJaGpHbVZjQjlXdnEtY0hDQmk1VHdrYXdxZkxBZVUwMkN6TlVaSFdrQmNwUGZrYl95OTV5T05oMjFYRmRWNDhhVnlIV2FieE83SFVVeTZJTlJBSVhJVnZnRUFlMmZlWDF3ZWJ3dkFfTDlLcHU4V19wRFFvYzNSbGUwMm5yQ2VSWUFnR1lYMFRld1lIeGxYWDNOTTVKRUFESDFjQm9sMEE3UXlHVkxOSTloUndPbFpV?oc=5 |
-| 14 | 2026-03-25 | 香港生保獲S&P評為『AA』級 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMiugFBVV95cUxPVGN0UVlKRUpZSlpSRVhHRlpIUHVaZ2F2cGZxZDFpS2RPSnRsOXA0dTByTkg5VUwwTnc2TzJvOUpEZU5lNF9YQUdSME9QenRhZjhwZV91bzZFcFdZWmQ1TTVkQUVYM0pjcmFvTGVpdmxDR251V3hfUFA4REx2T1B5bWhlSmlVZ3hLTHlHdTBOWlBMeVRzUWNGUTRqMmlWSTVTNHpqa29GbFpSdEYyaW1IbThXQkVIbUdfa3c?oc=5 |
-| 15 | 2026-03-25 | 香港生保獲S&P評為AA級 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMieEFVX3lxTE9xejNKMllxMWpwdDJqY3g3ckEzc2VsMUtOeE8zbXdwQTh0dkpYYUtESFpNZGxCUF9YdkNDQkR6UnlhbWFnVEN5SHBwYll2SWhRWF9IeU1naEx5T0l1QVlJdEgwcVhyMjl5MzNhcU1nX19fYWNNWGZQcw?oc=5 |
-| 16 | 2026-03-25 | 香港：永明人壽獲得標準普爾的評級升級 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMizgFBVV95cUxOTlFOdlNPMGs1SE5rNUhnS21LUUxFaTk3UGsxSGVtc0wzVF9kU0Fqc2NVZjdMRVNfMlk3UFZPY3NsTXB1RzFDZERnZ3hPOE1yUG8xYklNSkl1NUtIS21FS09JNHdNcVBLWDVRemJJNnNranJVaTdoV2RMZ3dROEwwQW5jbGVGNDZ3YTFlMGw5MndUSDJBa2VIYi1ObWM0Y2tTcV91VEpZWWw2bllLUFhub1hPdGtrU3JpX25uckJoUjZUajQxMlo5TnlNVU12UQ?oc=5 |
-| 17 | 2026-03-25 |  | gnews_hk_zh | https://news.google.com/rss/articles/CBMi4AFBVV95cUxOdm1ZOEtoTUhkcE9LTFcwM21taWtuVk94Z0YySU5RSU52SnJJOGZzMTFPSnNKSTM2Tnd2MG5GRWk0cEMxbk5EdVc2NUxmWXBQTjQ0ZDBCaHNxZzFYblBHN0liVVMxcGlNWTFDcHFNUzRWVUM2V2JjNjNQUF9qenRfYXNub19OMnJPejNROXByY1VlcHVtd1Nxb1ZyenAyVkE4aXZKZWIyb3lwWUlab28yeTFGTk5BNjdNcHhfVVNzZnhIUllGMmFQYi1DLXkwU2JCQjdQVXZ4Y2FIQVFpb2k5bA?oc=5 |
-| 18 | 2026-03-25 | 香港藝術和體育大型活動季 | gnews_sg_companies_1 | https://news.google.com/rss/articles/CBMiowFBVV95cUxQRzhVQl9ub1RRSFVjUnNCbnRrSVA2S2t2WTJPZEJIUFNvVlg0VFNzWWN1T0JWZUxZc3BPUGZWLW1lZUtjcEZkLWFPVGFXbjU2NlBYemEwUUU1RzUzMTR1cVQ0UzhSUDlsaEpYYkhiQ3BhUGhpOEtzNzNaUXdobF9ud3Y1MlFPZW45M0tYTUVXWUxQQlVOLU5la2dnS3hreDM0dXE4?oc=5 |
-| 19 | 2026-03-25 | 新壽接軌新制淨值增411億六大壽險唯二成長 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiVkFVX3lxTE1RTk14ZklqOTJkTkhpQWQ0M1lINjljZjJQZWdyTkNWd2ZEaTEwTUM2dXhTY1VWSjlTWFZIY1VUcjA2dlNaa1RaU0ZvV0h1anhWMXFaXzBn?oc=5 |
-| 20 | 2026-03-25 | 馬會提高四歲馬經典賽事系列總獎金至五千六百萬港元 | gnews_hk_zh | https://news.google.com/rss/articles/CBMi5AJBVV95cUxOemFmUXdmN1dfbHh5eVFRcFhkYjZvLUc1MXpodXMxbjMyV25zNGpQUlRCS3cwN3B0bENDRWF3eUJ6WFNFeHRDNUZzcjRtSHljWTJDcER4Sjd3d29Rd3lPdzVUanJEZ0hoOUp1dVVCWG1UVm5XVV9xaFo3SDcwc2JoN0ZzLXdKbm4wTDVHUm9wNHhmWVd3cDVUenZrNEVzSVpLMHdlVFFOcndaektTN0lXSlFyaWUzNUVzUEpPdEZoRl8wNDNBN2tVdkc3Z2M4UDFobjVJWW12VjEtZEhFbThtcWZ3X1N1WHJKUEFjUzZmNEVTb0hhU05wQ0pGc1VnNHpweW10NktwVjlZaVgxbTk5dU9JZmYxc2ptNk95bHFRMzMtczVvMnRaRm82S1Z6cXBLZjZGMmprYVAzZVNodExBdk1zeEprb25uYnk0dnhJRUk0dC1EZzFXd2dHalhTUWUyY1dkUQ?oc=5 |
-| 21 | 2026-03-24 | 六大壽險CSM釋出率上看7％ 成穩健獲利關鍵指標 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiiAFBVV95cUxPMUIyUkdhVW5pNllCdTFZdmlhSk5hcFpPaTBfRm92VnllUE0zRkFId2ZrS0lrODJRTGoyMTlQQ3BqOE90MkFtSWdCLURrdkdOWEJQMVBhS1dUOWo3b1lXZFRRdWNLTEIwMU5ZdlhZd0RZNkppUF92bm9wMllOMmVYby13RDJUUXo3?oc=5 |
-| 22 | 2026-03-23 | 摩根大通私人銀行：投資香港房地產的理由 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMirwFBVV95cUxNcWRrdlp0R19xcHRMbnRUcmRmTFo2OENnSnZYTkd5WWJ3elNmbUs3RC1zdVdjSmNUNDVRTUFMcmVjOWlna1hhTUJLa2sxTEdJZmRFVGF5QlpLMXF5OXhadWZjWElxUk9MOGptVmpaekpPYmkzdi1zcG5DRkp5NTB0cS13b19qUHJSVGRLNzdkMExwYnBaQkREMkR3N3hGZzdjTmdiOTdkQTAwZGlkYTBj?oc=5 |
-| 23 | 2026-03-23 | 富衛首季香港銷售勢頭溫和增長 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBBbGtkQk5YVnlNM1dqQ1V0X01tb2xEZ0gxUEhIeFY5QVpnbVpOWklUZDVqLUJUdW1Gb0JNc2lPaFl3cThVQW9hLVRjY1NKZzYxZV82UVI0QVgzcmIyOGhuWXZXWWZJLUE?oc=5 |
-| 24 | 2026-03-23 | 比較扣稅年金八款產品期滿回報 差距可達約45％ | gnews_hk_zh | https://news.google.com/rss/articles/CBMioAFBVV95cUxPYjAwakNjLXJLZmZxV3NNRFM3aWI1R25uMlFWaEJxSHFacXI1YUE1LTJRVHJlZk5hRlZ2a2NNMFJSSjF1dEdIVmk2VnNQQW1ZQW5ob2hlRlVvLS1OR3VNVWhmVmlLcjVDOVJWMU9JcUN6NkdIaUFjQlB4Y2lWbEVWbExPcHh0LWVJU3dDUlRaTlBVbTBfOGxNcXJadTVuWTNY?oc=5 |
-| 25 | 2026-03-23 | NBV增長強勁 投資端表現亮眼 陽光保險可留意 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiUkFVX3lxTE56TXA0Y2lSM1ZpYkNmMFNZMHhndi1TdVdWcUQxeGV4YW1EVWdDbU5mRExQY0JSWjJCZ3VRYzJWUGRKemZjbG1zTnVQVENIcFJZcmc?oc=5 |
-| 26 | 2026-03-23 | 東南亞旅行中斷：65+航班在東南亞各地取消 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMib0FVX3lxTE5OZXVlUncteTlWMWVhMnNSMjlNTVNBLVJtNGxfSEM4eW9NREVuMjA5YkdCOGlvQ1NvUjhMc3JVUm1yQmJZM1V3WHhsSTc3WkV1S25sNFBJM2hLLXNreTVycTJxTmRvN3VBczRkeV9lTQ?oc=5 |
-| 27 | 2026-03-23 | 陽光保險發佈2025年度業績：壽險財險同步發力 長期投資價值凸顯 | gnews_hk_zh | https://news.google.com/rss/articles/CBMinwNBVV95cUxOT0g2YzU3TzNMcmxQN0dUU2k5Z2lfa0tZOG1lTnNadzNRdUxidVdBNGVIQ0pCZmpHR2pSZXhYbDhwZE52bm43SFJpMVhQMThuZ0FYR2pGMU9uTGVMTVQzby1obGVHWU5aQy1DTm12SXN0MFR1ZDZ4T005WnVXeXZOOWd6WXNtRlRGOG1IU05oYl83ZU9ic09DY0FZdjVCelVRZ1M5eDBLOVVneHgwSVVUVmREamlnYmRaRWRieXdFS3RtZnZZOVpXNUFLOWVHdzdzVG9HRk5xeXM4V29jcVE4MjloM3ZOdE9zWXVfb0tmTlJrMFFNNE5VYUVlbVcxN05zOTVVRk4ta0lDTTEzNFdILXJGZWpTT3IwM2QzZkhVaWxtMkZvTlVOVXVnOGpTaXpiQ3d1bndiakwzSU55d3NPNHh6OXVoeUZBN28tS3FPTGE1SUVRSC1lTEU2RTVQb3I1ZXJQUzFVbUdDQ1BfS2Z4OWJsUHdZbU9xQTMtcXdja05hLTNQUktqSF8wU3NDNjZiNHZuMUVzTjc1RDVqUmJ3?oc=5 |
-| 28 | 2026-03-22 | 富衛：中東投資風險敞口不足5% 將拓展香港高資產淨值客戶業務 | gnews_hk_zh | https://news.google.com/rss/articles/CBMisgNBVV95cUxPNnZpZWIzRmctOXVSU1V1eFJYbVlHcXJZQ3dhZTZyanFqb1BxaVVSYVlaSGs3dTFlelk3NXNwSE1KSkVGWWlONjZ2eEdUV1BoZ0l6UkJJNVkzQnBNUG1TNmtJa012WVhXTWpIeEtMZUV0TkxuMTlOZ0QzWEFRVTAzX1J2UVRMeExDbDRDUmpGUTVBdl9ZRl9LY3EwcWE0bWRGSldPblZBWk84MEY3Slp6RV84TVN4Wm53dTM2VUJxcmZDbEpfOVJ3SEZndExnai1sX0NuUF83c3RGNGtFcHJ1eDFkaVZHTlJlUjZmczZNWUVfUGRMejV0ZDgxSmgxMEZYaTdBZUZCM1plc2haRC1fWGlhbjI0YXZLeHJxU1FNdmhGX25VMEZtTUdDNXFJdmdOZDl5Z0RzTnVnVVc5cXVIVW0yM0tjSjhtUktucWV5ellqRXZLRnVneWtBM1l3VF9DZHpDLUQwaW9CLXAtS3JiLU4ybGFGdHFTZmtvSmpFbmRKcXRENUJZbTAxQjROMFNacExzZGtEckFkSG02VUVhajNlTkEtWEZBUTdrVUo1QlczUQ?oc=5 |
-| 29 | 2026-03-21 | 友邦香港積極聆聽客戶聲音 持續完善貼心服務體驗 | gnews_hk_zh | https://news.google.com/rss/articles/CBMilwFBVV95cUxQbG4zVHFBZkM3UTdDTDNVczFVOXBRX045WjFxVlZycC1ZT3JwVnNJTjhhUm9iR3pNNEVydTdyWUw0Zlk2NndIbGdFdWp2aWJXQklqUHp4WEJQc1FHd280ME42RGh1dzdHaHpyeXJMZmlwbXhOZmlTRWpTNEs3aGcyZWwxZ0dxb0U5WDBfdFZKNjJKRENlMUZR?oc=5 |
-| 30 | 2026-03-20 | 友邦香港堅守承諾 保障每刻 線上線下無縫服務 滿足客戶多元需要 | gnews_hk_zh | https://news.google.com/rss/articles/CBMisgNBVV95cUxPa2xBNTI2cWxKc2RWZ1l4WGFOdk53N2E3MjJiZ2NicjUxaGlNckFFVy02cVlYSGI3OHdCYThkdlVQWmpEQnQ0V1Y5OXJnMXU4RnRLOFpoY2hoUzNGQk5Ta3c0SmFLS0ZiYm85U2lfbkljZmtidUZsRmdwYi16WGRfeFdJcF84NGpwQm5CVFNjcGx4MEpvcElBNnVCY0E0dEFfNzVvSUF1Y044ZnJ0bHVWWU5PcndNOEhlMURnT2FDX1A1NFpQbXIxYVBPdXZYUjVnVWRCMVAwZ2pKTjF5SnNyOXRkbnFhQU9LdXdUR1EzSGFMNzBLZWZ2MlFMaTZMS2ptS2g1UzVPTGt0WHdsRXRwS2Z6RVpRNmthN3I0WTdPdnJLaU94cXgtNkVWbmdvV2ZDN0JzaFdWQTlMUlRjOV9xUUJ6eG1yRzloSExlRkNiRk1NU2xRTk1xRnpzenRtMlVTdE5md0NHNTI1OV9CeUpmV29ON0pnek5VdHRoYklYMTdPU1d6bi1DVThVQXZaR2l3VTNCQi1aOGlhLWlJLVlSblQxazJzNXIxOTh1dkVjc05YZw?oc=5 |
+1. [2026-03-31] **AXA Launches Limited Offer of a 2-Year Premium Payment Term for 'Wealt...**
+   https://news.google.com/rss/articles/CBMiiwJBVV95cUxOcVk0ZU9temJXQUZ6MlE4a2Z6eWVldm5jTzZTVWRSYzRPa3ZwUW52SzNqUkdKMTN5RVhFZGt6Ym1HOVUxZjZNMVhyRXh4Y29Ud1lTWE8yc0RubWFwclV2d0p1d2QtV0FsOFI2azBKS3VXMFpnU3QzeFZFUHMyUkI4T0lvaW9zZGRqeTU3QzlQTkRueVRvalFYeGtxZzZuNlIwRlhpU3o3MUU4WW1qUDF1RnowQk0yQl9DeG1IbWo4cE1fSjNaQk00OV9YQ2RiNGVXcUdBRzFEMXBDNXNkZzk4d01RVHZUSV9JNmlWdDFBdS1nSkhpWEdVck9CV0o1eWMyWGo2YmNnNUVlYTTSAYsCQVVfeXFMTnFZNGVPbXpiV0FGejJROGtmenllZXZuY082U1VkUmM0T2t2cFFudkszalJHSjEzeUVYRWRremJtRzlVMWY2TTFYckV4eGNvVHdZU1hPMnNEbm1hcHJVdndKdXdkLVdBbDhSNmswSkt1VzBaZ1N0M3hWRVBzMlJCOE9Jb2lvc2Rkank1N0M5UE5EbnlUb2pRWHhrcWc2bjZSMEZYaVN6NzFFOFltalAxdUZ6MEJNMkJfQ3htSG1qOHBNX0ozWkJNNDlfWENkYjRlV3FHQUcxRDFwQzVzZGc5OHdNUVR2VElfSTZpVnQxQXUtZ0pIaVhHVXJPQldKNXljMlhqNmJjZzVFZWE0?oc=5
+2. [2026-03-30] **香港摩天輪「友邦峻宇會尊屬水晶車廂」隆重揭幕**｜友邦保險
+   https://news.google.com/rss/articles/CBMiWEFVX3lxTE1sVTg5WGJoY1Y2eTZLaDVGR29UU2pCODF3YWFMa3NKOFpSMEdsaFRFZlByWVlfNXRoR0FWSUJQUVpDSEU2Y3hxanZCbkNYeERWX2N4OHVYU24?oc=5
+3. [2026-03-30] **中國平安CSI香港高息股ETF-3070.HK-ETF配息狀況**｜中國平安
+   https://news.google.com/rss/articles/CBMie0FVX3lxTFBGX3dXbVFXZ3FkZllhX3dDSDVGRWZZdWg2bkx5cUdiVHlYVXh0eC1fX2lnYjZ1Q2ZtM3Y4QzFyZGJ6TldmYzJYeFU2UFhYa3pOaEprRXZ3QXAxZENDTFZiellNYTQxc3lMSXdaU2l1SlNCSGZvb1A1UDhVdw?oc=5
+4. [2026-03-30] **中國的月神計畫AI在香港上市面臨加強審查**｜月神計畫AI
+   https://news.google.com/rss/articles/CBMisgNBVV95cUxPd1k5REZFMkZhdU1EbHZLNnlWck5KcnRDclhQaDhtY19fOFRxWjVmRlFqNlpSX2RRc044VXJuckdISW9TQUlhTm1oa1MyTEYwNFJ5azRCbVFaOVpDY2x3Z3htcnVqbnRZRjRjM3c1bmpreUFYSERxU0pLZFBZd3J0ekRlMllUZU1YcUM3N3FWN0Y2Q1M4RzdWY2laV1RXaTBXYUkycVcyRmJzSk5mbEJBeFdnT3Rfa00xeUNRclZQanBIY0o5cDZ6RGx1VFJvN1d4R09WOFJ6OW9NN0N0cTRRdVpIWDNHMU5JZ0JEdDJ6TDl2YWxERkJpQ3NfeTAwTW1wS0ZNS2tCNTZtTWhmajVpUWlvNGZZdEdNLThnX0phbzlJbllydHNIb2docVVEVFpoZEpBNWtydTlWRVFNdVczaDdabWRRbHQ1Ti05N016bWtMTWgwMVZOcnFWY21md01MSE5QdUdUX1YyRUlYakp0N3pDU2pZYlNwSDhHTzZmRHZtTlRtekZxZFhVU1lPUU92Vjg2T1lMOS1wMDQ2TXh5OWlKSUZNdjJNWWVGeDZEcDU3QQ?oc=5
+5. [2026-03-29] **投保醫療險 健康增值保險金是關鍵**
+   https://news.google.com/rss/articles/CBMilgJBVV95cUxQWC1MYmxHaUNuVWRDMWJMbmJRbXBiQjdQMXZENW9SMFp3b0NJSkx1MjhTWnJvVy1PQ2NERjUxY3NGRUZ0VWV5dTdQMlJNQjRxT0dIaUFtcnBmZ0lpdnRjX2VMWjlPa3RtcGR2dWZNX19OOXB5U1NNRm55S19vTFRQY1g4ZkFxM1k0amFkQ2hwcWxudGJrbFcxeDJQaWpvMDZIQ2VPWDlUeWlEYnhfN3dQVzhXZGY1QVk4YlBIVDRybFJhZzNGQ1B3a0VibDRxcURCb2pXZndvY19MdXR3TjhBeEFTNXZkdVk5NW9DSzk2bXF4WmNkQ3BDcEFIRE5FWmhOU0d5Tmd1XzBQSHE5S1hna2JwaEJtQQ?oc=5
+6. [2026-03-28] **Manulife expands Hong Kong investment following re-domiciliation - Cap...**
+   https://news.google.com/rss/articles/CBMi1gFBVV95cUxQYURTT01ZUUhJT3FWN05tMnV2dXRCRUxPTlFud3dDUWRrSzhWZ0h5YjZUQjJId1MxWEZNbHVsMEhiVnVIelhWMldsZS1zRlhIZkJUbnVoSkRsSXZhU1YxOVlvbG1JczEyX1N2MldQX0liNEloQW9yVHdpZW43c1QyUW80ZTd5d0NRT3Jqb05HalYtaWkyZFhvQUswOE1XQnlBMzVpa0syZURUQXY2LWVJTlRHZllsZ3VfZDZTTFlCZmFsUWpLUTBiTGVrdWxGVVNUUEF2LTh3?oc=5
+7. [2026-03-27] **陽光保險2025年業績解讀：壽險價值增長強勁，保證險巨虧15億拖累財險板塊**｜陽光保險
+   https://news.google.com/rss/articles/CBMiUkFVX3lxTE9CdFowYkV0UHFfLThVYmtCN01HM1VmbVI0T0lDSzN1X0VlLTZvRzdjOWFfV0laMUtOZGVjZVdfQnAzNUFCeWVybmstRElSeDhJY1E?oc=5
+8. [2026-03-27] **寶馬香港打吡大賽2026圖輯 - 賽馬新聞**
+   https://news.google.com/rss/articles/CBMi2gFBVV95cUxNbWQ3RDNyXzI1UVN0QTA0c2FqNktleUpmMEpYYmJYNjQtd1JicTlxTkZZSkdtR2xhY0NPekZHRU14R0pHc0JiV1VkWmhfV3lSeHdpRllSMlRVekw3Ykw3akNTS2dYWEZvMUROQ2VnSDdMQ3VJUGhlN0M1eTFQYTVMTzZaRkpPeHpKcDhqZVRjdWxFRmZPSENJMzVJeVM0Y3Z4UFhuTlp4Y0JvcmdDR1dIZjZkSUY5SWNlYzI5NGR2ZDA1NE9wOE5zR3ZLbnRRNUU0T0lzTzNadzBfZw?oc=5
+9. [2026-03-27] **港股異動丨保險股下挫 中國人壽績後大跌超8% 創去年11月初以來新低**｜中國人壽
+   https://news.google.com/rss/articles/CBMigwFBVV95cUxNZExJeW1ickp0akxMczFLR1lzLWtwcERQWjVVcXRmOU15cnJCUlpERk5QMGFYRFpFWVhHeFFVb21LdHQ5aGNPclFURWpSc0JSa0QzV3pFWTF2c01vbHpUcVJOb2ZOZk1Xc3lEQ0ZrVDZmX19YZ0laNm5BQ255R0gzQ0dXdw?oc=5
+10. [2026-03-27] **中國投資者日內交易信號顯示香港信心不足**｜彭博社
+   https://news.google.com/rss/articles/CBMitAFBVV95cUxNeThrdE5IM2VkOWFiSHNINFFCcXRaUGpPak9nRjYyWUdaOGRTWGdpdGFnMWFGcjItWDVSN1NKYk54c19ZV08tU0NlQ0EwajlDRFN4ckIybWE3UTc0TTlaYkZEcVpoNmZ6WTdPZHpPTWc1SEVBakNQQ2x4ODZBMVN6c1BqeDEweTdrejI4cGNnSnVIWER3SUNWZ3JTRWZoTkJUN08wTEQ1Qk1vdTdLWjRWeHZ6NF8?oc=5
+
+*（共 100 篇，僅列出前 10 篇）*
+
+### 知識缺口
+
+- 6 篇報導缺少摘要，影響深度分析的完整性
+- 缺少量化市場數據（保費收入、市佔率變化、增長率等）的系統性追蹤
+- 未涵蓋中小型保險公司動態，報導偏向大型企業

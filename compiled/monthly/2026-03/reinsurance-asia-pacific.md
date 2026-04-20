@@ -4,70 +4,84 @@ period: 2026-03
 category: reinsurance
 region: asia-pacific
 articles_count: 47
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+compiled_at: 2026-04-20T03:24:41Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
+
+## 2026年3月 再保市場 — 亞太地區月度報告
+
 ### 本月重點
 
-- 印度最新的再保險公司任命首位CEO
-- 安聯吉奧再保險公司開始運營
-- 安聯吉奧再保險公司開始運營
-- 印度：最新印度再保險公司首任CEO出任
-- 安聯吉奧再保險公司開始運營
+- 根據《華爾街日報》報導，伯克希爾哈薩威將購買日本東洋海上保險 1.8 億美元股份
+- 伯克希爾哈薩威公司宣布將購買日本東洋海上保險 1.8 億美元股份
+- 中東地區的衝突可能會對亞太地區的再保能力產生重大影響
+- 伯克希爾哈薩威（Berkshire Hathaway）將購買日本東洋海上保險（Tokio Marine）的 1.8 億美元股份
+- 這則新聞指出，土庫曼斯坦的國家保險組織即將獲得一項國際評級
 
 ### 時間線
 
-- 2026-03-31：印度最新的再保險公司任命首位CEO
-- 2026-03-30：安聯吉奧再保險公司開始運營
-- 2026-03-30：安聯吉奧再保險公司開始運營
-- 2026-03-30：印度：最新印度再保險公司首任CEO出任
-- 2026-03-30：安聯吉奧再保險公司開始運營
-- 2026-03-30：伯克希爾哈薩威購買日本東洋海上保險 1.8 億美元股份
-- 2026-03-28：續保、風險和韌性：亞洲產物保險再保險的展望
-- 2026-03-27：安聯吉奧再保險有限公司開始運營
-- 2026-03-26：Amiga Specialty 獲得 AXA XL 的容量支持，推動全球金融機構業務
-- 2026-03-26：韓國再保險公司降低費率以贏得霍爾木茲威脅下的戰爭風險海上保單
+- **2026-03-07**：地緣政治衝突風險考驗行業緩衝，再保險資本額達7600億美元
+- **2026-03-07**：Mapfre再保險對Gift City分公司寄予厚望，冀其成為推動印度與亞太地區增長的動力
+- **2026-03-07**：安永任命George Attard為全球再保解決方案分析總監
+- **2026-03-09**：亞太再保險商如何應對日益增加的災難損失
+- **2026-03-09**：CGRE 啟動航空保險和再保險業務
+- **2026-03-09**：安永任命Attard為全球再保險數據分析負責人
+- **2026-03-10**：為何再保險商轉移焦點：年金交易失去吸引力
+- **2026-03-10**：癌症趨勢演變對壽險和健康險產業構成挑戰
+- **2026-03-11**：Canopius 亞太地區保費增長22%至4.61億美元，損失率下降至81.2%
+- **2026-03-12**：力拓就奧尤陶勒蓋銅礦與蒙古進行「積極談判」
+- **2026-03-13**：貝氏下調馬來西亞國家石油自保公司評級，因其經營業績持續波動
+- **2026-03-13**：漢諾威再保公司亞太地區產物保險收入下降14.3%至19億美元
+- **2026-03-13**：供應鏈癱瘓和網路中斷成為亞太地區最擔憂的黑天鵝事件
+- **2026-03-13**：華倫巴格皮南斯探索亞洲保險公司Oona出售方案
+- **2026-03-14**：滿載容量：ILS：2026年會將專業人士與業餘者區分開來嗎？
+- **2026-03-15**：保險業逆風中，Tower Ltd 股價（ISIN: NZTWRE0011S2）保持穩定
+- **2026-03-15**：澳洲比奇納叢林大火導致公路關閉，保險公司進入警戒狀態
+- **2026-03-15**：Jio Financial與安聯的合資公司獲得再保險牌照，將在印度營運
+- **2026-03-16**：Echo Re 在 GIFT City IFSC 開設分公司
+- **2026-03-17**：英國的RiverStone International進入澳洲市場
+- **2026-03-17**：保險產業動態：HDFC ERGO、FWD、Pacific Century Group、Price Forbes、QBE Re
+- **2026-03-17**：回聲再保險在印度GIFT城市開設首個蘇黎世以外的分支機構
+- **2026-03-18**：戰爭風險退出和保費上漲對波灣地區再保險市場施壓
+- **2026-03-19**：RiverStone進入澳洲市場
+- **2026-03-20**：2025年風災和火災造成保險損失創下新高，瑞士再保表示
+- **2026-03-20**：全球恐怖主義與雪梨恐怖主義與再保險國際會議
+- **2026-03-20**：瑞士再保估計：極端情景下，2026年保險自然災害損失可能達3000億美元
+- **2026-03-20**：金磚國家里程碑：Santam成為第一家在印度全球金融中心開設辦事處的公司
+- **2026-03-20**：因應霍爾木茲海峽危機衝擊貿易，印度計畫設立100億盧比戰爭險基金
+- **2026-03-20**：荷莫茲海峽中斷影響：印度考慮設立100億盧比的戰爭險專項基金
+- （另有 17 則報導）
 
 ### 趨勢分析
 
-本月再保市場主題在亞太地區共有 47 篇相關報導。
+**市場規模與費率動態**：42 則報導關注市場與費率趨勢，包括印度最新的再保險公司任命首位CEO、安聯吉奧再保險公司開始運營、安聯吉奧再保險公司開始運營。亞太地區再保市場的定價環境與承保能力持續受到關注。
+
+**巨災風險與損失經驗**：17 則報導涉及巨災與損失議題，如續保、風險和韌性：亞洲產物保險再保險的展望、地緣政治衝突 | 南非保險公司被敦促重新評估風險暴露、2025年風災和火災造成保險損失創下新高，瑞士再保表示。亞太地區的自然災害暴露持續影響再保市場的承保決策。
+
+**業者動態與策略調整**：44 則報導追蹤業者動態，包括印度最新的再保險公司任命首位CEO、安聯吉奧再保險公司開始運營、安聯吉奧再保險公司開始運營。亞太地區再保業者的策略布局反映市場競爭態勢。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+- **再保市場 × 監理法規**：部分報導涉及亞太地區的監管動態，監理政策的變化直接影響再保市場的發展方向。
+- **再保市場 × 保險科技**：技術創新與模型發展正在重塑亞太地區的再保市場實務，數位化工具的應用日益普遍。
+- **再保市場 × 市場趨勢**：亞太地區的投資環境與資本流動對再保市場的發展具有重要影響，兩者互為表裡。
+- **再保市場 × 消費者保護**：消費端的需求變化驅動亞太地區再保市場的產品與服務創新。
+- **再保市場 × 氣候風險**：氣候變化帶來的風險重新定義了亞太地區再保市場的評估標準與策略框架。
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-31 | 印度最新的再保險公司任命首位CEO | gnews_insurance_asia | https://news.google.com/rss/articles/CBMijgFBVV95cUxOMUo1RU5CSVZNd3VhakUxWFFxc0RKMTR0REVBbWVCSXVhTTNZYjdTWDllWFYtOGxJM2VsQzhaRjZ2TEVtMnE5enV6SXI1b2JkRTNRQXhBY2FDVUFZNDdyQWQxMVJONEw3RXNsWUNrMW9ySDNGYlNFc2Z5eG5SWWJjVnBnd0pLNHVKN3cwWnV3?oc=5 |
-| 2 | 2026-03-30 | 安聯吉奧再保險公司開始運營 | gnews_insurance_global | https://news.google.com/rss/articles/CBMi8wJBVV95cUxOV2R4R3pZQ280T21YMEhxSFJraDJ4VmdJZHhqRWstdmtHUXRWMnBlRHlXWjJCQW1IYUxGQ2dHNHpDejNmVGF1MFY1MHRjeU5aWWNuWVVBT1dpcnJrczROdEJoeHBLNnU4LXhmcDVTTXBsenRuZEJfS2xBS2h5Qm83aEE2dlJSaW53WTRENUw0MEhaRUZ0WVRIZTFmS2ctejk5OV9QVDhENUZZd1RxdXRaaUEtYmw4Z09mXzVqZUl3RlRHeWVzNFJiaFVUSWIzWlJKSWlNMnVYQ3dtZTVqLW4tQ1hoMWJDSFA4U09YRDZ0cWJLY09ZYllkbWw4YjZ3Y2VHRU12bWd5U09iOXpGUmIyY3NKRFJBbTFMMGJDV3Fyd1QzbFhhT3Bsdm5EX05ITlNlOWhPS2thQkN0azBZTHdIdWVQTktENUdibXVLeUh6cHNCOTg3S09udFFGck1FY3IzWnRyTmNaelAyWFc2S1hvR3ZEbw?oc=5 |
-| 3 | 2026-03-30 | 安聯吉奧再保險公司開始運營 | gnews_insurance_global | https://news.google.com/rss/articles/CBMi3gFBVV95cUxNbEFUTE91aW5SSUFIQU9BTmt6ckZ3YVVVdHRlY09GRHhseUJIV0RhRUEtTW9wRDBJWWtqejZQQVFTNk1peWJpNnE4a0dkYmdadkcyYWNwcWVZb080YklJUzMtMk9UaE5NNmgweWM5WW1PeTZ5MFdHd0VBeExxWHNXSzVfbkQ4RTdEbkFXc3I5Q1NyUnNWc0FHWnYxV3FNV1dXc01NbHdrYTFuYmdoREw4RjhiV0FiQnRpZUVBT1FJeldNbjF0dC1sU01UT04zaWR6alltYjBQZk9jZU02Umc?oc=5 |
-| 4 | 2026-03-30 | 印度：最新印度再保險公司首任CEO出任 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94979/Type/eDaily/India-Newest-Indian-reinsurer-gets-its-first-CEO |
-| 5 | 2026-03-30 | 安聯吉奧再保險公司開始運營 | gnews_insurance_global | https://news.google.com/rss/articles/CBMi9AJBVV95cUxQRkhsc3l2MzdITWthR0pkMUpKcVBNVm93dTNTcmtUWE9KOG9HZWhyNmU1eWN3SUtSTnU3N05oczB2MG5veVNlMGZyblVKLWxhNjlfWU9VNVpiZGVrNVk1MWVGaWVuY1NTcWxEcTl2UkdERWh5bTJxak5lM2RXV0s3SURoU081QVBzWHo1NnVjYTA2dE5yZGpmd2MtZUkzN2pUQkdvNXk5ZFJrYjZlZm5teklhb2RmclQxOHhJY3J5Mnl5bkFiSktWWEJVQ0VrUmt0a2xILTBYZUtteUwtbVhEVk5tNlJnSDFiQ2thMDljcW82UEhKem1GZEE1YW1xZDViTWQwQkZ4V1B2cHdQTTdIblZIVE5Jb3A5aWQzTURJcnVQTGg3MDJfb3ZDZVkwVm1PS1huQ18zV096Rkd4U09Pc1NNTVFjNExxSlhUQm50MlBOV1Btb0U1STZrOTlWV0JzRERMSXg4bXpaYTc5aWJRZXMtLWY?oc=5 |
-| 6 | 2026-03-30 | 伯克希爾哈薩威購買日本東洋海上保險 1.8 億美元股份 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMiogNBVV95cUxONFlhZ09wNzh5WHFPdVdGSXFoYlBGcjVHMTZ1MDA5eGRwOTlxT0pDQ2h4dE1uY0tfN3RzLVNQeDhkbmtwU0NZTzVKQ2s2ZVphal9TZ19DQkRqVEVOVFhTeGlkVS1qdzAtTldvME5yOVpBLXU4TmprWWV1ZDZtaklnQ2ozNlhNM2ZydTBZMHl2MmlWQzZxX2RGM00zUnNvbGllVk80VnFZRUxrcldMTHduZmZ3Y1ZoTXJfaTB2cXFCWGYwSnFaNTdtUXBCTFF6S0VTLUdDSUdJU1FvblZFTTVZMjJhWVMtXzkwaW1FZllIQ3o3MVJUeVEzelNrdzRXYmJMdTUtT1RNWjNUSGJRN3pXM0tnb0xPLTBmWk9OdTdVQmdQTVY4Z0tkTm1TZTVNc25SSWFFQjJuSkZVNlhSQ3RMRjRsVlpIZEZ0VGJVTjAwY0Y4S3UxV0tpeTZobWd2OUZhVWpQNVhtZGg0bmNRUVpTZURURUk1Yld4QlctWG1saWlQNldMck10Mzg1VFgtYmdoVmhMRVhMVTJXcG5FdFQwMUZn?oc=5 |
-| 7 | 2026-03-28 | 續保、風險和韌性：亞洲產物保險再保險的展望 | gnews_insurance_global | https://news.google.com/rss/articles/CBMiwwFBVV95cUxQdWtjczRWX0RLekRGbnVVMjU0cWRmYWlqdkpSOHBKSm9xUGxqb1ZfZGVXckZvUmJXOGk4cFJhdFc4LTAzX3g4RHkxYTI1eHZfR1c2S0laNGd3ZEN2OVY1LVpsWnA0ekdPbXR6dlIxTTRyU0xFTnItNVJSeElodDl2aVNCMUVySUdOZGI3UTdVdGRtWkQzT0tzZkRLOGhjSG1HZlE0b042NDNUSFlpM1U5QWpSNkhBREZ0RzN5S3p3Zmx4Y1U?oc=5 |
-| 8 | 2026-03-27 | 安聯吉奧再保險有限公司開始運營 | gnews_insurance_global | https://news.google.com/rss/articles/CBMigwFBVV95cUxPYl81OTJrT3d0blhydld6dWY1dUo4eWhVZl9vRkw1OGQxaklQS1ppT2hHMFBpTDBjT013aG1MUG9FNGF4RUpGV01sMm1TQWJWblhYTm01NTZiS2V3WWRQa2xaMEdzRHhoOGNMdHJZODZ2akd6c3BpcGl6blludExJWVluWQ?oc=5 |
-| 9 | 2026-03-26 | Amiga Specialty 獲得 AXA XL 的容量支持，推動全球金融機構業務 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMi1gFBVV95cUxPeVBGNWNTX1IxUVlQdHZiT1VueEZvUEVtQmRRdzN1YlRLdUVGYnM2bnY1VVBNN3M3ZjhqWkNWTUVXZTRiOUR6VUFGbXlhT2c4dk5HOEc2bDk5YkYtYmtLcTktdkc5bzRpLXJVOFM0TkZMbDVZUTZ4QWNXYmlsVlEyV2lCVXBfQV9jaVhoRHhKd3lDUF9TdnBLcVNFcXdpVzUyQWUyTzZ5TjRxVnA4d3Q1dkk3dlRjQnM5Z25obWExbmpfeGdhYl9hckcwYmFCWnNweWtJeTN3?oc=5 |
-| 10 | 2026-03-26 | 韓國再保險公司降低費率以贏得霍爾木茲威脅下的戰爭風險海上保單 | gnews_insurance_global | https://news.google.com/rss/articles/CBMilAFBVV95cUxNNVVERVVIZFRuR2hRSEdUSS1DN0l3aERzTkxXMENfVWJVb2RkbVFGM3JOU3laNFBZOTlmNUM3eUkxMURwT3dFbUg5N0hZOGxMUHUzWGNhMVVNQWpNMF9feWFyYUpFNDBwNnhzLTBQT24tNi1JWG5pcnlWckpoUjdidm81MkQzWnFIT1VZT3ZlU0JNWlhH0gGUAUFVX3lxTE01VURFVUhkVG5HaFFIR1RJLUM3SXdoRHNOTFcwQ19VYlVvZGRtUUYzck5TeVo0UFk5OWY1Qzd5STExRHBPd0VtSDk3SFk4bExQdTNYY2ExVU1Bak0wX195YXJhSkU0MHA2eHMtMFBPbi02LUlYbmlyeVZySmhSN2J2bzUyRDNacUhPVVlPdmVTQk1aWEc?oc=5 |
-| 11 | 2026-03-25 | 地緣政治衝突 | 南非保險公司被敦促重新評估風險暴露 | gnews_insurance_global | https://news.google.com/rss/articles/CBMiogFBVV95cUxQUmFwOE1xU3F6VVZ6XzQtZXR3LXMybjdieF9vWmhROF82MzNtTjUteDlwWTdZbWdjN0ZFTTdHZHVXb1NuZXJ6VWFWNUptcm43NWd4N1hJbzVjeXhfVU9JRkdtZzNKQ21pOFpaWnBkdEhaczJ5blpiRndWT1dyUVlhcUdBdF9JM2RSZ2Q1bFN2ck9fRFl5Y1I4SzhLanBtRHBMQVE?oc=5 |
-| 12 | 2026-03-25 | 伯克希爾哈薩威購買日本東洋海上保險 1.8 億美元股份 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMiogNBVV95cUxNUlJ4SmtjR21Dc0QwS3Z1bzlLaVhOcm1uVm5ySVZubFRGVlRxQ2FCOUJteVYzZVYwMWk0N1ZpMGVEbFFCaENUWjB2WXJJS0REUVhYM3lJdllibm1QUkVzbTlCSVIzcHFqVDdyU1RfODU2ZGtaaV9Pd2ZSSm9rbVZRcnVOM1RHYndqMTAtNkZfMlpDTWRfTzREVGxnNl9yYUNUd2RWVjRkRWdoS1ZoWUt3RWVKYUdJd0tlZWdyOTZMc21jSEZkQWRBRHZiNlNiX1dmSTMwT2JCUlJNZnRFVmtKdjl2MVREMW5LVzFOdFZ3V2ZGRUVaQVRwMHBqZkZEbjVtRGFsMC1pZm53Z0NVSmpmUGF4QktpZXh5MjVEU3dwRElkekVBOTcyOXVwclJKUHlUYVZBN3I1cU5rZm1UdWpuLXozZWFEOWRiNm9iWmE3T1pvWEZoaGpIdXB1TTFuRnhLRHR5QlhTbFUyNmk1UlF2SUVmTUNvaDl6d0VtbUg0RUhuTEdwZTZxY2pJMUc2TkRQSUdVeGxrekJ6TEhpdzlSNkxn?oc=5 |
-| 13 | 2026-03-25 | 中東衝突：再保能力將受影響 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94916/Type/eDaily/ME-conflict-Reinsurance-capacity-to-be-impacted-in-the-region |
-| 14 | 2026-03-24 | RGA 聘請前花旗亞洲區總裁加強全球董事會 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMi1AFBVV95cUxOMlpPWVJlbDRmNDYwTnRZS0w5TlBzdUpNYjVRR20zSGtlTDNrNzVJX1NuZGdFUlZEeG5RVmFxdXNBU0Fsd0FmalRwUVVybVVQQjh6WHBCalFNT09QRm8zUnNWNG1DaWZMZHNpZE1kUDVPWXlNWjQtd3BSNXRHMllvTFp6azBybjVhdnhOOFV3d0pNRzg0NHZ4Z0tsUkhKbG9MZ0o0ZU5JSlRMSXkxQ1RQN2tBc3dfUEZKY3VjRnY3bmFGdXd6S0RhSUhZUVJfa0ZkYTU5cw?oc=5 |
-| 15 | 2026-03-24 | 伯克希爾哈薩威購買日本東洋海上保險 1.8 億美元股份 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMiogNBVV95cUxQbktFRGNKTnY1X01fNURjel80X2pJVTFsM0RNWUVRR3p6bkRuR050cWtPUWhMY1hwcW5lTVU0YURjLXdmSUw1WEg3bzJGNzh3UFNjNnpyLTVPR0ZQUmNiN2hVNy00TWpzeEdqX1hzOC1TcVRlalBnZ3JHVTN4OFc1aVJVUWRFYXcyWXIyUzFtamxPU3lBMjRKc05vcEJ5MWZoSE5QQU12Q1JWc0hrTU5NM0J1TE5ZdXlZMWdzVVp3c3lvRTltUjFYTFhGS2theXplZFR2aE5nMmpXNG5QOWpCVDkwemNVUGlzWDRiRTZ5RnFDWjd5UVI0SXpxWHdYYzdlOXl1UGtzemczalJPWTdjZ1c2Ty03a2hBeFhhVzhWQmtHR0o3Vkk0dVJCUWl1dS1lWFJmWmFQTjJvcjNpUmFDeWhsUloza2RYMTA2RUdldGtMZ19pV1FGTzRlWHFRc29Yb2ZLVE83UjVaTnJrNzFHUVhYcE1wYWcxc3lVSlBsQU1uSWg1WTE3aTQ0Mm5mNjJteUV5Mk83TUxhbXFRRGVfMS1n?oc=5 |
-| 16 | 2026-03-22 | 土庫曼斯坦國家保險組織將獲得國際評級 | gnews_ratings_1 | https://news.google.com/rss/articles/CBMixwFBVV95cUxNWHNRLWpXaEphVk9MN0pXTWU1NmsxbWlYNGkyUVoxcVJHTm9XUVpWUk5RT3JBdGJRZWRwbG9QcTRuR0l4UjFQdkxyUlFwZG41NG8waF8zQW5LdzVIMXZjVXZKaDJ1dmpWNDlXUTd5QTFpWHdITFpEWEg2X1ZfSXJiNGVCRE91Y0JCNlV1NXNKdWhtS2hUdHFMWHdHQk9SVmhwYTlxZWFjTkJDanFINlBZOVFBYlpxS2NfTU5KanVBejBubjN1RE5N?oc=5 |
-| 17 | 2026-03-20 | 2025年風災和火災造成保險損失創下新高，瑞士再保表示 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94867/Type/eDaily/Wildfires-storms-drive-record-insured-losses-in-2025-Swiss-Re-says |
-| 18 | 2026-03-20 | 全球恐怖主義與雪梨恐怖主義與再保險國際會議 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiyAFBVV95cUxNS3Y5b3A4VUw0czlEam5ISTh0OU5FUEhoZkctbS1fV0lBRVZVdGhnOVlsOFBNM0t0Rmd3SDJoNmlfc2h6Q1RTREk3aFVTektPMkVvWndRZF9KeUFRc3cwMFBwZzl0RUFmLWh5dktjZERzWE5FUE5NTWxfYl82cXg4Tk5Ld24tZ3pWMldJdEFnMnNKb3RSTnlrZGtVbVNQWDVlNWh4dkpLTEg2azNnYy15MDhIQ1o2NmlNOTlrS3VWWUhvSkptbGU4Wg?oc=5 |
-| 19 | 2026-03-20 | 瑞士再保估計：極端情景下，2026年保險自然災害損失可能達3000億美元 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiswFBVV95cUxPaDZkbDlBWXJISE5YS1ZFVFY3bWR4OU94WXA5dzFOX3FheXU0dFN2QTllVnd1ejN4QVJTQ29pVGh6Mnpla0NfS1JnaUNvaGstNkkydkVJVlhoSHZsTFNwNWkyaDJNcGtybjFOT1hJa3R2emVoeGt4b2MwU2lqYUtJSm5jWVMxMTBJcjZzdzh2SHRJMkUwZ1FjZ2U4SFBlbzFiSHFnWEs3UlZnMkdpX0RNcHZkOA?oc=5 |
-| 20 | 2026-03-20 | 金磚國家里程碑：Santam成為第一家在印度全球金融中心開設辦事處的公司 | gnews_insurance_global | https://news.google.com/rss/articles/CBMiywFBVV95cUxQSFhYQXFSbXdhSnV6YncyYjRVVzZKWHF0NzBZdGduSHpOVk9ZUmQ4d2dpYW03VUdsRlVXdUM4UVdBNUFjVzFPLUpnM2phX0NyUWtZM1hoSFB1WWF4ZmduOVhYd21ZenA5MWZwQmlBRWozSkxYR1NEZFozQkFfTUxiM0dPVUNSNFRWMnRJYjJDMFMyNUIyTm1iQkpOU3dFYnM4XzRLYWxubVl0V2RvZlFRSzM4SjZjODFmYjNuVm9MNEpSd19NVWtIS0pWNA?oc=5 |
-| 21 | 2026-03-20 | 因應霍爾木茲海峽危機衝擊貿易，印度計畫設立100億盧比戰爭險基金 | gnews_insurance_global | https://news.google.com/rss/articles/CBMi2AFBVV95cUxPUV9IbmlPcjJuV0VsUFBmZHRfc01KQ3lsTjFqd0V4WHpJRU9Ta0thRGxHaDdkWjNXaEFXdGMxaUlxZWQ0OVFaY1VQb3FQY0g5WW5QbnRIbW83Sk1KdndRaDFMWTdCcW1MdnZtLVZhZ1JieW9xZF94WktRYXptaXVieEJVWGFwSlk2dEluNmtla0ZKaTNxNUEtUlo1ZDR5M3RRM2JsSUVqZ1FYaHFQRVJMQ1huQ0FVRlBfTHhyZkUxVVJmTGhJS2tmU0tPMXlxLVZqWWw4YXZ4b3bSAd4BQVVfeXFMTVBHZnF1ZnduMV82Y3RCczNsajNndE9qZU1WbGNOeUFqNlE4Ui1oTjFTWS1OMUx0cEdYZUNmSjJnOWxEVFBaZzVNUHFXVHloYjkzUVZPV0pXSFJidGtfQWxXVXNubmFMb3dyc0JuX1JncDh2cGdxOFBjMFJ3YVp3enJ2cW5EYTJ3aXR5c3RJcnh5ZU9pOVhTQ2RMQzNOejhMeXVoZ3YzUVBGMVFSYThTUkNNZmFXcWdwbjVVVU1aajAwZV9aT1kxSzJDX1Y3TEJMV2xiMUxMVTJueFp0aURB?oc=5 |
-| 22 | 2026-03-20 | 荷莫茲海峽中斷影響：印度考慮設立100億盧比的戰爭險專項基金 | gnews_insurance_global | https://news.google.com/rss/articles/CBMikwJBVV95cUxNT3Y5YkxRbG1EcGNhUE9YZ0c2LWtoQ0FzRC0wT3U0LTVtVjJkb3BFNldjVEFGOGg5UXF0X1Z0RDNQaXB6Z2FSd0twRG5GMWRhSFB3OWt6R2U3S2htWGtlV1lUNVJ4LTZCSi1TaFdaWVZ3TjJQM19FYTNTekJIMmJTTFNObGU5LUk2WmJQSVV2RFlxaE5ZMmVqN1JhMnd5RXI0VHUyb0RXNm05bm5wZkF1Ymd3Yk1FVTRxVzRDa29iMmNUdU5Ca3dUM1hpZk4xbkRnY284cGpFSXJWV3NLMTRtUTdjWEVDbGNqTDFPWTBtSlBsMUZUQmUwcnVJUXExa3BSNGFyVmpSSFJYYWNHamRoTlVHd9IBmAJBVV95cUxQdWVibUNKSjU3X2FORktEVGt3bEtrVm5YWjl5Q2tLMkhaLVFJOG9sOFkzOGNheldGNXBWaG1EM1dLLWdrUVpHUEJtYlJMTUQzaDNjOXdGek45U3FZQUVXMFNkZm5IZ09NQWhDTFpEUW5mVU1maGNrVDBYcDhITGdmS3pCWUZnd0Z3dFBjeW1FUUZsd1FFMEQ1TVJoQ3A5Q2FyOVIxa1RkMmpVak1kRjlRazM4V2NEaXM4cGpZcG1wT3hqcVdEVEIxMkN1SmVHVW52cy1XTC1lenhiY1RNUGZSWmNINWxYeUtkTHg5V3lhLWFJRHlOQVNOOUFrYWc1RHd2SHRycUNPa1pJTkpMOXdka21IbXU3dTU4?oc=5 |
-| 23 | 2026-03-20 | 因應再保險公司退出，印度計劃設立戰爭險基金 | gnews_insurance_global | https://news.google.com/rss/articles/CBMiuwFBVV95cUxQRTR0M2NzN1ZOZXE1Mk5ZS0RCb0tfTG1zVno0dEFlN0s1aUpUalk2S2cyUmpkME5vZ2dTdWExZW5LODBCSG0tSXJnaGJDcWlsODhBbUZuNFpPdGJ3b2VteXIwYmI1N09kcW9iN2xKd1NiemozQmVvTWdMZk83WTZVYmJzdmhXZ3dIS19qc0FrVDdMZkRJZnRzclY3UExzUDZMaGF4YVpOc2RsQ3V3ek8wa3NPZmo5OHFsb3Rr?oc=5 |
-| 24 | 2026-03-19 | RiverStone進入澳洲市場 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94853/Type/eDaily/RiverStone-enters-Australian-market |
-| 25 | 2026-03-18 | 戰爭風險退出和保費上漲對波灣地區再保險市場施壓 | gnews_insurance_global | https://news.google.com/rss/articles/CBMi4AFBVV95cUxQWWdrWWlSRGRVR1dud0pQc2FaS3NuSXk4SUM2djdDdnVYbE5HczJlODVsMUN6Z3dnU0xaTGh4MlRuNm02RmpwdmdzR0o1RFlkblE0b09KOEtDVXVtaG9IUDByYVBJYlRkaTdyUjJZNnBWX3dMcHNxX3BqeWl0LVV0aUxtVGx0YTRKVzJSZ2YxMExZMU1sSTlMY00taDRBUlVYZXctSjd6LTBtTDMyeEJHRENjWGl2UlpzMGZYczl4R0RlNXM5OG45WS1sQm9ua1YxSE5ja01rY18tZWV1YjEzWA?oc=5 |
-| 26 | 2026-03-17 | 英國的RiverStone International進入澳洲市場 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiywFBVV95cUxOclU2TGttbTFfRmlyVW10d2E5SlFFa2NxbnBEd1ZXN2RhTjZyYXg3LU9WdC1ZVW1uMU03QjlVM0ZhTVVmQ3JkT1NVcHZocXUxWlVwVGswMlhRZHF5WVlEQm9MR2ZtUWxIVzZRTEhuaGRPamNIX3gzS0pZLVNRcXpKOGhNaGdCZUV3Y2poYm5iMm1LZW9FZFpGSmJ5dzQwVnJqVXRWdC0yUDA0YkQxVXVaR2k4ZjNJZTRDSTYtV0NSVk9oN2R4ZE52dkpiNA?oc=5 |
-| 27 | 2026-03-17 | 保險產業動態：HDFC ERGO、FWD、Pacific Century Group、Price Forbes、QBE  | gnews_insurance_asia | https://news.google.com/rss/articles/CBMi3AFBVV95cUxNMnBlUXVQQVR0cHJ4QWg4Ry02SVpYcDBwcnV5Zl9Ja05FcTNHdTRjVVp2WG1salFobnUyZmx2cXRKQi1XMFhtSXFJLS1iNXMtblFBb2JkX3NaWUZyU1NZN3FZcVpldmx1b00yRzNBekg4bmRHWm5WSEhINkZETkdUMnFCcHB2clpSMGJLNkR2QTVjemZBSkhJamg1TG9EV3lscjZCZHFNLVFkZ09rcW1DTGt3T2ZsejA0TEZmeEpvV3pvN2VnYlh4U3g0ZEMwbTNfRkw3aUF1MXdHcVdS?oc=5 |
-| 28 | 2026-03-17 | 回聲再保險在印度GIFT城市開設首個蘇黎世以外的分支機構 | gnews_insurance_global | https://news.google.com/rss/articles/CBMi2AFBVV95cUxPYl8wTkhmdnZkb04zUVdXYmhKVzNqY1A0NndrektkZXAwbHdBRmoycWZrWUZpVEh5WHZfdzNOMTFLNG04R2J6MHNqeFUtZnFQNGR6clBaQWx0M0s0YkQybkJVUmRKbDk4OTNyY2FXYzdpNHZhSVJqaGpFVTNab1BLeEthWXFsMVhzeWZKb2loNGE3cFhadGZKSnFRczlqaEgwb2Iyckx5dE9NNjRQTVA3SXJoNWdjQTNMX1hpNFZjcE5fZW5zZGdxNmRtSlBiaDNLeHlDYW94TlU?oc=5 |
-| 29 | 2026-03-16 | Echo Re 在 GIFT City IFSC 開設分公司 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94806/Type/eDaily/Echo-Re-opens-branch-office-in-GIFT-City-IFSC |
-| 30 | 2026-03-15 | 保險業逆風中，Tower Ltd 股價（ISIN: NZTWRE0011S2）保持穩定 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMixgFBVV95cUxNODZEc2p4UGl3OXA4dWhpNEgwa0FEUTgyeE94b290bGhrTS11ekx1WjBmNkhvMTBQV2lMVm5jMll5QlBUc0tlMWpNVzlobnE3TU1iX3hiSjVjRlVtcW1aQUQxSjJEdXVYd3JrT2Y1TGVNaktwdGx6Y0RDbTVFMy1hbnJpa1hMTWtwUDhoNjVBeFJ4Wm40SHJYWVZsdURwN2NteUdqdy1qQVhQYW5TU3pPZ3c5LUNWdmEyN25PUXZRb0x4Z2U5WVE?oc=5 |
+1. **地緣政治衝突風險考驗行業緩衝，再保險資本額達7600億美元**（2026-03-07，gnews_insurance_asia，重要性：高）
+2. **亞太再保險商如何應對日益增加的災難損失**（2026-03-09，gnews_insurance_asia，重要性：高）
+3. **癌症趨勢演變對壽險和健康險產業構成挑戰**（2026-03-10，air_news，重要性：高）
+4. **供應鏈癱瘓和網路中斷成為亞太地區最擔憂的黑天鵝事件**（2026-03-13，gnews_insurance_asia，重要性：高）
+5. **華倫巴格皮南斯探索亞洲保險公司Oona出售方案**（2026-03-13，gnews_bloomberg_insurance，重要性：高）
+6. **Jio Financial與安聯的合資公司獲得再保險牌照，將在印度營運**（2026-03-15，gnews_insurance_global，重要性：高）
+7. **2025年風災和火災造成保險損失創下新高，瑞士再保表示**（2026-03-20，air_news，重要性：高）
+8. **瑞士再保估計：極端情景下，2026年保險自然災害損失可能達3000億美元**（2026-03-20，gnews_insurance_asia，重要性：高）
+9. **因應霍爾木茲海峽危機衝擊貿易，印度計畫設立100億盧比戰爭險基金**（2026-03-20，gnews_insurance_global，重要性：高）
+10. **荷莫茲海峽中斷影響：印度考慮設立100億盧比的戰爭險專項基金**（2026-03-20，gnews_insurance_global，重要性：高）
+
+### 知識缺口
+
+- 本月報導覆蓋面尚稱完整，建議持續關注亞太地區的新興議題與深度分析。

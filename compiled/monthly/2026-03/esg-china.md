@@ -4,37 +4,43 @@ period: 2026-03
 category: esg
 region: china
 articles_count: 4
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+compiled_at: 2026-04-20T03:24:41Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
+
+## 2026年3月 ESG永續 — 中國地區月度報告
+
 ### 本月重點
 
-- 中國太平洋保險2025年度財報公告
-- 中國人壽(02628) 財務報表/環境、社會及管治資料
-- 眾安在線股價下跌5.031%
-- 金管會公布第三屆永續金融評鑑 前25％金融機構名單曝
+- 根據金管會的公告，第三屆永續金融評鑑前25％的金融機構名單已經公布
 
 ### 時間線
 
-- 2026-03-27：中國太平洋保險2025年度財報公告
-- 2026-03-25：中國人壽(02628) 財務報表/環境、社會及管治資料
-- 2026-03-21：眾安在線股價下跌5.031%
-- 2026-03-07：金管會公布第三屆永續金融評鑑 前25％金融機構名單曝
+- **2026-03-07**：金管會公布第三屆永續金融評鑑 前25％金融機構名單曝
+- **2026-03-21**：眾安在線股價下跌5.031%
+- **2026-03-25**：中國人壽(02628) 財務報表/環境、社會及管治資料
+- **2026-03-27**：中國太平洋保險2025年度財報公告
 
 ### 趨勢分析
 
-本月ESG永續主題在中國地區共有 4 篇相關報導。
+**能源轉型與碳排放**：1 則報導關注能源與碳排議題，包括中國人壽(02628) 財務報表/環境、社會及管治資料。中國地區的能源轉型進程對保險業的ESG策略與投資組合產生深遠影響。
+
+**其他ESG議題**：另有 3 則報導涵蓋中國太平洋保險2025年度財報公告、眾安在線股價下跌5.031%、金管會公布第三屆永續金融評鑑 前25％金等主題，反映中國地區ESG發展的多元面向。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+- **ESG永續 × 監理法規**：部分報導涉及中國地區的監管動態，監理政策的變化直接影響ESG永續的發展方向。
+- **ESG永續 × 市場趨勢**：中國地區的投資環境與資本流動對ESG永續的發展具有重要影響，兩者互為表裡。
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-27 | 中國太平洋保險2025年度財報公告 | gnews_esg_insurance | https://news.google.com/rss/articles/CBMitAFBVV95cUxPTEtwN1dTMFVwRjhXNTF2N3VqcEVDSjlEczdmQ0FXRnlmQ2pYQVZuVGJhVWdhbHhVVmdlWHktNE9oNkpLSFBXNzh2VnVhaWtsd1puZk5vS0pIZ0lQRXkzRUtNb2JVRFY0b2N4amgxWS1vYy1rZ2Z2emY4M25BX0s2VlRyS3ZWUHk1X0dPRng2YTFwTnE0VmNtYUp2NkJmcDJ3MjNKOUpidThsR1BTaGZFQlRuSzU?oc=5 |
-| 2 | 2026-03-25 | 中國人壽(02628) 財務報表/環境、社會及管治資料 | gnews_cn_companies_1 | https://news.google.com/rss/articles/CBMi4wNBVV95cUxOektwc0NiaEIzZHpFdXQxaU5OMm5QSDgtTUFWYTBJckxVV19CRDBGNW9DOXhJRmV5OTFCOFNLcnpSLTN2dmNXZklkVFdxb2MwSFcwRkp1UG5MV0VkanNEZDFZZmFia0pfWWdCVnM1NXktS1RVTmFJeXZKLW14VU52c3FFc3dfcmFoRTVwVHJkRzQyMkxTNVdNcm5wUUhjT2JOZVctc2c5MGtoN0hrcGlPRU1OMUxpOE81dm5fZzJ0YTRZTW0tRC1QU1YzUGxtZkQ1eXktR3ZTTHpvd3czbmczZ2R3eGpNNHBQbnNidEFtM2kwSld4Zk1KUl91SmpBQVdwNWZNVFhYU2t3OWgxUEptY2NlQjlyZk90c0NTYUhybzVqLXdjT0MyTVR3Zm0xSkJHVFdWVWc4UnZldGRxcGdMYXI4WkZlQmVqYzZfTmIxWGw4OWtDUkhQbGFLeHpXYTNwam9mMHUtTFB4VjJ3N3k3WWVoU1ZTMmo2MUZCOFB2ZFBCS2VQU3Qya0dNc2F0YU5HczZYZmlUWkd2ZV9UZFpzS0R3dlFKek15UFRZa1lPTU5PaTdaN1NmR0N3ekp4Skh6V2FhODdwdEQ2N0tUUGZuVjRhLXZYUnVNM3g5ZUExay1zSWM?oc=5 |
-| 3 | 2026-03-21 | 眾安在線股價下跌5.031% | gnews_cn_companies_1 | https://news.google.com/rss/articles/CBMihgFBVV95cUxQanlpV05pNGcyM2VFX1VkdnFTbXBjeng3dnVweGVoS2NfWFpNb19PaGdCWEQ5eHVMWVk5R3N6NWlpcTE4Mm5OejlhRzR6aDgtLVowMENUYVZvc3YycWktQ1Uzb213bjBvYm1RcXUwdk5Bak1rRWdLSEd3Uy02eUFrTHQ0NkJmdw?oc=5 |
-| 4 | 2026-03-07 | 金管會公布第三屆永續金融評鑑 前25％金融機構名單曝 | gnews_cn_industry | https://news.google.com/rss/articles/CBMiWEFVX3lxTFBYZ2pmOVNCZHhROGs4SWRqQXFVNC1FLUt0N1pGdUNwWkh6Z2djYnlsRUVROXg3X29YNnF2RTJ2WklKMXBlZ0NUcU5kRlBBaWgzWDRtQlViYUI?oc=5 |
+1. **金管會公布第三屆永續金融評鑑 前25％金融機構名單曝**（2026-03-07，gnews_cn_industry，重要性：高）
+2. **眾安在線股價下跌5.031%**（2026-03-21，gnews_cn_companies_1，重要性：中）
+3. **中國人壽(02628) 財務報表/環境、社會及管治資料**（2026-03-25，gnews_cn_companies_1，重要性：中）
+4. **中國太平洋保險2025年度財報公告**（2026-03-27，gnews_esg_insurance，重要性：中）
+
+### 知識缺口
+
+- **供應鏈ESG風險**：中國地區的供應鏈ESG風險評估尚未被充分報導，此為產業面臨的新興議題。
+- **報導數量偏低**：本月僅 4 則報導，中國地區的ESG永續資訊覆蓋可能不足，建議擴充資料來源。

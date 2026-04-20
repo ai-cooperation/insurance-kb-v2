@@ -3,70 +3,58 @@ type: monthly
 period: 2026-03
 category: technology
 region: global
-articles_count: 218
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+articles_count: 335
+compiled_at: 2026-04-20T01:30:00Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
 ### 本月重點
 
-- 金融科技周報：對本周新聞的快速回顧
-- Atec Group 任命 Kirsty Biggs 為首席技術官
-- 為什麼財務靈活性正在改變壽險
-- Wiz Co (Wiz Soluções) 股票：巴西保險科技公司的商業模式和成長前景
+- 代理式人工智慧（Agentic AI）被慕尼黑再保預測將徹底改變網路攻防戰局
+- 瑞士再保警告 AI 數據中心帶來全新保險風險類型，傳統保單無法覆蓋
+- WTW 在歐洲、中東和非洲進行領導層重組，加速 AI 戰略落地
+- InsurTech 投資持續變動，數位保險競賽反而趨於沉寂
+- Corgi 保險收購 Corgi.com 加速 AI 驅動保險平台、QBE 與 Aurora 合作推出遊艇自動化承保
+- Mistral AI 籌集 8.3 億美元用於 Nvidia 數據中心，AI 基礎設施投資規模持續擴大
+- 波士頓諮詢公司發布 AI 在財產和意外保險應用的前瞻報告
 
 ### 時間線
 
-- 2026-03-31：保險科技投資現狀
-- 2026-03-31：金融科技周報：對本周新聞的快速回顧
-- 2026-03-31：Atec Group 任命 Kirsty Biggs 為首席技術官
-- 2026-03-31：為什麼財務靈活性正在改變壽險
-- 2026-03-31：Wiz Co (Wiz Soluções) 股票：巴西保險科技公司的商業模式和成長前景
-- 2026-03-31：AI 數據中心帶來新型保險風險，瑞士再保公司表示
-- 2026-03-31：機器人AI即將改變網路攻防戰：慕尼黑再保
-- 2026-03-31：代理式人工智慧將改變網路攻防，慕尼黑再保表示
-- 2026-03-31：OpenAI支持新AI初創公司，尋求機器人軍團突破
-- 2026-03-31：AI 不必讓你的腦子壞掉
+- 2026-03-07～03-15：保險科技投資現狀報告發布，InsurTech 融資趨勢引發討論
+- 2026-03-20～03-25：Cresta 在行業活動展示 AI 保險應用；全球百大保險科技專家名單發布
+- 2026-03-28～03-30：QBE 與 Aurora 推出遊艇 P&I 自動化承保；Cresta 鎖定保險科技採用
+- 2026-03-31：慕尼黑再保發布 Agentic AI 網路安全報告；瑞士再保發布 AI 數據中心風險分析；WTW 宣布 EMEA 區域重組加速 AI 戰略
 
 ### 趨勢分析
 
-本月科技應用主題在全球地區共有 218 篇相關報導。報導量大，顯示該領域活動頻繁。
+**代理式 AI 從概念走向實戰，網路保險進入新紀元。** 慕尼黑再保本月明確指出，代理式人工智慧（Agentic AI）將從根本上改變網路攻防的格局。與傳統 AI 不同，代理式 AI 能夠自主規劃、執行多步驟任務，這意味著網路攻擊將變得更加複雜、難以偵測，攻擊者可以利用 AI 創建高度逼真的社交工程攻擊和自適應惡意軟體。同時，防禦方也能運用相同技術建構更智能的安全系統。這一態勢對網路保險的定價模型產生直接衝擊：傳統基於歷史損失數據的精算方法將不再適用，保險公司需要建立動態風險評估框架，即時反映 AI 驅動的威脅環境變化。慕尼黑再保預測全球網路犯罪損失將達 14 萬億美元，這個天文數字凸顯了網路再保險市場的巨大增長空間。
+
+**AI 數據中心催生新險種需求，保險產品創新加速。** 瑞士再保在本月多次強調 AI 數據中心正在創造傳統保單無法覆蓋的新型風險。數據中心的高度集中性、對電力的極端依賴、以及 AI 工作負載的不可預測性，共同構成了複合風險場景。保險業需要與科技公司深度合作，開發涵蓋供應鏈中斷、算力失效、數據完整性損害等新型保障的產品。Mistral AI 籌集 8.3 億美元建設 Nvidia 驅動的數據中心，進一步印證了 AI 基礎設施投資的爆發式增長。WTW 在 EMEA 區域進行的領導層和結構調整正是為了加速其 AI 戰略，將 AI 能力嵌入保險諮詢和風險管理的全流程。
+
+**InsurTech 進入務實階段，自動化承保成為差異化關鍵。** 令人矚目的是，儘管 AI 話題火熱，數位保險競賽整體反而趨於沉寂。分析指出，這是因為傳統保險業的監管框架轉型需要時間，而純粹的數位化概念已不足以構成護城河。真正創造價值的是將 AI 落地到具體承保場景的能力。QBE 與 InsurTech 公司 Aurora 合作推出的遊艇 P&I 自動化承保能力就是典型案例，展示了如何在垂直領域通過技術實現效率躍升。Corgi 保險收購 Corgi.com 域名加速其 AI 驅動平台、MyChoice 被列入 Guidewire 先鋒計劃、Deloitte 發布 Agentic AI 加速公務機構服務的研究——這些事件共同描繪出一個主題：AI 在保險領域的落地正從「概念驗證」走向「規模化部署」。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+- **科技 × 再保**：AI 數據中心風險和網路犯罪損失預測同時牽動科技與再保兩大領域，形成雙向影響
+- **科技 × ESG**：AI 數據中心的能耗問題與 ESG 永續目標存在潛在衝突，保險業需平衡科技創新與碳排放考量
+- **科技 × 人才**：WTW 的 EMEA 重組、Atec Group 任命新 CTO，反映保險業對科技人才的急切需求
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-31 | 保險科技投資現狀 | gnews_insurtech | https://news.google.com/rss/articles/CBMiakFVX3lxTE14dDkzOFpxYnVaR1JmWDYwSUhMUnlNTlUzNGg4R1hYUFRHa29qQktPNXI5eV80SGJHbjBjRjBkUEFKLU1fVnBwd3R4akQ0U204ZmlqU0t0c3Fia3VNQ1JoQnM2RGZLZU9CV0E?oc=5 |
-| 2 | 2026-03-31 | 金融科技周報：對本周新聞的快速回顧 | gnews_insurtech | https://news.google.com/rss/articles/CBMie0FVX3lxTE50WXplQmZhVlM3U0k4Q2xmeUtmNkNJWDBIWmp6VWdhVXQ0aVNNTW9vUGIzTjljb2hQVnJJOFdWMndsRGV2dVppemw5QWJVWHBkODgxUnpla1BpQzFVaEJNN1NHZHVLZlpkeUlUdS10ZVRiQTJXZU5VekZhRQ?oc=5 |
-| 3 | 2026-03-31 | Atec Group 任命 Kirsty Biggs 為首席技術官 | gnews_insurtech | https://news.google.com/rss/articles/CBMiiAFBVV95cUxPdF94NUVGMElaMHh1R3E0Y1hJeHRPRWpkUzdhSUo2ZVZSZzAxcTRDUUJJZDZhUkNBakJXRVZWVjNsSGR4enBsY21aaGJKVWZHbVR3OGJUT3NNVktoRGR0WUhETmlYY2xsdlk1MUw3RjlOZ2R0WVl6VEgwTVl6WGFka3MwaXIyQ0pR?oc=5 |
-| 4 | 2026-03-31 | 為什麼財務靈活性正在改變壽險 | gnews_insurtech | https://news.google.com/rss/articles/CBMiRkFVX3lxTE45QzRiV29uclFFbGdoM2lsU1NrekFpRWw3ZEJ2VWF3bFBjdTNuaURZemNEZ2pUTEEyMHNWcnBuQWVqaVFocGc?oc=5 |
-| 5 | 2026-03-31 | Wiz Co (Wiz Soluções) 股票：巴西保險科技公司的商業模式和成長前景 | gnews_insurtech | https://news.google.com/rss/articles/CBMivAFBVV95cUxPdGEyOHBEdDdTM1NXcXJlc000ODNyVlNFUHhDT09yTWhxelVNa2JiR0Y2YkNPbmJaanBNU3lnN3oyczdKWXlZenE2c1hoR0xNQkxFZnFkV0dVR2JFZkdueWNGbXZEaXdDZFItR1JDR0JmMUY2M0swMko3Zktpc0MtQkZrVGZCTjRhWU1QRmpXSEhLbHNMalBiYWRqSi1uTUY2a2o1MTBGWE1SZ0JQT1RCUXhFRTlSdndjTUJUYw?oc=5 |
-| 6 | 2026-03-31 | AI 數據中心帶來新型保險風險，瑞士再保公司表示 | gnews_reinsurers | https://news.google.com/rss/articles/CBMinAFBVV95cUxNOVpjak01alJUR2tsal9SejFqRGozUXhObTM2ZjRnV2d1SHhRTHRieXZCRThvTjIxVGhnMGN3cE9qUHFkQUY2UUlNNkxDbW04Nm9RNlVpR2lGZk5zQy1pcmZjLW9qX19uQTVJYXk1NTBmUVotUDBzNmtCRmN5cUhJZlIzSUVjbkVoVVhyUkF3cExtWmRWaVVvQU5EaVnSAVZBVV95cUxQa3E4SWJWcFZfNDk0dzRtR3I2TFljaVhEUTJ5OXBNQlM1Y2l5bms5R0REMlk4VEhDd3pGQ2JRcnNOb1NvSExzOTBoX0x1MlE1dlh1RHJIQQ?oc=5 |
-| 7 | 2026-03-31 | 機器人AI即將改變網路攻防戰：慕尼黑再保 | gnews_reinsurers | https://news.google.com/rss/articles/CBMirwFBVV95cUxQbWJHbzBCdE5jRjRURlppMDNyUXhHaEZweHphUV9iOVcxV3Nrc1NIdll4WmF4MmR6elQ5NG1OVFJxbzZDZGFqUUxWcWZXWWkyT3ZzXzRBV05saDI5RVN5SXRJMmRwdGlKby1wLWZ1YWdyLUc5NnBqZkpkMWZsYnJIM2o2TjNlT3VxWXRhenpXNHh2MUg0ZHJBNDVmem5aTEtNNzMyc0RkNUh5bU1wX0t3?oc=5 |
-| 8 | 2026-03-31 | 代理式人工智慧將改變網路攻防，慕尼黑再保表示 | gnews_reinsurers | https://news.google.com/rss/articles/CBMihgFBVV95cUxOaE1jNzNKRlJTbVJ2TmZtQVJ6dmlBUG1oTmFiZEVnckI4aU0tVWt2emR6VkctMXVpZmFWeFNrMGY1RHVNbE05RHlWaHpZa3k5TmdVU2xsRExPbHduajMtQWtXZ3pLVDMtY2ZVRENScU9tS2J4bmFETUljQUZ6ZzdINjNGOVl3dw?oc=5 |
-| 9 | 2026-03-31 | OpenAI支持新AI初創公司，尋求機器人軍團突破 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMioANBVV95cUxQbUcyQlNMMWQ4RTcxdmctSDM4dmdYWXJqUUtpRzZhcnpjS2Qwa2pLZ2JIOWd4MmZkaFBBQ2k0OWR2LTh2TTZkcUxfTTJPS2otbHVldHNCM1BkNm9IeE5SU1BWM3Z0anR3b0JzMnQyMlFfUlNOdERHcVVDQkhGdndrVmhEa1ozZkNvM3RNSFlTdDZhXzNDc3ZrdmdpaDZ1bFAtbUtzM0hkMmt6S0ZCTmhPU2ZNSXVnYzIyNS10dlNGdEFSYTZwSXNOdF9HVVBBbk1XazRIbDJJU2gtOFdOR2M5WGJrQTlXRml0MUNTbWh4WFVtX2JlLVBWWTJSajY3RXUtY3FvMzVxRlhLTVZ4Y19yUVR0eWJON0FRY0QtVzBKM1ktVEFqZ0s1TWlhVXN3by03a3JBQUVrUmR0SEFSTmNCUTFxSHBfdUc4VTlaYVp4bDVRdXVvSVJ0NEVpenR1c0luYTNiblY2WWl4MU5vOGYtSE1hM2h5eTRkYlFxb2NvNjQ2RmVLbTR4NjhhQmcwdEF5R2t6Ylo3TW9qcXpYS1NlaQ?oc=5 |
-| 10 | 2026-03-31 | AI 不必讓你的腦子壞掉 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMi_AJBVV95cUxORHZHTUxZdjlaT2tDalVLMDJIN2ZDWUZaSURYSUlWYnhwbkw3Z0hPVlp1b3czU1JwMERXUmluTGNFMnA5dVlUbjZwcVRnbnc1ZjFQeGJuc1c5SGNycDZaMm1JYkNZWDFxOFRKTERPZTcxWjFvRTFzOTZPQVdSNFEzZ19OQVdhWHRtdl9nY0pFYjZwMjBzVmJHY1QwTU1OZlBnMFVoRTNVWkRuMmNkVGFrdXotSnNjUW1yZXZrNFV1M0xEbmN5OG1xM2ZlaVpBVGlRVngzY3lOUnNSalE5NGh6bnViUWhXaTZGMWJoQWNuc2lFWkZYVjBLMm9uZUJvcjBVYWlrRXBlVzN4Nmh2dy1HMmZEWXpGMjdLNXZfaUZ2WGpBb2ZkQkJpRXpsYjV0UERGYjVsNV9hZlk3WXFlS2VKR29nVldQbG9pWHZQeGtGWi05U3I0MEk0VGsyaUxhaFZRVFE1b2VjR0t0RldIVm9YUG53XzdOaGk2T2hHQg?oc=5 |
-| 11 | 2026-03-31 | 全球股票市場動態 | gnews_bloomberg_insurance | https://news.google.com/rss/articles/CBMiUkFVX3lxTFBPR3hSZU5ONDI2QTh2SGNDU3Z1dWVmckhEVVRmS1BfSk9XWU5KQ2JsR3lKdEJJamFmdEIwc1pvNGpDc2R6VjdrZi1zVnZ3b1BlN2c?oc=5 |
-| 12 | 2026-03-31 | Corgi保險公司收購Corgi.com，加速其AI驅動的保險平台 | gnews_insurtech | https://news.google.com/rss/articles/CBMiwgFBVV95cUxNMWFReWxXdHNjZmR0Ql83cFJuSlI1X1ZjLTBYZ2duSTNRMzZtMWE0Q2ZPQnFXaDZqek0yZVpub1RvTG5jZzIyem5OcnZhdHJhdC1lSFBoV0syeldqMk1wektONmxaQ1E3UF9BRUN1S3pZSWtDbVNSZXYwX2tZQWFRR3FEM3J5ZVU1YXVoSzRYMnFPRUtjckxVVDJiTUlDNWNIUjUyNXJWSU01a0cxOUNRUElpRC1nTzh1SnlhX0RuUmJ5dw?oc=5 |
-| 13 | 2026-03-31 | MyChoice 被列入 Guidewire Insurtech 先鋒計劃 | gnews_insurtech | https://news.google.com/rss/articles/CBMingFBVV95cUxNV3ZuZVdVcy1WU2hmbHhuZjVhSEN0VHBtckR6bXdwaW1pSUdTX1h5WHNYd09lWnhjS2FMWHduYXhOUGgzMGp0MWd0OHM5OUtaeWFBWVBINnpOVzYzMDJ0eWVsWm11ZFlWbFRhT0ZIeUt6TDR2N0tlUHNnenozM1k2VW5WTldRWEwzTFBNY01xQmxtRzREWW81aUhyM2FTdw?oc=5 |
-| 14 | 2026-03-31 | 威爾斯·塔克·沃森（WTW）在歐洲、中東和非洲地區進行保險領導層和區域結構調整，以加速人工智慧戰略 | gnews_insurtech | https://news.google.com/rss/articles/CBMizwFBVV95cUxQSkJsd2p2SjNvLU9RN1FEb0Y4ZnQ4Y3JrUnRZM0RQd2hDenBrajdQWTcxYVB5LWRIT3p6bzByNzU4ZVc5bkk0bEtzVDBZUEQ0X3ExSFJBMXF0MU9oUVdXRDhCbG5GLWRvcFRzXzNpTWlSdEQxZk5GRXRROG9KZ2xlNmlzNjRtdUxSbWtxVkdJUUh2TjdCc3N1aWRJcHdRQkZzZF9kcjl0Wl9GTnpTQjIzWWJxUDJ3enFua0hvMTFWUjZiSXhaMy0zRGhra0gxN0k?oc=5 |
-| 15 | 2026-03-31 | 數字保險競賽為何如此沉寂？ | gnews_insurtech | https://news.google.com/rss/articles/CBMirwFBVV95cUxQczdxWnRXdUg4bmFlaGtDRk5rSGZxcW1pLVJhSlhvRlgxN3djall4WGVPby1QV2M1WUdyOFRIQTQ5bGM5QkpjOFNaOUg1NXJuQm5CYmRvS0lwVEhOYWdtZmtXMWdLZUQwTFctWDQxWDFUTzdfNVBGWDlZeGkwNGxGdUhPNF83a09Ic0ttRUN3UHZMc1NLLXlySWg3U3V3Qmw3alp1dnZaXzRTUFJFZlRR?oc=5 |
-| 16 | 2026-03-31 | 央行利用自動化推動擴張和打擊金融生態系統中的洗錢 | gnews_insurtech | https://news.google.com/rss/articles/CBMiwAFBVV95cUxPeU9Hd0NYNnV4dFhaN3ZkVDBuZ3lGWUIxX3BYd1ZnejRGQ2NUUlI5R0hKWlBRR1Vjc3k4WXBhUVBUUkJGQUNfczFzUTc1SmdnbmhvNnZZTnh6REJJUkY2aXJ0VjJuMGNPYk9WdzBmcmlVcGRYa2FYa2dwdzVjekozX2J2Q05Rdl9mX05QU1VMU2ZiellCMGFIVk9YeTR5Rm1Ob3dYZkpfdnJjRHhYSUx3ZGpSVG5FYVZ5dGxwRHE1eWPSAcABQVVfeXFMT3lPR3dDWDZ1eHRYWjd2ZFQwbmd5RllCMV9wWHdWZ3o0RkNjVFJSOUdISlpQUUdVY3N5OFlwYVFQVFJCRkFDX3Mxc1E3NUpnZ25obzZ2WU54ekRCSVJGNmlydFYybjBjT2JPVncwZnJpVXBkWGthWGtncHc1Y3pKM19idkNOUXZfZl9OUFNVTFNmYnpZQjBhSFZPWHk0eUZtTm93WGZKX3ZyY0R4WElMd2RqUlRuRWFWeXRscERxNXlj?oc=5 |
-| 17 | 2026-03-31 | 商業新聞 - LatestLY | gnews_insurtech | https://news.google.com/rss/articles/CBMijAJBVV95cUxQRzBTaUJ3UHF5bGJHNTNjeTNVeFNlVGlBYWlRQ25Id1YwbXNobU41V3ZMZlNVRlFlak92VUFwRGFkTzJ6WWFVNWRBbUx2aVhRQmc3TWhCOWctRWQzajQ5a1FhYVhtajk1d1B3TUZ0d0t1SjFqdUJnNG1wc3pxc3N4LThiTUE1YVVXRnZrbGFoUXdYVTlIWmxFc2JSOXVwUzQ0YzVhVDFFSmExbXEwNGhVZWtPNDRrVmJNdXFJRUFmc28zLTBycGJDWDQyMkMyZ29qdkJxN0ZHRV9BTkVSQ244SG1KcEsxODZOdWZEbG1xNG5Jd0FocEhEVnphTTAyV3VuUGY3dVdBR2xSbGdu0gGSAkFVX3lxTE13aGpYY2o3N0pYdllxYTZTZ0xlaTJNQmh3SmNyOEpDZlh1aWp5VjBGd0RiV3dmaDhLcmVkYkl1bWlPcmdCZnhUUkNHZUFLYjlVajE0bEZfMzRwaFdmMjdPLTJtUmc2dTBZLTRSby0tZFBvY3RabGFkeGYxUy1NWWMtWER2dFpEb2o4QjIwRUJYcHQ5MEtrWkU1YkloWVFQM1NrNks0NFNKbzI2am1XRkVGdHpRZHowcUFGZno0ZUdGT2FkZ0JPSjlfU0IzbDhzMDZndGlBSFNHTXNiSHRraS1QZG1HVmpoNzhlU0YyU3JxN21lX3JmMzk5VmM5Zk8xZlEzaTNlV0tlclNuc2ZwNWw1cGc?oc=5 |
-| 18 | 2026-03-31 | 首屈一指的人壽和財產保險公司：波士頓諮詢公司 | gnews_consultants | https://news.google.com/rss/articles/CBMihwFBVV95cUxNcERZRWlwckw0ZjJ1N242YmpwWUFzNzlxcERzZzlPSGtKYXlPcFZNT1BkZ2hOYmppX1QyQXlscTdUU3JyZFVPQzBpOG9TSmZQTGlydERjQmJoeF9fMUZOZXFzbFNOWFFESXJBdGppXzlFVjdEbzgycnQxZjBfdlhzNzFtTnMyYjQ?oc=5 |
-| 19 | 2026-03-31 | 能源與公用事業市場動態 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMihANBVV95cUxPWEJ0ck5pVkFlcWpDZUZGdXJ6T0JmTUpMMk9aNHA4ODlDQlZ5UjdieGctMFpZaHZPeEhWaF92NW1YYnFLN1FqWEdBM3VjRkpRS3Z0U2tBNXlTeV80U0dFNU1DX0tISjRuVk5GdkF0NmJ1aW9XUk8yM2RDWmlqbUFKUzB4c2paaGJLQ1pwbXlsNGpIU1MxNWtkbi1ESFpGQjdNLWVWejRybXBKOXZVV2w1T0JrMlZCMm91eEFGMVJKcVNwc09EZlNRMV9SMVlEdGxpNnNxUGVDNWg0ekV3cS00TmhUeEhLUF9PTG1zd2tfTVpHamtYOWJBOWdHZmdNNm9JcFFwVnlUWndkendwRGR3Wi0wSjhTRXlXbzRVZEtENDRyS1N6WTlVWDNYVDRRTlNadEtZM0ZwRzJqeFMxQ2xoRjVjLTkzUEVDM1haeXVWcjZYd3AwNEgwREE0Z1liVEZJUU5MU1dUNjdjTTF5cnNiM29Pblp3Nm4zcFlKTFdhUFFnb3B4?oc=5 |
-| 20 | 2026-03-31 | OpenAI支持新AI初創公司，追求機器人大軍突破 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMioANBVV95cUxOYXc2ektiNTFsYWFRMjJjQ2M3UkV4MHdlRmxGclQzQ2E2ZlZWWWlzVXhKVzVIMTBqZDQ1blR3UXJLTUZGZUtrMnZyQzZLREptVFJ2cWpZUWJDd2kxQlBDRl9mcHZ4bUl4bmlxZm9EU2xWNmRITDRieXlRT3RWM0trSVhTb21UQ2ZEdFlFVDlOaXM0WDA3dWQxU0M4Ny1SVmhVRWhBcEowR2tSNEhJVkItSXFDamJsMV9ER2tidHY5ZWxXVzJHaXdfdUZuemNRNWNDdnVNbWtweTBKUEgwZFlsdnlIbzd5dGNKY0Zwak81bWNLUG1DQ1gxRW93SkFRYVBrai1jemFCZ3RKV0FtVHRtQkZFNV9mT19RdUZkZnFtc0FEMXgtc1V2eUgxZzlidTVkMTJXVVV2Z1BRb1UxYzd3SHVzeWNCNUU3d3lZMlNNSUdZUmRkV2hYb05mZ0NMWkExVE9MNS1tdXhhai1sV09nS1AxMHRBdDVrejRTVmxvcHFTcUNvcjhVZGY4NGF1ZTBFUWdKN1N1NGoyV2hUQUptUg?oc=5 |
-| 21 | 2026-03-31 | 人工智慧能夠贏得你的三月瘋狂大賽嗎？ | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMi_wJBVV95cUxQbjRDYTRxUzIwbmU5Z1REd1dFVzg4cmN2QzBCYVJZOF9keUxEWXdnM2IxdFBPcURfaldhcGplQm05YnBLdFlFRVh1SmFtOUxqbHdQa05JMUd5Tmdidm5weExIaVBvRGVjLUx1c0EwQ1RVcEhwak5RaTJsY05tTEJuZGo3WUNUS3hrcU92SkhZWFFtS1ZTR20zc1RkSk5WbUhHOTVwd0E2eXZMYWVVbUMtbklEVVRrX2xNMWc5WUxNbXprXzRaWng2YmUybEQtSWFUcTd0QmFZWUZrU2JqSjNaS0lEYUtva2VUU0w2RHh3T2tSeTNzR3R5bC1kX3IzLWtlV0xobnBwSTJKeGZWeDNYRl9UMWNEV21ybjlPSmVoRnZpTmNzaFJQdWRDX2RSMHVZeFdEd1I1YVI4ejczaUFWNzJFdFZ4OUhha3ozaUZJSXQ5UVdqU19ueFBxejFFTzFlcFhyRmI2c0x2QVIzdDdNVHlpLVZEZ1RaTk43WVplcw?oc=5 |
-| 22 | 2026-03-30 | 全球頂尖100位保險專家、InsurTech主題演講者和未來學顧問 | gnews_insurtech | https://news.google.com/rss/articles/CBMifkFVX3lxTE80WXlYQmtsaktmX1liMkZLcC1DbnpYQmhHbVJQNmt5WjJ3bnQ2T082dERXeGZwUThCczdyejBrUC1SWDhWbGJTQnB5b2pIcGpsNEU1V1dGdjNhdERWWG1GRkZZMHVfT2lxaFpZM3VWTUNneGRoTFROV2RvYUNJZw?oc=5 |
-| 23 | 2026-03-30 | Cresta鎖定保險科技採用，於2026年行業活動中展現AI重點 | gnews_insurtech | https://news.google.com/rss/articles/CBMiyAFBVV95cUxOLTJ0ZDRkOGp5NWtCaGZKaWpkQXhzdzdzSWpqc2t5N0hiSmxGSW90YTAxeGtaUHNNOFVlbnpnR2xUa3J6Nlo4eGtlaWI3ajdyNXBTamoxdlYxaWZtb09ESzM1NWxNVk4zUy1OWUdreVpIOGgySlRDNHdZVlNfemk1T0lLMjVGRVhEc21oQ2d3STVBMmZHOVRpMFhreXhKLUdCam5tSk96UXFtbVNmSVZHUk1objZsSGIxQnJhUjdsazlhUDJZd0pVRg?oc=5 |
-| 24 | 2026-03-30 | QBE和InsurTech公司Aurora推出遊艇P&I自動化承保能力 | gnews_insurtech | https://news.google.com/rss/articles/CBMiggFBVV95cUxNR0piNk1DeElFVnI2RXlmQTV6ZVNDdmhyVU9OSkFxMUt4MUNRd1V1LW5pcUR5NnFqcGdlNGV3WXlHTjF5MTdUamFLM3diMjNYaHdyTjhLY2tjOFUycjBidzM5c3BHaE4taHlIQUw1ZTZLUERNUXNkVVFRMXhpZnM0cTJn?oc=5 |
-| 25 | 2026-03-30 | EverQuote Inc 股票：數字保險市場領導者，獲得強烈分析師支持和增長潛力 | gnews_insurtech | https://news.google.com/rss/articles/CBMixgFBVV95cUxOaDFaXzRKT3hyZFVzaHBzTUgxbkZNcFl5UzdKb3lKZlhDUElLOEZvdVhxQkNWV2xyWl91aVE0U2kwMHhiS1lySHMxUHFrRXFCN1Fkb3hMbmh5dG5LRExyUy1lVUxuVVpGcWRydjgzMklBRUc1eW53aWtYQmgwMFdRNmUxOGtOb3hQbk1uQVJ2VHdoaWtsLUczNWJpUlZ5NkJyMVBZUHNYb0ZFUWZJR1FLOXZFTEdreF9CdkFKODVwTWN1azdhVnc?oc=5 |
-| 26 | 2026-03-30 | 拉丁美洲第13周最大啟動資金輪：Prestamype領先，金融科技和AI獲大筆投資 | gnews_insurtech | https://news.google.com/rss/articles/CBMiywFBVV95cUxQNEkyeFZyd3AtT2xaNXBBR0Q2SDl4eFRwbXFnZUVMVXgxb0dTOXhDX0lPaXpMb2hvUmY0SzkwdFRBcWdTTTNNeDZyWUVzRzFLQmpLZGxtSnMyZjhad3F0b2ZaSVFXQmN2TGZHLVV1c1IwUDM5VG9ENmhSSjR1QkJxTU1uZDJZUTM5MzZKV0s0TDdXUjdFS1RpRzVOdm55bW4xemprSjdCT2hBNFcycTB3QlM3SHBhdDc2RDZoOGxfdUdEVk16TGFXclFnNA?oc=5 |
-| 27 | 2026-03-30 | 全球金融科技景觀：機遇與挑戰 | gnews_insurtech | https://news.google.com/rss/articles/CBMiigFBVV95cUxNZnY0SHU1aklZaVY2NFhsUnpWNXFxa0cwTkE3UzVJZ3F0TmItWnJIekEyWE5sMlhmY00wcHdEVXJmQ2QyeEp2akEyQmRUbm42b0lsdHB1NmxZUDVpQmdKUTJRZVF0NWhpaWpnTlA5M29PbHI5dU1zd2pxQWk4cXFBVlNzUVVGR0FTZ2c?oc=5 |
-| 28 | 2026-03-30 | AI 使用從輔助型轉向自主型 | gnews_consultants | https://news.google.com/rss/articles/CBMinAFBVV95cUxPbmRrNDltcXRuSURVdXhLU3M2QzlvRG9VNFk2eW9kYmtSVHlxTWJqaGhEa3RjSzlVbGFyaXFfODdSa05BVnhyUmlmT0lkb1YyTGV5N3ExYklOMVVxR3pZNW16TmNQa1ktR21KcV9XLXpzVkg1b3hsN0tYcG0wbnNiYnAwNktOQXNZNnlKWG5CZW9wWXhTWldDZnh3NHk?oc=5 |
-| 29 | 2026-03-30 | SpaceX IPO將與馬斯克本人一樣非凡 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMi-AJBVV95cUxOQlZvTkFkQW1TaTlqNlNRX212QjY0SjQ1cHJlRzRBVWw5R25ZLWRaSjNiVzdTMFh2NXZNTERiN2E4cWItNnc5Q0xjZ25jMFpCQ2h3Skh2cUNBemxna2cwN3pvZXg2enpBZkNvR0M3YWFINnNiRzRQcVpLSUtSMXN0ajhKMER3VWV3R0VaQ3ZYcldEWTVKNllIc3hvdkZoOHpGZF9tVEg2UW9TRk5rS1FFQkRFM1pEckZINk5CSUtQVU9yTTcwTlVZMWM1OVcwMGNIdVNVNlRSbXpRYmwtdGpEd2NhZWpwSUhkc0xUTTRWYjNUbGx4djZyX2k1QUFzeVJtQWpZaXN2TUhDVjNjaHdrMThBaTBONlhwQy1wSHBxMTdBUGUxSnNFYWxHTVEyWGZIeUJ4OXlHZi1EM184RW8xTEhXT2Nab2w4V1FfcndjbE9uQ3RPSndLTTYwRGkyQ1laWW5ZRkEtY1pEM21Vd25SajBPbHdybjRi?oc=5 |
-| 30 | 2026-03-30 | 科學家發現基因對長壽命的影響程度 | gnews_neuroscience_insurance | https://news.google.com/rss/articles/CBMiigFBVV95cUxPSXJRdHVkV0FoTnEzaE00RW40UElmTU1PR0VGeXVGU2FKWTNUUnZpczFwR19sQV91SjJDQWNrdDNHSExmN3lzU0drWnpiU0EzWWtPWElKSFY4bjE0bjlWRENYWEEwRDk3V2ZrQTA1Y0RrU1RHTnpTaW1YSUthYk50UW9maGk5Yk1uaFE?oc=5 |
+1. 代理式人工智慧將改變網路攻防，慕尼黑再保表示（2026-03-31）
+2. AI 數據中心帶來新型保險風險，瑞士再保公司表示（2026-03-31）
+3. 威爾斯·塔克·沃森在 EMEA 進行領導層和區域結構調整，加速 AI 戰略（2026-03-31）
+4. 保險科技投資現狀（2026-03-31）
+5. 數字保險競賽為何如此沉寂？（2026-03-31）
+6. Corgi保險公司收購Corgi.com，加速其AI驅動的保險平台（2026-03-31）
+7. QBE和InsurTech公司Aurora推出遊艇P&I自動化承保能力（2026-03-30）
+8. Mistral AI 籌集8.3億美元債務融資，為Nvidia驅動的數據中心提供支持（2026-03-31）
+9. 首屈一指的人壽和財產保險公司：波士頓諮詢公司（2026-03-31）
+10. 為公民定制服務：Agentic AI 加速公務機構個人化服務（2026-03-31）
+
+### 知識缺口
+
+- 代理式 AI 在保險核保和理賠中的具體應用案例仍然稀缺，多數報導停留在概念層面
+- InsurTech 融資金額和交易數量的定量數據在本月報導中不夠具體
+- 區塊鏈和 DeFi 在保險領域的應用本月幾乎無新進展報導
+- AI 監管框架（如歐盟 AI Act）對保險科技的具體影響分析不足

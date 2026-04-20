@@ -4,70 +4,68 @@ period: 2026-03
 category: market
 region: asia-pacific
 articles_count: 126
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+compiled_at: 2026-04-18T12:00:00Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
-### 本月重點
 
-- 油價上漲，亞洲股市下跌，中東衝突擴大令投資者擔憂 - WSJ
-- 觀看Cambiaso Risso的Bjork關於伊朗戰爭對航運保險的影響
-- 滙豐調查揭示高淨值人士遺產規劃的「意圖-行動」差距
-- 印度LPG船隻受益於伊朗允許通過霍爾木茲海峽
-- 中東衝突拖延　亞太保險公司面臨利潤壓力
+## 本月重點
 
-### 時間線
+- **中東衝突對亞太保險業產生全面衝擊**：利潤壓力、投資風險、供應鏈中斷三重影響疊加，Asia Insurance Review 連續發布多篇分析，紅海與波斯灣航運風險成為亞太保險業核心議題
+- **亞洲股市因地緣政治劇烈波動**：中東衝突升級導致亞洲市場多次大幅下滑，特朗普延長伊朗談判和延遲攻擊伊朗基礎設施的消息交替推動市場反彈與下跌
+- **海上保險風險地圖被重塑**：霍爾木茲海峽封鎖、紅海航線中斷迫使航運改道好望角，運輸時間增加10-15天，貨運與保險成本大幅上升
+- **亞太資產管理中心快速成長**：台灣亞資中心資產規模逾2兆達成2年目標，3大境外金融中心1月賺3.4億美元創5年同期新高
+- **嵌入式保險市場爆發式增長**：2031年前年複合增長率超30%，2025年線上和API優先佈局佔比達76.38%
 
-- 2026-03-31：油價上漲，亞洲股市下跌，中東衝突擴大令投資者擔憂 - WSJ
-- 2026-03-31：觀看Cambiaso Risso的Bjork關於伊朗戰爭對航運保險的影響
-- 2026-03-31：滙豐調查揭示高淨值人士遺產規劃的「意圖-行動」差距
-- 2026-03-31：印度LPG船隻受益於伊朗允許通過霍爾木茲海峽
-- 2026-03-30：中東衝突拖延　亞太保險公司面臨利潤壓力
-- 2026-03-30：滙豐調查揭示高淨值人士遺產規劃的「意圖-行動」差距
-- 2026-03-30：3大境外金融中心1月賺3.4億美元 OBU衝5 年同期新高
-- 2026-03-30：Middle East conflict:Marine insurers reaffirm their commitment to supporting tra
-- 2026-03-29：巴基斯坦軍方首領利用與特朗普的關係促進與伊朗的對話
-- 2026-03-29：亞太區：Markel 啟動保證和擔保能力，並在香港和印度聘用專門的承保人員
+## 時間線
 
-### 趨勢分析
+- **2026-03-07**：IUMI發布新規，波斯灣與紅海戰爭險改以單次航程基礎提供
+- **2026-03-11**：AM Best報告風險保險債券市場增長加速；全球住宅保險市場2033年預估達5,760億美元
+- **2026-03-12**：印度大米出口放緩，中東戰事推高貨運與保險成本
+- **2026-03-14**：台灣亞資中心資產規模逾2兆，達成2年有感目標
+- **2026-03-16**：Asia Insurance Review報導海上保險風險地圖正在被重塑
+- **2026-03-17**：巴基斯坦太陽能需求意外增長，減輕中東能源震盪
+- **2026-03-19**：嵌入式保險市場2031年CAGR超30%，Mordor Intelligence報告
+- **2026-03-20**：中東衝突正成為亞太地區企業的信用考驗
+- **2026-03-23**：中東衝突對斯里蘭卡茶葉和香料出口供應鏈產生重大影響
+- **2026-03-25**：亞洲經濟走在堅實動力與新興風險之間（WSJ）；亞洲股市因特朗普延遲攻擊伊朗而反彈
+- **2026-03-27**：海灣空域封鎖讓亞洲至歐洲旅客被困；亞洲股市因特朗普延長伊朗談判而下跌
+- **2026-03-28**：中東衝突風險將對亞太保險業產生廣泛影響
+- **2026-03-30**：中東衝突拖延，亞太保險公司面臨利潤壓力；3大境外金融中心1月賺3.4億美元
 
-本月市場趨勢主題在亞太地區共有 126 篇相關報導。報導量大，顯示該領域活動頻繁。
+## 趨勢分析
 
-### 跨主題關聯
+**中東衝突成為亞太保險業的壓力測試。** 本月亞太保險業最顯著的主題是中東衝突的多維度衝擊。Asia Insurance Review在3月內連續發布至少5篇相關分析，密集程度罕見。衝擊路徑至少包含四個維度：一是海上貨運保險——紅海航線中斷迫使船舶改道好望角，運輸時間增加10-15天，保費和免賠額大幅上調；二是供應鏈中斷險——印度大米出口放緩、斯里蘭卡茶葉和香料出口受阻，亞太新興市場的出口導向型經濟首當其衝；三是投資風險——亞洲股市多次因中東消息劇烈波動，保險公司投資組合承壓；四是航空保險——海灣空域封鎖導致旅客被困，航空中斷險理賠壓力上升。費奇評級甚至警告衝突將提高半導體產業的「尾部風險」，顯示影響正在向高科技供應鏈擴散。
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+**亞太保險市場的結構性成長動力依然強勁。** 在地緣政治逆風之下，亞太保險市場的長期增長基本面並未改變。嵌入式保險市場以超30%的年複合增長率擴張，線上和API優先佈局佔比已達76%，顯示保險分銷渠道的數位化轉型在亞太地區尤為迅速。全球住宅保險市場7.6%的年複合增長率中，亞太地區貢獻了最大的增量——城市化進程加速和中產階級擴大推動了保障需求的增長。台灣亞資中心資產規模超2兆和境外金融中心的強勁表現，則反映了亞太地區作為全球資產管理樞紐的角色持續強化，為保險公司的資產端提供了更豐富的投資標的。
 
-### 來源文章索引
+**風險保險債券市場為亞太保險業開闢新的資本渠道。** AM Best報告指出風險保險債券市場正在加速增長，風險倍數壓縮意味著投資者願意接受更低的回報來承擔保險風險——這對亞太保險公司而言是一個重要訊號。亞太地區面臨的自然災害風險（地震、颱風、洪水）長期以來缺乏足夠的再保險和資本市場覆蓋，巨災債券和其他保險連結證券（ILS）的發展將為該地區提供急需的風險轉移渠道。
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-31 | 油價上漲，亞洲股市下跌，中東衝突擴大令投資者擔憂 - WSJ | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMiuwNBVV95cUxPSHJXV2NXUUZOakk4OWwyWnZ1NzNLdmRYdk45RnM4X1lKNGQxV3NjMWlVNzFWNkVDS0NqOS1MS2ZfV2FzZlFZbEFEa0QyZVpvTTBMRFhvUFBDTDRTNEljMjJyTTNoY0VCZ0ZWTm9NTUs2enZodzctTmp0VEk1WFE3SHdBZ1pGdXA1WWZrbmNOTnBJeFJRUGFzVlA3QXFkbGdialU3anpvSkhFQnpWWDd0bjIyZ3k4MlQ3Y0M2Q0IxMFN2Ukpkdy1GME9GOEhrV1I1dGxsem1SZEQzVHJmZUctR08wNGZPM1F5S1ZjNVVFOEI4UXBubmVvWDVnbGt1dTJFUWhIUmEtbi13aUU4MW1yRDcxd0ZweGlOVTJEVmo1dHJqck9fYk1IaTlkRVVPMmxndmZTc0Q3dlNWSTVucUtobnpPR25LQjdwaVlIU1NUVjMtOTBiRWJsM3NseGg2d2N6ZlBRdnQyWV9LbGw0bDBaNW5PejJzUF9hNE1mM2RuQWFRYlBJaVFuaTJwMWt2NlJaTHBBYk02eVk5clVoQlo2TmMteHV2eGNWRk1GSEZhOGJYOE1uc2l4clVrYw?oc=5 |
-| 2 | 2026-03-31 | 觀看Cambiaso Risso的Bjork關於伊朗戰爭對航運保險的影響 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMirgFBVV95cUxOWHdLUEpVbmVkdkJ4Sk5UODdlRVRpNFJGeUdqRk54aXdsMWZvTllrdTJOWGxuS0lvMTN3eEpJbEFBZ1NLazJZUF9sNjZSVGU1aHAwejgxSHFQZDFrcmFjUkZXbGJONDBoVkdQeWEySlRNcGFTOVA3bDgxcGRrTXhVeXh5SEp6QnoxNE5UaXNMY0RnZ0ZxVV9JQko0aUJIMVRGWDQ4M2Ffb2x4RlNYc2c?oc=5 |
-| 3 | 2026-03-31 | 滙豐調查揭示高淨值人士遺產規劃的「意圖-行動」差距 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMixgFBVV95cUxNeDNQeU1zdlRZUmFIUm91bEVwSmNCNXZqM2hsYkd0WEp2NWhSVEdlQTJ2TFozX1MxSGpKUGlIREJxd2NjNFZDUnJ0U2gydVhhYU9neDNCVXlOZlFwLTVnYV8zVFdDcWdxbENzU01JSXVrdzFlWTloa1h6TlFtcnRHb2pmS1NPVWhHeDBkSk5oTlRNc0llV0I3UWxMd3U1RnNvZE5oOWVFcTdwdzFLVjBONWEtT2lJUTFHRFpRU2txSFpMMV8tN3c?oc=5 |
-| 4 | 2026-03-31 | 印度LPG船隻受益於伊朗允許通過霍爾木茲海峽 | gnews_sg_companies_1 | https://news.google.com/rss/articles/CBMi5AFBVV95cUxPaTlaRFhsNWRNUE5nRFotbXd5Nmh2LUFqU0xRdDhXRHVjMXpjSkF2SE1HMFNEMV8zM2xOVWN2N2Y0SWpuRzR2WEpnUkx5bjEwbjJucmRqRUExd0E0Qk5ua2EzZlBPMi1ZSTMwYXdVQ2FDSkdFbUoxSkJiZGxlZ2t1WUtaamYtOFE1Y05Ba2xfNzVzRlUyS2VpdHV2M0N0OHJUMy1ReWpJdzlRVC1OSW5HVmtkLW5Dald1bDQ2VF83alJqc1ZkczFIR2lfMUVwOFhyeWIxWUh6dzh3d2VvWWVLQ2ZuSEHSAeoBQVVfeXFMTXdLTm5yWmxMQmdTWWxjcU9BRjlDNnQ3c1dQZXBuRU1zZUYtNHlLdGF1WF80V1dQMWo4cWRPMGFLSkgwYXVGbkxOMHhiVG5zSklGZFc4U2pvUlhHeDV6SHRHMnZzWjdEMjJUcmVjRU93QS0yQ2RFZHFhOWhjM1pSOXhXLXkwMUpucGV0MGl3Ml8wblh2X244dlVsbEZ3UG9PWlBvM1pMV1kwT2RNS19Pa0ZxRFA0cGFOM21hejVBdk16TDhDQWlLUlp6dC1ad0oxLWowSWdMY0s1dEwzRU1uMWFTbTlOeDZtUmtR?oc=5 |
-| 5 | 2026-03-30 | 中東衝突拖延　亞太保險公司面臨利潤壓力 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiowFBVV95cUxPQmJjMVRVNlY4S1UtVlJTdHJTaHJOZXB1OHlBd3VLdHNQMldmUTRsRUVLd0EtNkpJVHBHWnVZSGYwY2ZKOXlCOC1aVk5qZ1dPY3VFVHFfdGFDR2t0SU5iLVU5bk95cTV3MmFpQnhieFhkUk1iV0syMXNlMGZ4X0lmRkdHWnlrNmI0TERxVTFFb3RVQ2tiZkx1eEFUYVU1QzFCTzFV?oc=5 |
-| 6 | 2026-03-30 | 滙豐調查揭示高淨值人士遺產規劃的「意圖-行動」差距 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMixAFBVV95cUxQSWdUUWc0dTVINndiM19FX2EzdnhiSXVMdWpSdTV1NHR3RmZJalE2eF8wZTRwNndNSVRaLVlSUjU2WmZwdWtwQ3FrSi03UzBsdzdtOHVNUGZFcmRtZTVaaUtMUEZ5Z1lrSzBBVzFDYUV4Z2xhdm9Ra2FKdWhGNEgwcU94SUNQS1ZZRy03X240MS1XcTc4TDVPQUZ5Q1h2NUlfaVhVRzRQenExWkZyX2x4SUFxZjZ2dldZdDN2TXVwMnhMekY2?oc=5 |
-| 7 | 2026-03-30 | 3大境外金融中心1月賺3.4億美元 OBU衝5 年同期新高 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiyAJBVV95cUxPdEt6Y1ZZWTdWTF9YUmNuc1NkSnNTRGw5dzgwZlRvQ19GOVpyTG9xSVQ3TDhEbjVoSTJOR0tMNVVaUFJ5akpUd1BIaFI2QVNMNklXWWtvZ1NFakwydmhSSnlSMW1VSVlBRXE5c2JXSFU4dG8wTWN0MjBZMGVRc1RYcWlCUWV1Unh4dVl5T2hLYnhnUV9fVmhBUndrcnpHOVNKVXd6OHlaMHNOaUQtTkhYaENGU01pR2tWRkRVdFkyUS1vNzFrZGozMFNfMGpYQkZBQUhKRURScmJ4ZENPWHJsNzRJTUxrNE1razhpb2JheEIwWmJvSU9Vb0xpV2NicFpKNXhaUWxFSmpZQUZaUjlpYjY2VXdfVkoxaHozeGdra2dpd0VtOEJZWGI3TDFlVmRFNmlzaHhVV0lPem40c3RzeU1RR3R4eHho?oc=5 |
-| 8 | 2026-03-30 | Middle East conflict:Marine insurers reaffirm their commitme | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94973/Type/eDaily/Middle-East-conflict-Marine-insurers-reaffirm-their-commitment-to-supporting-trade-in-the-region |
-| 9 | 2026-03-29 | 巴基斯坦軍方首領利用與特朗普的關係促進與伊朗的對話 | gnews_nyt_insurance | https://news.google.com/rss/articles/CBMijgFBVV95cUxPV3JXeFR1NDhJaWxJNy1nd2ZYbVY4R2pJemdWbXMtWXpsUElHeUVrOTlYVHppQk0yMkNrTndQbXp0U2U4V0xvMmF6TGRpNnpOVEJLUU5jdkxzNy1HQ0hrU0xHNmhSVlZXelNXYzkzTUUxQlhGTzZLMXRYSlBjMVRLNndvRERJSEtxMXl6R1pn?oc=5 |
-| 10 | 2026-03-29 | 亞太區：Markel 啟動保證和擔保能力，並在香港和印度聘用專門的承保人員 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiigJBVV95cUxNQjlfTzBFT0E5bXBvRVNzaHY2UVpFYXF3NFBEcE5hNk5IanZfbktOTEpaNzlNQlNIUVFtTXA3ZExkSEJwMzVDemViYkpSLTFsVHhnREc1MXkyQTJ4RFEzeTJYZ2I2OHlYQWNGWFRQVGpKUFZxVFBJZ19ReXZ1VUs1MzB2U2JDX3NIcTM5UzZKNmFYQjIwemRScVBSanQwdTZxdTRqMWRDbG8xVG9RMGNwRWNjX1B4RE1ubzVFeHc5ZGRHMklpWXBkbm96WVNKN040MFZSR2M1RW9fajdUYmtkUkxpV3hsRzhHVjk0dVZtWk0za1VNTVZiZ0tjWVZvY0poRjBpRGFBVkFtQQ?oc=5 |
-| 11 | 2026-03-28 | 標準普爾警告：霍爾木茲海峽事件可能導致亞洲信用緊張 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiwwFBVV95cUxOSkpKOVF2Sk5hblpnbk12Zk1kVzM5WXVYeEZ2QVlya0ZtLUt6V0s1WXFhb1V5bzEtazZwUGVFQ25vZzlHenpNSjU5QXNEQTlCTzRIVmFyZWNGSEdsc0JVX3FwZS0wcnVJdng0blM0TVFjblBheXpGRTRqU2QwTm9TUkRlSnlOYkVsVWNGMUZiT3RuQ1d5emUtVENkS1M2bHJvdnl2anU4dVMwSHFUUTJ1cmxRN2ZHS19SaWdyd09NQ2Y0T00?oc=5 |
-| 12 | 2026-03-28 | 中東衝突：風險將對亞太保險業產生廣泛影響 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMijgFBVV95cUxOS2p0Tm15TW5nWnZ3VG1XVTU4NVcycEF2QlNLYXo2cC1zVEdzRVhqRWhoWTUtMkplUkFORTRqVFlJYXFXZzAxcnhIc1RlMmJ5elhvOEJRYkZZdERuN2tQbjFKTlZUekFidmhqZXBfN2UtNFJaZ0NIVTYxcGhJaF8ydkp5SzJoSFREcV9pZHh3?oc=5 |
-| 13 | 2026-03-28 | 滿載：伯克希爾按照巴菲特的方式投注；Mosaic的退出投下陰影 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMikwFBVV95cUxPcFk3U3o1ZjhJaXhBNm53c1c0ckgwVUEwWDc0RkdEX0hFUmxteFhLRHBnY29fRTJLejYwMUsxTHZmQ2h4VVlPWXFVRlFUTURCaUExYmNFSkcydHJHRU9BLTFtM09oZVJwcmRDZUVfLUJkUnJNbXZzNVo4NlFGd1Ztdkh3cWZJU0NuTTJXUnQ5N0RoQlU?oc=5 |
-| 14 | 2026-03-28 | Liberty 在亞太地區簡化品牌 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMisAFBVV95cUxOdVBWTFFOUGo3VnJQcWVtTFVMN2FBMGRkTkRlNkhRbEw5QzcyN1lwdHBCY19mZmZhQ2RPY0NEVFZtWGt3QV8wWHpfSjRYS2hzMERxbHN3QW02d3lFeW5hd2ZOX1ZQNzQ5ZkFPZjAxTlpNRlRXaUZmZWt4elV6ZGVqc2ZVR1BMZ25kNUZ5cDZxbTRnUTBQcGh5NmJYV1QzYTg2ck1uamx0MS1QV2h5WThMSQ?oc=5 |
-| 15 | 2026-03-28 | MSIG亞洲支持Ancileo將旅行保險嵌入預訂系統 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMimwFBVV95cUxOWUtXOWJhdjB4SHF6Vjgyd0VLcmw0UURwVm01NUE2aDBWd2Y2X0F4R2hINzgxMm5Td0lUY1RvQlljVUVJcl9vUHRVNUhBRVJnRVBnT2VNcmxIYkxUQ0ZpY0lzcE56VUtURjdjWlRwVEJ3eUx3VmFvSWgzOU5oaTg0SjdnT2p6ZVRUdy04Y2RUT0ZKbXlRSXlmaWxkUQ?oc=5 |
-| 16 | 2026-03-28 | 亞洲：高淨值人士傾向於使用人壽保險進行遺產規劃 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMi3AFBVV95cUxNNXVHQ2FEREZMMktLeTAwS2hmVUdLVllELVQyYUczb2xKZi1rRDN0MG54cTBCMDNKWDdMeG9EdnFYN0lGOVJoT2JIcW4wbmM5VXhqWjFwT0lPM1NPQlZ5UXA0QkdSMlNxcUlDV3pfbC1hc3lOU3M2b3JKUzMyTUdHTk16b3dFVzA1UlZZVHQxRXhndUVDaU5sOGVtYjVCYTdaeUNXWDBwR0JHd0VSaHljLTB3WFJmd0ZhVWhkTGNUd1Yzc3dYRnhkLUpGQXcta2cxanh5cVBEc1JIdU5x?oc=5 |
-| 17 | 2026-03-28 | 亞洲保險產業遺留問題規劃情況複雜 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMixAFBVV95cUxNNTBjZlNqWWtWWWc2bGVaMW5sdzB4dy05SkFXU3VDbmtidEhEQjVqbmlrMVBoU29MSlp0Z2hRUVU0czQwNUpPN2JuaWZRbWtVdU0tckxwNUZvOVk2Y0dEbjJoWS1wLTNjOXI5cnZWX25VOXh5cXNmWW9GOXZFRG5RMFRpN3RXUkg4WXNGV1JNd0VMNG9VZGQ5MWNlUVhWanRXRk5PX3VVbV9SRk45NEJtSHQ4QV8yQkJGVld4QnNFT2ROSWxr?oc=5 |
-| 18 | 2026-03-28 | 亞洲經濟在堅實動力和新興風險之間走鋼絲 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMisgNBVV95cUxPNG1tTjEzSEhzZ3NqTTRjbVpqU2Zsbk9fMWxVdnQxWldTMTZzeHdZUjdWX1NHamlDMlh6U1lRY3Y0S3lLdUVDaG80UnEzTzlFQ29OZmZaQ1FUeGxUNDNIVllHSnpCc3JZVGk1VmRHUGFJZjhFZlpjVFFndE9iYjFaWlFVNE1GMkRyUGNyT1pqRG9HdlJvOG1KcXduVUZPaG80dU4zVG9RMkg1Ull5ZWtMMXpoLXBNeVZkWk51LV8ySC1CNUVRUmtBdTJ1OHdhMzNkV3BKWVRoMF9ubUVVbVpYVU15VXpfVGdMWDJhcHRfNVRjSzJNUHFxYzZWUXdXaHlxbVNqVVlFajhpLUV3UUEyem9SQ2NuQ2Vad05ncUtTMm12SFg0a0xHYzdGdHc3OUJ4aEVWUFZYNmtHenZ0UENtOW1GZzhCUWFIMXNTZkZGaEROOEx4MUVueFZOSmdwNTBmOTVoa2RIWUtGdi02cXVNU3Fyay0xLXdYcVF3T0NBcldjYzFsaDNXdU1TNV9JTFNZNU5lYzNLbWd2OWtxUzB5QWdnV3ZqSFRsbmRCV1VISEN1QQ?oc=5 |
-| 19 | 2026-03-27 | 亞太保險公司為中東衝突的影響做好準備：標準普爾 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMirAFBVV95cUxQdEFwZTFZNEdDQzc2bFROTE0zdVlvbm16LXZISVJ3MXczb1JWVjc1THlWRjhsTV9wcFhOV1V0Y2dGdmk0bU1Wd1lra3h4RlpWWTFOUmpESEFMZ2VXalppVUp1MlNBbnVRNVpQYXM1b3EyNU9QdllRMUx3X3VhWVhsV3JMSjNZZUh2bV95M2NtRjZmc3BKczlWUURfdGtiRGl3MkNhcE9hZTFiMWM5?oc=5 |
-| 20 | 2026-03-27 | 中東衝突：風險將對亞太保險業產生廣泛影響 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMi4wFBVV95cUxPWF9xR0hiS2VBYnM5V1NiNzI1bFlFWnhTNzNkbjVFNmpTemJDY0ZjWlQtZDhKTmlVMjd1N0lkck5VZ0lDS3A3X3pkTllJYUtlMzBfbzdFSEZWTWhWOVJXZm5rdV9jMU1SWFZDbDk4UFlsM2QtQUd3QVJLOHRWbThhcnVwNGVxMC0xYzMzU1Q0RnBicmFnZlBJN3hmaGhrdmRwU2ZsZ3U2NTMwNTA0RzdvUlZsczZXZEJZYnJnZC05R0pUNGpoTDg3cWpGLWdzejBLOFFlV0hTNVM5V0VaWmUyQVZjOA?oc=5 |
-| 21 | 2026-03-27 | 更多印度LPG運輸船準備通過霍爾木茲海峽；伊朗相關船隻出現 | gnews_sg_companies_1 | https://news.google.com/rss/articles/CBMi4gFBVV95cUxNZ2dOSlExQVlxTlBaXzNDbU5jQVVFQy1Wd0IzVm5VbE9aNWc4QS0tTW1KZ1FKSkNUSDZpdDlYZ3NjZTNUYURVbkRfUjFMRVVjb3ZlUVhRVXhqcTFUY0YtT2FxUV9lM3BfZEk3SzZUQU9KZTY1bHZkZDd2ZC1FRzk2aExDcjFvUUdRVUxYazc4YzJyWVJ2WWRZRE9RbnBRTU1ITnpRUEdsdEo5czJQdWJVOWNsTldOWEh2X2tsSVRkWkRVbnNhLTNOaktyNU9zX1FVRVNHYkotSnpycEFpYjVHWFpn?oc=5 |
-| 22 | 2026-03-27 | 亞洲保險公司被敦促在醫療壓力增大的情況下維持公平的保險覆蓋 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94952/Type/eDaily/Asian-insurers-urged-to-sustain-equitable-access-to-coverage-amid-rising-healthcare-pressures |
-| 23 | 2026-03-27 | 中東衝突：亞太保險業面臨廣泛風險 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94953/Type/eDaily/ME-conflict-Risks-to-reverberate-widely-for-APAC-insurance-sector |
-| 24 | 2026-03-27 | MSIG亞洲收購Ancileo股份，以擴大亞太地區的嵌入式旅行保險 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMipwFBVV95cUxOMEtyVE5BMTlWZk8zb2Jka1owVUtJMlJfMk4tNHNYeWdkeFcwMm40N1pTM3RXUjhxcEZfb2tXN0FtQ19obmdpVC1nSWxtVk9tWWU4TkZwSzdzM1R2ZTNWZ3NybjE0Nkk1Y1RZUUNoWUxHRkJtRnkyMHQ5Q2pOMklOeFpCd0l1aUVYZXc5WHRhWEZLa3RmWUN5ekFMaEtaVmZkVTlVdzBFZw?oc=5 |
-| 25 | 2026-03-27 | 亞洲傳統保險規劃格局多樣 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94951/Type/eDaily/Mixed-legacy-planning-landscape-in-Asia |
-| 26 | 2026-03-26 | HDI Global 表示澳洲推動了亞太地區艱難市場中的增長 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiogFBVV95cUxQU2tnOUROcGlsS2p3dkdYWjM0UmQ2MEF6cFhfbjJmQkN2VmdoVzVmLUtNWEx2VHRjcWRnSkhHYXV1NnNUYmRjVU16S2RVWmJ4VmZlNVp3bTRTODlqTklXN1YxMEpOVi1aaXA5YlpNOFhldW42SWtDNUVObVRPdkJLblNUNVlJTXpvMExZYUpiNmJCSFhtblBGUzl2VFltbC1vb2c?oc=5 |
-| 27 | 2026-03-26 | Liberty Specialty Markets 進軍亞洲精品藝術保險市場 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiqAFBVV95cUxNOHMwWlRtU0JOQm5mMFJwcE9OQURqbXlseEVKRzNwc3h4WWhMZEF1b0QtdThFdnVmc2JYandfUEhvb3ZpTURzT3ZXUHJxSXVIbjhEdHpVZUhvdTk4elpFSzhfWTRzcEpFWVY3MERnd0lFbUQtVU1pV2Z2VHd6bXdfdVZROERJRTZSLUI4NkpfcFF1ZjB3cEpzSkZRYnNXM2ZaX0RIaVFrM0U?oc=5 |
-| 28 | 2026-03-26 | Mordor Intelligence 私人有限公司在美國和英國的保險產業動態 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMi1gFBVV95cUxPVDJXRWVRUHZSVXNtYzdONWdvSVNFLW5pU3diXzRubzNrM3lqUG9mY1cwaWl0ekJyMnZESTVIVHhURUphS2kwaFN3VGNuNHFvamVMUmlMV21QTUFRTEVjMC1CR0hLUjF6UXhoVVZuR0lwdjNVa09fbDZrUGtybUxmQ2duTWVuUTVOR21TUDdGOHA0SHFUdExNQi1tSWZsZXQ1UktTS0x1QjdPR0JhLW11cjRaM19YMi1zZlNxU29TWEd6UnRuWFhIODBXNkY5Sk5vbG1xYV9n?oc=5 |
-| 29 | 2026-03-26 | 卡納拉HSBC人壽保險公司獲得SEBI批准進行IPO | gnews_insurance_asia | https://news.google.com/rss/articles/CBMivwJBVV95cUxQeU9kZERtQmhpTnJHQlBlTkwtT1p1REprTTRhSzlJdlVPUHBqTWVfRl9kUEI4OUpwQ2xvYVliamQyR3FiQXZ5VUVQaDNjX2hMOHRFaU9ETWRsU3BQUnBqUVlXaW42UWt3amoxdnFOdDFsZnFVd205ZkFVZVAtOFZWY3pQcWJfS0t1QVhGaFpOdDQ3ZEd2NXNpby1kY3l5aXJxV1lSM29RcW1jTmRHMWN2NFFnTjRIZlk3b3dVOGZpZGxCQTYwRm9fVlE0Z3pMZDVTLXBxMHlXTXZTTGY2Z1NxMVpHbV9Nb1pHam9IY19ZU3FaOFJqaWhZcnVmUXpnQlVDSUdheU1NdTUxTU5RWUhOMFB3R3dTaEFZMUNGci14b29BZG1SLVU0T2xVWXRZd09uOEhLVGdfUHkyd3I3Q0Mw?oc=5 |
-| 30 | 2026-03-26 | 中國抗議東京中國大使館遭闖入事件 | gnews_sg_companies_1 | https://news.google.com/rss/articles/CBMiiAFBVV95cUxPVHNDZXQ1blZIMGdaOE43bGx4Z1ZaT3VuaFZFZEpPV3BvTzcwZE5yWXF2MnRSdlJRZm1KU0VKNUJNZEgzMTZ3a2lqUy1BWGFFQk1ZblhERkNYNmFFZW5sM2cyOFNmS1loaGY1Q0IwbUQ5bF9VaXhvZzl0MXpfQklPQkphRVBNd2R0?oc=5 |
+## 跨主題關聯
+
+- **與全球市場的聯動**：亞太市場作為中東衝突的主要受影響區域，與全球保險市場的戰爭險定價、再保險費率調整形成連鎖反應
+- **與科技應用的交叉**：嵌入式保險76%的線上佈局率凸顯保險科技在亞太的滲透深度；半導體供應鏈風險則連結保險與科技產業的依存關係
+- **與ESG永續的連結**：巴基斯坦太陽能需求增長減輕能源衝擊，亞洲工業革命向清潔能源轉型加速，保險業需要重新評估能源轉型風險
+- **與再保市場的互動**：IUMI戰爭險新規、風險保險債券市場增長、自然災害風險缺口，共同推動亞太再保險市場結構調整
+
+## 來源文章索引
+
+| 日期 | 標題 | 來源 | 重要性 |
+|------|------|------|--------|
+| 2026-03-30 | 中東衝突拖延，亞太保險公司面臨利潤壓力 | Insurance Asia | 高 |
+| 2026-03-28 | 中東衝突：風險將對亞太保險業產生廣泛影響 | Insurance Asia | 高 |
+| 2026-03-27 | 中東衝突升級，亞洲市場大幅下滑 | WSJ | 高 |
+| 2026-03-25 | 亞洲經濟走在堅實動力與新興風險之間 | WSJ | 高 |
+| 2026-03-20 | 中東衝突正成為亞太地區企業的信用考驗 | Insurance Asia | 高 |
+| 2026-03-19 | 嵌入式保險市場2031年CAGR超30% | Insurance Asia | 高 |
+| 2026-03-16 | 海上保險風險地圖正在被重塑 | AIR News | 高 |
+| 2026-03-14 | 台灣亞資中心資產規模逾2兆達成目標 | 台灣保險新聞 | 高 |
+| 2026-03-12 | 印度大米出口放緩，中東戰事推高貨運與保險成本 | Insurance Asia | 高 |
+| 2026-03-11 | 風險保險債券市場增長加速，風險倍數壓縮 | AIR News | 高 |
+
+## 知識缺口
+
+- **亞太地區戰爭險累積風險敞口**：保險業對中東衝突的累積風險暴露金額缺乏區域性彙總數據
+- **嵌入式保險的監管框架**：各亞太國家對嵌入式保險的監管差異（牌照要求、消費者保護、數據隱私）缺乏比較分析
+- **供應鏈中斷對保險理賠的實際影響**：紅海改道後的保險理賠案例和賠付金額數據尚未系統性發布
+- **亞太巨災保障缺口**：自然災害保險覆蓋率在東南亞等低滲透市場的具體數據和改善方案不足

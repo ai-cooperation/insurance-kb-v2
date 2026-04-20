@@ -3,45 +3,59 @@ type: monthly
 period: 2026-03
 category: esg
 region: taiwan
-articles_count: 7
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+articles_count: 8
+compiled_at: 2026-04-20T03:24:41Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
+
+## 2026年3月 ESG永續 — 台灣地區月度報告
+
 ### 本月重點
 
-- 臺灣：國家衛生機構推出糖尿病風險評估計畫
-- 「台北雙年展：地平線的細語」評論：台灣的渴望藝術 - 華爾街日報
-- 「台北雙年展：穿梭」評論：台灣的渴望藝術 - 華爾街日報
-- 保險業分階段揭露永續資訊　2027年14家業者適用
-- 保險業分階段揭露永續資訊2027年14家業者適用
+- 臺灣國家衛生機構近期推出糖尿病風險評估計畫，旨在幫助民眾識別糖尿病風險並進行早期預防
+- 根據經濟日報的報導，台灣保險業將分階段揭露永續資訊
+- 根據產經報導，中央社 CNA 進一步披露，2027 年 14 家保險業者將會分階段揭露永續資訊
+- 根據台灣保險業永續發展指引，保險業分階段揭露永續資訊
 
 ### 時間線
 
-- 2026-03-18：臺灣：國家衛生機構推出糖尿病風險評估計畫
-- 2026-03-16：「台北雙年展：地平線的細語」評論：台灣的渴望藝術 - 華爾街日報
-- 2026-03-15：「台北雙年展：穿梭」評論：台灣的渴望藝術 - 華爾街日報
-- 2026-03-15：保險業分階段揭露永續資訊　2027年14家業者適用
-- 2026-03-13：保險業分階段揭露永續資訊2027年14家業者適用
-- 2026-03-13：保險業分階段揭露永續資訊 2027年第1季共14家優先揭露 - 經濟日報
-- 2026-03-12：保險業分階段揭露永續資訊 2027年第1季共14家優先揭露
+- **2026-03-12**：保險業分階段揭露永續資訊 2027年第1季共14家優先揭露
+- **2026-03-13**：保險業分階段揭露永續資訊2027年14家業者適用
+- **2026-03-13**：保險業分階段揭露永續資訊 2027年第1季共14家優先揭露 - 經濟日報
+- **2026-03-15**：台北雙年展：遠方的耳語
+- **2026-03-15**：「台北雙年展：穿梭」評論：台灣的渴望藝術 - 華爾街日報
+- **2026-03-15**：保險業分階段揭露永續資訊　2027年14家業者適用
+- **2026-03-16**：「台北雙年展：地平線的細語」評論：台灣的渴望藝術 - 華爾街日報
+- **2026-03-18**：臺灣：國家衛生機構推出糖尿病風險評估計畫
 
 ### 趨勢分析
 
-本月ESG永續主題在台灣地區共有 7 篇相關報導。
+**能源轉型與碳排放**：1 則報導關注能源與碳排議題，包括保險業分階段揭露永續資訊 2027年第1季共14家優先揭露。台灣地區的能源轉型進程對保險業的ESG策略與投資組合產生深遠影響。
+
+**勞工健康與社會風險**：2 則報導涉及健康與社會層面議題，如臺灣：國家衛生機構推出糖尿病風險評估計畫、保險業分階段揭露永續資訊 2027年第1季共14家優先揭露。ESG框架中的社會面向在台灣地區受到更多關注。
+
+**其他ESG議題**：另有 6 則報導涵蓋「台北雙年展：地平線的細語」評論：台灣的、台北雙年展：遠方的耳語、「台北雙年展：穿梭」評論：台灣的渴望藝術等主題，反映台灣地區ESG發展的多元面向。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+- **ESG永續 × 監理法規**：部分報導涉及台灣地區的監管動態，監理政策的變化直接影響ESG永續的發展方向。
+- **ESG永續 × 保險科技**：技術創新與模型發展正在重塑台灣地區的ESG永續實務，數位化工具的應用日益普遍。
+- **ESG永續 × 市場趨勢**：台灣地區的投資環境與資本流動對ESG永續的發展具有重要影響，兩者互為表裡。
+- **ESG永續 × 消費者保護**：消費端的需求變化驅動台灣地區ESG永續的產品與服務創新。
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-18 | 臺灣：國家衛生機構推出糖尿病風險評估計畫 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94826/Type/eDaily/Taiwan-National-health-authority-launches-diabetes-risk-assessment-programme |
-| 2 | 2026-03-16 | 「台北雙年展：地平線的細語」評論：台灣的渴望藝術 - 華爾街日報 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMi2gNBVV95cUxOTGxFcmp0N2JzY0hKUm9hOXRxVktYeGpnM0lKdi1YSWlzNk9Pb3JGbTRaWkdqOFJwaVRwRUdFM3BkLV9vWE5nNDk2Nm4tTVFYTFc3elktQlRGal9zZFdydnRnUktwWlFYLTFtMWJJZkdXZS0zbGtuM2RPVm5GNnVZN2pqZ3R2b3QwNDRqLUVERlVTT3B0QW9qRjlMVW42Vl90Vk9mU3k2NjRrSzZvOWVJdklwRnMwc0ptN2F2MjBCYzJuWmZMU3JaZWxLWkVoQm13QkFTNDU3bTBLOU9vZlVyOHctUndGTXpEN0xUWFV4ZU41aUFtcGdVb0lPXzlWWlRPUjllM0JQb2tCZTFrUWhQX21odGFlT1ZPZTFHd2ZiWXNpS09sTlhzLUZHRzFLdjV0WU4zT1ZJUEN6X1A5NlhsQjdwR09mZlp6WTFyUDBOMV9laUU4TEdQdFV4VFZVVHhBS1ByZlpNdVotNUttVUNkcG90OU5yaWdIck9kQ1YxZzY4dHY5RFAxaXJNSEc2Rmx0cEdScU5BeHkwby1hY0JxZkExZUZGNjJDOXVqdlBUbFBnVXpzdU5qeXRfUWtzSWpid1JCWXFUOHluMGNPVldRcTFGUnc1aktVVXc?oc=5 |
-| 3 | 2026-03-15 | 「台北雙年展：穿梭」評論：台灣的渴望藝術 - 華爾街日報 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMi2gNBVV95cUxQb1NsTjlPWFRiR1NNZ2ZycHhKUXBfdW1EZ3RKenhMVFVtNi1jWHVtYlNLT0xHVmktdW5xcDNLc01KM1pwQjY2T2dvTkgxZkQwaUp6dnNZZVNBOGJ6Tld3UGY2Y0d4RXFra19WR1l0WWF0V0R5bWdZbk4zTXBTbFdxb2V6ZzdfNWJfUENoMmFXNEROVnB2MGdRRW1SdWQ2S2h2UVViTmZpaDZQUkt1M0xBd1FOQlMtZVpSa2ZENmpMS3lpN1laVzMxVldKUHhrQzFaQ2ZMSmRuMzhuWG5zNHVGOVY3Y0hBQmdtQkpnNjV1MEtwQnRTS2NDV3dqV0ZzQS1DVzZnYlpZUGtRZ0wtYnJmbUl5VUliMjdaSWpCbnFqeURhbVRlWFdERVNfUjRKLTBHNUtzb0RURXBSRmU4NmM2SEIyMUVyV1hlLXBla1lfdElVcHFMM01FS3JFanMyWjRKY3l1Rk0tOGkzMHlkRFJVdHBhTG5xMldfdmpsTWVPazhLalMxUDBwRzA2RmxkOXA1NGUxWWRHcXNiUE5pM29yOVcyS3otQ3NIc2dXdjBhZG96R19NdTFtNGxxYW9LV0E0dHFjY3BCbkNNZEhsbks2bFdJSTBibzJRRHc?oc=5 |
-| 4 | 2026-03-15 | 保險業分階段揭露永續資訊　2027年14家業者適用 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiX0FVX3lxTE4tMUdrbG1CTnFiQVBLZ0lBVmw2NmdIVGQ5c204U0MtWUt4dkIzSDVQV3RVTlV0V05HcE00aElTODlqMi1BckdUTjdNTTdXbjdqOVk1Y2FUQ0JzMnV1Q2dZ0gFfQVVfeXFMTi0xR2tsbUJOcWJBUEtnSUFWbDY2Z0hUZDlzbThTQy1ZS3h2QjNINVBXdFVOVXRXTkdwTTRoSVM4OWoyLUFyR1RON01NN1duN2o5WTVjYVRDQnMydXVDZ1k?oc=5 |
-| 5 | 2026-03-13 | 保險業分階段揭露永續資訊2027年14家業者適用 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiXkFVX3lxTE14TnJoMTBvYkNLcVJxT1lmSkxlYnBHc3hSYzkwX0lQTWNUSkJCQkZVUmZMbEV6ZkVjeVZEMFVZUXBfOXpyN3gxU295R0tjeTJOTFYyVXhpRDNDVGdubVE?oc=5 |
-| 6 | 2026-03-13 | 保險業分階段揭露永續資訊 2027年第1季共14家優先揭露 - 經濟日報 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiX0FVX3lxTFBvTzQ3WkVYWmtuT0JQeG5INThKLTctYnFsRUlxMHVjbXI2ODhRRDBBbmR3YTZtbVRFTWcxMW9UY08teDhrR0JCYnJ6c3hweFZ0ZGFsQmk3XzR4dmRhVFJZ0gFfQVVfeXFMUG9PNDdaRVhaa25PQlB4bkg1OEotNy1icWxFSXEwdWNtcjY4OFFEMEFuZHdhNm1tVEVNZzExb1RjTy14OGtHQkJicnpzeHB4VnRkYWxCaTdfNHh2ZGFUUlk?oc=5 |
-| 7 | 2026-03-12 | 保險業分階段揭露永續資訊 2027年第1季共14家優先揭露 | gnews_tw_insurance | https://news.google.com/rss/articles/CBMiUEFVX3lxTE5lQnhJZHVDMElpanJyejFzaVozX2FtY0xzSEVqRmlpem93djhEZUlvczNiTXdDQURFUXJNd2VWWXVIbFY2M1RvS2x3SndKRUI40gFWQVVfeXFMTXZweFlpQ2dRRFVqdmlhampNMktFVnBsREZvejUxMV9WMy01MExDY1FaczNiQ3Y0Ukt4YlNxcWduUDk3b2IyaXM0dDlJWmhhS0ZORDBfcmc?oc=5 |
+1. **保險業分階段揭露永續資訊 2027年第1季共14家優先揭露**（2026-03-12，gnews_tw_insurance，重要性：高）
+2. **保險業分階段揭露永續資訊2027年14家業者適用**（2026-03-13，gnews_tw_insurance，重要性：高）
+3. **保險業分階段揭露永續資訊　2027年14家業者適用**（2026-03-15，gnews_tw_insurance，重要性：高）
+4. **臺灣：國家衛生機構推出糖尿病風險評估計畫**（2026-03-18，air_news，重要性：高）
+5. **保險業分階段揭露永續資訊 2027年第1季共14家優先揭露 - 經濟日報**（2026-03-13，gnews_tw_insurance，重要性：低）
+6. **台北雙年展：遠方的耳語**（2026-03-15，gnews_wsj_insurance，重要性：低）
+7. **「台北雙年展：穿梭」評論：台灣的渴望藝術 - 華爾街日報**（2026-03-15，gnews_wsj_insurance，重要性：低）
+8. **「台北雙年展：地平線的細語」評論：台灣的渴望藝術 - 華爾街日報**（2026-03-16，gnews_wsj_insurance，重要性：低）
+
+### 知識缺口
+
+- **供應鏈ESG風險**：台灣地區的供應鏈ESG風險評估尚未被充分報導，此為產業面臨的新興議題。
+- **報導數量偏低**：本月僅 8 則報導，台灣地區的ESG永續資訊覆蓋可能不足，建議擴充資料來源。

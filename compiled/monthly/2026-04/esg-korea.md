@@ -4,10 +4,11 @@ period: 2026-04
 category: esg
 region: korea
 articles_count: 15
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+compiled_at: 2026-04-20T03:24:50Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
+
 ### 本月重點
 
 - 漢華金融建立殘疾人就業‘持續模型’
@@ -28,14 +29,37 @@ model: claude-opus-4-6
 - 2026-04-08：韓國保險公司 (1)：한화생명, 지난해 사회공헌 기부금 생보업계 1위...봉사시간은 삼성생명·메트라이프 '두각'
 - 2026-04-08：三星電子連續24年蟬聯韓國收入榜首
 - 2026-04-07：韓國首家保險公司加入聯合國女性領導力強化原則
+- 2026-04-06：신한라이프, 광주地区上下一同的支持资金 '1亿韩元' 捐赠
+- 2026-04-04：韓國社會保障信息中心與三星生命公益基金會合作建立「三星幸福大獎」
+- 2026-04-04：治理論壇：三星電子和三星人壽價值提升披露獲得F級
+- 2026-04-04：拉이나生命社會公益實踐『溫暖的保險』
+- 2026-04-01：韓華成為首家韓國非壽險公司採納聯合國婦女權益原則
 
 ### 趨勢分析
 
-本月ESG永續主題在韓國地區共有 15 篇相關報導。
+本月ESG永續主題在韓國地區共有 15 篇相關報導，時間跨度為 2026-04-01 至 2026-04-17。
+
+**報導密度與分佈**：15 篇報導分佈於 10 個日期，來自 4 個不同資訊來源。
+報導高峰出現在 2026-04-04（3 篇），
+主要涉及：韓國社會保障信息中心與三星生命公益基金會合作建立「三星幸福大獎」、治理論壇：三星電子和三星人壽價值提升披露獲得F級等議題。
+
+**主要議題方向**：
+
+- **保險相關**（3 篇）：如「韓國保險公司 (1)：한화생명, 지난해 사회공헌 기부금 생보업계 1위...」等
+- **ESG相關**（1 篇）：如「韓華生命戰略結合人才培育與ESG，為越南金融未來注入「K-DNA」 - sisa」等
+- **人才相關**（1 篇）：如「韓華生命戰略結合人才培育與ESG，為越南金融未來注入「K-DNA」 - sisa」等
+
+**涉及企業/機構**：한화생명、신한라이프、메트라이프、삼성생명、三星生命公益基金會、三星人壽、韓華損害保險、韓國社會保障信息中心
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+同期（2026-04）韓國地區在相關主題的報導分佈：
+
+- **監管動態**：211 篇
+- **市場趨勢**：289 篇
+- **科技應用**：138 篇
+
+ESG永續的發展與上述主題密切交織，特別是在政策推動與市場回應的互動層面。建議交叉參閱以獲得更完整的產業圖景。
 
 ### 來源文章索引
 
@@ -51,8 +75,11 @@ model: claude-opus-4-6
 | 8 | 2026-04-08 | 韓國保險公司 (1)：한화생명, 지난해 사회공헌 기부금 생보업계 1위...봉사시간은 삼성생명·메트라이프 '두각 | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMiY0FVX3lxTE03Q3hrbXM4SkxWZWFkYlR3bUxENzVXc2ZjdGNnRTJsME5FMTRaUVR5T3dQRkVXTUdHRE53Vm15Qmg0YWEySktVa19PQ2VCbDNlSTVaaU1hZDJKRGllWUhrbGtudw?oc=5 |
 | 9 | 2026-04-08 | 三星電子連續24年蟬聯韓國收入榜首 | gnews_kr_en | https://news.google.com/rss/articles/CBMioAFBVV95cUxPSFlzWDJRT3RkQ0w1QmxYZXlQaDZnREVmRVoyMzAtZVJncUNzdDVCTTd5dTZkM0RzZU9ELXctS2hxSXBkYW0xRzg4RWhrTkxjb095elM1YWlTMEZWSzJCckh6YVVsbVl1TVhlQVNvbFh5VjhMUHgybWRrdDNUR3o4MS1Sel9tNmNKa2VXQVBlNTc2elIwZHpiWFJoeFB3ZW1W?oc=5 |
 | 10 | 2026-04-07 | 韓國首家保險公司加入聯合國女性領導力強化原則 | gnews_kr_industry | https://news.google.com/rss/articles/CBMia0FVX3lxTE9XM2dUeEs0R0ttMDQxalpzc2lYby1sclR5d0t6dkZWNkdVeXluN2FBR2xvcGpZLWdUNWV5cFV6THY5THY1OGQ2X013d2o0NGR5WFhIekNqekFFRWs2aU1LN1FpcUVCUVJveEFF0gFvQVVfeXFMUFhvSmRUWUZKVjVEYjdBX1NfVjVuQnI1SjMzQkNmRkliM1VMcXgtVUIyWGFxYzhMaHFYekQwQU14QTlRUnBZSmxmWjBhQ0NkQ1JtLUgtQ25CYk9VVTQwWGJkX05YNHN1ejBaRWZIaEtz?oc=5 |
-| 11 | 2026-04-06 | 신한라이프, 광주地区上下一同的支持资金 '1亿韩元' 捐赠 | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMia0FVX3lxTE9ITlBkcHFTdngwMDlIZmlpanhhTHc2clozWTI3YTNkcEtSejJZTk1fNWtrVlY3aHdnbjZjQVpWcjE3MTJ4ZVFnREhiS0NyeDVMeFlaX0JtSC15M3NmNU9zY01xeHAxdmFWRWtz0gFvQVVfeXFMTXREUGVsSFNVa3lZV3BmYzJveU5rTWNuVUEtRGozaXhlQkNOTmJxQm5tUFQ0MnNhNDNUcFUtQTRVLWpIcWJKYzlheTl2LXdVdUYtaG1lVzFnQWktMDdMRFhDSDcyVi1fZHhjQXV4R2Ew?oc=5 |
-| 12 | 2026-04-04 | 韓國社會保障信息中心與三星生命公益基金會合作建立「三星幸福大獎」 | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMiZkFVX3lxTE9wMlFadXpnSTdMYXlpLWhjNks5bWVDczVnMzN0d0ZDVTdacFh5UURvV3RVYTBrenlPNDM3N3FkdjZaNWdrYkNRSm9DTEw5ODVmbkE0YTJUWk1ka1d1YVVNbG4tSXB4QQ?oc=5 |
-| 13 | 2026-04-04 | 治理論壇：三星電子和三星人壽價值提升披露獲得F級 | gnews_kr_en | https://news.google.com/rss/articles/CBMickFVX3lxTE1oOFZkczVTbEJoUzJ2TmdsTFRjM0xtUDVuWks2OWxyNjd6YlJhaFQxTGNJaFdwMXNLNzgyTU1JejlQa3d1RUxlRjhYVFpmdDZxU1ZOZjRZSkx5blZuRllYWW9sSEJJTUVicmZjTHZaS0xpdw?oc=5 |
-| 14 | 2026-04-04 | 拉이나生命社會公益實踐『溫暖的保險』 | gnews_kr_industry | https://news.google.com/rss/articles/CBMia0FVX3lxTFBRZkVGRXQySXVoY1U5Y2hZQjVsemlJN1JCSDFwRFNrNXMtQUVkUVlTNkhPeWh2aHJPS1JKQzZoMllNRUZtbGRsNWJPMkFNQURmUFFWc0w3WXFPb1ZzVHBUNXdfcDczYmhwd2FN0gFvQVVfeXFMT1FCZFc4X2xRMklBV1hlLUdvQTl2N1Frd1NRaUJWVzJmYlJRazY5OGZyRFgwbm5uN1FMWUZFQ0VPTHJzc1BZNkVFM3gzWXZWTnZ1VlFFUmtuUjl1YS1MUnFiLWpBd2JiMzQ4T2c2VHRJ?oc=5 |
-| 15 | 2026-04-01 | 韓華成為首家韓國非壽險公司採納聯合國婦女權益原則 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMi4wFBVV95cUxOUC1uWlRlR2JYQWVqdTNvem02N3VHRVJFREJDVDdxZDRwUFZhTUhxVlJZeWk0bmJVQ2Z1WFYzckNXdkZSUUU4eEJ3cEttcmsyNkUySVN0ZmRSME9kTlhaNFpPLUVscnN4YnNqdndxNzRJc1hEM01zRG40VkczRWNmTUpJaFhqaDZvUEZocERqdXFzWVRKSEViaHpDa3JFbmt5clgwNXJ2Y2ZJMWhqRUV6dTk5THhDWWFaYUFiMUptc21aZFF4QVQwc3lnZkhHbjFHamplcGtUelhMSlpQd1VFS255Z9IB6AFBVV95cUxOMmExb3hwTEdDWThPS0hCWVNINEJGSWFjLUE1VTNmRFdHdzl5Y1pJSDV5dzNUcUdRVjYwQVYtdVlSTHYzc0hDU1JpZlphbmVQTy1XanFPRjZ4Z28xUVVKM3R4dHBjRTJzTW83MzhLYjNXaDNWQjlTWGZicnNUSlpPeVB2cHVxd0F1Y3JJOVB2UGhlWWlpZGRvMFBsbTlNZDMxeHRuM0VqMUdsSzVlMk84dnhJbWdCZGZHOVNJY0hFazdCbU5DQndxdW5hZG5TM1h1M3NwZ1kwX01nU2lLak9QaEU0SDMweXl6?oc=5 |
+
+*（共 15 篇，僅列出前 10 篇）*
+
+### 知識缺口
+
+- 碳排放量化數據不足
+- 氣候風險模型驗證案例偏少
+- 永續債券在保險業的應用報導有限

@@ -3,71 +3,58 @@ type: monthly
 period: 2026-03
 category: reinsurance
 region: global
-articles_count: 433
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+articles_count: 447
+compiled_at: 2026-04-20T01:30:00Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
 ### 本月重點
 
-- Mission Underwriters從邁阿密推出拉丁美洲再保險平台
-- 再保險站在前沿：伊朗衝突推動全球能源震盪：Peak Re
-- 航空保險保費預計上漲，全球再保險壓力加劇
-- Scor SE (OTCMKTS:SCRYY) 短賣意願上升 25.7%
-- AI數據中心熱潮迫使全球再保業重啟，積累風險急劇上升——瑞士再保研究所
+- 瑞士再保研究所警告 AI 數據中心熱潮導致積累風險急劇上升，迫使全球再保業重新評估風險模型
+- 中東衝突（伊朗、荷姆茲海峽）重塑全球再保險定價格局，四月續保壓力加劇
+- 慕尼黑再保預測全球網路犯罪損失將達 14 萬億美元，網路再保險需求激增
+- 慕尼黑再保承諾 2027 年前向股東分配 53 億歐元，市場對其戰略轉變態度分歧
+- Corebridge Financial 與 Equitable Holdings 宣布合併，反映再保市場整合趨勢
+- 伯克希爾哈撒韋收購日本東洋海上保險 1.8 億美元股份，加碼亞太布局
+- Mission Underwriters 從邁阿密推出拉丁美洲再保險平台，開拓新興市場
 
 ### 時間線
 
-- 2026-03-31：Mission Underwriters從邁阿密推出拉丁美洲再保險平台
-- 2026-03-31：再保險站在前沿：伊朗衝突推動全球能源震盪：Peak Re
-- 2026-03-31：航空保險保費預計上漲，全球再保險壓力加劇
-- 2026-03-31：Scor SE (OTCMKTS:SCRYY) 短賣意願上升 25.7%
-- 2026-03-31：AI數據中心熱潮迫使全球再保業重啟，積累風險急劇上升——瑞士再保研究所
-- 2026-03-31：漢諾威再保公司股票：了解全球再保的商業模式和投資案例
-- 2026-03-31：慕尼黑再保股價：戰略轉變和資本回報在市場猶豫中
-- 2026-03-31：全球數據中心保險需求和風險增長：瑞士再保
-- 2026-03-31：慕尼黑再保：變化的風險格局如何帶來機遇
-- 2026-03-31：慕尼黑再保在經濟不確定性下的戰略地位
+- 2026-03-07～03-15：再保險業者陸續發布年度報告與市場展望，2026 年再保險展望增強
+- 2026-03-20～03-25：伯克希爾哈撒韋宣布收購東洋海上保險股份；Scor SE 短賣意願上升 25.7%
+- 2026-03-28～03-30：慕尼黑再保承諾 53 億歐元股東回報計畫；中東衝突升級影響續保定價
+- 2026-03-31：瑞士再保發布 AI 數據中心風險報告；Mission Underwriters 推出拉美再保平台；慕尼黑再保發布網路犯罪損失 14 萬億預測
 
 ### 趨勢分析
 
-本月再保市場主題在全球地區共有 433 篇相關報導。報導量大，顯示該領域活動頻繁。
+**AI 數據中心成為再保業新型積累風險來源。** 瑞士再保研究所在本月發布的多份報告中反覆強調，全球 AI 數據中心的快速擴張正在創造前所未有的風險集中度。這些風險涵蓋電力供應中斷、機器故障、數據洩露及實體災害等面向。傳統的再保險風險模型無法充分捕捉數據中心的相互依存性和級聯故障效應，迫使全球再保業者重新建構風險評估框架。巴克萊也發出警告，指出 AI 對慕尼黑再保等龍頭業者的商業模式將帶來結構性衝擊。這股趨勢意味著，數據中心保險將成為再保市場中增長最快的業務線之一，同時也要求再保公司投資於更先進的風險建模能力。
+
+**地緣政治風險重新定義全球再保險定價。** 本月最顯著的外部衝擊來自中東衝突的持續升溫。伊朗局勢帶動全球能源價格震盪，Peak Re 直指再保險業已站在地緣風險的第一線。英國政治人物坦言重開荷姆茲海峽「說起來容易做起來難」，暗示這條全球五分之一石油通行的咽喉要道面臨實質威脅。航運戰爭險保費急劇攀升，部分船隻被迫繞行好望角，航空保險保費也預計上漲。四月續保在即，全球再保險市場的定價將全面反映這些地緣政治溢價，對產險再保和能源險再保的費率產生顯著推升效果。
+
+**再保巨頭間的戰略分化與資本市場博弈加劇。** 慕尼黑再保一方面宣布 53 億歐元的股東回報計畫展現信心，另一方面其戰略轉變卻遭遇市場懷疑，股價承壓。Scor SE 的短賣意願大幅上升 25.7%，反映投資人對部分再保公司前景的看法轉向保守。相比之下，伯克希爾哈撒韋透過收購東洋海上保險股份積極擴張亞太版圖，Corebridge Financial 與 Equitable Holdings 的合併案則顯示壽險再保領域的整合正在加速。漢諾威再保持續穩健經營，其商業模式和投資案例受到市場肯定。整體而言，再保市場正在經歷一輪「強者恆強、弱者承壓」的分化階段。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+- **再保 × 科技**：AI 數據中心風險同時出現在再保和科技兩大主題，瑞士再保與慕尼黑再保均將 AI 風險列為優先關注項目，代理式 AI 被預測將改變網路攻防格局
+- **再保 × ESG**：能源轉型與地緣衝突交織，荷姆茲海峽風險事件同時牽動能源價格和碳轉型進程
+- **再保 × 人才**：伯克希爾哈撒韋新管理層的領導轉型引發市場對再保公司治理模式的關注
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-31 | Mission Underwriters從邁阿密推出拉丁美洲再保險平台 | gnews_insurance_global | https://news.google.com/rss/articles/CBMi1AFBVV95cUxNZ2lmZkdIdHRjeGJ1d1F2alNYWHNXOTNzbjlKRTU2MkNwX1VLRmtIem40bVhLeHl2Rno1aWRfOExuV0FBUjBZZzRNWHc3bXB6aVFMUWc3SFNlRm1LbzVpZDc2UmI4aDJOWEpVR2V4Vno5bzNLYW0zdWpiSGVvc1N3c1lZajlUVmdjekR5aGo5RS1UUXlqeXFzWmtUbVJhMmwxQlRQZzVXcG1JMGhwRGhHT1pfaU9yYmh6RWZ2QUZxTndiekFIX1B5UTBFbkNaTGZKXzVlVA?oc=5 |
-| 2 | 2026-03-31 | 再保險站在前沿：伊朗衝突推動全球能源震盪：Peak Re | gnews_insurance_global | https://news.google.com/rss/articles/CBMirwFBVV95cUxPeFlfTU5MTnRyZHpNem8teWQ2NGdhUXBuamFVdGswUmdMNFBuMFg4SVZsMmV1cHREN1J4eEhVcGtQUkZKU1BfbGIzOWoxeEVmbzd6cVFsYjBtb0xkWC15OXl4TklNR1JLdFY2am9PSjNtQ1JVS3NmNFV3Qld4aXlkeWpUbGM1UzJmb2RUUWptUzhjQV9Mb3FpUURsNDVDblpVLW1XOXJPRUVQSGw2a1p3?oc=5 |
-| 3 | 2026-03-31 | 航空保險保費預計上漲，全球再保險壓力加劇 | gnews_insurance_global | https://news.google.com/rss/articles/CBMi1gJBVV95cUxNVzhXU3ZXb1FzNXIyenBLU0xqd3pXRFNfNWI3ZTA2QzhoTWpUZ2hRQ0JQNDE3aDNfbnMyMFZZOUhmcG1JR2JxNldULTB4clVmRWVld2g3Rk5DUEtaaDI5azlVMktuRFNUSGxpNzhxMlhkX3ZwUTRJWXZXSXVIYnNveVNXMVpFUWNYSHRrdGNvVHBacGFfbjVLdTNHbm0yd3Z0TmRzdUlTSENXX1dJT05NNEkwVnEyTk9nejY5WmptYjVJbzBwUm9Fby16V0FpNndRS2FBVzdLWnVhWFlRSXdsUUhQY3M3bThIbGNreW5kX2RJdkNHUzBkdTREYm8zMklFTVBJY00wTjR0Q1ZPM1lodUJtLURPam1uMDZsY21LMjdsQW5mMXowV2RLY0lPVmRrWTdwbmMtRWEzN252NEdCcXgtbEtyR2hLRDlXVjZqREo2clItdWc?oc=5 |
-| 4 | 2026-03-31 | Scor SE (OTCMKTS:SCRYY) 短賣意願上升 25.7% | gnews_reinsurers | https://news.google.com/rss/articles/CBMiqAFBVV95cUxOZDNncDZ5c0RLdlFNVTlPbUpoeC10Z0FXQWM3eUVIMkp5THlVRWViUm9jOUxJSDRSQXc4djk5OTdGZzZZdWdPNW8wV1dsVkRxdU1rRUhWWG9DSWQtXzVvUWZBS3RER1Y4dThSbFQwQm9jTjVpRjBfaldIMTZzaFlqd3pTaFdSSzROb3BmcmpVdzRMTzdXcGF2dkFKWllGNmFhZlpQdV8tdEM?oc=5 |
-| 5 | 2026-03-31 | AI數據中心熱潮迫使全球再保業重啟，積累風險急劇上升——瑞士再保研究所 | gnews_reinsurers | https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdEVPeXBWNjZxcW9JUnlBZVR3NXA3MDNMS0lwRTNPWG1VbUdWc0lsM180dG5VWDI0b01tQ1dlZDMzTU5fVl9kOXBIQmFHTGswRnFxTlRCbUhZZkY3S2lORWJpRFBJN0wyWGJHN2NMWm1VSmx0R2ZoV0ZwX2Q2ZUdaSG5XTUQtbzhnSUwzV01RSXVXTWdobHVNc3FGR19hSnQ1UVpIR1RCTGRuX050SC1NQThqSGdKc3pSOXpJ?oc=5 |
-| 6 | 2026-03-31 | 漢諾威再保公司股票：了解全球再保的商業模式和投資案例 | gnews_reinsurers | https://news.google.com/rss/articles/CBMiwwFBVV95cUxNNHdSbzRnR0pCbzF1d1NjZTJyak1nRVBVTGN3T2VKX2FGWmpxR3VaOWlkY2hTT1I0YjdZX1B4YnJiZkEyQURzcml0THNnVllIT2h2cDMzMlJjOWR5ZFB4Q1NEMjVsbU5NdXFTYVBYSm9Ba2loX2U0d0F4ZGI5SzhLV2tEZUlTb1dFTW4zWnI1RFJhd3VtcTZGaEZLZXVocEdGLTVSOXdkRmtIeExIWk1keUc4YnNaU0tPUEVfclh5aV80eVE?oc=5 |
-| 7 | 2026-03-31 | 慕尼黑再保股價：戰略轉變和資本回報在市場猶豫中 | gnews_reinsurers | https://news.google.com/rss/articles/CBMivwFBVV95cUxQMHQ4TlgzX3pva2hDckM4QnV6TTkzbHMxODlDeVptZjhLMThCOGJEQzZFVG9UTGpRN0dHdFJ2TFpsUDdRUGpiX1VjSUxVTTJTR1ZNdjd3aVJqcHJnRzgzMVJJZXphbVRmNlNSN25GNVRiY1VBQU9lOVdYZUt0UVRSalE1Q0VRVjBYWkdla3RIeEdWYllIZ2dCVHVEbGIxczUtZWtyNktfbzcxdmFxSWxCbUVmOUxrZ0U5VElwaWNfRQ?oc=5 |
-| 8 | 2026-03-31 | 全球數據中心保險需求和風險增長：瑞士再保 | gnews_reinsurers | https://news.google.com/rss/articles/CBMiqgFBVV95cUxPRTVOOHhpZFZkZjBrOXpldFk3bzJWS3ZEbmtaaXdPT21MdlNVUVg4dThZNWJOVlROZHBiYXp2LXpPRHByRzVkMXYzd0FDVWJ3TGRRdlJxd0RDVmZEUzJTV0xmNVBQT3Q1cmE4Z3dPRC15V3RBODhtbDZFT09OWXN1UnpaZDJyZ1ZNSFdldVgwTnAyVlU0QnFQM0xXbW5IZ2EyQmJ2eE1lOEJud9IBVkFVX3lxTFBmaEdEdk0tRUVOQXc3YWxmSldZQzNVcmRpRGNHSkdSc29hcDgyUnpSWlpaMkxTZUktb0VaMWwyT0xESXgtT2ROeWUyMWlDelU5cEtMb2FR?oc=5 |
-| 9 | 2026-03-31 | 慕尼黑再保：變化的風險格局如何帶來機遇 | gnews_reinsurers | https://news.google.com/rss/articles/CBMisAFBVV95cUxPQnVjSUFoNlM4Mk9wYTNpN2VDZHRUQkxUcnBOamNCeUNOcUZNRmNIb1A1WFlfeTdXVTNZS3NWYVBnRGl1eWs1MFVtRURkWG5KcHJoQ3RkZTRzNXRGTjg3ZEhlTU90WFZpU3gySEZLWG1QVEQxOEFaSU9fWGFHd3dLMlRkMmtldWVjSlM4SzFCa3lFRGdIVGVabzV0S0RzWTVqM25RMU14NVBfOHlPS2VUdg?oc=5 |
-| 10 | 2026-03-31 | 慕尼黑再保在經濟不確定性下的戰略地位 | gnews_reinsurers | https://news.google.com/rss/articles/CBMitgFBVV95cUxQQWJBcXlFczM2ZWV6c1I2LTFRVk9aeW5UTXk5dGFkLWI4TkJUUl9LYlhsUnFINlVnRFo2WW5hWTZ5bzd6NFZTWkkwc1JrSGhMZ3pOalhPc3oyWDg3MFhSQ0dRanZtS1pSalpJRFluMHcwZmt3UkY4SDYwcHhQMHJNY3J4NWJXbWN6dXhvUUFyZHhrbFBxOHZzM1p4aDNJVVkxNWN3N3ZVRE9yd2pyaDFtalN5U2Y0QQ?oc=5 |
-| 11 | 2026-03-31 | Corebridge Financial 和 Equitable Holdings 合併 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMinANBVV95cUxOZlFPYXAyQ21TZEpnWTZaOHgybzFoLVl1RFozdFFoOVNwbnhqal9EY1NUbC1tVzdIVWNhLXRlUXIwWHRyam5xek1GRkhvbWxiU1pXSEgwMUljMXdNOFNNZ3FBRkFCcF9TOGpRcUpMSVA1aFJCTUhuQXdTYUFpRmt3TGFidEJfX0tTejkxRXVuWHZGTi04NElKNjh5bFBTc183dUVrVVE2T0V5ZFFyb0ZtX19TREZXa2p6WkhDa0c2dFZjRWdpdS1YWnBUdFNueERiVGxHcE1SM2NubHpNRzRHdDhpRHpoaWl4SXhXSFFJOXhLZXJZOGVUTDFmcEpXVkVNaTF1OXlXaFdQWGRwRWx4eUpaSjNwcGlrSFI0Rk9wLXkyZUctMG5QYW1SeDJmeW1OQ1RISjVLdm5UQnJxVzVZNEQtdnZGZU5HLThQRVg1WExLMDRnRmRyXy1YT3FhaXp2Q0lFZlJnUF93ZEozYXh0UUxZZkYzdnM4U2tOZks2czV4VjlvQUdKVmNlQWhzVmJUR19aMldmb0VTTnRX?oc=5 |
-| 12 | 2026-03-31 | 重開荷姆茲海峽「說起來容易做起來難」，斯塔默稱 | gnews_bloomberg_insurance | https://news.google.com/rss/articles/CBMiqAFBVV95cUxPZnFOVXBpSlZ3RXZKY2pxd3I0MFFvT1lodnZ4djhMNEdJU2hjVkk5aUowTVFSdHBCN0J3ZFRwV2xLZVB3TUNPUnBpamRhRWR1TEZwaGlJaXI3Z09OOU4zbm56M0c5TWU3NTlUU0l2MTFHSDVjOF9samphRkxWX2ViRkc1V2Izei03QWg2eFZha09jcmxRVEVDbFVfUDdRMWo0VVFTNldiVXo?oc=5 |
-| 13 | 2026-03-31 | 全球網路犯罪損失料達 14 萬億美元，慕尼黑再保警告 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94989/Type/eDaily/Cybercrime-losses-seen-hitting-US-14tn-globally-warns-Munich-Re |
-| 14 | 2026-03-31 | 中東衝突重塑全球再保險市場，四月續保在即 | gnews_insurance_global | https://news.google.com/rss/articles/CBMi5wFBVV95cUxPRW1FMmdmNUs1cTJ3RXNNbC1zcWowR2JMR2RMb2ViTG1sbVczQmN4VnY3X1RERXJSX1YxTHgtX1QyUUZyTDZLSTJjMmJodXdlQXIzbUZxVlRYNjJ0SmZQemxnQkJiY1FfT0EwQjNiWVhnME45TDF4Y2JjM1dIbVRBRy1vbjM3OVdIeldqZzlLZHg4WGR6OWQzM3lUamppM0RabHVRejEzTE8yTlM0Y0VIRWxnMmZIYWJFWGRsYUZKTHcyRVRDdFNCVURqZjhsZDBYcUdpZV9ESDROWDZERFBZYUw5ZTVSU28?oc=5 |
-| 15 | 2026-03-31 | 漢諾威再保公司股票：了解全球再保業務模式和投資案例 | gnews_reinsurers | https://news.google.com/rss/articles/CBMiygFBVV95cUxNc3hOcFl4amJ6SGkxYnVuaVRldzJFa2Q3anVjdEtycVhULUdIVjdMUUJxSzVmM3FaU2J1TVUyMF85XzN6WFYtQWM0alEyU0pjQUs1c3VJLUxvMFYzb1c4TjFxU2Q1Wi1wM0VSOU9Qc25lcUZnbjlyYldvZmFYdU83WGlTLW1Ib2YxbGtJVzZ1bU9feThRSWpkMV9WOW1aZGo4eXp2YVJlZDZmR295RzhZWGdmUUVucjY0bnZBYVRldWhXekpDU0tUSEx3?oc=5 |
-| 16 | 2026-03-31 | 慕尼黑再保承諾2027年前向股東分配53億歐元 | gnews_reinsurers | https://news.google.com/rss/articles/CBMiwgFBVV95cUxPMlZVdll2SXNyUjlGNVBXTmFIcENkalRTM3FIN0tBNVdOTDlYd1JJTXhncVNlUW02dl9LX2YtRTJ5VmRoY2xqMnhPUmtYS0hJWUFXYm53QnpWb005U1dQRXFGRTl2ZVQxUXVtTG00RnJOV3RPbTV6M0lKSldPNVdvc0JnY1JNem5LcFhrb016UG52bEpLcUlmTlp1Q1dWWnhkOWhsRWxJR0lpZTY0QmZHYVVqSXNMRm9MU29zR0szejRlQQ?oc=5 |
-| 17 | 2026-03-31 | 巴克萊警告AI對慕尼黑再保的影響，儘管慕尼黑再保表現強勁 | gnews_reinsurers | https://news.google.com/rss/articles/CBMizAFBVV95cUxPY2U2ZE9RRW5LMVNaZFQtdDZYaUMwZnJlRnZJVzZQWmoxWTV1VVhOcGgyS0Y3NWJ5cnBaVE9NVDZ5SFpsQ01QTkhrcGdyZXM1SC1UclFGNVpLb016YUtNUFBCWTVzd29BdnRPc2llaGRHOHFEdVpqdTZ6cGxfOUt3NmtQZ0o3aGRNMTR0SWRYTlRQZkJrNlZPelprNWJmRzVIQmcxZFQ0aWhjZ2J4c2Q4OEJOdDhwSThqV2hOQzl6aEo1cHByenlvdS1CdXo?oc=5 |
-| 18 | 2026-03-31 | 慕尼黑再保的戰略轉變遇到市場的懷疑 | gnews_reinsurers | https://news.google.com/rss/articles/CBMirwFBVV95cUxPbVc5RkZET2REcHN2bGQwalpCTWtpMjVBRVgtV1NONHdKOUNLSFhUNkwycXBNRkZ5ei03dHBzS3VlNER6LXdfRE5LTTlsMDhkMWltZ2FiVnJKUjJnblBhWkY5VHNXNmlCRnA4LXdIVEVtcTFaOEtTc2tLOWVZZk00NWoyaFhOVHdxRkJMcE9Gc09WTHVmdTB4NUtZUHZTU0NfNTRlc2FHUGVBWk1DZVRz?oc=5 |
-| 19 | 2026-03-31 | 慕尼黑再保股價面臨壓力 | gnews_reinsurers | https://news.google.com/rss/articles/CBMiygFBVV95cUxPcXh4T1NvZUZfblNPS0czN1ZvRWl4RU9wRVdQOHhyTmJzOXlYbGhLOGJINldtbGJGZ2wxZnJVNGt3eUpiSmNMbDlZMzFhazN2Q3JwNGJCQlMyOTExcVBNYldnS2hBYXlkVWl1Zm9YRW5Ib0NIbkE5NnJOQklEN1NQMEhnb1ZDbkl0Ql84ZlhHZ3hoWEZVRzQ5aDFuSnN5ZDBHUzdrMmExcnZTdXRxWE9QOE1teGJJV2RyNVZidTQ3VkMwVHptdnZGU2tn?oc=5 |
-| 20 | 2026-03-31 | Scor SE (OTCMKTS:SCRYY) 短賣意願上升 25.7% | gnews_reinsurers | https://news.google.com/rss/articles/CBMingFBVV95cUxQbUlNMmtrMGNaSHBfVm5WTUxpYjlRNkRhajd6dnRTT1pDNTJvQkU4UlpYc0d2RTVwWnZ3WnUtRkE2cm91a1A1blFhU29lbG9LNjRuMElZMVg4QWxjNFZsS29rX29VZUhjaFhjT0xYY1VneGstS0hIQTNaeHlXNmZ1UmlfaG9hQ05YdkloMlcyVFRQWFRWblVCa0JnbTZjQQ?oc=5 |
-| 21 | 2026-03-31 | Scor (OTCMKTS:SCRYY) 被 Zacks Research 評為「持有」 | gnews_reinsurers | https://news.google.com/rss/articles/CBMilwFBVV95cUxPSmFsYjZHUEZBTDlZT3djbzZwRF9USW93bWJqb2NWdHdYakNBc1ZDLXZZRXFLZ1BSSDFYSERwMWk3T2xFZ0lteFR2eEdjZXRWS2k1WG94aG5FdVpTUll6TTlmY0Z5SW1fV1BQQVA3dXRYUUtkajJ2RFpaMm1ZaDVCYVZFU0pheG0yZWVNTGRrVU0zaEhsdDZZ?oc=5 |
-| 22 | 2026-03-30 | 漢諾威再保股份公司：領先全球再保險商的商業模式和投資者前景 | gnews_insurance_global | https://news.google.com/rss/articles/CBMiygFBVV95cUxNWlZELWRZblpNZDhvRjYyTmRGVHEwejhMX1F2T3B5dVpEbGZxRWE4ZXppd0txMk5oLWhtdnZmYmpoR2tHN2xrNWsxcFFjZlpoZW1GSnJDMmI4Vm1xbG5FU0k3SGVuRE0tUXFzLWdiYVRrVWRpU3J1QThIdUswYno5aEZ4cEhucGtEWUhqZDlDOXV6ejB6M0NXSjhFd1BLNWVSc3FES2Frb0o4UG9Tbm9MZU5Ob2JjdVJXSjZJMUhTMklxV21tcXZhZVhn?oc=5 |
-| 23 | 2026-03-30 | 2026 年再保險展望增強 | gnews_insurance_global | https://news.google.com/rss/articles/CBMickFVX3lxTE5fRGc1NnEwNnV6VkdYVzB6M1ppRXFzQlNQUFVucGxjRlVtTTVxZXpHWG1wa0VWWUIwMHAwUDVMMXU0SkxOel9LVFhBckR6SERZeGpHcEdCeHItU2F0Z2dxSHNYbGxTNWdMUGVYaGxHVnZ0QQ?oc=5 |
-| 24 | 2026-03-30 | 瑞士再保公司股價、新聞、報價和歷史 - Yahoo 財經 UK | gnews_reinsurers | https://news.google.com/rss/articles/CBMiVkFVX3lxTE1od0VQWHdIS0JkaDBVX1JPR1gydHF3TFJMS29lNS0yUHRiVG9jbHA3ZEhBaGtuUnM0UXpVWnZuQmhiSlp2bkduRmxrR1B4OU9hRE1GOGdR?oc=5 |
-| 25 | 2026-03-30 | 慕尼黑再保競爭者：兩種投資策略的故事 | gnews_reinsurers | https://news.google.com/rss/articles/CBMiuAFBVV95cUxQYnBUaFMtcUp6WEVqM3N1NklrSThqMGdMb0ZRTkxtN3NPeURBMldxdUd0MnJ6SFY0QzVVb0xaa014SnlKQWVVRkdfRGI1SFkwOURDRnRGSFplb2JER3JTNW5BeFN0Tkk4b0MzTGd4UGpDNHhvcWhkeU0zZVEtMTZuQU01WElpVWhGSzk2eF9Vckd0LUUyQmhEbEplejdJWTB5TlBQT1VINVhLVXQzaFFYRzRCOEVOR0s5?oc=5 |
-| 26 | 2026-03-30 | 伯克希爾哈薩克將收購1.8億美元的日本東洋海上保險股份 | gnews_reinsurers | https://news.google.com/rss/articles/CBMiogNBVV95cUxNU3VFd0lIdWRlblh0aU5jdHpSOVdSQ0R0RlFORnoyVC1aNmlwNmkzT3p0ZkdrYmNXSExWM2lod0U2dEhYQ0M4NS05ZkRhbEl0S1l3WWNKTVlsWnhmQXAxaDUyVlQtMEtCOU4weFBNQjdjdFFwUTVBaDNPaWQ0cVB6OFVtcy1ObnZPWUh2bGtId1MyUEZQQTNlM1V6Y2o2ZWEzaF9mMHJiU2NFVTd2dVAzbU1PWmVEZHlBdE9KSjFzM2ptS25RVkhSSENOYzMxR1V4T2VmV2pwN1J6d3l4QjBhN1kyX19VWjdDQkFfbENJOExxZjVnVGZCQ3plTTcteXNVYjFYSEJWZUdrdlBldm9YS3lnT29PM1lDR2lnZWFzN3U3M2JWS3cwbFN5TkZRajlWaWpEV1g1VGdWdEpaVlcxaGFybFZkSzREVmRsRDVIcWZZeHFkVTZlY2dDUlNvMkxpYmZWNWd0b1V5RW1xV0N4dEN4N0lmYW0tRWk3SW9RbHhuTllWbkEwUW92MGF6Q1FZOVAxNy10VHI1RG82NDlwcy13?oc=5 |
-| 27 | 2026-03-30 | 伯克希尔哈撒韦（B）股票：新管理層下的領導層轉型和資本配置策略 | gnews_reinsurers | https://news.google.com/rss/articles/CBMiygFBVV95cUxNcTBWZXNJX3NUNm81Unp6YmtpVW5nbkdMVjI3VDNIZGNDbFBLQ1QwUjgyWVJ2a2hzQS1hdzVmVGs0U3FENTlWOXREcGZNeXpNMk1XbWw1Zk1WUU90dTFhQ2tzOW15akt6VFpLN2UxZkdtVDMwUTJSbkctUHJCZVpYOE9tbzlqTkpQQmFwYm1qbnlza0NuVi1GNnhMenRxSHdMYXdRS2Q4Y0xZUE4tQUR0YTNUNjR6LTNfWmFTalQ0UFRyUXJTZjB5bFRB?oc=5 |
-| 28 | 2026-03-30 | 慕尼黑再保競爭者：兩種投資策略的故事 | gnews_reinsurers | https://news.google.com/rss/articles/CBMivwFBVV95cUxNa3hrQVIzOV9CcHdEUHg0LU01RWVBT0piUU1JVHBGWjhGVU5TNUQxMU5vOWhsN01TcHZva1VjTGhacU8zUnQtSEc3WTRlczNxbVNhcXdSYjRwWVVVX2FZbGVLZGM4S0NQcGNRWnJDRTgtLWM3RHJhVldrMXNkOS1vOFBvRFNINTFjQkdqWTRZQ3RqaWdQdkpxRWtXNjRISUR0eWNfSC1pYmpMMW5YN0VCcFpaSTFKcm9nRTJraWpoRQ?oc=5 |
-| 29 | 2026-03-29 | 瑞士再保險公司：北美投資者的全球再保領導者，基礎扎實 | gnews_insurance_global | https://news.google.com/rss/articles/CBMiyAFBVV95cUxQRkNNUkNGV28yRUFSN1ZDY3JBN1N6N0x3TnZqRkplTlRIRHo0UldXZUJnSG4zN29TNWpSUXY1R1JsdEpKR0h4em5MY0R2R3BFTU8zQzRUVmlPOWtPaDFvdXJ1dmN1b256YmJVMFkzaGNXWE9aMDg2SkJrYnBOZFBXeWhMaW5RcFlSdEI5Y05jNDVIV0N3Vl91OVpfeDVEZGsyb3BQZDdtOWNzcTRPNkk2aC1iSHdWWV9xV2xqVGQybC1ONDdWOGM5WA?oc=5 |
-| 30 | 2026-03-29 | 伯克希爾哈薩克將收購1.8億美元的日本東洋海上保險股份 | gnews_reinsurers | https://news.google.com/rss/articles/CBMiogNBVV95cUxQRS0wY0xtTmJDeVlfUGRuWlFlZnJiX0xJUHVuSFh0ckdDTG85QmF1Y0JqUjJac3FDU2dIUkRaVTRtQ0hETXVHd3d0Q1RyaG5UYS1naUNWa3dHUHVuNGNwaDZpc2lyUmlOQmJQZHV0a2ptWTdKS09CT0lPTUl6NDM0eHNyWFdjUHJSTHI0Vi1lT2xnNVdhUlJUdDlpZFI1YkxIRUk5aVp2ZFRySlpieVRVa2hnV0tMdEdLbFk0cHhtYXBfZmNUX3dRbFV3LXM1OXExejl5OUh4VjFWUjEyRWFxSnNTYTZ4SzVzbmQwQkFqV3BoU3JkM0xMTmx2ZWxJYWxVWjJ1YktkYzR1cGVRRF9xQVpLUHRwazVVaEtLekZJb2N3a0JoWXFzLVFEQWt3QlZKMWltXzk1RmlhUzRiLTJ3WURWcnlzVEZPM2RKUjRqTnhyNFVVcXd0ZFFGQXY0S3ZFbUs2eWF2V2VtRUgzdHJpdnJlczJ5UEpIZ1R1dXdJRlpzX09WNkxlRXlzQlpINHloX3ZZTkZfQ1BNSTc3WFpTOTNR?oc=5 |
+1. AI數據中心熱潮迫使全球再保業重啟，積累風險急劇上升——瑞士再保研究所（2026-03-31）
+2. 全球網路犯罪損失料達14萬億美元，慕尼黑再保警告（2026-03-31）
+3. 中東衝突重塑全球再保險市場，四月續保在即（2026-03-31）
+4. 再保險站在前沿：伊朗衝突推動全球能源震盪：Peak Re（2026-03-31）
+5. 慕尼黑再保承諾2027年前向股東分配53億歐元（2026-03-31）
+6. 重開荷姆茲海峽「說起來容易做起來難」，斯塔默稱（2026-03-31）
+7. Corebridge Financial 和 Equitable Holdings 合併（2026-03-31）
+8. 伯克希爾哈薩克將收購1.8億美元的日本東洋海上保險股份（2026-03-30）
+9. 2026年再保險展望增強（2026-03-30）
+10. Mission Underwriters從邁阿密推出拉丁美洲再保險平台（2026-03-31）
+
+### 知識缺口
+
+- 四月續保實際費率變動數據尚未出爐，需追蹤 4/1 續保結果
+- AI 數據中心的具體保險產品設計與定價模型仍處於早期階段，缺乏標準化方案
+- 中國再保險市場在本月報導中幾乎缺席，需補充亞太再保市場的視角
+- 替代資本（ILS、巨災債券）在當前地緣風險環境下的角色變化缺乏報導

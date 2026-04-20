@@ -3,71 +3,59 @@ type: monthly
 period: 2026-03
 category: technology
 region: asia-pacific
-articles_count: 70
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+articles_count: 71
+compiled_at: 2026-04-20T01:30:00Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
 ### 本月重點
 
-- 亞洲3000億美元保險業需要量子計算
-- AI驅動更加個人化和以客戶為中心的保險產品
-- 人工智慧將推動更個人化和以客戶為中心的保險產品
-- MSIG亞洲宣布投資和合作夥伴關係與Ancileo
-- MSIG亞洲投資Ancileo
+- 亞洲 3,000 億美元保險業被指需要量子計算技術來提升風險管理精度
+- AI 驅動個人化保險產品成為亞太保險業最顯著的技術趨勢
+- MSIG 亞洲投資 Ancileo，加速旅行保險數位化和 InsurTech 合作
+- 亞洲保險公司面臨 13.8% 的 IT 費用激增，傳統系統拖累數位轉型
+- Markel 在香港和印度推出併購保險（W&I），聘請核保團隊進軍亞太
+- 澳洲 InsurTech 市場呈現 AI 核保、數位平台、數據風險分析三大創新趨勢
+- 亞太地區 AI 採用創造新網路安全漏洞，網路犯罪激增
+- VEON 子公司收購巴基斯坦 TPL Insurance，電信保險融合模式加速
 
 ### 時間線
 
-- 2026-03-31：亞洲3000億美元保險業需要量子計算
-- 2026-03-31：AI驅動更加個人化和以客戶為中心的保險產品
-- 2026-03-31：人工智慧將推動更個人化和以客戶為中心的保險產品
-- 2026-03-31：MSIG亞洲宣布投資和合作夥伴關係與Ancileo
-- 2026-03-29：MSIG亞洲投資Ancileo
-- 2026-03-29：GIFT 城市：女性金融科技加速器啟動
-- 2026-03-28：東京海上日動火災保險選擇EIS ClaimPulse™
-- 2026-03-27：MSIG亞洲支持保險科技公司Ancileo擴展亞洲旅行保險業務
-- 2026-03-27：Liberty 進軍亞太生命科學保險市場，推出新定制服務
-- 2026-03-27：亞太地區：人工智慧採用創造新漏洞，網絡犯罪激增
+- 2026-03-16～03-18：VEON 子公司宣布收購巴基斯坦 TPL Insurance 控股權；Navi 在印度推出數位汽車保險；嵌入式保險市場 2031 年前年複合增長率預計超 30%
+- 2026-03-20～03-23：Health In Tech 與 Ciklum 宣布戰略合作開發 AI 保險科技平台；天瑞祥與亞太 InsurTech 公司進行合併談判
+- 2026-03-25～03-27：Markel 在香港和印度推出 W&I 保險；亞太地區 AI 採用致網路犯罪激增；MSIG 亞洲投資 Ancileo；Liberty 進軍亞太生命科學保險
+- 2026-03-28～03-31：東京海上選擇 EIS ClaimPulse 理賠平台；亞洲保險公司 IT 費用激增 13.8%；亞洲保險業需要量子計算；AI 驅動個人化保險產品
 
 ### 趨勢分析
 
-本月科技應用主題在亞太地區共有 70 篇相關報導。報導量大，顯示該領域活動頻繁。
+**AI 個人化保險產品從願景走向落地，亞太市場領先全球。** Asia Insurance Review 在本月多次報導，AI 技術正在推動亞太保險業朝向更個人化和以客戶為中心的方向發展。保險公司利用 AI 收集和分析客戶數據，設計出能根據個人風險特徵和需求動態調整的保險方案。Navi 在印度推出的全數位汽車保險是這一趨勢的典型案例：零佣金 D2C 模式、AI 風險定價、幾分鐘內完成投保。澳洲 InsurTech 市場更是呈現 AI 核保創新（如 Daisee 和 Medius Health 利用穿戴式裝置數據）、數位保險平台（Cover Genius、Honey Insurance）和數據驅動風險分析（FloodMapp 即時洪水預測）三大並行創新軌道。嵌入式保險市場預計 2031 年前年複合增長率超過 30%，2025 年線上和 API 優先佈局已占 76.38%，顯示保險正在「隱形化」——融入消費場景而非獨立銷售。
+
+**傳統系統債務成為亞太保險數位轉型最大障礙。** 研究報告指出，亞洲保險公司面臨 13.8% 的 IT 費用激增，主要原因是維護和更新傳統 IT 系統的成本不斷攀升。這筆「技術債」嚴重擠壓了用於創新的預算。東京海上選擇 EIS 的 ClaimPulse 平台升級理賠流程、Newgen Software 與 G-ABLE Group 的戰略合作推動亞太數位轉型，都是大型保險公司為打破傳統系統束縛所做的努力。與此同時，VEON 收購巴基斯坦 TPL Insurance 代表了另一種路徑：電信營運商憑藉其龐大的用戶基礎和數位基礎設施，直接繞過傳統保險分銷渠道，將保險嵌入行動支付生態系統。這種「電信保險」模式對傳統保險公司構成了降維打擊式的競爭威脅。
+
+**網路安全風險與 AI 採用形成正反饋循環，亞太地區首當其衝。** Asia Insurance Review 警告，亞太地區的網路犯罪正因 AI 技術的廣泛採用而激增。AI 不僅被防禦方使用，攻擊者也在利用 AI 生成更逼真的社交工程攻擊和自適應惡意軟件。這形成了一個危險的正反饋循環：企業為提升效率而採用 AI，AI 採用創造新的安全漏洞，漏洞被利用導致更多網路犯罪，更多犯罪又推動更多 AI 安全投入。對亞太保險業而言，這意味著網路保險市場的快速擴張和定價模型的根本性挑戰。自動化預計在 2030 年前將威脅 43% 的保險工作任務，迫使保險公司同時應對外部網路威脅和內部勞動力轉型的雙重壓力。亞太醫療保健系統也面臨類似的結構性挑戰——供需拐點、協調危機和醫療通膨失控，推動保險公司從被動支付者轉型為主動健康管理者。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+- **亞太科技 × 亞太人才**：Markel 在香港和印度大量聘用核保人才推出 W&I 保險，科技能力的落地依賴專業人才的配置
+- **亞太科技 × 全球科技**：澳洲 InsurTech 生態的 AI 應用和嵌入式保險趨勢與全球 InsurTech 走勢高度一致
+- **亞太科技 × ESG**：AI 數據中心的能耗問題在亞太（尤其是新加坡、日本）正成為 ESG 合規和保險風險的交叉議題
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-31 | 亞洲3000億美元保險業需要量子計算 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMilAFBVV95cUxPNW9ITU1YN2F4VVZ5dmZvVE04UFMtMTFxajhobVl2TkR1QlMyR0NCLXdLam5zQWNHcFVkMDI2YXBCMkJxZXZndHN3MlVhbThGbmxlWnFQVDl4YjVhaW9vTFpfV0JZcFBrb1FWbmdqSS02cXAyMmV1OGdaWk5BNnRCcTZOR3A3Y2QtdHpiMGNidTh2UnZ4?oc=5 |
-| 2 | 2026-03-31 | AI驅動更加個人化和以客戶為中心的保險產品 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMi7gFBVV95cUxNeVgxQk85N012cmNmVUZaYktuY01RY19IdmFXalFKZnFEVi1EOTJvTmxsWjdwWnUwYWdpdlp4QWpaLW00cTlaZUQ5OWVuNGIxTTFoRlRydVNOTXRFR1gwOGwyeklrVmJ0R1M1bGIzbVFlcXpGcUJJdjVyOHg4UXdBNDNCb0lIMHpEZU1rN1J2WUNfTm8zdi1FMkZKWmx5N2pHQVJMWlRwQzI3SnpNYldVZ1p6aXhVb2huaWZxVTFmb1RtQVdYSnA3TzFDT2xUWGlrWjBkS3c1MTZRenVTamVIWGsxVEpqTktLWUZjTTNR?oc=5 |
-| 3 | 2026-03-31 | 人工智慧將推動更個人化和以客戶為中心的保險產品 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94990/Type/eDaily/AI-set-to-drive-more-personalised-and-customer-centric-insurance-products |
-| 4 | 2026-03-31 | MSIG亞洲宣布投資和合作夥伴關係與Ancileo | gnews_insurance_asia | https://news.google.com/rss/articles/CBMikAFBVV95cUxPLUY2THhpNWdDQVFYV3FvaHFxbFMzaXY1X0dpUWMyb1VfQUM2eHpWUW5RZFk0cHZ3TENCNVljOURia2xRMUhZbTYxX2d5VGdBV0JCWmhpY2RhU053MmUzZHplZnA0Ny1uUEtLUlRJRFdQQlA1aHF2U0FwTnFITXlOcTQ5SHc5Ym5RVTcwTUl4MkU?oc=5 |
-| 5 | 2026-03-29 | MSIG亞洲投資Ancileo | gnews_insurance_asia | https://news.google.com/rss/articles/CBMifkFVX3lxTE1aVm4wRUJPMjdLaWQta0Q0eDJpS1ljMnpQd2lIcFFvMFUtOXFFby1TMXBvOXNlVTNHRV9yejBwU2RXdkF2akEzVHlWdjlQQVB3RFJ2dnVkQjktdTJ6bFl4SVczYmZvYnV1VVVWOTJpMUcxRGJtNUVLcFM0NzNpUQ?oc=5 |
-| 6 | 2026-03-29 | GIFT 城市：女性金融科技加速器啟動 | gnews_insurtech | https://news.google.com/rss/articles/CBMipgFBVV95cUxQb1NmRmdnLVNrVV9YTXBkMmdoX3RvSW1aZjlnMXJ0c3lpa0lUZ3NDOHhJMUpPbzJ1cjV1YmtOYkNqbmlvRkRmSm1LaWdJbl9ITVpPcHlfT3ozMFZpRlZVaUJHZmROYi05MHFfbFRjME1TQlJCTDRkR1pUN3BjWEhteGlBQUFPQmJSa2Q4eHZ1ajhfaUJOMzF3czBBOU4wYWExQVlZcGt30gGmAUFVX3lxTFBvU2ZGZ2ctU2tVX1hNcGQyZ2hfdG9JbVpmOWcxcnRzeWlrSVRnc0M4eEkxSk9vMnVyNXVia05iQ2puaW9GRGZKbUtpZ0luX0hNWk9weV9PejMwVmlGVlVpQkdmZE5iLTkwcV9sVGMwTVNCUkJMNGRHWlQ3cGNYSG14aUFBQU9CYlJrZDh4dnVqOF9pQk4zMXdzMEE5TjBhYTFBWVlwa3c?oc=5 |
-| 7 | 2026-03-28 | 東京海上日動火災保險選擇EIS ClaimPulse™ | gnews_insurtech | https://news.google.com/rss/articles/CBMilAFBVV95cUxQY09YVzl5bm15Zlh5SnBoOTR5WkRjYnd1R3NoVmI1YnNnZ1ZGZHlsY2lManpOOU1rNGh4R3gyTkkyeU5wSVVvMTRuSktaQUlVa3VqWGFMVjFFdU5UMi1Ud1lwMGhJWFNtUldGOUVwQnhmTmJrRE12RkkzYmNsb3FTcGFYQm1wZDJha3k3Rk5CaTNjQ2Jh?oc=5 |
-| 8 | 2026-03-27 | MSIG亞洲支持保險科技公司Ancileo擴展亞洲旅行保險業務 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMibEFVX3lxTE9wQjFuUHFVWnpGSDVHaVRBREtzSnU1SXhEYk96NUVHd3h6eFR5UDBHbU5Xd0x3czZsOTktdDVEeUFUcDd5NXprUjllTFpFX1ZSSGd0WGVRYWxBTlBCSXVKT0tnYUUxZlE5N0lINg?oc=5 |
-| 9 | 2026-03-27 | Liberty 進軍亞太生命科學保險市場，推出新定制服務 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMivAFBVV95cUxPQVJIQ1lydlFqVk5QR3dYWHp2ckJFVmNlcXdBTEhuUHhwaVVHdnBab3FnM01XOGVkdVdrUkdhUzNNZnFVVTlON3J3ZUhDZnBCTE9jWnE5WXRQblBzVGxGZkxiZm1BMGpuR0djTnlHeHJlTVRpeXZnQktSN2EzZGxhVEFkY1pLMktOMkNmTjZDc2UzOWlPbm05WVlZb2ZEdDJHeEhvTHhzMWtMSERjN2I0VEd2ZnlValpqUWNoSw?oc=5 |
-| 10 | 2026-03-27 | 亞太地區：人工智慧採用創造新漏洞，網絡犯罪激增 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMi_wFBVV95cUxPOW01MmxuaFVDdXNVUzl5d1d2Y2xXaXFienFXaHdZMHJQeXd4dzRBell2M21CSnFEOUdvMTZHMnJCUVl1LVVPeWl0Nld1Yk5vaTVUR29XWURmLU5ZaDEtYklUYmJjclZNcXNRT0F0VXNHbkt2QzRqM3h5ck5OZEhQb25XYTBYSWpOTzdnYmFQMFlMOEFGQlRCZnhVeTJaRWgxWkQ3REQ5LVh6UmdiR1hucVM3dnBQVVBvRVhrRWpyTnV3YWhnUVBiTXZ3OVpwT2J4aktGbDZyeTlrX0ZNa1BFcm4yUFdXNS15MUxkdnMyNGd2V2xkNUNicThOTnlvZlk?oc=5 |
-| 11 | 2026-03-26 | 亞洲保險公司面臨13.8%的IT費用激增，傳統系統拖累發展 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMilgFBVV95cUxPMjRPakppMkNVRkVYa1FmTk93Q3dmU1oyRWZKa2l2V3ptazdMN0tmeDByUEF0NnZheTN5Qm5VVzROV2FfQkhCaGVpejVTRE1fMkRraG9DLWtRQmQ5M003N0p2SGJjX2NJWHYtTXozeGVVYnpHNTFvcGlRN2RsZ3VQVHhLNTE4VjBNV1hOem5rWWx6RnB3MkE?oc=5 |
-| 12 | 2026-03-25 | 從擴散到混亂：解決亞太地區的醫療協調危機 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMirwFBVV95cUxQYmlCcjZjTm5ERWVsbEZ0RXR3dFpCRmQ0M29pR2JfaDFCUmhMdktMVkxncWl3QWtfREVzc1FRR2xIOVhlQjlmR3JGcHl6bnh3QTl0ZXpSOExDcl83N05WcWhhM2t3aGQxVHhVUlFneFNTZ1dXTVpLdXJiWUUzVUN6VWpEOUU0d1U3VTE2bHloQmI3M1cxY3lud1Z3Z1QtRWxmOUJhQTVIRHVnSFFQSnJZ?oc=5 |
-| 13 | 2026-03-25 | 亞太地區醫療保健達到“可怕的”供需拐點 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiqwFBVV95cUxPWGFWTHE4WXEtbmRTVWhUU1VMZVp0UXBzY1I0ai05UXNNZW82RDFVUlhDUDhsZTlWWWVOVE9xUXVZZjJQQVFWUmxXYjJkNkRSZGhoM0cyUXdKUkxXa0kwNHdLX21UYW1mbEhoMTVDOWJ6MGNVU3FPNjdQSW92NmQzTVd3cHNXX0c5NHdGbW03SmJiWHdNU2t2RHU0MGpJeUQ5cV9ZQkNSRmZuQjQ?oc=5 |
-| 14 | 2026-03-25 | 自動化將在2030年前威脅43%的保險工作任務 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMijgFBVV95cUxQUGJCNW1vRlVuUFNXWF8tem1ic1I3YjAtVkZrTDBKMWV1MU1OUEVERFE0YUF2V3NrZVFja0JMbkRuVm5VdkdycHo1MTRFUWlMdDlfX3dkRU1DXzlLdTFoR1dBRDN0M1hPWTM3QVJfN2hhWWljTWJiOVE1ZnhiQ2R2T0dMQkVnWkdjQ2VLYWFR?oc=5 |
-| 15 | 2026-03-25 | Markel透過在香港和印度聘請核保人員，在亞太地區推出併購保險（W&I）產品 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMirAFBVV95cUxQWUs2MHU0N19UaVVxYVUtcmtOcGVTU3RHU09qVjJyaGNVTWVIZzJRaVNiY3p1SzRBUjJiX3daV3BzSVRwM3R0SFRsSmt1UmZSYTlsT3VTNWFvSElCSklNbVItNVlMSW5ON040N3hOWFQzWUxDLTdBQ3NQQlZIMjRHd01oOUE0LXo2NU5wdHpvRHo0amx5UktQaW9UOWFkcTdWbzVZNWpkdTBneHRt?oc=5 |
-| 16 | 2026-03-23 | 亞太地區黏性補充療法市場因骨關節炎負擔加重而迎來強勁增長 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiwAFBVV95cUxNd01BLUVKZHd4aGxCZl9zZW9GdVJ3R21hcFgzTDNzRWZwRXYxR2xUWWgxaExQLU1xaFhiRzN6bExJUmJnR2hwYnAyUFpOOWd3Mll5bTBRTDlFLUp2RkJzWUp2RWlXQ1VzelY0RzBZS3Z6MWJHdkt5ZnJjZEo0c3Jrb0ZDOVlVVlZPZDVPZnBkMkdHeG9zbklPUWo1U21Jb0R5Tm9KMWlSZ3BCUEY4YkRkV2xYcklZOWg3eEUtMlZuc2g?oc=5 |
-| 17 | 2026-03-23 | 澳洲保險科技市場：人工智慧驅動的核保創新、數位保險平台與數據為中心的風險分析 | gnews_insurtech | https://news.google.com/rss/articles/CBMi4wFBVV95cUxOblY5WS00aU5PRXFFNDl5SUtqdURPMGdyeXl1X3UwSTdIVHlGUUgtbTRFR3ZuLUdkT3FpeW9HMWtLN3lwZlVxbXhVQ204M0I0ZHBrczN2b1JnV0xPSVVLclhsQjJ0R2R1bGt2UWQ0eTg4YVdyVzlKUkIzX3M4aGtMQjM1RExuN1cxR1kzX2FicWlwdVBQdTQ3U2VNNVc4a0EyN0Q3N3ZnQzBqRXNsWkthaFBIc0JFQXlTaWt1VkpXc1RWNTNienlOaVlDc3hkcDd1SjNwYUZDV3RhRjJXekhuYVlMcw?oc=5 |
-| 18 | 2026-03-22 | 天瑞祥控股洽談亞太區保險科技合併，同時推行比特幣收購策略 | gnews_insurtech | https://news.google.com/rss/articles/CBMivgNBVV95cUxQaFIzU2Q3T0M4TDcxcWRrS04yUnlpbTdTQmlMNE1ZUG0tRFRwcmZRa3pmaFM1SjgtcUVZcEZJdWpzR2t0cUZRVER2a2g2QTAxTHZaSXlLa2JkeUQ4QkdZbGx0ZVZEX05LNXh2bXgwb3lpVUlLcWtRdnJrcFdNblVkMW1IN2kya0lzcF84QmJsaU5KUGp6VHVmZzNZX1VGMF9XWGdRWG1RUDhuRnZGczZRZHVVZ3FwRjRqVXJrQ1gzNUVrNVQzc1NCY21YVXNYOWdGUG5UMzJIckgyMlFpX1F6NmlYUFNDYWJwMC1sUWpGMWRneUs4TURUMEp0U1YyQ3V0V2tZaGNaOTQ0UnYxUGVQUnQ0RU1yR3Nyb2N4Z1Y5ajNOR0hsZGx2a2wzTDZMMzlLVmU0RFl4MVY2OWFOTlV2eVNicXlSYnRnTWVSTkk1WGUybmg2V0JiZDJqempSX1dKekN5dEhGSllEOUFYcnpyRTBCeW4tV1dxQ1hCbmRUQ1ZRMGs5anJhY18tYlhzWTlxQldTdUY0WTg3QlUyWi1ZMk1LR212ODBsWXdBZXZWQWJzaHFfcjMwU010bGlRdw?oc=5 |
-| 19 | 2026-03-22 | 天瑞祥與亞太區域保險科技公司進行高級談判，同時推進比特幣收購策略 | gnews_insurtech | https://news.google.com/rss/articles/CBMipgNBVV95cUxNU01ieW5MdTB0SGtrc2d0TTJESDU0M2t6ejE3cy1TakMxTDB3aHc4RTlqSi1xYXE1dTNHMmlKV2ZhT3ozcGwxcndOcTlOdm1wTzJ0S3JlMDdobzNEazhSRXhjaGxjdmRQN25qX2k3bDhYcU9WMG1FcnMyWnNORUpsTEF5ZHY1N3FlTkk0aTFUMkV6OVM3eUVJb0JOOFRwSkRVdkFNUkUxcW1xNzhpUHVydFRnQm9rMmJEc2NaOEFEcmloLVpjV1MwRER4VGpBNlJQWEo4YlNfR01faHFfdE9jRzFqZjl0ZENvODBYaFE2QlFKdG5WMFFkbVM3S0ZuRzM2RE1FeXNHWFppRE5oX3l0QlhuVWlFbUZwVXVCYk05S2lFMGg0MGRQRl9BNGxYWmIwY29jRk1Ec1AtZVM4R1hwZWFUYXY3a3NjT1J2Ylc0T1NTcW9OU2RPUFhLWmNRT2hCYUk3dVFodnRMN09EUTVtRmlpcjNfRUxETl9pZFdKQjFNYTFxSDhhemxKbFYtcW1SQ0hRcVlhMm9RdHE2bkFCV2xPUEhoUQ?oc=5 |
-| 20 | 2026-03-20 | 天瑞祥與亞太保險科技公司進行高級談判，同時推進比特幣收購策略 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiiwNBVV95cUxQUU4tWWhIMjR5d0JUNnBDcHJkb0d2MHdzeHdvemc5LU9WSHI4dDZEd0VQX2pmdGV4NlhjLXJra0ZjUWVRQV9VMG9KSXJVa19JWS1zVy1qQkpGNEpVdDhzVjhWUUMtLUxTSzZ4MVBOX3FVeEpDYVV0R19PMzRYT0hHUFRLQmhTUlEwN1lLYXlrRmFZdDRWMW9QTkd6Vy1pdTFXMC1LSVZ2X1YyZEh0S1RGVWRQOVdpanptS0tUd0F5QkstLWd1emEySE1zdTNqcUREUExxcnd3VXQ4UC1veVNadGplOGF4TGFfV2MtQlJZMTJMOGs3dWF6eGR4cEI2T0luMUxrMEtnT0VHaEx4UmszVmYyX3VCRXh6N09lN1AtWWMxc3lHZ2xzN3hLd2FsSGZFcDQxdVJRdWlSSEUzSlNFdlBvNHlkYU9yVF9RU1dtUTBqWnZseUVJbm1RWFM3alBiWVNqaWZWemhTVDJqMDlPaEZHQ1NDNXd3OFpaWUZyRHpncFN6Smk4U0RxZw?oc=5 |
-| 21 | 2026-03-20 | 健康科技公司 Health In Tech 與 Amazon Web Service 進階合作夥伴 Ciklum 宣布戰 | gnews_insurtech | https://news.google.com/rss/articles/CBMitwJBVV95cUxNakZZZDY2MWhyVVN5bjU0QWlSaDhKcEVEbmJBNkIyYmU5b0pJY29BRk9pVWZpaWEtMmpaVEJtcUo3aEJiR0cxUURYVXZ5b1Z4UlV6VDVXYUliWVpJZGhNU0s0aDEtS3Z1MGQ2WTIzTWJnOEZYZ242WDhFYllTU3VHTVM3bHV1Q2F6NVdjLVR3emZHX2dJRjBDX3lUb0dhUW1UcHdpbENiUjVHM0Fzc2V1blV2MjlUeUN6MnN1STNhQW1reExIQktkWExMcElhWC0tR0xkUzBtVGF1UkhyekhVRFJRdFFLT3hMMTZmMmJTNDlwSWNOendVM1drT3Ayei1xQmt3SWE4VkJPTG5iUEpsZ2JETHBqUkZSc3ZORjFqelVNZ2ZRSDVsdXN2Q3RyVTdmaEQ1SUlwNA?oc=5 |
-| 22 | 2026-03-19 | 天瑞祥與亞太保險科技公司進行高級談判，同時推進比特幣收購策略 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMijANBVV95cUxOUmk1bkJaWU5qNlFTcTZhWU5EbnZhbWpTQ2syTUdWaDlLSHdYeFhneHpuTTVDekNrUHRVZTdMOW5EOFdMQ1lrNjZJei02dmFLMDk3WlpOZHI2U1BGbVFuX0hNYUFSaGl6Y3puTkhzQTRmSUZoRGxIbnI5Q2VyNzl2T1BMMDdRcDFnTkZ6OEFPcHNhWGNGS2t1c25KZWFWX0EtRVNMTEhZVHlBVko2UTh2VGdFX0lDMFR1Zk9TVzVtVl82TjlFZzFOT05oRmxtWlJibEtLSHcydm9LTmdtdXF2SHgzUm91TUw4UDZzSmJNdVB2a1prUUQ4Xy1uNnJhWnd2T1dKdFE4a2x2SXEtd09VU19WLUxZRU5CTmZXWGl3eE9XbnQwUjBxV0lfSnBiWDdtMnBQWHc2QzJTQjNsM2FPemxoai1YSjdnN19hdHhqczY4OXlibnZVOUxCVHotYUlUUGE1SEFBOENxMVlLX0JzaFlaYWw3SjF6OTFsMlRJRWM0TjVNS2w0UURJTjc?oc=5 |
-| 23 | 2026-03-18 | Chabot Mobility 榮獲亞太地區高成長企業獎第三年 - CHOSUNBIZ | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiekFVX3lxTE9DRWJ4WHZ0VTNrWlp5aUJHeEd5T0VYa0pYbVlsTEFtQ2ROTklHVTFWaXFVQXExLVg3RTRxZm5Xd3YySEs2WUpHOGlSekQwSG9xM0VvR2dtaEFITHFxc3FrRmdUMEhmX2F1SnVKRnJCbnMyMFAzQ0FucWtR0gGOAUFVX3lxTE9pZGdZYm85aUVKbXNKaE5LN1lGcTZKSU16NGZMODNnRklVMHQxMWc2VHl4NjZoODJudVQwUnJjemtHajBjZC15blh6VG9ydThKRmNnb2JOWEtKYzZ1R2lnejBwSGVuUVg3WkhkMzZsWm0tTDlRQmFsVWVtTnVQQlkxTGNVdW95YkRTMmJuNVE?oc=5 |
-| 24 | 2026-03-18 | 2026 年寵物保險產業統計：隱藏趨勢 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiY0FVX3lxTE5rV2xXdl9Sc0QtTmh0RFhZcVRwVUlJWEJQcjlvQVV3RmlXelUzVGRDR3JkNDQyTkpJQlhQQ3R0NVdKUlFWU0pudnBza3JvSTR0OG1iQWZJRExEcTdDR3FETXMwdw?oc=5 |
-| 25 | 2026-03-18 | Navi在印度推出數位汽車保險 | gnews_insurtech | https://news.google.com/rss/articles/CBMisgFBVV95cUxOS3JkNDU1bENTd2tIZm0tQ1phaXgyaEpHQlRPZW5LcTJKUWoxSmVoTVUwb2tteHRGOXlnNXRGRi1OMHV2VkZSZXBYNFhVc1hkVlJiaExFM3dmajV1cElXTjRBdnNfX24zOWhQOE5uQ3lyTWR1Um1DQlBiWkt2M2ZOMk9mRl9hMG5YQ0dYSVRrbEVrRnM2LVhUS3k4ejQtR0FQSVBSNmx4M2w5WHdXVXVIaUJB?oc=5 |
-| 26 | 2026-03-18 | Chabot Mobility連續三年入選英國金融時報-Statista亞太高成長公司榜 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiU0FVX3lxTE1RaFVrSW5TaEtlNmh1QWs3dXRoOEVmVU1mb0xRekdLVm4zUmw5bmRQQmJWb24ta1l6QVp6cjVKOVdaWHRaUmlycU4wYWVMZ2lKLU5j?oc=5 |
-| 27 | 2026-03-18 | 嵌入式保險市場展望：2031年前預計年複合增長率超過30%；2025年在線和API優先佈局占比達76.38%，Mordo | gnews_insurance_asia | https://news.google.com/rss/articles/CBMinAJBVV95cUxNX2dpRmVTcXk1RlF0SXVrRWpXV1dTQVVxVjhNcGNwdmtfRlNEck9QbkpGY1p5SjRaR2paczNTTU5LU0dGR05lRVR0V1B2blRMdkUwZVFDT003TjIydkRYeUFBTS1kNFd1cGtQTC1rWUYtNVVjeUczb1VGMXdyOWNPUzVIUzhkODBkNTR1ZHZaUV8wcmtYZ2xFWU9jd0Z2MlMzZXBKcnVSOWRkRmRDSWtQb2gzanYwLUlhaXNxUGtYMEs0aGtHUU90UE9TU0pTMmNzLXFaYjJ0MDBpNTF4V21jT1hoVXB3VG1HdFM3Qm9mWVh6dWs0dXczZHZWZGp2Rm1nczhoQjMtQ0Y1a0lhOTYxWmhYUXphR3BwTFluLQ?oc=5 |
-| 28 | 2026-03-18 | Newgen Software 和 G-ABLE Group 宣布戰略合作夥伴關係，以推動亞太地區的數字轉型 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMi7gFBVV95cUxOR3RuaUh5U0wtVG1LUTROOFdfbHJ4d01hWHRIdHhMTWt3cjVXLTFxRDhwQ2xJSUowRWc1aDQ3cWMxWDVHVDVfV3pFc3k2UHI3REpkb0pGSWpVSnZ0dXFBWFY0RnYzN1FWRUw1VXJvRmIxUzJsZUo5SGJ5bUhNQ2hRcDItSThKMFFWTkxGWEhjdXowVHZxajNnY1Z0bjFRV05iSkkwbTN5TEg4b2hZb3VqaHVtYzV0YV92bzRWekc3ckZvYTZ2RkQ5bHBKb1VKblotRkV4ckNnaVE2WGx6ZUtqZFJOOTRVaEZheG1Rczl3?oc=5 |
-| 29 | 2026-03-17 | 網路保險不足：四分之一英國公司遭受網路攻擊：CyberCube CEO | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiogFBVV95cUxQa1lpMXJXTF9faDVlWGhOSy02MjVGdkdqbnZXb19vcDVMeXk4dVNjcURORUZtWm9PYkUxUzItQThNbFZVanRjMml5dmRDNVpfNlBqQk0tMmJhRVFaUXdEUHByeERVMHJSY0JFU0pvUElxeDVmaldraDlkMDl0aGdhdEtmU1RGLXB2ZV9OX1BaNGhwZ1lIMnNHTktHc2xUOGN2eFE?oc=5 |
-| 30 | 2026-03-16 | VEON 子公司將收購巴基斯坦 TPL Insurance 的控股權 | gnews_insurtech | https://news.google.com/rss/articles/CBMi0wFBVV95cUxPb0E1NzFCN2lMWnFHVWRjT1BscVZYaUJqeGRWc3FSTldjcjdIVjA3dklRZjBCU3FXVmYyN0dzaHZhUnhyMlgxN25xNXNBcXZXa3FlcG1Bdm5xWk1rZ2pWcnF4VENKUXhmVEpid1h0bW4wbW50U21vNTJmSmt3MVFFeDFQb1JWNms3NXVTUEdYdmRrMlhjSDZXVzFwY1REWEVRRHRGdXIzVVUySTNDUDd1VEUzbDNiMVJ4Qjk5SlZ2YmZqdmluOFoyZ3RuWjNLUmpnU29j?oc=5 |
+1. AI驅動更加個人化和以客戶為中心的保險產品（2026-03-31）
+2. 亞洲3000億美元保險業需要量子計算（2026-03-31）
+3. 亞洲保險公司面臨13.8%的IT費用激增，傳統系統拖累發展（2026-03-26）
+4. MSIG亞洲宣布投資和合作夥伴關係與Ancileo（2026-03-31）
+5. 亞太地區：人工智慧採用創造新漏洞，網絡犯罪激增（2026-03-27）
+6. Markel透過在香港和印度聘請核保人員，在亞太地區推出W&I產品（2026-03-25）
+7. 澳洲保險科技市場：AI驅動的核保創新、數位保險平台與數據為中心的風險分析（2026-03-23）
+8. VEON子公司將收購巴基斯坦TPL Insurance的控股權（2026-03-16）
+9. Navi在印度推出數位汽車保險（2026-03-18）
+10. 自動化將在2030年前威脅43%的保險工作任務（2026-03-25）
+
+### 知識缺口
+
+- 中國大陸和日本的 InsurTech 發展在本月報導中嚴重不足，報導偏重東南亞和澳洲
+- 量子計算在保險業的實際應用案例仍為零，停留在概念層面
+- 亞太各國保險科技監管沙盒的運作成效缺乏比較分析
+- 嵌入式保險在亞太的實際市場規模和滲透率數據不足

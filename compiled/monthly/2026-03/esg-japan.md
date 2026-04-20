@@ -3,71 +3,86 @@ type: monthly
 period: 2026-03
 category: esg
 region: japan
-articles_count: 37
-compiled_at: 2026-04-20T00:52:55Z
-compiled_by: claude-manual
+articles_count: 40
+compiled_at: 2026-04-20T03:24:41Z
+compiled_by: claude-manual-v2
 model: claude-opus-4-6
 ---
+
+## 2026年3月 ESG永續 — 日本地區月度報告
+
 ### 本月重點
 
-- 日本報告呼籲公司從2026年開始採用「實用主義」的減碳化
-- 日本保險產業贊助交通安全活動
-- 日本生命保險相互公司與日本赤十字社的捐贈形式
-- FWD生命與募集代理店合作為日本子女防止虐待運動提供支持
-- 日本保險公司舉辦金融知識講座，針對盲校學生
+- 日本一份報告呼籲公司從2026年開始採用「實用主義」的減碳化策略
+- 2026 年 J-Winダイバーシティ・アワード recently 宣布了得獎名單，日本保險公司 J-Win 獲得了企業賞的最高榮譽
+- 全民保險推動綠色交通政策，「一保一樹」倡議
+- 日本保險產業正面對氣候變遷的挑戰
 
 ### 時間線
 
-- 2026-03-31：日本報告呼籲公司從2026年開始採用「實用主義」的減碳化
-- 2026-03-29：日本保險產業贊助交通安全活動
-- 2026-03-27：日本生命保險相互公司與日本赤十字社的捐贈形式
-- 2026-03-26：FWD生命與募集代理店合作為日本子女防止虐待運動提供支持
-- 2026-03-25：日本保險公司舉辦金融知識講座，針對盲校學生
-- 2026-03-25：中國銀行向縣交安協捐贈70萬日元 支持地域安全
-- 2026-03-25：守護春季新小學一年級學生：千葉市舉行第62屆「交通安全黃色臂章」捐贈儀式
-- 2026-03-23：中國銀行向縣交安協捐贈70萬日元 支持地域安全
-- 2026-03-22：東京海上控股(株)【8766】：股價・股票資訊 - Yahoo!財經
-- 2026-03-22：第一生命控股(股)【8750】：股價・股票資訊 - Yahoo!財經
+- **2026-03-07**：日本生命財團 2026年度 對高齡及地區共生社會的助成
+- **2026-03-07**：第一生命不動產可持續性投資
+- **2026-03-07**：氣候變遷入門指南
+- **2026-03-11**：為紀念永旺成立100週年，明治安田於宮城縣永旺夢樂城新利府舉辦J聯盟應援特別脫口秀
+- **2026-03-11**：全民保險推動綠色交通政策，「一保一樹」倡議
+- **2026-03-11**：日本某保險公司連續8年獲得「健康經營優良法人」認證
+- **2026-03-13**：中國銀行向縣交安協捐贈70萬日元 支持地域安全
+- **2026-03-13**：千葉縣與企業簽署『癌症對策推進企業等連携協定』
+- **2026-03-13**：日本生命保險公司連續五年被認定為「健康經營優良法人2026」
+- **2026-03-14**：明治安田生命保險公司矢板營業所舉辦兒童食堂食品銀行贈呈式和栃木SC交流會
+- **2026-03-15**：明治安田J2・J3聯賽：FC大阪對愛媛FC比賽結果
+- **2026-03-15**：MS&AD保險集團控股公司 (8725)：股價・股票資訊 - Yahoo!財經
+- **2026-03-15**：為支持地區安全，中國銀行捐贈70萬日圓予縣交通安全協會
+- **2026-03-15**：中國銀行向縣交安協捐贈70萬日元 支持地域安全
+- **2026-03-17**：日本保險公司 J-Win 獲得 2026 年 J-Winダイバーシティ・アワード 企業賞
+- **2026-03-18**：日本生命與B.Hope共同舉辦「地區活力籃球體驗會」
+- **2026-03-18**：朝日生命保险投资HDRE蓄电池项目融资
+- **2026-03-19**：會員各社的社會貢獻措施公開
+- **2026-03-19**：會員各社的社會貢獻措施
+- **2026-03-20**：B.Hope 3/8(日)「B.LEAGUE Hope×日本生命 地域を元気に！バスケACTION」食品捐贈活動報告
+- **2026-03-20**：為盲校學生舉辦帕拉運動員主講的金融識讀講座
+- **2026-03-20**：日本保險公司舉辦盲校生財務知識講座
+- **2026-03-20**：4月26日（星期日）「明治安田的Ｊ活」明治安田呈獻愛媛FC女子足球節2026舉行！
+- **2026-03-20**：萊奧·塞阿拉選手榮獲明治安田J1百年構想聯賽EAST區二月份月度最佳進球獎 - antlers.co.jp
+- **2026-03-20**：推動可持續循環型社會的動物糞處理實驗和活動
+- **2026-03-21**：日本保險公司舉辦盲校生財務知識講座
+- **2026-03-21**：日本保險公司舉辦盲校生金融知識講座
+- **2026-03-21**：千葉縣與企業簽署『千葉縣抗癌戰略推進企業合作協議』
+- **2026-03-22**：東京海上控股(株)【8766】：股價・股票資訊 - Yahoo!財經
+- **2026-03-22**：第一生命控股(股)【8750】：股價・股票資訊 - Yahoo!財經
+- （另有 10 則報導）
 
 ### 趨勢分析
 
-本月ESG永續主題在日本地區共有 37 篇相關報導。
+**氣候風險與自然災害**：本月共 6 則相關報導，涵蓋日本報告呼籲公司從2026年開始採用「實用主義」的減碳化、守護春季新小學一年級學生：千葉市舉行第62屆「交通安全黃色臂、東京海上控股(株)【8766】：股價・股票資訊 - Yaho等議題。日本地區面臨的氣候相關風險持續升溫，保險業在承保策略與風險模型上需要因應調整。
+
+**能源轉型與碳排放**：6 則報導關注能源與碳排議題，包括日本報告呼籲公司從2026年開始採用「實用主義」的減碳化、朝日生命保险投资HDRE蓄电池项目融资、MS&AD保險集團控股公司 (8725)：股價・股票資訊 -。日本地區的能源轉型進程對保險業的ESG策略與投資組合產生深遠影響。
+
+**勞工健康與社會風險**：10 則報導涉及健康與社會層面議題，如「線上商店」盧卡斯·巴塞洛斯選手榮獲明治安田J2・J3百年構、第一生命控股(股)【8750】：股價・股票資訊 - Yaho、千葉縣與企業簽署『千葉縣抗癌戰略推進企業合作協議』。ESG框架中的社會面向在日本地區受到更多關注。
+
+**其他ESG議題**：另有 22 則報導涵蓋FWD生命與募集代理店合作為日本子女防止、日本生命保險相互公司與日本赤十字社的捐贈、日本保險產業贊助交通安全活動等主題，反映日本地區ESG發展的多元面向。
 
 ### 跨主題關聯
 
-本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+- **ESG永續 × 監理法規**：部分報導涉及日本地區的監管動態，監理政策的變化直接影響ESG永續的發展方向。
+- **ESG永續 × 保險科技**：技術創新與模型發展正在重塑日本地區的ESG永續實務，數位化工具的應用日益普遍。
+- **ESG永續 × 市場趨勢**：日本地區的投資環境與資本流動對ESG永續的發展具有重要影響，兩者互為表裡。
+- **ESG永續 × 消費者保護**：消費端的需求變化驅動日本地區ESG永續的產品與服務創新。
+- **ESG永續 × 氣候風險**：氣候變化帶來的風險重新定義了日本地區ESG永續的評估標準與策略框架。
 
 ### 來源文章索引
 
-| # | 日期 | 標題 | 來源 | 連結 |
-|---|------|------|------|------|
-| 1 | 2026-03-31 | 日本報告呼籲公司從2026年開始採用「實用主義」的減碳化 | gnews_jp_en | https://news.google.com/rss/articles/CBMirAFBVV95cUxPekt0bWxRV3BHSTBJb0RTdVB0aUpnZ3gySkUycjNmSlFtem9Kam5YX3c1MnRNbDdJdWR5ZjZGN25tWjFKUHYtSUpHSHBva1J0eEg3aGpGNnlCdkVVN0hKMmJpTkc2NFZCNzhYSTYxWXZybnJrRjZDaTNFM0VtMDR0dHlYLVVJNnZyOHRkUDFHYzllQXZ1Nm1PZTlfLXhWMFY3aVloQ3VEWkdXaHI2?oc=5 |
-| 2 | 2026-03-29 | 日本保險產業贊助交通安全活動 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiZkFVX3lxTFBFQ1hoWVRDeDdwbmU2VnEzMFU3bGtPTnB3WWdJOWdzd2tNYVE2eUZwaFZTWGRmdUdqRmxlWXJVMTNlTGdKY3J2c3pLOURSdWRlV1ZhdF9JdjMxZmlaM0NnVVNkMi1hQQ?oc=5 |
-| 3 | 2026-03-27 | 日本生命保險相互公司與日本赤十字社的捐贈形式 | gnews_jp_companies_ja | https://news.google.com/rss/articles/CBMic0FVX3lxTE1Fa21HLUIzbWRCeF91V1ljN2hSbEtSOXpMVHVtUklaYnZSTzhteURIRTNrVXl6Rnl0b0NjbnpxLWN1WmpsWnpoUGZlT1RQSU1mZVlkbENpbms2bzZoM2s5R0I0WHBFWkJMVEp1RFZQbTlYQjA?oc=5 |
-| 4 | 2026-03-26 | FWD生命與募集代理店合作為日本子女防止虐待運動提供支持 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiakFVX3lxTFB3aWxfbFZzQ2Zta0dhUWZqNGtHcEpJdUl0dkM2Mnh0Mk83WU8zUnRlcjJJaVFnd1RicTNkSVdyXzl1TExZNWRyTU10d2RQU2t0aXdUMXFnTTg2SDU1bU5ZRUdhaWZuRVQ0YWc?oc=5 |
-| 5 | 2026-03-25 | 日本保險公司舉辦金融知識講座，針對盲校學生 | gnews_jp_companies_2 | https://news.google.com/rss/articles/CBMiSkFVX3lxTE9PbzdrazI0YmhueTk5THJ0M1FpSjB5OVctaUc4X1hVeTVqQXFSWk9CRmVfTnhQdFBrdDFmZGVDMnhvdmhIWnBOemVB?oc=5 |
-| 6 | 2026-03-25 | 中國銀行向縣交安協捐贈70萬日元 支持地域安全 | gnews_jp_industry | https://news.google.com/rss/articles/CBMikgFBVV95cUxNMTBzd1ZlVVVVd29CeUdOTEhlUktESWpNYXFtbEplTmdyRUxCa21FcXMtSVhTOEQ1U2xyTDZocF94LW5aank3TDNHNVVNeU1wZkxjeHNhMWRrM3BPMl9HVnlhVEdOS1dIWm5iSGt3RWNsWHRnTkQyY2dRMngtSTNpU0xWSlcySTF5TXdVQjU4WVRYdw?oc=5 |
-| 7 | 2026-03-25 | 守護春季新小學一年級學生：千葉市舉行第62屆「交通安全黃色臂章」捐贈儀式 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiTkFVX3lxTE9kWUhRNXRteW9rTUNMZXp0NEdJLWlycmNFM3BRcE9iMFBla3EwT1NxU2hMS3NVV2hOaDc1MmhVMm5wY1VGUmFqWlFQTlprdw?oc=5 |
-| 8 | 2026-03-23 | 中國銀行向縣交安協捐贈70萬日元 支持地域安全 | gnews_jp_industry | https://news.google.com/rss/articles/CBMifkFVX3lxTFBEc1pxZy1XSUxqWk9FMUFocDdDbzdYaTVPRzlsZDF6cGowZlBKQVZiRllFZU5MX0tZX2RNcXUtanc4Z0hJc1A0SFRVblB5eHBjSDlvanVuNE1nR1BoU2gzOTI3SXhadFowNWlqRUJLMk14YXN5ZmtISFV1TFBlUQ?oc=5 |
-| 9 | 2026-03-22 | 東京海上控股(株)【8766】：股價・股票資訊 - Yahoo!財經 | gnews_jp_companies_ja | https://news.google.com/rss/articles/CBMiUkFVX3lxTE9nY3V3NDB2VFVKQ0hzRmFNaGtmQU9PZ1FJUURVaWJTcnVHQVdFQ1FackdieG1zTjYzT2ZpMFh6NjVBd2RvVU16ZlhhTjFtLUdVN1E?oc=5 |
-| 10 | 2026-03-22 | 第一生命控股(股)【8750】：股價・股票資訊 - Yahoo!財經 | gnews_jp_companies_ja | https://news.google.com/rss/articles/CBMiUkFVX3lxTE5pR3JPdG05WEIwbF9pS3c5cElCaWtkNVdUWldvbXpfdFJOcGdSTHlscHZJcEQ3dTE5WGNDbV9ENXpwcnQzMUkwTFpYWjl4NGdLMUE?oc=5 |
-| 11 | 2026-03-22 | 殘奧運動員為盲人學校學生舉辦「金融素養講座」 | gnews_jp_companies_2 | https://news.google.com/rss/articles/CBMie0FVX3lxTFBlMTR5WDlhOWttb3lseEZ4d1ZKRkFabkNLTEl0eVprRzl2TnJCU3pyQm5heG9vdWFPZXNIb1N4cjZsLU5WUHFRN0tZNXQ1MDNFa1lfX3h4UjlybVZlNElJZ2ZmSmZQdXJpdUxQSEZuQWdkU1NiOEh3cDl0NA?oc=5 |
-| 12 | 2026-03-21 | 日本保險公司舉辦盲校生財務知識講座 | gnews_jp_companies_2 | https://news.google.com/rss/articles/CBMiekFVX3lxTE1PNDIwYk5iU24xa3MtUWxIZmRKQnU3a3NjMFFBV0JxU05tZDdxUzZ1Y2pFOUhXMTN3dmNUQ3pFVTA4UmxLc1JsbTdCUU9PSWdvamJaaWVKUTN0Nm84ZTdjUHRMWnB3NkZOMVRFZl9oa05nSHJTNjV2N2Jn?oc=5 |
-| 13 | 2026-03-21 | 日本保險公司舉辦盲校生金融知識講座 | gnews_jp_companies_2 | https://news.google.com/rss/articles/CBMiY0FVX3lxTE9pd0R6V19md1ZjWjAzRG1fSkJXejRfRDBOeVJ2ZTVfTG1ma1U3aU5wYUFiQUl1elVDVnlObjZJeWdsVURzbXhXZGVTMVQ3UzIwdHNrVG5YNHl4X3dUWDNDOW1hVQ?oc=5 |
-| 14 | 2026-03-21 | 千葉縣與企業簽署『千葉縣抗癌戰略推進企業合作協議』 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiakFVX3lxTE1yRXNSbk9ja1ZQLXdCOXpFN0RvZG1uVjZJcnBBaGVmYzdUMndQUzdJaTVfcVJ6c3JILWhRR0tyem94X2toeEpZTk5USFJER2s5aHhiVWhnamlzMlg3S1ZWbXFVUkcxeFEtQ2c?oc=5 |
-| 15 | 2026-03-20 | 為盲校學生舉辦帕拉運動員主講的金融識讀講座 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiakFVX3lxTE5WOUhEVWY3WkRhanZrdzFLTG81UHJkYkFFRFBncm9TUjJKb25jRzhWLXRHR0d6ek1aR2J3a1c0WHpMcG1sV1Brd3Nia0MwU1pvRmRMLVNtZEJwVERMX1ExNE5Db3p1S3pwY2c?oc=5 |
-| 16 | 2026-03-20 | 日本保險公司舉辦盲校生財務知識講座 | gnews_jp_companies_2 | https://news.google.com/rss/articles/CBMiVEFVX3lxTE1ueDlwd0tOQkcyVWpEQ3VwVzQwczlrY1N5bHh4WFRrS0tZZzV6TzJPY192X2tycDZ0Z0dDRkxwSm1Xa0UyYlJKVEdvaVptazhaaTRVdQ?oc=5 |
-| 17 | 2026-03-20 | 4月26日（星期日）「明治安田的Ｊ活」明治安田呈獻愛媛FC女子足球節2026舉行！ | gnews_jp_companies_ja | https://news.google.com/rss/articles/CBMiVEFVX3lxTE1KaXl2aHJWMExfSF9qbWJxY1Y0RXJZS3JJREhhVlNDTnNrU2FxQWgycjJ4dUwzSHg4ZmE3LUJHcGU3a0hRaVA3S1VJZGZqMVA5SXEyNw?oc=5 |
-| 18 | 2026-03-20 | 推動可持續循環型社會的動物糞處理實驗和活動 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiakFVX3lxTE9heDNhMUg4eE1kM05hUEtWRVBhdU5lTmZHWV82Wl9SbjZ4ckh4UzMzZUt6dmlZd0RHak1QUERxdUxac1E1dHZtQVRMZ3hpNlhSUUxPTHZwRHJ5T2JvamlBMk9uTTR3VkxNS0E?oc=5 |
-| 19 | 2026-03-19 | 會員各社的社會貢獻措施公開 | gnews_liaj | https://news.google.com/rss/articles/CBMicEFVX3lxTFBjTWpKb3hwaUcxSDJCcW4waXNYT24tXzFOSDY5cm43QTNWUnZIR3k1RkNTTlhHTWQ2Q2V5LU12ZHZPc01DcUJMNEdrUlJFMmUwOF96V1kyQU5YS285RUFVV1Y5OGRSVWpuVHJ3eUcyWFc?oc=5 |
-| 20 | 2026-03-19 | 會員各社的社會貢獻措施 | gnews_liaj | https://news.google.com/rss/articles/CBMiV0FVX3lxTFBVOVJCeUl3MXYwVGNFaW1VZS1qSkx1Y2Q2RTBZQzdUa3ZVWW5jekoyNUt2Nm04NDNfemRVbHptMXRJUFVOZFVKS2dQWFVsdVFHMmtXTGt6Yw?oc=5 |
-| 21 | 2026-03-18 | 日本生命與B.Hope共同舉辦「地區活力籃球體驗會」 | gnews_jp_companies_ja | https://news.google.com/rss/articles/CBMiWkFVX3lxTE9UWEpLZ19ZNFBlY1ZWRGJDUHZLYzNpUVBpZm55Q0dnLXpMdm1XZUJsZXRrbXhSRUxkWC1qZ213TWlsdnV1a1dJQW1JdFlka0xDYkNvVHRuSUJkQQ?oc=5 |
-| 22 | 2026-03-18 | 朝日生命保险投资HDRE蓄电池项目融资 | gnews_jp_companies_2 | https://news.google.com/rss/articles/CBMicEFVX3lxTE1USFozd0NCT1BKR21HRnE4cGZFa0JvRHR3c2VtUUE2cUI3Y2lLTkJ6c3ZpZHAxcEFMTnkxQms5cGhoYk5lZTB6a1VyRS15cVV6b3hqdElhdnR3b1pySmFUcUpiOEJHWlpsa3I2TzdHeWY?oc=5 |
-| 23 | 2026-03-17 | 日本保險公司 J-Win 獲得 2026 年 J-Winダイバーシティ・アワード 企業賞 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiakFVX3lxTE44N0h1VjNRNGJ3WWIyd1pXSWRESmNnTkpVbWg3eFhOMlRzYWRHY1VNa0VXblFRZWVKMnRxVTZoQ2RKUEx2QTk3YjFpWHhIdUhWS0Q0dmI2MTRwUVRubVNfcy1Lcms3MTlqNmc?oc=5 |
-| 24 | 2026-03-15 | 明治安田J2・J3聯賽：FC大阪對愛媛FC比賽結果 | gnews_jp_companies_ja | https://news.google.com/rss/articles/CBMiT0FVX3lxTE16Qy0tcjVTbV9XdEljQUtuektMaEdYcExzSlBmams1N0R0VFRQWmw1VWdIbXJadVpiVmFqRzN1OHY5RnBwNDZnVFBELTQ1V2s?oc=5 |
-| 25 | 2026-03-15 | MS&AD保險集團控股公司 (8725)：股價・股票資訊 - Yahoo!財經 | gnews_jp_companies_2 | https://news.google.com/rss/articles/CBMiUkFVX3lxTE8xLVdUenFHT254aGJWaHpNbTd6dGZsMk1Yd1ZqcmRDVnFUdEVQajNRMFppbFVSNUxINFV6dnM5Yy1YejluTEdmVUhsS2xoWjVWRnc?oc=5 |
-| 26 | 2026-03-15 | 為支持地區安全，中國銀行捐贈70萬日圓予縣交通安全協會 | gnews_jp_industry | https://news.google.com/rss/articles/CBMilgFBVV95cUxOSTkzdDFyT3ZlUHJRTFNfZTM4aVZhRk5GeXhyNVRRVEwwLUJQelhtcHdmaXdQSlpSSFlxZGF4THV1S2E0a240OVJGSnhCb1IzY3VmOC1HUDlXY056YmJMZ19PWFVIc0NHeEtIOVVWMjJDVjNQR0w4NFVRYWp4aFktVkhtcnZJTmdjeHFoemthcEc4dDJTbUE?oc=5 |
-| 27 | 2026-03-15 | 中國銀行向縣交安協捐贈70萬日元 支持地域安全 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiUkFVX3lxTE1ibm8yNFZYdEwwS2h4bHNZS2xHeVNhTXRtbFJhN2xOZm5ORWtZeUdhbWdzVlE0Mm8ycFZ5YmtsUjN2Z0VkSjF0OVdfeGl1OWVkLUE?oc=5 |
-| 28 | 2026-03-14 | 明治安田生命保險公司矢板營業所舉辦兒童食堂食品銀行贈呈式和栃木SC交流會 | gnews_jp_companies_ja | https://news.google.com/rss/articles/CBMiSkFVX3lxTFBZMDh0X09nYmtBZnlrSlZMRDhGM0dLYzR2OXZfeldjSGVWY1NCYlJHZENLSnllRGZKZllGZVNtSEJGUWhwb1RDN3FB?oc=5 |
-| 29 | 2026-03-13 | 中國銀行向縣交安協捐贈70萬日元 支持地域安全 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiaEFVX3lxTE1Ua2NORV9rVWdkaEJrcWxyU1pPaHdwZFFaMm1TbmptUjRMMHVJNjBCZ0dKN3ctLWlZUHgyOEZqT0RDU19PZUk0aGF4UDRXOWdhMTlSZTVpeG96VXZnUU1WVUtEc2FEMWl6?oc=5 |
-| 30 | 2026-03-13 | 千葉縣與企業簽署『癌症對策推進企業等連携協定』 | gnews_jp_industry | https://news.google.com/rss/articles/CBMiakFVX3lxTE15NEpqbW1ZV000eFQtOTlPSmtOYkR5R0lqUDkwQ3FoTHA5Rmg5TTRiTlNFYnFIMGFmTFNwTkxqeS15WTlsWGtCamkwdWNFOWZNeWphRmg4a0FRd1NVd1hBcmxIeThBUEFOakE?oc=5 |
+1. **氣候變遷入門指南**（2026-03-07，gnews_liaj，重要性：高）
+2. **全民保險推動綠色交通政策，「一保一樹」倡議**（2026-03-11，gnews_jp_en，重要性：高）
+3. **日本保險公司 J-Win 獲得 2026 年 J-Winダイバーシティ・アワード 企業賞**（2026-03-17，gnews_jp_industry，重要性：高）
+4. **日本報告呼籲公司從2026年開始採用「實用主義」的減碳化**（2026-03-31，gnews_jp_en，重要性：高）
+5. **日本生命財團 2026年度 對高齡及地區共生社會的助成**（2026-03-07，gnews_jp_companies_ja，重要性：中）
+6. **第一生命不動產可持續性投資**（2026-03-07，gnews_jp_companies_ja，重要性：中）
+7. **日本某保險公司連續8年獲得「健康經營優良法人」認證**（2026-03-11，gnews_jp_industry，重要性：中）
+8. **中國銀行向縣交安協捐贈70萬日元 支持地域安全**（2026-03-13，gnews_jp_industry，重要性：中）
+9. **千葉縣與企業簽署『癌症對策推進企業等連携協定』**（2026-03-13，gnews_jp_industry，重要性：中）
+10. **日本生命保險公司連續五年被認定為「健康經營優良法人2026」**（2026-03-13，gnews_jp_industry，重要性：中）
+
+### 知識缺口
+
+- **供應鏈ESG風險**：日本地區的供應鏈ESG風險評估尚未被充分報導，此為產業面臨的新興議題。
