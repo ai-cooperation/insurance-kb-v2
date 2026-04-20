@@ -96,6 +96,10 @@ export function useAuth(): AuthStore {
         };
         setUser(authUser);
         localStorage.setItem('ikb_user', JSON.stringify(authUser));
+
+        // Close login overlay if open
+        document.getElementById('gsi-login-backdrop')?.remove();
+        document.getElementById('gsi-login-overlay')?.remove();
       }
     } catch (err) {
       console.error('Auth verify failed:', err);
@@ -108,22 +112,77 @@ export function useAuth(): AuthStore {
   useEffect(() => {
     loadGsiScript().then(() => {
       const google = (window as any).google;
-      if (!google?.accounts?.id) return;
+      console.log('[useAuth] GSI loaded, google.accounts:', !!google?.accounts);
+      if (!google?.accounts?.id) {
+        console.error('[useAuth] google.accounts.id not available');
+        return;
+      }
 
       google.accounts.id.initialize({
         client_id: CLIENT_ID,
         callback: handleCredential,
-        auto_select: true,
+        auto_select: false,
         use_fedcm_for_prompt: false,
       });
+      console.log('[useAuth] GSI initialized');
+    }).catch(err => {
+      console.error('[useAuth] GSI script load failed:', err);
     });
   }, [handleCredential]);
 
   const login = useCallback(() => {
     const google = (window as any).google;
-    if (google?.accounts?.id) {
-      google.accounts.id.prompt();
-    }
+    if (!google?.accounts?.id) return;
+
+    // Create a temporary container for the Google button
+    const container = document.createElement('div');
+    container.style.position = 'fixed';
+    container.style.top = '50%';
+    container.style.left = '50%';
+    container.style.transform = 'translate(-50%, -50%)';
+    container.style.zIndex = '99999';
+    container.style.background = 'white';
+    container.style.padding = '32px';
+    container.style.borderRadius = '16px';
+    container.style.boxShadow = '0 25px 50px rgba(0,0,0,0.25)';
+    container.id = 'gsi-login-overlay';
+
+    // Add backdrop
+    const backdrop = document.createElement('div');
+    backdrop.style.position = 'fixed';
+    backdrop.style.inset = '0';
+    backdrop.style.background = 'rgba(0,0,0,0.4)';
+    backdrop.style.zIndex = '99998';
+    backdrop.id = 'gsi-login-backdrop';
+    backdrop.onclick = () => {
+      backdrop.remove();
+      container.remove();
+    };
+
+    // Add title
+    const title = document.createElement('div');
+    title.textContent = '使用 Google 帳號登入';
+    title.style.marginBottom = '16px';
+    title.style.fontSize = '16px';
+    title.style.fontWeight = '600';
+    title.style.textAlign = 'center';
+    container.appendChild(title);
+
+    // Render Google button
+    const btnDiv = document.createElement('div');
+    container.appendChild(btnDiv);
+
+    document.body.appendChild(backdrop);
+    document.body.appendChild(container);
+
+    google.accounts.id.renderButton(btnDiv, {
+      type: 'standard',
+      theme: 'outline',
+      size: 'large',
+      width: 280,
+      text: 'signin_with',
+      locale: 'zh-TW',
+    });
   }, []);
 
   const logout = useCallback(() => {

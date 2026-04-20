@@ -41,7 +41,8 @@ const IMPORTANCE_MAP: Record<string, 'high' | 'mid' | 'low'> = {
 };
 
 /** Strip HTML entities and tags from RSS snippets */
-function cleanText(s: string): string {
+function cleanText(s: string | undefined | null): string {
+  if (!s) return '';
   return s
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
@@ -99,16 +100,19 @@ export function useArticles(): ArticleStore {
       })
       .then((raw: RawEntry[]) => {
         if (cancelled) return;
-        const mapped = raw
-          .filter(e => !e.filter)
+        console.log('[useArticles] raw count:', raw.length);
+        const visible = raw.filter(e => !e.filter);
+        console.log('[useArticles] visible:', visible.length);
+        const mapped = visible
           .map((e, i) => toArticle(e, i))
           .filter(a => a.title_zh.length >= 10);
+        console.log('[useArticles] mapped:', mapped.length);
         setArticles(mapped);
         setLoading(false);
       })
       .catch(err => {
         if (cancelled) return;
-        console.warn('Failed to load articles, using empty list:', err);
+        console.error('[useArticles] FETCH ERROR:', err);
         setError(err.message);
         setArticles([]);
         setLoading(false);

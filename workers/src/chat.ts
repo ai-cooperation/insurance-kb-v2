@@ -6,16 +6,15 @@
 import { type Article, loadArticles, searchArticles } from "./search";
 import { getMessages, saveMessage, type Message } from "./sessions";
 
-const MODEL = "@cf/meta/llama-3.2-3b-instruct";
+const MODEL = "@cf/meta/llama-3.1-8b-instruct";
 
 const SYSTEM_PROMPT =
-  "你是保險產業知識庫助手，專門回答亞太地區保險產業相關問題。\n" +
-  "規則：\n" +
-  "1. 只根據提供的參考資料回答，不要編造\n" +
-  "2. 用繁體中文回答\n" +
-  "3. 引用來源時標注 [來源名稱]\n" +
-  "4. 如果資料不足，誠實說明並建議相關的搜尋方向\n" +
-  "5. 回答結束後，根據對話內容建議 3 個可以進一步探討的方向";
+  "你是保險產業知識庫助手。你只能根據下方提供的「參考資料」回答。\n\n" +
+  "嚴格規則：\n" +
+  "1. 只使用參考資料中的事實，絕對不要編造公司名稱、數據或事件\n" +
+  "2. 如果參考資料不足以回答，直接說「知識庫中暫無相關資料」\n" +
+  "3. 用繁體中文回答，引用時標注 [編號]\n" +
+  "4. 回答完畢後，換行寫「建議探討方向：」然後列出 3 個相關問題";
 
 const TOP_K = 5;
 
@@ -107,7 +106,11 @@ export async function handleChat(
   });
 
   // Call Cloudflare Workers AI
-  const aiResponse = await ai.run(MODEL as any, { messages }) as any;
+  const aiResponse = await ai.run(MODEL as any, {
+    messages,
+    max_tokens: 1500,
+    temperature: 0.3,
+  }) as any;
   const rawAnswer = aiResponse.response || "抱歉，無法生成回答。";
 
   // Extract suggestions from answer
