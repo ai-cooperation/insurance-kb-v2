@@ -71,7 +71,7 @@ function extractSuggestions(answer: string): { clean: string; suggestions: strin
 }
 
 export async function handleChat(
-  kv: KVNamespace,
+  kv: KVNamespace,  // for session storage
   ai: Ai,
   email: string,
   body: ChatRequest,
@@ -83,7 +83,7 @@ export async function handleChat(
   }
 
   // Search for relevant articles
-  const allArticles = await loadArticles(kv);
+  const allArticles = await loadArticles();
   const results = searchArticles(allArticles, message, TOP_K);
   const contextArticles = results.map((r) => r.article);
   const context = buildContext(contextArticles);

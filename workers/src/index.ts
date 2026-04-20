@@ -91,7 +91,7 @@ app.get("/api/auth/me", (c) => {
 
 // GET /api/stats
 app.get("/api/stats", async (c) => {
-  const articles = await loadArticles(c.env.KV);
+  const articles = await loadArticles();
   const active = articles.filter((a) => !a.filter);
   const categories = new Set(active.map((a) => a.category).filter(Boolean));
 
@@ -111,7 +111,7 @@ app.get("/api/search", async (c) => {
     return c.json({ results: [], query: "" });
   }
 
-  const articles = await loadArticles(c.env.KV);
+  const articles = await loadArticles();
   const results = searchArticles(articles, query, limit);
 
   return c.json({

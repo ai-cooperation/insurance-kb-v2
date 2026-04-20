@@ -20,14 +20,29 @@ export interface SearchResult {
   score: number;
 }
 
-const INDEX_KV_KEY = "articles:index";
+const ARTICLES_URL = "https://insurance-kb.cooperation.tw/data/articles.json";
 
-export async function loadArticles(kv: KVNamespace): Promise<Article[]> {
-  const cached = await kv.get(INDEX_KV_KEY, "json");
-  if (cached && Array.isArray(cached)) {
-    return cached as Article[];
+// In-memory cache (lives for the duration of the Worker instance, ~30s-5min)
+let _cachedArticles: Article[] | null = null;
+let _cacheTime = 0;
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+
+export async function loadArticles(): Promise<Article[]> {
+  const now = Date.now();
+  if (_cachedArticles && now - _cacheTime < CACHE_TTL_MS) {
+    return _cachedArticles;
   }
-  return [];
+
+  try {
+    const resp = await fetch(ARTICLES_URL);
+    if (!resp.ok) return _cachedArticles || [];
+    const data = (await resp.json()) as Article[];
+    _cachedArticles = data.filter((a) => !a.filter);
+    _cacheTime = now;
+    return _cachedArticles;
+  } catch {
+    return _cachedArticles || [];
+  }
 }
 
 export function searchArticles(
