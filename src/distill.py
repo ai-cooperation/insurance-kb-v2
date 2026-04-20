@@ -130,12 +130,14 @@ def run_monthly(year_month: str | None = None) -> None:
             out_path.write_text(frontmatter + content, encoding="utf-8")
             print(f"[distill] Written: {out_path}")
             written += 1
-        except RuntimeError as exc:
-            if "exhausted" in str(exc):
-                print(f"[distill] API quota exhausted, stopping. Written {written} pages, skipped remaining.")
+        except Exception as exc:
+            exc_str = str(exc)
+            if "exhausted" in exc_str or "429" in exc_str or "413" in exc_str:
+                print(f"[distill] API limit hit ({type(exc).__name__}), stopping. Written {written} pages.")
                 skipped = len(groups) - written
                 break
-            raise
+            print(f"[distill] Error on {cat_slug}-{region_slug}: {exc}")
+            skipped += 1
     print(f"[distill] Done: {written} written, {skipped} skipped")
 
 
