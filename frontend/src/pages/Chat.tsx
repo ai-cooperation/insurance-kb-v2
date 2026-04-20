@@ -149,12 +149,12 @@ export const ChatPage: React.FC<ChatPageProps> = ({ apiFetch }) => {
 
   const send = useCallback(async (text: string) => {
     if (!text.trim() || busy) return;
+    setInput(''); // Clear immediately
 
     const userMsg: ExtendedMessage = { id: 'u' + Date.now(), role: 'user', content: text };
     const aiId = 'a' + Date.now();
     const aiMsg: ExtendedMessage = { id: aiId, role: 'ai', content: '思考中...', streaming: true };
     setMessages(prev => [...prev, userMsg, aiMsg]);
-    setInput('');
     setBusy(true);
 
     try {
