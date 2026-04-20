@@ -49,9 +49,15 @@ const SuggestionButton: React.FC<{ readonly text: string; readonly onClick: () =
   </button>
 );
 
+interface WikiRef {
+  readonly id: string;
+  readonly label: string;
+}
+
 interface ExtendedMessage extends ChatMessage {
   readonly sources?: readonly SourceCard[];
   readonly suggestions?: readonly string[];
+  readonly wiki_refs?: readonly WikiRef[];
 }
 
 const MessageBubble: React.FC<{
@@ -75,6 +81,18 @@ const MessageBubble: React.FC<{
         <div className="rounded-2xl rounded-tl-sm bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-100 px-4 py-3 text-[14.5px] leading-[1.7] whitespace-pre-wrap text-pretty">
           <span className={m.streaming ? 'caret' : ''}>{m.content}</span>
         </div>
+        {!m.streaming && m.wiki_refs && m.wiki_refs.length > 0 && (
+          <div className="mt-3">
+            <div className="text-[10.5px] font-mono uppercase tracking-wider text-slate-500 mb-2">Wiki 參考</div>
+            <div className="flex flex-wrap gap-1.5">
+              {m.wiki_refs.map((w, i) => (
+                <span key={i} className="inline-block px-2 py-1 rounded-md bg-accent/10 text-accent text-[12px] font-medium">
+                  {w.label}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
         {!m.streaming && m.sources && m.sources.length > 0 && (
           <div className="mt-3">
             <div className="text-[10.5px] font-mono uppercase tracking-wider text-slate-500 mb-2">來源引用 &middot; {m.sources.length}</div>
@@ -167,6 +185,7 @@ export const ChatPage: React.FC<ChatPageProps> = ({ apiFetch }) => {
                 streaming: false,
                 sources: data.sources || [],
                 suggestions: data.suggestions || [],
+                wiki_refs: data.wiki_refs || [],
               }
             : m,
         ),
