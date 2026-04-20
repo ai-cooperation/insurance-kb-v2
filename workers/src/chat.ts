@@ -212,16 +212,23 @@ export async function handleChat(
   // Step 1: Classify question — or reuse session context for follow-ups
   let ctx = classifyQuestion(message);
 
-  // Load session context if follow-up
+  // Load session context if follow-up — merge with new classification
   if (session_id) {
     const savedCtx = await kv.get(`ctx:${session_id}`, "json") as SessionContext | null;
     if (savedCtx) {
-      // Merge: new classification takes priority, but keep session context as fallback
       const newCtx = classifyQuestion(message);
-      const isGeneric = newCtx.categories.length === 1 && newCtx.categories[0] === "market"
-        && newCtx.regions.length === 2 && newCtx.regions[0] === "global";
-      if (isGeneric) {
-        // User's follow-up didn't have specific keywords — reuse session context
+      const newHasSpecific = !(
+        newCtx.categories.length === 1 && newCtx.categories[0] === "market" &&
+        newCtx.regions.length === 2 && newCtx.regions[0] === "global"
+      );
+      if (newHasSpecific) {
+        // New question has specific keywords — use new classification but add session regions
+        ctx = {
+          categories: [...new Set([...newCtx.categories, ...savedCtx.categories])],
+          regions: [...new Set([...newCtx.regions, ...savedCtx.regions])],
+        };
+      } else {
+        // Generic follow-up — fully reuse session context
         ctx = savedCtx;
       }
     }
@@ -290,13 +297,27 @@ export async function handleChat(
     content: `以下是知識庫的參考資料：\n\n${context}\n\n---\n使用者問題：${message}`,
   });
 
-  // Step 5: Call Qwen3 30B
-  const aiResponse = (await ai.run(MODEL as any, {
-    messages: msgs,
-    max_tokens: 1500,
-    temperature: 0.3,
-  })) as any;
-  const rawAnswer = aiResponse.response || "抱歉，無法生成回答。請稍後再試。";
+  // Step 5: Call LLM with fallback
+  let rawAnswer = "";
+  const models = [
+    "@cf/qwen/qwen3-30b-a3b-fp8",
+    "@cf/meta/llama-3.1-8b-instruct",
+  ];
+  for (const model of models) {
+    try {
+      const aiResponse = (await ai.run(model as any, {
+        messages: msgs,
+        max_tokens: 1500,
+        temperature: 0.3,
+      })) as any;
+      rawAnswer = aiResponse?.response || "";
+      if (rawAnswer && rawAnswer.length > 20) break;
+    } catch (e) {
+      // Try next model
+      continue;
+    }
+  }
+  if (!rawAnswer) rawAnswer = "抱歉，無法生成回答。請稍後再試。";
 
   // Extract suggestions
   const { clean, suggestions } = extractSuggestions(rawAnswer);
