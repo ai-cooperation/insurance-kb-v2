@@ -33,10 +33,14 @@ jobs:
           MODELS_PAT: ${{ secrets.MODELS_PAT }}
         run: python run.py
 
-      - name: Build frontend data
+      - name: Build frontend data + upload KV
         run: |
           python build_frontend_data.py
           python build_wiki_json.py
+          npm install -g wrangler@3 2>/dev/null || true
+          python upload_kv_articles.py
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       - name: Commit and push changes
         run: |

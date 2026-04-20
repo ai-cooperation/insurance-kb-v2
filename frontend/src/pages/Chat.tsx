@@ -188,7 +188,7 @@ export const ChatPage: React.FC<ChatPageProps> = ({ apiFetch }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col min-w-0">
+    <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
       {/* Top bar */}
       <div className="border-b border-slate-200 dark:border-slate-900 px-4 py-2 flex items-center justify-between">
         <span className="text-[13px] font-medium text-slate-700 dark:text-slate-200">AI Chat</span>
