@@ -297,13 +297,18 @@ export async function handleChat(
     content: `以下是知識庫的參考資料：\n\n${context}\n\n---\n使用者問題：${message}`,
   });
 
-  // Step 5: Call ACP (gemini-persistent) → fallback to Cloudflare AI
+  // Step 5: Call ACP via GemGate Tunnel → fallback to Cloudflare AI
+  const GEMGATE_URL = "https://gemgate.cooperation.tw/api/llm/persistent/chat";
+  const GEMGATE_KEY = "gem-1e0d39aeddde83b390828cc31deb24fc";
   let rawAnswer = "";
   try {
-    const acpResp = await fetch("http://43.159.131.124:8780/v1/chat/completions", {
+    const acpResp = await fetch(GEMGATE_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: msgs, max_tokens: 1500 }),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${GEMGATE_KEY}`,
+      },
+      body: JSON.stringify({ messages: msgs }),
     });
     if (acpResp.ok) {
       const acpData = (await acpResp.json()) as any;
