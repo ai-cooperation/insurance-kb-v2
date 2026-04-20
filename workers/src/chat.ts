@@ -297,25 +297,29 @@ export async function handleChat(
     content: `以下是知識庫的參考資料：\n\n${context}\n\n---\n使用者問題：${message}`,
   });
 
-  // Step 5: Call LLM with fallback
+  // Step 5: Call ACP (gemini-persistent) → fallback to Cloudflare AI
   let rawAnswer = "";
-  const models = [
-    "@cf/qwen/qwen3-30b-a3b-fp8",
-    "@cf/meta/llama-3.1-8b-instruct",
-  ];
-  for (const model of models) {
+  try {
+    const acpResp = await fetch("http://43.159.131.124:8780/v1/chat/completions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: msgs, max_tokens: 1500 }),
+    });
+    if (acpResp.ok) {
+      const acpData = (await acpResp.json()) as any;
+      rawAnswer = acpData?.choices?.[0]?.message?.content || "";
+    }
+  } catch {
+    // ACP unreachable, fallback
+  }
+  // Fallback to Cloudflare Workers AI
+  if (!rawAnswer || rawAnswer.length < 20) {
     try {
-      const aiResponse = (await ai.run(model as any, {
-        messages: msgs,
-        max_tokens: 1500,
-        temperature: 0.3,
+      const aiResponse = (await ai.run("@cf/qwen/qwen3-30b-a3b-fp8" as any, {
+        messages: msgs, max_tokens: 1500, temperature: 0.3,
       })) as any;
       rawAnswer = aiResponse?.response || "";
-      if (rawAnswer && rawAnswer.length > 20) break;
-    } catch (e) {
-      // Try next model
-      continue;
-    }
+    } catch { /* ignore */ }
   }
   if (!rawAnswer) rawAnswer = "抱歉，無法生成回答。請稍後再試。";
 
