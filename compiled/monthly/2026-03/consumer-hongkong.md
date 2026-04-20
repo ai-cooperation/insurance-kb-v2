@@ -1,0 +1,57 @@
+---
+type: monthly
+period: 2026-03
+category: consumer
+region: hongkong
+articles_count: 14
+compiled_at: 2026-04-20T00:52:55Z
+compiled_by: claude-manual
+model: claude-opus-4-6
+---
+### 本月重點
+
+- Hong Kong insurance complaints rise while conduct issues persist - Insurance Business
+- 寶馬香港打吡大賽參戰馬「白鷺金剛」令鄧思高夢想成真
+- 魔幻時刻舞台劇2026香港｜門票優先/公售攻略+購票連結+座位表
+- 圖輯 - 2026寶馬香港打吡大賽排位抽籤儀式
+- 10Life 研究：扣稅年金八款產品期滿回報差距可達約45％ 投保前須貨比三家
+
+### 時間線
+
+- 2026-03-31：Hong Kong insurance complaints rise while conduct issues persist - Insurance Bus
+- 2026-03-27：寶馬香港打吡大賽參戰馬「白鷺金剛」令鄧思高夢想成真
+- 2026-03-27：魔幻時刻舞台劇2026香港｜門票優先/公售攻略+購票連結+座位表
+- 2026-03-25：圖輯 - 2026寶馬香港打吡大賽排位抽籤儀式
+- 2026-03-23：10Life 研究：扣稅年金八款產品期滿回報差距可達約45％ 投保前須貨比三家
+- 2026-03-22：特斯拉股票投資平台：2026年詐騙與合法券商之辨
+- 2026-03-22：香港3月20日：宏福苑火災聆訊調查消防安全失誤
+- 2026-03-20：2026年香港就業中介機構黑名單 | 最新勞工處違規情況及未經許可機構查詢指南
+- 2026-03-20：太陽生命調查發現香港女性領導家庭財務但面臨跨世代壓力
+- 2026-03-11：移英港人與保險代理被指詐騙提早領MPF 代理作供：Check文件唔係我職責
+
+### 趨勢分析
+
+本月消費者保護主題在香港地區共有 14 篇相關報導。
+
+### 跨主題關聯
+
+本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+
+### 來源文章索引
+
+| # | 日期 | 標題 | 來源 | 連結 |
+|---|------|------|------|------|
+| 1 | 2026-03-31 | Hong Kong insurance complaints rise while conduct issues per | gnews_hk_regulator | https://news.google.com/rss/articles/CBMi0wFBVV95cUxNRS10bUlwRFluREYyenFEb0k0czduRy1MQkxRaEluOUhVODI0Z3Nia05NeEMyMzhVYjc5aDVfY2kxdVhMYWVKelJYTHlVcWlWVzNDQ3JPUlA5cDlrX05na0FUdVoteE1hN0YzWG5BMVBxcmtLWHIyVHFyT3pIbTVSV2NMTHdBbmZVRkdsMEx4S0Y3dUI2UnhwZm1sUVladWpTcjlqX0JrSUVNSkN4RkNyYUQxQ2MwR3IwS0FibS10allIeFhHSWUxTW16dDVsa2ZaYmVV?oc=5 |
+| 2 | 2026-03-27 | 寶馬香港打吡大賽參戰馬「白鷺金剛」令鄧思高夢想成真 | gnews_hk_zh | https://news.google.com/rss/articles/CBMi5AJBVV95cUxNX2xTa3I1eEU3Wm00VFBjODh6ak9zdE0ySXNTWVUtb3AwZTNGMVhEU3NKa0Q1WlBDelQ5dUlzZHVfZDk2T19HMWw4SERUNU1vQzBjUU96aFd4VldqSG1BR0pOR2JoeXpjdl9rT1pFM1JkenZZNGltSjBrNDNkT0ZmVG5VV0xLWEZiYzloVEwwS3pBQVhoNXNfUHFDR2V2TkN6MkFacmxSLXA3dXVzanhWNEowUDh4c0oyWUR1aUpjLU1oU2s5LVRsMUtaMFdQY2REbzZ4eFZIejZ1dWZxWXc2WktxcWxDMDdPSExRMGJvbjEwaXN0SXY1bnZyWTJXYml0WVYybW15WkxvbWZsN0tELUllQldNUkU2QzN6SGN5UEszT1NoUEJFY2g2R0VCbGp4a1lGOXc4V0J6MEhJcnZwd1NQbkpWYUlqWHYyeG43ZGRkekNqYXZvY19CNnF0QXpCQVJQeQ?oc=5 |
+| 3 | 2026-03-27 | 魔幻時刻舞台劇2026香港｜門票優先/公售攻略+購票連結+座位表 | gnews_hk_zh | https://news.google.com/rss/articles/CBMilANBVV95cUxPY0xVY1dnWXYxRmM4elZsSUNEWDQxZFdyNkNuOXAwbEdTVFFFUk40YThjZkhQMk5Nd3FIa2ZtVnFxbWtSU3QyMkZ0RnUxTS1URGk5MTU1QWN4Q3ExVE91QWF6WjN5RGdvX2RwNkJZSnhYcGIzTHRVYVJCeW9qd1dBcm16OHVIVGR5V195UTlNY0xzbDNydVRBUU1qck9VbWRwb082Ymh2RnpjSmpqMFRVT1FMNXF6NjRrY0o0YUJ6a0ZaZFBrYnhQei1XRzJFWXRva1h5Wjl0M1d0eEhZaTh5QWJ2MjEzejJiekhvUEJhdV81MmxmVmNnQ3J1Zmo4MTFneXR6OWxaeW91S3UxSG1lOURfMlVUd0xfT1RHR1d6eW51emxnOHZNUmdDQU0tWXdUajktSlh0cWd0SThWM01JYkhjNDBxMEF3RzBEdnBtTWsxNjNDcWQwY1Z0aFd3MHJDM191YVRBME9CdG9zTGp4b3YzNVlJT3d6M0xHQ0xSZGVuSTZtQ0loMGJubjdXWko0T3NLYQ?oc=5 |
+| 4 | 2026-03-25 | 圖輯 - 2026寶馬香港打吡大賽排位抽籤儀式 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiogJBVV95cUxPSHRiT0VYTmt4TVQ4UVpOSmMzam10cTBNWktGSTM2UFNyRXZkbnZXT1gxUjlBVVllZmp0d3VMTVlNWWlZbUZGUi1MT1ZFMXVVTXo0TVRUYzlJUDE2WXM5V0MycVpTeVZ5S0xTY3NOODlDclh6bUhrZzMtSzdfdFl3bHJKVS01WGZoQzBreEMxcU1WWmNoUTl1cHNpVy1BNjB5TjBnX2tGeFJYclc5S2I5bGRpVUItOFRpaF83QTVvaHRhVTh0MXpKTDAxMmJDclYwaVJIN08zcS1sckJ4dU9EVHRvY0RxRWg4Qkk1WWxCN0tWRm5fVmMzOWFjdXNHVng5YTBJZVhiM3FPaTYyaVl4a1ZmaFFnMjVZRml6SkFSMDdiUQ?oc=5 |
+| 5 | 2026-03-23 | 10Life 研究：扣稅年金八款產品期滿回報差距可達約45％ 投保前須貨比三家 | gnews_hk_zh | https://news.google.com/rss/articles/CBMi0AJBVV95cUxQUXotYVlJd2Z5OUlCY05vNnNIVi1jYWhpWnQydVZHa1c0SncxRl8tWUdTSVBRUlVNeFg2WjUwaEdfZFZGeklBY0w4TjJ1OTZMTU1JekZtcFVSdlNjLUNWOV92NjdENC14SFl2VS0tZVBnR3EzQ2FBTkxLWnBCR2ViR0FCaU9acXJLaVd3c3lBVnZ1VGcydklCODlBbmgwSzlTMHFMM292aGhDUlNVM2FaWG45RC1NbHZJb29GbGk5ZnZPU0ZyNnlJQnJ6bHExQkJPUmJ1RWkwejNwWW1Mc0Fjc0ZrVjROdDFzUFhGb1NKS2l5UnpHRWpmd2tTdjlHOVRhNGxmNHNBeGNLWDlHOXhlcDJYd2RFM1lwV2FQRXpwaFdHNlNJTDJCdmhSTlg0VzdRZHFzSFM2U0tOV0xCOTVPczRqVFBFR3RhMU5QaG5FSHQ?oc=5 |
+| 6 | 2026-03-22 | 特斯拉股票投資平台：2026年詐騙與合法券商之辨 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMiYkFVX3lxTE9haDl6QnYtN3lrU3BsQlRIOWFCRENTY1JxT2M0ajRIa2VFMXhXOG1wWFZsN29NZjJrTWZ6QVRuRjlJaEFObW1jbVJkUFRpT0pZY01jUFRMdjJkWVNoLWkzQTlB0gFiQVVfeXFMT2FoOXpCdi03eWtTcGxCVEg5YUJEQ1NjUnFPYzRqNEhrZUUxeFc4bXBYVmw3b01mMmtNZnpBVG5GOUloQU5tbWNtUmRQVGlPSlljTWNQVEx2MmRZU2gtaTNBOUE?oc=5 |
+| 7 | 2026-03-22 | 香港3月20日：宏福苑火災聆訊調查消防安全失誤 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMinwFBVV95cUxQN25UWnZYTXlBMkxEM3kyd2U5bVRmcnBvS0N5TFRLTDg1VGRJN0lZMU1lXzNEa1luT0FUUTRPRGdqWE5pOTg4eHlnZ0VrQXBFV0VIUnF0ZmN3Rl9xQS16NGxoa2dtUnF4VnBjWWM3NXpIRENlWlhDZVdkUThvVEJPTWdUT1llMEZuY213NDlpOU96bTV0bDE4b21JbnhUSUE?oc=5 |
+| 8 | 2026-03-20 | 2026年香港就業中介機構黑名單 | 最新勞工處違規情況及未經許可機構查詢指南 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMiakFVX3lxTE5KZ1REa2lKR2VoUGVEQk9CNnJRUUdoVFdHWmlwMzNlWGgxMTA0RFJYQVoxWDVDaUFuZDBTaGZTT09oTHZVXzRFcDJYdWlMZmxuWE15U1VDRUcyZi1pVEJlQlU3V1ZDRlFSN1E?oc=5 |
+| 9 | 2026-03-20 | 太陽生命調查發現香港女性領導家庭財務但面臨跨世代壓力 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94866/Type/eDaily/Sun-Life-survey-finds-Hong-Kong-women-lead-household-finances-but-face-cross-generational-pressures |
+| 10 | 2026-03-11 | 移英港人與保險代理被指詐騙提早領MPF 代理作供：Check文件唔係我職責 | gnews_hk_zh | https://news.google.com/rss/articles/CBMixwJBVV95cUxNeGhXR0JOcWZSQXlnc2tIa0pFWjgzWkVxU2ZPajFIeDJuZmJJdVQ1b2FnX3JPTkJlRWFRQmJ2WmItcWNpSmN1bGVGbXU2VDRYVGIzUzRSMXJoMEhZdjNmdndIcVRuMGRMcGVTYUVtNUxnWkc3ODFzV2VZZWNLSVdlMVQ0MFV4R21FMFE5WUZYNVhob2RPMnZQZGJoQWtKV3lDcXRSWkpnaDhJRU5leS1mVzFsd1JVcFVGUGY2NkJZeExiUERUa1o3bWVOTGprZzluLTA5RjlWTWlFS3V1YldfVjQ2QVN1YnlfRFd5MFlzT2hqdlhiRlAzUExuMUdiVTRLWHVjUjFxVEpHcVVhUmRMZlNCUmp0SVgtTXBxUnY4cVZBeGpoWURiSUdUdnhLZng2QWQ0T182REtRS09EX2Flb1RRYjJqZTA?oc=5 |
+| 11 | 2026-03-07 | 移英港人與保險代理被指詐騙提早領MPF 免起訴客戶庭上認出代理被告 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiwAJBVV95cUxOQThEOENEMHN0UkRnTzRRNFk0d1QzeXBvaURabEhJUWU0QS01eTB6c09lTmpNRVA4LU05ZnRWRkNpQjZPdjFWNGxsS2RMcDloY3pwdDJqbzd6QWI4Z2JJWXp4dVZRUE1sMEt5ZDhVTWVFWnoyMHlNakljU2dwb015R2YxOWxlVUFFcHR1a1NvcDVSb0VzSlByZEpJYmhZNmhEMTZ0U2JFZVB6eUN1aGFZSGV3TWpGdmxZNGdtNGt6Rll3UzA1Zno3enF4ajBmTVU1alBCc0hkVE1seTEzaDNlMHhNNmZnZGkyckxkVzBVMk41cFpKbF9kT1pHYU45bWlKRWxPcmRXMDRTQ0dLS18xelE3RjhjNVBHUjJwczIyMWdxeTJobC1EaFlIRDFldVBqdVd2ZG8wSy05eng4Tk41NA?oc=5 |
+| 12 | 2026-03-07 | 金融防長者遭詐 壽險響應指定聯絡人機制 | gnews_hk_zh | https://news.google.com/rss/articles/CBMijAFBVV95cUxOZDRWcExmSllDOUdSSk1LTDVrZnhtRjM5dlUzeVVKMW5MbFNhR19oTVc1a2N1ZEZ2bVdORDE2bEozMHBaVkxmTVE2LUJpOUFNNWN3dk1uaEJWVU53T2ZWVFB6NWc1eGJqOXVnR09wU2RDaFc4WWkzOE5aTUM1V2RoVzJUSW9BYnJ4QUJKWQ?oc=5 |
+| 13 | 2026-03-07 | 【宏福苑火災】保監局:保險公司會酌情處理理賠申請 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiZEFVX3lxTE5reU04SjNTR00xQU52S05JY1Z4NjhEd3MwZXhFVTl4UFllYzhVenJCRHJ6Z1VpbkhmLTFjWFJGd1dTQ05kZTZSbW0wTmtvNEE3TDVQLXRmaVNNZ0ZGS0hUMnZTZ04?oc=5 |
+| 14 | 2026-03-07 | 移英港人與保險代理被指詐騙提早領MPF 代理助手作供：『法師』等稱呼均為被告 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiwAJBVV95cUxOaTEwbHdoMUtETHBlNVhDNldHYkcwR1FCeWlMM0poemlVVGtJVWhtRGttREZPQ2NIMjBnTUpQaGhqalFPVGVXM0NCczUydFBVYU9YaWpNRlkxMllxVTNHbXlXejJHYVdkbUdubllGUkJ1a2lQbzY2Smd3TThkZ1ZVSWJRTUxYRlBFb2llWl9DTGNyVDJ1NUlZbWNCVmRzQVdEaXc5MUF1U2R5NDZtN3R1d1YxSVdoejBCS0o2SUFNZE1qYkhtQ3NzSmY4bldUVENmbDhGU1F1Nm1xWEJMTmlqNm85b1hNLU9FbTZYdUJSbDR6bXdQd2RGUmlEbjU5TGczZWFnOU11YXRLQzhFVVI3MkdTZWhJSFZYblQteFRTYlNyMU9TbnRZRjljWU5ERE54MWFxRy1mV0F1MDMzWlZCZw?oc=5 |

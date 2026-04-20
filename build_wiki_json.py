@@ -41,6 +41,8 @@ REGION_MAP = {
     "korea": "韓國",
     "singapore": "新加坡",
     "taiwan": "台灣",
+    "us": "美國",
+    "europe": "歐洲",
 }
 
 
@@ -133,42 +135,54 @@ def parse_wiki_file(path: Path):
 
 def build_wiki_json():
     """Build wiki.json from all compiled monthly wiki files."""
-    # Find the latest period directory
     period_dirs = sorted(COMPILED_DIR.iterdir()) if COMPILED_DIR.exists() else []
     if not period_dirs:
         print("No compiled directories found")
         return
 
-    latest = period_dirs[-1]
-    print(f"Using period: {latest.name}")
+    # Collect pages from ALL periods (latest version wins for same id)
+    all_pages = {}
+    periods = []
+    for period_dir in period_dirs:
+        if not period_dir.is_dir():
+            continue
+        periods.append(period_dir.name)
+        print(f"Scanning period: {period_dir.name}")
+        for md_file in sorted(period_dir.glob("*.md")):
+            page = parse_wiki_file(md_file)
+            if page:
+                # Use period-prefixed id for uniqueness
+                page_id = f"{period_dir.name}/{page['id']}"
+                page["id"] = page_id
+                all_pages[page_id] = page
+                print(f"  Parsed: {md_file.name} → {page_id}")
 
-    pages = []
-    for md_file in sorted(latest.glob("*.md")):
-        page = parse_wiki_file(md_file)
-        if page:
-            pages.append(page)
-            print(f"  Parsed: {md_file.name} → {page['id']}")
-        else:
-            print(f"  Skipped: {md_file.name}")
+    pages = list(all_pages.values())
+    print(f"\nTotal pages: {len(pages)} across {len(periods)} periods")
 
-    # Build tree structure: group by category
-    tree: dict[str, dict] = {}
-    for p in pages:
-        cat = p["category"]
-        if cat not in tree:
-            tree[cat] = {
-                "id": cat,
-                "zh": p["category_zh"],
-                "regions": [],
-            }
-        tree[cat]["regions"].append({
-            "id": p["id"],
-            "zh": p["region"],
-        })
+    # Build tree: group by period → category → regions
+    tree = []
+    for period in sorted(periods, reverse=True):
+        period_pages = [p for p in pages if p["period"] == period]
+        cats = {}
+        for p in period_pages:
+            cat = p["category"]
+            if cat not in cats:
+                cats[cat] = {
+                    "id": f"{period}/{cat}",
+                    "zh": f"{p['category_zh']}",
+                    "period": period,
+                    "regions": [],
+                }
+            cats[cat]["regions"].append({
+                "id": p["id"],
+                "zh": p["region"],
+            })
+        tree.extend(cats.values())
 
     output = {
-        "period": latest.name,
-        "tree": list(tree.values()),
+        "periods": periods,
+        "tree": tree,
         "pages": {p["id"]: p for p in pages},
     }
 

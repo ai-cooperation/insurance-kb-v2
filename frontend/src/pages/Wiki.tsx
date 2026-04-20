@@ -27,11 +27,12 @@ interface WikiPageJson {
 interface WikiTreeItem {
   readonly id: string;
   readonly zh: string;
+  readonly period?: string;
   readonly regions: readonly { readonly id: string; readonly zh: string }[];
 }
 
 interface WikiData {
-  readonly period: string;
+  readonly periods: readonly string[];
   readonly tree: readonly WikiTreeItem[];
   readonly pages: Record<string, WikiPageJson>;
 }
@@ -138,13 +139,21 @@ export const WikiPage: React.FC<WikiPageProps> = () => {
     <div className="flex-1 flex overflow-hidden">
       {/* Tree sidebar */}
       <aside className="hidden md:flex flex-col w-60 shrink-0 border-r border-slate-200 dark:border-slate-900 bg-slate-50/50 dark:bg-slate-950/50">
-        <div className="px-3 pt-4 pb-2 text-[10.5px] font-mono uppercase tracking-wider text-slate-500">
-          {wikiData.period}
-        </div>
-        <div className="flex-1 overflow-auto px-2 pb-4 space-y-0.5">
-          {wikiData.tree.map(n => (
-            <TreeNode key={n.id} node={n} activeId={activeId} setActiveId={setActiveId} expandedSet={expanded} toggle={toggle} />
-          ))}
+        <div className="flex-1 overflow-auto px-2 pb-4 pt-2">
+          {wikiData.periods.map(period => {
+            const periodTree = wikiData.tree.filter(n => n.period === period);
+            if (periodTree.length === 0) return null;
+            return (
+              <div key={period} className="mb-3">
+                <div className="px-2 pt-2 pb-1 text-[10.5px] font-mono uppercase tracking-wider text-slate-500">{period}</div>
+                <div className="space-y-0.5">
+                  {periodTree.map(n => (
+                    <TreeNode key={n.id} node={n} activeId={activeId} setActiveId={setActiveId} expandedSet={expanded} toggle={toggle} />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </aside>
 

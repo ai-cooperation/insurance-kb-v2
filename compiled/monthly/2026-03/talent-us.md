@@ -1,0 +1,53 @@
+---
+type: monthly
+period: 2026-03
+category: talent
+region: us
+articles_count: 10
+compiled_at: 2026-04-20T00:52:55Z
+compiled_by: claude-manual
+model: claude-opus-4-6
+---
+### 本月重點
+
+- 特朗普任命「阿爾法男性」網紅為旅遊大使
+- 美元樹雜貨店聘請Ahold的Fleeman接替Vasos成為新任CEO
+- 評論 | 傑西·傑克森：從先知到政治家
+- Ameritas 宣布新任 PEO 退休計劃團隊成員
+- 獨家新聞：前星巴克CEO霍華德·舒爾茨以4400萬美元購買佛羅里達頂層豪宅
+
+### 時間線
+
+- 2026-03-31：特朗普任命「阿爾法男性」網紅為旅遊大使
+- 2026-03-26：美元樹雜貨店聘請Ahold的Fleeman接替Vasos成為新任CEO
+- 2026-03-23：評論 | 傑西·傑克森：從先知到政治家
+- 2026-03-21：Ameritas 宣布新任 PEO 退休計劃團隊成員
+- 2026-03-16：獨家新聞：前星巴克CEO霍華德·舒爾茨以4400萬美元購買佛羅里達頂層豪宅
+- 2026-03-15：前星巴克CEO霍華德·舒爾茨以4400萬美元購買佛羅里達頂層公寓
+- 2026-03-15：Lululemon 創始人加劇董事會批評，同時公司正在進行CEO搜尋
+- 2026-03-13：Ascot任命Shanelle Burke為美國財務長
+- 2026-03-13：Openly宣布任命獨立董事會成員
+- 2026-03-12：怡安任命Anne Corona為北美區執行長
+
+### 趨勢分析
+
+本月人才與組織主題在美國地區共有 10 篇相關報導。
+
+### 跨主題關聯
+
+本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+
+### 來源文章索引
+
+| # | 日期 | 標題 | 來源 | 連結 |
+|---|------|------|------|------|
+| 1 | 2026-03-31 | 特朗普任命「阿爾法男性」網紅為旅遊大使 | gnews_nyt_insurance | https://news.google.com/rss/articles/CBMiggFBVV95cUxOMEJpZDM4Vk5zdzd2Yk1NWm1JZUVEVlh6b3Q3ODNja1RwSTY5SzdTQ09kb1ZXQnJxd0xuSVpLejVwLTJHeXZObTYtUDc0Y0dvbHBoLTVacUtjVDhmMlZLQU54TjBDaVIySHU1UXg0R1hRVVlxUDVVUlFUVVF4RldmTVlB?oc=5 |
+| 2 | 2026-03-26 | 美元樹雜貨店聘請Ahold的Fleeman接替Vasos成為新任CEO | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMirANBVV95cUxOSVFmYVpHOFZsaUFqRmdSQ0hjTzNZbzNXaVk1Z2IzNDB5Q045djFXZmRZa2VQdUFGcl9JUlAxMEhhaXJTOHBNU1JWb1F4UXhhakdxNEExaVhBbm50NDhfcXNfRm9kdUd5dDU5TXg2NWxnekhUTk5faHlCMWdMdG5kM1RvdG9iYTNOeUVhbGR1UTRRQm5fVVliM2FWRnNwVFZ3N2NXbFNvT3h1TGFVWXo4MVBzZXowNUs4dk9RaHludmhWeDRrWTlER2lCeGlvZ2tOT1ZkUXdqd1ZCNHpvOU5MTFA4ZVpOYkpPWkdYd3MydE1VbEx4eWk0bTkxZjZELVNObjBoN0swdWlIU1VDMktXVUcxbkxBRUlZeHpwUHhKa2hncGVYZDVCMzNMSDFHODI2blg5T1V6cE5QUjZVcXJ3T1hteVNTNURQdG50QWl6aXhfOUR2cThiWHJEenZCM3JDWmdoMTRsRzJIMTYyZ0l5NEtOZm1nZkhIeUpZZUpBQ2RtWkNxUTdtVDdZRjFrZVp6UFI5WGhtNnRfc1BaazZsQ2dud1Zydlo0Rlk2NA?oc=5 |
+| 3 | 2026-03-23 | 評論 | 傑西·傑克森：從先知到政治家 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMilANBVV95cUxOSUNiZ3RUUGtJMDlRbTFfMjBwNi1wXzF0SXp4QndfcVoycXFPYVRDRmY5RDRJZFJhY0pTMHZXWm5zNExEbGNEUHZwRXZFeWZLLTlrTTdMTTVacGxGUnFYd25fWlM5YkY3M25nWGsweXJmUldNTEpUd1FSb2ZxNTd4enVnN3VZLWNwUm5jRG1IMVB6bE81d1kzRExXRnBpNGt0dFNBU1FZTDc4OXY1MDM1WW1xOWQxWGJiUEc0RVlfcEZ4RHJMNlo0dUdDdlZUZGNHSF9VLXdVZ1Q2WjdMSHpCRk1hQ0Jvam9wZS1oVzJUSjl6UjZWc3NEVnN3ZENDMW1tNVFuM3VMaElkV1hGd004OUpDVVRXV3Bsa2NQS0ExWnVHOEtmaUE4S0lNazNQUDl1SjIxenVGakVnUW9mckFfQm5LLWoyNDFNS1UxVG1kNGZDMGNPREVrZjE3T1NBUFZmT2pHU1ptSTRlc0xyZ0V4UG5mNWNtOU1rZzA0YnEyTXExd0VqUTlZcGh2TURXc2RSUERDMA?oc=5 |
+| 4 | 2026-03-21 | Ameritas 宣布新任 PEO 退休計劃團隊成員 | gnews_sg_companies_1 | https://news.google.com/rss/articles/CBMisAFBVV95cUxPMzM2ekM1a01iUVZCYjg3ZnRxcXNrbURnSzdMVlgyTTlxbVVqRWtYOVdabGRoNXJzNS1uT0IzQ2NuX3pSTTZ0SFUyenJCM2xIMF9XOTh2RVpMS0RXZkxUMzZBOGxQM09taDl4SVhuUjFsUnp3MV9KeXN0dVo3ZzNpSE5fRlFvTnpGOWRCZzh2Vnk0blpHV2FyZGNLaFA5ZVdXalRTazJKZjZQSzBKcjZVMQ?oc=5 |
+| 5 | 2026-03-16 | 獨家新聞：前星巴克CEO霍華德·舒爾茨以4400萬美元購買佛羅里達頂層豪宅 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMiogNBVV95cUxQTU9BbVVLR2VGM3paSE5QT0liS1c5cXYyM1V6S1MwX0ZCeDkwRmJGbDRaZzZSajNLSDB1NGxmUi1wdkJ6VTJXMHFyLXhFNWVoUUN0dHFFZjlnS0E2MllnR01IVFlmZUtvTnVrRy1VTjlNMWxQd0VtbHE0eV9NWTdGT2M3NERZaG05aGExNG5vYjVrVW9zZklfa1J5NVRYaGxRVlU3emo4RW9rYTFCX1VXSDlaakR1V1hoc01QMWtkNHlrcnJfV3BnTk4yMlo2d1BhOWtjOGhIb1ZUd3FHYmF4THJqQl9ncW5OVHU3Y1BMS1ZvYlMxTDNUcno0cEFwRE0wczgzdDJCU1R1SGU0V1dnQW9JWjh3LS03c0hNQnljOERSWUlIQTM2NGV0UE8taXpfc0tJZG5uS1lzWl94U3Q5bnRDNDhXSkFWNmtHMGZGdHBhVjdRYVVFbVhFTmpPU0FQTHc2X2JLdUdpaXNCdmoxVVBuUV9McDh2N3FNTHBxSnVwMHZKUXNBd2pQQVE4UGM4QkRNUzBDb0RyRUFWRVhZLVpR?oc=5 |
+| 6 | 2026-03-15 | 前星巴克CEO霍華德·舒爾茨以4400萬美元購買佛羅里達頂層公寓 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMiogNBVV95cUxOTWFtQTl2cHRSSkE0dmpqcmRFQXVPOGRlQW1WOWpyT2RvNF96U2c1SnZqLXFSeXFFNEczME0wam94N3Z2dFBTam95M2xMaExSMWc0UXAwaEZoTWtQREFMTWpPLW1IcWxkZFlFMXR5dTVST1hnQXFnTHZZaHA3QmhlbGNhV1ZmNXBRZE1hRTNva0ZwZEJPWXBXdXBDdzkwY0gtdGV4blV5T0pJQUhEblRrc0VzTnlMWjl0Qmd0NmVxbklZdzlDZldtd0NHN3BLWGlyNm1TN2lmd1lTd3B1SkphS3RVNFExYzNhRUx1aGpmU1NNdURKX0tFOWhhTkEyQVFMbXVCYmVjZ0ZTWDA4MHpIc1BZZVZOOTdvaHlWZ3dLdDdJci02YWNYZzJRMWVUUFNrTnBaZ09WSGFVYlRjVEJTYTA4bkRIcUxCRFNIeUdVYUQyd3RFZlIzdzRONVhaZGVyM19raGE2Mk9xRm9wN3gwLWx4RFJqQVFTcERRWDVXR2UxQ1ZiSU85c2xnUUQ4UmNFNjJWSGV4SEczakhQQWhaandR?oc=5 |
+| 7 | 2026-03-15 | Lululemon 創始人加劇董事會批評，同時公司正在進行CEO搜尋 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMirANBVV95cUxOc3lGQ0kxQVhCUkUycTlra3NiVHpEcDd2dm9hZUJaZG5ySlNqQ1Zjb3hxZGQzTDlKVDMzajRJSFNqSmRnbmZsUTAwSzI3WHZRYnp0REhMc012QzBzOVhpN0V2OVl5ZDUwa2NYNXZGZHZBdndnb1NQYnVBWlFEVEFfN0d3c3ZVSUNlbWM5Wm80dmdQbVZ4VXpaVnMxTWduQ256ZnJfVkFPNUJ3NGRJbUl3clJKTS1NRktqQzlnQmxaQUdIc0hHMkpQWGMtSEY0Zms5SFRtNGV2N2xMTXFOZHRaeElmTDhhWm9hNzdwQ1hmYkIzQ3JkLW80RjJQZU5SM25UakR0bUFpTDk2SE5Sc3ZUSFdWMG5EX1NMYTBzeGFfdEV0THVLcngwc012NDNEZG1DbU9PY1BQLWdnWnA4ODhBMXNLQ0tOa0k1eWxBR3hWRzRzcmFKQjlKakJpNnh3dHlEUmd1M2JqcUZBSE9DR1l5Zm1zTmlvTlRGN1I0RzJ4R3VxcXpMTFZER29wODJGZHprUFItMm02YVg4d182cFVnYmVRd3Z0bi1oTTNZVA?oc=5 |
+| 8 | 2026-03-13 | Ascot任命Shanelle Burke為美國財務長 | gnews_insurance_global | https://news.google.com/rss/articles/CBMikwFBVV95cUxPMDE5T0JiSHRMajJxOVVYa2RXRERycnc4RzlNVUN6cGFfeVpwZlVoWTZRTVB3YXJLZjZGaE1OVTB1MzVuM2FaOUY2Q2c2ZkdOTUtlVDJqQ3VxX3dOalBQRjU0REtjZW1lUHdtbExUNTdhQjZFY0FRREFpNjhzYXF4ZzFNTk5kRXJNRHRxSlYtWlFxMHc?oc=5 |
+| 9 | 2026-03-13 | Openly宣布任命獨立董事會成員 | gnews_insurtech | https://news.google.com/rss/articles/CBMipAFBVV95cUxOZHZyT0tUZzcwWnNUMVJ6dk4zaUo0eDRmc3NWdzhxR3BJUkFBeWIzNHFRdV9OcWttY3pZSGJEMHBPT1U4SjNxN25rLUV2X2FPbFJ5ZFNObHczVDhVTExXS0MzeVUwZWIxbklLUGFuRWpyVjg2VUQxb2JTNEtXeG9NZXVMTHNLSkdWLW9SRjlxc3JUNlIwcXdhU253NUFvcXpXaW1tSA?oc=5 |
+| 10 | 2026-03-12 | 怡安任命Anne Corona為北美區執行長 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMihAFBVV95cUxNVTZNaTZxQ2ZOcEEyUmVMalpvbnNzWkpibEc2LVBWQjg5R1VnclZnSUhFYWRNR3NBQ0UzX1pOTUVVTDVfVU9XT3RJZUc2LUZ6NUpQNVhTYlNiUk5hTl9PcHZvUkpycWtrUWQwNnI0NXZVbF9fMk91LWtNMnJ5WlQwNlBfdGM?oc=5 |

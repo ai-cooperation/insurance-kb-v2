@@ -1,0 +1,62 @@
+---
+type: monthly
+period: 2026-03
+category: talent
+region: hongkong
+articles_count: 19
+compiled_at: 2026-04-20T00:52:55Z
+compiled_by: claude-manual
+model: claude-opus-4-6
+---
+### 本月重點
+
+- 保險公司將代理人人才計劃的重點轉向滿足生態系統需求
+- 數碼港互動招聘博覽2026揚帆數碼未來本地內地大型企業首度參與提供逾2,000職位迎戰AI新浪潮
+- 富衛集團宣布管理層任命
+- 三井海上人壽任命艾莉絲·孫為香港傷害保險高級審核員
+- 富衛集團去年淨利潤1.66億美元創新高 另公布管理層任命
+
+### 時間線
+
+- 2026-03-29：保險公司將代理人人才計劃的重點轉向滿足生態系統需求
+- 2026-03-19：數碼港互動招聘博覽2026揚帆數碼未來本地內地大型企業首度參與提供逾2,000職位迎戰AI新浪潮
+- 2026-03-17：富衛集團宣布管理層任命
+- 2026-03-17：三井海上人壽任命艾莉絲·孫為香港傷害保險高級審核員
+- 2026-03-16：富衛集團去年淨利潤1.66億美元創新高 另公布管理層任命
+- 2026-03-16：富衛集團宣布管理層任命
+- 2026-03-16：數碼港互動招聘博覽2026揚帆數碼未來
+- 2026-03-16：萬通香港及澳門任命Wilton Kee為副首席執行官
+- 2026-03-16：富衛集團去年淨利潤1.66億美元創新高 另公布管理層任命
+- 2026-03-14：香港及澳門：萬通人壽任命新副首席執行官
+
+### 趨勢分析
+
+本月人才與組織主題在香港地區共有 19 篇相關報導。
+
+### 跨主題關聯
+
+本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+
+### 來源文章索引
+
+| # | 日期 | 標題 | 來源 | 連結 |
+|---|------|------|------|------|
+| 1 | 2026-03-29 | 保險公司將代理人人才計劃的重點轉向滿足生態系統需求 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMiiwFBVV95cUxOQmtrTU5pd0pQTExVZUoxX1hhNGpFb0R3QXJySi16TG15NDhUY3EyZjhrZmNKRTlHR2FUbEphUERlcFNHRjRSeEVBYUN4VUFtLTd2cEpHcW1scUlYZjNRN0lkSml3SHE2emNhXzlWU3hjRnEwSnpCT29sSExBa2RwTXd6Tk1lR3JyTUcw?oc=5 |
+| 2 | 2026-03-19 | 數碼港互動招聘博覽2026揚帆數碼未來本地內地大型企業首度參與提供逾2,000職位迎戰AI新浪潮 | gnews_sina_insurance | https://news.google.com/rss/articles/CBMi0wRBVV95cUxOQWpWbXMzb1lFekRxMVVNdjY5Zm5wR3dmM0I0S2taR3huNFlDWkFXc2s1UVQ3M01nbWdpY0pRWTgyd2Nwb2lFVTdaa1dFM25MVTNza09TWmtEVHdnLUw3WmlYbXRLWFVOeHJTSGsyYVJ2NU85c1gzYlhyaXd0NVpVcV9LekRpUEYwdEdBcTB3UHdUczdNaHRySWVHQ1ZxbTdDcGFPaEEzakJNYXltcy1mTGdhdklQNmM1WWxVczBUeVR4VVNBblFockp4MTROam5uZTFNc2F4NUg2UWZSaldYRGpHZWlLaHNwQlU3VWtnWjNRZFRTT0RwWE4tbTdVVDQtV2IzMm8wVmxwMmJnVGlQZkExeEhvVzdDLWI4aHpyVjRIWk5zbS01LTVWZlNPS3lNYlotZE43b0E1MV9WVU9DZTdJbFF6bVlSR01EVUw0WU1ZbVNMd0hZdmNOWl9zVmFsMHFiWV9iNl9pOEwyQ0loaUFaSF90dDIzdHlyUTFMODREeXdJR19fd3ZoRmlvb1YzRXA4ZzZtOWhnbC1fcXpuMXRXUk5YaldYN1V1MnZLMkg1LWRiU0FVMklrYl83TnFKaldaRDdpWk5vMnRGSTkyaTBqNXl3UnhYM25Ib0gya2llYjN0dS03RW41bmVmRVRTN2lUREpjbDJHMVFWbVhUamt1Z0RpXzdRZzgyU09aemxRX2E3TFh1ajNlc2cza2p1LXJxVEVtcm1aMTZ0T3dfN2hodXNHYXVJTl9Cbm1EdS01OWg1U0h2VHhhRlJmSjhDY240?oc=5 |
+| 3 | 2026-03-17 | 富衛集團宣布管理層任命 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiYEFVX3lxTE1SZXVkWks3UElfUWpZVEhRNUEta1htbXN4NmdfUk82aEdOVkZfT0ZSRU5XUE9MZXBQemRZd3c4enZ5dlg5eWNxMFBwck03X2NZX0hURzRzSE4yd3Exa2NuZA?oc=5 |
+| 4 | 2026-03-17 | 三井海上人壽任命艾莉絲·孫為香港傷害保險高級審核員 | gnews_jp_en | https://news.google.com/rss/articles/CBMimwFBVV95cUxNTWFJTFJsbGpCTXdhV09LYjRDLWkxa0FBRTN3eVdfOXp0b0d5b0pUT1VmQWpPajlhSFlwaHNfZ1g4YTlTSVBmZmVpeFliTzEwVlF0NlY2TGhRcHQ4cU5fV1hDME5jRDEzaE55VVByVnVBeGxNbDdlMUtPS003Rmh6ZkxxR1pxRThoNnJNM3RIbEJ6M1B6RFZaUnJOZw?oc=5 |
+| 5 | 2026-03-16 | 富衛集團去年淨利潤1.66億美元創新高 另公布管理層任命 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiTkFVX3lxTE1RTDcxcFpxS0h4ZmdEdXUyS0JjaHBmX2pfUDctQ0htNHFkdWZGVVRKVHBSNDJYSmYyazNqNmE0T0t0S2VWazhTQzNlSEowdw?oc=5 |
+| 6 | 2026-03-16 | 富衛集團宣布管理層任命 | gnews_hk_zh | https://news.google.com/rss/articles/CBMi6gFBVV95cUxOTEV2MFllbGE5TjUxYWJMVzBCUEM0eVJHMFkxTlhWYW4zcHQyTW4wYWZtY3FiU0VQM1YyUndtZUxrWWI0c0p3TUlCbU1leHV5dHRsYzMxQWJrVTdRMS1HYUhYWE12SV9SNTAwOTF0WUhVRVZ5c2JUNlZfMV9zeFRMX3lyLXpNWGRrRUpEMzVPMnVhWTJDVWNLMmk4OU1VaDA5R1FVSVVlREswR3I1bXF6d2g5eURVLTZIbkU3b0lDZlluTE16VFFITnRRY290bVhlRlVYS3RORVZpcmFVVUZIaHpmQWlUZ01INGc?oc=5 |
+| 7 | 2026-03-16 | 數碼港互動招聘博覽2026揚帆數碼未來 | gnews_sina_insurance | https://news.google.com/rss/articles/CBMi4ARBVV95cUxPYVVfUVhVajc3X2hGaEJKUTZRU0tsZVI4UHJhcE53bjZkbWE3TE43c29GSWlMS2sxb2ctbHBaOXl5Ulc3dmMyNjJpWTQ3TGdDY1ZLc1ZoZkRZcG41VWJtcFJabEdsOE5nZUZFMmpQR1JPNFU3UWVfRVBYeFpTTDRudnhaN3lSZTVDOHo2S3Zhdm5xRkZuUTV6SXlub3lqN3dDQklvcExuS1FpcGRqQzV5WFJVU2FIU09hZ2ctcEpnWWFpT1AwOG1aeDUwYloxcnFmbER0ZmdfcDJpUXlPc280ZUxxUVk1MFAtVWpoN29hU19kS0wyalFCUWozN2ZMRE53NHc0QlZnc29qTmdjdnUtZXRkeVdKM3R3V2xVNDRKbTY3UEpreGxmTUVhSzNaTUszTlVMdG5DbFR2cGQ3MWYtVWlMSVlFOVNGa3ViYXRHZ212Q0tQcHI3cXR5N1lHZ1k5cVRVVEowdWJUNmNZQ2Vid2t6VWVEQklJalYya2dieEQ2bjdxdExJWWd4eE92UEF4YzhMX1dYR3doZlNXTWlTQmc2TUdTODA0REpJcHBKSzU5WnpmaldieW9BUkZiUXhpUmZoYUE0YkJ5czZ1UHNtUmEydnVhd2lQTnNfYllpUVZvTWNnQnREaDZULUNlZlAwdFV4dkEwVmQ4YzkxeW42ZTc5Z1F5ZVNMQWFYY0kwWlZSMlFjWklseG5ieUc5NWE1Wk4xbzN2aWgxZ3NHZ0VCSGg1TlYwT3VHZVRKdjdfRkljeTFOSjl6c05YZlRaZHVVcGVZRnJwSlNSbWRVcFVqVw?oc=5 |
+| 8 | 2026-03-16 | 萬通香港及澳門任命Wilton Kee為副首席執行官 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMiowFBVV95cUxQdVhoSmZkUC01N0tnZjhlVnJCc054dUpYdmdBSDBkM3YzNG9jT08zVDNBeVRCa0cydWVIT0tSajBPbG9JUFpaUHQ5SE5vaGdTWDlBbTJZdjdhUWlwME1vZ2lNY1ZMS2FvWGZobDFFWkVMZGR2R2lvMVd4empBN2pUUWFhUnNGLVRIY055UVFvUS13Vnhrek5RM0Z5MlcyZmdHY1Nz?oc=5 |
+| 9 | 2026-03-16 | 富衛集團去年淨利潤1.66億美元創新高 另公布管理層任命 | gnews_hk_zh | https://news.google.com/rss/articles/CBMikANBVV95cUxONlZfUXNiM3hqaUMwNk1ackxxTW5VU2EtZ0JMOGpiR2U5TFV2eGhBMjM5SkJ5c2JfQ1RJTHpTcTE5TTl4VWk0NG1lZXFCU2paaW92YTU0WFNFS0JrdTRJaXlJZDNYSDQ1bDZfQU8wNmY2SlJEVWN6RG1zNzJwU25jOWNkTHBreUlLS0JSV1ZjTTlMaE51VUdEV0JrTVFHRlVROExQUnJmR1NYQzdIUVJxSXJ1VUkzQnZtR1d5WDJOVTA5RE9Teno2b0pQaDB3VGxQbThKVXhhQXZvUldTUUtJWnNxcGtCVlFyc3poWlRfd0RSeVZCWk5ydDVFYjlPZFQwR1RQVzR1S2dtTm0xQUQ3NERDR3lCbDdlVVZCRVo3V002RmVOZktYanZXTkpUNG0yNGdpbGhVdEZudWM2cUNxTC1OTU5QWWR0OW5kLXV6ZTlSWFhxSHBWVE81bTl0bmM0YjNyNFc5UjFCdXVaay04VUtJbllUOUI0alMxQkdjMlFQX01rWkF3SDVueUtCaFB6?oc=5 |
+| 10 | 2026-03-14 | 香港及澳門：萬通人壽任命新副首席執行官 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMi0gFBVV95cUxOc1hUbXlFckRTU2E5U1ZEWXJUbFpacG9jV0NINzJ6T0xFY3NpRHVzWjB5NEJDRk91cEZkRFVlUmdjNFhsVHlqbTVhbGhrZW1xLXJOaE9DY1JzQm1QejREVllab3ppOE5UZnF6Q1l2YWRmc0dDczVYZVU0VHhYZFBIMy05d2MzT3otWWltMmpveURNVnR4dGE3RnpHSF9NbGstUUNxUjV6eGNpaVhQRzN3am1XeUwxcFIxVzMtM0xEMTNqZnpTWjJwc1ZlQ2VvUnJ2b0E?oc=5 |
+| 11 | 2026-03-13 | 宏利任命香港及澳門區副行政總裁 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMingFBVV95cUxOdkJSWTFpTVdOVzNTN0U5bDRFX3ZUQ2tiTDJtVGdacFBIVUFZcklFT0ZubXNZRWNuZFVGWS1jZ05hcXRFTVhIbWc4cWZ6c3ZJa0dFbkNrMzdZdkp4VzdmTE1BbEtwckJ4cERiRi1PVGpJOGNkMnNTRGxWSW1MMy10Tnc4NVVOQmdCNzhRMXlSci1jWHRVRFNZS0ZhaEJZQQ?oc=5 |
+| 12 | 2026-03-13 | 香港及澳門：萬通人壽任命新副首席執行官 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMi0gFBVV95cUxNcTltUDNUSEsyQVhtTDVMdDE3Rlo2VUxMam1mMS1qRVFpV0NHVEVWM2JGNWYxNTZlTWJDU0VFX18zLW9YUFJtSEJmOFFlNFJpOWJoR3RPU0NraTdiV2ktWS1nWlNkSVFRQ1RZb0hITEszdTRCWmt4WkM3aDFlZVFaZjZ6TFBzcGJIbHFJMWozd0NYMG9VZ1JwTFdma3NEX3FsRmtKRlRUTmR0Xy1WOVowSUdHSFNUckNQdmM3XzZneXRiZkU0V0FvQkVlV0lQRUlGbmc?oc=5 |
+| 13 | 2026-03-13 | 香港和澳門：曼立保任命新副總裁 | air_news | https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/94789/Type/eDaily/Hong-Kong-and-Macau-Manulife-appoints-new-Deputy-CEO |
+| 14 | 2026-03-12 | 宏利香港及澳門加強領導團隊，任命副首席執行官 | gnews_hk_companies_1 | https://news.google.com/rss/articles/CBMi4gFBVV95cUxPUS1kMXp2UFd1d1NGUW5mLXdNV0NSdkhqa0ZZNERZWUFwR3RiblAyWm5VUjQtbG9XSHI5Q0VIWm5zeE5wSmtHbU93Z3FMZDBELVp2bGFEZ1lRQ0ZRWlo4OUJSM2ZWVDlBcTF6SXJzSFhxUGpsSGlwSURXWkphUHBpNDZ0cmJRVGg5X3Y0UGVNWXN1Q0lQVlR1TnVuWVl2T0lLSEZvZVQ3MXpoLXVUZFVxa2ZTTXpzMkxYTElRQWJTcDFPYkI1bjNjZ1J4YkEtNk81dm5GQ3lESzIyQURUQTJGSmNR?oc=5 |
+| 15 | 2026-03-08 | 伯克希爾哈撒韋專業保險公司任命馬庫斯·波特伯里為亞洲中東地區總裁 | gnews_hk_regulator | https://news.google.com/rss/articles/CBMi0AFBVV95cUxPbVpXOWNxMi1uV3NUdlpDbnBPQWR4c0ZDeXV0VmpZcXZNemdWd1hKOUp5UGhpQWdVODRiRmpad3BZT3c5RVpYSnRMaUZvb2F1WnFMYlAzdmxZdm9kYWhJbWdrR1FoQ1o4RmYzemJ5aThDZEUwc2M5VWNBc2dxQ3VqbDNYcnhJOFo4Ukk0bjZuZXp6aE4wSHBKX2lMSkx3NnBtQ3E5YnI0eG9VQXJ6dVBscVNqaFZDVlZEWnZBZnBjcTEycDc1TS1TQkNrckVGVnBG?oc=5 |
+| 16 | 2026-03-07 | 利寶互助保險任命新任香港區行政總裁 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMivAFBVV95cUxPcjJGODhhVVp3OUtEbkx6SDNZd3lyd1BhdDZta0RJakJVN25PeEQ3bzgwZEQ0ZWE2X29JOUhHdTJYQ19BWW9UTlpzZVJGWWNXUjZWdU9hNHZGalgtV0M2THY2RjVtbnFYbEZhNVJabkRDdEJoa04yYVRzNDVaVE9ydm85UC1TSDB5NURaM1Z0M0trOEFjbU8wNW5oT1VjVl9obFVYOVM4OWNLZVAySFNHT0lsN1hYWXphbkhmRw?oc=5 |
+| 17 | 2026-03-07 | 利寶保險任命 Cynthia Sze 為香港區行政總裁 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMGh1SkVoRjZJRW13TEllTXE4dF9ycWdyLWxuekp0OWlOc2sxRHZvX1E3MzRCaHBMMlpKdEpCVHVNZFpidXczeFJ4SVlmUjlMaExfcHV2aXJyaDhBSDl6cTVyTDJnSWJNQm1qRnZKbi1BSzdEZGtIT05CeTFhRXZzdnZ5cEtsZE9VSURz?oc=5 |
+| 18 | 2026-03-07 | 施先生獲任命為利寶香港區行政總裁 | gnews_insurance_asia | https://news.google.com/rss/articles/CBMimAFBVV95cUxQWWhxd0d4cnd1bHlVcTBRb1NyVGRNaEJwek1CcjZMd0JuNVBXa0pDX095QXBBdFFPY25XQ2NxOUptU2swWDRrSUxxSWo4c0pZNjk4a3E4VWJ0NlM1Um5pZTVPQ3duSUluUEZVQWFUV0NGeGxGMUtkSUJjcGE2SG1YYVRScWxfYm93VDdSUjdfSE81ZG4xYk9KMw?oc=5 |
+| 19 | 2026-03-07 | 第一金人壽再獲保險龍鳯獎畢業生「最嚮往的壽險公司」 | gnews_hk_zh | https://news.google.com/rss/articles/CBMiTkFVX3lxTE9fTnNMSHJTU3dldnpNaEtqS2I3STRDNWtpSmdWYTJYckVNWWRiMTJlczFWYTFqMHNyZzBqejZKelpxRDBUTjhpSE9DbHZEdw?oc=5 |

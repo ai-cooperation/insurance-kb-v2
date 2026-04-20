@@ -1,0 +1,51 @@
+---
+type: monthly
+period: 2026-03
+category: consumer
+region: us
+articles_count: 9
+compiled_at: 2026-04-20T00:52:55Z
+compiled_by: claude-manual
+model: claude-opus-4-6
+---
+### 本月重點
+
+- 獨家：曾以每位患者34萬美元收費的自閉症治療公司被禁止參加醫療補助計劃
+- 獨家：曾以每位患者34萬美元收費的自閉症治療公司被禁止參與醫療補助計劃
+- 我們最小的孩子與我們的家庭斷絕關係了，幫幫我們！
+- 民主黨人與Hasan Piker過於親近
+- 你失去了你的健康保險。這不應該讓你感到驚訝。
+
+### 時間線
+
+- 2026-03-31：獨家：曾以每位患者34萬美元收費的自閉症治療公司被禁止參加醫療補助計劃
+- 2026-03-30：獨家：曾以每位患者34萬美元收費的自閉症治療公司被禁止參與醫療補助計劃
+- 2026-03-26：我們最小的孩子與我們的家庭斷絕關係了，幫幫我們！
+- 2026-03-23：民主黨人與Hasan Piker過於親近
+- 2026-03-22：你失去了你的健康保險。這不應該讓你感到驚訝。
+- 2026-03-15：意見 | 美國醫療補助計畫的自閉症騙局
+- 2026-03-15：更改地址導致失去醫療保險覆蓋 - 紐約時報
+- 2026-03-12：觀點：醫療補助的自閉症詐騙案 - 華爾街日報
+- 2026-03-12：美國三分之一人為了醫療費用而減少開支或借貸
+
+### 趨勢分析
+
+本月消費者保護主題在美國地區共有 9 篇相關報導。
+
+### 跨主題關聯
+
+本主題與其他保險產業面向密切相關，需持續追蹤跨領域發展。
+
+### 來源文章索引
+
+| # | 日期 | 標題 | 來源 | 連結 |
+|---|------|------|------|------|
+| 1 | 2026-03-31 | 獨家：曾以每位患者34萬美元收費的自閉症治療公司被禁止參加醫療補助計劃 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMixgNBVV95cUxNQ3RabTFkblZuTXljMGQwX2pUZFFjRHMweDJpdzJFa21rdFJ3SW15cUxoLVUzZ0JDa081VTBhc21Ial9ZcF9lejhacjB4SXBqRTFtOE1BNFVudExpQl9CMEtOR2duVlN6OW04c3kzNEl3dVpMdlVzM0ZlR2h2SUpqQkxDbjNaMFZ1S1l1ZWloQzBJVGVTQVhDcVFTckp3aUxjVk1MOGFwRFVWWXpuWXpaMTB2Z3hzdUhzSkp2QXl0QjhwNi1DVkctMms3dEwwcGdUTDdjZm41eTB5R1htWkJrT3ZCUmZsbGlEbXhPM2hxY0V2VW1KWTNzUDZoYk1PdFFRUzNMSzJTSGF0eV9iZUtWY1NsY3FpSDdsZFFLMzg2MkV6dW52Uy1NV1B0OE1ZVUpOLVpsWVV3WDNDSnFzdGZuSnJ5SmV6cEo3Smthb2NFMnVNQk1xcXZ5TXROZWduOFdDUWR1OUhtRG84YmhjbXJxNDN2dEFGbkdneVZUQ25wTDZoaWRUcVc4UXIzbW1xVnlmRXREUl9rWmJYY3RWVHBHekl6VWM3T3lRRVdmTnFSSUVoNzRlMmpJYWxBTUlma25aMkU1MGxn?oc=5 |
+| 2 | 2026-03-30 | 獨家：曾以每位患者34萬美元收費的自閉症治療公司被禁止參與醫療補助計劃 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMixgNBVV95cUxOUmYxZHZhcFpYRGNwNVVLcmczTkdEZUZBbnB2VU91dlZ5ZmZncnJON3FGekJ2TlR4TElqNEpUc2RMeU9yeFExX2lXdEYxMkpsVzNkczM0WFo2U0xPejNERkdxbTF3QXc0QWZra0gxZWotWndnUzdWRFZPSU5XVDUyQXF1SWJSR20xd0hRdm1iSUZsRHFXYm0zQlVHWHFPRlBVQUdVTE10NS04THhvMGdZcFUzN2FEc21fUnY2Zm1zNEJLeGVBVEw0aWZRTXNUUGdsaTZFYW1jeVlsYkQtN2ZBR2VGYVVXQUUzR1lZSEJFLXRaQXhwR0wtb09ETWpSdjhVeTBubWlUVUZtSUVNa21vVTM2SlV3LVZrbmNFcWxrQVhwYkx4ZXA5dWZ3ckFGX1NPUk9tZ1F6ZkJOTzRMcktWSVNQOE5mTlhvTEYzR3gxc2EtdW9wN3ZOM3dLaXcyanJqZDRmb1VFNjdtMmlnTHFzZ1N2RVhNZEtycXhxWHA4YURkd0NkWnhXcUY5OExRRDBYRmdHajFobWdldllzLVNuYjdIZ2gySWc5MElCZkRzOEtKSHFFZFI4N1ctbVFRenJTNTZSNFNn?oc=5 |
+| 3 | 2026-03-26 | 我們最小的孩子與我們的家庭斷絕關係了，幫幫我們！ | gnews_nyt_insurance | https://news.google.com/rss/articles/CBMifkFVX3lxTE1MVW15VXdxeUdLdzE4UnFYa0gta2x1RVRiaHdoeElKelFMUGsxaUx6WS02UE5ZdS1DSjk0cU5OLTlfQ2NzRC1pLVdZc0liR0V6c2R2MlNEOXBOdlBuOGR1enFSa090cWhSVGt3amVLWk5YeDFoVDduTDFKcVMydw?oc=5 |
+| 4 | 2026-03-23 | 民主黨人與Hasan Piker過於親近 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMinANBVV95cUxNNXZ5TXRCVEM4aXZFUEhaZUc2SG1fYkotVTkzUFNuTU1FcXVZU3Q2Wl9SWnp6d0NWUXMxNzRMRmVvb1M0UXR4MUc4SDJBcDRPZEk3M3hVN2xDdm56eVVaNzZzdGhraS1iQXRUd3RGeWh1ZmswQWhxSXl3Zk9PWmFLVUpPUS01OUlqTDB0WXZLZXJzN1U2Y1dFRGsxclFqd0R5RzBGcEhrNnZkak1FYTNFOTdyVFdiMEk0Yzc4NG5BaFNGZ0dVU0JyN29rblhGamZ3X2dsc1ZNSVZsYTNMaVhOR2hZRHQ0Vk0zVldMWmdLdUNLa2dubUhDc3o5Y2Z3b3FzVXB3MWJoR3FHbzE1c2d6ZjN6Vi1NcDc0Ql91T2s4akFQNXFKQnVtTDd2cWtiZ2Nram9BYnZWeHRucjBUTk1VMGM0dF9IbVJfT1BOa2Y4Y0tkZWdVcDZBWFFtZGJ0ajlGdXBUTkZqNGJKQ3VUd0xTQ040TEp2RDVGYVdyb2FxbEw0NEtWMGtycDRndVlicG9DanBCU00yVEJmM2lF?oc=5 |
+| 5 | 2026-03-22 | 你失去了你的健康保險。這不應該讓你感到驚訝。 | gnews_nyt_insurance | https://news.google.com/rss/articles/CBMiqwFBVV95cUxPQ3RIbThEQXI0cmcxZldxeVA3UWFTTUhRZFFfQXFsTVVWcG11N2g0UDlfbFlWRTVpcXp3V1ZKdlVjd3c4SldmUXk0YlgwMHhzTXdoZ1BUaV9CcmVPRThNMG1RWl92RFJCRnVBS3FxbFFXLTZMX2hiM1hKSnVCc2wtZk5fSWFjd3lwWUdET0R5Zk9DUnl1Ykd1cDVoQUFhRGdXb1dLcHozZVFleGc?oc=5 |
+| 6 | 2026-03-15 | 意見 | 美國醫療補助計畫的自閉症騙局 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMi9gJBVV95cUxNQVhrSlZnUzYtWEg4Z1V3dG9rbHoyRkNLbGFCY3phYU1aRE5FSDY0MUJNWXE2MFIyVF9ub3JGTk1TZ2FtMUdsWFNma09PY0N2b2R1RVJJbU50dWZPM2tzZFFnRmVrcExlaXZzZ2U5bW9YUlBHNy1UNl9OeVQ2QXh4UzdGa0lxNWxNbm5YRnVEdEU1M2hIdXNRMmJUeDBVbkVMWjVYTEpBNFpQYV92cWVEMEdxeXE4ZnRJZ0Nrb3FTYkJ5aWkzd0lLSUFfb2pMUzNUNm0yS25zMTEtOEZWbGpZdW9pYXFOWDk1MUw3RkZ4Vjk2enBTQUpJZHlUNkNzQUZOeDdFOFdWTWdYYkR2QUVibW5aY2VxNXR4bEtXQnhGd24zcVNlM0RoVEhneEhoVjFoWGRVLUcxRnFRYTZrcVI2Mk1JNDlJZF9YNUR1bXZmcUFDcmVZS1BUOHJZOV93UTVEaG9XeHFlMzR4TXd1akJlSWNzdlgtQQ?oc=5 |
+| 7 | 2026-03-15 | 更改地址導致失去醫療保險覆蓋 - 紐約時報 | gnews_nyt_insurance | https://news.google.com/rss/articles/CBMiiAFBVV95cUxNLXFvOUdFWEttZ3ppX2gyOVFfVlNNbjNLOWl4bHFUR0JSNnZpR1lvTnh1UC1QWWFZQlhldzZmWGtXUTNXVGNMQ2huTVB4Z1dTVWdMeElseHRndks4Q1I5eVZPZlZIc3BGOXZVV2J5TnlPVDdjeUs4MGhEc3B2cjBuM1JhTkpWZW9O?oc=5 |
+| 8 | 2026-03-12 | 觀點：醫療補助的自閉症詐騙案 - 華爾街日報 | gnews_wsj_insurance | https://news.google.com/rss/articles/CBMi9gJBVV95cUxPbXotaHRpc3haWnVrUUNsVkVkenVmWGNVdF85WDNZdEtZT2dxa2dGTVhEejQzcUM5RlFrT1Y2eE9vY2dpQnlaWlF3ckJhRVZyTHlrVHBtT2p4QjJLcDZ5QkNjazBaWTBoN1dDclJxMGpiaG52c1pUMUFILUZpc1RtcGdfNlZXLTlVd2NtOHNzVXQ0am9ZZFhPenJYZUJfWUxWdjRscHpqa29jX1JUNmlyU2lUYlRYQlhwb0VqR1BOR1A3MnNDZlp4eFRreXg3a2pjTjNmRUdacEo2SENRRGptMkVTM19xcC1OM29pQ0MycFFyZ3dIRU51TjF1elJhd2VtU0libHRHZl92ZTdxNHZORnhnbGtfSDJmSVMxdVA2bi1ha2FNNlloQUxCVURJUkFYY1hRM21CV1NMV3VBQTNrNnFwbVhmWjlkMTItZVFYTWMwSGxCMmVHMGtNNWw2cC05bG5rbDhIMzd3ZkRKLUdYLXhzaWFuQQ?oc=5 |
+| 9 | 2026-03-12 | 美國三分之一人為了醫療費用而減少開支或借貸 | gnews_nyt_insurance | https://news.google.com/rss/articles/CBMifEFVX3lxTFBRS0laWHpOb0d2VFVuNFlZZExmZjVURFotc2xHUlVtTU9rMUJMTENxLVFmVGI1aWM0eWpSc1BpZ3JMR1ZCZEJfVUstQVVxMkI2cTA2dWZIX3F6aHFDVnB4MldMZDQ3aWtMQ3N2UThmV3ZCdUFIQW1qTUJ2a1o?oc=5 |
