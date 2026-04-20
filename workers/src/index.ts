@@ -1,12 +1,18 @@
 /**
  * Insurance KB API — Cloudflare Workers entry point.
- * Hono router with CORS, auth, rate limiting, search, chat, sessions.
+ * Google auth + KV whitelist + Workers AI chat + RAG search.
  */
 
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 
-import { extractEmail } from "./auth";
+import {
+  getUserFromRequest,
+  addVip,
+  removeVip,
+  listVips,
+  type UserInfo,
+} from "./auth";
 import { handleChat } from "./chat";
 import { checkRateLimit } from "./rate-limit";
 import { loadArticles, searchArticles } from "./search";
@@ -14,11 +20,12 @@ import { deleteSession, getMessages, listSessions } from "./sessions";
 
 interface Bindings {
   KV: KVNamespace;
+  AI: Ai;
   CORS_ORIGIN: string;
-  GROQ_API_KEY: string;
+  ADMIN_EMAIL: string;
 }
 
-const app = new Hono<{ Bindings: Bindings; Variables: { email: string } }>();
+const app = new Hono<{ Bindings: Bindings; Variables: { user: UserInfo } }>();
 
 // --- CORS ---
 app.use("/api/*", async (c, next) => {
@@ -32,60 +39,54 @@ app.use("/api/*", async (c, next) => {
   return middleware(c, next);
 });
 
-// --- Auth middleware ---
-// Public endpoints: status, stats, search (no auth required)
-// Protected endpoints: chat, sessions (require Cloudflare Access JWT)
+// --- Auth middleware (all routes) ---
 app.use("/api/*", async (c, next) => {
-  const email = extractEmail(c.req.raw);
-  c.set("email", email);
+  const user = await getUserFromRequest(c.req.raw, c.env.KV);
+  c.set("user", user);
   await next();
 });
 
-// Require real authentication for sensitive endpoints
-const requireAuth = async (c: any, next: any) => {
-  const email = c.get("email");
-  if (!email || email === "dev@localhost") {
-    return c.json({ error: "Authentication required" }, 401);
+// --- Tier guards ---
+const requireMember = async (c: any, next: any) => {
+  const user = c.get("user") as UserInfo;
+  if (user.tier === "guest") {
+    return c.json({ error: "Login required", tier: "guest" }, 401);
   }
   await next();
 };
 
-app.use("/api/chat", requireAuth);
-app.use("/api/chat/*", requireAuth);
-app.use("/api/sessions", requireAuth);
-app.use("/api/sessions/*", requireAuth);
-
-// --- Rate limit middleware (chat only) ---
-app.use("/api/chat", async (c, next) => {
-  if (c.req.method !== "POST") {
-    return next();
-  }
-  const email = c.get("email");
-  const result = await checkRateLimit(c.env.KV, email);
-  if (!result.allowed) {
-    return c.json(
-      {
-        error: "Rate limit exceeded",
-        remaining: result.remaining,
-        limit: result.limit,
-        reset_at: result.resetAt,
-      },
-      429,
-    );
+const requireVip = async (c: any, next: any) => {
+  const user = c.get("user") as UserInfo;
+  if (user.tier !== "vip") {
+    return c.json({ error: "VIP access required", tier: user.tier }, 403);
   }
   await next();
-});
+};
 
-// --- Routes ---
+const requireAdmin = async (c: any, next: any) => {
+  const user = c.get("user") as UserInfo;
+  const adminEmail = c.env.ADMIN_EMAIL || "";
+  if (user.email !== adminEmail) {
+    return c.json({ error: "Admin access required" }, 403);
+  }
+  await next();
+};
+
+// === PUBLIC ROUTES ===
 
 // GET /api/status
 app.get("/api/status", (c) => {
   return c.json({
     status: "ok",
     service: "insurance-kb-api",
-    version: "2.0.0",
-    model: "llama-3.3-70b-versatile",
+    version: "2.1.0",
   });
+});
+
+// GET /api/auth/me — return current user info
+app.get("/api/auth/me", (c) => {
+  const user = c.get("user");
+  return c.json(user);
 });
 
 // GET /api/stats
@@ -93,14 +94,11 @@ app.get("/api/stats", async (c) => {
   const articles = await loadArticles(c.env.KV);
   const active = articles.filter((a) => !a.filter);
   const categories = new Set(active.map((a) => a.category).filter(Boolean));
-  const sources = new Set(active.map((a) => a.source).filter(Boolean));
 
   return c.json({
     total_articles: articles.length,
     active_articles: active.length,
-    filtered_articles: articles.length - active.length,
     categories: categories.size,
-    sources: sources.size,
   });
 });
 
@@ -126,32 +124,52 @@ app.get("/api/search", async (c) => {
   });
 });
 
-// GET /api/chat/status
-app.get("/api/chat/status", async (c) => {
-  const email = c.get("email");
-  const result = await checkRateLimit(c.env.KV, email, 20);
+// === MEMBER ROUTES (Google login required) ===
 
-  return c.json({
-    email,
-    rate_limit: {
-      remaining: result.remaining + (result.allowed ? 0 : 0),
-      limit: result.limit,
-      reset_at: result.resetAt,
-    },
-  });
+// GET /api/sessions
+app.get("/api/sessions", requireMember, async (c) => {
+  const user = c.get("user");
+  const sessions = await listSessions(c.env.KV, user.email);
+  return c.json({ sessions });
 });
 
-// POST /api/chat
-app.post("/api/chat", async (c) => {
-  const email = c.get("email");
-  const body = await c.req.json();
+// GET /api/sessions/:id/messages
+app.get("/api/sessions/:id/messages", requireMember, async (c) => {
+  const sessionId = c.req.param("id");
+  const messages = await getMessages(c.env.KV, sessionId);
+  return c.json({ session_id: sessionId, messages });
+});
 
-  if (!c.env.GROQ_API_KEY) {
-    return c.json({ error: "GROQ_API_KEY not configured" }, 500);
+// DELETE /api/sessions/:id
+app.delete("/api/sessions/:id", requireMember, async (c) => {
+  const user = c.get("user");
+  const sessionId = c.req.param("id");
+  const deleted = await deleteSession(c.env.KV, user.email, sessionId);
+  if (!deleted) {
+    return c.json({ error: "Session not found" }, 404);
+  }
+  return c.json({ deleted: true });
+});
+
+// === VIP ROUTES (whitelist required) ===
+
+// POST /api/chat
+app.post("/api/chat", requireVip, async (c) => {
+  const user = c.get("user");
+
+  // Rate limit
+  const rl = await checkRateLimit(c.env.KV, user.email, 50);
+  if (!rl.allowed) {
+    return c.json(
+      { error: "Rate limit exceeded", remaining: rl.remaining, reset_at: rl.resetAt },
+      429,
+    );
   }
 
+  const body = await c.req.json();
+
   try {
-    const result = await handleChat(c.env.KV, c.env.GROQ_API_KEY, email, body);
+    const result = await handleChat(c.env.KV, c.env.AI, user.email, body);
     return c.json(result);
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error";
@@ -159,30 +177,39 @@ app.post("/api/chat", async (c) => {
   }
 });
 
-// GET /api/sessions
-app.get("/api/sessions", async (c) => {
-  const email = c.get("email");
-  const sessions = await listSessions(c.env.KV, email);
-  return c.json({ sessions });
+// GET /api/chat/status
+app.get("/api/chat/status", requireVip, async (c) => {
+  const user = c.get("user");
+  const rl = await checkRateLimit(c.env.KV, user.email, 50);
+
+  return c.json({
+    email: user.email,
+    tier: user.tier,
+    rate_limit: { remaining: rl.remaining, limit: rl.limit, reset_at: rl.resetAt },
+  });
 });
 
-// GET /api/sessions/:id/messages
-app.get("/api/sessions/:id/messages", async (c) => {
-  const sessionId = c.req.param("id");
-  const messages = await getMessages(c.env.KV, sessionId);
-  return c.json({ session_id: sessionId, messages });
+// === ADMIN ROUTES ===
+
+// GET /api/admin/vips
+app.get("/api/admin/vips", requireAdmin, async (c) => {
+  const vips = await listVips(c.env.KV);
+  return c.json({ vips });
 });
 
-// DELETE /api/sessions/:id
-app.delete("/api/sessions/:id", async (c) => {
-  const email = c.get("email");
-  const sessionId = c.req.param("id");
-  const deleted = await deleteSession(c.env.KV, email, sessionId);
+// POST /api/admin/vips { email }
+app.post("/api/admin/vips", requireAdmin, async (c) => {
+  const { email } = await c.req.json();
+  if (!email) return c.json({ error: "email required" }, 400);
+  await addVip(c.env.KV, email);
+  return c.json({ added: email });
+});
 
-  if (!deleted) {
-    return c.json({ error: "Session not found" }, 404);
-  }
-  return c.json({ deleted: true, session_id: sessionId });
+// DELETE /api/admin/vips/:email
+app.delete("/api/admin/vips/:email", requireAdmin, async (c) => {
+  const email = c.req.param("email");
+  await removeVip(c.env.KV, email);
+  return c.json({ removed: email });
 });
 
 export default app;

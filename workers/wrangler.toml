@@ -5,9 +5,13 @@ compatibility_date = "2024-10-18"
 [placement]
 mode = "smart"
 
+[ai]
+binding = "AI"
+
 [[kv_namespaces]]
 binding = "KV"
 id = "d57f70351eb94f7c8b13d338f0f811ad"
 
 [vars]
 CORS_ORIGIN = "https://insurance-kb.cooperation.tw"
+ADMIN_EMAIL = "alan.chen75@gmail.com"

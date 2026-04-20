@@ -7,7 +7,8 @@ import { CardsPage, ArticleModal } from './pages/Cards';
 import { WikiPage } from './pages/Wiki';
 import { ChatPage } from './pages/Chat';
 import { useArticles } from './useArticles';
-import type { Route, Tier, Tweaks, Article } from './types';
+import { useAuth } from './useAuth';
+import type { Route, Tweaks, Article } from './types';
 
 const DEFAULT_TWEAKS: Tweaks = {
   accentH: 172,
@@ -18,24 +19,23 @@ const DEFAULT_TWEAKS: Tweaks = {
 
 export const App: React.FC = () => {
   const [route, setRoute] = useState<Route>(() => (localStorage.getItem('ikb_route') as Route) || 'home');
-  const [tier, setTier] = useState<Tier>(() => (localStorage.getItem('ikb_tier') as Tier) || 'vip');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [article, setArticle] = useState<Article | null>(null);
   const [tweaks, setTweaks] = useState<Tweaks>(DEFAULT_TWEAKS);
   const [tweaksShown, setTweaksShown] = useState(false);
   const { articles, loading } = useArticles();
+  const auth = useAuth();
 
-  // persist
+  // persist route
   useEffect(() => { localStorage.setItem('ikb_route', route); }, [route]);
-  useEffect(() => { localStorage.setItem('ikb_tier', tier); }, [tier]);
 
-  // Force route back to public if insufficient tier
+  // Force route back if insufficient tier
   useEffect(() => {
     const needed = NAV.find(n => n.id === route)?.req;
-    if (needed === 'member' && tier === 'guest') setRoute('home');
-    if (needed === 'vip' && tier !== 'vip') setRoute('home');
-  }, [route, tier]);
+    if (needed === 'member' && auth.tier === 'guest') setRoute('home');
+    if (needed === 'vip' && auth.tier !== 'vip') setRoute('home');
+  }, [route, auth.tier]);
 
   // Dark mode
   useEffect(() => {
@@ -67,25 +67,28 @@ export const App: React.FC = () => {
         open={sidebarOpen}
         route={route}
         setRoute={(r) => { setRoute(r); setSidebarOpen(false); }}
-        tier={tier}
+        tier={auth.tier}
         collapsed={sidebarCollapsed}
         setCollapsed={setSidebarCollapsed}
+        user={auth.user}
+        onLogin={auth.login}
+        onLogout={auth.logout}
       />
       <main className="flex-1 flex flex-col min-w-0" data-screen-label={`0${['home','cards','wiki','chat'].indexOf(route)+1} ${route}`}>
         <Topbar
           route={route}
           setRoute={setRoute}
-          tier={tier}
-          setTier={setTier}
+          tier={auth.tier}
+          setTier={() => {}} // tier is now managed by auth
           dark={tweaks.dark}
           setDark={(d) => setTweaks(t => ({ ...t, dark: d }))}
           onMenu={() => setSidebarOpen(!sidebarOpen)}
           onOpenTweaks={() => setTweaksShown(true)}
         />
-        {route === 'home'  && <HomePage  articles={articles} loading={loading} setRoute={setRoute} setTier={setTier} openArticle={openArticle} />}
+        {route === 'home'  && <HomePage  articles={articles} loading={loading} setRoute={setRoute} setTier={() => {}} openArticle={openArticle} />}
         {route === 'cards' && <CardsPage articles={articles} loading={loading} openArticle={openArticle} />}
         {route === 'wiki'  && <WikiPage  articles={articles} openArticle={openArticle} />}
-        {route === 'chat'  && <ChatPage  articles={articles} openArticle={openArticle} />}
+        {route === 'chat'  && <ChatPage  articles={articles} openArticle={openArticle} apiFetch={auth.apiFetch} />}
       </main>
 
       <ArticleModal article={article} onClose={() => setArticle(null)} />

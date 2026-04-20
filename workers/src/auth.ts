@@ -1,60 +1,102 @@
 /**
- * Cloudflare Access JWT authentication.
- * Decodes the CF Access JWT to extract user email.
- * Trusts CF edge for signature verification.
+ * Google ID Token verification + KV-based VIP whitelist.
+ *
+ * Flow:
+ * 1. Frontend gets Google ID token via Google Identity Services
+ * 2. Frontend sends token in Authorization: Bearer <token>
+ * 3. Workers verifies token with Google's tokeninfo endpoint
+ * 4. Workers checks KV for VIP status
  */
 
-export interface AccessJwtPayload {
+export interface UserInfo {
   email: string;
-  aud: string[];
-  exp: number;
-  iat: number;
-  sub: string;
+  name: string;
+  picture: string;
+  tier: "guest" | "member" | "vip";
 }
 
-export function decodeAccessJwt(token: string, expectedAud?: string): AccessJwtPayload | null {
+const GOOGLE_TOKENINFO = "https://oauth2.googleapis.com/tokeninfo";
+
+/**
+ * Verify a Google ID token and return user info.
+ * Returns null if token is invalid.
+ */
+export async function verifyGoogleToken(
+  idToken: string,
+): Promise<{ email: string; name: string; picture: string } | null> {
   try {
-    const parts = token.split(".");
-    if (parts.length !== 3) {
-      return null;
-    }
+    const resp = await fetch(`${GOOGLE_TOKENINFO}?id_token=${idToken}`);
+    if (!resp.ok) return null;
 
-    const payloadB64 = parts[1];
-    const padded = payloadB64 + "=".repeat((4 - (payloadB64.length % 4)) % 4);
-    const decoded = atob(padded.replace(/-/g, "+").replace(/_/g, "/"));
-    const payload = JSON.parse(decoded) as AccessJwtPayload;
+    const data = (await resp.json()) as Record<string, string>;
+    if (!data.email || data.email_verified !== "true") return null;
 
-    // Verify expiration
-    const now = Math.floor(Date.now() / 1000);
-    if (payload.exp && payload.exp < now) {
-      return null;
-    }
-
-    // Verify audience if provided
-    if (expectedAud && payload.aud) {
-      const audList = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
-      if (!audList.includes(expectedAud)) {
-        return null;
-      }
-    }
-
-    if (!payload.email) {
-      return null;
-    }
-
-    return payload;
+    return {
+      email: data.email,
+      name: data.name || data.email.split("@")[0],
+      picture: data.picture || "",
+    };
   } catch {
     return null;
   }
 }
 
-export function extractEmail(request: Request): string {
-  const jwtHeader = request.headers.get("Cf-Access-Jwt-Assertion");
-  if (jwtHeader) {
-    const payload = decodeAccessJwt(jwtHeader);
-    if (payload?.email) {
-      return payload.email;
-    }
+/**
+ * Check if an email is in the VIP whitelist (stored in KV).
+ * KV key format: vip:<email> = "1"
+ */
+export async function isVip(kv: KVNamespace, email: string): Promise<boolean> {
+  const val = await kv.get(`vip:${email}`);
+  return val !== null;
+}
+
+/**
+ * Extract user info from request Authorization header.
+ * Returns guest if no token or invalid token.
+ */
+export async function getUserFromRequest(
+  request: Request,
+  kv: KVNamespace,
+): Promise<UserInfo> {
+  const auth = request.headers.get("Authorization");
+  if (!auth || !auth.startsWith("Bearer ")) {
+    return { email: "", name: "", picture: "", tier: "guest" };
   }
-  return "dev@localhost";
+
+  const token = auth.slice(7);
+  const user = await verifyGoogleToken(token);
+  if (!user) {
+    return { email: "", name: "", picture: "", tier: "guest" };
+  }
+
+  const vip = await isVip(kv, user.email);
+  return {
+    ...user,
+    tier: vip ? "vip" : "member",
+  };
+}
+
+/**
+ * Add an email to VIP whitelist.
+ */
+export async function addVip(kv: KVNamespace, email: string): Promise<void> {
+  await kv.put(`vip:${email}`, "1");
+}
+
+/**
+ * Remove an email from VIP whitelist.
+ */
+export async function removeVip(
+  kv: KVNamespace,
+  email: string,
+): Promise<void> {
+  await kv.delete(`vip:${email}`);
+}
+
+/**
+ * List all VIP emails.
+ */
+export async function listVips(kv: KVNamespace): Promise<string[]> {
+  const list = await kv.list({ prefix: "vip:" });
+  return list.keys.map((k) => k.name.replace("vip:", ""));
 }
