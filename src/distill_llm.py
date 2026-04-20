@@ -46,9 +46,10 @@ def distill_monthly(
     Returns:
         Markdown content for the monthly wiki.
     """
+    shown = min(len(articles), MAX_ARTICLES_PER_PROMPT)
     article_block = _format_articles_for_prompt(articles)
 
-    prompt = f"""你是保險產業知識庫的編輯。請根據以下 {len(articles)} 篇文章，
+    prompt = f"""你是保險產業知識庫的編輯。請根據以下 {shown} 篇文章（總共 {len(articles)} 篇），
 撰寫 {period} 月份「{category}」主題、「{region}」地區的月度知識彙整。
 
 ## 文章資料
@@ -71,7 +72,7 @@ def distill_monthly(
 ### 來源文章索引
 | # | 日期 | 標題 | 來源 | 連結 |
 |---|------|------|------|------|
-（必須列出所有 {len(articles)} 篇文章，每篇都要有原始 URL）
+（列出上方提供的文章，每篇都要有原始 URL）
 
 ### 知識缺口
 本月可能遺漏或資料不足的面向
@@ -237,27 +238,46 @@ def _call_with_cascade(
             )
             return response.choices[0].message.content or ""
         except Exception as exc:
-            if "429" in str(exc) and "86400" in str(exc):
+            exc_str = str(exc)
+            if "429" in exc_str and "86400" in exc_str:
                 logger.warning("Daily limit on %s, trying next model", model)
+                continue
+            if "413" in exc_str or "tokens_limit" in exc_str:
+                logger.warning("Token limit on %s, trying next model", model)
                 continue
             raise
     raise RuntimeError("All distill models exhausted (daily limits)")
 
 
+MAX_ARTICLES_PER_PROMPT = 50
+
+
 def _format_articles_for_prompt(articles: list[dict[str, Any]]) -> str:
-    """Format article list into a text block for LLM prompt."""
+    """Format article list into a text block for LLM prompt.
+
+    If more than MAX_ARTICLES_PER_PROMPT, prioritize high-importance and
+    most recent articles. Truncates summaries to keep prompt within limits.
+    """
+    # Sort: high importance first, then by date descending
+    imp_order = {"高": 0, "high": 0, "中": 1, "medium": 1, "mid": 1, "低": 2, "low": 2}
+    selected = sorted(
+        articles,
+        key=lambda a: (imp_order.get(a.get("importance", "中"), 1), -(a.get("date", "") or "").__hash__()),
+    )[:MAX_ARTICLES_PER_PROMPT]
+
+    # Re-sort by date for chronological output
+    selected.sort(key=lambda a: a.get("date", ""))
+
     lines = []
-    for i, art in enumerate(articles, 1):
-        title = art.get("title", "無標題")
+    for i, art in enumerate(selected, 1):
+        title = art.get("title", "無標題")[:100]
         date = art.get("date", "未知日期")
         source = art.get("source", "未知來源")
         source_url = art.get("source_url", art.get("url", "無連結"))
-        summary = art.get("summary", "無摘要")
+        summary = art.get("summary", "")[:100]
         lines.append(
-            f"[{i}] 標題: {title}\n"
-            f"    日期: {date}\n"
-            f"    來源: {source}\n"
-            f"    URL: {source_url}\n"
-            f"    摘要: {summary}\n"
+            f"[{i}] {title}\n"
+            f"    {date} | {source} | {source_url}\n"
+            + (f"    {summary}\n" if summary else "")
         )
     return "\n".join(lines)
