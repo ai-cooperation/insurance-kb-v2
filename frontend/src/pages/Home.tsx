@@ -53,7 +53,9 @@ interface HomePageProps {
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ articles, loading, setRoute, setTier, openArticle }) => {
-  const todayArticles = articles.slice(0, 12);
+  const latestDate = articles.length > 0 ? articles[0].date : '';
+  const latestArticles = articles.filter(a => a.date === latestDate);
+  const todayArticles = latestArticles.slice(0, 12);
 
   return (
     <div className="flex-1 overflow-auto">
@@ -88,7 +90,7 @@ export const HomePage: React.FC<HomePageProps> = ({ articles, loading, setRoute,
         <div className="max-w-6xl mx-auto px-6 md:px-10 pb-12">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <StatCard label="累計文章" value={loading ? '…' : articles.length.toLocaleString()} delta="" icon="cards" />
-            <StatCard label="今日新增" value={loading ? '…' : String(todayArticles.length)} delta="" icon="sparkle" />
+            <StatCard label="今日新增" value={loading ? '…' : String(latestArticles.length)} delta="" icon="sparkle" />
             <StatCard label="資料來源" value="55" delta="覆蓋 10 個地區" icon="globe" />
           </div>
         </div>
@@ -98,7 +100,7 @@ export const HomePage: React.FC<HomePageProps> = ({ articles, loading, setRoute,
       <section id="today-grid" className="max-w-6xl mx-auto px-6 md:px-10 pb-14">
         <div className="flex items-end justify-between mb-5">
           <div>
-            <div className="text-[11.5px] font-mono uppercase tracking-wider text-slate-500">April 17, 2026</div>
+            <div className="text-[11.5px] font-mono uppercase tracking-wider text-slate-500">{articles.length > 0 ? articles[0].date : new Date().toISOString().slice(0, 10)}</div>
             <h2 className="mt-1 text-[22px] font-semibold tracking-tight">今日精選</h2>
           </div>
           <div className="text-[12.5px] text-slate-500 dark:text-slate-400">
