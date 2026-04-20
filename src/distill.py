@@ -109,18 +109,34 @@ def run_monthly(year_month: str | None = None) -> None:
     out_dir = COMPILED_DIR / "monthly" / year_month
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    written = 0
+    skipped = 0
     for (cat_slug, region_slug), group_articles in sorted(groups.items()):
+        out_path = out_dir / f"{cat_slug}-{region_slug}.md"
+        # Skip if already distilled this run (from a previous partial run)
+        if out_path.exists() and out_path.stat().st_size > 500:
+            print(f"[distill] Skipping {cat_slug}-{region_slug} (already exists)")
+            written += 1
+            continue
         # Limit to 50 most recent articles to stay within LLM token limits
         group_articles.sort(key=lambda a: a.get("date", ""), reverse=True)
         capped = group_articles[:50]
         print(f"[distill] Processing {cat_slug}-{region_slug} ({len(capped)}/{len(group_articles)} articles)")
-        content = distill_monthly(capped, cat_slug, region_slug, year_month)
-        frontmatter = build_frontmatter(
-            "monthly", year_month, cat_slug, region_slug, len(group_articles)
-        )
-        out_path = out_dir / f"{cat_slug}-{region_slug}.md"
-        out_path.write_text(frontmatter + content, encoding="utf-8")
-        print(f"[distill] Written: {out_path}")
+        try:
+            content = distill_monthly(capped, cat_slug, region_slug, year_month)
+            frontmatter = build_frontmatter(
+                "monthly", year_month, cat_slug, region_slug, len(group_articles)
+            )
+            out_path.write_text(frontmatter + content, encoding="utf-8")
+            print(f"[distill] Written: {out_path}")
+            written += 1
+        except RuntimeError as exc:
+            if "exhausted" in str(exc):
+                print(f"[distill] API quota exhausted, stopping. Written {written} pages, skipped remaining.")
+                skipped = len(groups) - written
+                break
+            raise
+    print(f"[distill] Done: {written} written, {skipped} skipped")
 
 
 def run_quarterly(period: str | None = None) -> None:
