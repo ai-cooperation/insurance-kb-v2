@@ -49,10 +49,11 @@ interface HomePageProps {
   readonly loading: boolean;
   readonly setRoute: (r: Route) => void;
   readonly setTier: (t: Tier) => void;
+  readonly onLogin: () => void;
   readonly openArticle: (a: Article) => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ articles, loading, setRoute, setTier, openArticle }) => {
+export const HomePage: React.FC<HomePageProps> = ({ articles, loading, setRoute: _setRoute, setTier: _setTier, onLogin, openArticle }) => {
   const latestDate = articles.length > 0 ? articles[0].date : '';
   const latestArticles = articles.filter(a => a.date === latestDate);
   const todayArticles = latestArticles.slice(0, 12);
@@ -77,7 +78,7 @@ export const HomePage: React.FC<HomePageProps> = ({ articles, loading, setRoute,
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2.5">
-            <Btn size="lg" onClick={() => { setTier('member'); setRoute('cards'); }}>
+            <Btn size="lg" onClick={() => { onLogin(); }}>
               <Icon name="google" className="w-4 h-4" /> 使用 Google 登入
             </Btn>
             <Btn size="lg" variant="outline" onClick={() => document.getElementById('today-grid')?.scrollIntoView({ block: 'start', behavior: 'smooth' })}>
@@ -140,7 +141,7 @@ export const HomePage: React.FC<HomePageProps> = ({ articles, loading, setRoute,
                 用 Google 一鍵登入，瀏覽歷史卡片、訂閱知識 Wiki。申請 VIP 後可向 AI Chat 提問，取得附來源引用的回答。
               </p>
               <div className="mt-5 flex gap-2">
-                <Btn size="lg" onClick={() => { setTier('member'); setRoute('cards'); }}>
+                <Btn size="lg" onClick={() => { onLogin(); }}>
                   <Icon name="google" className="w-4 h-4" /> Google 登入
                 </Btn>
                 <Btn size="lg" variant="ghost">申請 VIP</Btn>

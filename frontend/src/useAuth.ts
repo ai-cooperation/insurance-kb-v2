@@ -113,7 +113,19 @@ export function useAuth(): AuthStore {
 
   const login = useCallback(async () => {
     try {
-      const user = await signInWithGoogle(auth, db);
+      let user: import('firebase/auth').User;
+      try {
+        user = await signInWithGoogle(auth, db);
+      } catch (popupErr: any) {
+        // Popup blocked (mobile Safari etc) — fallback to redirect
+        if (popupErr?.code === 'auth/popup-blocked' || popupErr?.code === 'auth/popup-closed-by-user') {
+          const { GoogleAuthProvider, signInWithRedirect } = await import('firebase/auth');
+          const provider = new GoogleAuthProvider();
+          await signInWithRedirect(auth, provider);
+          return;
+        }
+        throw popupErr;
+      }
       // Auto-grant member on first login for insurance-kb
       const { doc: firestoreDoc, getDoc, setDoc, serverTimestamp } = await import('firebase/firestore');
       const userRef = firestoreDoc(db, 'users', user.uid);

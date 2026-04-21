@@ -85,7 +85,7 @@ export const App: React.FC = () => {
           onMenu={() => setSidebarOpen(!sidebarOpen)}
           onOpenTweaks={() => setTweaksShown(true)}
         />
-        {route === 'home'  && <HomePage  articles={articles} loading={loading} setRoute={setRoute} setTier={() => {}} openArticle={openArticle} />}
+        {route === 'home'  && <HomePage  articles={articles} loading={loading} setRoute={setRoute} setTier={() => {}} onLogin={auth.login} openArticle={openArticle} />}
         {route === 'cards' && <CardsPage articles={articles} loading={loading} openArticle={openArticle} />}
         {route === 'wiki'  && <WikiPage  articles={articles} openArticle={openArticle} />}
         {route === 'chat'  && <ChatPage  articles={articles} openArticle={openArticle} apiFetch={auth.apiFetch} />}
