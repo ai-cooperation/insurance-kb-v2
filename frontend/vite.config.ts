@@ -9,6 +9,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  optimizeDeps: {
+    include: ['firebase/app', 'firebase/auth', 'firebase/firestore'],
+    exclude: ['@cooperation-hub/membership'],
+  },
   server: {
     proxy: {
       '/api': {

@@ -30,12 +30,12 @@ export const App: React.FC = () => {
   // persist route
   useEffect(() => { localStorage.setItem('ikb_route', route); }, [route]);
 
-  // Force route back if insufficient tier
+  // Force route back if insufficient access
   useEffect(() => {
     const needed = NAV.find(n => n.id === route)?.req;
-    if (needed === 'member' && auth.tier === 'guest') setRoute('home');
-    if (needed === 'vip' && auth.tier !== 'vip') setRoute('home');
-  }, [route, auth.tier]);
+    if (needed === 'member' && !auth.hasFeature('view_wiki')) setRoute('home');
+    if (needed === 'vip' && !auth.hasFeature('ai_chat')) setRoute('home');
+  }, [route, auth.tier, auth.hasFeature]);
 
   // Dark mode
   useEffect(() => {

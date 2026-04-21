@@ -1,12 +1,28 @@
 /**
- * Google Sign-In hook using Google Identity Services.
- * Manages auth state, token, and user tier.
+ * Auth hook backed by cooperation-hub (Firebase Auth + Firestore memberships).
+ *
+ * - Login via Firebase Google popup
+ * - Tier read from Firestore /users/{uid}/memberships/insurance-kb
+ * - Session tracking with heartbeat
+ * - Feature-based access control
  */
 
-import { useState, useEffect, useCallback } from 'react';
-import type { Tier } from './types';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { onAuthStateChanged, type User } from 'firebase/auth';
+import {
+  signInWithGoogle,
+  signOut,
+  startSessionTracking,
+  subscribeToUser,
+  subscribeToProject,
+  getEffectiveTier,
+  getUserFeatures,
+  type UserDoc,
+  type ProjectDoc,
+  type Tier,
+} from '@cooperation-hub/membership';
+import { auth, db, PROJECT_ID } from './lib/hub';
 
-const CLIENT_ID = '985642192691-hgcmsi6ehm29jba26gjuip4d34p3eusn.apps.googleusercontent.com';
 const API_BASE = 'https://insurance-kb-api.alan-chen75.workers.dev';
 
 export interface AuthUser {
@@ -14,203 +30,135 @@ export interface AuthUser {
   readonly name: string;
   readonly picture: string;
   readonly tier: Tier;
-  readonly token: string;
 }
 
 export interface AuthStore {
   readonly user: AuthUser | null;
   readonly loading: boolean;
-  readonly login: () => void;
-  readonly logout: () => void;
+  readonly login: () => Promise<void>;
+  readonly logout: () => Promise<void>;
   readonly tier: Tier;
+  readonly hasFeature: (key: string) => boolean;
   readonly apiFetch: (path: string, init?: RequestInit) => Promise<Response>;
 }
 
-/** Load the Google Identity Services script */
-function loadGsiScript(): Promise<void> {
-  return new Promise((resolve, reject) => {
-    if (document.getElementById('gsi-script')) {
-      resolve();
-      return;
-    }
-    const script = document.createElement('script');
-    script.id = 'gsi-script';
-    script.src = 'https://accounts.google.com/gsi/client';
-    script.async = true;
-    script.defer = true;
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error('Failed to load Google Sign-In'));
-    document.head.appendChild(script);
-  });
-}
-
 export function useAuth(): AuthStore {
-  const [user, setUser] = useState<AuthUser | null>(() => {
-    const saved = localStorage.getItem('ikb_user');
-    return saved ? JSON.parse(saved) : null;
-  });
-  const [loading, setLoading] = useState(false);
+  const [fbUser, setFbUser] = useState<User | null>(null);
+  const [userDoc, setUserDoc] = useState<UserDoc | null>(null);
+  const [projectDoc, setProjectDoc] = useState<ProjectDoc | null>(null);
+  const [loading, setLoading] = useState(true);
+  const featuresRef = useRef<Set<string>>(new Set());
 
-  // Verify saved token on mount
+  // Listen to Firebase auth state
   useEffect(() => {
-    if (!user?.token) return;
-    fetch(`${API_BASE}/api/auth/me`, {
-      headers: { Authorization: `Bearer ${user.token}` },
-    })
-      .then(r => r.json())
-      .then(data => {
-        if (data.tier && data.tier !== 'guest') {
-          const updated = { ...user, tier: data.tier as Tier };
-          setUser(updated);
-          localStorage.setItem('ikb_user', JSON.stringify(updated));
-        } else {
-          // Token expired
-          setUser(null);
-          localStorage.removeItem('ikb_user');
-        }
-      })
-      .catch(() => {
-        setUser(null);
-        localStorage.removeItem('ikb_user');
-      });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    const unsub = onAuthStateChanged(auth, (user) => {
+      setFbUser(user);
+      if (!user) {
+        setUserDoc(null);
+        setProjectDoc(null);
+        setLoading(false);
+      }
+    });
+    return unsub;
+  }, []);
 
-  // Handle Google credential response
-  const handleCredential = useCallback(async (response: any) => {
-    const token = response.credential;
-    setLoading(true);
+  // When user signs in, subscribe to Firestore docs + start session tracking
+  useEffect(() => {
+    if (!fbUser) return;
 
+    const unsubs: Array<() => void> = [];
+
+    // Subscribe to user doc (realtime tier updates)
+    unsubs.push(
+      subscribeToUser(db, fbUser.uid, (doc) => {
+        setUserDoc(doc);
+        setLoading(false);
+      }),
+    );
+
+    // Subscribe to project doc (feature definitions)
+    unsubs.push(
+      subscribeToProject(db, PROJECT_ID, (doc) => {
+        setProjectDoc(doc);
+      }),
+    );
+
+    // Session tracking with heartbeat
+    startSessionTracking(db, fbUser.uid, PROJECT_ID, () => {
+      // onRevoked: session was revoked by admin
+      signOut(auth).then(() => window.location.reload());
+    }).then((stop) => {
+      if (stop) unsubs.push(stop);
+    });
+
+    return () => unsubs.forEach((fn) => fn());
+  }, [fbUser]);
+
+  // Compute tier and features
+  const membership = userDoc?.memberships?.[PROJECT_ID];
+  const tier: Tier = getEffectiveTier(membership);
+  const features = projectDoc ? getUserFeatures(membership, projectDoc) : new Set<string>();
+
+  featuresRef.current = features;
+
+  // Build user object
+  const user: AuthUser | null = fbUser
+    ? {
+        email: fbUser.email || '',
+        name: fbUser.displayName || fbUser.email?.split('@')[0] || '',
+        picture: fbUser.photoURL || '',
+        tier,
+      }
+    : null;
+
+  const login = useCallback(async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/auth/me`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const data = await res.json();
-
-      if (data.email) {
-        const authUser: AuthUser = {
-          email: data.email,
-          name: data.name || data.email.split('@')[0],
-          picture: data.picture || '',
-          tier: data.tier || 'member',
-          token,
-        };
-        setUser(authUser);
-        localStorage.setItem('ikb_user', JSON.stringify(authUser));
-
-        // Close login overlay if open
-        document.getElementById('gsi-login-backdrop')?.remove();
-        document.getElementById('gsi-login-overlay')?.remove();
+      const user = await signInWithGoogle(auth, db);
+      // Auto-grant member on first login for insurance-kb
+      const { doc: firestoreDoc, getDoc, setDoc, serverTimestamp } = await import('firebase/firestore');
+      const userRef = firestoreDoc(db, 'users', user.uid);
+      const snap = await getDoc(userRef);
+      const data = snap.data();
+      if (!data?.memberships?.[PROJECT_ID]) {
+        await setDoc(userRef, {
+          memberships: {
+            ...data?.memberships,
+            [PROJECT_ID]: {
+              tier: 'member',
+              grantedAt: serverTimestamp(),
+              grantedBy: 'auto:first-login',
+              expiresAt: null,
+              paymentRef: 'auto',
+            },
+          },
+        }, { merge: true });
       }
     } catch (err) {
-      console.error('Auth verify failed:', err);
-    } finally {
-      setLoading(false);
+      console.error('Login failed:', err);
     }
   }, []);
 
-  // Initialize Google Sign-In
-  useEffect(() => {
-    loadGsiScript().then(() => {
-      const google = (window as any).google;
-      console.log('[useAuth] GSI loaded, google.accounts:', !!google?.accounts);
-      if (!google?.accounts?.id) {
-        console.error('[useAuth] google.accounts.id not available');
-        return;
-      }
-
-      google.accounts.id.initialize({
-        client_id: CLIENT_ID,
-        callback: handleCredential,
-        auto_select: false,
-        use_fedcm_for_prompt: false,
-      });
-      console.log('[useAuth] GSI initialized');
-    }).catch(err => {
-      console.error('[useAuth] GSI script load failed:', err);
-    });
-  }, [handleCredential]);
-
-  const login = useCallback(() => {
-    const google = (window as any).google;
-    if (!google?.accounts?.id) return;
-
-    // Create a temporary container for the Google button
-    const container = document.createElement('div');
-    container.style.position = 'fixed';
-    container.style.top = '50%';
-    container.style.left = '50%';
-    container.style.transform = 'translate(-50%, -50%)';
-    container.style.zIndex = '99999';
-    container.style.background = 'white';
-    container.style.padding = '32px';
-    container.style.borderRadius = '16px';
-    container.style.boxShadow = '0 25px 50px rgba(0,0,0,0.25)';
-    container.id = 'gsi-login-overlay';
-
-    // Add backdrop
-    const backdrop = document.createElement('div');
-    backdrop.style.position = 'fixed';
-    backdrop.style.inset = '0';
-    backdrop.style.background = 'rgba(0,0,0,0.4)';
-    backdrop.style.zIndex = '99998';
-    backdrop.id = 'gsi-login-backdrop';
-    backdrop.onclick = () => {
-      backdrop.remove();
-      container.remove();
-    };
-
-    // Add title
-    const title = document.createElement('div');
-    title.textContent = '使用 Google 帳號登入';
-    title.style.marginBottom = '16px';
-    title.style.fontSize = '16px';
-    title.style.fontWeight = '600';
-    title.style.textAlign = 'center';
-    container.appendChild(title);
-
-    // Render Google button
-    const btnDiv = document.createElement('div');
-    container.appendChild(btnDiv);
-
-    document.body.appendChild(backdrop);
-    document.body.appendChild(container);
-
-    google.accounts.id.renderButton(btnDiv, {
-      type: 'standard',
-      theme: 'outline',
-      size: 'large',
-      width: 280,
-      text: 'signin_with',
-      locale: 'zh-TW',
-    });
+  const logout = useCallback(async () => {
+    await signOut(auth);
   }, []);
 
-  const logout = useCallback(() => {
-    const google = (window as any).google;
-    if (google?.accounts?.id) {
-      google.accounts.id.disableAutoSelect();
-    }
-    setUser(null);
-    localStorage.removeItem('ikb_user');
-  }, []);
+  const hasFeature = useCallback(
+    (key: string) => featuresRef.current.has('*') || featuresRef.current.has(key),
+    [],
+  );
 
   const apiFetch = useCallback(
-    (path: string, init?: RequestInit) => {
+    async (path: string, init?: RequestInit) => {
       const headers = new Headers(init?.headers);
-      if (user?.token) {
-        headers.set('Authorization', `Bearer ${user.token}`);
+      // Send Firebase ID token to Workers
+      const token = await auth.currentUser?.getIdToken();
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`);
       }
       return fetch(`${API_BASE}${path}`, { ...init, headers });
     },
-    [user?.token],
+    [],
   );
 
-  return {
-    user,
-    loading,
-    login,
-    logout,
-    tier: user?.tier || 'guest',
-    apiFetch,
-  };
+  return { user, loading, login, logout, tier, hasFeature, apiFetch };
 }
