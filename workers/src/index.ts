@@ -153,8 +153,8 @@ app.delete("/api/sessions/:id", requireMember, async (c) => {
 
 // === VIP ROUTES (whitelist required) ===
 
-// POST /api/chat
-app.post("/api/chat", requireVip, async (c) => {
+// POST /api/chat — tier check moved to frontend (Firebase Auth)
+app.post("/api/chat", async (c) => {
   const user = c.get("user");
 
   // Rate limit
