@@ -7,6 +7,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script>
+      firebase.initializeApp({
+        apiKey: 'AIzaSyCgCdmBYX-XYM9LmOA9Mk9M-WdxzLDS2QI',
+        authDomain: 'cooperation-hub-bfe79.firebaseapp.com',
+        projectId: 'cooperation-hub-bfe79',
+        appId: '1:875529451396:web:246e7063e9b10034954fd1',
+      });
+      // Handle redirect result immediately (before React loads)
+      firebase.auth().getRedirectResult().catch(function(){});
+    </script>
   </head>
   <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
     <div id="root"></div>
