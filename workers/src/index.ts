@@ -153,8 +153,14 @@ app.delete("/api/sessions/:id", requireMember, async (c) => {
 
 // === VIP ROUTES (whitelist required) ===
 
-// POST /api/chat — tier check moved to frontend (Firebase Auth)
+// POST /api/chat — tier check in frontend (Firebase Auth), rate limit by IP here
 app.post("/api/chat", async (c) => {
+  // Rate limit by IP (no auth needed, prevents API abuse)
+  const ip = c.req.header("cf-connecting-ip") || c.req.header("x-forwarded-for") || "unknown";
+  const rl = await checkRateLimit(c.env.KV, `ip:${ip}`, 30);
+  if (!rl.allowed) {
+    return c.json({ error: "Rate limit exceeded", remaining: rl.remaining, reset_at: rl.resetAt }, 429);
+  }
   const user = c.get("user");
 
   // Rate limit
