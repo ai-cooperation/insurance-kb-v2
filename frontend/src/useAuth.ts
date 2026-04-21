@@ -49,6 +49,35 @@ export function useAuth(): AuthStore {
   const [loading, setLoading] = useState(true);
   const featuresRef = useRef<Set<string>>(new Set());
 
+  // Handle redirect result (mobile login flow)
+  useEffect(() => {
+    import('firebase/auth').then(({ getRedirectResult }) => {
+      getRedirectResult(auth).then(async (result) => {
+        if (result?.user) {
+          // Auto-grant member after redirect login
+          const { doc: firestoreDoc, getDoc, setDoc, serverTimestamp } = await import('firebase/firestore');
+          const userRef = firestoreDoc(db, 'users', result.user.uid);
+          const snap = await getDoc(userRef);
+          const data = snap.data();
+          if (!data?.memberships?.[PROJECT_ID]) {
+            await setDoc(userRef, {
+              memberships: {
+                ...data?.memberships,
+                [PROJECT_ID]: {
+                  tier: 'member',
+                  grantedAt: serverTimestamp(),
+                  grantedBy: 'auto:first-login',
+                  expiresAt: null,
+                  paymentRef: 'auto',
+                },
+              },
+            }, { merge: true });
+          }
+        }
+      }).catch(() => { /* no redirect pending */ });
+    });
+  }, []);
+
   // Listen to Firebase auth state
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
@@ -113,11 +142,20 @@ export function useAuth(): AuthStore {
 
   const login = useCallback(async () => {
     try {
-      let user: import('firebase/auth').User;
+      let user: import('firebase/auth').User | null = null;
+      // Mobile: always use redirect (popup loses state when tab is unloaded)
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        const { GoogleAuthProvider, signInWithRedirect } = await import('firebase/auth');
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: 'select_account' });
+        await signInWithRedirect(auth, provider);
+        return; // Page will reload after redirect
+      }
+      // Desktop: use popup
       try {
         user = await signInWithGoogle(auth, db);
       } catch (popupErr: any) {
-        // Popup blocked (mobile Safari etc) — fallback to redirect
         if (popupErr?.code === 'auth/popup-blocked' || popupErr?.code === 'auth/popup-closed-by-user') {
           const { GoogleAuthProvider, signInWithRedirect } = await import('firebase/auth');
           const provider = new GoogleAuthProvider();
@@ -126,6 +164,7 @@ export function useAuth(): AuthStore {
         }
         throw popupErr;
       }
+      if (!user) return;
       // Auto-grant member on first login for insurance-kb
       const { doc: firestoreDoc, getDoc, setDoc, serverTimestamp } = await import('firebase/firestore');
       const userRef = firestoreDoc(db, 'users', user.uid);
