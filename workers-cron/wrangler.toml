@@ -1,0 +1,10 @@
+name = "insurance-kb-cron"
+main = "index.ts"
+compatibility_date = "2024-10-18"
+
+[triggers]
+crons = ["30 0 * * *", "30 12 * * *"]
+
+[vars]
+REPO = "ai-cooperation/insurance-kb-v2"
+WORKFLOW = "crawl.yml"
