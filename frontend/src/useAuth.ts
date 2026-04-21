@@ -13,6 +13,9 @@ import {
   subscribeToUser,
   subscribeToProject,
   getEffectiveTier,
+  detectEmbeddedBrowser,
+  embeddedBrowserLabel,
+  getExternalBrowserUrl,
   type ProjectDoc,
   type UserDoc,
   type Tier,
@@ -102,6 +105,23 @@ export function useAuth(): AuthStore {
     : null;
 
   const login = useCallback(async () => {
+    // Google 封鎖 embedded webview (LINE / FB / IG)；先偵測並引導外部瀏覽器
+    const embedded = detectEmbeddedBrowser();
+    if (embedded) {
+      if (embedded === 'line') {
+        window.location.href = getExternalBrowserUrl();
+        return;
+      }
+      const ext = window.location.href;
+      const label = embeddedBrowserLabel(embedded);
+      try {
+        await navigator.clipboard?.writeText(ext);
+        alert(`${label} 內建瀏覽器無法登入 Google（官方限制）。\n連結已複製，請貼到 Safari / Chrome 打開後登入。`);
+      } catch {
+        alert(`${label} 內建瀏覽器無法登入 Google（官方限制）。\n請手動複製網址到 Safari / Chrome：\n${ext}`);
+      }
+      return;
+    }
     await signInWithGoogle(auth, db);
   }, []);
 
