@@ -50,9 +50,11 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         run: |
+          # Checkout cooperation-hub for membership package
+          git clone --depth 1 https://github.com/ai-cooperation/cooperation-hub.git ../../cooperation-hub 2>/dev/null || true
           cd frontend
           npm install
-          npm run build
+          npx vite build
           npx wrangler pages deploy dist --project-name insurance-kb-v2 --branch main --commit-dirty=true
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
