@@ -157,7 +157,7 @@ app.delete("/api/sessions/:id", requireMember, async (c) => {
 app.post("/api/chat", async (c) => {
   // Rate limit by IP (no auth needed, prevents API abuse)
   const ip = c.req.header("cf-connecting-ip") || c.req.header("x-forwarded-for") || "unknown";
-  const rl = await checkRateLimit(c.env.KV, `ip:${ip}`, 30);
+  const rl = await checkRateLimit(c.env.KV, `ip:${ip}`, 100);
   if (!rl.allowed) {
     return c.json({ error: "Rate limit exceeded", remaining: rl.remaining, reset_at: rl.resetAt }, 429);
   }

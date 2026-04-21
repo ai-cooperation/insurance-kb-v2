@@ -11,20 +11,19 @@ export interface RateLimitResult {
   resetAt: string;
 }
 
-const DEFAULT_LIMIT = 20;
-const TTL_SECONDS = 7200;
+const DEFAULT_LIMIT = 100;
+const TTL_SECONDS = 86400;
 
-function getCurrentHourKey(email: string): string {
+function getCurrentHourKey(identifier: string): string {
   const now = new Date();
-  const hour = now.toISOString().slice(0, 13); // "2026-04-17T08"
-  return `rate:${email}:${hour}`;
+  const day = now.toISOString().slice(0, 10); // "2026-04-21"
+  return `rate:${identifier}:${day}`;
 }
 
 function getResetTime(): string {
   const now = new Date();
   const reset = new Date(now);
-  reset.setMinutes(0, 0, 0);
-  reset.setHours(reset.getHours() + 1);
+  reset.setHours(24, 0, 0, 0);
   return reset.toISOString();
 }
 
