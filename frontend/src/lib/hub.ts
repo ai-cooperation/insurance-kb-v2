@@ -1,12 +1,10 @@
 import { initHubFirebase } from '@cooperation-hub/membership';
 
-const env = (import.meta as any).env;
-
 export const hub = initHubFirebase({
-  apiKey: env.VITE_FB_API_KEY,
+  apiKey: 'AIzaSyCgCdmBYX-XYM9LmOA9Mk9M-WdxzLDS2QI',
   authDomain: 'cooperation-hub-bfe79.firebaseapp.com',
   projectId: 'cooperation-hub-bfe79',
-  appId: env.VITE_FB_APP_ID,
+  appId: '1:875529451396:web:246e7063e9b10034954fd1',
 });
 
 export const { auth, db } = hub;
