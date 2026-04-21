@@ -79,11 +79,13 @@ export const App: React.FC = () => {
           route={route}
           setRoute={setRoute}
           tier={auth.tier}
-          setTier={() => {}} // tier is now managed by auth
           dark={tweaks.dark}
           setDark={(d) => setTweaks(t => ({ ...t, dark: d }))}
           onMenu={() => setSidebarOpen(!sidebarOpen)}
           onOpenTweaks={() => setTweaksShown(true)}
+          user={auth.user}
+          onLogin={auth.login}
+          onLogout={auth.logout}
         />
         {route === 'home'  && <HomePage  articles={articles} loading={loading} setRoute={setRoute} setTier={() => {}} onLogin={auth.login} openArticle={openArticle} />}
         {route === 'cards' && <CardsPage articles={articles} loading={loading} openArticle={openArticle} />}
