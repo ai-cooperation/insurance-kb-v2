@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auth Test</title>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+</head>
+<body style="font-family:sans-serif;padding:20px;">
+<h2>Firebase Auth Test</h2>
+<div id="status">Loading...</div>
+<button id="loginBtn" onclick="doLogin()" style="font-size:18px;padding:12px 24px;margin:10px 0;">Google 登入</button>
+<pre id="log" style="background:#f0f0f0;padding:10px;white-space:pre-wrap;"></pre>
+<script>
+const log = (msg) => { document.getElementById('log').textContent += msg + '\n'; };
+
+firebase.initializeApp({
+  apiKey: 'AIzaSyCgCdmBYX-XYM9LmOA9Mk9M-WdxzLDS2QI',
+  authDomain: 'cooperation-hub-bfe79.firebaseapp.com',
+  projectId: 'cooperation-hub-bfe79',
+  appId: '1:875529451396:web:246e7063e9b10034954fd1',
+});
+
+log('Firebase initialized');
+
+// Handle redirect result
+firebase.auth().getRedirectResult().then(function(result) {
+  if (result && result.user) {
+    log('Redirect login success: ' + result.user.email);
+    document.getElementById('status').textContent = 'Logged in: ' + result.user.email;
+  } else {
+    log('No redirect result');
+  }
+}).catch(function(e) {
+  log('Redirect error: ' + e.code + ' ' + e.message);
+});
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    log('Auth state: logged in as ' + user.email);
+    document.getElementById('status').textContent = '✅ ' + user.displayName + ' (' + user.email + ')';
+    document.getElementById('loginBtn').textContent = 'Logged in ✓';
+  } else {
+    log('Auth state: not logged in');
+    document.getElementById('status').textContent = 'Not logged in';
+  }
+});
+
+function doLogin() {
+  log('Login clicked...');
+  var provider = new firebase.auth.GoogleAuthProvider();
+  provider.setCustomParameters({prompt: 'select_account'});
+  
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    log('Popup success: ' + result.user.email);
+  }).catch(function(e) {
+    log('Popup error: ' + e.code + ' - trying redirect...');
+    firebase.auth().signInWithRedirect(provider);
+  });
+}
+</script>
+</body>
+</html>

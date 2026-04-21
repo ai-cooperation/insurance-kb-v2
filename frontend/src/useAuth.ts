@@ -1,16 +1,25 @@
 /**
- * Auth hook using Firebase v8 compat (global firebase object).
- * Same approach as iPAS — proven to work on mobile.
+ * Auth hook — directly adapted from hematology-kb's proven useMembership.
+ * Uses @cooperation-hub/membership (Firebase v10 modular + popup).
  */
 
-import { useState, useEffect, useCallback, useRef } from 'react';
-import type { Tier } from './types';
+import { useEffect, useState, useCallback, useRef } from 'react';
+import type { User } from 'firebase/auth';
+import {
+  onAuthStateChanged,
+  signInWithGoogle,
+  signOut,
+  startSessionTracking,
+  subscribeToUser,
+  subscribeToProject,
+  getEffectiveTier,
+  type ProjectDoc,
+  type UserDoc,
+  type Tier,
+} from '@cooperation-hub/membership';
+import { auth, db, PROJECT_ID } from './lib/hub';
 
-const PROJECT_ID = 'insurance-kb';
 const API_BASE = 'https://insurance-kb-api.alan-chen75.workers.dev';
-
-// Global firebase object loaded via script tags in index.html
-declare const firebase: any;
 
 export interface AuthUser {
   readonly email: string;
@@ -29,83 +38,58 @@ export interface AuthStore {
   readonly apiFetch: (path: string, init?: RequestInit) => Promise<Response>;
 }
 
-function getEffectiveTier(m: any): Tier {
-  if (!m) return 'guest';
-  if (m.tier !== 'vip') return m.tier;
-  if (m.expiresAt && m.expiresAt.toMillis() < Date.now()) return 'member';
-  return 'vip';
-}
-
-function getUserFeatures(m: any, p: any): Set<string> {
-  const tier = getEffectiveTier(m);
-  const base = p?.tiers?.[tier]?.features ?? [];
-  const features = new Set<string>(base);
-  if (m?.features) {
-    for (const [key, enabled] of Object.entries(m.features)) {
-      if (enabled) features.add(key); else features.delete(key as string);
-    }
-  }
-  return features;
-}
-
 export function useAuth(): AuthStore {
-  const [fbUser, setFbUser] = useState<any>(null);
-  const [userDoc, setUserDoc] = useState<any>(null);
-  const [projectDoc, setProjectDoc] = useState<any>(null);
+  const [fbUser, setFbUser] = useState<User | null>(null);
+  const [userDoc, setUserDoc] = useState<UserDoc | null>(null);
+  const [project, setProject] = useState<ProjectDoc | null>(null);
   const [loading, setLoading] = useState(true);
   const featuresRef = useRef<Set<string>>(new Set());
 
-  // Listen to auth state
+  // Subscribe to project doc + auth state
   useEffect(() => {
-    if (typeof firebase === 'undefined') {
-      setLoading(false);
-      return;
-    }
-
-    // Handle redirect result (mobile login)
-    firebase.auth().getRedirectResult().then((result: any) => {
-      if (result?.user) {
-        ensureUserAndMember(result.user);
-      }
-    }).catch(() => {});
-
-    const unsub = firebase.auth().onAuthStateChanged((user: any) => {
-      setFbUser(user);
-      if (!user) {
-        setUserDoc(null);
-        setProjectDoc(null);
-        setLoading(false);
-      }
-    });
-    return () => unsub();
+    const unsubProject = subscribeToProject(db, PROJECT_ID, setProject);
+    const unsubAuth = onAuthStateChanged(auth, setFbUser);
+    return () => { unsubProject(); unsubAuth(); };
   }, []);
 
-  // Subscribe to Firestore docs
+  // Subscribe to user doc + session tracking
   useEffect(() => {
-    if (!fbUser) return;
-    const db = firebase.firestore();
-    const unsubs: Array<() => void> = [];
-
-    unsubs.push(
-      db.doc(`users/${fbUser.uid}`).onSnapshot((snap: any) => {
-        setUserDoc(snap.exists ? snap.data() : null);
-        setLoading(false);
-      })
-    );
-
-    unsubs.push(
-      db.doc(`projects/${PROJECT_ID}`).onSnapshot((snap: any) => {
-        setProjectDoc(snap.exists ? snap.data() : null);
-      })
-    );
-
-    return () => unsubs.forEach(fn => fn());
+    if (!fbUser) { setUserDoc(null); setLoading(false); return; }
+    setLoading(true);
+    const unsub = subscribeToUser(db, fbUser.uid, (u) => {
+      setUserDoc(u);
+      setLoading(false);
+    });
+    let stopTracking: (() => void) | null = null;
+    startSessionTracking(db, fbUser.uid, PROJECT_ID, async () => {
+      await signOut(auth);
+      window.location.reload();
+    }).then(fn => { stopTracking = fn; });
+    return () => { unsub(); if (stopTracking) stopTracking(); };
   }, [fbUser]);
 
-  // Compute tier and features
-  const membership = userDoc?.memberships?.[PROJECT_ID];
-  const tier: Tier = getEffectiveTier(membership);
-  const features = projectDoc ? getUserFeatures(membership, projectDoc) : new Set<string>();
+  // Tier policy (same as hematology-kb):
+  //   !user                    → 'guest'
+  //   user + membership doc    → getEffectiveTier(membership)
+  //   user + no membership     → 'member' (auto-promote on sign-in)
+  const rawMembership = userDoc?.memberships?.[PROJECT_ID];
+  let tier: Tier;
+  if (!fbUser) {
+    tier = 'guest';
+  } else if (rawMembership) {
+    tier = getEffectiveTier(rawMembership);
+  } else {
+    tier = 'member';
+  }
+
+  // Features from project.tiers[tier] + user overrides
+  const baseFeatures = project?.tiers[tier]?.features ?? [];
+  const features = new Set<string>(baseFeatures);
+  if (fbUser && rawMembership?.features) {
+    for (const [k, v] of Object.entries(rawMembership.features)) {
+      if (v) features.add(k); else features.delete(k);
+    }
+  }
   featuresRef.current = features;
 
   const user: AuthUser | null = fbUser
@@ -118,24 +102,11 @@ export function useAuth(): AuthStore {
     : null;
 
   const login = useCallback(async () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.setCustomParameters({ prompt: 'select_account' });
-
-    // Same pattern as iPAS: try popup, fallback to redirect
-    try {
-      const result = await firebase.auth().signInWithPopup(provider);
-      await ensureUserAndMember(result.user);
-    } catch (e: any) {
-      if (e.code === 'auth/popup-blocked' || e.code === 'auth/popup-closed-by-user' || e.code === 'auth/cancelled-popup-request') {
-        firebase.auth().signInWithRedirect(provider);
-      } else {
-        console.error('Login failed:', e.code, e.message);
-      }
-    }
+    await signInWithGoogle(auth, db);
   }, []);
 
   const logout = useCallback(async () => {
-    await firebase.auth().signOut();
+    await signOut(auth);
   }, []);
 
   const hasFeature = useCallback(
@@ -146,7 +117,7 @@ export function useAuth(): AuthStore {
   const apiFetch = useCallback(
     async (path: string, init?: RequestInit) => {
       const headers = new Headers(init?.headers);
-      const currentUser = firebase.auth().currentUser;
+      const currentUser = auth.currentUser;
       if (currentUser) {
         const token = await currentUser.getIdToken();
         headers.set('Authorization', `Bearer ${token}`);
@@ -157,39 +128,4 @@ export function useAuth(): AuthStore {
   );
 
   return { user, loading, login, logout, tier, hasFeature, apiFetch };
-}
-
-async function ensureUserAndMember(user: any): Promise<void> {
-  const db = firebase.firestore();
-  const userRef = db.doc(`users/${user.uid}`);
-  const snap = await userRef.get();
-
-  if (!snap.exists) {
-    await userRef.set({
-      email: user.email,
-      displayName: user.displayName ?? '',
-      photoURL: user.photoURL ?? null,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      lastLoginAt: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-  } else {
-    await userRef.update({ lastLoginAt: firebase.firestore.FieldValue.serverTimestamp() });
-  }
-
-  // Auto-grant member
-  const data = snap.exists ? snap.data() : {};
-  if (!data?.memberships?.[PROJECT_ID]) {
-    await userRef.set({
-      memberships: {
-        ...data?.memberships,
-        [PROJECT_ID]: {
-          tier: 'member',
-          grantedAt: firebase.firestore.FieldValue.serverTimestamp(),
-          grantedBy: 'auto:first-login',
-          expiresAt: null,
-          paymentRef: 'auto',
-        },
-      },
-    }, { merge: true });
-  }
 }
