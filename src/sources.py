@@ -112,6 +112,55 @@ _GNEWS_EXISTING = [
 ]
 
 # ---------------------------------------------------------------------------
+# Asia life-insurance company expansion (2026-04-25)
+# Strategy: list specific life-insurer brand names so noise from financial
+# holding groups (TW), property insurers, and CSR/sports content stays low.
+# Cross-checked with current LLM classifier — sports/CSR will be tagged
+# noise_sports/noise_unrelated downstream. Review effectiveness after 1 week.
+# ---------------------------------------------------------------------------
+_GNEWS_ASIA_LIFE = [
+    _src("gnews_tw_lifers", "台灣壽險公司",
+         _gnews('"國泰人壽" OR "富邦人壽" OR "南山人壽" OR "新光人壽" '
+                'OR "中國信託人壽" OR "台灣人壽" OR "三商美邦人壽" '
+                'OR "全球人壽" OR "遠雄人壽"',
+                lang="zh-TW", country="TW"),
+         region="台灣", type_="保險公司"),
+    _src("gnews_in_lifers", "印度壽險公司",
+         _gnews('"HDFC Life" OR "ICICI Prudential" OR "SBI Life" '
+                'OR "Max Life" OR "Bajaj Allianz Life" OR "Tata AIA Life"',
+                lang="en", country="IN"),
+         region="印度", type_="保險公司"),
+    _src("gnews_in_industry", "印度保險產業",
+         _gnews("India life insurance IRDAI premium", lang="en", country="IN"),
+         region="印度"),
+    _src("gnews_id_lifers", "印尼壽險公司",
+         _gnews('"Allianz Life Indonesia" OR "Prudential Indonesia" '
+                'OR "AXA Mandiri" OR "Manulife Indonesia" life',
+                lang="en", country="ID"),
+         region="印尼", type_="保險公司"),
+    _src("gnews_th_lifers", "泰國壽險公司",
+         _gnews('"AIA Thailand" OR "Muang Thai Life" OR "Thai Life Insurance" '
+                'OR "Allianz Ayudhya" life',
+                lang="en", country="TH"),
+         region="泰國", type_="保險公司"),
+    _src("gnews_vn_lifers", "越南壽險公司",
+         _gnews('"Bao Viet Life" OR "Manulife Vietnam" OR "AIA Vietnam" '
+                'OR "Prudential Vietnam" OR "Dai-ichi Life Vietnam"',
+                lang="en", country="VN"),
+         region="越南", type_="保險公司"),
+    _src("gnews_ph_lifers", "菲律賓壽險公司",
+         _gnews('"Sun Life Philippines" OR "Pru Life UK" '
+                'OR "Manulife Philippines" OR "AXA Philippines" life',
+                lang="en", country="PH"),
+         region="菲律賓", type_="保險公司"),
+    _src("gnews_my_lifers", "馬來西亞壽險公司",
+         _gnews('"AIA Malaysia" OR "Prudential Malaysia" OR "Etiqa Life" '
+                'OR "Allianz Life Malaysia" OR "Great Eastern Malaysia"',
+                lang="en", country="MY"),
+         region="馬來西亞", type_="保險公司"),
+]
+
+# ---------------------------------------------------------------------------
 # 12 new GNews RSS (replacing old HTTP/Playwright sources)
 # ---------------------------------------------------------------------------
 _GNEWS_NEW = [
@@ -195,6 +244,6 @@ _HTTP_BACKUP = [
 ]
 
 # ---------------------------------------------------------------------------
-# Combined list: 55 sources total
+# Combined: 61 sources (53 baseline + 8 Asia life-insurer expansion 2026-04-25)
 # ---------------------------------------------------------------------------
-SOURCES = _GNEWS_EXISTING + _GNEWS_NEW + _OFFICIAL_RSS + _HTTP_BACKUP
+SOURCES = _GNEWS_EXISTING + _GNEWS_NEW + _GNEWS_ASIA_LIFE + _OFFICIAL_RSS + _HTTP_BACKUP
