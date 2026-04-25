@@ -5,10 +5,16 @@ Removes empty fields and truncates summaries to keep file size under 25MB.
 """
 
 import json
+import sys
 from pathlib import Path
 
-INDEX_PATH = Path(__file__).resolve().parent / "index" / "master-index.json"
-OUT_PATH = Path(__file__).resolve().parent / "frontend" / "public" / "data" / "articles.json"
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+
+from src.classifier import _normalize_kr_names, _detect_kr_sports  # noqa: E402
+
+INDEX_PATH = ROOT / "index" / "master-index.json"
+OUT_PATH = ROOT / "frontend" / "public" / "data" / "articles.json"
 
 
 def build():
@@ -16,17 +22,26 @@ def build():
 
     slim = []
     for a in idx:
+        # Final-line post-processing: enforce KR naming + catch sports leaks
+        # that bypassed the LLM-time post-processing (e.g. legacy entries
+        # added before A+B+C was deployed).
+        title = _normalize_kr_names(a.get("title", "") or "")
+        summary = _normalize_kr_names(a.get("summary", "") or "")
+        filter_reason = a.get("filter", "") or ""
+        if not filter_reason and _detect_kr_sports(title, a.get("title_en", "") or ""):
+            filter_reason = "noise_sports"
+
         entry = {
             "uid": a["uid"],
-            "title": a.get("title", ""),
+            "title": title,
             "date": a.get("date", ""),
             "source": a.get("source", ""),
             "source_url": a.get("source_url", ""),
             "category": a.get("category", ""),
             "region": a.get("region", ""),
             "importance": a.get("importance", ""),
-            "summary": a.get("summary", "")[:200],
-            "filter": a.get("filter", ""),
+            "summary": summary[:200],
+            "filter": filter_reason,
         }
         if a.get("title_en"):
             entry["title_en"] = a["title_en"]
