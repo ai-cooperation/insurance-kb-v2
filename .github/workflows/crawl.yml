@@ -67,10 +67,7 @@ jobs:
           TELEGRAM_CHAT_ID: "-1003856903916"
           TELEGRAM_TOPIC_ID: "4"
         run: |
-          MSG="🚨 Insurance KB crawl 失敗
-Run: ${{ github.run_id }}
-Trigger: ${{ github.event_name }}
-URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          MSG=$'\xf0\x9f\x9a\xa8 Insurance KB crawl 失敗\nRun: ${{ github.run_id }}\nTrigger: ${{ github.event_name }}\nURL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'
           curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             -d chat_id="${TELEGRAM_CHAT_ID}" \
             -d message_thread_id="${TELEGRAM_TOPIC_ID}" \
