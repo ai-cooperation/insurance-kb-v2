@@ -133,30 +133,32 @@ _GNEWS_ASIA_LIFE = [
     _src("gnews_in_industry", "印度保險產業",
          _gnews("India life insurance IRDAI premium", lang="en", country="IN"),
          region="印度"),
+    # SE Asia: switched to local-language + 30d window after `lang=en, days=7`
+    # returned 0 hits (local English insurance press is sparse; 7d misses too much).
     _src("gnews_id_lifers", "印尼壽險公司",
          _gnews('"Allianz Life Indonesia" OR "Prudential Indonesia" '
-                'OR "AXA Mandiri" OR "Manulife Indonesia" life',
-                lang="en", country="ID"),
+                'OR "AXA Mandiri" OR "Manulife Indonesia"',
+                days=30, lang="id", country="ID"),
          region="印尼", type_="保險公司"),
     _src("gnews_th_lifers", "泰國壽險公司",
          _gnews('"AIA Thailand" OR "Muang Thai Life" OR "Thai Life Insurance" '
-                'OR "Allianz Ayudhya" life',
-                lang="en", country="TH"),
+                'OR "Allianz Ayudhya"',
+                days=30, lang="th", country="TH"),
          region="泰國", type_="保險公司"),
     _src("gnews_vn_lifers", "越南壽險公司",
-         _gnews('"Bao Viet Life" OR "Manulife Vietnam" OR "AIA Vietnam" '
+         _gnews('"Bao Viet" OR "Manulife Vietnam" OR "AIA Vietnam" '
                 'OR "Prudential Vietnam" OR "Dai-ichi Life Vietnam"',
-                lang="en", country="VN"),
+                days=30, lang="vi", country="VN"),
          region="越南", type_="保險公司"),
     _src("gnews_ph_lifers", "菲律賓壽險公司",
          _gnews('"Sun Life Philippines" OR "Pru Life UK" '
-                'OR "Manulife Philippines" OR "AXA Philippines" life',
-                lang="en", country="PH"),
+                'OR "Manulife Philippines" OR "AXA Philippines"',
+                days=30, lang="en", country="PH"),
          region="菲律賓", type_="保險公司"),
     _src("gnews_my_lifers", "馬來西亞壽險公司",
-         _gnews('"AIA Malaysia" OR "Prudential Malaysia" OR "Etiqa Life" '
+         _gnews('"AIA Malaysia" OR "Prudential Malaysia" OR "Etiqa" '
                 'OR "Allianz Life Malaysia" OR "Great Eastern Malaysia"',
-                lang="en", country="MY"),
+                days=30, lang="ms", country="MY"),
          region="馬來西亞", type_="保險公司"),
 ]
 
