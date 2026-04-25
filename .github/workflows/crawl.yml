@@ -50,11 +50,28 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         run: |
-          # Checkout cooperation-hub for membership package
-          git clone --depth 1 https://github.com/ai-cooperation/cooperation-hub.git ../../cooperation-hub 2>/dev/null || true
+          # Clone cooperation-hub one level above repo root so frontend/package.json's
+          # `file:../../cooperation-hub/...` resolves to the same path.
+          git clone --depth 1 https://github.com/ai-cooperation/cooperation-hub.git ../cooperation-hub 2>/dev/null || true
           cd frontend
           npm install
           npx vite build
           npx wrangler pages deploy dist --project-name insurance-kb-v2 --branch main --commit-dirty=true
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+      - name: Notify Telegram on failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: "-1003856903916"
+          TELEGRAM_TOPIC_ID: "4"
+        run: |
+          MSG="🚨 Insurance KB crawl 失敗
+Run: ${{ github.run_id }}
+Trigger: ${{ github.event_name }}
+URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d message_thread_id="${TELEGRAM_TOPIC_ID}" \
+            --data-urlencode text="${MSG}" > /dev/null
