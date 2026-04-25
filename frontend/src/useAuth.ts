@@ -1,6 +1,6 @@
 /**
  * Auth hook — directly adapted from hematology-kb's proven useMembership.
- * Uses @cooperation-hub/membership (Firebase v10 modular + popup).
+ * Uses local membership lib (synced from cooperation-hub/packages/membership).
  */
 
 import { useEffect, useState, useCallback, useRef } from 'react';
@@ -19,7 +19,7 @@ import {
   type ProjectDoc,
   type UserDoc,
   type Tier,
-} from '@cooperation-hub/membership';
+} from './lib/membership';
 import { auth, db, PROJECT_ID } from './lib/hub';
 
 const API_BASE = 'https://insurance-kb-api.alan-chen75.workers.dev';

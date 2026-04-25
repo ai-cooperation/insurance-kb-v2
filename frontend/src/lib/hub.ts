@@ -1,4 +1,4 @@
-import { initHubFirebase } from '@cooperation-hub/membership';
+import { initHubFirebase } from './membership';
 
 const env = import.meta.env;
 

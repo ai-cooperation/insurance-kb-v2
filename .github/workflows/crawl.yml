@@ -50,9 +50,6 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         run: |
-          # Clone cooperation-hub one level above repo root so frontend/package.json's
-          # `file:../../cooperation-hub/...` resolves to the same path.
-          git clone --depth 1 https://github.com/ai-cooperation/cooperation-hub.git ../cooperation-hub 2>/dev/null || true
           cd frontend
           npm install
           npx vite build

@@ -11,7 +11,6 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['firebase/app', 'firebase/auth', 'firebase/firestore'],
-    exclude: ['@cooperation-hub/membership'],
   },
   server: {
     proxy: {
