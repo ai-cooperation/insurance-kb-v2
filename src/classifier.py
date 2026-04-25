@@ -158,10 +158,112 @@ _LLM_SYSTEM = (
     "   - 高：重大政策、法規變革、大型併購、破產、危機\n"
     "   - 中：業績報告、產品發佈、會議摘要\n"
     "   - 低：評論、部落格、活動預告\n\n"
+    "【術語標準化規則】（必須嚴格遵守）\n"
+    "韓國壽險公司：韓文「생명」結尾的公司一律譯為「人壽」（不要譯為「生命」）。"
+    "標準對照如下，輸出時請完全一致：\n"
+    "  삼성생명 / Samsung Life → 三星人壽\n"
+    "  한화생명 / Hanwha Life → 韓華人壽\n"
+    "  교보생명 / Kyobo Life → 教保人壽\n"
+    "  신한라이프 / Shinhan Life → 新韓人壽\n"
+    "  동양생명 / Tongyang Life → 東洋人壽\n"
+    "  KB라이프 / KB Life → KB 人壽\n"
+    "  NH농협생명 → NH 農協人壽\n"
+    "  흥국생명 → 興國人壽\n"
+    "  ABL생명 → ABL 人壽\n"
+    "  메트라이프생명 / MetLife → 大都會人壽\n"
+    "  미래에셋생명 → 未來資產人壽\n"
+    "  DB생명 → DB 人壽\n"
+    "韓國金融機構：「우리」當公司名是音譯 Woori（友利），不要譯為「我們」「我國」：\n"
+    "  우리금융 / Woori Financial → 友利金融\n"
+    "  우리은행 / Woori Bank → 友利銀行\n"
+    "規則：標題與摘要中所有保險公司名一律使用上述標準中文譯名，"
+    "不要保留英文，不要混用「生命」「Life」與「人壽」。\n\n"
+    "【體育新聞判定】（重要）\n"
+    "若標題或內容涉及以下，category 一律填「無關」：\n"
+    "- 韓國職業籃球（프로농구、KBL、WKBL）、챔프전（冠軍賽）、통합우승（合併冠軍）"
+    "  — 例：「KB vs 三星人壽 챔프전」「프로농구 MVP」屬體育新聞，"
+    "  即使提到保險公司名（KB/三星/韓華）也是運動贊助隊伍\n"
+    "- 棒球聯賽、職棒球員 MVP、馬拉松、UBA、輪椅籃球公益賽\n"
+    "- 公司贊助的體育活動、運動會、引退賽\n\n"
     "輸出 JSON array，每個元素含 title_zh, summary_zh, category, importance。\n"
-    "如果文章與保險產業完全無關（如體育、娛樂），category 填 \"無關\"。\n"
+    "如果文章與保險商品/業務/監管/市場完全無關（體育、娛樂、純 CSR 捐款），"
+    "category 填 \"無關\"。\n"
     "只輸出 JSON，不加任何其他文字。"
 )
+
+
+# ---------------------------------------------------------------------------
+# Post-processing: enforce Korean naming standards regardless of LLM output
+# (LLMs in cascade are inconsistent; this regex layer guarantees consistency.)
+# ---------------------------------------------------------------------------
+import re as _re_mod
+
+_KR_NAME_MAP = [
+    # Korean → Chinese standard (longer/more-specific first)
+    ("NH농협생명", "NH農協人壽"),
+    ("미래에셋생명", "未來資產人壽"),
+    ("메트라이프생명", "大都會人壽"),
+    ("처브라이프생명", "Chubb 人壽"),
+    ("동양생명", "東洋人壽"),
+    ("삼성생명", "三星人壽"),
+    ("한화생명", "韓華人壽"),
+    ("신한라이프", "新韓人壽"),
+    ("신한생명", "新韓人壽"),
+    ("교보생명", "教保人壽"),
+    ("농협생명", "農協人壽"),
+    ("흥국생명", "興國人壽"),
+    ("KB라이프", "KB 人壽"),
+    ("KB생명", "KB 人壽"),
+    ("DB생명", "DB 人壽"),
+    ("ABL생명", "ABL 人壽"),
+    ("우리금융지주", "友利金融控股"),
+    ("우리금융그룹", "友利金融集團"),
+    ("우리금융", "友利金融"),
+    ("우리은행", "友利銀行"),
+    # Chinese mistranslation → standard
+    ("三星生命", "三星人壽"),
+    ("三星生機", "三星人壽"),
+    ("三星生保", "三星人壽"),
+    ("韓華生命", "韓華人壽"),
+    ("新韓生命", "新韓人壽"),
+    ("教保生命", "教保人壽"),
+    ("東洋生命", "東洋人壽"),
+    ("興國生命", "興國人壽"),
+    ("MetLife生命", "大都會人壽"),
+    ("MetLife壽險", "大都會人壽"),
+    ("MetLife", "大都會人壽"),
+    ("Hanwha Life", "韓華人壽"),
+    ("Shinhan Life", "新韓人壽"),
+    ("Samsung Life", "三星人壽"),
+    ("KB Life", "KB 人壽"),
+    ("我國金融銀行", "友利金融"),
+    ("我國金融", "友利金融"),
+    ("我們金融", "友利金融"),
+    ("ABL生命", "ABL 人壽"),
+    ("KB生命", "KB 人壽"),
+    ("DB生命", "DB 人壽"),
+    ("農協生命", "農協人壽"),
+]
+
+_SPORTS_RX = _re_mod.compile(
+    r"챔프전|WKBL|프로농구|통합우승|"
+    r"冠軍賽|連續兩次冠軍|連勝兩次冠軍|女子籃球|完勝冠軍賽|冠軍之戰|"
+    r"擊敗三星(?:人壽|生命|生機|生保)|朴智秀"
+)
+
+
+def _normalize_kr_names(text: str) -> str:
+    """Apply Korean naming standardization (post-LLM, B layer)."""
+    if not text:
+        return text
+    for old, new in _KR_NAME_MAP:
+        text = text.replace(old, new)
+    return text
+
+
+def _detect_kr_sports(*texts: str) -> bool:
+    """Catch KBL/WKBL leaks the LLM didn't tag as 無關."""
+    return any(_SPORTS_RX.search(t) for t in texts if t)
 
 
 def _parse_llm_json(text: str):
@@ -213,10 +315,21 @@ def _merge_llm_results(batch: list, translations: list) -> list:
             # Normalize importance
             imp_map = {"高": "高", "中": "中", "低": "低"}
             importance = imp_map.get(llm_imp, art.get("importance", "中"))
+
+            # B layer: enforce Korean naming standards on LLM output
+            title_zh = _normalize_kr_names(t.get("title_zh", ""))
+            summary_zh = _normalize_kr_names(t.get("summary_zh", ""))
+
+            # C layer: catch KBL/WKBL sports leaks the LLM didn't tag
+            if not filter_reason:
+                src_title = art.get("title", "") or ""
+                if _detect_kr_sports(title_zh, src_title):
+                    filter_reason = "noise_sports"
+
             merged.append({
                 **art,
-                "title_zh": t.get("title_zh", ""),
-                "summary_zh": t.get("summary_zh", ""),
+                "title_zh": title_zh,
+                "summary_zh": summary_zh,
                 "category": llm_cat,
                 "importance": importance,
                 "filter": filter_reason,
@@ -228,9 +341,11 @@ def _merge_llm_results(batch: list, translations: list) -> list:
 
 # Model cascade for translation — each model has 150 req/day independent quota.
 # On 429 (daily limit), automatically rotate to next model.
+# Removed gpt-4.1-nano: nano was too inconsistent on Korean naming standards
+# and sports-leak detection (the cheapest tier ignored prompt rules); paying
+# the modest extra cost of mini-as-default buys far better instruction following.
 TRANSLATE_MODELS = [
-    "gpt-4.1-nano",       # fastest, best for batch translation
-    "gpt-4.1-mini",       # good quality, fast
+    "gpt-4.1-mini",       # default — good quality, fast, good instruction following
     "gpt-4o-mini",        # proven reliable
     "gpt-4.1",            # higher quality
     "gpt-4o",             # high quality
