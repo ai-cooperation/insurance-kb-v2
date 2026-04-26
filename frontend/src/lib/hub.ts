@@ -1,12 +1,14 @@
 import { initHubFirebase } from './membership';
 
-const env = import.meta.env;
-
+// Firebase Web SDK config — these are public values that ship in the
+// browser bundle anyway; security is enforced by Firestore Rules, not by
+// hiding apiKey. Hardcoded so CI builds don't depend on .env secrets.
+// (Reverting de26fb1 which broke CI auto-deploy.)
 export const hub = initHubFirebase({
-  apiKey: env.VITE_FB_API_KEY,
-  authDomain: env.VITE_FB_AUTH_DOMAIN,
-  projectId: env.VITE_FB_PROJECT_ID,
-  appId: env.VITE_FB_APP_ID,
+  apiKey: 'AIzaSyCgCdmBYX-XYM9LmOA9Mk9M-WdxzLDS2QI',
+  authDomain: 'cooperation-hub-bfe79.firebaseapp.com',
+  projectId: 'cooperation-hub-bfe79',
+  appId: '1:875529451396:web:246e7063e9b10034954fd1',
 });
 
 export const { auth, db } = hub;
