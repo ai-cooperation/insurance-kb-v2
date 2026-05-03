@@ -53,6 +53,7 @@ def reclassify(
     delay: float = 3.0,
     limit: int = 0,
     dry_run: bool = False,
+    korean_only: bool = False,
 ):
     """Reclassify all articles in the index."""
     try:
@@ -64,11 +65,26 @@ def reclassify(
     index = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
     logger.info("Loaded %d articles from index", len(index))
 
-    # Only reclassify articles that need it (default category or no LLM classification)
-    to_reclassify = [
-        (i, art) for i, art in enumerate(index)
-        if art.get("category") == "市場趨勢" or not art.get("title_en")
-    ]
+    if korean_only:
+        # Re-translate KR-source articles whose title still contains Hangul.
+        # These are leftovers from the old gpt-4.1-nano cascade where the
+        # model returned partial / invalid JSON and the article kept its raw
+        # Korean title. Run once after upgrading the cascade (mini start).
+        import re as _re
+        hangul = _re.compile(r"[가-힯]")
+        to_reclassify = [
+            (i, art) for i, art in enumerate(index)
+            if art.get("source", "").startswith("gnews_kr")
+            and hangul.search(art.get("title", "") or "")
+        ]
+        logger.info("Korean-only mode: %d KR-source articles still in Hangul",
+                    len(to_reclassify))
+    else:
+        # Only reclassify articles that need it (default category or no LLM classification)
+        to_reclassify = [
+            (i, art) for i, art in enumerate(index)
+            if art.get("category") == "市場趨勢" or not art.get("title_en")
+        ]
     if limit > 0:
         to_reclassify = to_reclassify[:limit]
 
@@ -195,6 +211,8 @@ def main():
     parser.add_argument("--batch-size", type=int, default=10)
     parser.add_argument("--limit", type=int, default=0, help="Max articles to process (0=all)")
     parser.add_argument("--delay", type=float, default=3.0)
+    parser.add_argument("--korean-only", action="store_true",
+                        help="Only re-translate KR-source articles whose title still contains Hangul")
     args = parser.parse_args()
 
     api_key = os.environ.get("MODELS_PAT", "")
@@ -208,6 +226,7 @@ def main():
         delay=args.delay,
         limit=args.limit,
         dry_run=args.dry_run,
+        korean_only=args.korean_only,
     )
 
 

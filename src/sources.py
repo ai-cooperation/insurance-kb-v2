@@ -133,8 +133,14 @@ _GNEWS_ASIA_LIFE = [
     _src("gnews_in_industry", "印度保險產業",
          _gnews("India life insurance IRDAI premium", lang="en", country="IN"),
          region="印度"),
-    # SE Asia: switched to local-language + 30d window after `lang=en, days=7`
-    # returned 0 hits (local English insurance press is sparse; 7d misses too much).
+    # SE Asia: local-language + 30d window. After 1-week observation (~04-25→05-03):
+    # - VN tightened: "Bao Viet" alone caught the conglomerate's non-life-insurer
+    #   subsidiaries (travel, banking) → 62% filter rate. Now require "Life" or
+    #   "Nhân thọ" (Vietnamese for "life insurance").
+    # - MY tightened: "Etiqa" alone matched Malay common words / news → 86% filter
+    #   rate (mostly local politics, accidents). Now require "Etiqa Life/Insurance".
+    #   Also switched MY to lang=en since Malaysian English insurance press is
+    #   denser than Malay-language insurance coverage.
     _src("gnews_id_lifers", "印尼壽險公司",
          _gnews('"Allianz Life Indonesia" OR "Prudential Indonesia" '
                 'OR "AXA Mandiri" OR "Manulife Indonesia"',
@@ -145,9 +151,14 @@ _GNEWS_ASIA_LIFE = [
                 'OR "Allianz Ayudhya"',
                 days=30, lang="th", country="TH"),
          region="泰國", type_="保險公司"),
+    _src("gnews_th_lifers_en", "泰國壽險（英文）",
+         _gnews('"AIA Thailand" OR "Muang Thai Life" OR "Thai Life Insurance" '
+                'OR "Allianz Ayudhya" life insurance',
+                days=30, lang="en", country="SG"),
+         region="泰國", type_="保險公司"),
     _src("gnews_vn_lifers", "越南壽險公司",
-         _gnews('"Bao Viet" OR "Manulife Vietnam" OR "AIA Vietnam" '
-                'OR "Prudential Vietnam" OR "Dai-ichi Life Vietnam"',
+         _gnews('"Bao Viet Life" OR "Bảo Việt Nhân thọ" OR "Manulife Vietnam" '
+                'OR "AIA Vietnam" OR "Prudential Vietnam" OR "Dai-ichi Life Vietnam"',
                 days=30, lang="vi", country="VN"),
          region="越南", type_="保險公司"),
     _src("gnews_ph_lifers", "菲律賓壽險公司",
@@ -156,9 +167,10 @@ _GNEWS_ASIA_LIFE = [
                 days=30, lang="en", country="PH"),
          region="菲律賓", type_="保險公司"),
     _src("gnews_my_lifers", "馬來西亞壽險公司",
-         _gnews('"AIA Malaysia" OR "Prudential Malaysia" OR "Etiqa" '
+         _gnews('"AIA Malaysia" OR "Prudential Malaysia" '
+                'OR "Etiqa Life" OR "Etiqa Insurance" '
                 'OR "Allianz Life Malaysia" OR "Great Eastern Malaysia"',
-                days=30, lang="ms", country="MY"),
+                days=30, lang="en", country="MY"),
          region="馬來西亞", type_="保險公司"),
 ]
 

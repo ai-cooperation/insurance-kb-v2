@@ -13,6 +13,11 @@ on:
         required: false
         default: false
         type: boolean
+      korean_only:
+        description: 'Only re-translate KR-source articles still in Hangul (488 backlog from 04-19~23)'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -44,12 +49,18 @@ jobs:
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
+          if [ "${{ inputs.korean_only }}" = "true" ]; then
+            ARGS="$ARGS --korean-only"
+          fi
           python reclassify.py $ARGS
 
       - name: Rebuild frontend data
         run: |
-          mkdir -p frontend/public/data
-          cp index/master-index.json frontend/public/data/articles.json
+          # Use the proper builder so L2 dedup, KR normalization, and slim
+          # field selection are applied. (Previously this step did a raw cp
+          # of master-index.json over articles.json — wrong shape and missed
+          # the post-processing layers.)
+          python build_frontend_data.py
           python build_wiki_json.py
 
       - name: Commit changes
