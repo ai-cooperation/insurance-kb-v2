@@ -18,10 +18,12 @@ interface TopbarProps {
 }
 
 const titles: Record<Route, { zh: string; sub: string }> = {
-  home:  { zh: '首頁', sub: '今日精選' },
-  cards: { zh: '卡片', sub: '所有來源與分類' },
-  wiki:  { zh: '知識 Wiki', sub: '每月蒸餾主題' },
-  chat:  { zh: 'AI Chat', sub: 'AI 知識問答' },
+  home:        { zh: '首頁',     sub: '今日精選' },
+  cards:       { zh: '卡片',     sub: '所有來源與分類' },
+  wiki:        { zh: '知識 Wiki', sub: '每月蒸餾主題' },
+  reports:     { zh: '研究報告', sub: '產業 / 商品 / 市場分析' },
+  chat:        { zh: 'AI Chat', sub: 'AI 知識問答' },
+  'mcp-setup': { zh: 'MCP 連線', sub: '把 KB 接上你的 AI' },
 };
 
 export const Topbar: React.FC<TopbarProps> = ({ route, tier, dark, setDark, onMenu, user, onLogin, onLogout }) => {

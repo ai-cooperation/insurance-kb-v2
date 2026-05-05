@@ -17,6 +17,16 @@ const DEFAULT_TWEAKS: Tweaks = {
   dark: false,
 };
 
+const ComingSoon: React.FC<{ title: string; hint: string }> = ({ title, hint }) => (
+  <div className="flex-1 flex items-center justify-center p-8">
+    <div className="max-w-md text-center">
+      <div className="text-2xl font-semibold mb-2">{title}</div>
+      <div className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{hint}</div>
+      <div className="mt-6 inline-block text-xs px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">即將推出</div>
+    </div>
+  </div>
+);
+
 export const App: React.FC = () => {
   const [route, setRoute] = useState<Route>(() => (localStorage.getItem('ikb_route') as Route) || 'home');
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -30,11 +40,12 @@ export const App: React.FC = () => {
   // persist route
   useEffect(() => { localStorage.setItem('ikb_route', route); }, [route]);
 
-  // Force route back if insufficient access
+  // Force route back to home if user lacks the required feature for current
+  // nav. Runs whenever route or auth.features change (e.g. logout, tier
+  // downgrade, admin revoke).
   useEffect(() => {
-    const needed = NAV.find(n => n.id === route)?.req;
-    if (needed === 'member' && !auth.hasFeature('view_wiki')) setRoute('home');
-    if (needed === 'vip' && !auth.hasFeature('ai_chat')) setRoute('home');
+    const needed = NAV.find(n => n.id === route)?.requiredFeature;
+    if (needed && !auth.hasFeature(needed)) setRoute('home');
   }, [route, auth.tier, auth.hasFeature]);
 
   // Dark mode
@@ -68,13 +79,14 @@ export const App: React.FC = () => {
         route={route}
         setRoute={(r) => { setRoute(r); setSidebarOpen(false); }}
         tier={auth.tier}
+        hasFeature={auth.hasFeature}
         collapsed={sidebarCollapsed}
         setCollapsed={setSidebarCollapsed}
         user={auth.user}
         onLogin={auth.login}
         onLogout={auth.logout}
       />
-      <main className="flex-1 flex flex-col min-w-0" data-screen-label={`0${['home','cards','wiki','chat'].indexOf(route)+1} ${route}`}>
+      <main className="flex-1 flex flex-col min-w-0" data-screen-label={`0${['home','cards','wiki','reports','chat','mcp-setup'].indexOf(route)+1} ${route}`}>
         <Topbar
           route={route}
           setRoute={setRoute}
@@ -87,10 +99,12 @@ export const App: React.FC = () => {
           onLogin={auth.login}
           onLogout={auth.logout}
         />
-        {route === 'home'  && <HomePage  articles={articles} loading={loading} setRoute={setRoute} setTier={() => {}} onLogin={auth.login} openArticle={openArticle} />}
-        {route === 'cards' && <CardsPage articles={articles} loading={loading} openArticle={openArticle} />}
-        {route === 'wiki'  && <WikiPage  articles={articles} openArticle={openArticle} />}
-        {route === 'chat'  && <ChatPage  articles={articles} openArticle={openArticle} apiFetch={auth.apiFetch} />}
+        {route === 'home'      && <HomePage  articles={articles} loading={loading} setRoute={setRoute} setTier={() => {}} onLogin={auth.login} openArticle={openArticle} />}
+        {route === 'cards'     && <CardsPage articles={articles} loading={loading} openArticle={openArticle} />}
+        {route === 'wiki'      && <WikiPage  articles={articles} openArticle={openArticle} />}
+        {route === 'chat'      && <ChatPage  articles={articles} openArticle={openArticle} apiFetch={auth.apiFetch} />}
+        {route === 'reports'   && <ComingSoon title="研究報告" hint="Phase 2 將上線：產業研究 / 商品分析 / 市場觀察報告，可下載 PDF。" />}
+        {route === 'mcp-setup' && <ComingSoon title="MCP 連線" hint="Phase 3 將上線：用 claude.ai connector 把 Insurance KB 接到你的 AI，協助商品設計團隊做研究調查。" />}
       </main>
 
       <ArticleModal article={article} onClose={() => setArticle(null)} />

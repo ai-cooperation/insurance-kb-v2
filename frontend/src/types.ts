@@ -76,7 +76,8 @@ export interface NavItem {
   readonly id: string;
   readonly icon: string;
   readonly zh: string;
-  readonly req: 'public' | 'member' | 'vip';
+  readonly requiredFeature: string;
+  readonly badge?: 'VIP' | 'NEW';
 }
 
 export interface TierLabelInfo {
@@ -91,5 +92,5 @@ export interface Tweaks {
   readonly dark: boolean;
 }
 
-export type Route = 'home' | 'cards' | 'wiki' | 'chat';
+export type Route = 'home' | 'cards' | 'wiki' | 'chat' | 'reports' | 'mcp-setup';
 export type Tier = 'guest' | 'member' | 'vip';
