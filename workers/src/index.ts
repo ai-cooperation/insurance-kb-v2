@@ -24,6 +24,12 @@ import {
   handleGetReport,
   handleListReports,
 } from "./reports";
+import { handleMCPManifest, handleMCPRPC, handleMCPSSE } from "./mcp";
+import {
+  handleIssueToken,
+  handleListTokens,
+  handleRevokeToken,
+} from "./mcp-tokens";
 
 interface Bindings {
   KV: KVNamespace;
@@ -271,5 +277,48 @@ app.delete("/api/reports/:id", async (c, next) => {
   c.set("user", fb);
   await next();
 }, handleArchiveReport);
+
+// === MCP TOKEN MANAGEMENT (web UI for self-serve) ===
+
+// POST /api/mcp/issue-token { label? } — gated by use_mcp
+app.post(
+  "/api/mcp/issue-token",
+  requireReportsFeature("use_mcp"),
+  handleIssueToken as any,
+);
+// GET /api/mcp/my-tokens — any logged-in user (just lists their own)
+app.get("/api/mcp/my-tokens", async (c, next) => {
+  const fb = c.get("fbUser");
+  if (!fb || fb.tier === "guest") return c.json({ error: "Login required" }, 401);
+  c.set("user", fb);
+  await next();
+}, handleListTokens as any);
+app.post("/api/mcp/revoke-token", async (c, next) => {
+  const fb = c.get("fbUser");
+  if (!fb || fb.tier === "guest") return c.json({ error: "Login required" }, 401);
+  c.set("user", fb);
+  await next();
+}, handleRevokeToken as any);
+
+// === MCP PROTOCOL ENDPOINTS ===
+//
+// Auth: must use mcp_xxx token in ?token= or Bearer header. claude.ai's
+// connector form takes a single URL → users paste {base}?token={mcp_xxx}.
+// The existing /api/* auth middleware reads `token` from query string too,
+// so by the time we get here `fbUser` is populated when token is valid.
+app.get("/mcp/manifest", async (c, next) => {
+  // Manifest is public — returns tool list, no user data
+  await next();
+}, handleMCPManifest as any);
+
+const mcpAuthMiddleware = async (c: any, next: any) => {
+  // /mcp/* paths are NOT covered by /api/* middleware — install our own
+  const fbUser = await getFirebaseUser(c.req.raw, c.env).catch(() => null);
+  if (fbUser) c.set("user", fbUser);
+  await next();
+};
+
+app.get("/mcp/sse", mcpAuthMiddleware, handleMCPSSE as any);
+app.post("/mcp/sse", mcpAuthMiddleware, handleMCPRPC as any);
 
 export default app;

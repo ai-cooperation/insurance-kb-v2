@@ -7,6 +7,7 @@ import { CardsPage, ArticleModal } from './pages/Cards';
 import { WikiPage } from './pages/Wiki';
 import { ChatPage } from './pages/Chat';
 import { ReportsPage } from './pages/Reports';
+import { McpSetupPage } from './pages/McpSetup';
 import { useArticles } from './useArticles';
 import { useAuth } from './useAuth';
 import type { Route, Tweaks, Article } from './types';
@@ -18,15 +19,6 @@ const DEFAULT_TWEAKS: Tweaks = {
   dark: false,
 };
 
-const ComingSoon: React.FC<{ title: string; hint: string }> = ({ title, hint }) => (
-  <div className="flex-1 flex items-center justify-center p-8">
-    <div className="max-w-md text-center">
-      <div className="text-2xl font-semibold mb-2">{title}</div>
-      <div className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{hint}</div>
-      <div className="mt-6 inline-block text-xs px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">即將推出</div>
-    </div>
-  </div>
-);
 
 export const App: React.FC = () => {
   const [route, setRoute] = useState<Route>(() => (localStorage.getItem('ikb_route') as Route) || 'home');
@@ -105,7 +97,7 @@ export const App: React.FC = () => {
         {route === 'wiki'      && <WikiPage  articles={articles} openArticle={openArticle} />}
         {route === 'chat'      && <ChatPage  articles={articles} openArticle={openArticle} apiFetch={auth.apiFetch} />}
         {route === 'reports'   && <ReportsPage apiFetch={auth.apiFetch} hasFeature={auth.hasFeature} />}
-        {route === 'mcp-setup' && <ComingSoon title="MCP 連線" hint="Phase 3 將上線：用 claude.ai connector 把 Insurance KB 接到你的 AI，協助商品設計團隊做研究調查。" />}
+        {route === 'mcp-setup' && <McpSetupPage apiFetch={auth.apiFetch} hasFeature={auth.hasFeature} />}
       </main>
 
       <ArticleModal article={article} onClose={() => setArticle(null)} />
