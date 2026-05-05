@@ -6,6 +6,7 @@ import { HomePage } from './pages/Home';
 import { CardsPage, ArticleModal } from './pages/Cards';
 import { WikiPage } from './pages/Wiki';
 import { ChatPage } from './pages/Chat';
+import { ReportsPage } from './pages/Reports';
 import { useArticles } from './useArticles';
 import { useAuth } from './useAuth';
 import type { Route, Tweaks, Article } from './types';
@@ -103,7 +104,7 @@ export const App: React.FC = () => {
         {route === 'cards'     && <CardsPage articles={articles} loading={loading} openArticle={openArticle} />}
         {route === 'wiki'      && <WikiPage  articles={articles} openArticle={openArticle} />}
         {route === 'chat'      && <ChatPage  articles={articles} openArticle={openArticle} apiFetch={auth.apiFetch} />}
-        {route === 'reports'   && <ComingSoon title="研究報告" hint="Phase 2 將上線：產業研究 / 商品分析 / 市場觀察報告，可下載 PDF。" />}
+        {route === 'reports'   && <ReportsPage apiFetch={auth.apiFetch} hasFeature={auth.hasFeature} />}
         {route === 'mcp-setup' && <ComingSoon title="MCP 連線" hint="Phase 3 將上線：用 claude.ai connector 把 Insurance KB 接到你的 AI，協助商品設計團隊做研究調查。" />}
       </main>
 

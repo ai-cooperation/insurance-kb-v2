@@ -13,19 +13,39 @@ import {
   listVips,
   type UserInfo,
 } from "./auth";
+import { getFirebaseUser, type FirebaseUser } from "./auth-firebase";
 import { handleChat } from "./chat";
 import { checkRateLimit } from "./rate-limit";
 import { loadArticles, searchArticles } from "./search";
 import { deleteSession, getMessages, listSessions } from "./sessions";
+import {
+  handleArchiveReport,
+  handleCreateReport,
+  handleGetReport,
+  handleListReports,
+} from "./reports";
 
 interface Bindings {
   KV: KVNamespace;
   AI: Ai;
   CORS_ORIGIN: string;
   ADMIN_EMAIL: string;
+  // v3 (2026-05-05) Firebase / Reports / MCP additions:
+  HUB_PROJECT_ID: string;
+  KB_PROJECT_ID: string;
+  FIREBASE_ADMIN_EMAIL: string;   // wrangler secret
+  FIREBASE_ADMIN_KEY: string;     // wrangler secret
+  REPORTS_DB: D1Database;
+  REPORTS_BUCKET: R2Bucket;
+  MCP_PUBLIC_URL: string;
+  TG_BOT_TOKEN?: string;
+  TG_CHAT_ID?: string;
 }
 
-const app = new Hono<{ Bindings: Bindings; Variables: { user: UserInfo } }>();
+const app = new Hono<{
+  Bindings: Bindings;
+  Variables: { user: UserInfo; fbUser: FirebaseUser };
+}>();
 
 // --- CORS ---
 app.use("/api/*", async (c, next) => {
@@ -40,9 +60,15 @@ app.use("/api/*", async (c, next) => {
 });
 
 // --- Auth middleware (all routes) ---
+// `user`  = legacy Google + KV vip path (still used by /api/chat etc.)
+// `fbUser` = v3 Firebase + Firestore + features path (used by /api/reports etc.)
 app.use("/api/*", async (c, next) => {
-  const user = await getUserFromRequest(c.req.raw, c.env.KV);
+  const [user, fbUser] = await Promise.all([
+    getUserFromRequest(c.req.raw, c.env.KV),
+    getFirebaseUser(c.req.raw, c.env).catch(() => null),
+  ]);
   c.set("user", user);
+  if (fbUser) c.set("fbUser", fbUser);
   await next();
 });
 
@@ -155,16 +181,9 @@ app.delete("/api/sessions/:id", requireMember, async (c) => {
 
 // POST /api/chat — tier check in frontend (Firebase Auth), rate limit by IP here
 app.post("/api/chat", async (c) => {
-  // Rate limit by IP (no auth needed, prevents API abuse)
+  const user = c.get("user");
   const ip = c.req.header("cf-connecting-ip") || c.req.header("x-forwarded-for") || "unknown";
   const rl = await checkRateLimit(c.env.KV, `ip:${ip}`, 100);
-  if (!rl.allowed) {
-    return c.json({ error: "Rate limit exceeded", remaining: rl.remaining, reset_at: rl.resetAt }, 429);
-  }
-  const user = c.get("user");
-
-  // Rate limit
-  const rl = await checkRateLimit(c.env.KV, user.email, 50);
   if (!rl.allowed) {
     return c.json(
       { error: "Rate limit exceeded", remaining: rl.remaining, reset_at: rl.resetAt },
@@ -173,9 +192,8 @@ app.post("/api/chat", async (c) => {
   }
 
   const body = await c.req.json();
-
   try {
-    const result = await handleChat(c.env.KV, c.env.AI, user.email, body);
+    const result = await handleChat(c.env.KV, c.env.AI, user.email || `ip:${ip}`, body);
     return c.json(result);
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error";
@@ -217,5 +235,41 @@ app.delete("/api/admin/vips/:email", requireAdmin, async (c) => {
   await removeVip(c.env.KV, email);
   return c.json({ removed: email });
 });
+
+// === REPORTS (v3 — Firebase auth, feature-gated) ===
+//
+// Auth: routes use the `fbUser` variable populated by getFirebaseUser middleware.
+// Bearer token can be either Firebase ID token (web app) or mcp_xxx (claude.ai).
+// Feature gates documented in design-reference/v3-upgrade-spec.md.
+
+const requireReportsFeature = (...keys: string[]) =>
+  async (c: any, next: any) => {
+    const fb = c.get("fbUser");
+    if (!fb) return c.json({ error: "Login required" }, 401);
+    const ok = fb.features.has("*") || keys.every((k: string) => fb.features.has(k));
+    if (!ok) {
+      return c.json(
+        { error: "Feature access required", required: keys, tier: fb.tier },
+        403,
+      );
+    }
+    c.set("user", fb);  // reports.ts handlers expect `user` = FirebaseUser
+    await next();
+  };
+
+const requireCreateReport = requireReportsFeature("create_report");
+const requireViewReports = requireReportsFeature("view_reports");
+
+app.get("/api/reports", requireViewReports, handleListReports);
+app.get("/api/reports/:id", requireViewReports, handleGetReport);
+app.post("/api/reports", requireCreateReport, handleCreateReport);
+app.delete("/api/reports/:id", async (c, next) => {
+  const fb = c.get("fbUser");
+  if (!fb || fb.email !== c.env.ADMIN_EMAIL) {
+    return c.json({ error: "Admin only" }, 403);
+  }
+  c.set("user", fb);
+  await next();
+}, handleArchiveReport);
 
 export default app;

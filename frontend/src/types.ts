@@ -93,4 +93,29 @@ export interface Tweaks {
 }
 
 export type Route = 'home' | 'cards' | 'wiki' | 'chat' | 'reports' | 'mcp-setup';
+
+export interface ReportMeta {
+  readonly id: string;
+  readonly title: string;
+  readonly author_uid: string;
+  readonly author_name: string | null;
+  readonly author_email: string | null;
+  readonly tags: readonly string[];
+  readonly status: 'draft' | 'published' | 'archived';
+  readonly source_session_id: string | null;
+  readonly region: string | null;
+  readonly category: string | null;
+  readonly summary: string | null;
+  readonly word_count: number;
+  readonly finding_count: number;
+  readonly view_count: number;
+  readonly created_at: number;
+  readonly updated_at: number;
+  readonly r2_path: string;
+}
+
+export interface ReportDetail {
+  readonly meta: ReportMeta;
+  readonly content: string;
+}
 export type Tier = 'guest' | 'member' | 'vip';

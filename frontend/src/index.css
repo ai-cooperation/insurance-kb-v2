@@ -49,3 +49,36 @@ body {
 
 /* Card hover subtle lift */
 .card-hover { transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease; }
+
+/* === Print styles for Reports → PDF (v3 2026-05-05) ===
+ * User triggers print from ReportsPage detail view → Cmd+P → Save as PDF.
+ * Hide chrome (sidebar/topbar/toolbar), expand content to full page,
+ * preserve report typography. Tested target: Chrome / Safari / Firefox print preview.
+ */
+@media print {
+  /* Hide app chrome */
+  aside, header { display: none !important; }
+  .print\\:hidden { display: none !important; }
+
+  /* Expand main */
+  body, html { background: white !important; color: black !important; }
+  main { display: block !important; }
+  .max-w-4xl, .max-w-5xl, .max-w-md { max-width: none !important; }
+
+  /* Typography niceties */
+  article { font-size: 11pt; line-height: 1.55; }
+  article h1 { font-size: 22pt; page-break-after: avoid; }
+  article h2 { font-size: 16pt; page-break-after: avoid; }
+  article h3 { font-size: 13pt; page-break-after: avoid; }
+  article p, article li { page-break-inside: avoid; }
+  article a { color: black !important; text-decoration: underline; }
+  article a::after { content: " (" attr(href) ")"; font-size: 9pt; color: #666; }
+  article a[href^="#"]::after { content: ""; }
+
+  /* Tables */
+  article table { page-break-inside: avoid; border-collapse: collapse; }
+  article th, article td { border: 1px solid #ccc; padding: 4px 8px; }
+
+  /* Page margins */
+  @page { margin: 1.5cm 1.8cm; }
+}
