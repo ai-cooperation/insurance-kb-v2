@@ -24,9 +24,11 @@
 
 驗證：在 chat 輸入 `/connectors` 看到「insurance-kb」即成功。
 
-### 1.3 貼 profile（**最關鍵**）
+### 1.3 Profile 設定（**選填**）
 
-到 https://claude.ai/settings/profile → 把下面這段貼進「個性化指示」：
+> 從 worker v3 起，MCP `initialize` response 內建完整指引（包含 grill-me-first 流程 + 工具路由 + 質量守門 + 風格），claude.ai 連線後自動拿到。**Profile 完全不貼也會運作**。
+>
+> 仍貼進 profile 的好處：跨多個 chat session 強化一致性，避免極少數情況 chat 偏離。如果想雙重保險，到 https://claude.ai/settings/profile 把下面這段貼進「個性化指示」：
 
 ```
 Insurance KB（保險業界知識庫 + 研究報告產出）
