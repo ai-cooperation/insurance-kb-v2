@@ -20,7 +20,7 @@ id = "d57f70351eb94f7c8b13d338f0f811ad"
 [[d1_databases]]
 binding = "REPORTS_DB"
 database_name = "insurance-kb-reports"
-database_id = "PLACEHOLDER_RUN_WRANGLER_D1_CREATE"
+database_id = "0ae68dcf-f5fd-4158-a94d-3f657c01e7ba"
 
 [[r2_buckets]]
 binding = "REPORTS_BUCKET"
