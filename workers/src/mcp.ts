@@ -50,6 +50,7 @@ interface Bindings {
   KB_PROJECT_ID: string;
   TG_BOT_TOKEN?: string;
   TG_CHAT_ID?: string;
+  EXA_API_KEY?: string;       // v3 (2026-05-06) — falls back to DDG scrape if empty
 }
 
 // ─── MCP Protocol Types ───────────────────────────────────────────
@@ -159,10 +160,11 @@ const TOOLS = [
   {
     name: "web_search",
     description:
-      "外部網路搜尋 / 上網查 / google 一下 / 找網路上有什麼說 / web search / google / DuckDuckGo / external search。\n" +
+      "外部網路搜尋 / 上網查 / google 一下 / 找網路上有什麼說 / web search / google / external search。\n" +
       "**Triggers**: KB 內找不到某主題（search_articles 0 hits 或太少）；用戶要監管公告/公司官網/國際趨勢/同業評論等 KB 沒爬的東西；想驗證某數據是否有外部 source。\n" +
       "**Don't use**: 找的內容是保險業新聞 → 先 search_articles（KB 已爬全亞洲主流媒體）；找某個既有報告 → list_reports；想看某月趨勢 → get_wiki。Web search 是兜底用，不該是第一選擇。\n" +
-      "Worker 代理 DuckDuckGo HTML scrape — fragile 但免 API key。回傳 [{title, url, snippet}]。引用後 add_finding 必須帶實際 url（不是 ddg.gg 那層）。",
+      "**後端 (v3 2026-05-06)**: 優先 Exa API（含 published_date — 直接帶進 add_finding source_date 比 chat 自己猜準），DDG scrape 是 fallback。回傳 [{title, url, snippet, published_date, backend}]。\n" +
+      "**Sparse response handling**: 結果 < 3 時 response 加 `retry_hints` 陣列。**chat 看到 retry_hints 應主動再 search 一輪**（換英文 / 加擴展詞 / 找監管原文），不要只回「沒找到」就放棄。",
     inputSchema: {
       type: "object",
       properties: {
@@ -279,7 +281,8 @@ const TOOLS = [
       "**Triggers**: 用戶看完大綱後同意，chat 寫完整 markdown 內文 → 上架；用戶說「上架」「發布」「完成」「存檔」「就這樣」。\n" +
       "**Don't use 前提**: session 沒任何 finding → server reject；topic_id 給了但不存在又沒 topic_title → reject（要補 topic_title 才能 auto-create）；用戶還在改大綱還沒寫內文。\n" +
       "**權限**: 要 create_report feature flag（VIP 預設有，member 要 admin per-user override 才有）。\n" +
-      "**Server 行為**: (1) ensureTopic（如果 topic_id 不存在且有 topic_title 則自動建主題）;(2) auto-append「## 參考資料」section 從所有 findings 列 source URL;(3) D1 metadata + R2 markdown 雙寫;(4) TG 通知 admin（如果有設）;(5) 回傳 {meta, url} 含公開連結。\n" +
+      "**Quality gate (v3 2026-05-06)**: 寫入前 server 跑 5 種品質檢查 — footnote_orphan / placeholder_date / unused_finding / single_source_overreliance / uncited_quantitative_claim。任何 issue 會 throw `QUALITY_GATE: {...}`，**chat 必須解析 JSON、把 grill_choices 列給用戶、用戶選後執行對應 action（補 finding / 改 markdown / 接受 acknowledged）**。詳見 acknowledged 參數。\n" +
+      "**Server 行為**: (1) checkReportQuality (5 檢查);(2) ensureTopic（如果 topic_id 不存在且有 topic_title 則自動建主題）;(3) auto-append「## 參考資料」section 從所有 findings 列 source URL;(4) D1 metadata + R2 markdown 雙寫;(5) TG 通知 admin（如果有設）;(6) 回傳 {meta, url} 含公開連結。\n" +
       "**Topic 歸屬**: 寫前先 list_topics 看現有主題 — 找得到合適的就用同 topic_id（sort_order 設下一個 chapter 編號 * 10）；找不到就建新主題（給 topic_id slug + topic_title + topic_summary，sort_order=0 表示這份是新主題的主報告）。",
     inputSchema: {
       type: "object",
@@ -310,6 +313,15 @@ const TOOLS = [
           description:
             "在主題內的排序：0 = 主報告（永遠最上）、10/20/30 = 章節依序、100 = 預設（章節）。" +
             "做研究 session 通常給 100 或具體章節編號 * 10。",
+        },
+        acknowledged: {
+          type: "array",
+          items: { type: "string" },
+          description:
+            "Quality gate override — 第一次 call 出 QUALITY_GATE error 時，server 回 issues 含 type 跟 grill_choices。" +
+            "**chat 必須先把 grill_choices 列給用戶選**，用戶選擇接受某 warn 後，重 call create_report 帶 acknowledged: ['type1', 'type2', ...]。" +
+            "可接受的 type：placeholder_date / unused_finding / single_source_overreliance / uncited_quantitative_claim。" +
+            "**block 級 issue 不可 acknowledge**（footnote_orphan 必須修內文）。",
         },
       },
       required: ["session_id", "title", "markdown"],
@@ -425,46 +437,121 @@ async function handleGetWiki(args: { month: string }) {
   return { month: args.month, found: true, data: monthData };
 }
 
-async function handleWebSearch(args: { query: string; limit?: number }) {
+/**
+ * web_search — Exa first (real API), DDG scrape fallback.
+ *
+ * Exa returns structured results with `publishedDate` which we map to
+ * source_date hint — this addresses the "2025-01-01 placeholder" problem
+ * by giving chat real dates per result.
+ *
+ * Sparse results (< 3) → response includes `retry_hints` to nudge chat
+ * into trying alternative query angles instead of giving up.
+ */
+async function handleWebSearch(env: Bindings, args: { query: string; limit?: number }) {
   const limit = Math.min(args.limit ?? 8, 20);
-  // DuckDuckGo HTML scrape — works without API key. Best effort.
-  const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(args.query)}`;
-  try {
-    const resp = await fetch(url, {
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; InsuranceKB-MCP/1.0)" },
-    });
-    if (!resp.ok) {
-      return { query: args.query, results: [], note: `DDG returned ${resp.status}` };
-    }
-    const html = await resp.text();
-    // Extract result links (simple regex; not robust but works for common cases)
-    const results: Array<{ title: string; url: string; snippet: string }> = [];
-    const linkRe = /<a[^>]*class="[^"]*result__a[^"]*"[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g;
-    const snippetRe = /<a[^>]*class="[^"]*result__snippet[^"]*"[^>]*>([^<]+)<\/a>/g;
-    let m;
-    const links: string[][] = [];
-    while ((m = linkRe.exec(html)) !== null && links.length < limit) {
-      links.push([m[1], m[2]]);
-    }
-    const snippets: string[] = [];
-    while ((m = snippetRe.exec(html)) !== null && snippets.length < limit) {
-      snippets.push(m[1]);
-    }
-    for (let i = 0; i < links.length; i++) {
-      let url = links[i][0] || "";
-      // DDG wraps in /l/?uddg= encoded URL — decode
-      const um = url.match(/uddg=([^&]+)/);
-      if (um) url = decodeURIComponent(um[1]);
-      results.push({
-        title: (links[i][1] || "").replace(/&amp;/g, "&").trim(),
-        url,
-        snippet: (snippets[i] || "").replace(/<[^>]+>/g, "").trim(),
+  const q = args.query.trim();
+  if (!q) return { query: q, count: 0, results: [], retry_hints: ["query is empty"] };
+
+  let results: Array<{ title: string; url: string; snippet: string; published_date?: string; backend: "exa" | "ddg" }> = [];
+  let backend: "exa" | "ddg" = "ddg";
+  let backend_note = "";
+
+  // ── Exa path ──────────────────────────────────────────────
+  if (env.EXA_API_KEY) {
+    try {
+      const resp = await fetch("https://api.exa.ai/search", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": env.EXA_API_KEY,
+        },
+        body: JSON.stringify({
+          query: q,
+          numResults: limit,
+          contents: { text: { maxCharacters: 500 } },
+          type: "auto",      // exa picks neural vs keyword
+        }),
       });
+      if (resp.ok) {
+        const data = (await resp.json()) as {
+          results: Array<{ title: string; url: string; text?: string; publishedDate?: string }>;
+        };
+        results = (data.results || []).map(r => ({
+          title: r.title || "",
+          url: r.url,
+          snippet: (r.text || "").slice(0, 280),
+          published_date: r.publishedDate ? r.publishedDate.slice(0, 10) : undefined,
+          backend: "exa" as const,
+        }));
+        backend = "exa";
+      } else {
+        backend_note = `Exa returned ${resp.status}; falling back to DDG`;
+      }
+    } catch (e: any) {
+      backend_note = `Exa error: ${String(e?.message || e)}; falling back to DDG`;
     }
-    return { query: args.query, count: results.length, results };
-  } catch (e: any) {
-    return { query: args.query, results: [], error: String(e?.message || e) };
   }
+
+  // ── DDG fallback ──────────────────────────────────────────
+  if (results.length === 0) {
+    try {
+      const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(q)}`;
+      const resp = await fetch(url, {
+        headers: { "User-Agent": "Mozilla/5.0 (compatible; InsuranceKB-MCP/1.0)" },
+      });
+      if (resp.ok) {
+        const html = await resp.text();
+        const linkRe = /<a[^>]*class="[^"]*result__a[^"]*"[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g;
+        const snippetRe = /<a[^>]*class="[^"]*result__snippet[^"]*"[^>]*>([^<]+)<\/a>/g;
+        const links: string[][] = [];
+        const snippets: string[] = [];
+        let m;
+        while ((m = linkRe.exec(html)) !== null && links.length < limit) links.push([m[1], m[2]]);
+        while ((m = snippetRe.exec(html)) !== null && snippets.length < limit) snippets.push(m[1]);
+        for (let i = 0; i < links.length; i++) {
+          let url = links[i][0] || "";
+          const um = url.match(/uddg=([^&]+)/);
+          if (um) url = decodeURIComponent(um[1]);
+          results.push({
+            title: (links[i][1] || "").replace(/&amp;/g, "&").trim(),
+            url,
+            snippet: (snippets[i] || "").replace(/<[^>]+>/g, "").trim(),
+            backend: "ddg" as const,
+          });
+        }
+      }
+    } catch {
+      // swallow — return whatever we have
+    }
+  }
+
+  // ── Retry hints when sparse ───────────────────────────────
+  const retry_hints: string[] = [];
+  if (results.length < 3) {
+    const hasZh = /[一-鿿]/.test(q);
+    const hasEn = /[a-zA-Z]/.test(q);
+    if (hasZh && !hasEn) {
+      retry_hints.push(`只 ${results.length} 筆 — 試英文版本：把公司名譯成英文（例：新光人壽 → Shin Kong Life）`);
+    }
+    if (hasEn && !hasZh) {
+      retry_hints.push(`只 ${results.length} 筆 — 試中文版本，常用公司中文名+主題詞`);
+    }
+    if (!q.includes(" ") && q.length < 6) {
+      retry_hints.push(`query 很短 — 試擴展：「${q} 商品」「${q} 通路」「${q} 法規」「${q} 法說會」`);
+    }
+    retry_hints.push("找監管原文 → 加「金管會 / 保發中心 / Fitch / S&P / Moody's」");
+    retry_hints.push("找公司一手資料 → 加「年報 / 法說會 / annual report / IR」");
+    retry_hints.push("還是不夠 → 改 search_articles 找 KB 內既有報導，或接受該主題資料稀缺");
+  }
+
+  return {
+    query: q,
+    count: results.length,
+    backend,
+    backend_note: backend_note || undefined,
+    results,
+    retry_hints: retry_hints.length > 0 ? retry_hints : undefined,
+  };
 }
 
 // ─── Phase 4 research session handlers ───────────────────────────
@@ -509,6 +596,128 @@ async function handleGenerateOutline(
   return await generateSessionOutline(kv, user.uid, args.session_id);
 }
 
+/**
+ * Quality issue surfaced by the create_report pre-check.
+ *
+ * - severity "block" — must fix before retry; chat cannot override
+ * - severity "warn"  — chat can override by re-calling create_report with
+ *                      `acknowledged: ["<type>", ...]` after grilling user
+ */
+interface QualityIssue {
+  type: string;
+  severity: "block" | "warn";
+  message: string;
+  evidence?: string[];
+  grill_choices?: string[];
+}
+
+function checkReportQuality(
+  markdown: string,
+  findings: Array<{
+    id: number;
+    source_url: string;
+    source_date?: string;
+  }>,
+): QualityIssue[] {
+  const issues: QualityIssue[] = [];
+
+  // Footnote orphans — block (real bug)
+  const footnoteRefs = [...markdown.matchAll(/\[\^(\d+)\]/g)].map(m => parseInt(m[1]));
+  const validIds = new Set(findings.map(f => f.id));
+  const orphans = [...new Set(footnoteRefs)].filter(n => !validIds.has(n));
+  if (orphans.length > 0) {
+    issues.push({
+      type: "footnote_orphan",
+      severity: "block",
+      message: `內文引用 [^${orphans.join("] [^")}] 但 session 沒對應 finding。檢查 markdown footnote 是否寫錯，或 add_finding 補資料`,
+      evidence: orphans.map(n => `[^${n}]`),
+    });
+  }
+
+  // Placeholder source_date — warn
+  const badDates = findings
+    .filter(f => f.source_date && /^\d{4}-(01-01|12-31)$/.test(f.source_date))
+    .map(f => `finding #${f.id} (${f.source_date})`);
+  if (badDates.length > 0) {
+    issues.push({
+      type: "placeholder_date",
+      severity: "warn",
+      message: `${badDates.length} 個 finding 的 source_date 看起來是 placeholder（YYYY-01-01 / YYYY-12-31）。實際發表日不會剛好是 1/1 或 12/31。`,
+      evidence: badDates,
+      grill_choices: [
+        "A. 我給你正確日期，逐筆補（chat 重 add_finding 覆蓋）",
+        "B. 不知道實際日期，把這些 finding 的 source_date 設 null（覆蓋為空）",
+        "C. 接受這些 placeholder 上架（acknowledged: ['placeholder_date']）",
+      ],
+    });
+  }
+
+  // Unused findings — warn
+  const usedIds = new Set(footnoteRefs);
+  const unused = findings.filter(f => !usedIds.has(f.id));
+  if (unused.length > 0) {
+    issues.push({
+      type: "unused_finding",
+      severity: "warn",
+      message: `${unused.length} 個 finding 加進 session 但內文沒引用。會浪費「## 參考資料」section 篇幅。`,
+      evidence: unused.map(f => `#${f.id} (${f.source_url.slice(0, 60)})`),
+      grill_choices: [
+        "A. 補進內文相關段落，用 [^N] 引用",
+        "B. 從報告刪除 — 接受 acknowledged: ['unused_finding']（這些 finding 仍會出現在參考資料 section）",
+        "C. 刪掉這些 finding 重蒐集 — 但 session 沒 remove API，只能整 session 重來",
+      ],
+    });
+  }
+
+  // Single-source over-reliance — warn (≥4 findings same source)
+  const sourceCounts: Record<string, number[]> = {};
+  for (const f of findings) {
+    if (!sourceCounts[f.source_url]) sourceCounts[f.source_url] = [];
+    sourceCounts[f.source_url].push(f.id);
+  }
+  const overcited = Object.entries(sourceCounts).filter(([_, ids]) => ids.length >= 4);
+  if (overcited.length > 0) {
+    issues.push({
+      type: "single_source_overreliance",
+      severity: "warn",
+      message: `單一 source 出現 ${overcited[0][1].length}+ 次。報告偏依賴單一觀點，讀者會質疑可信度`,
+      evidence: overcited.map(([url, ids]) => `${url} → finding #${ids.join(", #")}`),
+      grill_choices: [
+        "A. 用 search_articles + web_search 找替代來源，補同主題其他 finding",
+        "B. 接受 — 該主題確實只有此 canonical source（acknowledged: ['single_source_overreliance']）",
+      ],
+    });
+  }
+
+  // Citation density — warn (paragraphs with quantitative facts but no [^N])
+  // Heuristic: find paragraphs containing 數字+(%|億|萬|兆|公司名 hint) but no [^N]
+  const paragraphs = markdown.split(/\n\n+/);
+  const suspicious: string[] = [];
+  for (const p of paragraphs) {
+    if (p.length < 30) continue;
+    const hasNumber = /\d+\s*(%|億|萬|兆|％|百分)/.test(p) || /\d{4}\s*年/.test(p);
+    const hasFootnote = /\[\^\d+\]/.test(p);
+    if (hasNumber && !hasFootnote) {
+      suspicious.push(p.slice(0, 100).replace(/\n/g, " ") + "...");
+    }
+  }
+  if (suspicious.length >= 3) {
+    issues.push({
+      type: "uncited_quantitative_claim",
+      severity: "warn",
+      message: `${suspicious.length} 段含「數字 / 年份 / 百分比」但**沒** [^N] 引用。事實型敘述應該對應 finding`,
+      evidence: suspicious.slice(0, 3),
+      grill_choices: [
+        "A. 補引用 — 找對應 finding 加 [^N]，或新 search_articles 找 source 後 add_finding",
+        "B. 改寫 — 把無 source 的數字改成「業界估」「約莫」或刪除",
+        "C. 接受（acknowledged: ['uncited_quantitative_claim']）— 風險：報告可信度低",
+      ],
+    });
+  }
+
+  return issues;
+}
+
 async function handleFinalizeReport(
   env: Bindings,
   user: FirebaseUser,
@@ -521,6 +730,28 @@ async function handleFinalizeReport(
   if (!session) throw new Error(`session ${args.session_id} 不存在或已過期`);
   if (session.findings.length === 0) {
     throw new Error("session 沒有任何 findings — 至少要加 1 個再上架");
+  }
+
+  // ── Quality gate ─────────────────────────────────────────
+  // Pre-check before any write. Returns structured issues for chat to grill
+  // user with. severity:'warn' issues can be overridden by passing
+  // `acknowledged: [type, ...]` on retry; severity:'block' cannot.
+  const issues = checkReportQuality(args.markdown, session.findings);
+  const acknowledged: Set<string> = new Set(args.acknowledged || []);
+  const blocking = issues.filter(i => i.severity === "block");
+  const unackedWarns = issues.filter(i => i.severity === "warn" && !acknowledged.has(i.type));
+
+  if (blocking.length > 0 || unackedWarns.length > 0) {
+    const payload = {
+      error: "Quality gate failed — fix or acknowledge before retry",
+      blocking: blocking.length > 0,
+      issues: [...blocking, ...unackedWarns],
+      how_to_proceed:
+        blocking.length > 0
+          ? "block 級必須修內文 / findings 後重 call create_report"
+          : "warn 級可：(1) 跟用戶 grill 列出 grill_choices → 用戶選後執行；或 (2) 用戶決定接受 → 重 call 帶 acknowledged: [...]",
+    };
+    throw new Error("QUALITY_GATE: " + JSON.stringify(payload));
   }
 
   // Topic handling — auto-create if topic_id given but doesn't exist + topic_title provided
@@ -644,6 +875,30 @@ async function dispatch(
             "   - sort_order=0 表這是主題的主報告；10/20 表章節依序",
             "   - server 自動把 findings 整成「## 參考資料」附報告末尾，內文用 [^N] 引用",
             "",
+            "## Quality gate（create_report 寫入前 5 種品質檢查）",
+            "",
+            "Server 拒收時會 throw `QUALITY_GATE: {...}` JSON，**chat 不能直接重試 — 要 grill 用戶**：",
+            "1. 解析 error message 後面的 JSON（含 issues array）",
+            "2. **每個 issue 列給用戶看 message + grill_choices (A/B/C)**",
+            "3. 用戶選後執行對應 action：",
+            "   - 修內文 (改 markdown 補 [^N] 或刪論點) → 重 call create_report",
+            "   - 補 finding (重新 add_finding 改 source_date) → 重 call",
+            "   - 接受問題 (用戶決定 OK) → 重 call 帶 `acknowledged: ['type1', ...]`",
+            "4. **block 級不可 acknowledge**（footnote_orphan 是 bug，必須修）",
+            "",
+            "5 種 issue 類型：",
+            "- `footnote_orphan` (block) — 內文 [^N] 找不到對應 finding",
+            "- `placeholder_date` (warn) — source_date 是 YYYY-01-01 / YYYY-12-31 像 placeholder",
+            "- `unused_finding` (warn) — finding 加了但內文沒引用",
+            "- `single_source_overreliance` (warn) — 同 source ≥4 次",
+            "- `uncited_quantitative_claim` (warn) — 段落含數字 / 年份 / % 但沒 [^N]",
+            "",
+            "## Web search 升級（v3 2026-05-06）",
+            "",
+            "web_search 後端優先用 Exa API（含 published_date），DDG 是 fallback。回應含 `retry_hints` 當結果稀疏（< 3）：",
+            "- chat 看到 retry_hints **應該主動再 search 一輪**（換英文 / 加擴展詞 / 找監管原文）",
+            "- 不要只回「沒找到」就放棄。AI 不能即時爬，但能換多種角度試",
+            "",
             "## 質量守門（chat 該主動踩煞車的訊號）",
             "",
             "- 用戶 5 步全選最大範圍 → 反問「這樣會跑很久且失焦，要不要先聚焦再延伸？」",
@@ -685,7 +940,7 @@ async function dispatch(
           result = await handleGetWiki(args as any);
           break;
         case "web_search":
-          result = await handleWebSearch(args as any);
+          result = await handleWebSearch(env, args as any);
           break;
         // Phase 4 research session
         case "start_research_session":

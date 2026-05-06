@@ -252,6 +252,68 @@ Sidebar 自動把這份排在 V1 主報告下面。半年後你可能累積 5-6 
 
 ---
 
+## 三-bis、Web search 多源策略（v3 2026-05-06）
+
+V2 內建 `web_search` 後端用 **Exa API**（非舊版 DDG scrape）— 結果穩定、含 published_date、不會被擋。
+
+當 chat 呼叫 `web_search` 結果稀少 (< 3 筆)，server 會回 `retry_hints` 陣列。Chat 應該**至少再 search 一輪**：
+
+```
+你 → "幫我研究新光的健康險"
+Chat → web_search("新光 健康險")  → 1 結果 + retry_hints
+Chat → 自動再試 web_search("Shin Kong Life health insurance")  → 5 結果
+Chat → 再試 web_search("新光人壽 醫療險 2026")  → 8 結果
+```
+
+如果還是不夠，VIP 用戶可在 claude.ai 端**另接 Tavily MCP connector** 補強（兩個 connector 並存）：
+
+1. https://docs.tavily.com/documentation/mcp 拿 Tavily 的 MCP URL
+2. claude.ai → Settings → Connectors → Add custom → 貼 URL → Connect
+3. 之後 chat 同時有 Insurance KB tools (內含 Exa-backed web_search) + Tavily tools (tavily_search)
+
+---
+
+## 四-pre、品質檢查（create_report 寫入前 5 種 gate）
+
+V3 起 `create_report` 寫入 D1+R2 **之前** server 跑 5 種品質檢查，任何 issue 會 throw `QUALITY_GATE` error。**Chat 不能直接重試，要 grill 用戶**：
+
+| 類型 | 嚴重度 | 描述 | 是否可 acknowledge |
+|---|---|---|---|
+| `footnote_orphan` | **block** | 內文 `[^N]` 找不到對應 finding | ❌ 必須修 |
+| `placeholder_date` | warn | source_date 是 `YYYY-01-01` / `YYYY-12-31` 像 placeholder | ✅ 可 |
+| `unused_finding` | warn | finding 加了但內文沒引用 | ✅ 可 |
+| `single_source_overreliance` | warn | 同 source ≥4 次 | ✅ 可 |
+| `uncited_quantitative_claim` | warn | 段落含數字 / % / 年份但沒 [^N] | ✅ 可 |
+
+**Chat 拿到 reject 後的 grill 流程**：
+
+```
+Chat (內部呼叫 create_report) → QUALITY_GATE error 含 issues array
+Chat → 用戶（grill）：
+  「上架前 server 發現 3 個品質問題，要怎麼處理？
+
+   1. **placeholder_date** (warn) — 4 個 finding 的 source_date 是 2025-01-01，看起來是 placeholder
+      A. 我給你正確日期，逐筆補
+      B. 不知道日期，把這幾個 source_date 設 null
+      C. 接受 — 上架（acknowledged）
+
+   2. **single_source_overreliance** (warn) — V1 ch05 被引 5 次
+      A. 我用 search_articles + web_search 補替代來源
+      B. 接受 — 該主題只有此 canonical source（acknowledged）
+
+   3. **uncited_quantitative_claim** (warn) — 3 段含數字但沒 [^N]
+      A. 我補引用，找對應 finding
+      B. 改寫，把無 source 的數字改成「業界估」
+      C. 接受 — 上架（acknowledged，但讀者會質疑可信度）」
+
+用戶 → 「1B、2A、3A」
+Chat → 執行 1B (re-add_finding 把 source_date 設 null)、2A (search_articles 補 source)、3A (補 [^N])
+Chat → 重 call create_report（不帶 acknowledged，因為都修了，不接受任一 warn）
+Server → 通過 → 上架 ✅
+```
+
+---
+
 ## 四、什麼時候 chat 應該主動踩煞車
 
 VIP 用戶心理上會想「快點寫完一份」，但**有些情況 chat 應該明確說「先別衝」**：
