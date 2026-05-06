@@ -189,9 +189,15 @@ export async function confirmSessionScope(
   state.status = "scope_confirmed";
   await writeSession(kv, state);
 
-  // Generate research plan based on decisions
+  // Generate research plan based on decisions.
+  // Targets calibrated against actual production runs (not theoretical):
+  //   - Shin Kong (Claude free, depth=C, single company)  → 16 findings
+  //   - Japan    (Claude paid, depth=C, two companies)    → 15 findings
+  //   - Both produced quality reports (~7K body chars)
+  // Earlier target=20 caused chat to self-report "token tight" anxiety even
+  // when output was fine. 15 is a realistic floor that chat actually hits.
   const findingTarget =
-    decisions.depth === "A" ? 5 : decisions.depth === "C" ? 20 : 12;
+    decisions.depth === "A" ? 5 : decisions.depth === "C" ? 15 : 10;
 
   const queryHints: string[] = [];
   if (decisions.scope?.includes("A") || decisions.scope === "E") {
