@@ -112,10 +112,24 @@ export interface ReportMeta {
   readonly created_at: number;
   readonly updated_at: number;
   readonly r2_path: string;
+  readonly topic_id: string | null;
+  readonly sort_order: number;
 }
 
 export interface ReportDetail {
   readonly meta: ReportMeta;
   readonly content: string;
 }
+
+export interface TopicMeta {
+  readonly id: string;
+  readonly title: string;
+  readonly summary: string | null;
+  readonly icon: string | null;
+  readonly sort_order: number;
+  readonly created_at: number;
+  readonly updated_at: number;
+  readonly report_count?: number;
+}
+
 export type Tier = 'guest' | 'member' | 'vip';

@@ -14,10 +14,13 @@ import type { FirebaseUser } from "./auth-firebase";
 import {
   archiveReport,
   createReport,
+  ensureTopic,
   getReportContent,
   getReportMeta,
+  getTopic,
   incrementViewCount,
   listReports,
+  listTopics,
   notifyTelegramNewReport,
   type CreateReportInput,
 } from "./reports-store";
@@ -31,11 +34,36 @@ function getUser(c: Ctx): FirebaseUser {
 }
 
 export async function handleListReports(c: Ctx) {
-  const limit = Math.min(parseInt(c.req.query("limit") || "30", 10), 100);
+  const limit = Math.min(parseInt(c.req.query("limit") || "200", 10), 200);
   const offset = parseInt(c.req.query("offset") || "0", 10);
   const category = c.req.query("category") || undefined;
-  const reports = await listReports(c.env.REPORTS_DB, { limit, offset, category });
+  const topic_id = c.req.query("topic_id") || undefined;
+  const by_topic = c.req.query("by_topic") === "1";
+  const reports = await listReports(c.env.REPORTS_DB, {
+    limit,
+    offset,
+    category,
+    topic_id,
+    by_topic,
+  });
   return c.json({ reports, count: reports.length });
+}
+
+export async function handleListTopics(c: Ctx) {
+  const topics = await listTopics(c.env.REPORTS_DB);
+  return c.json({ topics, count: topics.length });
+}
+
+export async function handleGetTopic(c: Ctx) {
+  const id = c.req.param("id") as string;
+  const topic = await getTopic(c.env.REPORTS_DB, id);
+  if (!topic) return c.json({ error: "Topic not found" }, 404);
+  const reports = await listReports(c.env.REPORTS_DB, {
+    topic_id: id,
+    by_topic: true,
+    limit: 200,
+  });
+  return c.json({ topic, reports });
 }
 
 export async function handleGetReport(c: Ctx) {
@@ -64,6 +92,10 @@ export async function handleCreateReport(c: Ctx) {
     summary?: string;
     source_session_id?: string;
     finding_count?: number;
+    topic_id?: string;
+    topic_title?: string;       // if topic_id doesn't exist, auto-create with this title
+    topic_summary?: string;
+    sort_order?: number;
   }>();
 
   if (!body.title || body.title.trim().length === 0) {
@@ -71,6 +103,27 @@ export async function handleCreateReport(c: Ctx) {
   }
   if (!body.markdown || body.markdown.trim().length < 50) {
     return c.json({ error: "markdown content too short (min 50 chars)" }, 400);
+  }
+
+  // If topic_id given, ensure topic exists (auto-create if topic_title given).
+  if (body.topic_id) {
+    const existing = await getTopic(c.env.REPORTS_DB, body.topic_id);
+    if (!existing) {
+      if (!body.topic_title) {
+        return c.json(
+          {
+            error: "topic_id does not exist; provide topic_title to auto-create",
+            hint: "list existing topics via GET /api/topics",
+          },
+          400,
+        );
+      }
+      await ensureTopic(c.env.REPORTS_DB, {
+        id: body.topic_id,
+        title: body.topic_title,
+        summary: body.topic_summary,
+      });
+    }
   }
 
   const input: CreateReportInput = {
@@ -86,6 +139,8 @@ export async function handleCreateReport(c: Ctx) {
     author_uid: user.uid,
     author_name: user.name,
     author_email: user.email,
+    topic_id: body.topic_id,
+    sort_order: body.sort_order,
   };
 
   const meta = await createReport(c.env.REPORTS_DB, c.env.REPORTS_BUCKET, input);

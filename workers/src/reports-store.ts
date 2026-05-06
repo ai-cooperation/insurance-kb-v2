@@ -27,6 +27,19 @@ export interface ReportMeta {
   created_at: number;
   updated_at: number;
   r2_path: string;
+  topic_id: string | null;                // v3 (2026-05-06)
+  sort_order: number;                     // 0 = main report, 10/20/... = chapters
+}
+
+export interface TopicMeta {
+  id: string;
+  title: string;
+  summary: string | null;
+  icon: string | null;                    // Icon.tsx name; defaults to "book"
+  sort_order: number;
+  created_at: number;
+  updated_at: number;
+  report_count?: number;                  // populated by listTopics with count
 }
 
 export interface CreateReportInput {
@@ -42,6 +55,16 @@ export interface CreateReportInput {
   author_uid: string;
   author_name?: string;
   author_email?: string;
+  topic_id?: string;                      // v3: assign to a topic on create
+  sort_order?: number;                    // v3: defaults to 100 (after main reports)
+}
+
+export interface CreateTopicInput {
+  id: string;                             // caller-supplied slug (e.g. "topic_abc")
+  title: string;
+  summary?: string;
+  icon?: string;
+  sort_order?: number;
 }
 
 interface ReportRow {
@@ -62,6 +85,8 @@ interface ReportRow {
   created_at: number;
   updated_at: number;
   r2_path: string;
+  topic_id: string | null;
+  sort_order: number;
 }
 
 function rowToMeta(r: ReportRow): ReportMeta {
@@ -119,8 +144,9 @@ export async function createReport(
       `INSERT INTO reports (
         id, title, author_uid, author_name, author_email,
         tags, status, source_session_id, region, category, summary,
-        word_count, finding_count, view_count, created_at, updated_at, r2_path
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)`,
+        word_count, finding_count, view_count, created_at, updated_at, r2_path,
+        topic_id, sort_order
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?)`,
     )
     .bind(
       id,
@@ -139,6 +165,8 @@ export async function createReport(
       now,
       now,
       r2_path,
+      input.topic_id ?? null,
+      input.sort_order ?? 100,
     )
     .run();
 
@@ -177,9 +205,18 @@ export async function getReportContent(
 
 export async function listReports(
   db: D1Database,
-  opts: { limit?: number; offset?: number; status?: ReportStatus; author_uid?: string; category?: string } = {},
+  opts: {
+    limit?: number;
+    offset?: number;
+    status?: ReportStatus;
+    author_uid?: string;
+    category?: string;
+    topic_id?: string;
+    /** When true, sort by (topic_id ASC, sort_order ASC) instead of created_at. */
+    by_topic?: boolean;
+  } = {},
 ): Promise<ReportMeta[]> {
-  const limit = Math.min(opts.limit ?? 50, 100);
+  const limit = Math.min(opts.limit ?? 50, 200);
   const offset = opts.offset ?? 0;
 
   const where: string[] = [];
@@ -198,16 +235,103 @@ export async function listReports(
     where.push("category = ?");
     params.push(opts.category);
   }
+  if (opts.topic_id) {
+    where.push("topic_id = ?");
+    params.push(opts.topic_id);
+  }
   const whereSql = where.length ? `WHERE ${where.join(" AND ")}` : "";
+  const orderSql = opts.by_topic
+    ? "ORDER BY topic_id IS NULL, topic_id, sort_order, created_at"
+    : "ORDER BY created_at DESC";
 
   const stmt = db
-    .prepare(
-      `SELECT * FROM reports ${whereSql} ORDER BY created_at DESC LIMIT ? OFFSET ?`,
-    )
+    .prepare(`SELECT * FROM reports ${whereSql} ${orderSql} LIMIT ? OFFSET ?`)
     .bind(...params, limit, offset);
 
   const result = await stmt.all<ReportRow>();
   return (result.results ?? []).map(rowToMeta);
+}
+
+// ===== Topics =====
+
+interface TopicRow {
+  id: string;
+  title: string;
+  summary: string | null;
+  icon: string | null;
+  sort_order: number;
+  created_at: number;
+  updated_at: number;
+}
+
+/**
+ * List all topics with their published-report counts. Topics with 0 reports
+ * are still returned (so admins can see empty topics they need to populate).
+ */
+export async function listTopics(
+  db: D1Database,
+): Promise<TopicMeta[]> {
+  const result = await db
+    .prepare(
+      `SELECT t.*, (
+         SELECT count(*) FROM reports r
+          WHERE r.topic_id = t.id AND r.status != 'archived'
+       ) AS report_count
+       FROM report_topics t
+       ORDER BY t.sort_order, t.created_at`,
+    )
+    .all<TopicRow & { report_count: number }>();
+  return (result.results ?? []).map((r) => ({
+    id: r.id,
+    title: r.title,
+    summary: r.summary,
+    icon: r.icon,
+    sort_order: r.sort_order,
+    created_at: r.created_at,
+    updated_at: r.updated_at,
+    report_count: r.report_count,
+  }));
+}
+
+export async function getTopic(
+  db: D1Database,
+  id: string,
+): Promise<TopicMeta | null> {
+  const row = await db
+    .prepare(`SELECT * FROM report_topics WHERE id = ?`)
+    .bind(id)
+    .first<TopicRow>();
+  return row;
+}
+
+/**
+ * Create a topic. Caller chooses the id (slug-like). Idempotent — INSERT OR
+ * IGNORE so MCP create_report can safely "ensure" a topic without erroring
+ * if it already exists.
+ */
+export async function ensureTopic(
+  db: D1Database,
+  input: CreateTopicInput,
+): Promise<TopicMeta> {
+  const now = Math.floor(Date.now() / 1000);
+  await db
+    .prepare(
+      `INSERT OR IGNORE INTO report_topics (id, title, summary, icon, sort_order, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+    )
+    .bind(
+      input.id,
+      input.title,
+      input.summary ?? null,
+      input.icon ?? "book",
+      input.sort_order ?? 100,
+      now,
+      now,
+    )
+    .run();
+  const got = await getTopic(db, input.id);
+  if (!got) throw new Error(`Topic ${input.id} disappeared after ensureTopic`);
+  return got;
 }
 
 export async function incrementViewCount(
