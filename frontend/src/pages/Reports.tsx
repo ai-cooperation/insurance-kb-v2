@@ -31,6 +31,27 @@ function formatDate(unixSec: number): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
+/**
+ * Strip Pandoc/Quarto-specific markdown that doesn't render in web:
+ *   - YAML frontmatter (--- ... ---) at top of file
+ *   - \newpage / \pagebreak directives
+ *   - Stray Pandoc raw blocks like ```{=latex} ... ```
+ *
+ * Idempotent — runs every render, cheap O(n) regex passes.
+ */
+function cleanupMarkdown(md: string): string {
+  let out = md;
+  // Strip leading YAML frontmatter (must be at very start, between --- fences)
+  out = out.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
+  // Strip \newpage / \pagebreak as standalone lines (keep surrounding whitespace tidy)
+  out = out.replace(/^\\(newpage|pagebreak)\s*$/gm, '');
+  // Strip raw latex/html blocks Pandoc inserts
+  out = out.replace(/```\{=\w+\}[\s\S]*?```/g, '');
+  // Collapse 3+ blank lines into 2
+  out = out.replace(/\n{3,}/g, '\n\n');
+  return out.trimStart();
+}
+
 // ── Tree node (collapsible topic with chapter list) ────────────────────
 
 interface TopicNodeProps {
@@ -181,7 +202,7 @@ const ReportDetailView: React.FC<DetailProps> = ({ apiFetch, reportId, onOpenTre
 
         {/* Markdown body */}
         <article className="prose prose-slate dark:prose-invert max-w-none prose-headings:scroll-mt-16 prose-pre:bg-slate-900 prose-pre:text-slate-100">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{cleanupMarkdown(content)}</ReactMarkdown>
         </article>
       </div>
     </div>
