@@ -188,13 +188,18 @@ export async function getFirebaseUser(
   const verified = await verifyFirebaseIdToken(token, env.HUB_PROJECT_ID);
   if (!verified) return GUEST_USER;
 
-  const [membership, project] = await Promise.all([
-    getFirestoreDoc(
-      env,
-      `users/${verified.uid}/memberships/${env.KB_PROJECT_ID}`,
-    ).catch(() => null),
+  // Cooperation-hub canonical schema (2026-05-06):
+  //   /users/{uid} doc has inline field `memberships.<projectId>` with
+  //   { tier, features?, expiresAt, paymentRef, grantedAt, grantedBy }.
+  //
+  //   This DIFFERS from agent-kb's subcollection layout. The frontend
+  //   (lib/membership/membership.ts:subscribeToUser) reads inline; grant.ts
+  //   writes inline; the admin UI shows the inline field. Worker must match.
+  const [userDoc, project] = await Promise.all([
+    getFirestoreDoc(env, `users/${verified.uid}`).catch(() => null),
     getFirestoreDoc(env, `projects/${env.KB_PROJECT_ID}`).catch(() => null),
   ]);
+  const membership = userDoc?.memberships?.[env.KB_PROJECT_ID] ?? null;
 
   const { tier, features } = computeFeatures(membership, project);
   return {
