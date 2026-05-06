@@ -14,3 +14,9 @@ package-lock.json
 notes/
 index/
 docs/
+
+# 內部研究報告範本 + seed (含公司原始 PDF / docx，不入 git)
+reference/
+
+# wrangler build cache
+**/.wrangler/

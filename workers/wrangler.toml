@@ -12,6 +12,27 @@ binding = "AI"
 binding = "KV"
 id = "d57f70351eb94f7c8b13d338f0f811ad"
 
+# v3 (2026-05-05): Reports system + MCP + research session.
+# Provision before merging feat/v3-upgrade to main:
+#   wrangler d1 create insurance-kb-reports         → fill database_id
+#   wrangler r2 bucket create insurance-kb-reports  → R2 has no ID, just name
+#   wrangler d1 execute insurance-kb-reports --file=./migrations/0001_reports.sql
+[[d1_databases]]
+binding = "REPORTS_DB"
+database_name = "insurance-kb-reports"
+database_id = "0ae68dcf-f5fd-4158-a94d-3f657c01e7ba"
+
+[[r2_buckets]]
+binding = "REPORTS_BUCKET"
+bucket_name = "insurance-kb-reports"
+
 [vars]
 CORS_ORIGIN = "https://insurance-kb.cooperation.tw"
 ADMIN_EMAIL = "alan.chen75@gmail.com"
+HUB_PROJECT_ID = "cooperation-hub-bfe79"
+KB_PROJECT_ID = "insurance-kb"
+MCP_PUBLIC_URL = "https://insurance-kb-api.alan-chen75.workers.dev/mcp/sse"
+# Telegram notifications on new report publish — set via wrangler secret put.
+# Empty string disables (worker won't crash, just skip notify).
+TG_BOT_TOKEN = ""
+TG_CHAT_ID = ""

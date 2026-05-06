@@ -3,11 +3,17 @@ import { Icon } from './Icon';
 import type { Route, Tier, NavItem, TierLabelInfo } from '../types';
 import type { AuthUser } from '../useAuth';
 
+// Feature-based gating (v3 upgrade 2026-05-05). The featureCatalog source-of-truth
+// lives in Firestore /projects/insurance-kb. Adding a new nav item here is a
+// frontend-only change; granting users access requires updating that doc.
+// See docs/v3-upgrade-spec.md for the full feature list + tier defaults.
 export const NAV: readonly NavItem[] = [
-  { id: 'home',  icon: 'home',  zh: '首頁',    req: 'public' },
-  { id: 'cards', icon: 'cards', zh: '卡片',    req: 'public' },
-  { id: 'wiki',  icon: 'book',  zh: '知識 Wiki', req: 'member' },
-  { id: 'chat',  icon: 'chat',  zh: 'AI Chat',  req: 'vip' },
+  { id: 'home',      icon: 'home',  zh: '首頁',     requiredFeature: 'view_summary' },
+  { id: 'cards',     icon: 'cards', zh: '卡片',     requiredFeature: 'view_card_titles' },
+  { id: 'wiki',      icon: 'book',  zh: '知識 Wiki', requiredFeature: 'view_wiki' },
+  { id: 'reports',   icon: 'book',  zh: '研究報告',  requiredFeature: 'view_reports', badge: 'NEW' },
+  { id: 'chat',      icon: 'chat',  zh: 'AI Chat',  requiredFeature: 'ai_chat',     badge: 'VIP' },
+  { id: 'mcp-setup', icon: 'lock',  zh: 'MCP 連線',  requiredFeature: 'use_mcp',     badge: 'VIP' },
 ];
 
 export const TIER_LABEL: Record<Tier, TierLabelInfo> = {
@@ -21,6 +27,7 @@ interface SidebarProps {
   readonly route: Route;
   readonly setRoute: (r: Route) => void;
   readonly tier: Tier;
+  readonly hasFeature: (key: string) => boolean;
   readonly collapsed: boolean;
   readonly setCollapsed: (c: boolean) => void;
   readonly user: AuthUser | null;
@@ -28,12 +35,13 @@ interface SidebarProps {
   readonly onLogout: () => void;
 }
 
-const canAccess = (req: NavItem['req'], tier: Tier): boolean =>
-  req === 'public' ||
-  (req === 'member' && (tier === 'member' || tier === 'vip')) ||
-  (req === 'vip' && tier === 'vip');
+// Silent lock: items the user cannot access render at reduced opacity and do not
+// respond to clicks. Matches agent-kb's UX (no popup, no nag). Future enhancement
+// (申請存取 + admin TG real-time auth) tracked in MEMORY.md "跨專案待辦".
+const canAccess = (item: NavItem, hasFeature: (k: string) => boolean): boolean =>
+  hasFeature(item.requiredFeature);
 
-export const Sidebar: React.FC<SidebarProps> = ({ open, route, setRoute, tier, collapsed, setCollapsed, user, onLogin, onLogout }) => (
+export const Sidebar: React.FC<SidebarProps> = ({ open, route, setRoute, tier, hasFeature, collapsed, setCollapsed, user, onLogin, onLogout }) => (
   <aside
     className={`shrink-0 h-full border-r border-slate-200 dark:border-slate-900 bg-slate-50/60 dark:bg-slate-950/70 backdrop-blur flex flex-col transition-all duration-300 ease-out ${collapsed ? 'w-[68px]' : 'w-60'} ${open ? '' : 'hidden lg:flex'}`}
   >
@@ -52,27 +60,33 @@ export const Sidebar: React.FC<SidebarProps> = ({ open, route, setRoute, tier, c
     <nav className="flex-1 py-3 px-2 space-y-0.5">
       {NAV.map(item => {
         const active = route === item.id;
-        const locked = !canAccess(item.req, tier);
+        const locked = !canAccess(item, hasFeature);
+        const isLoggedOut = !user;
         return (
           <button
             key={item.id}
+            disabled={locked}
             onClick={() => {
-              if (locked && item.req === 'member') {
-                onLogin();
-              } else if (!locked) {
-                setRoute(item.id as Route);
+              if (locked) {
+                // Silent lock: logged-out users get the login prompt, logged-in
+                // users with insufficient features get nothing (no popup nag).
+                if (isLoggedOut) onLogin();
+                return;
               }
+              setRoute(item.id as Route);
             }}
             title={collapsed ? item.zh : undefined}
             className={`w-full flex items-center gap-2.5 px-2.5 h-9 rounded-md text-[13.5px] transition
               ${active ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-sm ring-1 ring-slate-200 dark:ring-slate-800' : 'text-slate-600 dark:text-slate-400 hover:bg-white/60 dark:hover:bg-slate-900/50 hover:text-slate-900 dark:hover:text-slate-200'}
-              ${locked ? 'opacity-50' : ''}`}
+              ${locked ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
             <Icon name={item.icon} className="w-[18px] h-[18px] shrink-0" />
             {!collapsed && <span className="truncate flex-1 text-left">{item.zh}</span>}
             {!collapsed && locked && <Icon name="lock" className="w-3.5 h-3.5 text-slate-400" />}
-            {!collapsed && item.id === 'chat' && !locked && (
-              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-accent text-white">VIP</span>
+            {!collapsed && item.badge && !locked && (
+              <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded text-white ${item.badge === 'VIP' ? 'bg-accent' : 'bg-emerald-500'}`}>
+                {item.badge}
+              </span>
             )}
           </button>
         );

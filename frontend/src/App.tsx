@@ -6,6 +6,8 @@ import { HomePage } from './pages/Home';
 import { CardsPage, ArticleModal } from './pages/Cards';
 import { WikiPage } from './pages/Wiki';
 import { ChatPage } from './pages/Chat';
+import { ReportsPage } from './pages/Reports';
+import { McpSetupPage } from './pages/McpSetup';
 import { useArticles } from './useArticles';
 import { useAuth } from './useAuth';
 import type { Route, Tweaks, Article } from './types';
@@ -16,6 +18,7 @@ const DEFAULT_TWEAKS: Tweaks = {
   cardStyle: 'bordered',
   dark: false,
 };
+
 
 export const App: React.FC = () => {
   const [route, setRoute] = useState<Route>(() => (localStorage.getItem('ikb_route') as Route) || 'home');
@@ -30,11 +33,12 @@ export const App: React.FC = () => {
   // persist route
   useEffect(() => { localStorage.setItem('ikb_route', route); }, [route]);
 
-  // Force route back if insufficient access
+  // Force route back to home if user lacks the required feature for current
+  // nav. Runs whenever route or auth.features change (e.g. logout, tier
+  // downgrade, admin revoke).
   useEffect(() => {
-    const needed = NAV.find(n => n.id === route)?.req;
-    if (needed === 'member' && !auth.hasFeature('view_wiki')) setRoute('home');
-    if (needed === 'vip' && !auth.hasFeature('ai_chat')) setRoute('home');
+    const needed = NAV.find(n => n.id === route)?.requiredFeature;
+    if (needed && !auth.hasFeature(needed)) setRoute('home');
   }, [route, auth.tier, auth.hasFeature]);
 
   // Dark mode
@@ -68,13 +72,14 @@ export const App: React.FC = () => {
         route={route}
         setRoute={(r) => { setRoute(r); setSidebarOpen(false); }}
         tier={auth.tier}
+        hasFeature={auth.hasFeature}
         collapsed={sidebarCollapsed}
         setCollapsed={setSidebarCollapsed}
         user={auth.user}
         onLogin={auth.login}
         onLogout={auth.logout}
       />
-      <main className="flex-1 flex flex-col min-w-0" data-screen-label={`0${['home','cards','wiki','chat'].indexOf(route)+1} ${route}`}>
+      <main className="flex-1 flex flex-col min-w-0" data-screen-label={`0${['home','cards','wiki','reports','chat','mcp-setup'].indexOf(route)+1} ${route}`}>
         <Topbar
           route={route}
           setRoute={setRoute}
@@ -87,10 +92,12 @@ export const App: React.FC = () => {
           onLogin={auth.login}
           onLogout={auth.logout}
         />
-        {route === 'home'  && <HomePage  articles={articles} loading={loading} setRoute={setRoute} setTier={() => {}} onLogin={auth.login} openArticle={openArticle} />}
-        {route === 'cards' && <CardsPage articles={articles} loading={loading} openArticle={openArticle} />}
-        {route === 'wiki'  && <WikiPage  articles={articles} openArticle={openArticle} />}
-        {route === 'chat'  && <ChatPage  articles={articles} openArticle={openArticle} apiFetch={auth.apiFetch} />}
+        {route === 'home'      && <HomePage  articles={articles} loading={loading} setRoute={setRoute} setTier={() => {}} onLogin={auth.login} openArticle={openArticle} />}
+        {route === 'cards'     && <CardsPage articles={articles} loading={loading} openArticle={openArticle} />}
+        {route === 'wiki'      && <WikiPage  articles={articles} openArticle={openArticle} />}
+        {route === 'chat'      && <ChatPage  articles={articles} openArticle={openArticle} apiFetch={auth.apiFetch} />}
+        {route === 'reports'   && <ReportsPage apiFetch={auth.apiFetch} hasFeature={auth.hasFeature} />}
+        {route === 'mcp-setup' && <McpSetupPage apiFetch={auth.apiFetch} hasFeature={auth.hasFeature} />}
       </main>
 
       <ArticleModal article={article} onClose={() => setArticle(null)} />
