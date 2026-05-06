@@ -22,7 +22,14 @@ import type { Context } from "hono";
 import type { FirebaseUser } from "./auth-firebase";
 import { hasFeatures } from "./auth-firebase";
 import { loadArticles, searchArticles, type Article } from "./search";
-import { getReportContent, getReportMeta, listReports } from "./reports-store";
+import {
+  ensureTopic,
+  getReportContent,
+  getReportMeta,
+  getTopic,
+  listReports,
+  listTopics as listTopicsStore,
+} from "./reports-store";
 import {
   addFindingToSession,
   confirmSessionScope,
@@ -32,8 +39,7 @@ import {
   listSessionFindings,
   startResearchSession,
 } from "./research-session";
-import { createReport } from "./reports-store";
-import { notifyTelegramNewReport } from "./reports-store";
+import { createReport, notifyTelegramNewReport } from "./reports-store";
 
 interface Bindings {
   KV: KVNamespace;
@@ -265,7 +271,7 @@ const TOOLS = [
       "上架報告 / finalize report / publish。" +
       "用戶確認大綱後 chat 寫完整 markdown，呼叫這個上架。" +
       "Server：(1) 自動把 findings 整成 ## 參考資料 section 附在末尾；" +
-      "(2) 寫 D1 + R2 雙存；(3) TG 通知 admin；(4) 回傳公開連結。" +
+      "(2) 寫 D1 + R2 雙存 + 歸到 topic；(3) TG 通知 admin；(4) 回傳公開連結。" +
       "需要 create_report feature（VIP 專屬）。",
     inputSchema: {
       type: "object",
@@ -277,9 +283,37 @@ const TOOLS = [
         category: { type: "string", description: "分類：商品分析 / 市場觀察 / 雙週報 / 競品比較" },
         region: { type: "string", description: "地區：TW / JP / KR / HK / SEA / GLOBAL" },
         summary: { type: "string", description: "短摘要（list 顯示用，2-3 句）" },
+        topic_id: {
+          type: "string",
+          description:
+            "歸屬主題 ID（slug-like，例：topic_v1_marketing）。先用 list_topics 看現有主題；" +
+            "新主題給 topic_id + topic_title 即可自動建立。不給的話報告會 orphan（不在主題樹裡顯示）。",
+        },
+        topic_title: {
+          type: "string",
+          description: "若 topic_id 不存在，用此 title 自動建主題（必填當新建主題時）",
+        },
+        topic_summary: {
+          type: "string",
+          description: "若新建主題，這段會顯示在主題頁頂端（建議寫 1-2 句概述）",
+        },
+        sort_order: {
+          type: "number",
+          description:
+            "在主題內的排序：0 = 主報告（永遠最上）、10/20/30 = 章節依序、100 = 預設（章節）。" +
+            "做研究 session 通常給 100 或具體章節編號 * 10。",
+        },
       },
       required: ["session_id", "title", "markdown"],
     },
+  },
+
+  {
+    name: "list_topics",
+    description:
+      "列出所有研究主題 / list topics / 看主題樹。" +
+      "回傳所有 report_topics + 每個主題的報告數。寫新報告前先呼叫，看有沒有可歸屬的既有主題。",
+    inputSchema: { type: "object", properties: {} },
   },
 ];
 
@@ -479,6 +513,23 @@ async function handleFinalizeReport(
     throw new Error("session 沒有任何 findings — 至少要加 1 個再上架");
   }
 
+  // Topic handling — auto-create if topic_id given but doesn't exist + topic_title provided
+  if (args.topic_id) {
+    const existing = await getTopic(env.REPORTS_DB, args.topic_id);
+    if (!existing) {
+      if (!args.topic_title) {
+        throw new Error(
+          `topic_id "${args.topic_id}" 不存在；補 topic_title 即可自動建立 (見 list_topics 看現有主題)`,
+        );
+      }
+      await ensureTopic(env.REPORTS_DB, {
+        id: args.topic_id,
+        title: args.topic_title,
+        summary: args.topic_summary,
+      });
+    }
+  }
+
   // Auto-append 參考資料 from findings
   const referencesSection = renderReferencesSection(session.findings);
   const fullMarkdown = args.markdown.trimEnd() + "\n\n" + referencesSection;
@@ -496,6 +547,8 @@ async function handleFinalizeReport(
     author_uid: user.uid,
     author_name: user.name,
     author_email: user.email,
+    topic_id: args.topic_id,
+    sort_order: typeof args.sort_order === "number" ? args.sort_order : 100,
   });
 
   await finalizeSession(env.KV, user.uid, args.session_id, meta.id);
@@ -504,6 +557,11 @@ async function handleFinalizeReport(
   await notifyTelegramNewReport(env, meta, publicUrl);
 
   return { meta, url: publicUrl, finding_count: session.findings.length };
+}
+
+async function handleListTopicsTool(env: Bindings) {
+  const topics = await listTopicsStore(env.REPORTS_DB);
+  return { count: topics.length, topics };
 }
 
 function renderReferencesSection(findings: Array<{
@@ -607,6 +665,9 @@ async function dispatch(
           break;
         case "finalize_report":
           result = await handleFinalizeReport(env, user, args as any);
+          break;
+        case "list_topics":
+          result = await handleListTopicsTool(env);
           break;
         default:
           throw new Error(`Unknown tool: ${params.name}`);

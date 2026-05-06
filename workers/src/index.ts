@@ -22,7 +22,9 @@ import {
   handleArchiveReport,
   handleCreateReport,
   handleGetReport,
+  handleGetTopic,
   handleListReports,
+  handleListTopics,
 } from "./reports";
 import { handleMCPManifest, handleMCPRPC, handleMCPSSE } from "./mcp";
 import {
@@ -268,6 +270,8 @@ const requireViewReports = requireReportsFeature("view_reports");
 
 app.get("/api/reports", requireViewReports, handleListReports);
 app.get("/api/reports/:id", requireViewReports, handleGetReport);
+app.get("/api/topics", requireViewReports, handleListTopics);
+app.get("/api/topics/:id", requireViewReports, handleGetTopic);
 app.post("/api/reports", requireCreateReport, handleCreateReport);
 app.delete("/api/reports/:id", async (c, next) => {
   const fb = c.get("fbUser");
