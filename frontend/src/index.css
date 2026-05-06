@@ -60,6 +60,20 @@ body {
   aside, header { display: none !important; }
   .print\\:hidden { display: none !important; }
 
+  /* Force every clipping ancestor to release height/overflow so the printer
+   * paginates the FULL document instead of just the first viewport.
+   * App.tsx uses h-screen + overflow-hidden + nested flex/overflow-auto. */
+  html, body, #root,
+  [class*="h-screen"],
+  [class*="overflow-hidden"],
+  [class*="overflow-auto"] {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  /* Break out of flex layouts so children stack and expand naturally. */
+  .flex { display: block !important; }
+
   /* Expand main */
   body, html { background: white !important; color: black !important; }
   main { display: block !important; }

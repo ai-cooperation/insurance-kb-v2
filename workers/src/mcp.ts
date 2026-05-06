@@ -11,7 +11,7 @@
  *
  * Phase 4 adds (research session + create):
  *   start_research_session, confirm_scope, add_finding, list_findings,
- *   generate_outline, finalize_report
+ *   generate_outline, create_report (alias: finalize_report)
  *
  * Adapted from agent-kb/server/src/mcp.ts (transport + JSON-RPC scaffolding
  * is identical; tools are V2-specific).
@@ -75,10 +75,10 @@ const TOOLS = [
   {
     name: "list_articles",
     description:
-      "列出保險新聞 / list insurance articles / browse news / recent insurance news。" +
-      "列出近期的保險業新聞文章（含中文標題、摘要、來源、日期、分類、地區）。" +
-      "可指定天數、分類、地區過濾。新聞來自 Insurance KB 每天兩次自動爬蟲，" +
-      "涵蓋台灣 / 日本 / 韓國 / 香港 / 東南亞等市場。",
+      "列出保險新聞 / 看最近新聞 / 撈最近 / 給我新聞 / list insurance articles / browse / recent news / news feed。\n" +
+      "**Triggers**: 用戶說「最近有什麼」「列一下台灣 X 公司動態」「看看亞洲保險業」「過去 30 天」「有什麼新聞」「列保險業界動態」時叫。\n" +
+      "**Don't use**: 用戶說具體關鍵字找事（「找跟 X 有關的」）→ 改用 search_articles；找網路上的東西 → web_search。\n" +
+      "回傳近 N 天的保險業新聞（中標題/摘要/來源/日期/分類/地區），可按 region/category 過濾。資料每天 2 次自動爬蟲更新，涵蓋台/日/韓/港/東南亞。",
     inputSchema: {
       type: "object",
       properties: {
@@ -92,10 +92,10 @@ const TOOLS = [
   {
     name: "search_articles",
     description:
-      "搜尋保險新聞 / search insurance articles / find news on topic。" +
-      "用關鍵字搜尋全部 articles.json（19000+ 篇）。" +
-      "Score = title*3 + category*2 + summary*1。回傳最相關的 N 筆，含 url 可點開原始來源。" +
-      "**做研究蒐集 finding 時這是主力**：找出後用 add_finding 累積到 session（必須附 source_url）。",
+      "搜尋保險新聞 / 用關鍵字找新聞 / 找跟 X 有關的 / 撈 / search articles / find news on topic / lookup。\n" +
+      "**Triggers**: 用戶提具體公司名/商品名/主題詞時（「新光的健康險」「IFRS17 影響」「Pulse 數位生態圈」）。做研究 (research session) 時是**蒐集 finding 的主力工具**。\n" +
+      "**Don't use**: 想看「最近 N 天有什麼」沒指定關鍵字 → 用 list_articles；找的是公司官網/監管公告/國際趨勢（KB 不一定有）→ 用 web_search。\n" +
+      "全文搜尋 19000+ 篇 articles，scoring=title*3+category*2+summary*1。每筆含 url 可開原始來源。Research session 中找到後**必須**用 add_finding 累積，並把 article.url 帶進 source_url。",
     inputSchema: {
       type: "object",
       properties: {
@@ -110,9 +110,10 @@ const TOOLS = [
   {
     name: "list_reports",
     description:
-      "列出研究報告 / list research reports / browse reports / 看歷史報告。" +
-      "列出 Insurance KB 的研究報告：產業研究、商品分析、市場觀察、雙週報等。" +
-      "做新研究前先看歷史報告，避免重複工作 + 找延伸主題。",
+      "列出研究報告 / 看以前做過什麼 / 看歷史報告 / 看 Insurance KB 上有什麼研究 / list research reports / browse reports / show past research。\n" +
+      "**Triggers**: 用戶說「以前研究過 X 嗎」「KB 上有什麼報告」「找之前的分析」「看一下既有研究」。**做新研究的第一步**（research session 中）— 先看歷史避免重複造輪子。\n" +
+      "**Don't use**: 想找特定主題的舊報告 → 也用這個但帶 category；想看主題分組樹結構 → 用 list_topics。\n" +
+      "回傳所有 published 報告 metadata（不含 markdown 全文，要用 get_report 拿）。可按 category 過濾。",
     inputSchema: {
       type: "object",
       properties: {
@@ -124,9 +125,10 @@ const TOOLS = [
   {
     name: "get_report",
     description:
-      "讀取研究報告 / get report / read report / fetch report content。" +
-      "讀取某份研究報告的完整 markdown 內容 + meta（標題、作者、字數、引用數、創建日期）。" +
-      "報告含原作者引用的 source URL，做新研究時可參考上一份做了什麼結論。",
+      "讀取研究報告全文 / 看某份報告詳細 / 給我報告內容 / get report / read report / fetch report content / open report。\n" +
+      "**Triggers**: list_reports 找到某份覺得相關 → 用這個讀全文；用戶丟報告 ID 或 url（含 /reports/<id>) → 解析 ID 後讀取；做 research session 引用舊報告 → 讀全文後 add_finding 帶 source_url=`/reports/<id>`。\n" +
+      "**Don't use**: 只想看一堆報告的標題清單 → list_reports；找的不是某份具體報告而是某月主題彙整 → get_wiki。\n" +
+      "回傳 meta（含字數/引用數/閱讀次數/作者/分類）+ 完整 markdown 內容（含末尾「## 參考資料」section 跟所有 source URL）。",
     inputSchema: {
       type: "object",
       properties: {
@@ -140,9 +142,10 @@ const TOOLS = [
   {
     name: "get_wiki",
     description:
-      "讀取月度蒸餾 / get wiki / read monthly distillation / 看 X 月有什麼。" +
-      "讀取月度 / 季度的保險業 wiki — 是 LLM 對該月所有新聞蒸餾後的主題彙整，" +
-      "適合快速掌握某個月主要事件 / 趨勢。比一篇篇讀新聞快。",
+      "讀取月度蒸餾 / 看 X 月有什麼大事 / 月報 / 季度 wiki / get monthly distillation / get wiki / monthly summary / what happened in X。\n" +
+      "**Triggers**: 用戶說「2026 年 4 月有什麼大事」「上個月保險業」「3 月趨勢」。比 list_articles 高一階：已被 LLM 蒸餾成主題彙整，更精煉。\n" +
+      "**Don't use**: 想看具體某篇新聞 → search_articles；想看主題長期演變（跨月）→ 連續 get_wiki 多個月份再對比；要找某公司動態 → search_articles 或 list_articles。\n" +
+      "回傳該月的主題彙整 markdown（已含跨地區比較、重點 quote、推論）。data 可能 null（該月還沒蒸餾），不要硬撐。",
     inputSchema: {
       type: "object",
       properties: {
@@ -156,10 +159,10 @@ const TOOLS = [
   {
     name: "web_search",
     description:
-      "外部網路搜尋 / web search / google / 找網路上的資料。" +
-      "透過 Worker 代理搜尋外部資料（DuckDuckGo HTML scrape）。" +
-      "**用於 articles.json 沒有的東西**：競品官網公告、政府法規、國際趨勢報告等。" +
-      "結果含 url + snippet，做為 finding 來源時用 add_finding 帶上 source_url。",
+      "外部網路搜尋 / 上網查 / google 一下 / 找網路上有什麼說 / web search / google / DuckDuckGo / external search。\n" +
+      "**Triggers**: KB 內找不到某主題（search_articles 0 hits 或太少）；用戶要監管公告/公司官網/國際趨勢/同業評論等 KB 沒爬的東西；想驗證某數據是否有外部 source。\n" +
+      "**Don't use**: 找的內容是保險業新聞 → 先 search_articles（KB 已爬全亞洲主流媒體）；找某個既有報告 → list_reports；想看某月趨勢 → get_wiki。Web search 是兜底用，不該是第一選擇。\n" +
+      "Worker 代理 DuckDuckGo HTML scrape — fragile 但免 API key。回傳 [{title, url, snippet}]。引用後 add_finding 必須帶實際 url（不是 ddg.gg 那層）。",
     inputSchema: {
       type: "object",
       properties: {
@@ -174,10 +177,11 @@ const TOOLS = [
   {
     name: "start_research_session",
     description:
-      "啟動研究 session / start research / 開始寫報告 / 我想做某主題研究。" +
-      "用戶說「我想做 X 主題的研究」就先呼叫這個。Server 回 5 步 todo（範圍/地區/時間/讀者/深度），" +
-      "**chat 必須一步步引導用戶選擇（grill-mode 風格：列選項 + pros/cons + 推薦預設 + 等用戶選）**，" +
-      "不要自己決定範圍直接開始查。",
+      "啟動研究 session / 開始做研究 / 開始寫報告 / 我想研究 X / 幫我做 X 主題的研究 / 我想做一份報告 / start research / kick off report / begin report drafting。\n" +
+      "**Triggers (一定要先叫)**: 用戶說「幫我做 X 研究」「我想研究 X」「寫一份 X 報告」「分析一下 X」「幫我看 X 這個主題」「做個 X 商品評估」「我要寫 X 給商品設計團隊看」**不要直接 search 也不要直接寫**。\n" +
+      "**Don't use**: 用戶只是問「最近有什麼 X 新聞」(→ list_articles)；用戶要找一個資料點不寫報告 (→ search_articles)；用戶要看舊報告 (→ list_reports)。\n" +
+      "回傳 5 步 grill-me-first 引導框架（範圍/地區/時間/讀者/深度），每步含 A/B/C/.. 選項+推薦預設+rationale。**Chat 必須一步一步問用戶**，列選項 + 推薦 + 等用戶選後才下一步。用戶說「你決定」也不要自己決定，要再問「這個會直接影響蒐集方向，請選」。\n" +
+      "Server-side state 存 KV TTL 24h。",
     inputSchema: {
       type: "object",
       properties: {
@@ -189,9 +193,10 @@ const TOOLS = [
   {
     name: "confirm_scope",
     description:
-      "鎖定研究範圍 / confirm scope / 範圍定了開始查資料。" +
-      "用戶把 5 步選完後呼叫這個，Server 會回研究計畫 todo（要查哪些資料、用哪些工具、預期蒐集多少 finding）。" +
-      "之後 chat 照 todo 開始 search_articles / get_report / web_search 蒐集證據。",
+      "鎖定研究範圍 / 範圍定了 / 開始查資料 / 確認範圍 / confirm scope / lock scope / proceed with research。\n" +
+      "**Triggers**: start_research_session 後用戶把 5 步全選完了（scope/region/timeframe/audience/depth 都有答）。\n" +
+      "**Don't use**: 用戶還沒選完 5 步就呼叫 → server 會接受但 plan 會偏；再叫一次同 session_id 不會 reset 範圍（要新 session 重來）。\n" +
+      "Server 回 research plan todo（要查哪些 source / 用哪些 tool / 預估 finding 數量），chat 照 todo 開始 search_articles / list_reports / get_wiki / web_search 蒐集證據。",
     inputSchema: {
       type: "object",
       properties: {
@@ -214,13 +219,11 @@ const TOOLS = [
   {
     name: "add_finding",
     description:
-      "累積證據 / add finding / record source / 記下這條來源。" +
-      "**核心溯源工具**：每蒐集到一條值得寫進報告的事實 / 數據 / 競品案例 / 公司動態 / 法規消息，" +
-      "都呼叫這個。Server 維護 session draft state（24h KV，不污染 chat context）。" +
-      "**source_url 強制必填**：不能寫「我訓練資料記得 X」這種。" +
-      "「事實型句子（量化數字、競品名、公司動態、新聞）必須對應一個 finding」。" +
-      "report 上架時 server 會自動把 findings 整成 ## 參考資料 section 附在末尾，" +
-      "報告內文用 [^N] 引用。",
+      "累積證據 / 記下這條來源 / 加 finding / 存進 session / record source / track citation / save evidence / cite this。\n" +
+      "**核心溯源工具**。**Triggers**: research session 中每蒐到一條值得寫進報告的事實 / 數據 / 競品案例 / 公司動態 / 法規消息 / 跨市場觀察 / 你的觀察推論。Article search 結果中要引用、報告中要引用、web 結果中要引用 — 全部都先 add_finding 再寫。\n" +
+      "**Don't use 前提**: 沒 source_url 不能叫 — server 會 reject。「我記得 X」「訓練資料說 X」**不算合法 source**，要先 search_articles 或 web_search 找到 URL 再叫。\n" +
+      "**為什麼存 server**: 10+ findings 全塞 chat context 會排擠思考空間（每筆含 quote 可能 5K tokens）。Server-side draft state (24h KV TTL) 讓 chat 只看 finding ID 即可。\n" +
+      "**Auto-publish**: report 上架（create_report）時，server 自動把所有 findings 整成「## 參考資料」section 附報告末尾，報告內文用 `[^N]` footnote 引用對應 finding。",
     inputSchema: {
       type: "object",
       properties: {
@@ -241,8 +244,10 @@ const TOOLS = [
   {
     name: "list_findings",
     description:
-      "看當前 session 累積了什麼 / list findings / show what we have so far。" +
-      "在蒐集中途叫一下，避免重複加 finding 或漏掉某類證據。",
+      "看當前 session 累積了什麼 / 看蒐集進度 / 我加了多少 / 看 finding 清單 / list findings / show evidence so far / review session。\n" +
+      "**Triggers**: 蒐到一定量（5+）想 review 是否足夠 / 是否某類偏多某類缺；用戶問「目前蒐到什麼」「進度如何」；準備 generate_outline 前先看分類比例。\n" +
+      "**Don't use**: 直接想生大綱 → generate_outline（內部會跑 list 邏輯）。\n" +
+      "回 findings 全清單 + 按 type 分類統計（例：5 news_quote / 3 web_quote / 2 cross_market_pattern）。",
     inputSchema: {
       type: "object",
       properties: {
@@ -254,9 +259,11 @@ const TOOLS = [
   {
     name: "generate_outline",
     description:
-      "從 findings 生大綱 / generate outline / propose structure。" +
-      "蒐集到一定量（建議 8-15 個 findings）後叫這個，server 根據 findings 產建議大綱。" +
-      "**chat 一定要跟用戶討論大綱再改**，不要直接寫報告。",
+      "從 findings 生報告大綱 / 給我建議結構 / 建議章節 / propose structure / generate outline / suggest TOC。\n" +
+      "**Triggers**: 蒐集到 8-15 個 findings 後（少於 3 會 reject）；用戶說「夠了開始寫」「列大綱」「給我結構」「來規劃章節」。\n" +
+      "**Don't use**: findings 不夠（< 5）就硬叫 → 大綱會偏；只想看 findings 不要結構 → list_findings。\n" +
+      "Server 把 findings 按 type 分桶（market/comp/product/history）→ 提建議 section 結構，每 section 標出引用哪些 finding ID。\n" +
+      "**Chat 拿到大綱後不要直接寫報告**，要列給用戶確認/調整再開始寫內文（grill-mode 第二輪）。",
     inputSchema: {
       type: "object",
       properties: {
@@ -266,13 +273,14 @@ const TOOLS = [
     },
   },
   {
-    name: "finalize_report",
+    name: "create_report",
     description:
-      "上架報告 / finalize report / publish。" +
-      "用戶確認大綱後 chat 寫完整 markdown，呼叫這個上架。" +
-      "Server：(1) 自動把 findings 整成 ## 參考資料 section 附在末尾；" +
-      "(2) 寫 D1 + R2 雙存 + 歸到 topic；(3) TG 通知 admin；(4) 回傳公開連結。" +
-      "需要 create_report feature（VIP 專屬）。",
+      "建立 / 上架研究報告 / 發布報告 / 完成這份報告 / publish report / create report / finalize / submit / ship report。\n" +
+      "**Triggers**: 用戶看完大綱後同意，chat 寫完整 markdown 內文 → 上架；用戶說「上架」「發布」「完成」「存檔」「就這樣」。\n" +
+      "**Don't use 前提**: session 沒任何 finding → server reject；topic_id 給了但不存在又沒 topic_title → reject（要補 topic_title 才能 auto-create）；用戶還在改大綱還沒寫內文。\n" +
+      "**權限**: 要 create_report feature flag（VIP 預設有，member 要 admin per-user override 才有）。\n" +
+      "**Server 行為**: (1) ensureTopic（如果 topic_id 不存在且有 topic_title 則自動建主題）;(2) auto-append「## 參考資料」section 從所有 findings 列 source URL;(3) D1 metadata + R2 markdown 雙寫;(4) TG 通知 admin（如果有設）;(5) 回傳 {meta, url} 含公開連結。\n" +
+      "**Topic 歸屬**: 寫前先 list_topics 看現有主題 — 找得到合適的就用同 topic_id（sort_order 設下一個 chapter 編號 * 10）；找不到就建新主題（給 topic_id slug + topic_title + topic_summary，sort_order=0 表示這份是新主題的主報告）。",
     inputSchema: {
       type: "object",
       properties: {
@@ -311,8 +319,10 @@ const TOOLS = [
   {
     name: "list_topics",
     description:
-      "列出所有研究主題 / list topics / 看主題樹。" +
-      "回傳所有 report_topics + 每個主題的報告數。寫新報告前先呼叫，看有沒有可歸屬的既有主題。",
+      "列出所有研究主題 / 看主題樹 / 看分類有什麼 / 既有主題清單 / list topics / show topic tree / browse research areas。\n" +
+      "**Triggers**: create_report 前**強烈建議**先呼叫看現有主題能不能歸屬（避免主題碎片化）；用戶問「KB 上有什麼主題」「看一下分類」「列研究系列」。\n" +
+      "**Don't use**: 想看某主題下的報告 → list_reports?topic_id=X 或 GET /api/topics/{id}（worker 端 only，MCP 沒包）；想看主題下單份報告 → get_report。\n" +
+      "回傳所有主題 + 每主題的報告數。前端 sidebar tree 也是讀這個。",
     inputSchema: { type: "object", properties: {} },
   },
 ];
@@ -610,7 +620,7 @@ async function dispatch(
             "4. **每段證據都呼叫 add_finding**（source_url 必填，不能瞎掰）",
             "5. 蒐集到 8-15 個 findings 後 generate_outline，跟用戶討論大綱",
             "6. 用戶確認大綱後寫 markdown 內文（用 [^1] [^2] 引用 findings）",
-            "7. finalize_report 上架（需 create_report 權限，VIP 限定）",
+            "7. create_report 上架（需 create_report feature，VIP 預設有）",
             "",
             "找不到對應內容時誠實說「KB 沒這條紀錄」，不要編造。",
             "風格：簡潔直接，不重複問題，不寫拍馬屁開場，不主動延伸給未被要求的建議。",
@@ -663,7 +673,9 @@ async function dispatch(
         case "generate_outline":
           result = await handleGenerateOutline(env.KV, user, args as any);
           break;
-        case "finalize_report":
+        case "create_report":
+        case "finalize_report":  // legacy alias — keep accepting old name in case
+                                 // any cached profile/skill still uses it
           result = await handleFinalizeReport(env, user, args as any);
           break;
         case "list_topics":
