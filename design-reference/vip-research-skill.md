@@ -234,21 +234,51 @@ Insurance KB（保險業界知識庫 + 研究報告產出）
 
 ---
 
-## 三、第二份報告（同主題）
+## 三、第二份報告（同主題）— 跨 session 連續性（v3.1 2026-05-07）
 
-下個月你又想追蹤「新光的健康險策略」。同樣走完整流程，但 **`create_report` 帶同個 topic_id**：
+每個新 chat 是獨立 context — chat 不知道你上次做過什麼。但 server 端有完整紀錄。**v3.1 起，chat 會自動接續既有研究系列**，你不用記 topic_id 也不用記 sort_order。
 
-```
-{
-  topic_id: "topic_xinkong_2026q2",   ← 同 ID
-  topic_title 不用給（主題已存在）
-  sort_order: 10,                       ← 第 1 章
-  title: "新光人壽 2026Q3 健康險策略觀察",
-  ...
-}
-```
+### 自動接續的兩種觸發方式
 
-Sidebar 自動把這份排在 V1 主報告下面。半年後你可能累積 5-6 份新光相關，主題頁就成了「新光研究室」的小型 wiki。
+**方式 1：明說「繼續系列」**
+> 「繼續做亞洲健康險系列，下一個做香港」
+
+Chat 應立刻呼叫 `list_topic_progress(topic_seed="亞洲健康險")` → fuzzy 匹配到 topic_health_ecosystem_2026 → 回 2 份完成（日韓） + 推薦 sort_order=30 → chat 跟你確認「香港對嗎？」→ 開始該主題的香港 session
+
+**方式 2：直接報新主題（chat 自動偵測相似既有主題）**
+> 「幫我做香港健康險研究 2026」
+
+Chat 呼叫 `start_research_session(topic_seed=...)` → server 自動回 `existing_topic_match` 含「亞洲健康險生態圈研究」匹配 → chat 問你「歸到既有主題嗎？」→ 你 yes → 自動帶 topic_id + 計算好的 sort_order
+
+### 你只需要做的事
+- 自然語言開頭，不用記 slug：
+  > 「幫我做韓國健康險研究 2026」 ✅
+  > 「繼續做亞洲健康險，下一個是新加坡」 ✅
+- Chat 問你「要歸屬到既有主題嗎」→ 答 yes/no/不確定
+- 不要在 prompt 裡硬塞 topic_id（讓 chat 走自動匹配反而更穩）
+
+### 何時該手動明說 topic_id
+
+只有兩個 case：
+1. **chat 沒主動問**（model 沒讀好 instructions）→ 你補一句「歸到 topic_id=topic_health_ecosystem_2026」
+2. **fuzzy 匹配錯了**（你的新主題剛好跟既有名字像，但本意不同）→ 明說 `topic_id="新 slug"` 開新主題
+
+---
+
+## 三-bis、跨主題總結 session（5+1 模式的最後 1）
+
+5 個單市場做完，做跨市場總結時 prompt 範例：
+
+> 「做亞洲健康險生態圈跨市場總結 2026 — 主題 topic_health_ecosystem_2026 的主報告（sort_order=0）
+> 我已做完 5 國子報告，請：
+> 1. list_topic_progress(topic_id='topic_health_ecosystem_2026') 確認 5 份都在
+> 2. list_reports({topic_id: '...'}) 拿清單
+> 3. 各 get_report 讀全文
+> 4. 對每份 add_finding 標 type=report_quote, source_url=/reports/<id>
+> 5. 不再 search_articles / web_search（5 國已涵蓋）
+> 6. generate_outline → 跟我討論
+> 7. 寫跨市場 pattern 總結（~5000 字，偏分析）
+> 8. create_report(sort_order=0) 上架成主報告」
 
 ---
 

@@ -305,6 +305,110 @@ export async function getTopic(
 }
 
 /**
+ * Find existing topics whose title / id / summary matches the given seed.
+ *
+ * Used by start_research_session to suggest binding to an existing topic
+ * (so user doesn't have to remember topic_id slugs across chat sessions).
+ *
+ * Strategy: simple keyword overlap (CJK + English tokens). Each candidate
+ * topic gets a score = number of overlapping tokens. Returns top N with
+ * score > 0, ordered by score desc.
+ *
+ * For real-world topic counts (< 50) this is fine; if catalog grows past
+ * a few hundred topics we'd want to revisit (precompute index, etc).
+ */
+export async function findSimilarTopics(
+  db: D1Database,
+  seed: string,
+  limit = 3,
+): Promise<Array<{ topic: TopicMeta; score: number; matched_tokens: string[] }>> {
+  const tokens = tokenize(seed);
+  if (tokens.length === 0) return [];
+
+  const all = await listTopics(db);
+  const scored: Array<{ topic: TopicMeta; score: number; matched_tokens: string[] }> = [];
+  for (const t of all) {
+    const corpus = `${t.id} ${t.title} ${t.summary ?? ""}`.toLowerCase();
+    const matched: string[] = [];
+    for (const tok of tokens) {
+      if (corpus.includes(tok)) matched.push(tok);
+    }
+    if (matched.length > 0) {
+      scored.push({ topic: t, score: matched.length, matched_tokens: matched });
+    }
+  }
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, limit);
+}
+
+/** Tokenize for keyword overlap. Handles mixed CJK + Latin. */
+function tokenize(s: string): string[] {
+  const lower = s.toLowerCase();
+  const tokens = new Set<string>();
+  // English/digit tokens (>= 2 chars, common stop-words excluded)
+  const stop = new Set(["the", "a", "an", "and", "or", "of", "in", "for", "to", "on", "with", "by", "is", "as", "vs"]);
+  for (const m of lower.matchAll(/[a-z0-9]{2,}/g)) {
+    if (!stop.has(m[0])) tokens.add(m[0]);
+  }
+  // CJK: take 2-character substrings as proxies for word-level match
+  // (Chinese tokenization without dict — bigram works for keyword overlap)
+  const cjk = lower.replace(/[^一-鿿]/g, " ").split(/\s+/).filter(Boolean);
+  for (const seg of cjk) {
+    if (seg.length === 1) {
+      tokens.add(seg);
+    } else {
+      for (let i = 0; i + 2 <= seg.length; i++) {
+        tokens.add(seg.slice(i, i + 2));
+      }
+    }
+  }
+  return [...tokens];
+}
+
+/**
+ * Get a topic's progress: completed reports + suggested next sort_order.
+ *
+ * Used by `list_topic_progress` MCP tool — chat in a fresh session can
+ * quickly see what's already done and what to do next, without user
+ * having to remember details across sessions.
+ */
+export async function getTopicProgress(
+  db: D1Database,
+  topic_id: string,
+): Promise<{
+  topic: TopicMeta | null;
+  completed: Array<{ report_id: string; title: string; sort_order: number; created_at: number }>;
+  used_sort_orders: number[];
+  next_recommended_sort_order: number;
+  has_main_report: boolean;     // sort_order=0 done?
+} | null> {
+  const topic = await getTopic(db, topic_id);
+  if (!topic) return null;
+
+  const reports = await listReports(db, { topic_id, by_topic: true, limit: 200 });
+  const completed = reports.map((r) => ({
+    report_id: r.id,
+    title: r.title,
+    sort_order: r.sort_order,
+    created_at: r.created_at,
+  }));
+  const used = completed.map((r) => r.sort_order).sort((a, b) => a - b);
+
+  // Suggest next chapter slot: max non-zero + 10. Skip 0 (reserved for main).
+  const chapterSlots = used.filter((n) => n > 0);
+  const next = chapterSlots.length > 0 ? Math.max(...chapterSlots) + 10 : 10;
+  const hasMain = used.includes(0);
+
+  return {
+    topic,
+    completed,
+    used_sort_orders: used,
+    next_recommended_sort_order: next,
+    has_main_report: hasMain,
+  };
+}
+
+/**
  * Create a topic. Caller chooses the id (slug-like). Idempotent — INSERT OR
  * IGNORE so MCP create_report can safely "ensure" a topic without erroring
  * if it already exists.

@@ -24,9 +24,11 @@ import { hasFeatures } from "./auth-firebase";
 import { loadArticles, searchArticles, type Article } from "./search";
 import {
   ensureTopic,
+  findSimilarTopics,
   getReportContent,
   getReportMeta,
   getTopic,
+  getTopicProgress,
   listReports,
   listTopics as listTopicsStore,
 } from "./reports-store";
@@ -337,6 +339,29 @@ const TOOLS = [
       "回傳所有主題 + 每主題的報告數。前端 sidebar tree 也是讀這個。",
     inputSchema: { type: "object", properties: {} },
   },
+
+  {
+    name: "list_topic_progress",
+    description:
+      "查主題進度 / 主題下做了什麼 / 還缺什麼 / 下一份應該做哪個 / show topic progress / what's done / what's next / continue series。\n" +
+      "**Triggers (跨 session 連續性核心工具)**:\n" +
+      "1. 用戶在新 chat 提到延續性研究時（「繼續做 X 系列」「上次做到哪」「我還缺哪幾國」）→ 立刻呼叫\n" +
+      "2. start_research_session response 含 existing_topic_match 時 → chat 再呼叫這個拿完整進度\n" +
+      "3. create_report 前想確認 sort_order → 呼叫看 next_recommended_sort_order\n" +
+      "**Don't use**: 想看主題下報告全文 → get_report；想看所有主題清單（無上下文）→ list_topics。\n" +
+      "**3 種呼叫模式**:\n" +
+      "- exact: 給 topic_id → 回該主題完整進度（completed reports 清單 + used_sort_orders + next_recommended_sort_order + has_main_report）\n" +
+      "- fuzzy: 給 topic_seed (用戶口語主題詞) → 回 top 3 相似主題各自進度，chat 跟用戶確認\n" +
+      "- all: 都不給 → 回所有主題 + 進度（適合用戶說「列我所有研究」）\n" +
+      "**回傳**:next_recommended_sort_order = max(used > 0) + 10，沒既有 chapter 就 = 10。sort_order=0 是預留給跨主題總結。",
+    inputSchema: {
+      type: "object",
+      properties: {
+        topic_id: { type: "string", description: "確切的 topic id（從 list_topics 拿到，或從 start_research_session 的 existing_topic_match 拿到）" },
+        topic_seed: { type: "string", description: "用戶提的主題口語（fuzzy 找相似既有主題）" },
+      },
+    },
+  },
 ];
 
 // ─── Tool handlers ────────────────────────────────────────────────
@@ -557,11 +582,59 @@ async function handleWebSearch(env: Bindings, args: { query: string; limit?: num
 // ─── Phase 4 research session handlers ───────────────────────────
 
 async function handleStartSession(
-  kv: KVNamespace,
+  env: Bindings,
   user: FirebaseUser,
   args: { topic_seed: string },
 ) {
-  return await startResearchSession(kv, user.uid, user.email, args.topic_seed);
+  // Cross-session continuity: find existing topics matching this seed,
+  // and if best match exists, fetch its progress so chat can suggest binding.
+  const similar = await findSimilarTopics(env.REPORTS_DB, args.topic_seed, 3).catch(() => []);
+  const bestMatch = similar[0];
+  const progress = bestMatch
+    ? await getTopicProgress(env.REPORTS_DB, bestMatch.topic.id).catch(() => null)
+    : null;
+  return await startResearchSession(
+    env.KV,
+    user.uid,
+    user.email,
+    args.topic_seed,
+    similar,
+    progress,
+  );
+}
+
+async function handleListTopicProgress(
+  env: Bindings,
+  args: { topic_id?: string; topic_seed?: string },
+) {
+  // Two modes:
+  //   1. exact: caller passes topic_id → return that topic's progress
+  //   2. fuzzy: caller passes topic_seed (or nothing matches) → return top 3
+  //      similar topics, each with progress
+  if (args.topic_id) {
+    const progress = await getTopicProgress(env.REPORTS_DB, args.topic_id);
+    if (!progress) return { error: `topic ${args.topic_id} not found` };
+    return { mode: "exact", ...progress };
+  }
+  if (args.topic_seed) {
+    const matches = await findSimilarTopics(env.REPORTS_DB, args.topic_seed, 3);
+    const enriched = await Promise.all(
+      matches.map(async (m) => ({
+        ...m,
+        progress: await getTopicProgress(env.REPORTS_DB, m.topic.id).catch(() => null),
+      })),
+    );
+    return { mode: "fuzzy", seed: args.topic_seed, matches: enriched };
+  }
+  // Neither arg → return all topics with progress (overview)
+  const all = await listTopicsStore(env.REPORTS_DB);
+  const enriched = await Promise.all(
+    all.map(async (t) => ({
+      topic: t,
+      progress: await getTopicProgress(env.REPORTS_DB, t.id).catch(() => null),
+    })),
+  );
+  return { mode: "all", topics: enriched };
 }
 
 async function handleConfirmScope(
@@ -839,6 +912,22 @@ async function dispatch(
             "",
             "資料來源：保險業新聞 articles（每天 2 次自動爬蟲，覆蓋台/日/韓/港/東南亞）、月度蒸餾 Wiki、研究報告（admin 上架 + VIP 透過 MCP 產）。",
             "",
+            "## 跨 session 連續性（重要）",
+            "",
+            "你（chat）每個 session 開始時是**沒有記憶的**，不知道用戶上次做過什麼。",
+            "但 **server 端有完整紀錄** — 用戶可能正在做「跨多份報告的研究系列」(例：亞洲健康險 = 5 國 + 1 總結 = 6 份)。",
+            "",
+            "用戶提到延續性訊號時：「繼續 X 系列」「上次做到哪」「下一個市場」「我還缺哪幾個」「列我的研究」",
+            "→ **立刻呼叫 list_topic_progress(topic_seed=用戶口語)** 拿 fuzzy 匹配 + 進度",
+            "→ 顯示已完成清單 + 推薦下一個 sort_order，讓用戶選下一份做哪個",
+            "",
+            "用戶開始新研究時（「幫我做 X 研究」）：",
+            "→ 呼叫 start_research_session — server 自動回 existing_topic_match",
+            "→ 若有匹配 (score >= 2)，**先問用戶**「歸屬到既有主題嗎」，再開始 grill 5 步",
+            "→ 若沒匹配，照新主題流程",
+            "",
+            "**用戶最痛恨的是**：每次新 chat 都要重新解釋 topic_id / sort_order。你的職責是用 list_topic_progress / start_research_session existing_topic_match 自動接續，不要逼用戶記細節。",
+            "",
             "## 核心原則：先查 KB、不憑訓練資料編造",
             "",
             "被問保險業界內容（事實 / 數據 / 公司動態 / 競品）— 先選對工具查：",
@@ -846,7 +935,8 @@ async function dispatch(
             "- 「找跟 X 有關的」「IFRS17 影響」「Pulse 生態圈」具體關鍵字 → search_articles",
             "- 「某月大事」「2026-04 趨勢」 → get_wiki",
             "- 「以前研究過 X」「找之前報告」「KB 上有什麼」 → list_reports → get_report",
-            "- 「主題分類」「研究系列」 → list_topics",
+            "- 「主題分類」「研究系列」「列所有主題」 → list_topics",
+            "- 「某主題進度如何」「還缺哪幾份」「下一個做哪個」 → list_topic_progress",
             "- 「網路上怎麼說」「監管公告」「公司官網」（KB 沒爬的）→ web_search",
             "",
             "找不到 → 誠實說「KB 沒這條紀錄」。**「我訓練資料記得 X」絕對不算合法來源**。",
@@ -856,7 +946,11 @@ async function dispatch(
             "用戶說「幫我做 X 研究」「寫一份 X 報告」「分析 X」「我想研究 X」時：",
             "**不要直接 search 也不要直接寫**。一律走以下 8 步：",
             "",
-            "1. **start_research_session(topic_seed=X)** → server 回 5 步引導框架",
+            "1. **start_research_session(topic_seed=X)** → server 回 5 步引導框架 + **existing_topic_match**",
+            "   - response 含 existing_topic_match.best 時 → **先問用戶**「這份要歸屬到既有主題「X」嗎？」",
+            "   - 用戶 yes → 之後 create_report 帶 topic_id + sort_order=existing_topic_match.progress.next_recommended_sort_order",
+            "   - 用戶 no/different → 走新主題流程",
+            "   - 用戶不確定 → 用 list_topic_progress(topic_id=...) 給用戶看那主題下既有報告再決定",
             "2. **grill-me-first**：一步一步問用戶，**不要 5 步擠一次**",
             "   - 每步列選項 + 推薦預設 + 為什麼推薦",
             "   - 等用戶答完才下一步",
@@ -944,7 +1038,7 @@ async function dispatch(
           break;
         // Phase 4 research session
         case "start_research_session":
-          result = await handleStartSession(env.KV, user, args as any);
+          result = await handleStartSession(env, user, args as any);
           break;
         case "confirm_scope":
           result = await handleConfirmScope(env.KV, user, args as any);
@@ -965,6 +1059,9 @@ async function dispatch(
           break;
         case "list_topics":
           result = await handleListTopicsTool(env);
+          break;
+        case "list_topic_progress":
+          result = await handleListTopicProgress(env, args as any);
           break;
         default:
           throw new Error(`Unknown tool: ${params.name}`);

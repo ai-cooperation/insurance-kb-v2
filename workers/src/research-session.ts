@@ -87,6 +87,8 @@ export async function startResearchSession(
   uid: string,
   email: string,
   topic_seed: string,
+  similarTopics?: Array<{ topic: { id: string; title: string; summary: string | null }; score: number; matched_tokens: string[] }>,
+  topicProgress?: { used_sort_orders: number[]; next_recommended_sort_order: number; has_main_report: boolean } | null,
 ) {
   const session_id = generateSessionId();
   const now = Math.floor(Date.now() / 1000);
@@ -105,9 +107,30 @@ export async function startResearchSession(
   };
   await writeSession(kv, state);
 
+  // Topic continuity hint — if there are similar existing topics, surface
+  // the top match so chat can ask user "歸屬到既有主題 X 嗎？" before grilling.
+  // This is the cross-session memory layer: chat doesn't remember last week's
+  // research, but server does, and can suggest binding.
+  const continuity_hint = similarTopics && similarTopics.length > 0
+    ? {
+        existing_topic_match: {
+          best: similarTopics[0],
+          alternatives: similarTopics.slice(1),
+          progress: topicProgress,
+          chat_should_ask: similarTopics[0].score >= 2
+            ? `**Before grilling 5 steps**, 先問用戶："看起來這份報告跟既有主題「${similarTopics[0].topic.title}」(id=${similarTopics[0].topic.id}) 相關 (匹配關鍵字 ${similarTopics[0].matched_tokens.join("/")})。要歸屬到這個主題嗎？(yes/no/different)" 用戶說 yes 後，記得在最後 create_report 時帶 topic_id="${similarTopics[0].topic.id}"，sort_order=${topicProgress?.next_recommended_sort_order ?? 100}。`
+            : `Possible match (low confidence)：「${similarTopics[0].topic.title}」— 不確定就照新主題走，到 create_report 階段再問用戶要不要歸屬`,
+        },
+      }
+    : {
+        existing_topic_match: null,
+        chat_should_ask: "沒找到相似既有主題 — 走新主題流程，create_report 時用新 topic_id slug + topic_title 自動建立",
+      };
+
   return {
     session_id,
     topic_seed,
+    ...continuity_hint,
     next_step: "請一步步引導用戶決定以下 5 個範圍 (grill-mode 風格)：每步列選項+推薦+等用戶選後再下一步",
     framework: [
       {
