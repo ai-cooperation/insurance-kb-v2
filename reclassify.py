@@ -80,10 +80,16 @@ def reclassify(
         logger.info("Korean-only mode: %d KR-source articles still in Hangul",
                     len(to_reclassify))
     else:
-        # Only reclassify articles that need it (default category or no LLM classification)
+        # Only reclassify articles in the fallback bucket that have already been
+        # translated. The earlier rule (category=='市場趨勢' OR no title_en)
+        # mixed in 12k+ untranslated Chinese-source articles whose category was
+        # already correct, wasting LLM quota on translations we don't need for
+        # category-system changes. Untranslated articles get translated by the
+        # daily crawl pipeline (classify_llm_batch); reclassify is purely for
+        # category re-evaluation.
         to_reclassify = [
             (i, art) for i, art in enumerate(index)
-            if art.get("category") == "市場趨勢" or not art.get("title_en")
+            if art.get("category") == "市場趨勢" and art.get("title_en")
         ]
     if limit > 0:
         to_reclassify = to_reclassify[:limit]
@@ -142,6 +148,7 @@ def reclassify(
                 for j, merged_art in enumerate(merged):
                     idx = batch_indices[j]
                     old_cat = index[idx].get("category", "")
+                    old_filter = index[idx].get("filter", "")
                     new_cat = merged_art.get("category", old_cat)
                     new_imp = merged_art.get("importance", "中")
                     new_filter = merged_art.get("filter", "")
@@ -151,6 +158,16 @@ def reclassify(
                     index[idx]["importance"] = new_imp
                     if new_filter:
                         index[idx]["filter"] = new_filter
+                    # Filter recovery: when LLM moves an article to 行銷推廣
+                    # (a legit category) but it was previously filtered as
+                    # 'irrelevant' under the old prompt that didn't have this
+                    # category, un-filter it. Don't touch noise_sports
+                    # (real KBL leaks) or duplicate.
+                    elif (
+                        new_cat == "行銷推廣"
+                        and old_filter == "irrelevant"
+                    ):
+                        index[idx]["filter"] = ""
                     # Update title/summary if improved
                     if merged_art.get("title_zh"):
                         index[idx]["title"] = merged_art["title_zh"]
