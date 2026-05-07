@@ -246,7 +246,7 @@ export async function handleChat(
     const catMap: Record<string, string> = {
       "監管動態": "regulation", "科技應用": "technology", "市場趨勢": "market",
       "產品創新": "products", "再保市場": "reinsurance", "ESG永續": "esg",
-      "消費者保護": "consumer", "人才與組織": "talent",
+      "消費者保護": "consumer", "人才與組織": "talent", "行銷推廣": "marketing",
     };
     const artCat = catMap[a.category || ""] || "";
     const artReg = a.region || "";

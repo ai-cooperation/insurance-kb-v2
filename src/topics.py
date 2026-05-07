@@ -9,6 +9,7 @@ CATEGORY_MAP = {
     "ESG永續": "esg",
     "消費者保護": "consumer",
     "人才與組織": "talent",
+    "行銷推廣": "marketing",
 }
 
 REGION_MAP = {

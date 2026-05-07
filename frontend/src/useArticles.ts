@@ -28,6 +28,7 @@ const CATEGORY_MAP: Record<string, string> = {
   'ESG永續': 'esg',
   '消費者保護': 'consumer',
   '人才與組織': 'people',
+  '行銷推廣': 'marketing',
 };
 
 const IMPORTANCE_MAP: Record<string, 'high' | 'mid' | 'low'> = {

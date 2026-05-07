@@ -62,11 +62,20 @@ _CATEGORY_SIGNATURES = {
         r"附約|方案|嵌入式|微保險",
         re.IGNORECASE,
     ),
+    "行銷推廣": re.compile(
+        r"徵文|徵稿|徵件|比賽|選拔|攝影|短影片|"
+        r"贊助|冠名|代言|廣告|TVC|KOL|"
+        r"公益捐贈|捐贈儀式|愛心捐|公益活動|志工|志願|"
+        r"記者會|發表會|路演|成立紀念|"
+        r"sponsor|sponsorship|advertising|commercial|campaign|"
+        r"contest|sweepstake|donation.ceremony|공모|백일장|캠페인",
+        re.IGNORECASE,
+    ),
 }
 
 # Expected distribution ranges (min%, max%)
 _EXPECTED_RANGE = {
-    "市場趨勢": (20, 45),
+    "市場趨勢": (18, 40),
     "監管動態": (10, 25),
     "科技應用": (8, 25),
     "消費者保護": (3, 15),
@@ -74,6 +83,7 @@ _EXPECTED_RANGE = {
     "再保市場": (3, 12),
     "產品創新": (3, 12),
     "ESG永續": (2, 10),
+    "行銷推廣": (1, 8),
 }
 
 

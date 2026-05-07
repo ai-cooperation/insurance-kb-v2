@@ -19,6 +19,7 @@ CAT_MAP = {
     "esg": "esg",
     "consumer": "consumer",
     "talent": "people",
+    "marketing": "marketing",
 }
 
 CAT_ZH = {
@@ -30,6 +31,7 @@ CAT_ZH = {
     "esg": "ESG永續",
     "consumer": "消費者保護",
     "people": "人才與組織",
+    "marketing": "行銷推廣",
 }
 
 REGION_MAP = {
