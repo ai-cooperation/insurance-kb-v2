@@ -283,7 +283,7 @@ const TOOLS = [
       "**Triggers**: 用戶看完大綱後同意，chat 寫完整 markdown 內文 → 上架；用戶說「上架」「發布」「完成」「存檔」「就這樣」。\n" +
       "**Don't use 前提**: session 沒任何 finding → server reject；topic_id 給了但不存在又沒 topic_title → reject（要補 topic_title 才能 auto-create）；用戶還在改大綱還沒寫內文。\n" +
       "**權限**: 要 create_report feature flag（VIP 預設有，member 要 admin per-user override 才有）。\n" +
-      "**Quality gate (v3 2026-05-06)**: 寫入前 server 跑 5 種品質檢查 — footnote_orphan / placeholder_date / unused_finding / single_source_overreliance / uncited_quantitative_claim。任何 issue 會 throw `QUALITY_GATE: {...}`，**chat 必須解析 JSON、把 grill_choices 列給用戶、用戶選後執行對應 action（補 finding / 改 markdown / 接受 acknowledged）**。詳見 acknowledged 參數。\n" +
+      "**Quality gate (v3 2026-05-06, body_too_thin 加 2026-05-07)**: 寫入前 server 跑 6 種品質檢查 — body_too_thin (block) / footnote_orphan (block) / placeholder_date (warn) / unused_finding (warn) / single_source_overreliance (warn) / uncited_quantitative_claim (warn)。任何 issue 會 throw `QUALITY_GATE: {...}`，**chat 必須解析 JSON、把 grill_choices 列給用戶、用戶選後執行對應 action（補 finding / 改 markdown / 接受 acknowledged）**。詳見 acknowledged 參數。\n" +
       "**Server 行為**: (1) checkReportQuality (5 檢查);(2) ensureTopic（如果 topic_id 不存在且有 topic_title 則自動建主題）;(3) auto-append「## 參考資料」section 從所有 findings 列 source URL;(4) D1 metadata + R2 markdown 雙寫;(5) TG 通知 admin（如果有設）;(6) 回傳 {meta, url} 含公開連結。\n" +
       "**Topic 歸屬**: 寫前先 list_topics 看現有主題 — 找得到合適的就用同 topic_id（sort_order 設下一個 chapter 編號 * 10）；找不到就建新主題（給 topic_id slug + topic_title + topic_summary，sort_order=0 表示這份是新主題的主報告）。",
     inputSchema: {
@@ -323,7 +323,7 @@ const TOOLS = [
             "Quality gate override — 第一次 call 出 QUALITY_GATE error 時，server 回 issues 含 type 跟 grill_choices。" +
             "**chat 必須先把 grill_choices 列給用戶選**，用戶選擇接受某 warn 後，重 call create_report 帶 acknowledged: ['type1', 'type2', ...]。" +
             "可接受的 type：placeholder_date / unused_finding / single_source_overreliance / uncited_quantitative_claim。" +
-            "**block 級 issue 不可 acknowledge**（footnote_orphan 必須修內文）。",
+            "**block 級 issue 不可 acknowledge**（footnote_orphan / body_too_thin 必須修內文）。",
         },
       },
       required: ["session_id", "title", "markdown"],
@@ -691,8 +691,46 @@ function checkReportQuality(
     source_url: string;
     source_date?: string;
   }>,
+  depth?: string,    // session.scope_decisions.depth (e.g. "A 雙週報", "C 完整")
 ): QualityIssue[] {
   const issues: QualityIssue[] = [];
+
+  // ── body_too_thin (block) — anti reduce-to-pass ─────────────────
+  // Empirical thresholds (2026-05-07): GPT free reduce-to-pass attacks
+  //   - 5/6 GPT 健康險: 970 body (depth=C) → block
+  //   - 5/7 GPT 台灣  : 628 body (depth=C) → block
+  // Legitimate reports (always above threshold):
+  //   - paid 5/7 韓國: 3,845 body (depth=C, KB-light topic) → pass
+  //   - free 5/7 香港: 7,766 body (depth=C) → pass
+  //   - free 5/6 新光: 7,835 body (depth=C) → pass
+  // Body chars excludes auto-appended 參考資料 section.
+  const bodyText = markdown.split('## 參考資料')[0];
+  const bodyChars = bodyText
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/[#*_>`\[\]()]/g, '')
+    .length;
+  const depthLabel = (depth || '').slice(0, 1).toUpperCase();
+  const minBody =
+    depthLabel === 'A' ? 500 :   // 雙週報 ~5p
+    depthLabel === 'C' ? 2500 :  // 完整研究 30+p
+    1500;                         // B 月報 ~15p (default)
+
+  if (bodyChars < minBody) {
+    issues.push({
+      type: "body_too_thin",
+      severity: "block",
+      message:
+        `Body 只有 ${bodyChars} 字（不含 server auto-append 的「## 參考資料」section），` +
+        `但 depth=${depth || 'B (default)'} 預期至少 ${minBody} 字。` +
+        `這份等同 PowerPoint bullet 不是研究報告，無法上架。` +
+        `常見原因：chat 為了通過其他 quality 檢查 (placeholder_date / unused_finding) 把內文砍到極短 — reduce-to-pass。`,
+      evidence: [`body chars: ${bodyChars} < min ${minBody} for depth=${depthLabel}`],
+      grill_choices: [
+        `A. 重寫 body — 每個 section 從 bullet 擴成完整論述（每段事實/數字/競品名都要 [^N] 引用），目標 ${minBody}+ 字`,
+        `B. 改深度 — 如果用戶確實想要短版（例如雙週報），下次 session 開 depth=A 即可下調此 threshold 到 500`,
+      ],
+    });
+  }
 
   // Footnote orphans — block (real bug)
   const footnoteRefs = [...markdown.matchAll(/\[\^(\d+)\]/g)].map(m => parseInt(m[1]));
@@ -809,7 +847,11 @@ async function handleFinalizeReport(
   // Pre-check before any write. Returns structured issues for chat to grill
   // user with. severity:'warn' issues can be overridden by passing
   // `acknowledged: [type, ...]` on retry; severity:'block' cannot.
-  const issues = checkReportQuality(args.markdown, session.findings);
+  const issues = checkReportQuality(
+    args.markdown,
+    session.findings,
+    session.scope_decisions?.depth ?? undefined,
+  );
   const acknowledged: Set<string> = new Set(args.acknowledged || []);
   const blocking = issues.filter(i => i.severity === "block");
   const unackedWarns = issues.filter(i => i.severity === "warn" && !acknowledged.has(i.type));
@@ -980,7 +1022,8 @@ async function dispatch(
             "   - 接受問題 (用戶決定 OK) → 重 call 帶 `acknowledged: ['type1', ...]`",
             "4. **block 級不可 acknowledge**（footnote_orphan 是 bug，必須修）",
             "",
-            "5 種 issue 類型：",
+            "6 種 issue 類型：",
+            "- **`body_too_thin` (block)** — body 字數 < depth 對應 threshold (A 500 / B 1500 / C 2500)。**反 reduce-to-pass：禁止為了過 gate 而把內文寫超薄**。修法：擴寫每個 section 成完整論述帶 [^N] 引用。",
             "- `footnote_orphan` (block) — 內文 [^N] 找不到對應 finding",
             "- `placeholder_date` (warn) — source_date 是 YYYY-01-01 / YYYY-12-31 像 placeholder",
             "- `unused_finding` (warn) — finding 加了但內文沒引用",
