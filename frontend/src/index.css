@@ -68,7 +68,11 @@ body {
    */
   aside, aside.flex, aside[class],
   header, header.flex, header[class] { display: none !important; }
-  .print\:hidden { display: none !important; }
+  /* `.print\:hidden` alone has specificity 0,1,0 — loses to
+   * `div.flex` (0,1,1) on toolbar elements that have BOTH classes.
+   * Bump specificity to (0,2,0) via [class] attribute selector chain. */
+  .print\:hidden, .print\:hidden[class], .flex.print\:hidden,
+  [class*="print:hidden"] { display: none !important; }
   /* Hide mobile drawer overlay if accidentally open at print time */
   [class*="fixed"][class*="z-40"] { display: none !important; }
 
