@@ -56,9 +56,21 @@ body {
  * preserve report typography. Tested target: Chrome / Safari / Firefox print preview.
  */
 @media print {
-  /* Hide app chrome */
-  aside, header { display: none !important; }
-  .print\\:hidden { display: none !important; }
+  /* Hide app chrome — high specificity to beat .flex { display: block }
+   * below. App Sidebar.tsx uses <aside class="... flex flex-col ...">
+   * which means plain `aside { display: none }` (specificity 0,0,1) loses
+   * to `.flex { display: block }` (specificity 0,1,0). Use compound
+   * selector `aside.flex` (0,1,1) to win.
+   *
+   * Also: print:hidden Tailwind class in CSS needs single-backslash escape
+   * (.print\:hidden), not double — double becomes literal \: which matches
+   * nothing.
+   */
+  aside, aside.flex, aside[class],
+  header, header.flex, header[class] { display: none !important; }
+  .print\:hidden { display: none !important; }
+  /* Hide mobile drawer overlay if accidentally open at print time */
+  [class*="fixed"][class*="z-40"] { display: none !important; }
 
   /* Force every clipping ancestor to release height/overflow so the printer
    * paginates the FULL document instead of just the first viewport.
@@ -71,13 +83,14 @@ body {
     max-height: none !important;
     overflow: visible !important;
   }
-  /* Break out of flex layouts so children stack and expand naturally. */
-  .flex { display: block !important; }
+  /* Break out of flex layouts so children stack and expand naturally.
+   * Excludes aside/header (already hidden above). */
+  div.flex, main.flex, section.flex { display: block !important; }
 
   /* Expand main */
   body, html { background: white !important; color: black !important; }
   main { display: block !important; }
-  .max-w-4xl, .max-w-5xl, .max-w-md { max-width: none !important; }
+  .max-w-4xl, .max-w-5xl, .max-w-md, .max-w-3xl { max-width: none !important; }
 
   /* Typography niceties */
   article { font-size: 11pt; line-height: 1.55; }

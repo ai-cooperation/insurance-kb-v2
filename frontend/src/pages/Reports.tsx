@@ -113,6 +113,17 @@ const ReportDetailView: React.FC<DetailProps> = ({ apiFetch, reportId, onOpenTre
   const { detail, loading, error } = useReportDetail(apiFetch, reportId);
   const canDownload = hasFeature('download_reports');
 
+  // Set document.title to the report title so browser print-to-PDF uses
+  // the report name as the suggested filename (instead of "保險產業智能知識庫.pdf").
+  // Reset to default site title when leaving the detail view.
+  React.useEffect(() => {
+    const original = document.title;
+    if (detail?.meta?.title) {
+      document.title = detail.meta.title;
+    }
+    return () => { document.title = original; };
+  }, [detail?.meta?.title]);
+
   // Click-handler for [^N] footnote anchors — react-markdown renders them as
   // <a href="#user-content-fn-N">. Default browser behavior is fine, no extra work.
 
