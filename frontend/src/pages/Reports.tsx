@@ -285,11 +285,13 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({ apiFetch, hasFeature }
     return map;
   }, [reports]);
 
-  // Initial selection: expand first topic + show its summary
+  // Initial selection: show most-recent topic's summary in main pane,
+  // but **leave all topics collapsed** in sidebar (user opens what they want).
+  // Avoids dump of N topics × ~5 reports each on every page load.
   useEffect(() => {
     if (topics.length > 0 && !selectedTopicId && !selectedId) {
       setSelectedTopicId(topics[0].id);
-      setExpanded(new Set(topics.map(t => t.id)));
+      // expanded stays as empty Set — user clicks topic to expand
     }
   }, [topics, selectedTopicId, selectedId]);
 

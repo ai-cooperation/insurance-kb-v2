@@ -271,16 +271,27 @@ interface TopicRow {
 export async function listTopics(
   db: D1Database,
 ): Promise<TopicMeta[]> {
+  // Order by most-recent activity (latest published report's created_at)
+  // DESC, falling back to topic's own created_at when topic has no reports.
+  // This makes "active research" float to top of sidebar — user requirement
+  // 2026-05-07: 「主議題排序用上架日期，新的在最上面」.
+  // sort_order field on report_topics is now ignored for top-level ordering;
+  // it still controls report ordering WITHIN a topic.
   const result = await db
     .prepare(
-      `SELECT t.*, (
-         SELECT count(*) FROM reports r
-          WHERE r.topic_id = t.id AND r.status != 'archived'
-       ) AS report_count
-       FROM report_topics t
-       ORDER BY t.sort_order, t.created_at`,
+      `SELECT t.*,
+              (SELECT count(*)
+                 FROM reports r
+                WHERE r.topic_id = t.id AND r.status != 'archived'
+              ) AS report_count,
+              (SELECT MAX(r.created_at)
+                 FROM reports r
+                WHERE r.topic_id = t.id AND r.status != 'archived'
+              ) AS last_report_at
+         FROM report_topics t
+        ORDER BY COALESCE(last_report_at, t.created_at) DESC`,
     )
-    .all<TopicRow & { report_count: number }>();
+    .all<TopicRow & { report_count: number; last_report_at: number | null }>();
   return (result.results ?? []).map((r) => ({
     id: r.id,
     title: r.title,
