@@ -102,6 +102,12 @@ def reclassify(
     current_model = models[model_idx]
     stats = Counter()
 
+    # Incremental save every N batches — protects against workflow timeout.
+    # Without this, a 4+ hour reclassify (9k+ articles) loses everything if
+    # the 120-min GitHub Actions timeout hits before the final save.
+    SAVE_EVERY_BATCHES = 50
+    batches_since_save = 0
+
     for start in range(0, len(to_reclassify), batch_size):
         batch_items = to_reclassify[start:start + batch_size]
         batch_articles = [art for _, art in batch_items]
@@ -180,6 +186,19 @@ def reclassify(
 
         if not success:
             stats["failed"] += len(batch_items)
+
+        # Incremental save checkpoint
+        batches_since_save += 1
+        if not dry_run and batches_since_save >= SAVE_EVERY_BATCHES:
+            INDEX_PATH.write_text(
+                json.dumps(index, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            logger.info(
+                "[checkpoint] Saved after %d batches (%d articles processed)",
+                batches_since_save, start + len(batch_items),
+            )
+            batches_since_save = 0
 
         if start + batch_size < len(to_reclassify):
             time.sleep(delay)
