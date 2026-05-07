@@ -57,6 +57,52 @@ function sessionKey(uid: string, sessionId: string): string {
   return `research_session:${uid}:${sessionId}`;
 }
 
+/**
+ * Detect region scope from topic_seed text. Returns the framework option id
+ * that should pre-fill step 2, or null if ambiguous (chat should still ask).
+ *
+ * Mapping:
+ *   - Single-country mention (台灣/日本/韓國/香港/新加坡/泰國/越南/印尼/馬來西亞 etc)
+ *     → "A" (single market depth — note: framework label says 台灣 but
+ *       semantically chat understands as the named single country)
+ *   - 亞洲 / 跨亞洲 / 多國 → "B"
+ *   - 全球 / global / international / 歐美 → "C"
+ *   - none → null (ask)
+ */
+function detectRegionFromSeed(seed: string): { value: "A" | "B" | "C"; matched: string; note: string } | null {
+  const s = seed.toLowerCase();
+  const single = [
+    { kw: ["台灣", "taiwan"], region: "TW" },
+    { kw: ["日本", "japan"], region: "JP" },
+    { kw: ["韓國", "korea"], region: "KR" },
+    { kw: ["香港", "hong kong", "hk"], region: "HK" },
+    { kw: ["新加坡", "singapore", "sg"], region: "SG" },
+    { kw: ["泰國", "thailand", "th"], region: "TH" },
+    { kw: ["越南", "vietnam"], region: "VN" },
+    { kw: ["馬來西亞", "malaysia"], region: "MY" },
+    { kw: ["印尼", "indonesia"], region: "ID" },
+    { kw: ["菲律賓", "philippines"], region: "PH" },
+  ];
+  for (const m of single) {
+    for (const k of m.kw) {
+      if (s.includes(k)) {
+        return {
+          value: "A",
+          matched: m.region,
+          note: `偵測到單一市場「${k}」— step 2 地區範圍已自動填 A (單一市場聚焦 ${m.region})，不用問用戶`,
+        };
+      }
+    }
+  }
+  if (/亞洲|asia|跨市場|跨國|多國|多市場/.test(s)) {
+    return { value: "B", matched: "ASIA", note: "偵測到跨亞洲多市場 — step 2 自動填 B" };
+  }
+  if (/全球|global|international|歐美|歐洲/.test(s)) {
+    return { value: "C", matched: "GLOBAL", note: "偵測到全球範圍 — step 2 自動填 C" };
+  }
+  return null;
+}
+
 function generateSessionId(): string {
   return "rs_" + crypto.randomUUID().replace(/-/g, "").slice(0, 16);
 }
@@ -131,7 +177,10 @@ export async function startResearchSession(
     session_id,
     topic_seed,
     ...continuity_hint,
-    next_step: "請一步步引導用戶決定以下 5 個範圍 (grill-mode 風格)：每步列選項+推薦+等用戶選後再下一步",
+    next_step:
+      "請一步步引導用戶決定以下 5 個範圍 (grill-mode 風格)：每步列選項+推薦+等用戶選後再下一步。" +
+      "**例外：framework 中 step 含 `pre_filled: true` 的，server 已從 topic_seed 推斷 — 不要再問用戶**，" +
+      "直接告訴用戶「step N 已自動偵測為 X (理由)」，跳到下一步。confirm_scope 時用 auto_value。",
     framework: [
       {
         step: 1,
@@ -147,18 +196,31 @@ export async function startResearchSession(
         recommended: "A+C",
         rationale: "商品設計團隊最常需要的是商品+競品的組合分析",
       },
-      {
-        step: 2,
-        title: "地區範圍",
-        question: "要看哪些市場？",
-        options: [
-          { id: "A", label: "台灣（深度）" },
-          { id: "B", label: "亞洲（台灣 + 日韓港 + 東南亞）" },
-          { id: "C", label: "全球（含歐美）" },
-        ],
-        recommended: "B",
-        rationale: "亞洲市場資料最完整，且文化 / 法規與台灣相近，可借鏡度高",
-      },
+      ...(() => {
+        const auto = detectRegionFromSeed(topic_seed);
+        const baseStep = {
+          step: 2,
+          title: "地區範圍",
+          question: "要看哪些市場？",
+          options: [
+            { id: "A", label: "單一市場（深度聚焦）" },
+            { id: "B", label: "亞洲（台灣 + 日韓港 + 東南亞）" },
+            { id: "C", label: "全球（含歐美）" },
+          ],
+          recommended: "B" as const,
+          rationale: "亞洲市場資料最完整，且文化 / 法規與台灣相近，可借鏡度高",
+        };
+        if (auto) {
+          return [{
+            ...baseStep,
+            pre_filled: true,
+            auto_value: auto.value,
+            auto_matched_region: auto.matched,
+            chat_should: auto.note,
+          }];
+        }
+        return [baseStep];
+      })(),
       {
         step: 3,
         title: "時間範圍",
