@@ -38,23 +38,39 @@ _GNEWS_EXISTING = [
          _gnews('"Great Eastern" OR "AIA Singapore" OR "Prudential Singapore"'),
          region="新加坡"),
     _src("gnews_sg_companies_2", "新加坡保險公司 2",
-         _gnews('"HSBC Life Singapore" OR "Tokio Marine Singapore"'),
+         _gnews('"HSBC Life Singapore" OR "Tokio Marine Singapore" '
+                'OR "Manulife Singapore" OR "FWD Singapore"'),
+         region="新加坡"),
+    _src("gnews_sg_companies_3", "新加坡保險公司 3",
+         _gnews('"Singlife" OR "NTUC Income" OR "China Life Singapore"'),
          region="新加坡"),
     _src("gnews_sg_regulator", "新加坡監管",
          _gnews("MAS Singapore insurance regulation"), region="新加坡"),
     _src("gnews_hk_companies_1", "香港保險公司 1",
-         _gnews('"AIA Hong Kong" OR "Manulife Hong Kong"'), region="香港"),
+         _gnews('"AIA Hong Kong" OR "Manulife Hong Kong" OR "Prudential Hong Kong"'),
+         region="香港"),
     _src("gnews_hk_companies_2", "香港保險公司 2",
-         _gnews('"HSBC Insurance" Hong Kong OR "FWD Hong Kong"'), region="香港"),
+         _gnews('"HSBC Insurance" Hong Kong OR "FWD Hong Kong" '
+                'OR "Sun Life Hong Kong" OR "AXA Hong Kong"'),
+         region="香港"),
+    _src("gnews_hk_companies_3", "香港保險公司 3",
+         _gnews('"China Taiping" Hong Kong OR "BOC Life" '
+                'OR "中銀人壽" OR "中國人壽香港"', lang="zh-Hant", country="HK"),
+         region="香港"),
     _src("gnews_hk_regulator", "香港監管",
          _gnews("Hong Kong Insurance Authority regulation"), region="香港"),
     _src("gnews_hk_zh", "香港保險（中文）",
          _gnews("香港 保險 監管", lang="zh-Hant", country="HK"), region="香港"),
     _src("gnews_cn_companies_1", "中國保險公司 1",
-         _gnews("中国平安 OR 中国人寿", lang="zh-Hans", country="CN"),
+         _gnews("中国平安 OR 中国人寿 OR 新华保险", lang="zh-Hans", country="CN"),
          region="中國"),
     _src("gnews_cn_companies_2", "中國保險公司 2",
-         _gnews("中国人保 OR 太平洋保险", lang="zh-Hans", country="CN"),
+         _gnews("中国人保 OR 太平洋保险 OR 太平人寿 OR 友邦中国",
+                lang="zh-Hans", country="CN"),
+         region="中國"),
+    _src("gnews_cn_companies_3", "中國保險公司 3",
+         _gnews("泰康人寿 OR 阳光保险 OR 富德生命人寿 OR 工银安盛",
+                lang="zh-Hans", country="CN"),
          region="中國"),
     _src("gnews_cn_industry", "中國保險監管",
          _gnews("中国 保险 监管", lang="zh-Hans", country="CN"), region="中國"),
@@ -62,10 +78,16 @@ _GNEWS_EXISTING = [
          _gnews("日本生命 OR 第一生命 OR 明治安田生命", lang="ja", country="JP"),
          region="日本"),
     _src("gnews_jp_companies_2", "日本保險公司 2",
-         _gnews("朝日生命 OR 住友生命 OR 大同生命", lang="ja", country="JP"),
+         _gnews("朝日生命 OR 住友生命 OR 大同生命 OR 太陽生命 OR T&D",
+                lang="ja", country="JP"),
+         region="日本"),
+    _src("gnews_jp_companies_3", "日本保險公司 3 (外資)",
+         _gnews("アフラック OR メットライフ生命 OR マニュライフ生命 OR アクサ生命",
+                lang="ja", country="JP"),
          region="日本"),
     _src("gnews_jp_en", "日本保險（英文）",
-         _gnews('"Nippon Life" OR "Tokio Marine" OR "Sompo"'), region="日本"),
+         _gnews('"Nippon Life" OR "Tokio Marine" OR "Sompo" '
+                'OR "Aflac Japan" OR "MS&AD"'), region="日本"),
     _src("gnews_jp_industry", "日本保險產業",
          _gnews("保険 生命保険 損害保険", lang="ja", country="JP"),
          region="日本"),
@@ -75,10 +97,16 @@ _GNEWS_EXISTING = [
          _gnews("삼성생명 OR 한화생명 OR 교보생명", lang="ko", country="KR"),
          region="韓國"),
     _src("gnews_kr_companies_2", "韓國保險公司 2",
-         _gnews("SK라이프 OR 동양생명", lang="ko", country="KR"),
+         _gnews("신한라이프 OR 동양생명 OR NH농협생명 OR KB라이프 OR 흥국생명",
+                lang="ko", country="KR"),
+         region="韓國"),
+    _src("gnews_kr_companies_3", "韓國保險公司 3 (中型/外資)",
+         _gnews("미래에셋생명 OR 메트라이프 OR ABL생명 OR DB생명",
+                lang="ko", country="KR"),
          region="韓國"),
     _src("gnews_kr_en", "韓國保險（英文）",
-         _gnews('"Samsung Life" OR "Hanwha Life" OR "Kyobo"'), region="韓國"),
+         _gnews('"Samsung Life" OR "Hanwha Life" OR "Kyobo" '
+                'OR "Shinhan Life" OR "NH NongHyup"'), region="韓國"),
     _src("gnews_kr_industry", "韓國保險產業",
          _gnews("보험 생명보험 손해보험", lang="ko", country="KR"),
          region="韓國"),
@@ -119,15 +147,26 @@ _GNEWS_EXISTING = [
 # noise_sports/noise_unrelated downstream. Review effectiveness after 1 week.
 # ---------------------------------------------------------------------------
 _GNEWS_ASIA_LIFE = [
-    _src("gnews_tw_lifers", "台灣壽險公司",
+    _src("gnews_tw_lifers", "台灣壽險公司 1",
          _gnews('"國泰人壽" OR "富邦人壽" OR "南山人壽" OR "新光人壽" '
                 'OR "中國信託人壽" OR "台灣人壽" OR "三商美邦人壽" '
                 'OR "全球人壽" OR "遠雄人壽"',
                 lang="zh-TW", country="TW"),
          region="台灣", type_="保險公司"),
-    _src("gnews_in_lifers", "印度壽險公司",
-         _gnews('"HDFC Life" OR "ICICI Prudential" OR "SBI Life" '
-                'OR "Max Life" OR "Bajaj Allianz Life" OR "Tata AIA Life"',
+    _src("gnews_tw_lifers_2", "台灣壽險公司 2 (外資/中型)",
+         _gnews('"保誠人壽" OR "安聯人壽" OR "法國巴黎人壽" '
+                'OR "元大人壽" OR "宏泰人壽"',
+                lang="zh-TW", country="TW"),
+         region="台灣", type_="保險公司"),
+    _src("gnews_in_lifers", "印度壽險公司 1",
+         _gnews('"LIC" OR "Life Insurance Corporation of India" '
+                'OR "HDFC Life" OR "ICICI Prudential" OR "SBI Life"',
+                lang="en", country="IN"),
+         region="印度", type_="保險公司"),
+    _src("gnews_in_lifers_2", "印度壽險公司 2",
+         _gnews('"Max Life" OR "Bajaj Allianz Life" OR "Tata AIA Life" '
+                'OR "Aditya Birla Sun Life" OR "Reliance Nippon Life" '
+                'OR "PNB MetLife" OR "Kotak Life"',
                 lang="en", country="IN"),
          region="印度", type_="保險公司"),
     _src("gnews_in_industry", "印度保險產業",
@@ -142,34 +181,46 @@ _GNEWS_ASIA_LIFE = [
     #   Also switched MY to lang=en since Malaysian English insurance press is
     #   denser than Malay-language insurance coverage.
     _src("gnews_id_lifers", "印尼壽險公司",
-         _gnews('"Allianz Life Indonesia" OR "Prudential Indonesia" '
-                'OR "AXA Mandiri" OR "Manulife Indonesia"',
+         _gnews('"AIA Indonesia" OR "AIA Financial" '
+                'OR "Allianz Life Indonesia" OR "Prudential Indonesia" '
+                'OR "AXA Mandiri" OR "Manulife Indonesia" '
+                'OR "FWD Indonesia" OR "Sun Life Indonesia" OR "Sequis"',
                 days=30, lang="id", country="ID"),
          region="印尼", type_="保險公司"),
     _src("gnews_th_lifers", "泰國壽險公司",
          _gnews('"AIA Thailand" OR "Muang Thai Life" OR "Thai Life Insurance" '
-                'OR "Allianz Ayudhya"',
+                'OR "Allianz Ayudhya" OR "Prudential Thai" OR "FWD Thai" '
+                'OR "Krungthai-AXA" OR "Bangkok Life"',
                 days=30, lang="th", country="TH"),
          region="泰國", type_="保險公司"),
     _src("gnews_th_lifers_en", "泰國壽險（英文）",
          _gnews('"AIA Thailand" OR "Muang Thai Life" OR "Thai Life Insurance" '
-                'OR "Allianz Ayudhya" life insurance',
+                'OR "Allianz Ayudhya" OR "Prudential Thailand" OR "FWD Thailand" '
+                'life insurance',
                 days=30, lang="en", country="SG"),
          region="泰國", type_="保險公司"),
     _src("gnews_vn_lifers", "越南壽險公司",
          _gnews('"Bao Viet Life" OR "Bảo Việt Nhân thọ" OR "Manulife Vietnam" '
-                'OR "AIA Vietnam" OR "Prudential Vietnam" OR "Dai-ichi Life Vietnam"',
+                'OR "AIA Vietnam" OR "Prudential Vietnam" OR "Dai-ichi Life Vietnam" '
+                'OR "FWD Vietnam" OR "Sun Life Vietnam" OR "Hanwha Life Vietnam"',
                 days=30, lang="vi", country="VN"),
          region="越南", type_="保險公司"),
     _src("gnews_ph_lifers", "菲律賓壽險公司",
-         _gnews('"Sun Life Philippines" OR "Pru Life UK" '
-                'OR "Manulife Philippines" OR "AXA Philippines"',
+         _gnews('"AIA Philippines" OR "Sun Life Philippines" OR "Pru Life UK" '
+                'OR "Manulife Philippines" OR "AXA Philippines" '
+                'OR "Insular Life" OR "FWD Philippines" OR "BPI-AIA"',
                 days=30, lang="en", country="PH"),
          region="菲律賓", type_="保險公司"),
-    _src("gnews_my_lifers", "馬來西亞壽險公司",
+    _src("gnews_my_lifers", "馬來西亞壽險公司 1",
          _gnews('"AIA Malaysia" OR "Prudential Malaysia" '
                 'OR "Etiqa Life" OR "Etiqa Insurance" '
                 'OR "Allianz Life Malaysia" OR "Great Eastern Malaysia"',
+                days=30, lang="en", country="MY"),
+         region="馬來西亞", type_="保險公司"),
+    _src("gnews_my_lifers_2", "馬來西亞壽險公司 2",
+         _gnews('"Manulife Malaysia" OR "Sun Life Malaysia" '
+                'OR "Hong Leong Assurance" OR "Zurich Malaysia" '
+                'OR "Tokio Marine Malaysia"',
                 days=30, lang="en", country="MY"),
          region="馬來西亞", type_="保險公司"),
 ]
