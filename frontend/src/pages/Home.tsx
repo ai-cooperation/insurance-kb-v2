@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Icon } from '../components/Icon';
 import { Badge } from '../components/Badge';
 import { Btn } from '../components/Button';
 import { StatCard } from '../components/StatCard';
 import { CATEGORIES, IMPORTANCE } from '../data';
 import type { Article, Route, Tier } from '../types';
+
+/**
+ * Aggregates over the recent + archive union, computed at build time
+ * (`build_frontend_data.py:write_stats`). The Home stat cards must use
+ * this — `articles.length` only counts the recent (30d) partition and
+ * undercounts the visible payload by ~50% after the 2026-06-03 split.
+ */
+interface KBStats {
+  readonly total_visible: number;
+  readonly newest_date: string;
+  readonly latest_date_count: number;
+  readonly by_region: Record<string, number>;
+  readonly by_category: Record<string, number>;
+  readonly by_importance: Record<string, number>;
+  readonly by_date: Record<string, number>;
+}
+
+function useKBStats(): KBStats | null {
+  const [stats, setStats] = useState<KBStats | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    fetch('/data/stats.json')
+      .then(r => r.ok ? r.json() : Promise.reject(r.statusText))
+      .then((s: KBStats) => { if (!cancelled) setStats(s); })
+      .catch(() => { /* leave null; caller falls back to articles.length */ });
+    return () => { cancelled = true; };
+  }, []);
+  return stats;
+}
 
 interface MiniCardProps {
   readonly a: Article;
@@ -54,9 +83,19 @@ interface HomePageProps {
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ articles, loading, setRoute: _setRoute, setTier: _setTier, onLogin, openArticle }) => {
-  const latestDate = articles.length > 0 ? articles[0].date : '';
+  const stats = useKBStats();
+  const latestDate = stats?.newest_date || (articles.length > 0 ? articles[0].date : '');
   const latestArticles = articles.filter(a => a.date === latestDate);
   const todayArticles = latestArticles.slice(0, 12);
+
+  // Display values: prefer stats.json aggregates (counts the full visible
+  // payload). Falls back to articles.length while stats.json is loading or
+  // if the fetch fails — better to undercount than to show '…' forever.
+  const totalDisplay = stats
+    ? stats.total_visible.toLocaleString()
+    : (loading ? '…' : articles.length.toLocaleString());
+  const latestDayCount = stats?.latest_date_count ?? latestArticles.length;
+  const regionCount = stats ? Object.keys(stats.by_region).length : 15;
 
   return (
     <div className="flex-1 overflow-auto">
@@ -73,7 +112,7 @@ export const HomePage: React.FC<HomePageProps> = ({ articles, loading, setRoute:
             知識庫
           </h1>
           <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-slate-600 dark:text-slate-300 text-pretty">
-            全球 55 個保險新聞來源，AI 自動分類、摘要、每月蒸餾成知識 Wiki。
+            全球 76 個保險新聞來源，AI 自動分類、摘要、每月蒸餾成知識 Wiki。
             一個入口，掌握監管、市場、科技與再保動態。
           </p>
 
@@ -90,9 +129,9 @@ export const HomePage: React.FC<HomePageProps> = ({ articles, loading, setRoute:
         {/* Stat bar */}
         <div className="max-w-6xl mx-auto px-6 md:px-10 pb-12">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <StatCard label="累計文章" value={loading ? '…' : articles.length.toLocaleString()} delta="" icon="cards" />
-            <StatCard label="今日新增" value={loading ? '…' : String(latestArticles.length)} delta="" icon="sparkle" />
-            <StatCard label="資料來源" value="55" delta="覆蓋 10 個地區" icon="globe" />
+            <StatCard label="累計文章" value={totalDisplay} delta="" icon="cards" />
+            <StatCard label="今日新增" value={loading ? '…' : String(latestDayCount)} delta="" icon="sparkle" />
+            <StatCard label="資料來源" value="76" delta={`覆蓋 ${regionCount} 個地區`} icon="globe" />
           </div>
         </div>
       </section>

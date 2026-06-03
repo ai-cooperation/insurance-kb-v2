@@ -40,7 +40,8 @@ INDEX_PATH = ROOT / "index" / "master-index.json"
 DATA_DIR = ROOT / "frontend" / "public" / "data"
 RECENT_PATH = DATA_DIR / "articles-recent.json"
 ARCHIVE_PATH = DATA_DIR / "articles-archive.json"
-LEGACY_PATH = DATA_DIR / "articles.json"  # backward-compat for worker chat
+LEGACY_PATH = DATA_DIR / "articles.json"   # backward-compat for worker chat
+STATS_PATH = DATA_DIR / "stats.json"       # aggregates over recent + archive union
 
 # Articles within this many days of the newest article ship in -recent;
 # older articles go to -archive. Set tight (30d) because the KB only
@@ -135,6 +136,49 @@ def write_json(path: Path, entries: list[dict]) -> float:
     return path.stat().st_size / 1024 / 1024
 
 
+def write_stats(path: Path, entries: list[dict]) -> None:
+    """Pre-computed aggregates over ALL visible entries (recent + archive
+    union), so the frontend Home stat cards stay accurate after the
+    retention partition without needing to load both files.
+
+    Output is tiny (~5 KB) — by_date can be ~365 entries, by_region/category
+    ≤20 each. Frontend fetches once at first paint; no further reload needed.
+    """
+    from collections import Counter
+
+    by_region: Counter = Counter()
+    by_category: Counter = Counter()
+    by_date: Counter = Counter()
+    by_importance: Counter = Counter()
+    for a in entries:
+        if a.get("region"):
+            by_region[a["region"]] += 1
+        if a.get("category"):
+            by_category[a["category"]] += 1
+        if a.get("date"):
+            by_date[a["date"]] += 1
+        if a.get("importance"):
+            by_importance[a["importance"]] += 1
+
+    newest = max((a.get("date", "") for a in entries), default="")
+    latest_count = by_date.get(newest, 0) if newest else 0
+
+    stats = {
+        "total_visible": len(entries),
+        "newest_date": newest,
+        "latest_date_count": latest_count,
+        "by_region": dict(by_region.most_common()),
+        "by_category": dict(by_category.most_common()),
+        "by_importance": dict(by_importance.most_common()),
+        "by_date": dict(sorted(by_date.items(), reverse=True)),
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(stats, ensure_ascii=False, separators=(",", ":")),
+        encoding="utf-8",
+    )
+
+
 def build() -> None:
     idx = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
     slim, skipped = build_slim_entries(idx)
@@ -161,12 +205,19 @@ def build() -> None:
     # the legacy file can be deleted in a follow-up PR.
     legacy_size = write_json(LEGACY_PATH, recent)
 
+    # Aggregates over the recent + archive union so the Home page
+    # "累計文章" stat card reflects the full visible payload — the
+    # retention partition would otherwise undercount by ~50%.
+    write_stats(STATS_PATH, deduped)
+    stats_size = STATS_PATH.stat().st_size / 1024
+
     print(
         f"articles-recent.json:  {recent_size:>5.1f} MiB, {len(recent):>5} entries "
         f"(>= {cutoff})\n"
         f"articles-archive.json: {archive_size:>5.1f} MiB, {len(archive):>5} entries "
         f"(< {cutoff})\n"
         f"articles.json (legacy copy of recent): {legacy_size:>5.1f} MiB\n"
+        f"stats.json:           {stats_size:>5.1f} KiB, aggregates over {len(deduped)} entries\n"
         f"Total pipeline: {len(deduped)} visible "
         f"(skipped {skipped} filtered, {dropped} L2 deduped)"
     )
