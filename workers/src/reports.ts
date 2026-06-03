@@ -143,7 +143,10 @@ export async function handleCreateReport(c: Ctx) {
     sort_order: body.sort_order,
   };
 
-  const meta = await createReport(c.env.REPORTS_DB, c.env.REPORTS_BUCKET, input);
+  const meta = await createReport(c.env.REPORTS_DB, c.env.REPORTS_BUCKET, input, {
+    REPORTS_REPO: c.env.REPORTS_REPO,
+    REPORTS_GITHUB_PAT: c.env.REPORTS_GITHUB_PAT,
+  });
 
   // Best-effort TG notify (won't block / fail)
   const publicUrl = `${c.env.CORS_ORIGIN}/reports/${meta.id}`;

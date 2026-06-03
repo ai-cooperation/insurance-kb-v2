@@ -48,6 +48,8 @@ interface Bindings {
   MCP_PUBLIC_URL: string;
   TG_BOT_TOKEN?: string;
   TG_CHAT_ID?: string;
+  REPORTS_REPO?: string;          // v3 (2026-06-03) git snapshot pillar — set in [vars]
+  REPORTS_GITHUB_PAT?: string;    // fine-grained PAT, set via `wrangler secret put`
 }
 
 const app = new Hono<{
@@ -324,5 +326,21 @@ const mcpAuthMiddleware = async (c: any, next: any) => {
 
 app.get("/mcp/sse", mcpAuthMiddleware, handleMCPSSE as any);
 app.post("/mcp/sse", mcpAuthMiddleware, handleMCPRPC as any);
+
+// Streamable HTTP transport (2025-03-26 spec) — same handler, no SSE endpoint
+// redirect dance. Required by Codex CLI's rmcp client which doesn't understand
+// the legacy HTTP+SSE `event: endpoint` handshake. Claude.ai still uses /mcp/sse.
+app.post("/mcp", mcpAuthMiddleware, handleMCPRPC as any);
+app.get("/mcp", mcpAuthMiddleware, async () => {
+  // Streamable HTTP clients may GET to open a notification stream. We don't
+  // emit server-initiated notifications, so return an empty SSE that clients
+  // can hold open or immediately close.
+  return new Response(":\n\n", {
+    headers: {
+      "Content-Type": "text/event-stream",
+      "Cache-Control": "no-cache, no-transform",
+    },
+  });
+});
 
 export default app;

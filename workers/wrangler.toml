@@ -36,3 +36,9 @@ MCP_PUBLIC_URL = "https://insurance-kb-api.alan-chen75.workers.dev/mcp/sse"
 # Empty string disables (worker won't crash, just skip notify).
 TG_BOT_TOKEN = ""
 TG_CHAT_ID = ""
+# v3 (2026-06-03) git snapshot pillar — private repo for VIP reports.
+# The main v2 repo is public, so reports cannot live there. PAT is provisioned
+# separately as a wrangler secret (REPORTS_GITHUB_PAT) with contents:write
+# on this repo only. Snapshot is best-effort; report stays safe in R2+D1 if
+# the git step fails.
+REPORTS_REPO = "ai-cooperation/insurance-kb-reports"

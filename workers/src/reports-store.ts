@@ -1,11 +1,17 @@
 /**
- * Reports storage layer — D1 metadata + R2 markdown content.
+ * Reports storage layer — D1 metadata + R2 markdown content + git snapshot.
  *
  * Three-write strategy (per design-reference/v3-upgrade-spec.md):
- *   1. D1 row in `reports` table (metadata, queryable)
- *   2. R2 object at `reports/{id}.md` (full markdown content)
- *   3. (Phase 4) Optional git snapshot via worker → GitHub API
+ *   1. R2 object at `reports/{id}.md` (full markdown content)
+ *   2. D1 row in `reports` table (metadata, queryable)
+ *   3. Git snapshot to PRIVATE companion repo (insurance-kb-reports)
+ *
+ * Order matters for failure recovery: R2 first (so D1 can never reference
+ * a missing blob), D1 second (canonical metadata), git third (best-effort
+ * archive; failure is logged but does not roll back the report).
  */
+
+import { snapshotReportToGit, type GitSnapshotEnv } from "./github-reports";
 
 export type ReportStatus = "draft" | "published" | "archived";
 
@@ -123,6 +129,7 @@ export async function createReport(
   db: D1Database,
   bucket: R2Bucket,
   input: CreateReportInput,
+  gitEnv?: GitSnapshotEnv,
 ): Promise<ReportMeta> {
   const id = generateReportId();
   const now = Math.floor(Date.now() / 1000);
@@ -180,6 +187,24 @@ export async function createReport(
 
   const meta = await getReportMeta(db, id);
   if (!meta) throw new Error("Report disappeared after insert");
+
+  // Third write: git snapshot. Best-effort — failure is logged but does not
+  // throw, since the report is already safe in R2+D1. Runs synchronously
+  // inside the request because R2/D1 are already committed; a true
+  // fire-and-forget would use executionCtx.waitUntil at the caller level.
+  if (gitEnv) {
+    try {
+      await snapshotReportToGit(gitEnv, {
+        id,
+        title: input.title,
+        markdown: input.markdown,
+        createdAt: now,
+      });
+    } catch (err) {
+      console.error(`[snapshot] uncaught: ${(err as Error).message}`);
+    }
+  }
+
   return meta;
 }
 

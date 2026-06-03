@@ -53,6 +53,8 @@ interface Bindings {
   TG_BOT_TOKEN?: string;
   TG_CHAT_ID?: string;
   EXA_API_KEY?: string;       // v3 (2026-05-06) — falls back to DDG scrape if empty
+  REPORTS_REPO?: string;      // v3 (2026-06-03) — private snapshot repo (e.g. ai-cooperation/insurance-kb-reports)
+  REPORTS_GITHUB_PAT?: string; // fine-grained PAT with contents:write, set via wrangler secret
 }
 
 // ─── MCP Protocol Types ───────────────────────────────────────────
@@ -165,7 +167,7 @@ const TOOLS = [
       "外部網路搜尋 / 上網查 / google 一下 / 找網路上有什麼說 / web search / google / external search。\n" +
       "**Triggers**: KB 內找不到某主題（search_articles 0 hits 或太少）；用戶要監管公告/公司官網/國際趨勢/同業評論等 KB 沒爬的東西；想驗證某數據是否有外部 source。\n" +
       "**Don't use**: 找的內容是保險業新聞 → 先 search_articles（KB 已爬全亞洲主流媒體）；找某個既有報告 → list_reports；想看某月趨勢 → get_wiki。Web search 是兜底用，不該是第一選擇。\n" +
-      "**後端 (v3 2026-05-06)**: 優先 Exa API（含 published_date — 直接帶進 add_finding source_date 比 chat 自己猜準），DDG scrape 是 fallback。回傳 [{title, url, snippet, published_date, backend}]。\n" +
+      "**後端 (v3 2026-05-06)**: 優先 Exa API（含 published_date — 直接帶進 add_finding source_date 比 chat 自己猜準），DDG scrape 是 fallback。回傳 [{title, url, snippet, text, published_date, backend}]。snippet 是 Exa highlights（query-相關段落，非頁首 boilerplate）；**要實際數據/數字時讀 `text` 欄（≤4000 字內文）不要只看 snippet**。\n" +
       "**Sparse response handling**: 結果 < 3 時 response 加 `retry_hints` 陣列。**chat 看到 retry_hints 應主動再 search 一輪**（換英文 / 加擴展詞 / 找監管原文），不要只回「沒找到」就放棄。",
     inputSchema: {
       type: "object",
@@ -477,7 +479,7 @@ async function handleWebSearch(env: Bindings, args: { query: string; limit?: num
   const q = args.query.trim();
   if (!q) return { query: q, count: 0, results: [], retry_hints: ["query is empty"] };
 
-  let results: Array<{ title: string; url: string; snippet: string; published_date?: string; backend: "exa" | "ddg" }> = [];
+  let results: Array<{ title: string; url: string; snippet: string; text?: string; published_date?: string; backend: "exa" | "ddg" }> = [];
   let backend: "exa" | "ddg" = "ddg";
   let backend_note = "";
 
@@ -493,21 +495,29 @@ async function handleWebSearch(env: Bindings, args: { query: string; limit?: num
         body: JSON.stringify({
           query: q,
           numResults: limit,
-          contents: { text: { maxCharacters: 500 } },
+          contents: {
+            text: { maxCharacters: 4000 },
+            highlights: { query: q },   // query-relevant excerpts, not first-N-chars boilerplate
+          },
           type: "auto",      // exa picks neural vs keyword
         }),
       });
       if (resp.ok) {
         const data = (await resp.json()) as {
-          results: Array<{ title: string; url: string; text?: string; publishedDate?: string }>;
+          results: Array<{ title: string; url: string; text?: string; highlights?: string[]; publishedDate?: string }>;
         };
-        results = (data.results || []).map(r => ({
-          title: r.title || "",
-          url: r.url,
-          snippet: (r.text || "").slice(0, 280),
-          published_date: r.publishedDate ? r.publishedDate.slice(0, 10) : undefined,
-          backend: "exa" as const,
-        }));
+        results = (data.results || []).map(r => {
+          const hl = Array.isArray(r.highlights) ? r.highlights.join("\n…\n") : "";
+          return {
+            title: r.title || "",
+            url: r.url,
+            // snippet = query-relevant highlights（取代舊的「前 280 字」boilerplate），抓不到 highlights 才退回內文
+            snippet: (hl || r.text || "").slice(0, 1500),
+            text: (r.text || "").slice(0, 4000) || undefined,
+            published_date: r.publishedDate ? r.publishedDate.slice(0, 10) : undefined,
+            backend: "exa" as const,
+          };
+        });
         backend = "exa";
       } else {
         backend_note = `Exa returned ${resp.status}; falling back to DDG`;
@@ -890,22 +900,30 @@ async function handleFinalizeReport(
   const referencesSection = renderReferencesSection(session.findings);
   const fullMarkdown = args.markdown.trimEnd() + "\n\n" + referencesSection;
 
-  const meta = await createReport(env.REPORTS_DB, env.REPORTS_BUCKET, {
-    title: args.title,
-    markdown: fullMarkdown,
-    tags: args.tags ?? [],
-    category: args.category,
-    region: args.region,
-    summary: args.summary,
-    source_session_id: args.session_id,
-    finding_count: session.findings.length,
-    status: "published",
-    author_uid: user.uid,
-    author_name: user.name,
-    author_email: user.email,
-    topic_id: args.topic_id,
-    sort_order: typeof args.sort_order === "number" ? args.sort_order : 100,
-  });
+  const meta = await createReport(
+    env.REPORTS_DB,
+    env.REPORTS_BUCKET,
+    {
+      title: args.title,
+      markdown: fullMarkdown,
+      tags: args.tags ?? [],
+      category: args.category,
+      region: args.region,
+      summary: args.summary,
+      source_session_id: args.session_id,
+      finding_count: session.findings.length,
+      status: "published",
+      author_uid: user.uid,
+      author_name: user.name,
+      author_email: user.email,
+      topic_id: args.topic_id,
+      sort_order: typeof args.sort_order === "number" ? args.sort_order : 100,
+    },
+    {
+      REPORTS_REPO: env.REPORTS_REPO,
+      REPORTS_GITHUB_PAT: env.REPORTS_GITHUB_PAT,
+    },
+  );
 
   await finalizeSession(env.KV, user.uid, args.session_id, meta.id);
 
@@ -1190,6 +1208,14 @@ export async function handleMCPRPC(c: Ctx) {
       { jsonrpc: "2.0", id: null, error: { code: -32700, message: "Parse error" } },
       400,
     );
+  }
+  // JSON-RPC 2.0 notification: no `id` field → server MUST NOT return a response
+  // body. Returning `{"jsonrpc":"2.0"}` (current dispatch default for unknown id)
+  // breaks strict clients like Codex rmcp ("data did not match any variant of
+  // untagged enum JsonRpcMessage"). Reply with 202 Accepted, empty body.
+  if (body.id === undefined || body.id === null) {
+    await dispatch(body, user, c.env); // run any side effects, discard result
+    return c.body(null, 202);
   }
   const resp = await dispatch(body, user, c.env);
   return c.json(resp);
