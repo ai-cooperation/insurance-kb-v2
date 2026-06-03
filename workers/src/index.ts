@@ -50,6 +50,7 @@ interface Bindings {
   TG_CHAT_ID?: string;
   REPORTS_REPO?: string;          // v3 (2026-06-03) git snapshot pillar — set in [vars]
   REPORTS_GITHUB_PAT?: string;    // fine-grained PAT, set via `wrangler secret put`
+  SNAPSHOT_TEST_KEY?: string;     // shared-secret for /api/snapshot-test (debug endpoint)
 }
 
 const app = new Hono<{
@@ -246,13 +247,19 @@ app.delete("/api/admin/vips/:email", requireAdmin, async (c) => {
   return c.json({ removed: email });
 });
 
-// GET /api/admin/snapshot-test — E2E test of the report git snapshot pipeline.
-// Writes a synthetic file to the private snapshot repo so we can verify
-// REPORTS_REPO + REPORTS_GITHUB_PAT are wired correctly without needing a
-// full finalize_report flow (which requires a research session + findings).
-// Admin-only. Leaves the test file in the repo — manually delete or it gets
-// overwritten on the next test (same path each time).
-app.get("/api/admin/snapshot-test", requireAdmin, async (c) => {
+// GET /api/snapshot-test?key=<secret> — E2E test of the report git snapshot
+// pipeline. Writes reports/{yyyy-mm}/snapshot-test.md to the private archive
+// repo (idempotent — same path each run). Returns env-vars-set flags +
+// snapshot result so missing PAT vs bad scope vs wrong repo is diagnosable.
+//
+// Auth: shared-secret header pattern (same as cron worker /trigger). The
+// admin-only variant required browser-side Firebase login flow which was
+// awkward for a one-off pipeline check.
+app.get("/api/snapshot-test", async (c) => {
+  const key = c.req.query("key");
+  if (!c.env.SNAPSHOT_TEST_KEY || key !== c.env.SNAPSHOT_TEST_KEY) {
+    return c.json({ error: "Unauthorized" }, 401);
+  }
   const { snapshotReportToGit } = await import("./github-reports");
   const now = Math.floor(Date.now() / 1000);
   const result = await snapshotReportToGit(
