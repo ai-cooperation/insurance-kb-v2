@@ -20,3 +20,6 @@ reference/
 
 # wrangler build cache
 **/.wrangler/
+
+# Internal architecture spec — kept local only, not published
+SPEC.md
