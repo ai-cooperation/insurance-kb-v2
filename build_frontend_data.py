@@ -1,7 +1,17 @@
 #!/usr/bin/env python3
 """Build slim articles.json for frontend (Cloudflare Pages 25MB limit).
 
-Removes empty fields and truncates summaries to keep file size under 25MB.
+Removes empty fields, truncates summaries, and excludes filtered articles
+(irrelevant / sports / dup / translation_partial) to keep the file under
+the 25 MiB single-file limit. Filtered articles stay in master-index.json
+for retroactive fixes — only the visible payload ships to the frontend.
+
+History: 2026-06-03 — articles.json crossed 26 MiB causing wrangler pages
+deploy to fail since 6/1, and frontend search slowed (parse+filter 36k
+entries client-side). Switched to visible-only here to drop the file
+back under the limit. Frontend `useArticles.ts:105` and worker
+`search.ts:61` both apply `!article.filter` defensively — that becomes
+a no-op when the file already excludes them, no client changes needed.
 """
 
 import json
@@ -21,6 +31,7 @@ def build():
     idx = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
 
     slim = []
+    skipped_filtered = 0
     for a in idx:
         # Final-line post-processing: enforce KR naming + catch sports leaks
         # that bypassed the LLM-time post-processing (e.g. legacy entries
@@ -30,6 +41,12 @@ def build():
         filter_reason = a.get("filter", "") or ""
         if not filter_reason and _detect_kr_sports(title, a.get("title_en", "") or ""):
             filter_reason = "noise_sports"
+
+        # Visible-only: drop filtered entries entirely instead of shipping
+        # them with a `filter` field. Saves both bytes and frontend CPU.
+        if filter_reason:
+            skipped_filtered += 1
+            continue
 
         entry = {
             "uid": a["uid"],
@@ -41,7 +58,6 @@ def build():
             "region": a.get("region", ""),
             "importance": a.get("importance", ""),
             "summary": summary[:200],
-            "filter": filter_reason,
         }
         if a.get("title_en"):
             entry["title_en"] = a["title_en"]
@@ -71,8 +87,10 @@ def build():
     OUT_PATH.write_text(out, encoding="utf-8")
 
     size_mb = OUT_PATH.stat().st_size / 1024 / 1024
-    visible = sum(1 for a in slim if not a.get("filter"))
-    print(f"articles.json: {size_mb:.1f} MB, {len(slim)} total ({removed} L2 deduped), {visible} visible")
+    print(
+        f"articles.json: {size_mb:.1f} MiB, {len(slim)} visible "
+        f"(skipped {skipped_filtered} filtered, {removed} L2 deduped)"
+    )
 
 
 if __name__ == "__main__":
