@@ -57,6 +57,11 @@ _GNEWS_EXISTING = [
          _gnews('"China Taiping" Hong Kong OR "BOC Life" '
                 'OR "中銀人壽" OR "中國人壽香港"', lang="zh-Hant", country="HK"),
          region="香港"),
+    _src("gnews_hk_companies_4", "香港保險公司 4 (CTF / FTLife / new entrants)",
+         _gnews('"CTF Life" OR "周大福人壽" OR "FTLife" '
+                'OR "Chow Tai Fook Life" OR "中保人壽" OR "NCB Life" '
+                'OR "Bowtie" Hong Kong OR "Blue Hong Kong"'),
+         region="香港", type_="保險公司"),
     _src("gnews_hk_regulator", "香港監管",
          _gnews("Hong Kong Insurance Authority regulation"), region="香港"),
     _src("gnews_hk_zh", "香港保險（中文）",
@@ -107,11 +112,24 @@ _GNEWS_EXISTING = [
     _src("gnews_kr_en", "韓國保險（英文）",
          _gnews('"Samsung Life" OR "Hanwha Life" OR "Kyobo" '
                 'OR "Shinhan Life" OR "NH NongHyup"'), region="韓國"),
+    _src("gnews_kr_digital", "韓國數位保險/子品牌",
+         _gnews("라이프플래닛 OR 토스인슈어런스 OR 카카오페이손해보험 "
+                "OR 캐롯손해보험 OR 하나손해보험",
+                lang="ko", country="KR"),
+         region="韓國", type_="保險公司"),
     _src("gnews_kr_industry", "韓國保險產業",
          _gnews("보험 생명보험 손해보험", lang="ko", country="KR"),
          region="韓國"),
     _src("gnews_reinsurers", "全球再保公司",
          _gnews('"Swiss Re" OR "Munich Re" OR "Hannover Re" OR "SCOR reinsurance"')),
+    _src("gnews_us_lifers_1", "美國壽險公司 1",
+         _gnews('"MassMutual" OR "Northwestern Mutual" OR "New York Life" '
+                'OR "MetLife" OR "Prudential Financial"'),
+         region="美國", type_="保險公司"),
+    _src("gnews_us_lifers_2", "美國壽險公司 2",
+         _gnews('"Pacific Life" OR "Lincoln Financial" OR "John Hancock" '
+                'OR "Guardian Life" OR "TIAA" OR "Mutual of Omaha"'),
+         region="美國", type_="保險公司"),
     _src("gnews_consultants", "顧問公司",
          _gnews("McKinsey OR Deloitte OR EY OR KPMG insurance")),
     _src("gnews_ratings_1", "評級機構 1",
@@ -131,6 +149,15 @@ _GNEWS_EXISTING = [
          region="中國", type_="新聞媒體"),
     _src("gnews_esg_insurance", "ESG 保險",
          _gnews("insurance ESG sustainability climate")),
+    _src("gnews_product_launch_en", "壽險商品發表（英文）",
+         _gnews('insurance "launches" OR "introduces" OR "rolls out" '
+                '"new product" OR "new rider" OR "new plan" life',
+                days=14),
+         type_="新聞媒體"),
+    _src("gnews_product_launch_zh", "壽險商品發表（中文）",
+         _gnews('"推出新" OR "上市" OR "發表" 保險 商品 OR 保單',
+                days=14, lang="zh-TW", country="TW"),
+         type_="新聞媒體"),
     _src("gnews_hive_insurance", "Hive 保險",
          _gnews("Hive insurance services platform")),
     # Removed: gnews_neuroscience_insurance — 99% brain health articles, not insurance
