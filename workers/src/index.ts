@@ -246,6 +246,38 @@ app.delete("/api/admin/vips/:email", requireAdmin, async (c) => {
   return c.json({ removed: email });
 });
 
+// GET /api/admin/snapshot-test — E2E test of the report git snapshot pipeline.
+// Writes a synthetic file to the private snapshot repo so we can verify
+// REPORTS_REPO + REPORTS_GITHUB_PAT are wired correctly without needing a
+// full finalize_report flow (which requires a research session + findings).
+// Admin-only. Leaves the test file in the repo — manually delete or it gets
+// overwritten on the next test (same path each time).
+app.get("/api/admin/snapshot-test", requireAdmin, async (c) => {
+  const { snapshotReportToGit } = await import("./github-reports");
+  const now = Math.floor(Date.now() / 1000);
+  const result = await snapshotReportToGit(
+    {
+      REPORTS_REPO: c.env.REPORTS_REPO,
+      REPORTS_GITHUB_PAT: c.env.REPORTS_GITHUB_PAT,
+    },
+    {
+      id: "snapshot-test",
+      title: "snapshot pipeline E2E test",
+      markdown: `# Snapshot Test\n\nWritten at ${new Date(
+        now * 1000,
+      ).toISOString()} to verify git snapshot pipeline is wired correctly.\n`,
+      createdAt: now,
+    },
+  );
+  return c.json({
+    env_vars_set: {
+      REPORTS_REPO: !!c.env.REPORTS_REPO,
+      REPORTS_GITHUB_PAT: !!c.env.REPORTS_GITHUB_PAT,
+    },
+    snapshot_result: result,
+  });
+});
+
 // === REPORTS (v3 — Firebase auth, feature-gated) ===
 //
 // Auth: routes use the `fbUser` variable populated by getFirebaseUser middleware.
