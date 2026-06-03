@@ -60,7 +60,8 @@ _GNEWS_EXISTING = [
     _src("gnews_hk_companies_4", "香港保險公司 4 (CTF / FTLife / new entrants)",
          _gnews('"CTF Life" OR "周大福人壽" OR "FTLife" '
                 'OR "Chow Tai Fook Life" OR "中保人壽" OR "NCB Life" '
-                'OR "Bowtie" Hong Kong OR "Blue Hong Kong"'),
+                'OR "Bowtie" Hong Kong OR "Blue Hong Kong"',
+                days=30),
          region="香港", type_="保險公司"),
     _src("gnews_hk_regulator", "香港監管",
          _gnews("Hong Kong Insurance Authority regulation"), region="香港"),
