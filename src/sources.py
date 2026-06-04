@@ -123,49 +123,54 @@ _GNEWS_EXISTING = [
          region="韓國"),
     _src("gnews_reinsurers", "全球再保公司",
          _gnews('"Swiss Re" OR "Munich Re" OR "Hannover Re" OR "SCOR reinsurance"')),
-    # US lifers — per-carrier queries (not broad OR query). GNews RSS caps
-    # each search at ~100 results ranked by recency × relevance; a broad
-    # OR query over 5+ carriers gets saturated by high-frequency news
-    # (5/27-28 World Cup + reinsurance deals alone hit ~58 articles), so
-    # tail PR launches (MassMutual Living Well Rider, 2026-05-19) fall
-    # out of the returned set even with days=30. Per-carrier queries each
-    # get their own top-100 → low-volume PR is preserved.
+    # US lifers — per-carrier queries (not broad OR). GNews RSS caps each
+    # search at ~100 results ranked by recency × relevance; a broad OR
+    # query over 5+ carriers saturates on high-frequency news and pushes
+    # tail PR launches (MassMutual "Wellness Offerings" 2026-05-19, which
+    # contains the Living Well Rider) off the bottom even at days=30.
+    # Per-carrier queries each get their own top-100 → low-volume PR
+    # preserved.
     #
-    # days=30 here is in BACKFILL mode (just added 2026-06-04 + need to
-    # recover 5-30d back-catalog). Revert to days=7 after first crawl
-    # completes — per the backfill-vs-daily SOP.
+    # Window policy after backfill (measured weekly volumes 2026-06-04):
+    # - days=30 PERMANENT for low-volume carriers (<5/wk) — sparse PR
+    #   would miss the 7d window otherwise
+    # - days=7 daily for high-volume carriers (≥5/wk) — saves quota /
+    #   crawl time without losing recall
     _src("gnews_us_massmutual", "MassMutual",
-         _gnews('"MassMutual" insurance OR annuity OR life', days=30),
+         _gnews('"MassMutual" insurance OR annuity OR life',
+                days=30),   # 1.4/wk — sparse, keep wide
          region="美國", type_="保險公司"),
     _src("gnews_us_northwestern_mutual", "Northwestern Mutual",
-         _gnews('"Northwestern Mutual" insurance OR annuity OR life', days=30),
+         _gnews('"Northwestern Mutual" insurance OR annuity OR life'),
          region="美國", type_="保險公司"),
     _src("gnews_us_nyl", "New York Life",
-         _gnews('"New York Life" insurance OR annuity', days=30),
+         _gnews('"New York Life" insurance OR annuity'),
          region="美國", type_="保險公司"),
     _src("gnews_us_metlife", "MetLife",
-         _gnews('"MetLife" insurance OR annuity', days=30),
+         _gnews('"MetLife" insurance OR annuity'),
          region="美國", type_="保險公司"),
     _src("gnews_us_prudential", "Prudential Financial (US)",
-         _gnews('"Prudential Financial" insurance OR annuity OR retirement', days=30),
+         _gnews('"Prudential Financial" insurance OR annuity OR retirement'),
          region="美國", type_="保險公司"),
     _src("gnews_us_pacific_life", "Pacific Life",
-         _gnews('"Pacific Life" insurance OR annuity', days=30),
+         _gnews('"Pacific Life" insurance OR annuity'),
          region="美國", type_="保險公司"),
     _src("gnews_us_lincoln", "Lincoln Financial",
-         _gnews('"Lincoln Financial" insurance OR annuity', days=30),
+         _gnews('"Lincoln Financial" insurance OR annuity'),
          region="美國", type_="保險公司"),
     _src("gnews_us_john_hancock", "John Hancock",
-         _gnews('"John Hancock" insurance OR annuity OR life', days=30),
+         _gnews('"John Hancock" insurance OR annuity OR life'),
          region="美國", type_="保險公司"),
     _src("gnews_us_guardian", "Guardian Life",
-         _gnews('"Guardian Life" insurance', days=30),
+         _gnews('"Guardian Life" insurance',
+                days=30),   # 4.2/wk — sparse, keep wide
          region="美國", type_="保險公司"),
     _src("gnews_us_tiaa", "TIAA",
-         _gnews('"TIAA" insurance OR annuity OR retirement', days=30),
+         _gnews('"TIAA" insurance OR annuity OR retirement'),
          region="美國", type_="保險公司"),
     _src("gnews_us_mutual_omaha", "Mutual of Omaha",
-         _gnews('"Mutual of Omaha" insurance', days=30),
+         _gnews('"Mutual of Omaha" insurance',
+                days=30),   # 2.8/wk — sparse, keep wide
          region="美國", type_="保險公司"),
     _src("gnews_consultants", "顧問公司",
          _gnews("McKinsey OR Deloitte OR EY OR KPMG insurance")),
