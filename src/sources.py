@@ -123,15 +123,18 @@ _GNEWS_EXISTING = [
          region="韓國"),
     _src("gnews_reinsurers", "全球再保公司",
          _gnews('"Swiss Re" OR "Munich Re" OR "Hannover Re" OR "SCOR reinsurance"')),
+    # NOTE: days=7 is intentional for daily maintenance. When ADDING a new
+    # source, run a one-shot backfill crawl with days=30 first (manually
+    # widen + trigger + revert), then leave the daily query at 7d.
+    # PR-heavy news older than 7 days is rare past the initial backfill
+    # window; saves crawl time + GNews quota.
     _src("gnews_us_lifers_1", "美國壽險公司 1",
          _gnews('"MassMutual" OR "Northwestern Mutual" OR "New York Life" '
-                'OR "MetLife" OR "Prudential Financial"',
-                days=30),
+                'OR "MetLife" OR "Prudential Financial"'),
          region="美國", type_="保險公司"),
     _src("gnews_us_lifers_2", "美國壽險公司 2",
          _gnews('"Pacific Life" OR "Lincoln Financial" OR "John Hancock" '
-                'OR "Guardian Life" OR "TIAA" OR "Mutual of Omaha"',
-                days=30),
+                'OR "Guardian Life" OR "TIAA" OR "Mutual of Omaha"'),
          region="美國", type_="保險公司"),
     _src("gnews_consultants", "顧問公司",
          _gnews("McKinsey OR Deloitte OR EY OR KPMG insurance")),
@@ -155,11 +158,11 @@ _GNEWS_EXISTING = [
     _src("gnews_product_launch_en", "壽險商品發表（英文）",
          _gnews('insurance "launches" OR "introduces" OR "rolls out" '
                 '"new product" OR "new rider" OR "new plan" life',
-                days=30),
+                days=14),
          type_="新聞媒體"),
     _src("gnews_product_launch_zh", "壽險商品發表（中文）",
          _gnews('"推出新" OR "上市" OR "發表" 保險 商品 OR 保單',
-                days=30, lang="zh-TW", country="TW"),
+                days=14, lang="zh-TW", country="TW"),
          type_="新聞媒體"),
     _src("gnews_hive_insurance", "Hive 保險",
          _gnews("Hive insurance services platform")),
