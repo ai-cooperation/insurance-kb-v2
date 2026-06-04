@@ -123,18 +123,49 @@ _GNEWS_EXISTING = [
          region="韓國"),
     _src("gnews_reinsurers", "全球再保公司",
          _gnews('"Swiss Re" OR "Munich Re" OR "Hannover Re" OR "SCOR reinsurance"')),
-    # NOTE: days=7 is intentional for daily maintenance. When ADDING a new
-    # source, run a one-shot backfill crawl with days=30 first (manually
-    # widen + trigger + revert), then leave the daily query at 7d.
-    # PR-heavy news older than 7 days is rare past the initial backfill
-    # window; saves crawl time + GNews quota.
-    _src("gnews_us_lifers_1", "美國壽險公司 1",
-         _gnews('"MassMutual" OR "Northwestern Mutual" OR "New York Life" '
-                'OR "MetLife" OR "Prudential Financial"'),
+    # US lifers — per-carrier queries (not broad OR query). GNews RSS caps
+    # each search at ~100 results ranked by recency × relevance; a broad
+    # OR query over 5+ carriers gets saturated by high-frequency news
+    # (5/27-28 World Cup + reinsurance deals alone hit ~58 articles), so
+    # tail PR launches (MassMutual Living Well Rider, 2026-05-19) fall
+    # out of the returned set even with days=30. Per-carrier queries each
+    # get their own top-100 → low-volume PR is preserved.
+    #
+    # days=30 here is in BACKFILL mode (just added 2026-06-04 + need to
+    # recover 5-30d back-catalog). Revert to days=7 after first crawl
+    # completes — per the backfill-vs-daily SOP.
+    _src("gnews_us_massmutual", "MassMutual",
+         _gnews('"MassMutual" insurance OR annuity OR life', days=30),
          region="美國", type_="保險公司"),
-    _src("gnews_us_lifers_2", "美國壽險公司 2",
-         _gnews('"Pacific Life" OR "Lincoln Financial" OR "John Hancock" '
-                'OR "Guardian Life" OR "TIAA" OR "Mutual of Omaha"'),
+    _src("gnews_us_northwestern_mutual", "Northwestern Mutual",
+         _gnews('"Northwestern Mutual" insurance OR annuity OR life', days=30),
+         region="美國", type_="保險公司"),
+    _src("gnews_us_nyl", "New York Life",
+         _gnews('"New York Life" insurance OR annuity', days=30),
+         region="美國", type_="保險公司"),
+    _src("gnews_us_metlife", "MetLife",
+         _gnews('"MetLife" insurance OR annuity', days=30),
+         region="美國", type_="保險公司"),
+    _src("gnews_us_prudential", "Prudential Financial (US)",
+         _gnews('"Prudential Financial" insurance OR annuity OR retirement', days=30),
+         region="美國", type_="保險公司"),
+    _src("gnews_us_pacific_life", "Pacific Life",
+         _gnews('"Pacific Life" insurance OR annuity', days=30),
+         region="美國", type_="保險公司"),
+    _src("gnews_us_lincoln", "Lincoln Financial",
+         _gnews('"Lincoln Financial" insurance OR annuity', days=30),
+         region="美國", type_="保險公司"),
+    _src("gnews_us_john_hancock", "John Hancock",
+         _gnews('"John Hancock" insurance OR annuity OR life', days=30),
+         region="美國", type_="保險公司"),
+    _src("gnews_us_guardian", "Guardian Life",
+         _gnews('"Guardian Life" insurance', days=30),
+         region="美國", type_="保險公司"),
+    _src("gnews_us_tiaa", "TIAA",
+         _gnews('"TIAA" insurance OR annuity OR retirement', days=30),
+         region="美國", type_="保險公司"),
+    _src("gnews_us_mutual_omaha", "Mutual of Omaha",
+         _gnews('"Mutual of Omaha" insurance', days=30),
          region="美國", type_="保險公司"),
     _src("gnews_consultants", "顧問公司",
          _gnews("McKinsey OR Deloitte OR EY OR KPMG insurance")),

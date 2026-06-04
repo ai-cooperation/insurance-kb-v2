@@ -7,6 +7,19 @@ on:
     - cron: "30 12 * * *"
   workflow_dispatch:
 
+# Prevent concurrent crawls. If a scheduled run is in flight, a manual
+# workflow_dispatch (or vice versa) queues behind it instead of racing.
+# cancel-in-progress: false because mid-crawl work shouldn't be thrown
+# away just because a new trigger arrived — let it finish, then queue.
+#
+# Without this guard, two concurrent runs both mutate master-index.json,
+# the second push hits a rebase conflict on the JSON array, rebase aborts,
+# HEAD enters detached state, push fails with "not currently on a branch"
+# (2026-06-04 backfill + scheduled cron collision, run 26921940617).
+concurrency:
+  group: insurance-kb-crawl
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -48,8 +61,22 @@ jobs:
           git add -A
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           git commit -m "chore: daily crawl $(date -u +%Y-%m-%d_%H:%M)"
-          git pull --rebase origin main || true
-          git push
+          # Rebase to absorb any non-conflicting concurrent commits (e.g.
+          # someone pushed a docs change while we crawled). If rebase hits
+          # a CONTENT conflict on master-index.json, that means another
+          # crawl committed articles we don't know about — abort cleanly
+          # (don't enter detached HEAD!) and fail loudly. The concurrency
+          # lock above should prevent this case; if we're here, something
+          # bypassed the lock and the next scheduled crawl will pick up
+          # missing articles via its own GNews query (~10-12h cycle is
+          # well within the GNews retention window).
+          if ! git pull --rebase origin main; then
+            git rebase --abort
+            echo "ERROR: rebase conflict on master-index.json — concurrent crawl detected." >&2
+            echo "Aborted to avoid data loss. Missing articles will be picked up by next scheduled crawl." >&2
+            exit 1
+          fi
+          git push origin HEAD:main
 
       - name: Deploy to Cloudflare Pages
         run: |
