@@ -191,9 +191,13 @@ const TOOLS = [
   {
     name: "start_research_session",
     description:
-      "啟動研究 session / 開始做研究 / 開始寫報告 / 我想研究 X / 幫我做 X 主題的研究 / 我想做一份報告 / start research / kick off report / begin report drafting。\n" +
-      "**Triggers (一定要先叫)**: 用戶說「幫我做 X 研究」「我想研究 X」「寫一份 X 報告」「分析一下 X」「幫我看 X 這個主題」「做個 X 商品評估」「我要寫 X 給商品設計團隊看」**不要直接 search 也不要直接寫**。\n" +
-      "**Don't use**: 用戶只是問「最近有什麼 X 新聞」(→ list_articles)；用戶要找一個資料點不寫報告 (→ search_articles)；用戶要看舊報告 (→ list_reports)。\n" +
+      "啟動研究 session — 用於**深度研究 / 商品分析 / 競品評估 / 跨市場研究**這種長型自選主題報告。\n" +
+      "**Triggers**: 用戶說「我想研究 X」「分析一下 X」「幫我做 X 商品評估」「寫一份 X 主題的深度報告」「研究 X 競品」「我要寫 X 給商品設計團隊看」。**注意 X 是任意自選主題，不是定期格式**。\n" +
+      "**Don't use（重要排除）**:\n" +
+      "- 用戶說「雙週報」「週報」「兩週的報告」「整理這兩週新聞」「biweekly」「weekly」**任何含「週」字的定期報告** → **改叫 start_biweekly_report**，不要叫這個！\n" +
+      "- 用戶只是問「最近有什麼 X 新聞」 → list_articles\n" +
+      "- 用戶要找一個資料點不寫報告 → search_articles\n" +
+      "- 用戶要看舊報告 → list_reports\n" +
       "回傳 5 步 grill-me-first 引導框架（範圍/地區/時間/讀者/深度），每步含 A/B/C/.. 選項+推薦預設+rationale。**Chat 必須一步一步問用戶**，列選項 + 推薦 + 等用戶選後才下一步。用戶說「你決定」也不要自己決定，要再問「這個會直接影響蒐集方向，請選」。\n" +
       "Server-side state 存 KV TTL 24h。",
     inputSchema: {
@@ -389,11 +393,12 @@ const TOOLS = [
   {
     name: "start_biweekly_report",
     description:
+      "**[最高優先] 任何提到「週報」「雙週報」「兩週」「biweekly」「weekly」的請求，一律先叫這個，不要叫 start_research_session。**\n" +
       "啟動雙週報 / 來個雙週報 / 幫我做這兩週的報告 / 產出雙週報 / 雙週報模式 / biweekly report / weekly news roundup。\n" +
-      "**Triggers**: 用戶說「幫我做雙週報」「產出這兩週的」「來個週報」「雙週報 #YYYYNN」「整理這兩週新聞」**不要直接 search 也不要直接寫**。\n" +
-      "**Don't use**: 用戶想做的是深度研究報告 (→ start_research_session)；用戶只是要看新聞 (→ list_articles)；用戶要產 monthly wiki (→ get_wiki)。\n" +
+      "**Triggers**: 用戶說「幫我做雙週報」「雙週報」「週報」「產出這兩週的」「來個週報」「雙週報 #YYYYNN」「整理這兩週新聞」「兩週新聞整理」「來份 biweekly」。**只要含「週」字 + 報/新聞/整理 → 一律叫此 tool。**\n" +
+      "**Don't use**: 用戶要做的是 **自選主題** 的深度研究（如「研究 IFRS17」「分析三星生命商品」） → start_research_session；用戶只是要看新聞 (→ list_articles)；用戶要產 monthly wiki (→ get_wiki)。\n" +
       "回傳 4 步 grill 框架（期間/類別/區域/案例數），預設值已包好（最近 14 天 + 自動算期號 + 3 類 + 亞太優先 + 3 案例）。**Chat 一步一步問用戶**，列選項 + 推薦 + 等用戶選後才下一步。\n" +
-      "Session 存 KV TTL 24h。雙週報是 **ephemeral 模式** — 走完沒 create_report，server 只回 markdown，chat 端自行轉 docx。",
+      "Session 存 KV TTL 24h。雙週報是 **ephemeral 模式** — 走完沒 create_report，server 只回 markdown，chat 端自行轉 docx，**絕對不要呼叫 create_report**（雙週報不上架）。",
     inputSchema: {
       type: "object",
       properties: {
@@ -730,11 +735,30 @@ async function handleWebSearch(env: Bindings, args: { query: string; limit?: num
 
 // ─── Phase 4 research session handlers ───────────────────────────
 
+/** Phrases that mean "biweekly / weekly periodic report" — never a research topic. */
+const BIWEEKLY_REDIRECT_PATTERNS = [
+  /雙週報/, /週報/, /兩週/, /biweekly/i, /bi-weekly/i, /weekly\s*(report|round|news)?/i,
+];
+
 async function handleStartSession(
   env: Bindings,
   user: FirebaseUser,
   args: { topic_seed: string },
 ) {
+  // Hard route enforcement — claude.ai may cache MCP instructions from
+  // the initial connection, so a chat that connected before the biweekly
+  // tool shipped might still default research_session for "雙週報" requests.
+  // Reject loudly so chat can't miss it.
+  const seed = args.topic_seed || "";
+  if (BIWEEKLY_REDIRECT_PATTERNS.some((re) => re.test(seed))) {
+    throw new Error(
+      `ROUTE_REDIRECT: 偵測到 topic_seed 含「週報 / 雙週報 / biweekly」字樣 — ` +
+      `這不是研究主題，而是定期雙週報請求。\n` +
+      `請改叫 **start_biweekly_report(topic_seed)** ,流程是 4 步 grill + server 自動填表 + 不上架（chat 端轉 docx 給用戶下載）。\n` +
+      `topic_seed 原文: ${JSON.stringify(seed)}`,
+    );
+  }
+
   // Cross-session continuity: find existing topics matching this seed,
   // and if best match exists, fetch its progress so chat can suggest binding.
   const similar = await findSimilarTopics(env.REPORTS_DB, args.topic_seed, 3).catch(() => []);
@@ -1090,6 +1114,68 @@ function renderReferencesSection(findings: Array<{
   return lines.join("\n");
 }
 
+// ─── Debug ring buffer (KV-backed) ─────────────────────────────────
+//
+// Every tool dispatch writes a compact entry to mcp:recent_calls so the
+// admin can curl /api/mcp-debug?key=... to see what tool chat invoked
+// with what args. Wrangler tail websocket from the dev box was blocked
+// upstream, so this gives us an out-of-band debug channel.
+//
+// Single KV key holding a JSON array of the last ~50 entries. Each entry
+// is trimmed (args + result preview ≤ ~2 KB) to keep the doc under the
+// 25 MiB KV value cap by a wide margin.
+
+const DEBUG_LOG_KEY = "mcp:recent_calls";
+const DEBUG_LOG_LIMIT = 50;
+
+interface MCPDebugEntry {
+  ts: number;            // unix seconds
+  uid: string;
+  email: string;
+  tool: string;
+  args_preview: string;  // JSON stringified, truncated
+  ok: boolean;
+  error?: string;
+  result_preview?: string;
+}
+
+function preview(value: unknown, max = 1500): string {
+  try {
+    const s = typeof value === "string" ? value : JSON.stringify(value);
+    return s.length > max ? s.slice(0, max) + "…(truncated)" : s;
+  } catch {
+    return String(value).slice(0, max);
+  }
+}
+
+async function logMCPCall(
+  kv: KVNamespace,
+  entry: MCPDebugEntry,
+): Promise<void> {
+  try {
+    const raw = await kv.get(DEBUG_LOG_KEY);
+    let log: MCPDebugEntry[] = [];
+    if (raw) {
+      try { log = JSON.parse(raw) as MCPDebugEntry[]; } catch { /* reset */ }
+    }
+    log.unshift(entry);
+    if (log.length > DEBUG_LOG_LIMIT) log = log.slice(0, DEBUG_LOG_LIMIT);
+    await kv.put(DEBUG_LOG_KEY, JSON.stringify(log));
+  } catch {
+    // Debug logging mustn't ever break dispatch
+  }
+}
+
+export async function readMCPDebugLog(kv: KVNamespace): Promise<MCPDebugEntry[]> {
+  const raw = await kv.get(DEBUG_LOG_KEY);
+  if (!raw) return [];
+  try { return JSON.parse(raw) as MCPDebugEntry[]; } catch { return []; }
+}
+
+export async function clearMCPDebugLog(kv: KVNamespace): Promise<void> {
+  await kv.delete(DEBUG_LOG_KEY);
+}
+
 // ─── JSON-RPC dispatcher ──────────────────────────────────────────
 
 async function dispatch(
@@ -1110,6 +1196,24 @@ async function dispatch(
             "# Insurance KB — 保險業界知識庫 + VIP 研究報告產出系統",
             "",
             "資料來源：保險業新聞 articles（每天 2 次自動爬蟲，覆蓋台/日/韓/港/東南亞）、月度蒸餾 Wiki、研究報告（admin 上架 + VIP 透過 MCP 產）。",
+            "",
+            "## 報告類請求 triage（**第一優先順序，叫 tool 前先判斷**）",
+            "",
+            "用戶提到要產報告 / 要 chat 幫忙寫東西時，先看訊息裡有沒有這些關鍵字：",
+            "",
+            "- **「週」字（雙週報 / 週報 / 兩週 / biweekly / weekly）** → 一律 **start_biweekly_report**",
+            "  - 例：「幫我做雙週報」「來個週報」「產出這兩週的」「整理這兩週新聞」「雙週報 #YYYYNN」",
+            "  - 雙週報是 ephemeral 定期報告（4 步 grill，server 自動填，chat 轉 docx 下載，**不上架**）",
+            "  - **絕對不要對含「週」字的請求叫 start_research_session**",
+            "",
+            "- **自選主題 + 研究/分析/評估** → start_research_session",
+            "  - 例：「研究 IFRS17 影響」「分析三星生命商品策略」「做個 Pulse 生態圈評估」「寫一份高齡保障報告」",
+            "  - 主題是用戶自選，不是定期格式",
+            "  - 走完 create_report 上架到 /reports",
+            "",
+            "- 只是查 / 看 / 找 → list_articles / search_articles / get_wiki / list_reports / get_report",
+            "",
+            "判斷不確定時，先問用戶「你要做的是定期雙週報，還是某個自選主題的研究？」**不要默認研究**。",
             "",
             "## 跨 session 連續性（重要）",
             "",
@@ -1234,6 +1338,15 @@ async function dispatch(
       const params = req.params as { name: string; arguments?: Record<string, unknown> };
       const args = params.arguments || {};
       let result;
+      const debugEntry: MCPDebugEntry = {
+        ts: Math.floor(Date.now() / 1000),
+        uid: user.uid,
+        email: user.email,
+        tool: params.name,
+        args_preview: preview(args),
+        ok: true,
+      };
+      try {
       switch (params.name) {
         case "list_articles":
           result = await handleListArticles(args as any);
@@ -1305,6 +1418,14 @@ async function dispatch(
           break;
         default:
           throw new Error(`Unknown tool: ${params.name}`);
+      }
+      debugEntry.result_preview = preview(result, 500);
+      await logMCPCall(env.KV, debugEntry);
+      } catch (toolErr: any) {
+        debugEntry.ok = false;
+        debugEntry.error = String(toolErr?.message || toolErr).slice(0, 500);
+        await logMCPCall(env.KV, debugEntry);
+        throw toolErr;
       }
       return {
         jsonrpc: "2.0",

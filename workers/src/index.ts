@@ -255,6 +255,32 @@ app.delete("/api/admin/vips/:email", requireAdmin, async (c) => {
 // Auth: shared-secret header pattern (same as cron worker /trigger). The
 // admin-only variant required browser-side Firebase login flow which was
 // awkward for a one-off pipeline check.
+// GET /api/mcp-debug?key=<secret> — dump last 50 MCP tool invocations
+// (uid, tool name, args preview, ok/error). Same shared-secret pattern as
+// /api/snapshot-test. Useful when wrangler tail websocket is firewall-
+// blocked (the dev box → CF tail-stream connection sometimes ETIMEDOUTs).
+//
+// DELETE /api/mcp-debug?key=<secret> — clear the ring buffer.
+app.get("/api/mcp-debug", async (c) => {
+  const key = c.req.query("key");
+  if (!c.env.SNAPSHOT_TEST_KEY || key !== c.env.SNAPSHOT_TEST_KEY) {
+    return c.json({ error: "Unauthorized" }, 401);
+  }
+  const { readMCPDebugLog } = await import("./mcp");
+  const log = await readMCPDebugLog(c.env.KV);
+  return c.json({ count: log.length, calls: log });
+});
+
+app.delete("/api/mcp-debug", async (c) => {
+  const key = c.req.query("key");
+  if (!c.env.SNAPSHOT_TEST_KEY || key !== c.env.SNAPSHOT_TEST_KEY) {
+    return c.json({ error: "Unauthorized" }, 401);
+  }
+  const { clearMCPDebugLog } = await import("./mcp");
+  await clearMCPDebugLog(c.env.KV);
+  return c.json({ cleared: true });
+});
+
 app.get("/api/snapshot-test", async (c) => {
   const key = c.req.query("key");
   if (!c.env.SNAPSHOT_TEST_KEY || key !== c.env.SNAPSHOT_TEST_KEY) {
