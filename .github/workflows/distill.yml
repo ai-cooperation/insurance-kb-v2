@@ -10,6 +10,15 @@ on:
         required: false
         type: string
 
+# Same lock as crawl.yml (set 2026-06-04 commit fc4b552). Both workflows
+# mutate compiled/ and master-index.json via git push; concurrent runs
+# would hit rebase conflicts on push, abort into detached HEAD, and
+# fail with "not currently on a branch". Distill only runs monthly so
+# the lock rarely fires, but the cost of having it is zero.
+concurrency:
+  group: insurance-kb-pipeline
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -18,6 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -51,8 +63,15 @@ jobs:
           git add compiled/
           if git diff --staged --quiet; then
             echo "No changes to commit"
-          else
-            git commit -m "chore: monthly distillation $(date +%Y-%m)"
-            git pull --rebase origin main || true
-            git push
+            exit 0
           fi
+          git commit -m "chore: monthly distillation $(date +%Y-%m)"
+          # Same rebase-or-fail-loud pattern as crawl.yml: a content
+          # conflict here means a concurrent crawl committed compiled
+          # changes; abort cleanly rather than enter detached HEAD.
+          if ! git pull --rebase origin main; then
+            git rebase --abort
+            echo "ERROR: rebase conflict in compiled/ — concurrent crawl detected." >&2
+            exit 1
+          fi
+          git push origin HEAD:main

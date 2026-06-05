@@ -17,7 +17,11 @@ on:
 # HEAD enters detached state, push fails with "not currently on a branch"
 # (2026-06-04 backfill + scheduled cron collision, run 26921940617).
 concurrency:
-  group: insurance-kb-crawl
+  # Shared lock with distill.yml + reclassify.yml — all three mutate
+  # index/master-index.json and/or compiled/ via git push. Without this
+  # any two concurrent runs hit a rebase conflict on the same array and
+  # the second one fails into detached HEAD.
+  group: insurance-kb-pipeline
   cancel-in-progress: false
 
 permissions:

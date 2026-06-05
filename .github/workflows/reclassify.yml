@@ -19,6 +19,14 @@ on:
         default: false
         type: boolean
 
+# Share the pipeline lock with crawl.yml + distill.yml. Reclassify is a
+# heavy job that mutates master-index.json across thousands of entries
+# (up to 120 min); any crawl that pushes during the same window would
+# guarantee a rebase conflict. Lock prevents the race outright.
+concurrency:
+  group: insurance-kb-pipeline
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -29,6 +37,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -71,4 +82,10 @@ jobs:
           git add -f index/master-index.json frontend/public/data/
           git diff --cached --quiet && echo "No changes" && exit 0
           git commit -m "chore: reclassify articles via LLM"
-          git push
+          # Same rebase-or-fail-loud pattern as crawl.yml / distill.yml.
+          if ! git pull --rebase origin main; then
+            git rebase --abort
+            echo "ERROR: rebase conflict on master-index.json — concurrent crawl detected." >&2
+            exit 1
+          fi
+          git push origin HEAD:main
