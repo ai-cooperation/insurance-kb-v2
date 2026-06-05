@@ -20,15 +20,59 @@ const DEFAULT_TWEAKS: Tweaks = {
 };
 
 
+// URL → route + optional report id parser. Supports deep links like
+// /reports/<id>, /cards, /wiki, /chat, /mcp-setup. Falls back to localStorage
+// then 'home'. Called on mount + on popstate (browser back/forward).
+function parseLocation(): { route: Route; reportId: string | null } {
+  const path = window.location.pathname;
+  if (path.startsWith('/reports')) {
+    const m = path.match(/^\/reports\/([^/?#]+)/);
+    return { route: 'reports', reportId: m ? m[1] : null };
+  }
+  if (path.startsWith('/cards'))     return { route: 'cards',     reportId: null };
+  if (path.startsWith('/wiki'))      return { route: 'wiki',      reportId: null };
+  if (path.startsWith('/chat'))      return { route: 'chat',      reportId: null };
+  if (path.startsWith('/mcp-setup')) return { route: 'mcp-setup', reportId: null };
+  if (path === '/' || path === '')   return { route: 'home', reportId: null };
+  // Unknown path: try localStorage, else home
+  const ls = localStorage.getItem('ikb_route') as Route | null;
+  return { route: ls || 'home', reportId: null };
+}
+
 export const App: React.FC = () => {
-  const [route, setRoute] = useState<Route>(() => (localStorage.getItem('ikb_route') as Route) || 'home');
+  const initial = parseLocation();
+  const [route, setRouteState] = useState<Route>(initial.route);
+  const [initialReportId, setInitialReportId] = useState<string | null>(initial.reportId);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [article, setArticle] = useState<Article | null>(null);
   const [tweaks, setTweaks] = useState<Tweaks>(DEFAULT_TWEAKS);
   const [tweaksShown, setTweaksShown] = useState(false);
-  const { articles, loading } = useArticles();
+  const store = useArticles();
+  const { articles, loading, manifest, loadedMonths, fetchingMore, loadOlderMonths, loadAllMonths } = store;
   const auth = useAuth();
+
+  // Wrap setRoute so nav changes also update URL (enables share + back button).
+  const setRoute = useCallback((r: Route) => {
+    setRouteState(r);
+    // Clear deep-link report id when switching nav routes (not when same route)
+    setInitialReportId(null);
+    const url = r === 'home' ? '/' : `/${r}`;
+    if (window.location.pathname !== url) {
+      window.history.pushState({}, '', url);
+    }
+  }, []);
+
+  // Browser back/forward — re-parse URL and sync state.
+  useEffect(() => {
+    const onPop = () => {
+      const next = parseLocation();
+      setRouteState(next.route);
+      setInitialReportId(next.reportId);
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
 
   // persist route
   useEffect(() => { localStorage.setItem('ikb_route', route); }, [route]);
@@ -36,10 +80,16 @@ export const App: React.FC = () => {
   // Force route back to home if user lacks the required feature for current
   // nav. Runs whenever route or auth.features change (e.g. logout, tier
   // downgrade, admin revoke).
+  //
+  // IMPORTANT: wait for `auth.loading` to finish before applying the gate.
+  // Otherwise a deep link like `/reports/<id>` hits this effect while auth
+  // is still hydrating (hasFeature returns false) and bounces the user to
+  // `/`, losing the report id from initial state.
   useEffect(() => {
+    if (auth.loading) return;
     const needed = NAV.find(n => n.id === route)?.requiredFeature;
     if (needed && !auth.hasFeature(needed)) setRoute('home');
-  }, [route, auth.tier, auth.hasFeature]);
+  }, [route, auth.loading, auth.tier, auth.hasFeature, setRoute]);
 
   // Dark mode
   useEffect(() => {
@@ -93,10 +143,22 @@ export const App: React.FC = () => {
           onLogout={auth.logout}
         />
         {route === 'home'      && <HomePage  articles={articles} loading={loading} setRoute={setRoute} setTier={() => {}} onLogin={auth.login} openArticle={openArticle} />}
-        {route === 'cards'     && <CardsPage articles={articles} loading={loading} openArticle={openArticle} />}
+        {route === 'cards'     && (
+          <CardsPage
+            articles={articles}
+            loading={loading}
+            openArticle={openArticle}
+            totalAvailable={manifest?.total_visible}
+            loadedMonthCount={loadedMonths.size}
+            totalMonthCount={manifest?.months.length}
+            fetchingMore={fetchingMore}
+            loadOlderMonths={loadOlderMonths}
+            loadAllMonths={loadAllMonths}
+          />
+        )}
         {route === 'wiki'      && <WikiPage  articles={articles} openArticle={openArticle} />}
         {route === 'chat'      && <ChatPage  articles={articles} openArticle={openArticle} apiFetch={auth.apiFetch} />}
-        {route === 'reports'   && <ReportsPage apiFetch={auth.apiFetch} hasFeature={auth.hasFeature} />}
+        {route === 'reports'   && <ReportsPage apiFetch={auth.apiFetch} hasFeature={auth.hasFeature} initialReportId={initialReportId} />}
         {route === 'mcp-setup' && <McpSetupPage apiFetch={auth.apiFetch} hasFeature={auth.hasFeature} />}
       </main>
 

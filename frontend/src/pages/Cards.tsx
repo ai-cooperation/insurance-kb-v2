@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef, useLayoutEffect } from 'react';
+import { List, type RowComponentProps } from 'react-window';
 import { Icon } from '../components/Icon';
 import { Badge } from '../components/Badge';
 import { Btn } from '../components/Button';
@@ -80,15 +81,100 @@ interface CardsPageProps {
   readonly articles: readonly Article[];
   readonly loading: boolean;
   readonly openArticle: (a: Article) => void;
+  // Lazy-load controls from useArticles. Cards triggers loadOlderMonths
+  // when the user scrolls deep, and loadAllMonths when they enter a
+  // filter / search query that needs the full archive.
+  readonly totalAvailable?: number;
+  readonly loadedMonthCount?: number;
+  readonly totalMonthCount?: number;
+  readonly fetchingMore?: boolean;
+  readonly loadOlderMonths?: (count: number) => Promise<void>;
+  readonly loadAllMonths?: () => Promise<void>;
 }
 
-export const CardsPage: React.FC<CardsPageProps> = ({ articles, loading, openArticle }) => {
+/** Responsive column count to match the prior `grid-cols-1 md:grid-cols-2 xl:grid-cols-3` layout. */
+function useResponsiveCols(): number {
+  const get = () => {
+    if (typeof window === 'undefined') return 3;
+    if (window.matchMedia('(min-width: 1280px)').matches) return 3;
+    if (window.matchMedia('(min-width: 768px)').matches) return 2;
+    return 1;
+  };
+  const [cols, setCols] = useState(get);
+  useEffect(() => {
+    const handler = () => setCols(get());
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+  return cols;
+}
+
+/** Available viewport height for the virtualized list, minus the sticky filter bar. */
+function useAvailableHeight(ref: React.RefObject<HTMLDivElement>): number {
+  const [height, setHeight] = useState(() =>
+    typeof window === 'undefined' ? 600 : Math.max(window.innerHeight - 200, 400)
+  );
+  useLayoutEffect(() => {
+    const update = () => {
+      const top = ref.current?.getBoundingClientRect().top ?? 200;
+      setHeight(Math.max(window.innerHeight - top - 16, 400));
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, [ref]);
+  return height;
+}
+
+/** Row of N cards rendered inside the virtualized list. */
+type CardsRowProps = {
+  readonly rows: readonly (readonly Article[])[];
+  readonly cols: number;
+  readonly openArticle: (a: Article) => void;
+};
+
+function CardsRow({ index, style, rows, cols, openArticle }: RowComponentProps<CardsRowProps>): React.ReactElement {
+  const row = rows[index] ?? [];
+  const colsClass =
+    cols === 1 ? 'grid-cols-1' : cols === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3';
+  return (
+    <div style={style} className="px-4 md:px-6">
+      <div className={`grid ${colsClass} gap-4 pb-4`}>
+        {row.map((a) => (
+          <MiniCard key={a.id} a={a} onOpen={openArticle} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export const CardsPage: React.FC<CardsPageProps> = ({
+  articles,
+  loading,
+  openArticle,
+  totalAvailable,
+  loadedMonthCount,
+  totalMonthCount,
+  fetchingMore,
+  loadOlderMonths,
+  loadAllMonths,
+}) => {
   const [cat, setCat] = useState('');
   const [region, setRegion] = useState('');
   const [q, setQ] = useState('');
 
+  // When the user activates any filter or search, ensure the full archive
+  // is available so results are not silently truncated to "loaded months
+  // only". Browse-without-filter stays on the lazy 1-month default.
+  const filterActive = cat || region || q;
+  useEffect(() => {
+    if (filterActive && loadAllMonths) {
+      void loadAllMonths();
+    }
+  }, [filterActive, loadAllMonths]);
+
   const filtered = useMemo(() => {
-    return articles.filter(a => {
+    return articles.filter((a) => {
       if (cat && a.category !== cat) return false;
       if (region && a.region !== region) return false;
       if (q) {
@@ -99,12 +185,30 @@ export const CardsPage: React.FC<CardsPageProps> = ({ articles, loading, openArt
     });
   }, [articles, cat, region, q]);
 
+  const cols = useResponsiveCols();
+  const rows = useMemo(() => {
+    const out: Article[][] = [];
+    for (let i = 0; i < filtered.length; i += cols) {
+      out.push(filtered.slice(i, i + cols));
+    }
+    return out;
+  }, [filtered, cols]);
+
+  const listContainerRef = useRef<HTMLDivElement>(null);
+  const listHeight = useAvailableHeight(listContainerRef);
+  // MiniCard internal heights vary slightly with content; pick a generous
+  // pixel size that accommodates the longest natural layout without
+  // clipping. Sub-pixel-perfect packing is not worth the complexity here.
+  const rowHeight = 252;
+
   const active = cat || region || q;
+  const browsingFullArchive = loadedMonthCount === totalMonthCount;
+  const counterTotal = totalAvailable ?? articles.length;
 
   return (
-    <div className="flex-1 overflow-auto">
+    <div className="flex-1 overflow-hidden flex flex-col">
       {/* filter bar — sticky */}
-      <div className="sticky top-0 z-10 bg-white/80 dark:bg-slate-950/80 backdrop-blur border-b border-slate-200 dark:border-slate-900">
+      <div className="z-10 bg-white/80 dark:bg-slate-950/80 backdrop-blur border-b border-slate-200 dark:border-slate-900">
         <div className="px-4 md:px-6 py-3 flex flex-wrap items-center gap-2">
           <div className="flex-1 min-w-[200px] relative">
             <Icon name="search" className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -120,46 +224,81 @@ export const CardsPage: React.FC<CardsPageProps> = ({ articles, loading, openArt
             onChange={setCat}
             placeholder="全部分類"
             className="w-[150px]"
-            options={CATEGORIES.map(c => ({ value: c.id, label: c.zh }))}
+            options={CATEGORIES.map((c) => ({ value: c.id, label: c.zh }))}
           />
           <Select
             value={region}
             onChange={setRegion}
             placeholder="全部地區"
             className="w-[130px]"
-            options={REGIONS.map(r => ({ value: r, label: r }))}
+            options={REGIONS.map((r) => ({ value: r, label: r }))}
           />
           {active && (
             <Btn variant="ghost" size="md" onClick={() => { setCat(''); setRegion(''); setQ(''); }}>
               <Icon name="x" className="w-3.5 h-3.5" /> 清除篩選
             </Btn>
           )}
-          <div className="ml-auto text-[12px] text-slate-500 dark:text-slate-400">
-            共 <span className="font-mono font-semibold text-slate-700 dark:text-slate-200 tabular-nums">{filtered.length}</span> / {articles.length} 篇
+          <div className="ml-auto text-[12px] text-slate-500 dark:text-slate-400 flex items-center gap-2">
+            {fetchingMore && (
+              <span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400">
+                <Icon name="sparkle" className="w-3 h-3 animate-pulse" /> 載入更多月份…
+              </span>
+            )}
+            <span>
+              共{' '}
+              <span className="font-mono font-semibold text-slate-700 dark:text-slate-200 tabular-nums">
+                {filtered.length}
+              </span>
+              {' / '}{counterTotal} 篇
+              {!browsingFullArchive && loadedMonthCount !== undefined && totalMonthCount !== undefined && (
+                <span className="ml-1 text-slate-400">（已載入 {loadedMonthCount}/{totalMonthCount} 月）</span>
+              )}
+            </span>
           </div>
         </div>
 
         {/* active chips */}
         {active && (
           <div className="px-4 md:px-6 pb-3 flex flex-wrap gap-1.5">
-            {cat && (
-              <Chip onRemove={() => setCat('')}>
-                分類：{CATEGORIES.find(c => c.id === cat)?.zh}
-              </Chip>
-            )}
+            {cat && <Chip onRemove={() => setCat('')}>分類：{CATEGORIES.find((c) => c.id === cat)?.zh}</Chip>}
             {region && <Chip onRemove={() => setRegion('')}>地區：{region}</Chip>}
             {q && <Chip onRemove={() => setQ('')}>搜尋：「{q}」</Chip>}
           </div>
         )}
       </div>
 
-      {/* grid */}
-      <div className="px-4 md:px-6 py-6">
+      {/* virtualized rows */}
+      <div ref={listContainerRef} className="flex-1 pt-6">
         {loading && <div className="text-center py-12 text-slate-500">載入中…</div>}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-          {filtered.map(a => <MiniCard key={a.id} a={a} onOpen={openArticle} />)}
-          {filtered.length === 0 && <Empty title="找不到符合條件的卡片" sub="試著移除一些篩選條件，或換個關鍵字。" />}
-        </div>
+        {!loading && filtered.length === 0 && (
+          <div className="px-4 md:px-6">
+            <Empty title="找不到符合條件的卡片" sub="試著移除一些篩選條件，或換個關鍵字。" />
+          </div>
+        )}
+        {!loading && filtered.length > 0 && (
+          <List
+            rowCount={rows.length}
+            rowHeight={rowHeight}
+            rowComponent={CardsRow}
+            rowProps={{ rows, cols, openArticle }}
+            style={{ height: listHeight }}
+            overscanCount={2}
+            onRowsRendered={(visible) => {
+              // Prefetch the next month chunk once the user nears the bottom
+              // of the loaded set. Browsing without filters relies on this
+              // for "endless scroll" UX without forcing an upfront load.
+              if (
+                !active &&
+                loadOlderMonths &&
+                !browsingFullArchive &&
+                rows.length > 0 &&
+                visible.stopIndex >= rows.length - 5
+              ) {
+                void loadOlderMonths(1);
+              }
+            }}
+          />
+        )}
       </div>
     </div>
   );
