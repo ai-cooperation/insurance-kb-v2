@@ -41,6 +41,14 @@ import {
   listSessionFindings,
   startResearchSession,
 } from "./research-session";
+import {
+  confirmBiweeklyScope,
+  generateBiweeklyMarkdown,
+  reviseBiweeklySection,
+  startBiweeklyReport,
+  type BiweeklyDecisions,
+  type BiweeklySectionType,
+} from "./biweekly-session";
 import { createReport, notifyTelegramNewReport } from "./reports-store";
 
 interface Bindings {
@@ -362,6 +370,137 @@ const TOOLS = [
         topic_id: { type: "string", description: "確切的 topic id（從 list_topics 拿到，或從 start_research_session 的 existing_topic_match 拿到）" },
         topic_seed: { type: "string", description: "用戶提的主題口語（fuzzy 找相似既有主題）" },
       },
+    },
+  },
+
+  // ── Biweekly Report (Phase 4 — ephemeral draft, no upload) ───────
+  //
+  // Mini-flow distinct from start_research_session:
+  //   1. start_biweekly_report → 4-step grill (period/categories/region/cases)
+  //   2. confirm_biweekly_scope → server auto-fills sections 一/二 from
+  //      articles, drafts 3 observation cases with 3-section markdown each
+  //   3. revise_biweekly_section (optional, iterative) → LLM rewrites
+  //      one section of one case with the user's hint
+  //   4. generate_biweekly_markdown → assembled markdown + docx template
+  //      URL; chat converts to docx locally (python-docx in analysis tool)
+  //
+  // NO create_report, NO D1/R2/git/email. Pure ephemeral guidance.
+  // Session lives 24h then auto-cleans from KV.
+  {
+    name: "start_biweekly_report",
+    description:
+      "啟動雙週報 / 來個雙週報 / 幫我做這兩週的報告 / 產出雙週報 / 雙週報模式 / biweekly report / weekly news roundup。\n" +
+      "**Triggers**: 用戶說「幫我做雙週報」「產出這兩週的」「來個週報」「雙週報 #YYYYNN」「整理這兩週新聞」**不要直接 search 也不要直接寫**。\n" +
+      "**Don't use**: 用戶想做的是深度研究報告 (→ start_research_session)；用戶只是要看新聞 (→ list_articles)；用戶要產 monthly wiki (→ get_wiki)。\n" +
+      "回傳 4 步 grill 框架（期間/類別/區域/案例數），預設值已包好（最近 14 天 + 自動算期號 + 3 類 + 亞太優先 + 3 案例）。**Chat 一步一步問用戶**，列選項 + 推薦 + 等用戶選後才下一步。\n" +
+      "Session 存 KV TTL 24h。雙週報是 **ephemeral 模式** — 走完沒 create_report，server 只回 markdown，chat 端自行轉 docx。",
+    inputSchema: {
+      type: "object",
+      properties: {
+        topic_seed: {
+          type: "string",
+          description: "用戶口語觸發詞（『雙週報』『這兩週報告』之類）",
+        },
+      },
+      required: ["topic_seed"],
+    },
+  },
+  {
+    name: "confirm_biweekly_scope",
+    description:
+      "鎖定雙週報範圍 / 確認範圍 / 開始抓資料生草稿 / confirm biweekly scope。\n" +
+      "**Triggers**: start_biweekly_report 後用戶把 4 步答完了（期間 / 類別 / 區域 / 案例數）。\n" +
+      "**Don't use**: 用戶還沒答完 4 步；session 不是 biweekly 模式（→ confirm_scope）。\n" +
+      "Server 一次做完：(a) 從 manifest + 月份檔抓期間內文章 (b) LLM 排序選 section1 5 篇 + section2 3 篇 (c) 為前 N 個 dynamics 篇生 3 段觀察重點草稿（context/features/insight）。\n" +
+      "回傳：section1/2 清單 + N 案例草稿。Chat 把整包顯示給用戶 review。用戶確認 → generate_biweekly_markdown；用戶要改某段 → revise_biweekly_section。",
+    inputSchema: {
+      type: "object",
+      properties: {
+        session_id: { type: "string" },
+        decisions: {
+          type: "object",
+          properties: {
+            period_start: { type: "string", description: "YYYY-MM-DD（區間起）" },
+            period_end: { type: "string", description: "YYYY-MM-DD（區間迄，含）" },
+            issue_number: {
+              type: "string",
+              description: "期號 YYYYNN，例 202611。可從 start_biweekly_report 的 step1.defaults.issue_number 拿。",
+            },
+            categories: {
+              type: "array",
+              items: { type: "string" },
+              description:
+                "中文 category 白名單，例 ['產品創新', '監管動態', '市場趨勢']。" +
+                "step2=A 預設這 3 類；B 多加 ESG永續/科技應用/再保市場；C 全 9 類。",
+            },
+            region_focus: {
+              type: "string",
+              enum: ["asia_priority", "global_even", "specific"],
+              description: "step3 用戶選的區域偏重",
+            },
+            region_specific: {
+              type: "array",
+              items: { type: "string" },
+              description:
+                "step3=C 時用戶指定的區域，例 ['美國', '韓國', '台灣']。" +
+                "其他情況可不給或給 []。",
+            },
+            case_count: {
+              type: "number",
+              description: "step4 案例數（2-4），預設 3",
+            },
+          },
+          required: ["period_start", "period_end", "issue_number", "categories", "region_focus", "case_count"],
+        },
+      },
+      required: ["session_id", "decisions"],
+    },
+  },
+  {
+    name: "revise_biweekly_section",
+    description:
+      "改寫雙週報某案例某段 / 改某案例的啟示 / 換個說法 / 重寫推出背景 / refine biweekly section。\n" +
+      "**Triggers**: 用戶看完 confirm_biweekly_scope 回的 3 案例草稿後，對某段不滿意，說：『案例 N 的啟示重寫，重點放 X』『推出背景再寫深一點』『主要特色加上 Y』『換案例』。\n" +
+      "**Don't use**: 用戶要換整個案例（這版不支援換案例，請改 case_count 或 period 重做 confirm_biweekly_scope）；用戶要改 section1/2 表格內容（同上）。\n" +
+      "Server LLM 重生指定段，存回 session。回傳新版段落內容。可多次呼叫直到用戶滿意，再走 generate_biweekly_markdown。",
+    inputSchema: {
+      type: "object",
+      properties: {
+        session_id: { type: "string" },
+        case_name: {
+          type: "string",
+          description:
+            "案例名（從 confirm_biweekly_scope 回的 section3_cases[i].case_name 拿）。" +
+            "Mismatch 會 reject，server 回可選的案例名清單。",
+        },
+        section: {
+          type: "string",
+          enum: ["context", "features", "insight"],
+          description:
+            "要改的段：context=推出背景與市場意義 / features=主要產品特色 / insight=對台灣壽險業之啟示",
+        },
+        hint: {
+          type: "string",
+          description: "用戶要求的調整方向，越具體越好（例『重點放健保負擔對祖孫投保的拉力』）",
+        },
+      },
+      required: ["session_id", "case_name", "section", "hint"],
+    },
+  },
+  {
+    name: "generate_biweekly_markdown",
+    description:
+      "組裝雙週報最終 markdown / 給我成稿 / OK 組稿 / 完成雙週報 / 產出 docx / assemble biweekly。\n" +
+      "**Triggers**: 用戶看完所有草稿（含 revise 過的）說『OK 組稿』『完成』『產出 docx』。\n" +
+      "**Don't use**: session 還沒 confirm_biweekly_scope（會 reject）；session 不是 biweekly 模式。\n" +
+      "Server 按雙週報模板（reference/雙週報 #202604.docx）組裝：標題 + 副標 + 一 表格 + 二 表格 + 三 三案例 × 三段 + 參考資料。\n" +
+      "**回傳含 docx_template_url** — chat 用 analysis tool（python-docx）下載 template 填內容，給用戶 docx 下載。雙週報流程到此結束（**不**呼叫 create_report，不上架，不寫 D1/R2/git/email）。",
+    inputSchema: {
+      type: "object",
+      properties: {
+        session_id: { type: "string" },
+      },
+      required: ["session_id"],
     },
   },
 ];
@@ -1048,6 +1187,23 @@ async function dispatch(
             "- `single_source_overreliance` (warn) — 同 source ≥4 次",
             "- `uncited_quantitative_claim` (warn) — 段落含數字 / 年份 / % 但沒 [^N]",
             "",
+            "## 雙週報產出工作流（Phase 4，VIP 限定，ephemeral）",
+            "",
+            "用戶說「幫我做雙週報」「產出這兩週的」「來個週報」「整理這兩週新聞」「雙週報 #YYYYNN」時：",
+            "**不要走 research_session 路線**（那個會上架到 /reports）。雙週報是 ephemeral 模式 — server 引導蒐集，chat 端轉 docx 給用戶下載，**不上架**。",
+            "",
+            "流程：",
+            "1. **start_biweekly_report(topic_seed)** → server 回 4 步 grill（期間 / 類別 / 區域 / 案例數）含預設值",
+            "2. **grill-me-first**：一步一步問用戶，列選項 + 推薦 + 等用戶選後才下一步",
+            "3. **confirm_biweekly_scope(session_id, decisions)** → server 自動：(a) 從 manifest 抓期間文章 (b) LLM 排序選 section1 5 篇 + section2 3 篇 (c) 為前 N 個生 3 段觀察重點草稿",
+            "4. **chat 把整包列給用戶 review**：section1/2 清單 + 3 案例 × 3 段草稿（context/features/insight）",
+            "5. 用戶要改某段 → **revise_biweekly_section(session_id, case_name, section, hint)** → server LLM 重生那段",
+            "   - 可多次呼叫直到用戶滿意",
+            "6. 用戶說「OK 組稿」→ **generate_biweekly_markdown(session_id)** → server 回完整 markdown + docx_template_url",
+            "7. **chat 端用 analysis tool（python-docx）**：fetch docx_template_url 當 template，按 markdown 填入，輸出 docx 給用戶下載。**不要呼叫 create_report**（雙週報不上架）",
+            "",
+            "雙週報 session 24h 後 KV 自動清。歷史回看走重做流程。",
+            "",
             "## Web search 升級（v3 2026-05-06）",
             "",
             "web_search 後端優先用 Exa API（含 published_date），DDG 是 fallback。回應含 `retry_hints` 當結果稀疏（< 3）：",
@@ -1123,6 +1279,29 @@ async function dispatch(
           break;
         case "list_topic_progress":
           result = await handleListTopicProgress(env, args as any);
+          break;
+        // Phase 4 biweekly report (ephemeral, no upload)
+        case "start_biweekly_report":
+          result = await startBiweeklyReport(env.KV, user.uid, user.email, (args as any).topic_seed);
+          break;
+        case "confirm_biweekly_scope":
+          result = await confirmBiweeklyScope(
+            env.KV,
+            user.uid,
+            (args as any).session_id,
+            (args as any).decisions as BiweeklyDecisions,
+          );
+          break;
+        case "revise_biweekly_section":
+          result = await reviseBiweeklySection(env.KV, user.uid, {
+            session_id: (args as any).session_id,
+            case_name: (args as any).case_name,
+            section: (args as any).section as BiweeklySectionType,
+            hint: (args as any).hint,
+          });
+          break;
+        case "generate_biweekly_markdown":
+          result = await generateBiweeklyMarkdown(env.KV, user.uid, (args as any).session_id);
           break;
         default:
           throw new Error(`Unknown tool: ${params.name}`);

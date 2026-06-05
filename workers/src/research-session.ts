@@ -39,6 +39,46 @@ export interface ScopeDecisions {
   depth?: string;
 }
 
+/** Biweekly draft state — only populated when report_type === "biweekly". */
+export interface BiweeklyScope {
+  period_start: string;       // YYYY-MM-DD
+  period_end: string;         // YYYY-MM-DD
+  issue_number: string;       // e.g. "202611"
+  categories: string[];       // 中文 category names included
+  region_focus: "asia_priority" | "global_even" | "specific";
+  region_specific: string[];  // when region_focus === "specific"
+  case_count: number;         // 2 / 3 / 4
+}
+
+/** A picked entry from articles, with the source data the chat can quote. */
+export interface BiweeklyEntry {
+  uid: string;
+  title: string;
+  title_en?: string;
+  summary: string;
+  source: string;
+  source_url: string;
+  date: string;
+  category: string;
+  region: string;
+}
+
+/** Server-proposed observation case with three draft sections. */
+export interface BiweeklyCase {
+  case_name: string;
+  entry: BiweeklyEntry;
+  context: string;     // 推出背景與市場意義 (draft)
+  features: string;    // 主要產品特色      (draft)
+  insight: string;     // 對台灣壽險業之啟示 (draft)
+}
+
+export interface BiweeklyState {
+  scope: BiweeklyScope;
+  section1_dynamics: BiweeklyEntry[];   // 一、商品/服務動態 (5 entries typical)
+  section2_issues: BiweeklyEntry[];     // 二、保險業議題    (3 entries typical)
+  section3_cases: BiweeklyCase[];       // 三、觀察重點      (2-4 cases)
+}
+
 export interface SessionState {
   session_id: string;
   uid: string;
@@ -47,10 +87,14 @@ export interface SessionState {
   status: "created" | "scope_confirmed" | "drafting" | "finalized" | "abandoned";
   created_at: number;
   updated_at: number;
+  /** "research" (default, existing flow) or "biweekly" (Phase 4 ephemeral draft). */
+  report_type?: "research" | "biweekly";
   scope_decisions: ScopeDecisions | null;
   findings: Finding[];
   outline_md: string | null;
   finalized_report_id: string | null;
+  /** Populated only when report_type === "biweekly". */
+  biweekly_state?: BiweeklyState | null;
 }
 
 function sessionKey(uid: string, sessionId: string): string {
@@ -252,7 +296,7 @@ export async function startResearchSession(
         options: [
           { id: "A", label: "雙週報短版（~5 頁，重點摘要）" },
           { id: "B", label: "月報中版（~15 頁，含案例與圖表）" },
-          { id: "C", label: "完整研究（30+ 頁，含完整方法論）" },
+          { id: "C", label: "完整研究（30+ 頁，含完整方法論、≥ 5 個 cross-company/market comparison tables）" },
         ],
         recommended: "B",
         rationale: "中版深度足以做設計決策，又不會花過多時間",
