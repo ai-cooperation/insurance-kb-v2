@@ -168,22 +168,35 @@ const TOOLS = [
     },
   },
 
-  // ── Web (external proxied search) ──────────────────────────────
+  // ── Web (search + fetch, enum-dispatched) ──────────────────────
+  // Merged web_search + web_fetch into one tool with a `mode` enum. Social
+  // best-practice: 2 overlapping tools → 1 dispatcher + enum (the only
+  // schema-level hard constraint that forces Claude to commit). Legacy
+  // web_search / web_fetch names still accepted in dispatch for old sessions.
   {
-    name: "web_search",
+    name: "web",
     description:
-      "外部網路搜尋 / 上網查 / google 一下 / 找網路上有什麼說 / web search / google / external search。\n" +
-      "**Triggers**: KB 內找不到某主題（search_articles 0 hits 或太少）；用戶要監管公告/公司官網/國際趨勢/同業評論等 KB 沒爬的東西；想驗證某數據是否有外部 source。\n" +
-      "**Don't use**: 找的內容是保險業新聞 → 先 search_articles（KB 已爬全亞洲主流媒體）；找某個既有報告 → list_reports；想看某月趨勢 → get_wiki。Web search 是兜底用，不該是第一選擇。\n" +
-      "**後端 (v3 2026-05-06)**: 優先 Exa API（含 published_date — 直接帶進 add_finding source_date 比 chat 自己猜準），DDG scrape 是 fallback。回傳 [{title, url, snippet, text, published_date, backend}]。snippet 是 Exa highlights（query-相關段落，非頁首 boilerplate）；**要實際數據/數字時讀 `text` 欄（≤4000 字內文）不要只看 snippet**。\n" +
-      "**Sparse response handling**: 結果 < 3 時 response 加 `retry_hints` 陣列。**chat 看到 retry_hints 應主動再 search 一輪**（換英文 / 加擴展詞 / 找監管原文），不要只回「沒找到」就放棄。",
+      "外部網路：找資料或讀網頁。**mode 必選（enum，逼你表態要 search 還是 fetch）**。\n" +
+      "**mode=search** — 用關鍵字找 URL（Exa API，回多筆 {title,url,snippet,published_date}）。用於 KB 找不到的監管公告/官網/國際趨勢/驗證數據。結果 <3 筆回 retry_hints → 主動再 search 一輪。\n" +
+      "**mode=fetch** — 讀一個**已知 URL** 的全文/數據。**要官方數字、實際數據時必須 fetch，不可只憑 search 的摘要回答**。標準流程：先 mode=search 找官方 source URL → 再 mode=fetch 讀它。\n" +
+      "  · HTML/JSON → 純文字全文（≤12000 字）\n" +
+      "  · 文字型 PDF / Excel(.xls/.xlsx) / CSV / docx → 自動轉 markdown 表格（小/單表檔有效，可直接讀數字）\n" +
+      "  · 圖層 PDF（健保署等 Excel 匯出統計 PDF）、>1.5MB 大檔、ZIP → 回 content:null+note，走 Claude Code 分工，**絕不憑 URL 編造數字**\n" +
+      "  · 部分官網(nhi.gov.tw)擋抓取回 403\n" +
+      "**不該用 web**：保險業新聞先 search_articles；既有報告 list_reports；某月趨勢 get_wiki。",
     inputSchema: {
       type: "object",
       properties: {
-        query: { type: "string", description: "查詢關鍵字" },
-        limit: { type: "number", description: "最多回幾筆（預設 8，上限 20）" },
+        mode: {
+          type: "string",
+          enum: ["search", "fetch"],
+          description: "search=用關鍵字找 URL；fetch=讀已知 URL 全文/數據（要官方數字時用這個）",
+        },
+        query: { type: "string", description: "mode=search 時的查詢關鍵字" },
+        url: { type: "string", description: "mode=fetch 時的目標 URL（http/https）" },
+        limit: { type: "number", description: "mode=search 最多回幾筆（預設 8，上限 20）" },
       },
-      required: ["query"],
+      required: ["mode"],
     },
   },
 
@@ -214,7 +227,7 @@ const TOOLS = [
       "鎖定研究範圍 / 範圍定了 / 開始查資料 / 確認範圍 / confirm scope / lock scope / proceed with research。\n" +
       "**Triggers**: start_research_session 後用戶把 5 步全選完了（scope/region/timeframe/audience/depth 都有答）。\n" +
       "**Don't use**: 用戶還沒選完 5 步就呼叫 → server 會接受但 plan 會偏；再叫一次同 session_id 不會 reset 範圍（要新 session 重來）。\n" +
-      "Server 回 research plan todo（要查哪些 source / 用哪些 tool / 預估 finding 數量），chat 照 todo 開始 search_articles / list_reports / get_wiki / web_search 蒐集證據。",
+      "Server 回 research plan todo（要查哪些 source / 用哪些 tool / 預估 finding 數量），chat 照 todo 開始 search_articles / list_reports / get_wiki / web(mode=search) 蒐集；找到官方 source URL 後要讀全文/取數字就 web(mode=fetch)。",
     inputSchema: {
       type: "object",
       properties: {
@@ -733,6 +746,152 @@ async function handleWebSearch(env: Bindings, args: { query: string; limit?: num
   };
 }
 
+/** Strip HTML to readable text — removes script/style, decodes basic entities. */
+function htmlToText(html: string): string {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<!--[\s\S]*?-->/g, " ")
+    .replace(/<\/(p|div|li|tr|h[1-6]|section|article)>/gi, "\n")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/[ \t]+/g, " ")
+    .replace(/ ?\n ?/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+/**
+ * web_fetch — fetch one URL and return readable content.
+ *
+ * HTML → stripped text, JSON/text → raw. PDF/Excel/ZIP/binary are NOT parsed
+ * (Workers has no pdftotext / can't解析大型 .xls) — returns content:null + a
+ * note telling chat to use the Claude-Code-built dataset instead, so chat
+ * never silently gets nothing (or worse, hallucinates) on government PDFs.
+ */
+async function handleWebFetch(env: Bindings, args: { url: string }) {
+  const raw = (args.url || "").trim();
+  let u: URL;
+  try {
+    u = new URL(raw);
+  } catch {
+    return { url: raw, ok: false, error: "URL 格式錯誤（需含 http:// 或 https://）" };
+  }
+  if (u.protocol !== "http:" && u.protocol !== "https:") {
+    return { url: raw, ok: false, error: "只支援 http/https" };
+  }
+  // SSRF guard — block private / loopback hosts
+  const host = u.hostname.toLowerCase();
+  if (
+    host === "localhost" || host === "0.0.0.0" || host.endsWith(".internal") ||
+    /^127\./.test(host) || /^10\./.test(host) || /^192\.168\./.test(host) ||
+    /^169\.254\./.test(host) || /^172\.(1[6-9]|2\d|3[01])\./.test(host)
+  ) {
+    return { url: raw, ok: false, error: "不允許抓取內網 / loopback 位址" };
+  }
+
+  let resp: Response;
+  try {
+    resp = await fetch(u.toString(), {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; InsuranceKB-MCP/1.0; +research)",
+        "Accept": "text/html,application/json,text/plain,*/*",
+      },
+      redirect: "follow",
+      signal: AbortSignal.timeout(12000),
+    });
+  } catch (e: any) {
+    return { url: raw, ok: false, error: `抓取失敗：${String(e?.message || e)}（逾時 12s 或連線錯誤）` };
+  }
+
+  if (!resp.ok) {
+    const hint = resp.status === 403
+      ? "（該站擋自動抓取；改用 web_search 摘要，或核心數據改走 Claude Code 資料底盤）"
+      : "";
+    return { url: raw, ok: false, status: resp.status, error: `HTTP ${resp.status}${hint}` };
+  }
+
+  const ct = (resp.headers.get("content-type") || "").toLowerCase();
+
+  // ZIP — server doesn't unzip
+  if (ct.includes("application/zip") || /\.zip$/i.test(u.pathname)) {
+    return {
+      url: raw, ok: false, content_type: ct, content: null,
+      note: "這是 ZIP（如年報壓縮包），server 不解壓。請走 Claude Code 分工 curl + 解壓 + 解析。",
+    };
+  }
+
+  // Documents toMarkdown can parse: text-layer PDF, Excel, CSV, docx
+  const isDoc =
+    ct.includes("application/pdf") || ct.includes("spreadsheet") || ct.includes("ms-excel") ||
+    ct.includes("officedocument") || ct.includes("msword") || ct.includes("csv") ||
+    /\.(pdf|xls|xlsx|csv|docx)$/i.test(u.pathname);
+
+  if (isDoc) {
+    const buf = await resp.arrayBuffer();
+    // Big multi-sheet Excel blows up tokens (measured: 2.6MB .xls → 1.6M tokens)
+    if (buf.byteLength > 1_500_000) {
+      return {
+        url: raw, ok: false, content_type: ct, content: null, size_bytes: buf.byteLength,
+        note: "文件 > 1.5MB（如多 sheet 大年報），toMarkdown 會產出超量 token，超過對話可容納範圍，請走 Claude Code 分工。",
+      };
+    }
+    try {
+      const name = (u.pathname.split("/").pop() || "doc").split("?")[0];
+      const md = await (env as any).AI.toMarkdown([
+        { name, blob: new Blob([buf], { type: ct || "application/octet-stream" }) },
+      ]);
+      const data: string = md?.[0]?.data || "";
+      // Scanned / Excel-exported image-layer PDF → only metadata + empty pages
+      const afterContents = data.split("## Contents")[1] ?? data;
+      if (afterContents.replace(/[\s#\-|_]/g, "").length < 60) {
+        return {
+          url: raw, ok: false, content_type: ct, content: null,
+          note: "這份文件抽不到文字（多半是掃描檔或 Excel 匯出的圖層 PDF，如健保署統計 PDF）。要裡面的數據請走 Claude Code 分工 pdftotext，**不要憑空編造數字**。",
+        };
+      }
+      const MAXD = 40000;
+      const truncated = data.length > MAXD;
+      return {
+        url: raw, ok: true, content_type: ct, format: "markdown",
+        content: data.slice(0, MAXD), truncated,
+        note: truncated
+          ? `文件較大，markdown 已截斷至 ${MAXD} 字；若要的表格在後段，換更精確來源或走分工`
+          : undefined,
+      };
+    } catch (e: any) {
+      return { url: raw, ok: false, content_type: ct, content: null, note: `toMarkdown 解析失敗：${String(e?.message || e)}，請走 Claude Code 分工。` };
+    }
+  }
+
+  const MAX = 12000;
+  let text = "";
+  try {
+    const body = await resp.text();
+    text = ct.includes("text/html") ? htmlToText(body) : body;
+  } catch (e: any) {
+    return { url: raw, ok: false, error: `讀取內容失敗：${String(e?.message || e)}` };
+  }
+
+  const truncated = text.length > MAX;
+  return {
+    url: raw,
+    ok: true,
+    content_type: ct,
+    content: text.slice(0, MAX),
+    truncated,
+    note: truncated
+      ? `內容已截斷至 ${MAX} 字；需更後段請換更精確的 URL / anchor，或就此段已含的數據 add_finding`
+      : undefined,
+  };
+}
+
 // ─── Phase 4 research session handlers ───────────────────────────
 
 /** Phrases that mean "biweekly / weekly periodic report" — never a research topic. */
@@ -1240,7 +1399,8 @@ async function dispatch(
             "- 「以前研究過 X」「找之前報告」「KB 上有什麼」 → list_reports → get_report",
             "- 「主題分類」「研究系列」「列所有主題」 → list_topics",
             "- 「某主題進度如何」「還缺哪幾份」「下一個做哪個」 → list_topic_progress",
-            "- 「網路上怎麼說」「監管公告」「公司官網」（KB 沒爬的）→ web_search",
+            "- 「網路上怎麼說」「監管公告」「公司官網」（KB 沒爬的）→ web_search（找 URL）",
+            "- **已有具體 URL，或要官方數字**，要讀全文而非只看摘要 → web(mode=fetch, url=...)。流程：web(search) 找官方 source → web(fetch) 讀全文/PDF/Excel 取數字 → add_finding。**要官方數據務必 fetch，不可只憑 search 摘要回答**。fetch 對文字PDF/小Excel自動轉markdown；圖層統計PDF(健保署)/大檔/ZIP 回 note 走分工，不憑 URL 編造數字。",
             "",
             "找不到 → 誠實說「KB 沒這條紀錄」。**「我訓練資料記得 X」絕對不算合法來源**。",
             "",
@@ -1259,7 +1419,7 @@ async function dispatch(
             "   - 等用戶答完才下一步",
             "   - 用戶說「你決定」也**不要自己決定**，要再問「這影響蒐集方向，請選」",
             "3. **confirm_scope(session_id, decisions)** → server 回 research plan todo",
-            "4. 照 todo 用 list_reports / get_report / search_articles / get_wiki / web_search 蒐集",
+            "4. 照 todo 用 list_reports / get_report / search_articles / get_wiki / web(search) 蒐集；找到官方 source URL 後要讀全文/取數字就 web(fetch)（文字PDF/小Excel自動轉markdown，圖層統計PDF/大檔走分工）",
             "5. **每段證據 add_finding**（source_url 必填，server 會 reject 空 URL）",
             "   - 量化數字 / 競品名 / 公司動態 / 新聞事件 → 都必須對應一個 finding",
             "   - article 引用 → source_url=article.url",
@@ -1363,8 +1523,19 @@ async function dispatch(
         case "get_wiki":
           result = await handleGetWiki(args as any);
           break;
+        case "web": {
+          const a = args as any;
+          result = a.mode === "fetch"
+            ? await handleWebFetch(env, a)
+            : await handleWebSearch(env, a);
+          break;
+        }
+        // legacy aliases — old sessions may still call these directly
         case "web_search":
           result = await handleWebSearch(env, args as any);
+          break;
+        case "web_fetch":
+          result = await handleWebFetch(env, args as any);
           break;
         // Phase 4 research session
         case "start_research_session":
