@@ -9,6 +9,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Icon } from '../components/Icon';
+import { McpConnectorGuide } from '../components/McpConnectorGuide';
 
 interface McpSetupProps {
   readonly apiFetch: (path: string, init?: RequestInit) => Promise<Response>;
@@ -38,8 +39,8 @@ function formatExpiry(unixSec: number): string {
 
 const RECOMMENDED_PROFILE = `Insurance KB（保險業界知識庫 + 研究報告產出）
 - 透過 MCP 連線老師整理的保險新聞、月度蒸餾、研究報告
-- 工具：list_articles / search_articles / list_reports / get_report / get_wiki / web_search
-- 研究產出：start_research_session / confirm_scope / add_finding / list_findings / generate_outline / finalize_report
+- 工具：list_articles / search_articles / list_reports / get_report / get_wiki / web（mode=search 找URL；mode=fetch 讀全文/PDF/Excel）
+- 研究產出：start_research_session / confirm_scope / add_finding / list_findings / generate_outline / create_report
 - 個人筆記區（如未來開放）
 
 被問保險業界內容先查
@@ -49,15 +50,15 @@ const RECOMMENDED_PROFILE = `Insurance KB（保險業界知識庫 + 研究報告
 研究報告產出工作流
 - 用戶說「我想做 X 主題研究」→ 呼叫 start_research_session 拿 5 步 todo
 - **一步步引導用戶選範圍 (grill-mode：列選項+推薦+等用戶選)**，不要自己決定
-- confirm_scope 後照 server 回的 todo 用 search_articles / list_reports / web_search 蒐集
+- confirm_scope 後照 server 回的 todo 用 search_articles / list_reports / web（mode=search）蒐集；找到官方 URL 要讀全文/取數字就 web（mode=fetch）
 - **每段證據呼叫 add_finding (source_url 必填，不能瞎掰)**
 - 8-15 個 findings 後 generate_outline 跟用戶討論
-- 用戶確認後寫 markdown (用 [^1] [^2] 引用 findings) → finalize_report 上架
+- 用戶確認後寫 markdown (用 [^1] [^2] 引用 findings) → create_report 上架
 
 風格
 - 簡潔，不拍馬屁，不延伸給未被要求的建議
 - 每個量化數字 / 競品名 / 公司動態 / 新聞事件**必須**對應一個 add_finding (source_url 必填)
-- 「我訓練資料記得 X」不算合法來源，先 search_articles 或 web_search 找實際出處`;
+- 「我訓練資料記得 X」不算合法來源，先 search_articles 或 web（mode=search）找實際出處`;
 
 export const McpSetupPage: React.FC<McpSetupProps> = ({ apiFetch, hasFeature }) => {
   const canUseMcp = hasFeature('use_mcp');
@@ -299,6 +300,12 @@ export const McpSetupPage: React.FC<McpSetupProps> = ({ apiFetch, hasFeature }) 
             驗證：新開一個 chat 問「最近台灣壽險業有什麼大事」— AI 第一個動作應該是 search_articles 或 list_articles 而不是憑記憶答。
           </p>
         </section>
+
+        <McpConnectorGuide
+          connectorUrl={justIssued?.connector_url}
+          token={justIssued?.token}
+          baseUrl={justIssued?.base_url}
+        />
       </div>
     </div>
   );
