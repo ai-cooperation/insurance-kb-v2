@@ -49,13 +49,14 @@ import {
   type BiweeklyDecisions,
   type BiweeklySectionType,
 } from "./biweekly-session";
-import { createReport, notifyTelegramNewReport } from "./reports-store";
+import { createReport, updateReport, notifyTelegramNewReport } from "./reports-store";
 
 interface Bindings {
   KV: KVNamespace;
   REPORTS_DB: D1Database;
   REPORTS_BUCKET: R2Bucket;
   CORS_ORIGIN: string;
+  ADMIN_EMAIL: string;        // wrangler.toml [vars] — admin override for update_report etc.
   HUB_PROJECT_ID: string;
   KB_PROJECT_ID: string;
   TG_BOT_TOKEN?: string;
@@ -354,6 +355,29 @@ const TOOLS = [
         },
       },
       required: ["session_id", "title", "markdown"],
+    },
+  },
+
+  {
+    name: "update_report",
+    description:
+      "修改 / 更新 / 改寫已上架的研究報告 / 補內容 / 修正錯字 / 出修訂版 / update report / edit published report / revise report。\n" +
+      "**Triggers**: 報告已 create_report 上架後，用戶說「改一下這份報告」「補一段」「修正某數字」「更新內容」「這份要改」。\n" +
+      "**為什麼存在**: research session 是一次性的（create_report 一成功就 finalize 鎖定）。報告上架後想改，**不要開新 session 重做**（會產生重複孤兒報告）→ 用 update_report 就地覆寫同一份（同 id、同 URL）。\n" +
+      "**用法**: 先 list_reports / get_report 拿 report_id 跟現有 markdown → 改好**完整** markdown → update_report(report_id, markdown)。partial patch：只傳要改的欄位（markdown / title / tags / summary），沒傳的不動。\n" +
+      "**權限**: 要 create_report feature（VIP）。只能改自己產的報告（author 比對），admin 例外可改任何人的。\n" +
+      "**Quality gate**: 傳 markdown 時跑 body_too_thin（不可改成空殼）+ footnote 自洽檢查（內文 [^N] 必須有對應的 [^N]: 定義行）。無 session findings，溯源靠 markdown 自身的 footnote 定義。\n" +
+      "**Server 行為**: 覆寫 R2 markdown（同 path）+ D1 metadata（updated_at）+ git snapshot 留底舊版。URL 不變，讀者永遠看到最新版。",
+    inputSchema: {
+      type: "object",
+      properties: {
+        report_id: { type: "string", description: "要更新的報告 id（rpt_xxx），先用 list_reports 找" },
+        markdown: { type: "string", description: "新的完整 markdown（整份覆寫舊的；內文 [^N] 要有對應的 [^N]: 定義行）" },
+        title: { type: "string", description: "改標題（不改就不傳）" },
+        tags: { type: "array", items: { type: "string" }, description: "改標籤（整份覆寫）" },
+        summary: { type: "string", description: "改短摘要（list 顯示用）" },
+      },
+      required: ["report_id"],
     },
   },
 
@@ -1170,7 +1194,18 @@ async function handleFinalizeReport(
     throw new Error("create_report feature required (VIP only)");
   }
   const session = await getSession(env.KV, user.uid, args.session_id);
-  if (!session) throw new Error(`session ${args.session_id} 不存在或已過期`);
+  if (!session)
+    throw new Error(
+      `session ${args.session_id} 不存在或已過期（session 只保留 48h）。要產報告請開新 session：start_research_session 重做。`,
+    );
+  if (session.status === "finalized") {
+    throw new Error(
+      `session 已 finalize（報告 ${session.finalized_report_id} 已於先前定稿上架）。` +
+        `一個 research session 只能產一份報告，create_report 一成功就鎖定關閉。` +
+        `不要對已關閉的 session 重複 create_report（會產生重複孤兒報告）。` +
+        `要改這份報告或產下一份，請呼叫 start_research_session 開新 session。`,
+    );
+  }
   if (session.findings.length === 0) {
     throw new Error("session 沒有任何 findings — 至少要加 1 個再上架");
   }
@@ -1252,7 +1287,103 @@ async function handleFinalizeReport(
   const publicUrl = `${env.CORS_ORIGIN}/reports/${meta.id}`;
   await notifyTelegramNewReport(env, meta, publicUrl);
 
-  return { meta, url: publicUrl, finding_count: session.findings.length };
+  return {
+    meta,
+    url: publicUrl,
+    finding_count: session.findings.length,
+    session_closed: true,
+    note:
+      `報告已定稿並上架（${publicUrl}）。此 research session 已關閉鎖定，` +
+      `不能再 add_finding，也不要對它重複 create_report。` +
+      `要修改這份報告或產下一份，請呼叫 start_research_session 開新 session。`,
+  };
+}
+
+async function handleUpdateReport(
+  env: Bindings,
+  user: FirebaseUser,
+  args: any,
+) {
+  if (!hasFeatures(user.features, ["create_report"])) {
+    throw new Error("update_report feature required (VIP only)");
+  }
+  if (!args.report_id) throw new Error("report_id 必填");
+  const existing = await getReportMeta(env.REPORTS_DB, args.report_id);
+  if (!existing) throw new Error(`report ${args.report_id} 不存在`);
+
+  // Ownership: author or admin only.
+  const isAdmin = !!user.email && user.email === env.ADMIN_EMAIL;
+  if (existing.author_uid !== user.uid && !isAdmin) {
+    throw new Error(
+      `只能更新自己產的報告。${args.report_id} 的作者不是你，你也不是 admin。`,
+    );
+  }
+
+  if (
+    args.markdown === undefined &&
+    args.title === undefined &&
+    args.tags === undefined &&
+    args.summary === undefined
+  ) {
+    throw new Error(
+      "update_report 至少要提供 markdown / title / tags / summary 其中一項",
+    );
+  }
+
+  // Quality gate — only when markdown changes. No session findings here, so
+  // derive pseudo-findings from the markdown's own [^N]: definition lines →
+  // footnote_orphan becomes a self-consistency check (every [^N] ref has a
+  // matching [^N]: def). body_too_thin runs as usual (anti reduce-to-pass).
+  if (args.markdown !== undefined) {
+    const defIds = [...args.markdown.matchAll(/\[\^(\d+)\]:/g)].map((m: any) =>
+      parseInt(m[1]),
+    );
+    const pseudoFindings = [...new Set(defIds)].map((id) => ({
+      id: id as number,
+      source_url: "self",
+    }));
+    const blocking = checkReportQuality(args.markdown, pseudoFindings).filter(
+      (i) => i.severity === "block",
+    );
+    if (blocking.length > 0) {
+      throw new Error(
+        "QUALITY_GATE: " +
+          JSON.stringify({
+            error: "Quality gate failed — fix markdown before retry",
+            blocking: true,
+            issues: blocking,
+            how_to_proceed:
+              "update_report 的 block 級必須修 markdown：body 太薄 → 擴寫；footnote_orphan → 內文 [^N] 要有對應的 [^N]: 定義行（update 無 session，溯源靠 markdown 自身 footnote 定義）。",
+          }),
+      );
+    }
+  }
+
+  const meta = await updateReport(
+    env.REPORTS_DB,
+    env.REPORTS_BUCKET,
+    args.report_id,
+    user.uid,
+    {
+      markdown: args.markdown,
+      title: args.title,
+      tags: args.tags,
+      summary: args.summary,
+      actor_email: user.email,
+    },
+    {
+      REPORTS_REPO: env.REPORTS_REPO,
+      REPORTS_GITHUB_PAT: env.REPORTS_GITHUB_PAT,
+    },
+  );
+
+  const publicUrl = `${env.CORS_ORIGIN}/reports/${meta.id}`;
+  return {
+    meta,
+    url: publicUrl,
+    updated: true,
+    note: `報告已就地更新（同 URL ${publicUrl}），git snapshot 已留底舊版。讀者看到的即最新版。`,
+  };
 }
 
 async function handleListTopicsTool(env: Bindings) {
@@ -1431,6 +1562,8 @@ async function dispatch(
             "8. **create_report**（先 list_topics，找到合適主題用同 topic_id；新主題給 topic_id slug + topic_title 自動建）",
             "   - sort_order=0 表這是主題的主報告；10/20 表章節依序",
             "   - server 自動把 findings 整成「## 參考資料」附報告末尾，內文用 [^N] 引用",
+            "   - **create_report 一成功 = session 鎖定關閉**（單向，不能再 add_finding / 重複 create_report，否則撞「已 finalize」）",
+            "9. **報告上架後要改 → update_report(report_id, markdown)**，不要開新 session 重做（會產生重複孤兒報告）。就地覆寫同一份（同 URL），git 自動留底舊版。先 get_report 拿現有 markdown 改好再傳完整版。",
             "",
             "## Quality gate（create_report 寫入前 5 種品質檢查）",
             "",
@@ -1557,6 +1690,9 @@ async function dispatch(
         case "finalize_report":  // legacy alias — keep accepting old name in case
                                  // any cached profile/skill still uses it
           result = await handleFinalizeReport(env, user, args as any);
+          break;
+        case "update_report":
+          result = await handleUpdateReport(env, user, args as any);
           break;
         case "list_topics":
           result = await handleListTopicsTool(env);

@@ -208,6 +208,92 @@ export async function createReport(
   return meta;
 }
 
+/**
+ * Update an already-published report in place (same id / same URL).
+ *
+ * Tier 3 (2026-06-11): VIP kept hitting "session 已 finalize / 過期" because the
+ * research session is one-shot — once create_report finalizes, there was no way
+ * to edit the report short of opening a fresh session (→ orphan duplicates, see
+ * ring-buffer analysis). This OVERWRITES R2 markdown + D1 metadata on the SAME
+ * id: URL stays stable, readers always see the latest, and the git snapshot
+ * keeps prior versions in history. Ownership (author or admin) is enforced by
+ * the MCP handler, not here. Partial patch — only provided fields change.
+ */
+export async function updateReport(
+  db: D1Database,
+  bucket: R2Bucket,
+  id: string,
+  actor_uid: string,
+  patch: {
+    markdown?: string;
+    title?: string;
+    tags?: string[];
+    summary?: string;
+    actor_email?: string;
+  },
+  gitEnv?: GitSnapshotEnv,
+): Promise<ReportMeta> {
+  const existing = await getReportMeta(db, id);
+  if (!existing) throw new Error(`report ${id} 不存在，無法 update`);
+
+  const now = Math.floor(Date.now() / 1000);
+  let word_count = existing.word_count;
+
+  // R2 first (same path) — only when markdown actually changes.
+  if (patch.markdown !== undefined) {
+    word_count = countWords(patch.markdown);
+    await bucket.put(existing.r2_path, patch.markdown, {
+      httpMetadata: { contentType: "text/markdown; charset=utf-8" },
+      customMetadata: {
+        author_uid: existing.author_uid,
+        created_at: String(existing.created_at),
+        updated_at: String(now),
+      },
+    });
+  }
+
+  // D1 — dynamic partial update; only touch provided fields.
+  const sets: string[] = ["updated_at = ?"];
+  const params: unknown[] = [now];
+  if (patch.title !== undefined) { sets.push("title = ?"); params.push(patch.title); }
+  if (patch.tags !== undefined) { sets.push("tags = ?"); params.push(JSON.stringify(patch.tags)); }
+  if (patch.summary !== undefined) { sets.push("summary = ?"); params.push(patch.summary); }
+  if (patch.markdown !== undefined) { sets.push("word_count = ?"); params.push(word_count); }
+  params.push(id);
+  await db
+    .prepare(`UPDATE reports SET ${sets.join(", ")} WHERE id = ?`)
+    .bind(...params)
+    .run();
+
+  await db
+    .prepare(
+      `INSERT INTO reports_audit (report_id, action, actor_uid, actor_email, diff_summary, created_at)
+       VALUES (?, 'update', ?, ?, ?, ?)`,
+    )
+    .bind(id, actor_uid, patch.actor_email ?? null, `updated (${word_count} chars)`, now)
+    .run();
+
+  const meta = await getReportMeta(db, id);
+  if (!meta) throw new Error("Report disappeared after update");
+
+  // Git snapshot (best-effort) — overwrites the same path, prior version stays
+  // in git history. Only when markdown changed.
+  if (gitEnv && patch.markdown !== undefined) {
+    try {
+      await snapshotReportToGit(gitEnv, {
+        id,
+        title: patch.title ?? existing.title,
+        markdown: patch.markdown,
+        createdAt: now,
+      });
+    } catch (err) {
+      console.error(`[snapshot] update uncaught: ${(err as Error).message}`);
+    }
+  }
+
+  return meta;
+}
+
 export async function getReportMeta(
   db: D1Database,
   id: string,

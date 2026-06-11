@@ -1,18 +1,20 @@
 /**
  * Research Session — KV-backed state machine for grill-mode style report drafting.
  *
- * Storage: KV with TTL = 24 hours. Keys:
+ * Storage: KV with TTL = 48 hours. Keys:
  *   research_session:{uid}:{session_id}       → SessionState JSON
  *   research_session:{uid}:index              → Array<{session_id, title, status, updated}>
  *
  * State transitions:
  *   created → scope_confirmed → drafting → finalized | abandoned
  *
- * 24h TTL means abandoned sessions auto-clean. User can run `start_research_session`
- * again any time. We do NOT persist beyond 24h to keep KV small.
+ * 48h TTL means abandoned sessions auto-clean. User can run `start_research_session`
+ * again any time. We do NOT persist beyond 48h to keep KV small. (Was 24h; bumped
+ * to 48h 2026-06-11 because cross-day research grills kept expiring overnight —
+ * see ring-buffer analysis of repeated "session 過期" errors.)
  */
 
-const SESSION_TTL_SECONDS = 24 * 3600;
+const SESSION_TTL_SECONDS = 48 * 3600;
 const MAX_FINDINGS_PER_SESSION = 100;
 
 export interface Finding {
@@ -313,7 +315,7 @@ export async function confirmSessionScope(
   decisions: ScopeDecisions,
 ) {
   const state = await getSession(kv, uid, session_id);
-  if (!state) throw new Error(`session ${session_id} 不存在或已過期 (TTL 24h)`);
+  if (!state) throw new Error(`session ${session_id} 不存在或已過期（session 只保留 48h）。常見原因：grill 到一半隔太久才回來，或這份已產報告後又來操作。要繼續請開新 session：呼叫 start_research_session 重做（舊 findings 無法復原）。`);
   state.scope_decisions = decisions;
   state.status = "scope_confirmed";
   await writeSession(kv, state);
@@ -375,9 +377,13 @@ export async function addFindingToSession(
   },
 ) {
   const state = await getSession(kv, uid, args.session_id);
-  if (!state) throw new Error(`session ${args.session_id} 不存在或已過期 (TTL 24h)`);
+  if (!state) throw new Error(`session ${args.session_id} 不存在或已過期（session 只保留 48h）。常見原因：grill 到一半隔太久才回來，或這份已產報告後又來操作。要繼續請開新 session：呼叫 start_research_session 重做（舊 findings 無法復原）。`);
   if (state.status === "finalized") {
-    throw new Error("session 已 finalize，無法再加 finding");
+    throw new Error(
+      `session 已 finalize（報告 ${state.finalized_report_id} 已定稿上架），不能再加 finding。` +
+        `研究 session 是一次性的：create_report 一成功就鎖定關閉。要補資料 / 改內容，` +
+        `請呼叫 start_research_session 開新 session 重做，不要對這個已關閉的 session 繼續操作。`,
+    );
   }
 
   // Source URL enforcement (server-side, not just MCP schema)
@@ -420,7 +426,7 @@ export async function listSessionFindings(
   session_id: string,
 ) {
   const state = await getSession(kv, uid, session_id);
-  if (!state) throw new Error(`session ${session_id} 不存在或已過期 (TTL 24h)`);
+  if (!state) throw new Error(`session ${session_id} 不存在或已過期（session 只保留 48h）。常見原因：grill 到一半隔太久才回來，或這份已產報告後又來操作。要繼續請開新 session：呼叫 start_research_session 重做（舊 findings 無法復原）。`);
   const byType: Record<string, number> = {};
   for (const f of state.findings) {
     byType[f.type] = (byType[f.type] || 0) + 1;
@@ -440,7 +446,7 @@ export async function generateSessionOutline(
   session_id: string,
 ) {
   const state = await getSession(kv, uid, session_id);
-  if (!state) throw new Error(`session ${session_id} 不存在或已過期 (TTL 24h)`);
+  if (!state) throw new Error(`session ${session_id} 不存在或已過期（session 只保留 48h）。常見原因：grill 到一半隔太久才回來，或這份已產報告後又來操作。要繼續請開新 session：呼叫 start_research_session 重做（舊 findings 無法復原）。`);
   if (state.findings.length < 3) {
     throw new Error(
       `findings 太少（${state.findings.length}）— 至少需要 3 個才能生大綱。建議先 search_articles + add_finding`,
