@@ -1,10 +1,18 @@
 /**
  * Keyword search over article index stored in KV.
- * Scoring: title match x3, category match x2, summary match x1.
+ * Scoring: title match x3, original-title (title_en) match x3,
+ * category match x2, summary match x1.
+ *
+ * title_en carries the untranslated original headline (Korean/Japanese/
+ * English). Indexing it lets queries in the source language ("라이나")
+ * or in the original English brand name ("Lina") hit articles whose zh
+ * title uses the canonical translation — the zh-only index broke that
+ * chain whenever translation and query disagreed (2026-07-06 fix).
  */
 
 export interface Article {
   title: string;
+  title_en?: string;
   date: string;
   source: string;
   source_url?: string;
@@ -45,6 +53,58 @@ export async function loadArticles(): Promise<Article[]> {
   }
 }
 
+/**
+ * Query-side company aliases: Korean company name → canonical rendering
+ * used in zh titles. Bridges queries in Korean to articles whose source
+ * was English/Chinese and therefore contain no Hangul at all (e.g. a
+ * Lina Life press release crawled from an English feed). Canonical
+ * renderings must stay in sync with the standard table in
+ * src/classifier.py (_KR_NAME_MAP / _LLM_SYSTEM).
+ * All values lowercase — they are matched against lowercased fields.
+ */
+const QUERY_ALIASES: Record<string, string[]> = {
+  "라이나생명": ["lina人壽"],
+  "라이나손해보험": ["lina損害保險"],
+  "라이나": ["lina"],
+  "삼성생명": ["三星人壽"],
+  "한화생명": ["韓華人壽"],
+  "교보생명": ["教保人壽"],
+  "신한라이프": ["新韓人壽"],
+  "동양생명": ["東洋人壽"],
+  "미래에셋생명": ["未來資產人壽"],
+  "흥국생명": ["興國人壽"],
+  "농협생명": ["農協人壽"],
+  "메트라이프": ["大都會人壽"],
+  "하나생명": ["hana人壽"],
+  "하나손해보험": ["hana損保", "hana損害保險"],
+  "삼성화재": ["三星火災"],
+  "현대해상": ["現代海上"],
+  "메리츠화재": ["meritz火災"],
+  "흥국화재": ["興國火災"],
+  "롯데손해보험": ["樂天損保"],
+  "카카오페이손해보험": ["kakaopay損"],
+  "푸본현대생명": ["富邦現代人壽"],
+  "KB라이프": ["kb人壽"],
+  "KB손해보험": ["kb損保", "kb損害保險"],
+  "DB손해보험": ["db損保", "db損害保險"],
+  "iM라이프": ["im人壽"],
+};
+
+/** A term plus its alias expansions — a field matches if ANY member appears. */
+function expandTerm(term: string): string[] {
+  const expansions = [term];
+  for (const [korean, aliases] of Object.entries(QUERY_ALIASES)) {
+    if (term.includes(korean.toLowerCase())) {
+      expansions.push(...aliases);
+    }
+  }
+  return expansions;
+}
+
+function fieldMatches(field: string, termGroup: string[]): boolean {
+  return termGroup.some((t) => field.includes(t));
+}
+
 export function searchArticles(
   articles: Article[],
   query: string,
@@ -55,6 +115,7 @@ export function searchArticles(
     return [];
   }
 
+  const termGroups = terms.map(expandTerm);
   const scored: SearchResult[] = [];
 
   for (const article of articles) {
@@ -64,17 +125,21 @@ export function searchArticles(
 
     let score = 0;
     const titleLower = (article.title || "").toLowerCase();
+    const titleEnLower = (article.title_en || "").toLowerCase();
     const categoryLower = (article.category || "").toLowerCase();
     const summaryLower = (article.summary || "").toLowerCase();
 
-    for (const term of terms) {
-      if (titleLower.includes(term)) {
+    for (const group of termGroups) {
+      if (fieldMatches(titleLower, group)) {
         score += 3;
       }
-      if (categoryLower.includes(term)) {
+      if (fieldMatches(titleEnLower, group)) {
+        score += 3;
+      }
+      if (fieldMatches(categoryLower, group)) {
         score += 2;
       }
-      if (summaryLower.includes(term)) {
+      if (fieldMatches(summaryLower, group)) {
         score += 1;
       }
     }

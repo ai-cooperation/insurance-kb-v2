@@ -187,18 +187,30 @@ _LLM_SYSTEM = (
     "  교보생명 / Kyobo Life → 教保人壽\n"
     "  신한라이프 / Shinhan Life → 新韓人壽\n"
     "  동양생명 / Tongyang Life → 東洋人壽\n"
-    "  KB라이프 / KB Life → KB 人壽\n"
-    "  NH농협생명 → NH 農協人壽\n"
+    "  KB라이프 / KB Life → KB人壽\n"
+    "  NH농협생명 → NH農協人壽\n"
     "  흥국생명 → 興國人壽\n"
     "  ABL생명 → ABL 人壽\n"
     "  메트라이프생명 / MetLife → 大都會人壽\n"
     "  미래에셋생명 → 未來資產人壽\n"
-    "  DB생명 → DB 人壽\n"
+    "  DB생명 → DB人壽\n"
+    "  라이나생명 / Lina Life → Lina人壽（Chubb 旗下；絕不音譯為萊茵／萊納／麗娜／賴納）\n"
+    "  라이나손해보험 → Lina損害保險\n"
+    "  라이나원 → Lina One\n"
+    "  하나생명 → Hana人壽（Hana 金融旗下；勿與韓華 한화 混淆）\n"
+    "  하나손해보험 / 하나손보 → Hana損保\n"
+    "  푸본현대생명 → 富邦現代人壽\n"
+    "  AIA생명 → AIA人壽（勿用 AIA生命）\n"
+    "  카카오페이손해보험 → KakaoPay損保（KakaoPay 連寫不加空格）\n"
+    "  메리츠화재 → Meritz火災\n"
+    "  iM라이프 → iM人壽\n"
     "韓國金融機構：「우리」當公司名是音譯 Woori（友利），不要譯為「我們」「我國」：\n"
     "  우리금융 / Woori Financial → 友利金融\n"
     "  우리은행 / Woori Bank → 友利銀行\n"
     "規則：標題與摘要中所有保險公司名一律使用上述標準中文譯名，"
-    "不要保留英文，不要混用「生命」「Life」與「人壽」。\n\n"
+    "不要保留英文，不要混用「生命」「Life」與「人壽」。"
+    "拉丁字母公司名與「人壽／損保／火災」之間不加空格"
+    "（KB人壽、ABL人壽、Hana人壽，不是 KB 人壽）。\n\n"
     "【韓文徹底翻譯規則】（重要，避免漏字）\n"
     "輸出的 title_zh / summary_zh **絕對不能含有任何 Hangul 韓文字符**"
     "（가-힯 範圍）。若遇到不確定如何翻譯的詞，依下列規則處理：\n"
@@ -246,7 +258,7 @@ _KR_NAME_MAP = [
     ("NH농협생명", "NH農協人壽"),
     ("미래에셋생명", "未來資產人壽"),
     ("메트라이프생명", "大都會人壽"),
-    ("처브라이프생명", "Chubb 人壽"),
+    ("처브라이프생명", "Chubb人壽"),
     ("동양생명", "東洋人壽"),
     ("삼성생명", "三星人壽"),
     ("한화생명", "韓華人壽"),
@@ -255,25 +267,37 @@ _KR_NAME_MAP = [
     ("교보생명", "教保人壽"),
     ("농협생명", "農協人壽"),
     ("흥국생명", "興國人壽"),
-    ("KB라이프", "KB 人壽"),
-    ("KB생명", "KB 人壽"),
-    ("DB생명", "DB 人壽"),
-    ("ABL생명", "ABL 人壽"),
+    # Lina (Chubb Korea) — spaced variants first, bare form as fallback
+    ("라이나손해보험", "Lina損害保險"),
+    ("라이나 손해보험", "Lina損害保險"),
+    ("라이나손보", "Lina損保"),
+    ("라이나생명", "Lina人壽"),
+    ("라이나 생명", "Lina人壽"),
+    ("라이나원", "Lina One"),
+    ("라이나", "Lina"),
+    ("AIA생명", "AIA人壽"),
+    ("푸본현대생명", "富邦現代人壽"),
+    ("카카오페이손해보험", "KakaoPay損害保險"),
+    ("카카오페이손보", "KakaoPay損保"),
+    ("KB라이프", "KB人壽"),
+    ("KB생명", "KB人壽"),
+    ("DB생명", "DB人壽"),
+    ("ABL생명", "ABL人壽"),
     ("우리금융지주", "友利金融控股"),
     ("우리금융그룹", "友利金融集團"),
     ("우리금융", "友利金融"),
     ("우리은행", "友利銀行"),
     # Loss insurance / general insurance subsidiaries
-    ("하나손해보험", "Hana 損保"),
-    ("하나손보", "Hana 損保"),
-    ("하나생명", "Hana 人壽"),
-    ("KB손해보험", "KB 損保"),
-    ("KB손보", "KB 損保"),
+    ("하나손해보험", "Hana損保"),
+    ("하나손보", "Hana損保"),
+    ("하나생명", "Hana人壽"),
+    ("KB손해보험", "KB損保"),
+    ("KB손보", "KB損保"),
     ("삼성화재", "三星火災"),
     ("현대해상", "現代海上"),
-    ("DB손해보험", "DB 損保"),
-    ("DB손보", "DB 損保"),
-    ("메리츠화재", "Meritz 火災"),
+    ("DB손해보험", "DB損保"),
+    ("DB손보", "DB損保"),
+    ("메리츠화재", "Meritz火災"),
     ("흥국화재", "興國火災"),
     ("롯데손해보험", "樂天損保"),
     ("롯데손보", "樂天損保"),
@@ -318,9 +342,9 @@ _KR_NAME_MAP = [
     ("달리자", "達利者"),
     ("쪽방촌", "貧民窟"),
     # Common compound substrings (after longer matches above already applied)
-    ("iM라이프", "iM Life"),
+    ("iM라이프", "iM人壽"),
     ("교보생", "教保人壽"),
-    ("하나人壽", "Hana 人壽"),  # repair previous partial-translate
+    ("하나人壽", "Hana人壽"),  # repair previous partial-translate
     ("하나", "Hana"),  # fallback if standalone (after compound forms matched above)
     # Common partial-translation leaks (context: KR insurance industry)
     ("우리WON", "友利WON"),
@@ -349,10 +373,57 @@ _KR_NAME_MAP = [
     ("我國金融銀行", "友利金融"),
     ("我國金融", "友利金融"),
     ("我們金融", "友利金融"),
-    ("ABL生命", "ABL 人壽"),
-    ("KB生命", "KB 人壽"),
-    ("DB生命", "DB 人壽"),
+    ("ABL生命", "ABL人壽"),
+    ("KB生命", "KB人壽"),
+    ("DB生命", "DB人壽"),
     ("農協生命", "農協人壽"),
+    # 2026-07-06 sweep: company-name splits found by scanning title_en
+    # (original) vs title (zh) across the whole corpus. Same company was
+    # rendered differently per article, breaking substring search.
+    # Lina (라이나생명, Chubb Korea) — LLM freestyled 4+ phonetic renderings
+    ("萊納損害保險", "Lina損害保險"),
+    ("萊茵人壽", "Lina人壽"),
+    ("萊茵生命", "Lina人壽"),
+    ("萊納人壽", "Lina人壽"),
+    ("萊納生命", "Lina人壽"),
+    ("賴納人壽", "Lina人壽"),
+    ("賴納生命", "Lina人壽"),
+    ("麗娜人壽", "Lina人壽"),
+    ("麗娜生命", "Lina人壽"),
+    ("萊茵全盛", "Lina全盛"),  # 라이나전성기재단 Lina 全盛期基金會
+    ("Lina 人壽", "Lina人壽"),
+    # Hanwha (한화생명) phonetic slips
+    ("漢華生命", "韓華人壽"),
+    ("漢華人壽", "韓華人壽"),
+    ("華漢生命", "韓華人壽"),
+    ("韓化生命", "韓華人壽"),
+    ("Hanwha生命", "韓華人壽"),
+    # Shinhan (신한라이프) phonetic slips
+    ("申韓人壽", "新韓人壽"),
+    ("信韓人壽", "新韓人壽"),
+    # Hana (하나생명) — 韓亞 is Hana Financial's zh name but map standard is Hana
+    ("韓亞人壽", "Hana人壽"),
+    # Kyobo (교보생명) slip
+    ("光華人壽", "教保人壽"),
+    # Suffix / brand-token unification
+    ("AIA生命", "AIA人壽"),
+    ("富邦現代生命", "富邦現代人壽"),
+    ("Kakao Pay損", "KakaoPay損"),
+    ("美利茲火災", "Meritz火災"),
+    ("美利茲", "Meritz"),
+    ("iM Life", "iM人壽"),
+    # Spacing normalization — search is plain substring matching, so
+    # "KB 人壽" (old map output) breaks a "KB人壽" query and vice versa
+    ("KB 人壽", "KB人壽"),
+    ("ABL 人壽", "ABL人壽"),
+    ("DB 人壽", "DB人壽"),
+    ("NH 農協人壽", "NH農協人壽"),
+    ("Hana 人壽", "Hana人壽"),
+    ("Hana 損保", "Hana損保"),
+    ("KB 損保", "KB損保"),
+    ("DB 損保", "DB損保"),
+    ("Meritz 火災", "Meritz火災"),
+    ("Chubb 人壽", "Chubb人壽"),
 ]
 
 _SPORTS_RX = _re_mod.compile(
