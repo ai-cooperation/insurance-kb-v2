@@ -29,7 +29,7 @@ model: gpt-4.1
   - 住友生命發布Vitality女子東海經典賽預告影片（#5）
   - 住友生命新卒招募影片「＃GO」邀籃球明星Draymond Green參與（#6）
   - 住友生命推出《玫瑰人生》系列影片，強化保險知識教育（#7）
-  - 亞弗拉克生命新廣告幕後花絮公開，強化品牌親和力（#8）
+  - Aflac生命新廣告幕後花絮公開，強化品牌親和力（#8）
   - 第一生命川柳大賽反映無現金支付社會現象（#9）
   - 住友生命異業種交流會報導（#10）
 
@@ -95,7 +95,7 @@ model: gpt-4.1
 | 5 | 2026-05-27 | 第53屆住友生命Vitality女子東海經典賽預告影片發布 | gnews_jp_companies_2 | https://mshale.com/8a7ffaa1/dc0c2189GUKt1wiyLtU |
 | 6 | 2026-05-27 | 住友生命新卒採用概念影片「＃GO」Draymond Green | gnews_jp_companies_2 | https://mshale.com/c99b2746/4e9d4ef3Rh4Kt8moFYU |
 | 7 | 2026-05-27 | 住友生命《玫瑰人生》〜K2學院影片解說Dani Olmo | gnews_jp_companies_2 | https://mshale.com/6ed521ad/220843b26OZxXRPsIhI |
-| 8 | 2026-05-27 | 帥氣吉澤亮溫柔安撫NG的童星，亞弗拉克生命新廣告幕後花絮公開 | gnews_jp_companies_3 | https://mshale.com/99b452b8/a77ec989CZjGqIS2OSk |
+| 8 | 2026-05-27 | 帥氣吉澤亮溫柔安撫NG的童星，Aflac生命新廣告幕後花絮公開 | gnews_jp_companies_3 | https://mshale.com/99b452b8/a77ec989CZjGqIS2OSk |
 | 9 | 2026-05-27 | 第一生命川柳大賽 一句「無現金支付變無一文」引發共鳴 反映社會現象 | gnews_jp_companies_ja | https://www.smartnews.com/news/article/4950775810635073693-%E7%AC%AC%E4%B8%80%E7%94%9F%E5%91%BD%E5%B7%9D%E6%9F%B3%E3%80%811%E4%BD%8D%E3%81%AF%E3%80%8C%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%83%AC%E3%82%B9%E3%81%A7%E7%84%A1%E4%B8%80%E6%96%87%E3%80%8D%E3%81%AB%E5%85%B1%E6%84%9F%E3%81%AE%E5%B5%90%E3%80%82%E4%B8%96%E7%9B%B8%E6%98%A0%E3%81%99%E4%B8%80%E5%8F%A5 |
 | 10 | 2026-05-27 | 住友生命異業種交流會（2025年7月25日） | gnews_jp_companies_2 | https://mshale.com/2463160d/5e5a6786l7PnKu1Koh8 |
 | 11 | 2026-05-28 | 日本生命與愛知縣大治町簽訂健康促進協定 | gnews_jp_companies_ja | https://www.chukei-news.co.jp/news/2026/05/29/OK0002605290501_07/ |

@@ -10,7 +10,7 @@ model: gpt-4.1
 ---
 ### 本月重點
 
-- 客戶服務與品牌形象強化：新韓人壽、未來資產人壽、DB人壽、iM Life等多家保險公司連續多年獲得KSQI優秀客服中心認證，展現韓國保險業對客戶體驗與品牌信任的高度重視。
+- 客戶服務與品牌形象強化：新韓人壽、未來資產人壽、DB人壽、iM人壽等多家保險公司連續多年獲得KSQI優秀客服中心認證，展現韓國保險業對客戶體驗與品牌信任的高度重視。
 - 青年行銷與文化活動：教保人壽主導多場光化門廣告牌、大學生徵文比賽及青春故事頒獎典禮，積極與青年族群互動，提升品牌形象並促進社會參與度。
 - 公共安全與體驗行銷：大田韓華人壽棒球場成為KBO首個全飲食店獲食品安全認證場地，藉此提升消費者信心，強化企業在公共安全領域的責任與形象。
 - 社會責任與公益合作：保險公司積極推動公益活動、志願服務及與社福機構合作（如教保人壽與好意商店擴大障礙者就業），展現企業社會責任，深化社區連結。
@@ -72,7 +72,7 @@ model: gpt-4.1
 | 2 | 2026-05-27 | 新韓人壽KSQI優秀客服中心22年連續獲選 | gnews_kr_companies_2 | https://www.ziksir.com/news/articleViewAmp.html?idxno=135022 |
 | 3 | 2026-05-27 | 未來資產人壽連續16年獲優秀客服中心稱號，強化信賴保險公司形象 | gnews_kr_companies_3 | https://www.news1.kr/finance/insurance-card/6178798 |
 | 4 | 2026-05-27 | KB產險於中國天津為華僑提供保險諮詢服務 | gnews_kr_industry | https://www.insnews.co.kr/news/articleView.html?idxno=90983 |
-| 5 | 2026-05-27 | [保險 NOW] 未來資產人壽、新韓人壽、DB 人壽獲選「優秀客服中心」 | gnews_kr_companies_2 | http://www.wikileaks-kr.org/news/articleView.html?idxno=187869 |
+| 5 | 2026-05-27 | [保險 NOW] 未來資產人壽、新韓人壽、DB人壽獲選「優秀客服中心」 | gnews_kr_companies_2 | http://www.wikileaks-kr.org/news/articleView.html?idxno=187869 |
 | 6 | 2026-05-27 | 「下班後也能諮詢」…新韓人壽連續22年獲KSQI客服中心優秀企業 | gnews_kr_companies_2 | https://www.beyondpost.co.kr/view.php?ud=202605271714323397be44c0aacd_30 |
 | 7 | 2026-05-27 | 新韓人壽客製化諮詢奏效…KSQI客服中心連續22年獲優秀企業 | gnews_kr_companies_2 | https://www.insightkorea.co.kr/news/articleViewAmp.html?idxno=247150 |
 | 8 | 2026-05-27 | 新韓人壽擴大銀髮族專屬諮詢服務…連續22年獲客服中心優秀企業 | gnews_kr_companies_2 | http://www.sisacast.kr/news/articleView.html?idxno=96216 |
@@ -86,7 +86,7 @@ model: gpt-4.1
 | 16 | 2026-05-28 | 教保人壽光化門廣告牌大學生徵文比賽頒獎，展現青春真實故事 | gnews_kr_companies_1 | https://www.news1.kr/finance/insurance-card/6179864 |
 | 17 | 2026-05-28 | 教保人壽舉辦光化門廣告牌徵文比賽頒獎典禮 | gnews_kr_companies_1 | https://www.etnews.com/20260528000076 |
 | 18 | 2026-05-28 | [照片] 教保人壽，‘光化門廣告牌大學生散文徵文比賽’頒獎 | gnews_kr_companies_1 | https://www.fetv.co.kr/news/articleView.html?idxno=303219 |
-| 19 | 2026-05-28 | [#金融快訊] 教保人壽‘光化門廣告牌頒獎典禮’·iM Life‘KSQI優秀客服中心’·AIA人壽‘首爾森林花園’運營 | gnews_kr_companies_1 | https://www.newsworks.co.kr/news/articleView.html?idxno=842079 |
+| 19 | 2026-05-28 | [#金融快訊] 教保人壽‘光化門廣告牌頒獎典禮’·iM人壽‘KSQI優秀客服中心’·AIA人壽‘首爾森林花園’運營 | gnews_kr_companies_1 | https://www.newsworks.co.kr/news/articleView.html?idxno=842079 |
 | 20 | 2026-05-28 | 大田韓華人壽棒球公園，KBO 10支球隊首個100%食品安全餐飲店認證 | gnews_kr_companies_1 | https://www.foodicon.co.kr/news/articleView.html?idxno=33865 |
 | 21 | 2026-05-28 | “棒球場美食也能安心享用”…韓華人壽棒球公園獲KBO首個‘食品安全區’認證 | gnews_kr_companies_1 | https://www.foodtoday.or.kr/news/article.html?no=205106 |
 | 22 | 2026-05-28 | 大田韓華人壽棒球公園，餐飲全店獲‘食品安全店家’認證 | gnews_kr_companies_1 | http://www.foodnews.co.kr/news/articleView.html?idxno=118759 |

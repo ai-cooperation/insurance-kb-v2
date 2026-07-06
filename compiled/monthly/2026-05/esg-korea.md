@@ -75,7 +75,7 @@ ESG理念逐步內化，企業強調透明治理、共生金融與倫理經營�
 | 7 | 2026-05-11 | KB人壽展開員工參與型ESG健走活動 | etnews.com | https://www.etnews.com/20260511000076 |
 | 8 | 2026-05-11 | KB人壽全公司ESG步行活動籌募1000萬韓元善款 | insjournal.co.kr | https://www.insjournal.co.kr/news/articleView.html?idxno=31369 |
 | 9 | 2026-05-11 | KB人壽展開員工參與型ESG步行活動 | etnews.com | http://www.etnews.com/20260511000076 |
-| 10 | 2026-05-11 | KB 人壽舉辦員工參與型 ESG 健走活動 | insweek.co.kr | https://www.insweek.co.kr/news/articleView.html?idxno=70958 |
+| 10 | 2026-05-11 | KB人壽舉辦員工參與型 ESG 健走活動 | insweek.co.kr | https://www.insweek.co.kr/news/articleView.html?idxno=70958 |
 | 11 | 2026-05-14 | DB人壽與新進員工共同舉辦ESG撿拾垃圾活動 | insnews.co.kr | https://www.insnews.co.kr/news/articleView.html?idxno=90795 |
 | 12 | 2026-05-14 | 保險業強化健康管理、ESG與銷售通路，擴大生活密切型服務 | e-science.co.kr | https://www.e-science.co.kr/news/articleView.html?idxno=129829 |
 | 13 | 2026-05-14 | 新韓人壽推動參與型ESG，挑戰步行捐款3000萬韓元 | fetimes.co.kr | https://www.fetimes.co.kr/news/articleView.html?idxno=126473 |
@@ -101,7 +101,7 @@ ESG理念逐步內化，企業強調透明治理、共生金融與倫理經營�
 | 33 | 2026-05-20 | 教保人壽員工參與環境志願服務，守護都市生態 | popcornnews.net | http://www.popcornnews.net/news/articleView.html?idxno=121904 |
 | 34 | 2026-05-22 | 未來資產、大都會人壽、KB人壽透過倫理經營與生活密切公益強化ESG | lcnews.co.kr | https://www.lcnews.co.kr/news/articleView.html?idxno=202543 |
 | 35 | 2026-05-28 | 保險公司積極投入生產性金融，三星火災與教保人壽擴大能源投資 | startuptoday.co.kr | https://www.startuptoday.co.kr/news/articleView.html?idxno=802248 |
-| 36 | 2026-05-31 | 교보생명, 임직원이 만든 둥지서 박새 9마리 태어나 外 [ESG 단신] - 한국경제 | hankyung.com | https://www.hankyung.com/amp/202605296634G |
+| 36 | 2026-05-31 | 教保人壽, 임직원이 만든 둥지서 박새 9마리 태어나 外 [ESG 단신] - 한국경제 | hankyung.com | https://www.hankyung.com/amp/202605296634G |
 
 ---
 

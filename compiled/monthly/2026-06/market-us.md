@@ -116,7 +116,7 @@ model: gpt-4.1
 | # | 日期 | 標題 | 來源 | 連結 |
 |---|------|------|------|------|
 | 1 | 2026-06-25 | 大都會人壽計劃將PNB大都會人壽持股提升至49.7%以上，CEO Sameer Bansal表示 | gnews_us_metlife | https://www.moneycontrol.com/banking/metlife-looking-to-take-pnb-metlife-holding-beyond-49-7-says-ceo-sameer-bansal-article-13958468.html |
-| 2 | 2026-06-25 | 大都會人壽計劃提高在PNB大都會人壽合資企業的持股比例 | gnews_us_metlife | https://www.whalesbook.com/news/English/insurance/MetLife-Plans-to-Raise-Stake-in-PNB-MetLife-JV/6a3cc97a1ea2458e095eed0e |
+| 2 | 2026-06-25 | 大都會人壽計劃提高在PNB大都會人壽合資企業的持股比例 | gnews_us_metlife | https://www.whalesbook.com/news/English/insurance/大都會人壽-Plans-to-Raise-Stake-in-PNB-大都會人壽-JV/6a3cc97a1ea2458e095eed0e |
 | 3 | 2026-06-25 | 壽險股第一季回顧：林肯金融集團與同業比較 | gnews_us_metlife | https://www.theglobeandmail.com/investing/markets/stocks/LNC/pressreleases/2646921/life-insurance-stocks-q1-in-review-lincoln-financial-group-nyselnc-vs-peers/ |
 | 4 | 2026-06-25 | 保誠金融以明確分析師視角開盤，股票在紐約證交所交易 | gnews_us_metlife | https://www.ad-hoc-news.de/boerse/news/ueberblick/prudential-financial-opens-with-a-clear-analyst-picture-shares-trade-on/69624562 |
 | 5 | 2026-06-25 | 林肯國家保險以分析師焦點開盤，股票在紐約證交所下跌 | gnews_us_lincoln | https://www.ad-hoc-news.de/boerse/news/ueberblick/lincoln-national-opens-the-week-with-analyst-focus-shares-trade-lower-on/69624650 |

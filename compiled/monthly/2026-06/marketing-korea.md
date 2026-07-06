@@ -87,7 +87,7 @@ model: gpt-4.1
 | 18 | 2026-06-26 | 教保人壽於首爾國際書展以數位『書房』與MZ世代互動 | gnews_kr_companies_1 | https://weekly.hankooki.com/news/articleViewAmp.html?idxno=7171642 |
 | 19 | 2026-06-27 | 未來資產人壽為當地長者慶生送上蛋糕與禮物 | gnews_kr_companies_3 | https://www.msn.com/ko-kr/news/other/%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B%EC%83%9D%EB%AA%85-%EC%A7%80%EC%97%AD-%EC%96%B4%EB%A5%B4%EC%8B%A0-%EC%83%9D%EC%8B%A0%EB%82%A0-%EC%BC%80%EC%9D%B4%ED%81%AC-%EC%84%A0%EB%AC%BC-%EC%A0%84%EB%8B%AC/ar-AA26pOxQ |
 | 20 | 2026-06-28 | 未來資產人壽積極推動社會公益…實踐「溫暖資本主義」 | gnews_kr_companies_3 | https://www.fetv.co.kr/news/articleView.html?idxno=305246 |
-| 21 | 2026-06-29 | KB 人壽在兒童福利設施舉辦烹飪課程志願服務 | gnews_kr_companies_2 | https://www.insweek.co.kr/news/articleView.html?idxno=71534 |
+| 21 | 2026-06-29 | KB人壽在兒童福利設施舉辦烹飪課程志願服務 | gnews_kr_companies_2 | https://www.insweek.co.kr/news/articleView.html?idxno=71534 |
 | 22 | 2026-06-29 | [#金融快訊] 興國人壽縮短貸款審核時間、KDB人壽舉辦消費者保護徵文比賽、KB人壽兒童烹飪課、東洋人壽願景工作坊 | gnews_kr_companies_2 | https://www.newsworks.co.kr/news/articleViewAmp.html?idxno=845342 |
 | 23 | 2026-06-29 | 東洋人壽舉辦友利金融併入1週年『繪畫工作坊』 | gnews_kr_companies_2 | https://www.fetv.co.kr/news/articleView.html?idxno=305294 |
 | 24 | 2026-06-29 | 東洋人壽舉行友利金融集團併入1週年紀念『願景繪畫工作坊』 | gnews_kr_companies_2 | https://www.viva100.com/article/20260629500617 |

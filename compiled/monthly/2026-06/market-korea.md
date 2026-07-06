@@ -62,7 +62,7 @@ model: gpt-4.1
 | 1 | 2026-06-30 | 韓華人壽擬收購Acuon Capital及同時併購儲蓄銀行 | gnews_kr_companies_1 | https://www.ddaily.co.kr/page/view/2026063011242863126 |
 | 2 | 2026-06-30 | 韓華人壽成為1兆韓元Acuon Capital收購優先協商對象 | gnews_kr_companies_1 | https://www.g-enews.com/article/Finance/2026/06/202606300929403367a6e8311f64_1 |
 | 3 | 2026-06-30 | 韓華人壽斥資1兆韓元押注Acuon，取得資本並承擔儲蓄銀行負擔 | gnews_kr_companies_1 | https://www.dhdaily.co.kr/news/articleView.html?idxno=26652 |
-| 4 | 2026-06-30 | 韓華人壽擊敗美利茲，成為近7億美元Acuon Capital優先買家 | gnews_kr_en | https://www.kedglobal.com/mergers-acquisitions/newsView/ked202606300002 |
+| 4 | 2026-06-30 | 韓華人壽擊敗Meritz，成為近7億美元Acuon Capital優先買家 | gnews_kr_en | https://www.kedglobal.com/mergers-acquisitions/newsView/ked202606300002 |
 | 5 | 2026-06-30 | 韓華人壽收購Acuon Capital擴展資本業務 | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMiYEFVX3lxTFBaNU80ZVc1NE5OcXZTU1BXUnk1X2dUWmQyTFptOGktczhHNVJqeVRFOWFhNDdlVE1uTVUwakRKTC1yRC1wakdLZkRqbDZYYkhOU25DaTVxQ2Vxc1dEbWRNV9IBYEFVX3lxTFBaNU80ZVc1NE5OcXZTU1BXUnk1X2dUWmQyTFptOGktczhHNVJqeVRFOWFhNDdlVE1uTVUwakRKTC1yRC1wakdLZkRqbDZYYkhOU25DaTVxQ2Vxc1dEbWRNVw?oc=5 |
 | 6 | 2026-06-30 | 韓華人壽收購Acuon Capital及儲蓄銀行在即，擴大金融組合 | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMickFVX3lxTFBKNFNXS1h2ZkFIWEg4REwwSWtSa1RDYjN5U2xjV1ZNeTdkV1owbDAtYlFyYVJOaGI3Ym84UzJwZDFMZ2pLMXJhV190REVYSTdKZUFRY2pta0x0N29fNTg2N2VXX2d0b2hmTVU4VjRrYlF4dw?oc=5 |
 | 7 | 2026-06-30 | 韓華人壽選定Acuon Capital及儲蓄銀行收購優先協商對象 | gnews_kr_companies_1 | https://news.google.com/rss/articles/CBMiTkFVX3lxTE5TdlhvRTBNcHB5U2ZIVHZqd0lNdVM5Rmk0QUVORVFJaEJMS2QzVlZKSmhvQk5DMjNZdWhYRDlocHA5NGVON2Vnb3NTcGg1UQ?oc=5 |

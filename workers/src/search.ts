@@ -66,6 +66,19 @@ const QUERY_ALIASES: Record<string, string[]> = {
   "라이나생명": ["lina人壽"],
   "라이나손해보험": ["lina損害保險"],
   "라이나": ["lina"],
+  "アフラック": ["aflac"],
+  "メットライフ": ["大都會人壽"],
+  "マニュライフ": ["宏利人壽"],
+  "プルデンシャル": ["保德信生命"],
+  "ジブラルタ": ["直布羅陀生命"],
+  "ライフネット": ["lifenet"],
+  "かんぽ": ["郵政生命"],
+  // AXA is legitimately dual-named: 安盛 (official zh, dominant in HK
+  // articles) vs AXA (Latin, used in KR/JP renderings). Bridge both ways
+  // instead of rewriting either — both names are correct.
+  "アクサ": ["axa", "安盛"],
+  "axa": ["安盛"],
+  "安盛": ["axa"],
   "삼성생명": ["三星人壽"],
   "한화생명": ["韓華人壽"],
   "교보생명": ["教保人壽"],

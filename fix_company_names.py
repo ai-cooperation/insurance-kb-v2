@@ -49,6 +49,61 @@ CONDITIONAL_RULES = [
         re.compile(r"한화생명"),
         [("韓華人壽", "韓華損保")],
     ),
+    # JP: Aflac (アフラック) was rendered as several OTHER companies'
+    # canonical names. Those tokens are genuine elsewhere (安聯 = Allianz,
+    # 美國友邦 = AIA, 大都會人壽 = MetLife), so only articles whose
+    # original title names アフラック get the repair.
+    (
+        re.compile(r"アフラック"),
+        re.compile(r"メットライフ|AIA|アリアンツ"),
+        [
+            ("安聯生命", "Aflac生命"),
+            ("美國友邦生命", "Aflac生命"),
+            ("美國友邦保險", "Aflac生命"),
+            ("美國友邦", "Aflac"),
+            ("大都會人壽", "Aflac生命"),
+            ("友利", "Aflac"),  # bare leftover after map fixes 友利生命
+        ],
+    ),
+    # Manulife (katakana OR English sources) — 萬通人壽 is genuine
+    # MassMutual in US articles, so gate on the original title
+    (
+        re.compile(r"マニュライフ|[Mm]anulife"),
+        re.compile(r"マスミューチュアル|MassMutual"),
+        [("萬通人壽", "宏利人壽"), ("萬通大廈", "宏利大廈")],
+    ),
+    # JP: Prudential (US) — 保誠 is genuine Prudential plc (UK) elsewhere
+    (
+        re.compile(r"プルデンシャル"),
+        re.compile(r"$^"),
+        [("保誠生命", "保德信生命")],
+    ),
+    # JP: Gibraltar Life — 吉百利 is Cadbury, not an insurer
+    (
+        re.compile(r"ジブラルタ"),
+        re.compile(r"$^"),
+        [
+            ("吉百利人壽", "直布羅陀生命"),
+            ("吉百利生命", "直布羅陀生命"),
+            ("吉百利", "直布羅陀生命"),
+        ],
+    ),
+    # JP: Lifenet — ライフネット is not Rakuten's network
+    (
+        re.compile(r"ライフネット"),
+        re.compile(r"$^"),
+        [
+            ("樂天網路人壽", "Lifenet生命"),
+            ("樂天網路生命", "Lifenet生命"),
+            ("樂天網生命", "Lifenet生命"),
+        ],
+    ),
+    # JP: Japan Post Insurance — gate keeps Taiwan's 中華郵政 articles intact
+    (
+        re.compile(r"かんぽ|ゆうちょ|日本郵政|郵便"),
+        re.compile(r"中華郵政"),
+        [("日本郵政人壽", "郵政生命"), ("郵政人壽", "郵政生命")],
+    ),
 ]
 
 

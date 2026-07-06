@@ -207,6 +207,19 @@ _LLM_SYSTEM = (
     "韓國金融機構：「우리」當公司名是音譯 Woori（友利），不要譯為「我們」「我國」：\n"
     "  우리금융 / Woori Financial → 友利金融\n"
     "  우리은행 / Woori Bank → 友利銀行\n"
+    "日本保險公司：漢字社名（日本生命、第一生命、住友生命、明治安田生命、"
+    "太陽生命、大同生命、東京海上）保留原漢字，「生命」不要改成「人壽」。"
+    "片假名社名必須用下表，不要自行音譯：\n"
+    "  アフラック → Aflac生命（絕不譯為友利／友邦／安聯／大都會／亞福）\n"
+    "  メットライフ生命 → 大都會人壽\n"
+    "  マニュライフ生命 → 宏利人壽\n"
+    "  アクサ生命 → 安盛人壽\n"
+    "  プルデンシャル生命 → 保德信生命（美系；英系 Prudential plc 才譯保誠）\n"
+    "  ジブラルタ生命 → 直布羅陀生命\n"
+    "  ライフネット生命 → Lifenet生命\n"
+    "  ソニー生命 → 索尼生命\n"
+    "  かんぽ生命 → 郵政生命\n"
+    "  T&Dフィナンシャル生命 → T&D金融生命\n"
     "規則：標題與摘要中所有保險公司名一律使用上述標準中文譯名，"
     "不要保留英文，不要混用「生命」「Life」與「人壽」。"
     "拉丁字母公司名與「人壽／損保／火災」之間不加空格"
@@ -395,6 +408,9 @@ _KR_NAME_MAP = [
     # Hanwha (한화생명) phonetic slips
     ("漢華生命", "韓華人壽"),
     ("漢華人壽", "韓華人壽"),
+    ("漢華金融", "韓華金融"),
+    ("漢華損保", "韓華損保"),
+    ("漢華火災", "韓華損保"),
     ("華漢生命", "韓華人壽"),
     ("韓化生命", "韓華人壽"),
     ("Hanwha生命", "韓華人壽"),
@@ -412,6 +428,35 @@ _KR_NAME_MAP = [
     ("美利茲火災", "Meritz火災"),
     ("美利茲", "Meritz"),
     ("iM Life", "iM人壽"),
+    # JP katakana-name companies (2026-07-06 sweep, same method): kanji
+    # company names pass through translation intact, but katakana names
+    # forced the LLM to invent a rendering per article. Unconditional
+    # repairs only — ambiguous tokens (美國友邦保險 could be genuine AIA,
+    # 萬通人壽 genuine MassMutual, 保誠生命 genuine UK Prudential) are
+    # handled conditionally in fix_company_names.py gated on title_en.
+    ("アフラック生命", "Aflac生命"),
+    ("アフラック", "Aflac"),
+    ("メットライフ生命", "大都會人壽"),
+    ("メットライフ", "大都會人壽"),
+    ("友利生命", "Aflac生命"),  # Woori has NO life arm; 25/25 verified Aflac
+    ("亞弗拉克生命", "Aflac生命"),
+    ("亞弗拉克", "Aflac"),
+    ("亞福生命", "Aflac生命"),
+    ("亞福萊克", "Aflac"),
+    ("大都會生命", "大都會人壽"),
+    ("梅特萊夫人壽", "大都會人壽"),
+    ("住友人壽", "住友生命"),
+    ("明治安田人壽", "明治安田生命"),
+    ("大同人壽", "大同生命"),
+    ("索尼人壽", "索尼生命"),
+    ("Sony生命", "索尼生命"),
+    ("宏利生命", "宏利人壽"),
+    ("萬裕生命", "宏利人壽"),
+    ("普徵人壽", "保德信生命"),
+    ("普勒登夏生命", "保德信生命"),
+    ("普爾登夏爾生命", "保德信生命"),
+    ("Lifenet人壽", "Lifenet生命"),
+    ("日本郵政人壽", "郵政生命"),  # かんぽ生命; India's 郵政人壽 (PLI) untouched
     # Spacing normalization — search is plain substring matching, so
     # "KB 人壽" (old map output) breaks a "KB人壽" query and vice versa
     ("KB 人壽", "KB人壽"),
