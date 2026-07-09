@@ -104,6 +104,15 @@ CONDITIONAL_RULES = [
         re.compile(r"中華郵政"),
         [("日本郵政人壽", "郵政生命"), ("郵政人壽", "郵政生命")],
     ),
+    # SG: Great Eastern mistranslated as 宏利 (Manulife — a direct
+    # competitor). Caught 2026-07-09, first crawl of the official
+    # newsroom source: 3 of 4 fresh GE releases rendered as 宏利.
+    # 宏利 is genuine Manulife elsewhere, so gate on the original title.
+    (
+        re.compile(r"[Gg]reat [Ee]astern|GREAT EASTERN"),
+        re.compile(r"[Mm]anulife|マニュライフ"),
+        [("宏利人壽", "大東方"), ("宏利", "大東方")],
+    ),
 ]
 
 
