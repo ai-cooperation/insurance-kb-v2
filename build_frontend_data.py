@@ -35,6 +35,7 @@ frontend file.
 """
 
 import json
+import re
 import sys
 from datetime import date, timedelta
 from pathlib import Path
@@ -106,21 +107,42 @@ def build_slim_entries(idx: list[dict]) -> tuple[list[dict], int]:
     return slim, skipped_filtered
 
 
-def dedup_l2(entries: list[dict]) -> tuple[list[dict], int]:
-    """L2 dedup: same source + same title → keep newest only.
+# GNews RSS appends " - outlet name" to titles; direct feeds don't. Strip
+# it so the same story keys identically through both paths. The suffix
+# segment must itself be hyphen-free so titles with meaningful hyphens
+# lose at most their trailing outlet tag.
+_GNEWS_TITLE_SUFFIX = re.compile(r"\s*[-–]\s*[^-–]{2,30}$")
 
-    URL-hash UID dedup at crawl time misses periodic re-publishes from
-    the same source where the URL contains a date but the content is
-    identical (e.g. HKIA "呼籲留意欺詐網站" reposted x39 across two years).
+
+def _dedup_key(a: dict) -> str:
+    """Cross-source dedup key: original-language title when available.
+
+    The same story arriving via a GNews query source and via a direct
+    feed has different URLs (GNews redirect vs canonical → different
+    uid) and its zh translation can differ per run — but the original
+    headline is identical apart from GNews' trailing " - outlet" tag.
+    zh title is the fallback for entries without title_en.
+    """
+    t = a.get("title_en") or a.get("title", "")
+    return _GNEWS_TITLE_SUFFIX.sub("", t).strip().lower()
+
+
+def dedup_l2(entries: list[dict]) -> tuple[list[dict], int]:
+    """L2 dedup: same normalized title → keep newest only.
+
+    Cross-source on purpose (2026-07-09, was (source, title) before):
+    with direct feeds (insnews / IB Asia / shinnihon) alongside the
+    GNews queries that already cover those outlets, the same article
+    arrives twice with different uid — title is the only stable join.
+    Also collapses periodic re-publishes (e.g. HKIA "呼籲留意欺詐網站"
+    reposted x39) and cross-outlet syndicated digests.
     Returns (deduped list, count removed).
     """
-    seen: dict[tuple[str, str] | tuple[str, int], int] = {}
+    seen: dict[str | tuple[str, int], int] = {}
     for i, a in enumerate(entries):
-        title = a.get("title", "")
-        if not title:
-            seen[("__notitle__", i)] = i
-            continue
-        key = (a.get("source", ""), title)
+        key: str | tuple[str, int] = _dedup_key(a)
+        if not key:
+            key = ("__notitle__", i)
         cur = seen.get(key)
         if cur is None or a.get("date", "") > entries[cur].get("date", ""):
             seen[key] = i

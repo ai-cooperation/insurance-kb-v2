@@ -6,7 +6,7 @@ import logging
 import re
 import time
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Optional
 from urllib.parse import urljoin
@@ -157,7 +157,7 @@ def crawl_rss(source: dict) -> list:
     source_id = source["id"]
     results = []
     try:
-        resp = requests.get(url, headers=HEADERS, timeout=15)
+        resp = requests.get(url, headers=HEADERS, timeout=source.get("timeout", 15))
         resp.raise_for_status()
         feed = feedparser.parse(resp.content)
         for entry in feed.entries:
@@ -217,12 +217,18 @@ _NAV_TITLES = {
 
 
 def crawl_http(source: dict) -> list:
-    """Crawl a web page for links and titles."""
+    """Crawl a web page for links and titles.
+
+    Per-source tuning via optional source keys (see sources._src):
+    timeout / min_title_len / url_must_contain.
+    """
     url = source["url"]
     source_id = source["id"]
+    min_title_len = source.get("min_title_len", 20)
+    url_must_contain = source.get("url_must_contain", "")
     results = []
     try:
-        resp = requests.get(url, headers=HEADERS, timeout=15)
+        resp = requests.get(url, headers=HEADERS, timeout=source.get("timeout", 15))
         resp.raise_for_status()
         encoding = resp.apparent_encoding or "utf-8"
         html = resp.content.decode(encoding, errors="replace")
@@ -236,15 +242,27 @@ def crawl_http(source: dict) -> list:
             full_url = urljoin(url, href)
             if full_url in seen_urls:
                 continue
+            if url_must_contain:
+                # Curated whitelist replaces the generic heuristic: it is
+                # stronger evidence of article-ness, and _is_article_url's
+                # '/about' skip pattern false-positives on newsrooms that
+                # live under /about-us/ (Great Eastern's did — that, not a
+                # page redesign, is what silently killed the source in
+                # 2026-05 after GE moved releases under /about-us/).
+                if url_must_contain not in full_url:
+                    continue
+            elif not _is_article_url(full_url):
+                continue
             title = a_tag.get_text(strip=True)
-            if not title or len(title) < 20:
+            # Strip trailing file-size/id parentheticals from PDF anchor
+            # text, e.g. Sumitomo's 「…の公表について(5202812)」
+            title = re.sub(r"\(\d{4,}\)\s*$", "", title).strip()
+            if not title or len(title) < min_title_len:
                 continue
             if _NOISE_PATTERNS.search(title):
                 continue
             # Skip navigation and boilerplate links
             if title.lower().strip() in _NAV_TITLES:
-                continue
-            if not _is_article_url(full_url):
                 continue
             seen_urls.add(full_url)
             results.append(
@@ -254,8 +272,64 @@ def crawl_http(source: dict) -> list:
                     url=full_url,
                 )
             )
+            if len(results) >= source.get("max_items", 10_000):
+                # Listing pages are newest-first; capping protects against
+                # first-crawl archive floods (a full-history listing would
+                # otherwise ingest years of releases all dated today).
+                break
     except requests.RequestException as exc:
         logger.warning("HTTP crawl failed for %s: %s", source_id, exc)
+    return results
+
+
+# ---------------------------------------------------------------------------
+# JSON index crawling (static news-index endpoints, e.g. Nissay)
+# ---------------------------------------------------------------------------
+def crawl_json(source: dict) -> list:
+    """Crawl a static JSON news index and return CrawlResult list.
+
+    Expects a JSON array of {date, title, link} objects (Nissay's
+    kaisha/news/json/index.json shape — the data source behind their
+    JS-rendered listing page). Relative links are joined against the
+    source URL's origin. `days` (default 45) bounds the lookback so the
+    first run does not ingest a decade of archives (Nissay's index goes
+    back to 2016, 880+ items).
+    """
+    url = source["url"]
+    source_id = source["id"]
+    results = []
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=source.get("timeout", 15))
+        resp.raise_for_status()
+        items = resp.json()
+        if not isinstance(items, list):
+            logger.warning("JSON index for %s is not a list", source_id)
+            return []
+        cutoff = (
+            date.today() - timedelta(days=source.get("days", 45))
+        ).isoformat()
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            title = (item.get("title") or "").strip()
+            link = (item.get("link") or "").strip()
+            item_date = (item.get("date") or "").strip()
+            if not title or not link:
+                continue
+            if item_date and item_date[:10] < cutoff:
+                continue
+            if _NOISE_PATTERNS.search(title):
+                continue
+            results.append(
+                CrawlResult(
+                    source_id=source_id,
+                    title=title[:200],
+                    url=urljoin(url, link),
+                    published=item_date[:10],
+                )
+            )
+    except (requests.RequestException, ValueError) as exc:
+        logger.warning("JSON crawl failed for %s: %s", source_id, exc)
     return results
 
 
@@ -269,6 +343,8 @@ def crawl_source(source: dict) -> list:
         return crawl_rss(source)
     elif method == "http":
         return crawl_http(source)
+    elif method == "json":
+        return crawl_json(source)
     else:
         logger.warning("Unknown method '%s' for source %s", method, source["id"])
         return []

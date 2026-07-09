@@ -12,8 +12,24 @@ def _gnews(query, days=7, lang="en", country="US"):
     )
 
 
-def _src(id_, name, url, method="rss", region="全球", type_="新聞聚合"):
-    """Build a source dict."""
+def _src(id_, name, url, method="rss", region="全球", type_="新聞聚合", **extra):
+    """Build a source dict.
+
+    extra: optional per-source crawler tuning, consumed by crawler.py —
+      timeout           request timeout seconds (default 15; slow origins
+                        like mainland-China sites need 25+)
+      min_title_len     anchor-text length floor for crawl_http (default
+                        20; CJK press-release titles can run shorter)
+      url_must_contain  substring an article URL must contain; when set it
+                        REPLACES the generic _is_article_url heuristic for
+                        crawl_http (curated whitelist beats guessing, and
+                        the heuristic's '/about' skip false-positives on
+                        newsrooms under /about-us/)
+      max_items         crawl_http cap per run (listing pages are
+                        newest-first; prevents first-crawl archive floods
+                        being ingested with today's date)
+      days              lookback window for crawl_json (default 45)
+    """
     return {
         "id": id_,
         "name": name,
@@ -21,6 +37,7 @@ def _src(id_, name, url, method="rss", region="全球", type_="新聞聚合"):
         "method": method,
         "region": region,
         "type": type_,
+        **extra,
     }
 
 
@@ -338,16 +355,33 @@ _GNEWS_NEW = [
 ]
 
 # ---------------------------------------------------------------------------
-# 1 official RSS
+# Official / direct RSS (non-GNews feeds; feedparser eats them as-is)
 # ---------------------------------------------------------------------------
 _OFFICIAL_RSS = [
     _src("hkia_rss", "香港保監局 RSS",
          "http://www.ia.org.hk/tc/rss/rss_news_tc.xml",
          region="香港", type_="監管機構"),
+    # 2026-07-09 source expansion — direct media feeds. GNews only surfaces
+    # a fraction of these outlets (100-item cap saturation): shinnihon 89
+    # of ~260/mo, insnews ~21%, IB Asia misses 28%.
+    _src("shinnihon_rss", "新日本保險新聞",
+         "https://www.shinnihon-ins.co.jp/industry-news/feed/",
+         region="日本", type_="新聞媒體"),
+    # Feed pages hold 10 items each; peak days run 14-26 posts, so page 2
+    # widens the window to 20 for the 2-3 crawls/day cadence.
+    _src("shinnihon_rss_p2", "新日本保險新聞 p2",
+         "https://www.shinnihon-ins.co.jp/industry-news/feed/?paged=2",
+         region="日本", type_="新聞媒體"),
+    _src("insnews_kr", "韓國保險新聞",
+         "https://www.insnews.co.kr/rss/allArticle.xml",
+         region="韓國", type_="新聞媒體"),
+    _src("ib_asia", "Insurance Business Asia",
+         "https://www.insurancebusinessmag.com/asia/rss/",
+         region="亞太", type_="新聞媒體"),
 ]
 
 # ---------------------------------------------------------------------------
-# 8 HTTP backup sources
+# HTTP / JSON first-party sources (official newsrooms + media without RSS)
 # ---------------------------------------------------------------------------
 _HTTP_BACKUP = [
     _src("air_news", "Asia Insurance Review",
@@ -356,9 +390,16 @@ _HTTP_BACKUP = [
     _src("lia_sg", "新加坡壽險公會",
          "https://www.lia.org.sg/news-room/",
          method="http", region="新加坡", type_="監管機構"),
+    # 2026-07-09: canonical URL (old media-centre.html 302s here) + URL
+    # whitelist — the listing page mixes in ~17 product/lifepedia links
+    # that pass the generic filters. Official cadence is 1-2 releases/mo;
+    # the 137-article spike in 2026-04 was the first-crawl backfill of
+    # the full 2017-2026 archive, not normal yield.
     _src("greateastern", "Great Eastern",
-         "https://www.greateasternlife.com/sg/en/about-us/media-centre.html",
-         method="http", region="新加坡", type_="保險公司"),
+         "https://www.greateasternlife.com/sg/en/about-us/media-centre/"
+         "media-releases.html",
+         method="http", region="新加坡", type_="保險公司",
+         url_must_contain="media-centre/media-releases/", max_items=10),
     _src("aia_hk", "AIA 香港",
          "https://www.aia.com.hk/en/about-aia/media-centre.html",
          method="http", region="香港", type_="保險公司"),
@@ -375,9 +416,36 @@ _HTTP_BACKUP = [
     _src("mas_media", "MAS 新聞稿",
          "https://www.mas.gov.sg/news/media-releases",
          method="http", region="新加坡", type_="監管機構"),
+    # 2026-07-09 source expansion — first-party newsrooms that media
+    # coverage cites but KB had zero primary articles from.
+    # Sumitomo: static listing, titles median 44 chars; floor lowered to
+    # 18 because rate-revision notices run exactly 19 chars.
+    _src("sumitomo_life", "住友生命官網",
+         "https://www.sumitomolife.co.jp/news/newsrelease/",
+         method="http", region="日本", type_="保險公司",
+         min_title_len=18, url_must_contain="/news/"),
+    # Nissay's listing page is JS-rendered; this JSON index is the data
+    # source behind it (static, 2016-now). method="json" + days window
+    # prevents first-run ingestion of 880+ archive items.
+    _src("nissay_news", "日本生命官網",
+         "https://www.nissay.co.jp/kaisha/news/json/index.json",
+         method="json", region="日本", type_="保險公司"),
+    # CPIC origin is China Unicom Shanghai, no global CDN: cold requests
+    # measured 13.6-17.8s, so timeout raised. Batch-published (CMS date
+    # can lag events by 1-3 months).
+    _src("cpic_group", "中國太平洋保險官網",
+         "https://www.cpic.com.cn/aboutUs/gsdt/rdxw/index.shtml",
+         method="http", region="中國", type_="保險公司", timeout=25,
+         url_must_contain="/c/"),
+    _src("cpic_health", "太平洋健康險官網",
+         "https://www.cpic.com.cn/jkx/gytbal/rdxw/",
+         method="http", region="中國", type_="保險公司", timeout=25,
+         url_must_contain="/c/"),
 ]
 
 # ---------------------------------------------------------------------------
-# Combined: 61 sources (53 baseline + 8 Asia life-insurer expansion 2026-04-25)
+# Combined: 93 sources (85 as of 2026-07 + 8 source expansion 2026-07-09:
+# shinnihon x2 / insnews / IB Asia direct RSS, sumitomo / cpic x2 http,
+# nissay json)
 # ---------------------------------------------------------------------------
 SOURCES = _GNEWS_EXISTING + _GNEWS_NEW + _GNEWS_ASIA_LIFE + _OFFICIAL_RSS + _HTTP_BACKUP
