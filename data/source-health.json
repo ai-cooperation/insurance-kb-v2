@@ -117,7 +117,7 @@
  },
  "gnews_reinsurers": {
   "status": "ok",
-  "last": "2026-07-28"
+  "last": "2026-07-29"
  },
  "gnews_us_massmutual": {
   "status": "ok",
@@ -157,7 +157,7 @@
  },
  "gnews_us_tiaa": {
   "status": "ok",
-  "last": "2026-07-28"
+  "last": "2026-07-29"
  },
  "gnews_us_mutual_omaha": {
   "status": "ok",
@@ -185,7 +185,7 @@
  },
  "gnews_sina_insurance": {
   "status": "ok",
-  "last": "2026-07-28"
+  "last": "2026-07-29"
  },
  "gnews_esg_insurance": {
   "status": "ok",
@@ -197,7 +197,7 @@
  },
  "gnews_product_launch_zh": {
   "status": "ok",
-  "last": "2026-07-28"
+  "last": "2026-07-29"
  },
  "gnews_hive_insurance": {
   "status": "ok",
