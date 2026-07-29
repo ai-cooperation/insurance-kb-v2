@@ -199,6 +199,17 @@ def main():
         dict(sorted(stats["regions"].items(), key=lambda x: -x[1])),
     )
 
+    # Phase 4.5: entity-name consistency detector (alert-only, non-fatal)
+    try:
+        from src.name_consistency import check_articles, notify_violations
+        violations = check_articles(articles)
+        if violations:
+            notify_violations(violations)
+        else:
+            logger.info("Phase 4.5: name consistency OK (%d articles)", len(articles))
+    except Exception:
+        logger.exception("Phase 4.5 name consistency check failed (non-fatal)")
+
     # Phase 5: Build Card View + Frontend Data
     logger.info("Phase 5: Building Card View + Frontend Data...")
     build_card_view(index)

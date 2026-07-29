@@ -42,35 +42,56 @@ CONDITIONAL_RULES = [
     (
         re.compile(r"하나손해보험|하나손보"),
         re.compile(r"한화"),
-        [("韓華損害保險", "Hana損害保險"), ("韓華損保", "Hana損保")],
+        [
+            ("韓華損害保險", "Hana損害保險"),
+            ("韓華損保", "Hana損保"),
+            # 2026-07 one-day auto insurance burst variants (韓亞 = Hana
+            # Financial's zh name but house canonical is Hana; 韓華 =
+            # Hanwha collision — both safe inside the 하나 gate)
+            ("韓亞產險", "Hana產險"),
+            ("韓華產險", "Hana產險"),
+            ("韓亞損保", "Hana損保"),
+        ],
     ),
     (
         re.compile(r"한화손해보험|한화손보"),
         re.compile(r"한화생명"),
         [("韓華人壽", "韓華損保")],
     ),
-    # JP: Aflac (アフラック) was rendered as several OTHER companies'
-    # canonical names. Those tokens are genuine elsewhere (安聯 = Allianz,
-    # 美國友邦 = AIA, 大都會人壽 = MetLife), so only articles whose
-    # original title names アフラック get the repair.
+    # JP: Aflac (アフラック / EN "Aflac") was rendered as several OTHER
+    # companies' canonical names. Those tokens are genuine elsewhere
+    # (安聯 = Allianz, 美國友邦 = AIA, 大都會人壽 = MetLife, 美亞 = AIG's
+    # China JV, 美國運通 = Amex), so only articles whose original title
+    # names Aflac get the repair. 2026-07 breach-news burst added the
+    # 美亞/美國運通/bare-安聯 variants (name_consistency baseline scan).
     (
-        re.compile(r"アフラック"),
-        re.compile(r"メットライフ|AIA|アリアンツ"),
+        re.compile(r"アフラック|[Aa]flac|AFLAC"),
+        re.compile(r"メットライフ|AIA|アリアンツ|[Aa]llianz"),
         [
             ("安聯生命", "Aflac生命"),
             ("美國友邦生命", "Aflac生命"),
             ("美國友邦保險", "Aflac生命"),
             ("美國友邦", "Aflac"),
             ("大都會人壽", "Aflac生命"),
+            ("美國運通保險", "Aflac"),
+            ("美亞保險", "Aflac"),
+            ("安聯", "Aflac"),
             ("友利", "Aflac"),  # bare leftover after map fixes 友利生命
         ],
     ),
     # Manulife (katakana OR English sources) — 萬通人壽 is genuine
-    # MassMutual in US articles, so gate on the original title
+    # MassMutual in US articles, 大東方 genuine Great Eastern, so gate
+    # on the original title. 直布羅陀/大東方 renderings observed on
+    # Manulife Indonesia articles 2026-07 (baseline scan).
     (
         re.compile(r"マニュライフ|[Mm]anulife"),
-        re.compile(r"マスミューチュアル|MassMutual"),
-        [("萬通人壽", "宏利人壽"), ("萬通大廈", "宏利大廈")],
+        re.compile(r"マスミューチュアル|MassMutual|[Gg]reat [Ee]astern"),
+        [
+            ("萬通人壽", "宏利人壽"),
+            ("萬通大廈", "宏利大廈"),
+            ("直布羅陀生命", "宏利人壽"),
+            ("大東方", "宏利"),
+        ],
     ),
     # JP: Prudential (US) — 保誠 is genuine Prudential plc (UK) elsewhere
     (

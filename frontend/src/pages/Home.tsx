@@ -26,7 +26,7 @@ function useKBStats(): KBStats | null {
   const [stats, setStats] = useState<KBStats | null>(null);
   useEffect(() => {
     let cancelled = false;
-    fetch('/data/stats.json')
+    fetch('/data/stats.json', { cache: 'no-cache' })
       .then(r => r.ok ? r.json() : Promise.reject(r.statusText))
       .then((s: KBStats) => { if (!cancelled) setStats(s); })
       .catch(() => { /* leave null; caller falls back to articles.length */ });

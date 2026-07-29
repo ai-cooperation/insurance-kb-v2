@@ -192,22 +192,36 @@ async function idbClearStaleMonths(activeMonths: Set<string>): Promise<void> {
 }
 
 // ─── Month fetch with cache-first + network revalidate ─────────────────
+//
+// `cache: 'no-cache'` forces conditional revalidation (ETag 304 when
+// unchanged) instead of the browser's heuristic freshness. Without it the
+// background "revalidate" could be answered by the browser's own stale
+// HTTP cache, the length check then saw no difference, and the view
+// stayed pinned to an old day indefinitely (stuck-at-2026-07-24 incident).
 
-async function fetchMonth(file: string): Promise<RawEntry[]> {
+async function fetchMonth(
+  file: string,
+  onFresh?: (fresh: RawEntry[]) => void
+): Promise<RawEntry[]> {
   const cacheKey = `articles:${file.replace(/^articles-|\.json$/g, '')}`;
 
   // Cache lookup first — returns instantly if present.
   const cached = await idbGet<RawEntry[]>(cacheKey);
   if (cached) {
-    // Background revalidate: fetch + replace cache if it differs.
+    // Background revalidate: always refresh the cache, and surface the
+    // fresh payload to the caller so the CURRENT view updates too (the
+    // old code only wrote IndexedDB, so users saw stale data until the
+    // next full visit).
     void (async () => {
       try {
-        const resp = await fetch(`/data/${file}`);
+        const resp = await fetch(`/data/${file}`, { cache: 'no-cache' });
         if (!resp.ok) return;
         const fresh = (await resp.json()) as RawEntry[];
-        if (fresh.length !== cached.length) {
-          await idbPut(cacheKey, fresh);
-        }
+        await idbPut(cacheKey, fresh);
+        const changed =
+          fresh.length !== cached.length ||
+          fresh[0]?.uid !== cached[0]?.uid;
+        if (changed && onFresh) onFresh(fresh);
       } catch {
         /* network down / refresh later */
       }
@@ -216,7 +230,7 @@ async function fetchMonth(file: string): Promise<RawEntry[]> {
   }
 
   // Cache miss: fetch + populate.
-  const resp = await fetch(`/data/${file}`);
+  const resp = await fetch(`/data/${file}`, { cache: 'no-cache' });
   if (!resp.ok) throw new Error(`${file} HTTP ${resp.status}`);
   const data = (await resp.json()) as RawEntry[];
   void idbPut(cacheKey, data);
@@ -285,7 +299,11 @@ export function useArticles(): ArticleStore {
     setFetchingMore(true);
     const work = (async () => {
       try {
-        const raw = await fetchMonth(file);
+        const raw = await fetchMonth(file, (fresh) => {
+          // Background revalidation delivered newer data for this month —
+          // merge it into the live view immediately.
+          setArticles((prev) => mergeArticles(prev, mapMonthToArticles(fresh)));
+        });
         const mapped = mapMonthToArticles(raw);
         loadedMonthsRef.current.add(month);
         setLoadedMonths(new Set(loadedMonthsRef.current));
@@ -334,7 +352,9 @@ export function useArticles(): ArticleStore {
 
     (async () => {
       try {
-        const resp = await fetch('/data/articles-manifest.json');
+        const resp = await fetch('/data/articles-manifest.json', {
+          cache: 'no-cache',
+        });
         if (!resp.ok) throw new Error(`manifest HTTP ${resp.status}`);
         const m = (await resp.json()) as ManifestV2;
         if (cancelled) return;

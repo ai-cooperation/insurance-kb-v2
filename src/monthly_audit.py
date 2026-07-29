@@ -172,6 +172,19 @@ def run_monthly_audit(notify=True):
 
     report_lines.append(f"🔗 URL quality: {url_quality:.0f}% real URLs")
 
+    # 5. Entity-name drift (full-index safety net behind the per-crawl
+    # Phase 4.5 detector — same watchlist)
+    try:
+        from src.name_consistency import check_articles
+        from datetime import date, timedelta
+        cutoff = (date.today() - timedelta(days=35)).isoformat()
+        drift = check_articles([a for a in visible if (a.get("date") or "") >= cutoff])
+        report_lines.append(f"🏷 Name drift (35d): {len(drift)} violations")
+        for v in drift[:5]:
+            report_lines.append(f"  {v['uid']} expect {v['expected']}: {v['title']}")
+    except Exception as exc:  # noqa: BLE001 — audit must not die on detector bugs
+        report_lines.append(f"🏷 Name drift check failed: {exc}")
+
     # Overall score
     score = 100
     if dist_warnings:

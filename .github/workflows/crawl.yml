@@ -51,12 +51,25 @@ jobs:
       - name: Run crawl pipeline
         env:
           MODELS_PAT: ${{ secrets.MODELS_PAT }}
+          # Phase 4.5 name-consistency detector alerts through Telegram
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: "-1003856903916"
+          TELEGRAM_TOPIC_ID: "4"
         run: python run.py
 
       - name: Build frontend data
         run: |
           python build_frontend_data.py
           python build_wiki_json.py
+
+      - name: Source health check
+        # Per-source freshness alarm (state transitions -> Telegram).
+        # Never blocks the crawl; state file is committed by the next step.
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: "-1003856903916"
+          TELEGRAM_TOPIC_ID: "4"
+        run: python -m src.source_health || true
 
       - name: Commit and push changes
         run: |

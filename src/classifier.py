@@ -379,6 +379,7 @@ _KR_NAME_MAP = [
     ("教保生命", "教保人壽"),
     ("東洋生命", "東洋人壽"),
     ("興國生命", "興國人壽"),
+    ("興國生推", "興國人壽推"),  # LLM truncation; safe: 興國生命 already replaced above
     ("MetLife生命", "大都會人壽"),
     ("MetLife壽險", "大都會人壽"),
     ("MetLife", "大都會人壽"),
@@ -439,8 +440,19 @@ _KR_NAME_MAP = [
     # handled conditionally in fix_company_names.py gated on title_en.
     ("アフラック生命", "Aflac生命"),
     ("アフラック", "Aflac"),
+    # 2026-07 Aflac breach news burst spawned fresh transliterations
+    # (caught by name_consistency baseline scan). Unambiguous ones here;
+    # ambiguous (美亞=AIG China JV, 美國運通=Amex, 安聯=Allianz) stay
+    # conditional in fix_company_names.py.
+    ("阿弗萊克", "Aflac"),
+    ("阿弗拉克", "Aflac"),
+    ("亞克蘭生命", "Aflac生命"),
+    ("亞克蘭", "Aflac"),
     ("メットライフ生命", "大都會人壽"),
     ("メットライフ", "大都會人壽"),
+    ("アクサ生命", "安盛人壽"),
+    ("アクサ損害保険", "安盛損保"),
+    ("アクサ", "安盛"),
     ("友利生命", "Aflac生命"),  # Woori has NO life arm; 25/25 verified Aflac
     ("亞弗拉克生命", "Aflac生命"),
     ("亞弗拉克", "Aflac"),
@@ -472,6 +484,39 @@ _KR_NAME_MAP = [
     ("DB 損保", "DB損保"),
     ("Meritz 火災", "Meritz火災"),
     ("Chubb 人壽", "Chubb人壽"),
+]
+
+# ---------------------------------------------------------------------------
+# Entity-name consistency watchlist — consumed by src/name_consistency.py.
+# (original-name pattern matched against title_en, accepted zh tokens that
+# must appear in the translated title+summary). Alert-only: ambiguous
+# renderings (宏利 = genuine Manulife elsewhere) mean repairs stay manual
+# via fix_company_names.py conditional rules. Keep in sync with the
+# standard table in _LLM_SYSTEM above; every past incident company is
+# listed (Lina, Aflac, Great Eastern→宏利 ...).
+_ENTITY_WATCHLIST = [
+    (r"라이나|[Ll]ina Life", ("Lina",)),
+    (r"삼성생명", ("三星人壽",)),
+    (r"한화생명", ("韓華人壽",)),
+    (r"교보생명", ("教保人壽",)),
+    (r"신한라이프|신한생명", ("新韓人壽",)),
+    (r"동양생명", ("東洋人壽",)),
+    (r"미래에셋생명", ("未來資產人壽",)),
+    (r"흥국생명", ("興國人壽",)),
+    (r"KB라이프|KB생명", ("KB人壽",)),
+    (r"하나생명", ("Hana人壽",)),
+    (r"하나손해보험|하나손보", ("Hana損",)),
+    (r"농협생명", ("農協人壽",)),
+    (r"ABL생명", ("ABL人壽",)),
+    (r"アフラック|Aflac", ("Aflac",)),
+    (r"メットライフ|MetLife", ("大都會人壽",)),
+    (r"マニュライフ|[Mm]anulife", ("宏利",)),
+    (r"アクサ", ("安盛", "AXA")),
+    (r"プルデンシャル", ("保德信", "保誠")),
+    (r"ジブラルタ", ("直布羅陀",)),
+    (r"ライフネット", ("Lifenet",)),
+    (r"ソニー生命", ("索尼生命",)),
+    (r"[Gg]reat [Ee]astern|GREAT EASTERN", ("大東方",)),
 ]
 
 _SPORTS_RX = _re_mod.compile(
