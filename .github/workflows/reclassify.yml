@@ -18,6 +18,11 @@ on:
         required: false
         default: false
         type: boolean
+      untranslated_since:
+        description: 'Backfill: re-translate untranslated/summary-less articles dated >= YYYY-MM-DD (GitHub Models retirement outage)'
+        required: false
+        default: ''
+        type: string
 
 # Share the pipeline lock with crawl.yml + distill.yml. Reclassify is a
 # heavy job that mutates master-index.json across thousands of entries
@@ -51,6 +56,7 @@ jobs:
 
       - name: Run reclassify
         env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           MODELS_PAT: ${{ secrets.MODELS_PAT }}
         run: |
           ARGS="--batch-size 10 --delay 3"
@@ -62,6 +68,9 @@ jobs:
           fi
           if [ "${{ inputs.korean_only }}" = "true" ]; then
             ARGS="$ARGS --korean-only"
+          fi
+          if [ -n "${{ inputs.untranslated_since }}" ]; then
+            ARGS="$ARGS --untranslated-since ${{ inputs.untranslated_since }}"
           fi
           python reclassify.py $ARGS
 

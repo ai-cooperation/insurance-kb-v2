@@ -22,8 +22,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from src.classifier import (
     _CATEGORIES,
     _LLM_SYSTEM,
+    _build_cascade,
     _merge_llm_results,
-    TRANSLATE_MODELS,
 )
 
 INDEX_PATH = Path(__file__).resolve().parent / "index" / "master-index.json"
@@ -54,18 +54,33 @@ def reclassify(
     limit: int = 0,
     dry_run: bool = False,
     korean_only: bool = False,
+    untranslated_since: str = "",
 ):
     """Reclassify all articles in the index."""
-    try:
-        from openai import OpenAI
-    except ImportError:
-        logger.error("openai package not installed")
-        return
-
     index = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
     logger.info("Loaded %d articles from index", len(index))
 
-    if korean_only:
+    if untranslated_since:
+        # Backfill mode (2026-07-31 GitHub Models retirement outage):
+        # articles that shipped with untranslated titles or empty
+        # summaries because every translation batch 401'd.
+        import re as _re
+        cjk_src = _re.compile(r"[가-힯ァ-ヶぁ-ん]")
+        to_reclassify = [
+            (i, art) for i, art in enumerate(index)
+            if (art.get("date") or "") >= untranslated_since
+            and not art.get("filter")
+            and (
+                (art.get("title") or "") == (art.get("title_en") or "")
+                or cjk_src.search(art.get("title") or "")
+                or not (art.get("summary") or "").strip()
+            )
+        ]
+        logger.info(
+            "Untranslated-since-%s mode: %d articles need re-translation",
+            untranslated_since, len(to_reclassify),
+        )
+    elif korean_only:
         # Re-translate KR-source articles whose title still contains Hangul.
         # These are leftovers from the old gpt-4.1-nano cascade where the
         # model returned partial / invalid JSON and the article kept its raw
@@ -92,14 +107,16 @@ def reclassify(
     if not to_reclassify:
         return
 
-    client = OpenAI(
-        base_url="https://models.inference.ai.azure.com",
-        api_key=api_key,
-    )
-
-    models = list(TRANSLATE_MODELS)
-    model_idx = 0
-    current_model = models[model_idx]
+    # Provider-aware cascade (Groq primary since GitHub Models retirement)
+    try:
+        slots = _build_cascade(api_key)
+    except ImportError:
+        logger.error("openai package not installed")
+        return
+    if not slots:
+        logger.error("No translation provider available")
+        return
+    slot_idx = 0
     stats = Counter()
 
     # Incremental save every N batches — protects against workflow timeout.
@@ -116,11 +133,15 @@ def reclassify(
         prompt = _build_reclassify_prompt(batch_articles)
         logger.info(
             "Batch %d-%d / %d [%s]",
-            start + 1, start + len(batch_items), len(to_reclassify), current_model,
+            start + 1, start + len(batch_items), len(to_reclassify),
+            slots[min(slot_idx, len(slots) - 1)][0],
         )
 
         success = False
         for attempt in range(3):
+            if slot_idx >= len(slots):
+                break
+            label, client, current_model = slots[slot_idx]
             try:
                 response = client.chat.completions.create(
                     model=current_model,
@@ -167,22 +188,21 @@ def reclassify(
 
             except Exception as exc:
                 exc_str = str(exc)
-                if "429" in exc_str and "86400" in exc_str:
-                    model_idx += 1
-                    if model_idx < len(models):
-                        current_model = models[model_idx]
-                        logger.warning("Rate limit, rotating to %s", current_model)
-                        continue
-                    else:
-                        logger.error("All models exhausted at batch %d", start)
-                        break
-                elif "429" in exc_str:
-                    logger.warning("Rate limit (short), waiting 30s...")
+                if "429" in exc_str and "86400" not in exc_str:
+                    logger.warning("Rate limit (short) on %s, waiting 30s...", label)
                     time.sleep(30)
                     continue
-                else:
-                    logger.warning("Batch failed (attempt %d): %s", attempt + 1, exc)
-                    time.sleep(5)
+                # Daily quota, auth failure, dead endpoint, unknown model —
+                # advance the cascade and retry this batch on the next slot.
+                slot_idx += 1
+                if slot_idx < len(slots):
+                    logger.warning(
+                        "Batch failed on %s (%s), rotating to %s",
+                        label, exc_str[:80], slots[slot_idx][0],
+                    )
+                    continue
+                logger.error("All cascade slots exhausted at batch %d", start)
+                break
 
         if not success:
             stats["failed"] += len(batch_items)
@@ -232,11 +252,15 @@ def main():
     parser.add_argument("--delay", type=float, default=3.0)
     parser.add_argument("--korean-only", action="store_true",
                         help="Only re-translate KR-source articles whose title still contains Hangul")
+    parser.add_argument("--untranslated-since", default="",
+                        help="Backfill mode: re-translate articles dated >= YYYY-MM-DD "
+                             "whose title is untranslated or summary empty "
+                             "(2026-07 GitHub Models retirement outage)")
     args = parser.parse_args()
 
     api_key = os.environ.get("MODELS_PAT", "")
-    if not api_key:
-        logger.error("MODELS_PAT not set")
+    if not api_key and not os.environ.get("GROQ_API_KEY"):
+        logger.error("Neither GROQ_API_KEY nor MODELS_PAT set")
         sys.exit(1)
 
     reclassify(
@@ -246,6 +270,7 @@ def main():
         limit=args.limit,
         dry_run=args.dry_run,
         korean_only=args.korean_only,
+        untranslated_since=args.untranslated_since,
     )
 
 
