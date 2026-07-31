@@ -50,8 +50,11 @@ jobs:
 
       - name: Run crawl pipeline
         env:
+          # Translation cascade: Groq primary (GitHub Models is retiring —
+          # brownouts since ~2026-07-29, final shutdown pending)
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           MODELS_PAT: ${{ secrets.MODELS_PAT }}
-          # Phase 4.5 name-consistency detector alerts through Telegram
+          # Phase 3 failure-rate + Phase 4.5 name-consistency alerts
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: "-1003856903916"
           TELEGRAM_TOPIC_ID: "4"

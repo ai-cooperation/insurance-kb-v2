@@ -2,6 +2,7 @@
 
 import json
 import logging
+import os
 import time
 
 logger = logging.getLogger(__name__)
@@ -613,115 +614,179 @@ def _merge_llm_results(batch: list, translations: list) -> list:
     return merged
 
 
-# Model cascade for translation — each model has 150 req/day independent quota.
-# On 429 (daily limit), automatically rotate to next model.
-# Removed gpt-4.1-nano: nano was too inconsistent on Korean naming standards
-# and sports-leak detection (the cheapest tier ignored prompt rules); paying
-# the modest extra cost of mini-as-default buys far better instruction following.
-TRANSLATE_MODELS = [
-    "gpt-4.1-mini",       # default — good quality, fast, good instruction following
-    "gpt-4o-mini",        # proven reliable
-    "gpt-4.1",            # higher quality
-    "gpt-4o",             # high quality
-    "Llama-3.3-70B-Instruct",  # open source fallback
+# Provider-aware translation cascade.
+#
+# 2026-07-31: GitHub Models entered scheduled retirement brownouts — the
+# legacy azure endpoint returns 401 "Server Error" and models.github.ai
+# answers "github_models_retirement_brownout". Three days of green runs
+# shipped untranslated titles (14 -> 50 -> 119/day) because the old code
+# only rotated on 429-with-daily-marker; 401 fell through to "log and
+# keep originals". Groq (the original provider; GROQ_API_KEY still in
+# repo secrets) is restored as primary, GitHub Models kept as secondary
+# until final shutdown. ANY per-batch exception now advances the
+# cascade, and a failure-rate alarm goes to Telegram — silent Phase 3
+# death is the exact failure class pipeline-invariant-testing rule 5
+# exists for.
+#
+# Model notes: gpt-4.1-nano was removed earlier for ignoring Korean
+# naming rules; unknown Groq model IDs rotate harmlessly on 404.
+TRANSLATE_PROVIDERS = [
+    ("groq", "https://api.groq.com/openai/v1", "GROQ_API_KEY", [
+        "openai/gpt-oss-120b",         # strongest instruction following on Groq
+        "llama-3.3-70b-versatile",
+        "qwen/qwen3-32b",
+        "moonshotai/kimi-k2-instruct",
+    ]),
+    ("github-models", "https://models.inference.ai.azure.com", "MODELS_PAT", [
+        "gpt-4.1-mini",
+        "gpt-4o-mini",
+        "gpt-4.1",
+        "gpt-4o",
+        "Llama-3.3-70B-Instruct",
+    ]),
 ]
+
+# Alert when this fraction of batches fail — a dying provider must page
+# us, not ship raw Korean titles behind a green run.
+_PHASE3_ALARM_THRESHOLD = 0.2
+
+
+def _send_phase3_alarm(message: str) -> None:
+    """Best-effort Telegram alert (same env contract as the other detectors)."""
+    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
+    topic_id = os.environ.get("TELEGRAM_TOPIC_ID", "")
+    if not token or not chat_id:
+        return
+    try:
+        import requests as _rq
+        payload = {"chat_id": chat_id, "text": message}
+        if topic_id:
+            payload["message_thread_id"] = topic_id
+        _rq.post(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            data=payload, timeout=15,
+        )
+    except Exception as exc:  # noqa: BLE001 — alarm must never kill the pipeline
+        logger.warning("Phase 3 alarm send failed: %s", exc)
+
+
+def _build_cascade(fallback_github_key: str = "") -> list:
+    """Flatten TRANSLATE_PROVIDERS into [(label, client, model), ...] for
+    every provider whose key is available."""
+    from openai import OpenAI
+
+    slots = []
+    for name, base_url, env_var, models in TRANSLATE_PROVIDERS:
+        key = os.environ.get(env_var, "")
+        if not key and name == "github-models":
+            key = fallback_github_key  # legacy run.py passes MODELS_PAT as arg
+        if not key:
+            logger.info("Provider %s skipped (no %s)", name, env_var)
+            continue
+        client = OpenAI(base_url=base_url, api_key=key)
+        for model in models:
+            slots.append((f"{name}/{model}", client, model))
+    return slots
 
 
 def classify_llm_batch(
     articles: list,
-    api_key: str,
+    api_key: str = "",
     batch_size: int = 10,
     delay: float = 3.0,
 ) -> list:
-    """Translate titles to Chinese via GitHub Models API with model cascade.
+    """Translate titles to Chinese via the provider cascade.
 
-    Automatically rotates to next model on 429 (daily rate limit).
-    Returns new list of article dicts with title_zh and summary_zh added.
+    Any exception on a batch advances to the next (provider, model) slot
+    and retries the same batch there. JSON-parse failures keep originals
+    but do NOT advance (bad output != dead provider). When all slots are
+    exhausted, remaining articles stay untranslated and the failure-rate
+    alarm fires.
     """
     try:
-        from openai import OpenAI
+        slots = _build_cascade(api_key)
     except ImportError:
         logger.error("openai package not installed, skipping LLM classification")
         return articles
+    if not slots:
+        logger.error("No translation provider available (no API keys)")
+        _send_phase3_alarm("[Insurance KB] 翻譯 Phase 3 無可用 provider（API key 全缺）")
+        return articles
 
-    client = OpenAI(
-        base_url="https://models.inference.ai.azure.com",
-        api_key=api_key,
-    )
-
-    models = list(TRANSLATE_MODELS)
-    model_idx = 0
-    current_model = models[model_idx]
-    logger.info("Starting with model: %s", current_model)
+    slot_idx = 0
+    label, client, model = slots[slot_idx]
+    logger.info("Translation cascade: %d slots, starting with %s", len(slots), label)
 
     updated = []
+    total_batches = 0
+    failed_batches = 0
+
     for start in range(0, len(articles), batch_size):
         batch = articles[start : start + batch_size]
         prompt = _build_llm_prompt(batch)
+        total_batches += 1
         logger.info(
             "LLM batch %d-%d / %d [%s]",
-            start + 1, start + len(batch), len(articles), current_model,
+            start + 1, start + len(batch), len(articles), label,
         )
 
-        try:
-            response = client.chat.completions.create(
-                model=current_model,
-                messages=[
-                    {"role": "system", "content": _LLM_SYSTEM},
-                    {"role": "user", "content": prompt},
-                ],
-                temperature=0.3,
-                max_tokens=2000,
-            )
-            text = response.choices[0].message.content.strip()
-            translations = _parse_llm_json(text)
-            if translations is not None:
-                updated.extend(_merge_llm_results(batch, translations))
-            else:
-                logger.warning("JSON parse failed, keeping originals for batch %d-%d",
-                               start + 1, start + len(batch))
-                updated.extend(batch)
-        except Exception as exc:
-            exc_str = str(exc)
-            if "429" in exc_str and "86400" in exc_str:
-                # Daily limit hit — rotate to next model
-                model_idx += 1
-                if model_idx < len(models):
-                    current_model = models[model_idx]
-                    logger.warning(
-                        "Daily limit on %s, rotating to %s",
-                        models[model_idx - 1], current_model,
-                    )
-                    # Retry this batch with new model
-                    try:
-                        response = client.chat.completions.create(
-                            model=current_model,
-                            messages=[
-                                {"role": "system", "content": _LLM_SYSTEM},
-                                {"role": "user", "content": prompt},
-                            ],
-                            temperature=0.3,
-                            max_tokens=2000,
-                        )
-                        text = response.choices[0].message.content.strip()
-                        translations = _parse_llm_json(text)
-                        if translations is not None:
-                            updated.extend(_merge_llm_results(batch, translations))
-                        else:
-                            updated.extend(batch)
-                    except Exception as retry_exc:
-                        logger.warning("Retry with %s also failed: %s", current_model, retry_exc)
-                        updated.extend(batch)
+        translated = False
+        while slot_idx < len(slots):
+            label, client, model = slots[slot_idx]
+            try:
+                response = client.chat.completions.create(
+                    model=model,
+                    messages=[
+                        {"role": "system", "content": _LLM_SYSTEM},
+                        {"role": "user", "content": prompt},
+                    ],
+                    temperature=0.3,
+                    max_tokens=2000,
+                )
+                text = response.choices[0].message.content.strip()
+                translations = _parse_llm_json(text)
+                if translations is not None:
+                    updated.extend(_merge_llm_results(batch, translations))
                 else:
-                    logger.error("All models exhausted. Remaining articles untranslated.")
+                    logger.warning(
+                        "JSON parse failed on %s, keeping originals for batch %d-%d",
+                        label, start + 1, start + len(batch),
+                    )
                     updated.extend(batch)
-                    updated.extend(articles[start + batch_size :])
-                    break
-            else:
-                logger.warning("LLM batch failed: %s", exc)
-                updated.extend(batch)
+                    failed_batches += 1
+                translated = True
+                break
+            except Exception as exc:
+                logger.warning("Batch failed on %s: %s — rotating", label, exc)
+                slot_idx += 1
+
+        if not translated:
+            # Cascade fully exhausted — keep the rest untranslated.
+            logger.error(
+                "All %d cascade slots exhausted at batch %d-%d. "
+                "Remaining articles untranslated.",
+                len(slots), start + 1, start + len(batch),
+            )
+            updated.extend(batch)
+            updated.extend(articles[start + batch_size :])
+            failed_batches += 1 + max(
+                0, (len(articles) - start - batch_size + batch_size - 1) // batch_size
+            )
+            total_batches = (len(articles) + batch_size - 1) // batch_size
+            break
 
         if start + batch_size < len(articles):
             time.sleep(delay)
+
+    if total_batches and failed_batches / total_batches > _PHASE3_ALARM_THRESHOLD:
+        msg = (
+            "[Insurance KB] 翻譯失敗率告警\n"
+            f"本輪 {failed_batches}/{total_batches} 個 batch 失敗"
+            f"（cascade 用到第 {min(slot_idx + 1, len(slots))}/{len(slots)} 槽）。\n"
+            "受影響文章以原文標題入庫，修好後用 reclassify 補譯。"
+        )
+        logger.error(msg)
+        _send_phase3_alarm(msg)
 
     return updated
