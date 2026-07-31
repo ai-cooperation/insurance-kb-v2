@@ -1,4 +1,10 @@
-"""LLM calls for knowledge distillation using GitHub Models API (OpenAI SDK)."""
+"""LLM calls for knowledge distillation, provider-aware (OpenAI SDK).
+
+2026-07-31: GitHub Models is retiring (scheduled brownouts already broke
+the crawl translation pipeline for 3 days). Groq promoted to primary
+here too — the monthly distill fires 8/1 and would have crashed on the
+dying endpoint. GitHub kept as secondary until final shutdown.
+"""
 
 from __future__ import annotations
 
@@ -7,26 +13,41 @@ from typing import Any
 
 import openai
 
-
-def get_client() -> openai.OpenAI:
-    """Return OpenAI client configured for GitHub Models API."""
-    token = os.environ.get("MODELS_PAT") or os.environ.get("GITHUB_TOKEN")
-    if not token:
-        raise RuntimeError("MODELS_PAT or GITHUB_TOKEN environment variable is required")
-    return openai.OpenAI(
-        base_url="https://models.inference.ai.azure.com",
-        api_key=token,
-    )
-
-
-# Distillation uses higher-quality models (low volume, quality matters)
-DISTILL_MODELS = [
-    "gpt-4.1",            # best balance of quality and speed
-    "gpt-4o",             # fallback
-    "DeepSeek-V3-0324",   # strong open-source alternative
-    "Llama-3.3-70B-Instruct",
+# Distillation wants quality long-form zh output (low volume). kimi-k2
+# is a non-reasoning heavyweight with strong Chinese prose; gpt-oss-120b
+# last among Groq slots because its reasoning eats the output budget.
+DISTILL_PROVIDERS = [
+    ("groq", "https://api.groq.com/openai/v1", ("GROQ_API_KEY",), [
+        "moonshotai/kimi-k2-instruct",
+        "llama-3.3-70b-versatile",
+        "qwen/qwen3-32b",
+        "openai/gpt-oss-120b",
+    ]),
+    ("github-models", "https://models.inference.ai.azure.com",
+     ("MODELS_PAT", "GITHUB_TOKEN"), [
+        "gpt-4.1",
+        "gpt-4o",
+        "DeepSeek-V3-0324",
+        "Llama-3.3-70B-Instruct",
+    ]),
 ]
-MODEL = os.environ.get("DISTILL_MODEL", DISTILL_MODELS[0])
+
+
+def _build_slots() -> list:
+    """Flatten DISTILL_PROVIDERS into [(label, client, model), ...]."""
+    slots = []
+    for name, base_url, env_vars, models in DISTILL_PROVIDERS:
+        key = next((os.environ[v] for v in env_vars if os.environ.get(v)), "")
+        if not key:
+            continue
+        client = openai.OpenAI(base_url=base_url, api_key=key)
+        for model in models:
+            slots.append((f"{name}/{model}", client, model))
+    if not slots:
+        raise RuntimeError(
+            "No distill provider available — set GROQ_API_KEY or MODELS_PAT"
+        )
+    return slots
 
 
 def distill_monthly(
@@ -83,9 +104,7 @@ def distill_monthly(
 3. 不要編造文章中沒有的資訊
 4. 保持專業客觀的語調"""
 
-    client = get_client()
     return _call_with_cascade(
-        client,
         system="你是保險產業知識庫編輯，專長將大量新聞文章整理成結構化月度報告。",
         user=prompt,
         max_tokens=4000,
@@ -142,9 +161,7 @@ def distill_quarterly(
 2. 引用具體月份和來源
 3. 不要編造資料"""
 
-    client = get_client()
     return _call_with_cascade(
-        client,
         system="你是保險產業知識庫總編輯，專長季度趨勢綜合分析。",
         user=prompt,
         max_tokens=4000,
@@ -205,9 +222,7 @@ def distill_annual(
 3. 不要編造資料
 4. 保持宏觀視角"""
 
-    client = get_client()
     return _call_with_cascade(
-        client,
         system="你是保險產業知識庫主編，專長年度產業趨勢綜合分析與前瞻。",
         user=prompt,
         max_tokens=5000,
@@ -215,18 +230,24 @@ def distill_annual(
 
 
 def _call_with_cascade(
-    client: openai.OpenAI,
     system: str,
     user: str,
     max_tokens: int = 4000,
 ) -> str:
-    """Call LLM with model cascade — rotate on 429 daily limit."""
+    """Call LLM through the provider cascade.
+
+    ANY per-slot failure advances to the next slot — the old version
+    re-raised on non-429 errors, which would have crashed the whole
+    monthly distill on the first retirement-brownout 401. Empty output
+    also advances (reasoning models can burn the budget).
+    """
     import logging
     logger = logging.getLogger(__name__)
 
-    for model in DISTILL_MODELS:
+    last_exc: Exception | None = None
+    for label, client, model in _build_slots():
         try:
-            logger.info("Distill using model: %s", model)
+            logger.info("Distill using %s", label)
             response = client.chat.completions.create(
                 model=model,
                 messages=[
@@ -236,17 +257,15 @@ def _call_with_cascade(
                 temperature=0.3,
                 max_tokens=max_tokens,
             )
-            return response.choices[0].message.content or ""
-        except Exception as exc:
-            exc_str = str(exc)
-            if "429" in exc_str and "86400" in exc_str:
-                logger.warning("Daily limit on %s, trying next model", model)
-                continue
-            if "413" in exc_str or "tokens_limit" in exc_str:
-                logger.warning("Token limit on %s, trying next model", model)
-                continue
-            raise
-    raise RuntimeError("All distill models exhausted (daily limits)")
+            text = (response.choices[0].message.content or "").strip()
+            if text:
+                return text
+            logger.warning("Empty output from %s, trying next slot", label)
+        except Exception as exc:  # noqa: BLE001 — rotate on any provider error
+            logger.warning("Distill failed on %s: %s — trying next slot",
+                           label, str(exc)[:120])
+            last_exc = exc
+    raise RuntimeError(f"All distill cascade slots exhausted (last: {last_exc})")
 
 
 MAX_ARTICLES_PER_PROMPT = 50
