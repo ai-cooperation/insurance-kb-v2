@@ -542,22 +542,38 @@ def _detect_kr_sports(*texts: str) -> bool:
 
 
 def _parse_llm_json(text: str):
-    """Parse LLM response as JSON array, stripping code fences. Returns None on failure."""
+    """Parse LLM response as JSON array. Returns None on failure.
+
+    Strips code fences, and falls back to extracting the outermost
+    [...] span — reasoning models (gpt-oss family) wrap the array in
+    prose preamble that plain json.loads chokes on.
+    """
     text = text.strip()
     if text.startswith("```"):
         text = text.split("\n", 1)[1] if "\n" in text else text[3:]
     if text.endswith("```"):
         text = text[:-3]
     text = text.strip()
-    try:
-        result = json.loads(text)
-        if isinstance(result, list):
-            return result
-        logger.warning("LLM returned non-array JSON: %s", type(result))
-        return None
-    except json.JSONDecodeError as exc:
-        logger.warning("JSON parse error: %s | text[:100]=%s", exc, text[:100])
-        return None
+    for candidate in (text,):
+        try:
+            result = json.loads(candidate)
+            if isinstance(result, list):
+                return result
+            logger.warning("LLM returned non-array JSON: %s", type(result))
+            return None
+        except json.JSONDecodeError:
+            pass
+    # Fallback: outermost array span
+    lo, hi = text.find("["), text.rfind("]")
+    if lo != -1 and hi > lo:
+        try:
+            result = json.loads(text[lo : hi + 1])
+            if isinstance(result, list):
+                return result
+        except json.JSONDecodeError:
+            pass
+    logger.warning("JSON parse failed | len=%d | text[:100]=%s", len(text), text[:100])
+    return None
 
 
 def _build_llm_prompt(articles: list) -> str:
@@ -632,10 +648,13 @@ def _merge_llm_results(batch: list, translations: list) -> list:
 # naming rules; unknown Groq model IDs rotate harmlessly on 404.
 TRANSLATE_PROVIDERS = [
     ("groq", "https://api.groq.com/openai/v1", "GROQ_API_KEY", [
-        "openai/gpt-oss-120b",         # strongest instruction following on Groq
+        # llama first: gpt-oss-120b is a reasoning model — with a 10-article
+        # batch its reasoning ate the whole max_tokens budget and returned
+        # EMPTY content (9/9 parse failures on 2026-07-31 first live run).
         "llama-3.3-70b-versatile",
-        "qwen/qwen3-32b",
         "moonshotai/kimi-k2-instruct",
+        "qwen/qwen3-32b",
+        "openai/gpt-oss-120b",
     ]),
     ("github-models", "https://models.inference.ai.azure.com", "MODELS_PAT", [
         "gpt-4.1-mini",
@@ -742,21 +761,24 @@ def classify_llm_batch(
                         {"role": "user", "content": prompt},
                     ],
                     temperature=0.3,
-                    max_tokens=2000,
+                    # Reasoning models spend tokens thinking before the
+                    # array; 2000 returned EMPTY content on gpt-oss-120b.
+                    max_tokens=4000,
                 )
-                text = response.choices[0].message.content.strip()
+                text = (response.choices[0].message.content or "").strip()
                 translations = _parse_llm_json(text)
                 if translations is not None:
                     updated.extend(_merge_llm_results(batch, translations))
-                else:
-                    logger.warning(
-                        "JSON parse failed on %s, keeping originals for batch %d-%d",
-                        label, start + 1, start + len(batch),
-                    )
-                    updated.extend(batch)
-                    failed_batches += 1
-                translated = True
-                break
+                    translated = True
+                    break
+                # Unparseable/empty output is a slot-level defect for this
+                # prompt shape (reasoning-format models) — advance and
+                # retry the same batch on the next slot.
+                logger.warning(
+                    "Unusable output on %s for batch %d-%d — rotating",
+                    label, start + 1, start + len(batch),
+                )
+                slot_idx += 1
             except Exception as exc:
                 logger.warning("Batch failed on %s: %s — rotating", label, exc)
                 slot_idx += 1
