@@ -10,7 +10,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from src.distill_llm import MODEL, distill_annual, distill_monthly, distill_quarterly
+from src import distill_llm
+from src.distill_llm import distill_annual, distill_monthly, distill_quarterly
 from src.topics import CATEGORY_MAP, CATEGORY_REVERSE, REGION_MAP, REGION_REVERSE
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,7 +82,7 @@ def build_frontmatter(
         f"articles_count: {articles_count}",
         f"compiled_at: {now}",
         f"compiled_by: distill-cli",
-        f"model: {MODEL}",
+        f"model: {distill_llm.LAST_MODEL_USED}",
         "---",
         "",
     ])

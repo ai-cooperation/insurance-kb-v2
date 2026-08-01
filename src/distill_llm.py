@@ -39,6 +39,12 @@ DISTILL_PROVIDERS = [
 ]
 
 
+# Updated by _call_with_cascade on each successful call; consumed by
+# distill.py for the wiki frontmatter `model:` line. (Replaced the old
+# static MODEL constant — under a cascade the actual model varies.)
+LAST_MODEL_USED = "provider-cascade"
+
+
 def _build_slots() -> list:
     """Flatten DISTILL_PROVIDERS into [(label, client, model), ...],
     filtered against each provider's live /models list (hardcoded IDs
@@ -271,6 +277,8 @@ def _call_with_cascade(
             )
             text = (response.choices[0].message.content or "").strip()
             if text:
+                global LAST_MODEL_USED
+                LAST_MODEL_USED = label
                 return text
             logger.warning("Empty output from %s, trying next slot", label)
         except Exception as exc:  # noqa: BLE001 — rotate on any provider error
