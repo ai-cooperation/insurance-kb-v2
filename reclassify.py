@@ -187,18 +187,17 @@ def reclassify(
                 break
 
             except Exception as exc:
-                exc_str = str(exc)
-                if "429" in exc_str and "86400" not in exc_str:
-                    logger.warning("Rate limit (short) on %s, waiting 30s...", label)
-                    time.sleep(30)
-                    continue
-                # Daily quota, auth failure, dead endpoint, unknown model —
-                # advance the cascade and retry this batch on the next slot.
+                # ANY failure advances the cascade — the previous "short
+                # 429 -> sleep 30 and retry same slot" branch keyed on the
+                # GitHub-Models-specific '86400' marker; Groq's DAILY-limit
+                # 429s don't contain it, so a dead llama slot got retried
+                # forever while 8 healthy slots sat unused (rounds 5-7 of
+                # the 2026-08-01 backfill stalled at ~90% failure on this).
                 slot_idx += 1
                 if slot_idx < len(slots):
                     logger.warning(
                         "Batch failed on %s (%s), rotating to %s",
-                        label, exc_str[:80], slots[slot_idx][0],
+                        label, str(exc)[:80], slots[slot_idx][0],
                     )
                     continue
                 logger.error("All cascade slots exhausted at batch %d", start)
