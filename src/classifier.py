@@ -693,9 +693,33 @@ def _send_phase3_alarm(message: str) -> None:
         logger.warning("Phase 3 alarm send failed: %s", exc)
 
 
+def _filter_available(client, models: list, provider: str) -> list:
+    """Intersect configured models with the provider's live /models list.
+
+    Hardcoded model IDs rot (kimi-k2 and qwen3-32b 404'd, then the Llama 4
+    IDs scraped from Groq's docs page 404'd too — the docs lie, the API
+    doesn't). Query reality once per run and log it, so the cascade never
+    wastes slots on ghosts and CI logs always show what actually exists.
+    Falls back to the configured list if /models itself fails.
+    """
+    try:
+        available = {m.id for m in client.models.list()}
+    except Exception as exc:  # noqa: BLE001 — discovery is best-effort
+        logger.warning("%s /models query failed (%s); using configured list",
+                       provider, str(exc)[:80])
+        return models
+    kept = [m for m in models if m in available]
+    dropped = [m for m in models if m not in available]
+    if dropped:
+        logger.warning("%s models not on live API, dropped: %s",
+                       provider, dropped)
+    logger.info("%s live models: %s", provider, sorted(available))
+    return kept
+
+
 def _build_cascade(fallback_github_key: str = "") -> list:
     """Flatten TRANSLATE_PROVIDERS into [(label, client, model), ...] for
-    every provider whose key is available."""
+    every provider whose key is available, filtered to live models."""
     from openai import OpenAI
 
     slots = []
@@ -707,7 +731,7 @@ def _build_cascade(fallback_github_key: str = "") -> list:
             logger.info("Provider %s skipped (no %s)", name, env_var)
             continue
         client = OpenAI(base_url=base_url, api_key=key)
-        for model in models:
+        for model in _filter_available(client, models, name):
             slots.append((f"{name}/{model}", client, model))
     return slots
 

@@ -38,14 +38,18 @@ DISTILL_PROVIDERS = [
 
 
 def _build_slots() -> list:
-    """Flatten DISTILL_PROVIDERS into [(label, client, model), ...]."""
+    """Flatten DISTILL_PROVIDERS into [(label, client, model), ...],
+    filtered against each provider's live /models list (hardcoded IDs
+    rot — see classifier._filter_available)."""
+    from src.classifier import _filter_available
+
     slots = []
     for name, base_url, env_vars, models in DISTILL_PROVIDERS:
         key = next((os.environ[v] for v in env_vars if os.environ.get(v)), "")
         if not key:
             continue
         client = openai.OpenAI(base_url=base_url, api_key=key)
-        for model in models:
+        for model in _filter_available(client, models, name):
             slots.append((f"{name}/{model}", client, model))
     if not slots:
         raise RuntimeError(
