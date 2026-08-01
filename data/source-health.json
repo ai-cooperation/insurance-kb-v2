@@ -61,7 +61,7 @@
  },
  "gnews_cn_companies_3": {
   "status": "ok",
-  "last": "2026-07-31"
+  "last": "2026-08-01"
  },
  "gnews_cn_industry": {
   "status": "ok",
@@ -69,7 +69,7 @@
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
-  "last": "2026-07-31"
+  "last": "2026-08-01"
  },
  "gnews_jp_companies_2": {
   "status": "ok",
@@ -133,7 +133,7 @@
  },
  "gnews_us_metlife": {
   "status": "ok",
-  "last": "2026-07-31"
+  "last": "2026-08-01"
  },
  "gnews_us_prudential": {
   "status": "ok",
@@ -217,7 +217,7 @@
  },
  "gnews_air": {
   "status": "ok",
-  "last": "2026-07-31"
+  "last": "2026-08-01"
  },
  "gnews_mas": {
   "status": "ok",
@@ -269,7 +269,7 @@
  },
  "gnews_in_lifers_2": {
   "status": "ok",
-  "last": "2026-07-31"
+  "last": "2026-08-01"
  },
  "gnews_in_industry": {
   "status": "ok",
