@@ -17,6 +17,19 @@ import openai
 # is a non-reasoning heavyweight with strong Chinese prose; gpt-oss-120b
 # last among Groq slots because its reasoning eats the output budget.
 DISTILL_PROVIDERS = [
+    # Gemini free tier first (2026-08-01, user decision): distill is
+    # ~81 calls/month with very long prompts — low request count, huge
+    # context, exactly the Gemini free quota shape. Groq free tier
+    # can't serve it (413 per-request caps on qwen/gpt-oss; llama TPD
+    # eaten by daily translation). Uses Gemini's OpenAI-compat endpoint,
+    # model IDs filtered by runtime discovery like every provider.
+    ("gemini", "https://generativelanguage.googleapis.com/v1beta/openai/",
+     ("GEMINI_API_KEY",), [
+        "gemini-2.5-flash",
+        "gemini-2.5-pro",
+        "gemini-2.5-flash-lite",
+        "gemini-2.0-flash",
+    ]),
     ("groq", "https://api.groq.com/openai/v1", ("GROQ_API_KEY",), [
         # Verified against live API 2026-08-01: kimi-k2 / qwen3-32b 404.
         # Maverick first for distill: strongest long-form of the

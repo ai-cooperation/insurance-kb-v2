@@ -709,7 +709,11 @@ def _filter_available(client, models: list, provider: str) -> list:
     Falls back to the configured list if /models itself fails.
     """
     try:
-        available = {m.id for m in client.models.list()}
+        available = set()
+        for m in client.models.list():
+            available.add(m.id)
+            # Gemini's OpenAI-compat endpoint returns "models/gemini-x"
+            available.add(m.id.split("/")[-1])
     except Exception as exc:  # noqa: BLE001 — discovery is best-effort
         logger.warning("%s /models query failed (%s); using configured list",
                        provider, str(exc)[:80])
