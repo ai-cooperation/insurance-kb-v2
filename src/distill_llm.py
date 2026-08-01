@@ -296,7 +296,7 @@ def _call_with_cascade(
             logger.warning("Empty output from %s, trying next slot", label)
         except Exception as exc:  # noqa: BLE001 — rotate on any provider error
             logger.warning("Distill failed on %s: %s — trying next slot",
-                           label, str(exc)[:120])
+                           label, str(exc)[:400])
             last_exc = exc
     raise RuntimeError(f"All distill cascade slots exhausted (last: {last_exc})")
 
