@@ -648,12 +648,15 @@ def _merge_llm_results(batch: list, translations: list) -> list:
 # naming rules; unknown Groq model IDs rotate harmlessly on 404.
 TRANSLATE_PROVIDERS = [
     ("groq", "https://api.groq.com/openai/v1", "GROQ_API_KEY", [
-        # llama first: gpt-oss-120b is a reasoning model — with a 10-article
-        # batch its reasoning ate the whole max_tokens budget and returned
-        # EMPTY content (9/9 parse failures on 2026-07-31 first live run).
+        # Verified against the live API 2026-08-01: kimi-k2 and qwen3-32b
+        # 404 (retired/unavailable despite docs mentions). Llama 4 models
+        # carry separate per-model daily quotas — they keep translation
+        # alive after llama-3.3's TPD runs out. gpt-oss last: reasoning
+        # model, needs reasoning_effort=low or it burns the budget and
+        # returns empty content.
         "llama-3.3-70b-versatile",
-        "moonshotai/kimi-k2-instruct",
-        "qwen/qwen3-32b",
+        "meta-llama/llama-4-maverick-17b-128e-instruct",
+        "meta-llama/llama-4-scout-17b-16e-instruct",
         "openai/gpt-oss-120b",
     ]),
     ("github-models", "https://models.inference.ai.azure.com", "MODELS_PAT", [
@@ -754,6 +757,9 @@ def classify_llm_batch(
         while slot_idx < len(slots):
             label, client, model = slots[slot_idx]
             try:
+                extra = (
+                    {"reasoning_effort": "low"} if "gpt-oss" in model else None
+                )
                 response = client.chat.completions.create(
                     model=model,
                     messages=[
@@ -764,6 +770,7 @@ def classify_llm_batch(
                     # Reasoning models spend tokens thinking before the
                     # array; 2000 returned EMPTY content on gpt-oss-120b.
                     max_tokens=4000,
+                    extra_body=extra,
                 )
                 text = (response.choices[0].message.content or "").strip()
                 translations = _parse_llm_json(text)

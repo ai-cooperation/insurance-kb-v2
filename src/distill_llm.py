@@ -18,9 +18,13 @@ import openai
 # last among Groq slots because its reasoning eats the output budget.
 DISTILL_PROVIDERS = [
     ("groq", "https://api.groq.com/openai/v1", ("GROQ_API_KEY",), [
-        "moonshotai/kimi-k2-instruct",
+        # Verified against live API 2026-08-01: kimi-k2 / qwen3-32b 404.
+        # Maverick first for distill: strongest long-form of the
+        # available non-reasoning Groq models, separate daily quota from
+        # the crawl translator's llama-3.3.
+        "meta-llama/llama-4-maverick-17b-128e-instruct",
         "llama-3.3-70b-versatile",
-        "qwen/qwen3-32b",
+        "meta-llama/llama-4-scout-17b-16e-instruct",
         "openai/gpt-oss-120b",
     ]),
     ("github-models", "https://models.inference.ai.azure.com",
@@ -248,6 +252,7 @@ def _call_with_cascade(
     for label, client, model in _build_slots():
         try:
             logger.info("Distill using %s", label)
+            extra = {"reasoning_effort": "low"} if "gpt-oss" in model else None
             response = client.chat.completions.create(
                 model=model,
                 messages=[
@@ -256,6 +261,7 @@ def _call_with_cascade(
                 ],
                 temperature=0.3,
                 max_tokens=max_tokens,
+                extra_body=extra,
             )
             text = (response.choices[0].message.content or "").strip()
             if text:
