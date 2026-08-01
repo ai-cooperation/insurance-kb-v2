@@ -172,8 +172,13 @@ def reclassify(
                     index[idx]["importance"] = new_imp
                     if new_filter:
                         index[idx]["filter"] = new_filter
-                    # Update title/summary if improved
+                    # Update title/summary if improved. Preserve the
+                    # original into title_en first if it was never stored
+                    # (outage-cohort rows) — overwriting `title` would
+                    # otherwise destroy the source-language original.
                     if merged_art.get("title_zh"):
+                        if not index[idx].get("title_en"):
+                            index[idx]["title_en"] = index[idx].get("title", "")
                         index[idx]["title"] = merged_art["title_zh"]
                     if merged_art.get("summary_zh"):
                         index[idx]["summary"] = merged_art["summary_zh"]

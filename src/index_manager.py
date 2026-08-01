@@ -15,7 +15,14 @@ def _make_entry(article: dict) -> dict:
     return {
         "uid": article.get("uid", ""),
         "title": article.get("title_zh") or article.get("title", ""),
-        "title_en": article.get("title", "") if article.get("title_zh") else "",
+        # ALWAYS store the original title. The old conditional only kept
+        # it when translation succeeded, so the 2026-07 outage cohort
+        # (translation failed at ingest) had no title_en — and the later
+        # backfill overwrote `title` with zh, silently destroying the
+        # original for 54 articles (broke original-language search,
+        # cross-source dedup, and name-consistency checks for them).
+        # title == title_en simply marks an untranslated row.
+        "title_en": article.get("title", ""),
         "date": article.get("published") or datetime.now().strftime("%Y-%m-%d"),
         "source": article.get("source_id", ""),
         "source_url": article.get("url", ""),
