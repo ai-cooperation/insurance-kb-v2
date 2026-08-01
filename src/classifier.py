@@ -654,9 +654,12 @@ TRANSLATE_PROVIDERS = [
         # alive after llama-3.3's TPD runs out. gpt-oss last: reasoning
         # model, needs reasoning_effort=low or it burns the budget and
         # returns empty content.
+        # IDs from the live /models list (runtime discovery drops any
+        # that rot). qwen3.6 second: Qwen is the strongest CJK family on
+        # the catalog and carries its own daily quota.
         "llama-3.3-70b-versatile",
-        "meta-llama/llama-4-maverick-17b-128e-instruct",
-        "meta-llama/llama-4-scout-17b-16e-instruct",
+        "qwen/qwen3.6-27b",
+        "llama-3.1-8b-instant",
         "openai/gpt-oss-120b",
     ]),
     ("github-models", "https://models.inference.ai.azure.com", "MODELS_PAT", [

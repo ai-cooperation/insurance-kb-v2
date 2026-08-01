@@ -22,9 +22,11 @@ DISTILL_PROVIDERS = [
         # Maverick first for distill: strongest long-form of the
         # available non-reasoning Groq models, separate daily quota from
         # the crawl translator's llama-3.3.
-        "meta-llama/llama-4-maverick-17b-128e-instruct",
+        # Live-verified IDs. qwen3.6 first for distill: strongest zh
+        # long-form on the current catalog, separate quota from the
+        # crawl translator's llama-3.3.
+        "qwen/qwen3.6-27b",
         "llama-3.3-70b-versatile",
-        "meta-llama/llama-4-scout-17b-16e-instruct",
         "openai/gpt-oss-120b",
     ]),
     ("github-models", "https://models.inference.ai.azure.com",
