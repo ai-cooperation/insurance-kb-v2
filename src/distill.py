@@ -140,6 +140,12 @@ def run_monthly(year_month: str | None = None) -> None:
             print(f"[distill] Error on {cat_slug}-{region_slug}: {exc}")
             skipped += 1
     print(f"[distill] Done: {written} written, {skipped} skipped")
+    if written == 0 and skipped > 0:
+        # Soft-fail is a silent failure: on 2026-08-01 the monthly run
+        # "succeeded" green with 0/81 pages (all cascade slots limited).
+        # Exit non-zero so the workflow goes red and alerting fires.
+        import sys
+        sys.exit(1)
 
 
 def run_quarterly(period: str | None = None) -> None:
