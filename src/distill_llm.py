@@ -25,10 +25,14 @@ DISTILL_PROVIDERS = [
     # model IDs filtered by runtime discovery like every provider.
     ("gemini", "https://generativelanguage.googleapis.com/v1beta/openai/",
      ("GEMINI_API_KEY",), [
-        "gemini-2.5-flash",
-        "gemini-2.5-pro",
-        "gemini-2.5-flash-lite",
-        "gemini-2.0-flash",
+        # From the live catalog (2026-08-01): 2.x generation is gated for
+        # new keys (404/zero-quota). "-latest" aliases are Google's own
+        # anti-rot mechanism — they track the current generation, so this
+        # list should never rot again. Explicit IDs as belt-and-braces.
+        "gemini-flash-latest",
+        "gemini-3.6-flash",
+        "gemini-3.5-flash",
+        "gemini-3.1-flash-lite",
     ]),
     ("groq", "https://api.groq.com/openai/v1", ("GROQ_API_KEY",), [
         # Verified against live API 2026-08-01: kimi-k2 / qwen3-32b 404.
