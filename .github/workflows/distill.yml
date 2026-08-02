@@ -9,6 +9,11 @@ on:
         description: 'Period to distill (e.g. 2026-03 for monthly)'
         required: false
         type: string
+      force:
+        description: 'Regenerate pages even if they already exist'
+        required: false
+        type: boolean
+        default: false
 
 # Same lock as crawl.yml (set 2026-06-04 commit fc4b552). Both workflows
 # mutate compiled/ and master-index.json via git push; concurrent runs
@@ -52,10 +57,14 @@ jobs:
           MODELS_PAT: ${{ secrets.MODELS_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          FORCE=""
+          if [ "${{ inputs.force }}" = "true" ]; then
+            FORCE="--force"
+          fi
           if [ -n "${{ inputs.period }}" ]; then
-            python -m src.distill --monthly "${{ inputs.period }}"
+            python -m src.distill --monthly "${{ inputs.period }}" $FORCE
           else
-            python -m src.distill --monthly
+            python -m src.distill --monthly $FORCE
           fi
 
       - name: Commit and push compiled output

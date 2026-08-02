@@ -140,7 +140,8 @@ def distill_monthly(
     return _call_with_cascade(
         system="你是保險產業知識庫編輯，專長將大量新聞文章整理成結構化月度報告。",
         user=prompt,
-        max_tokens=4000,
+        max_tokens=8000,
+        required_markers=MONTHLY_SECTIONS,
     )
 
 
@@ -197,7 +198,8 @@ def distill_quarterly(
     return _call_with_cascade(
         system="你是保險產業知識庫總編輯，專長季度趨勢綜合分析。",
         user=prompt,
-        max_tokens=4000,
+        max_tokens=8000,
+        required_markers=["季度總覽", "重大趨勢", "下季展望"],
     )
 
 
@@ -258,30 +260,59 @@ def distill_annual(
     return _call_with_cascade(
         system="你是保險產業知識庫主編，專長年度產業趨勢綜合分析與前瞻。",
         user=prompt,
-        max_tokens=5000,
+        max_tokens=8000,
+        required_markers=["年度總覽", "未來展望"],
     )
+
+
+# 2026-08-02 audit finding: max_tokens=4000 systematically truncated wiki
+# tails across ALL provider generations — gpt-4.1 (2026-05/06) lost the
+# final 知識缺口 section on 62 pages; Gemini 3.x thinking models burned
+# most of the budget on reasoning, leaving ~1,500-char bodies missing
+# 3-5 sections (2026-07, 74/81 pages defective, zero alerts). Two fixes:
+# max_tokens 8000, and a structure-invariant gate below (missing section
+# = slot failure = rotate), so truncation can never again ship silently.
+
+
+def _extra_body(label: str, model: str) -> dict | None:
+    """Provider-specific request extras.
+
+    Reasoning models spend completion tokens on thinking before any
+    visible output — gpt-oss proved it 2026-07-31 (empty content), the
+    Gemini 3.x flash family re-proved it 2026-08-01 (truncated wikis).
+    Both providers accept reasoning_effort on the OpenAI-compat surface.
+    """
+    if label.startswith("gemini/") or "gpt-oss" in model:
+        return {"reasoning_effort": "low"}
+    return None
 
 
 def _call_with_cascade(
     system: str,
     user: str,
-    max_tokens: int = 4000,
+    max_tokens: int = 8000,
+    required_markers: list[str] | None = None,
 ) -> str:
     """Call LLM through the provider cascade.
 
-    ANY per-slot failure advances to the next slot — the old version
-    re-raised on non-429 errors, which would have crashed the whole
-    monthly distill on the first retirement-brownout 401. Empty output
-    also advances (reasoning models can burn the budget).
+    ANY per-slot failure advances to the next slot — API error, empty
+    output, or (new) missing required section markers. If no slot
+    produces a fully structured output, fall back to the best attempt
+    (most markers matched, then longest) rather than failing the page:
+    a wiki missing one section beats no wiki, and the gate log makes
+    the degradation visible instead of silent.
     """
     import logging
     logger = logging.getLogger(__name__)
+    global LAST_MODEL_USED
 
+    best_text = ""
+    best_label = ""
+    best_score: tuple[int, int] = (-1, -1)
     last_exc: Exception | None = None
     for label, client, model in _build_slots():
         try:
             logger.info("Distill using %s", label)
-            extra = {"reasoning_effort": "low"} if "gpt-oss" in model else None
             response = client.chat.completions.create(
                 model=model,
                 messages=[
@@ -290,22 +321,50 @@ def _call_with_cascade(
                 ],
                 temperature=0.3,
                 max_tokens=max_tokens,
-                extra_body=extra,
+                extra_body=_extra_body(label, model),
             )
             text = (response.choices[0].message.content or "").strip()
-            if text:
-                global LAST_MODEL_USED
+            if not text:
+                logger.warning("Empty output from %s, trying next slot", label)
+                continue
+            missing = [m for m in (required_markers or []) if m not in text]
+            if not missing:
                 LAST_MODEL_USED = label
                 return text
-            logger.warning("Empty output from %s, trying next slot", label)
+            score = (len(required_markers) - len(missing), len(text))
+            if score > best_score:
+                best_score, best_text, best_label = score, text, label
+            logger.warning(
+                "Structure gate: %s output missing %s (%d chars) — trying next slot",
+                label, missing, len(text),
+            )
         except Exception as exc:  # noqa: BLE001 — rotate on any provider error
             logger.warning("Distill failed on %s: %s — trying next slot",
                            label, str(exc)[:400])
             last_exc = exc
+    if best_text:
+        logger.warning(
+            "Structure gate: no slot passed fully; keeping best attempt from %s "
+            "(%d/%d markers)", best_label, best_score[0], len(required_markers or []),
+        )
+        LAST_MODEL_USED = best_label
+        return best_text
     raise RuntimeError(f"All distill cascade slots exhausted (last: {last_exc})")
 
 
 MAX_ARTICLES_PER_PROMPT = 50
+
+# Section headings the monthly prompt mandates; the cascade's structure
+# gate asserts every one appears in the output (invariant, not example —
+# see rules/common/pipeline-invariant-testing.md #1).
+MONTHLY_SECTIONS = [
+    "本月重點",
+    "時間線",
+    "趨勢分析",
+    "跨主題關聯",
+    "來源文章索引",
+    "知識缺口",
+]
 
 
 def _format_articles_for_prompt(articles: list[dict[str, Any]]) -> str:

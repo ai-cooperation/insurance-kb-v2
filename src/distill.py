@@ -89,7 +89,7 @@ def build_frontmatter(
     return "\n".join(lines)
 
 
-def run_monthly(year_month: str | None = None) -> None:
+def run_monthly(year_month: str | None = None, force: bool = False) -> None:
     """Generate monthly wiki pages for each category x region group."""
     if year_month is None:
         now = datetime.now(timezone.utc)
@@ -114,8 +114,10 @@ def run_monthly(year_month: str | None = None) -> None:
     skipped = 0
     for (cat_slug, region_slug), group_articles in sorted(groups.items()):
         out_path = out_dir / f"{cat_slug}-{region_slug}.md"
-        # Skip if already distilled this run (from a previous partial run)
-        if out_path.exists() and out_path.stat().st_size > 500:
+        # Skip if already distilled this run (from a previous partial run).
+        # --force overwrites: needed to regenerate defective pages in place
+        # (2026-08-02: re-run of truncated 2026-07 wikis).
+        if not force and out_path.exists() and out_path.stat().st_size > 500:
             print(f"[distill] Skipping {cat_slug}-{region_slug} (already exists)")
             written += 1
             continue
@@ -238,11 +240,13 @@ def main() -> None:
                         metavar="YYYY-QN", help="Generate quarterly overview (default: previous quarter)")
     parser.add_argument("--annual", nargs="?", const=None, default=False,
                         metavar="YYYY", help="Generate annual overview (default: previous year)")
+    parser.add_argument("--force", action="store_true",
+                        help="Regenerate pages even if they already exist")
     args = parser.parse_args()
 
     ran = False
     if args.monthly is not False:
-        run_monthly(args.monthly)
+        run_monthly(args.monthly, force=args.force)
         ran = True
     if args.quarterly is not False:
         run_quarterly(args.quarterly)
