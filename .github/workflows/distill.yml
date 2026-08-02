@@ -6,9 +6,15 @@ on:
   workflow_dispatch:
     inputs:
       period:
-        description: 'Period to distill (e.g. 2026-03 for monthly)'
+        description: 'Period to distill (e.g. 2026-03 monthly / 2026-Q2 quarterly / 2026 annual)'
         required: false
         type: string
+      mode:
+        description: 'Distill mode'
+        required: false
+        type: choice
+        options: [monthly, quarterly, annual]
+        default: monthly
       force:
         description: 'Regenerate pages even if they already exist'
         required: false
@@ -61,10 +67,12 @@ jobs:
           if [ "${{ inputs.force }}" = "true" ]; then
             FORCE="--force"
           fi
+          MODE="${{ inputs.mode }}"
+          MODE="${MODE:-monthly}"
           if [ -n "${{ inputs.period }}" ]; then
-            python -m src.distill --monthly "${{ inputs.period }}" $FORCE
+            python -m src.distill --$MODE "${{ inputs.period }}" $FORCE
           else
-            python -m src.distill --monthly $FORCE
+            python -m src.distill --$MODE $FORCE
           fi
 
       - name: Commit and push compiled output
