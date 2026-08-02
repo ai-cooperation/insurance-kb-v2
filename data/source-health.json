@@ -5,7 +5,7 @@
  },
  "gnews_insurance_global": {
   "status": "ok",
-  "last": "2026-08-01"
+  "last": "2026-08-02"
  },
  "gnews_insurtech": {
   "status": "ok",
@@ -13,7 +13,7 @@
  },
  "gnews_sg_companies_1": {
   "status": "ok",
-  "last": "2026-08-01"
+  "last": "2026-08-02"
  },
  "gnews_sg_companies_2": {
   "status": "ok",
@@ -53,7 +53,7 @@
  },
  "gnews_cn_companies_1": {
   "status": "ok",
-  "last": "2026-08-01"
+  "last": "2026-08-02"
  },
  "gnews_cn_companies_2": {
   "status": "ok",
@@ -77,7 +77,7 @@
  },
  "gnews_jp_companies_3": {
   "status": "ok",
-  "last": "2026-08-01"
+  "last": "2026-08-02"
  },
  "gnews_jp_en": {
   "status": "ok",
@@ -97,7 +97,7 @@
  },
  "gnews_kr_companies_2": {
   "status": "ok",
-  "last": "2026-08-01"
+  "last": "2026-08-02"
  },
  "gnews_kr_companies_3": {
   "status": "ok",
@@ -125,7 +125,7 @@
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
-  "last": "2026-07-31"
+  "last": "2026-08-02"
  },
  "gnews_us_nyl": {
   "status": "ok",
@@ -153,7 +153,7 @@
  },
  "gnews_us_guardian": {
   "status": "ok",
-  "last": "2026-07-29"
+  "last": "2026-07-31"
  },
  "gnews_us_tiaa": {
   "status": "ok",
@@ -205,7 +205,7 @@
  },
  "gnews_tw_insurance": {
   "status": "ok",
-  "last": "2026-08-01"
+  "last": "2026-08-02"
  },
  "gnews_swissre": {
   "status": "ok",
@@ -217,7 +217,7 @@
  },
  "gnews_air": {
   "status": "ok",
-  "last": "2026-08-01"
+  "last": "2026-08-02"
  },
  "gnews_mas": {
   "status": "ok",
@@ -261,7 +261,7 @@
  },
  "gnews_tw_lifers_2": {
   "status": "ok",
-  "last": "2026-08-01"
+  "last": "2026-08-02"
  },
  "gnews_in_lifers": {
   "status": "ok",
@@ -317,7 +317,7 @@
  },
  "insnews_kr": {
   "status": "ok",
-  "last": "2026-07-31"
+  "last": "2026-08-02"
  },
  "ib_asia": {
   "status": "ok",
