@@ -93,7 +93,7 @@
  },
  "gnews_kr_companies_1": {
   "status": "ok",
-  "last": "2026-08-01"
+  "last": "2026-08-02"
  },
  "gnews_kr_companies_2": {
   "status": "ok",
@@ -197,7 +197,7 @@
  },
  "gnews_product_launch_zh": {
   "status": "ok",
-  "last": "2026-07-31"
+  "last": "2026-08-02"
  },
  "gnews_hive_insurance": {
   "status": "overdue",
@@ -269,7 +269,7 @@
  },
  "gnews_in_lifers_2": {
   "status": "ok",
-  "last": "2026-08-01"
+  "last": "2026-08-02"
  },
  "gnews_in_industry": {
   "status": "ok",
