@@ -247,6 +247,9 @@ const TOOLS = [
             timeframe: { type: "string", description: "時間（A 30 天 / B 90 天 / C 1 年）" },
             audience: { type: "string", description: "讀者（A 商品設計 / B 高階主管 / C 業務培訓）" },
             depth: { type: "string", description: "深度（A 雙週報 ~5p / B 月報 ~15p / C 完整 ~30p）" },
+            topic_id: { type: "string", description: "歸檔主題 ID（start_research_session 回的相似主題建議；用戶同意綁定時必帶，報告才不會落未分類）" },
+            topic_title: { type: "string", description: "新主題名稱（沒有既有主題可綁時帶這個，server 會自動建主題）" },
+            sort_order: { type: "number", description: "主題內排序（start 回的 next_recommended_sort_order）" },
           },
         },
       },
@@ -688,7 +691,7 @@ async function handleGetWiki(args: { month: string }) {
  * Sparse results (< 3) → response includes `retry_hints` to nudge chat
  * into trying alternative query angles instead of giving up.
  */
-async function handleWebSearch(env: Bindings, args: { query: string; limit?: number }) {
+export async function handleWebSearch(env: Bindings, args: { query: string; limit?: number }) {
   const limit = Math.min(args.limit ?? 8, 20);
   const q = args.query.trim();
   if (!q) return { query: q, count: 0, results: [], retry_hints: ["query is empty"] };

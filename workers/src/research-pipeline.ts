@@ -52,6 +52,9 @@ export function buildContract(state: SessionState): Record<string, unknown> {
     lane_version: LANE_VERSION,    // INV-1: engine rejects a missing/驟變 version
     topic_brief: state.topic_seed,
     scope_decisions: decisions,
+    topic_id: state.topic_id ?? null,
+    topic_title: state.topic_title ?? null,
+    sort_order: state.sort_order ?? null,
     session_id: state.session_id,
     author_uid: state.uid,
     author_email: state.email,
@@ -192,11 +195,23 @@ export async function checkResearchJob(
 }
 
 // ── a→b completion callback (REQ-P1 idempotent; secret-key pattern) ──────────
+export interface CompletePayload {
+  job_id?: string;
+  session_id?: string;
+  report_id?: string;
+  error?: string;
+  /** Phase 3: delivered report body + meta — when present (and no error),
+   *  the publish callback runs createReport and returns the new report_id. */
+  markdown?: string;
+  meta?: { title?: string; summary?: string; finding_count?: number };
+}
+
 export async function handlePipelineComplete(
   db: D1Database,
   providedKey: string | undefined,
   expectedKey: string | undefined,
-  payload: { job_id?: string; session_id?: string; report_id?: string; error?: string },
+  payload: CompletePayload,
+  publish?: (job: ResearchJobRow, payload: CompletePayload) => Promise<string>,
 ): Promise<{ ok: boolean; status: number; body: Record<string, unknown> }> {
   if (!expectedKey || providedKey !== expectedKey) {
     return { ok: false, status: 401, body: { error: "bad key" } };
@@ -217,6 +232,17 @@ export async function handlePipelineComplete(
     await setJobStatus(db, sessionId, "failed", { error: payload.error.slice(0, 500) });
     return { ok: true, status: 200, body: { status: "failed_recorded" } };
   }
-  await setJobStatus(db, sessionId, "completed", { report_id: payload.report_id ?? null });
-  return { ok: true, status: 200, body: { status: "completed", report_id: payload.report_id } };
+  let reportId = payload.report_id ?? null;
+  if (!reportId && payload.markdown && publish) {
+    try {
+      reportId = await publish(job, payload);
+    } catch (e: any) {
+      await setJobStatus(db, sessionId, "failed", {
+        error: `publish failed: ${String(e?.message || e).slice(0, 400)}`,
+      });
+      return { ok: false, status: 500, body: { error: "publish failed" } };
+    }
+  }
+  await setJobStatus(db, sessionId, "completed", { report_id: reportId });
+  return { ok: true, status: 200, body: { status: "completed", report_id: reportId } };
 }

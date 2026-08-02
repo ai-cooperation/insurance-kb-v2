@@ -281,10 +281,76 @@ app.get("/api/mcp-debug", async (c) => {
 // server, not a Firebase user.
 app.post("/api/research-pipeline/complete", async (c) => {
   const { handlePipelineComplete } = await import("./research-pipeline");
+  const { createReport, notifyTelegramNewReport } = await import("./reports-store");
   const payload = await c.req.json().catch(() => ({}));
   const result = await handlePipelineComplete(
-    c.env.REPORTS_DB, c.req.query("key"), c.env.RESEARCH_PIPELINE_KEY, payload);
+    c.env.REPORTS_DB, c.req.query("key"), c.env.RESEARCH_PIPELINE_KEY, payload,
+    async (job, p) => {
+      const contract = JSON.parse(job.contract_json || "{}");
+      // Topic binding (ba-spec §5): existing topic passes through; a new
+      // topic_title is ensured first so pipeline reports never land 未分類.
+      let topicId: string | undefined = contract.topic_id || undefined;
+      if (!topicId && contract.topic_title) {
+        const { ensureTopic } = await import("./reports-store");
+        topicId = `topic_rp_${job.session_id.replace(/^rs_/, "")}`;
+        await ensureTopic(c.env.REPORTS_DB, {
+          id: topicId,
+          title: String(contract.topic_title).slice(0, 60),
+        } as any).catch(() => { topicId = undefined; });
+      }
+      const meta = await createReport(
+        c.env.REPORTS_DB, c.env.REPORTS_BUCKET,
+        {
+          title: p.meta?.title ?? String(contract.topic_brief ?? "研究報告").slice(0, 80),
+          markdown: p.markdown!,
+          tags: ["research-pipeline"],
+          region: contract.region,
+          summary: p.meta?.summary,
+          source_session_id: job.session_id,
+          finding_count: p.meta?.finding_count ?? 0,
+          status: "published",
+          author_uid: job.uid,
+          author_email: job.email ?? undefined,
+          topic_id: topicId,
+          sort_order: typeof contract.sort_order === "number" ? contract.sort_order : 100,
+        },
+        { REPORTS_REPO: c.env.REPORTS_REPO, REPORTS_GITHUB_PAT: c.env.REPORTS_GITHUB_PAT },
+      );
+      const publicUrl = `${c.env.CORS_ORIGIN}/reports/${meta.id}`;
+      await notifyTelegramNewReport(c.env, meta, publicUrl).catch(() => {});
+      return meta.id;
+    });
+  // blocked/failed deliveries alert the user (ba-spec REQ-A3): the pipeline
+  // asks a human only when the gate could not be satisfied.
+  if ((result.body as any).status === "failed_recorded" && c.env.TG_BOT_TOKEN && c.env.TG_CHAT_ID) {
+    const err = String(payload.error ?? "").slice(0, 300);
+    await fetch(`https://api.telegram.org/bot${c.env.TG_BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: c.env.TG_CHAT_ID,
+        text: `[research-pipeline] 任務 blocked，需人工裁示\nsession: ${payload.session_id}\n原因: ${err}`,
+      }),
+    }).catch(() => {});
+  }
   return c.json(result.body, result.status as 200);
+});
+
+// GET /api/research-pipeline/search?key=&q=&limit= — Exa proxy for the
+// engine (a-side). Keeps EXA_API_KEY worker-side; the engine authenticates
+// with the same pipeline shared secret.
+app.get("/api/research-pipeline/search", async (c) => {
+  if (!c.env.RESEARCH_PIPELINE_KEY || c.req.query("key") !== c.env.RESEARCH_PIPELINE_KEY) {
+    return c.json({ error: "bad key" }, 401);
+  }
+  const q = c.req.query("q");
+  if (!q) return c.json({ error: "q required" }, 400);
+  const { handleWebSearch } = await import("./mcp");
+  const results = await handleWebSearch(c.env as any, {
+    query: q,
+    limit: Number(c.req.query("limit") ?? 8),
+  });
+  return c.json(results);
 });
 
 app.delete("/api/mcp-debug", async (c) => {

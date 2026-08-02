@@ -92,6 +92,11 @@ export interface SessionState {
   /** "research" (default, existing flow) or "biweekly" (Phase 4 ephemeral draft). */
   report_type?: "research" | "biweekly";
   scope_decisions: ScopeDecisions | null;
+  /** Topic binding captured at confirm_scope (ba-spec §5) — the pipeline
+   *  publishes into this topic so reports never land in 未分類. */
+  topic_id?: string | null;
+  topic_title?: string | null;
+  sort_order?: number | null;
   findings: Finding[];
   outline_md: string | null;
   finalized_report_id: string | null;
@@ -317,6 +322,12 @@ export async function confirmSessionScope(
   const state = await getSession(kv, uid, session_id);
   if (!state) throw new Error(`session ${session_id} 不存在或已過期（session 只保留 48h）。常見原因：grill 到一半隔太久才回來，或這份已產報告後又來操作。要繼續請開新 session：呼叫 start_research_session 重做（舊 findings 無法復原）。`);
   state.scope_decisions = decisions;
+  // Topic binding rides inside decisions (chat asks at session start —
+  // start_research_session already returns similar-topic suggestions).
+  const d = decisions as Record<string, unknown>;
+  if (typeof d.topic_id === "string" && d.topic_id) state.topic_id = d.topic_id;
+  if (typeof d.topic_title === "string" && d.topic_title) state.topic_title = d.topic_title;
+  if (typeof d.sort_order === "number") state.sort_order = d.sort_order;
   state.status = "scope_confirmed";
   await writeSession(kv, state);
 
