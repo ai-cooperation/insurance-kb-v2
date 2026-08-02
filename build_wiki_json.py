@@ -64,36 +64,61 @@ def parse_frontmatter(text):
 
 
 def parse_section(body: str, header: str) -> str:
-    """Extract content under a ### header."""
-    pattern = rf"###\s*{re.escape(header)}\s*\n(.*?)(?=\n###\s|\Z)"
+    """Extract content under a ##/###/#### header (models drift on level)."""
+    pattern = rf"#{{2,4}}\s*{re.escape(header)}\s*\n(.*?)(?=\n#{{2,4}}\s|\Z)"
     m = re.search(pattern, body, re.DOTALL)
     return m.group(1).strip() if m else ""
 
 
+# LLM output drifts across model generations (2026-08-02: Gemini pages
+# use "*" bullets and nested "**07-24**：" date headings; gpt-4.1 used
+# flat "- 2026-07-24：event"). Parse both — a heading-format change must
+# never silently empty the frontend again.
+_BULLET_RE = re.compile(r"^(?:[-*]|\d+\.)\s+")
+_TIMELINE_DATE_RE = re.compile(
+    r"^\**\s*(?:(\d{4})-)?(\d{2})-(\d{2})\**\s*[：:]?\s*(.*)$"
+)
+
+
 def parse_highlights(text):
-    """Parse bullet list into strings."""
+    """Parse bullet list ('-', '*', or numbered) into strings."""
     items = []
     for line in text.split("\n"):
         line = line.strip()
-        if line.startswith("- "):
-            items.append(line[2:].strip())
+        m = _BULLET_RE.match(line)
+        if m:
+            items.append(line[m.end():].strip())
     return items
 
 
-def parse_timeline(text):
-    """Parse timeline entries like '- 2026-04-07：Event description'."""
+def parse_timeline(text, period=""):
+    """Parse timeline entries — flat or nested under date headings.
+
+    Flat:   '- 2026-04-07：Event description'
+    Nested: '- **07-24**：' followed by indented '- event' sub-bullets
+    (MM-DD dates get the year from the page's period).
+    """
+    default_year = period.split("-")[0] if period else ""
     entries = []
-    for line in text.split("\n"):
-        line = line.strip()
-        if not line.startswith("- "):
+    current_date = ""
+    for raw in text.split("\n"):
+        line = raw.strip()
+        m = _BULLET_RE.match(line)
+        if not m:
             continue
-        rest = line[2:].strip()
-        # Try to extract date
-        m = re.match(r"(\d{4}-\d{2}-\d{2})[：:]\s*(.*)", rest)
-        if m:
-            entries.append({"date": m.group(1), "event": m.group(2)})
+        rest = line[m.end():].strip()
+        dm = _TIMELINE_DATE_RE.match(rest)
+        if dm:
+            year = dm.group(1) or default_year
+            current_date = (
+                f"{year}-{dm.group(2)}-{dm.group(3)}" if year
+                else f"{dm.group(2)}-{dm.group(3)}"
+            )
+            event = dm.group(4).strip()
+            if event:
+                entries.append({"date": current_date, "event": event})
         else:
-            entries.append({"date": "", "event": rest})
+            entries.append({"date": current_date, "event": rest})
     return entries
 
 
@@ -129,7 +154,7 @@ def parse_wiki_file(path: Path):
         "compiled_at": meta.get("compiled_at", ""),
         "model": meta.get("model", ""),
         "highlights": parse_highlights(highlights_raw),
-        "timeline": parse_timeline(timeline_raw),
+        "timeline": parse_timeline(timeline_raw, meta.get("period", "")),
         "analysis": analysis,
         "cross_topic": cross_topic,
     }
