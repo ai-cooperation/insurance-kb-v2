@@ -4,38 +4,46 @@ period: 2026-07
 category: technology
 region: taiwan
 articles_count: 48
-compiled_at: 2026-08-01T16:04:18Z
+compiled_at: 2026-08-02T01:23:53Z
 compiled_by: distill-cli
 model: gemini/gemini-3.1-flash-lite
 ---
-# 2026-07 月份保險產業知識彙整：Technology (Taiwan)
+這是一份針對 2026 年 7 月份台灣保險產業「Technology」主題的月度知識彙整報告。
+
+---
 
 ### 本月重點
-* **AI 應用全面深化：** 壽險業將人工智慧從單純的客服擴展至核保、理賠、質檢及防詐領域。國泰人壽專利數突破 300 件，富邦人壽與安聯人壽則透過 AI 智能助理與質檢系統提升作業效率。
-* **數位生態圈與服務升級：** 保險公司積極與銀行（如台新銀行、國泰世華）及數位平台（Richart Life）跨界合作，透過「健康＋點數」雙軸模式提升客戶黏著度。
-* **行動化與便捷化體驗：** 富邦人壽與保誠人壽持續優化 APP 功能，透過「一鍵簽署」、保單借款及數位理賠申請，大幅簡化保戶的操作流程，提升數位服務滿意度。
-* **智能轉型藍圖：** 宏泰人壽宣布啟動四階段智能轉型計畫，顯示中型壽險公司亦積極投入資源，將數位化納入長期營運核心策略。
+
+1.  **AI 應用深化至核心營運**：本月保險科技發展顯著從「數位化」轉向「智慧化」。國泰人壽在 AI 專利累積突破 300 件，並將「保險視圖」技術應用於售後服務；富邦人壽則推出 AI 智能助理，全面升級核保、理賠與客服流程；南山人壽更將 AI 導入防詐與高溫預警，顯示 AI 已深入保險價值鏈的核心環節。
+2.  **「超級 App」生態圈成形**：壽險業者積極將行動 App 打造為一站式服務平台。富邦人壽「幸福more」與新光人壽結合 Richart Life 的策略，皆強調將健康管理、保單借款、理賠申請與生活服務整合，透過高頻互動提升客戶黏著度。
+3.  **客戶體驗優化（CX）的細緻化**：針對高齡保戶投保錄音繁瑣、理賠手續複雜等痛點，業者透過數位工具（如一鍵簽署、身分驗證中心）進行流程再造，有效降低客戶操作門檻，提升服務滿意度。
+4.  **跨業與產學合作加速創新**：保險公司不僅與銀行（如台新、國泰世華）深度整合，更透過與科技公司（IBM）、學術單位（龍華科大）及政府單位（環境部）的合作，擴大保險科技的應用場景與社會影響力。
 
 ### 時間線
-* **07-01：** 新光人壽與台新銀行合作推出「健康＋點數」生態圈；保誠人壽推動「保誠e顧問」提升數位互動。
-* **07-02：** 國泰人壽針對高齡投保錄音繁瑣問題推出創新解決方案；南山人壽協辦 GAIP 保險創新賽。
-* **07-06：** 國泰人壽首創「保險視圖」平台，協助保戶釐清保障缺口。
-* **07-08：** 保險業身分驗證中心上路，推動多張保單理賠一鍵申請。
-* **07-09：** 安聯人壽與 IBM 合作推出 AI 客服「Allie 艾莉」。
-* **07-14：** 富邦人壽升級 APP，整合保單借款與數位服務；國泰人壽 AI 專利突破 300 件。
-* **07-21：** 國泰人壽「保險視圖」獲 ITC Asia 大獎；富邦人壽推動一鍵簽署與全球 AI 質檢。
-* **07-27：** 富邦人壽 AI 智能助理上線，全面升級核保與理賠流程。
-* **07-30：** 宏泰人壽啟動四階段智能轉型計畫。
-* **07-31：** 南山人壽組成 500 人數位轉型聯隊，並強化 AI 防詐培訓。
+
+*   **07/01**：新光人壽與台新銀行合作推出「健康＋點數」生態圈；保誠人壽推動「保誠e顧問」。
+*   **07/02**：國泰人壽優化高齡投保錄音流程；南山人壽協辦 GAIP 保險創新賽。
+*   **07/03**：新光人壽與 Richart Life 合作健康管理計畫。
+*   **07/05**：富邦人壽 App 登入次數顯著成長。
+*   **07/06-08**：國泰人壽首創「保險視圖」；保險業身分驗證中心上路，推動一鍵理賠。
+*   **07/09-14**：安聯人壽推 AI 客服「Allie」；富邦人壽 App 升級保單借款功能；國泰人壽 AI 專利突破 300 件；新光人壽深化 AI 產學合作。
+*   **07/16-21**：中信保誠人壽獲「燕梳獎」；富邦人壽 App 互動人次破 20 萬；環境部與南山人壽啟動 AI 高溫防護網；國泰人壽「保險視圖」獲 ITC Asia 大獎。
+*   **07/23-31**：富邦人壽推出 AI 智能助理；宏泰人壽啟動四階段智能轉型計畫；南山人壽組成 AI 防詐聯隊。
 
 ### 趨勢分析
-本月台灣保險科技趨勢呈現「從數位化邁向智能化」的特徵。與上月相比，本月重點已從單純的 APP 功能更新，轉向更深層的 AI 技術落地（如核保、質檢、防詐）。各家壽險公司不僅追求服務的「便捷性」，更強調透過數據分析提供「個人化保障視圖」，並積極參與跨產業生態圈，顯示保險業正從單一銷售角色轉型為客戶健康與財務生活的數位夥伴。
+
+本月趨勢顯示台灣保險業已進入「AI 賦能」的成熟期。與上月相比，業者不再僅是推出單一數位功能，而是轉向**系統性、全流程的 AI 轉型**。
+*   **從「點」到「面」**：過去的數位轉型多集中在 App 介面優化，本月趨勢顯示 AI 已被整合進後台的核保、理賠與風控（如南山人壽的 AI 防詐），具備更強的營運效率提升能力。
+*   **跨界整合**：金融科技（FinTech）與保險科技（InsurTech）的界線日益模糊，銀行與保險的數位帳戶/App 整合已成為獲客與留客的標準配備。
 
 ### 跨主題關聯
-* **金融科技 (FinTech)：** 本月保險業與銀行業（如台新、國泰世華）的合作頻繁，顯示保險科技與銀行數位金融的界線日益模糊，強調一站式金融體驗。
-* **ESG 與社會責任：** 南山人壽將 AI 技術應用於「高溫防護網」與微型保險，體現了科技在氣候變遷與社會關懷層面的應用。
+
+*   **金融與銀行業**：新光人壽與台新銀行、國泰人壽與國泰世華的合作，顯示「銀行保險（Bancassurance）」在數位時代已轉型為「數位生態圈」的整合。
+*   **ESG 與社會責任**：南山人壽將 AI 技術應用於高溫預警與微型保險，展現科技在氣候變遷與社會關懷議題上的正面影響。
+*   **全球視角**：AXA Mansard 透過 WhatsApp 簡化健康險流程（文章 47），與台灣業者積極開發自有 App 的策略形成對比，顯示全球保險業在數位通路選擇上存在「自有平台」與「第三方通訊軟體」兩種路徑。
 
 ### 來源文章索引
+
 | # | 日期 | 標題 | 來源 | 連結 |
 |---|------|------|------|------|
 | 1 | 2026-07-01 | 新光人壽Go健康GoFit攜手台新銀行打造「健康＋點數」雙軸生態圈 | gnews_tw_lifers | [連結](https://news.google.com/rss/articles/CBMiUEFVX3lxTE1ZR3R1amtSTG8yZV9IRTh0NzNERjhtS2tpVEdIS01LTTN3ODRTdDNNczRIUjFvREpBS29lWDdSTXZPZ2VuWnNhT096azVoRVU30gFWQVVfeXFMUG5fLWNZZ1VSeXdMcUlrWTlVT0Y1WDlDaHRTcFVXVWp5aHNwYkZGS0V4X2ZPamJVNWFZUU9scDhsdnNpbHpqMl9idDhUX0gybDMxdnJhS3c?oc=5) |
@@ -56,4 +64,19 @@ model: gemini/gemini-3.1-flash-lite
 | 16 | 2026-07-14 | 產學合作計畫成果發表 新光人壽攜手龍華科大深化AI應用 | gnews_tw_lifers | [連結](https://www.chinatimes.com/newspapers/20260715000458-260203) |
 | 17 | 2026-07-14 | 國泰人壽厚植AI實力 累計專利突破300件 | gnews_tw_lifers | [連結](https://news.google.com/rss/articles/CBMia0FVX3lxTFB2VDE3SnRoNjFJdEZiSUw0amFIMFhUQmZWNzJPRDJpeTRNVE9iTjg3RTMzQnREYVZEZThVQi1rUEw1QU9KRFA2bzhhMDdOSC1JOVQwOW1FZGVtWmU3VHhhTTc3U0N4SEhXYmFj?oc=5) |
 | 18 | 2026-07-14 | 富邦人壽APP升級 保單借款與數位服務一次到位 | gnews_tw_lifers | [連結](https://ec.ltn.com.tw/article/breakingnews/5504843) |
-| 19 | 2026-07-15 | AI實力獲專利驗證 國泰人壽累計突破300件專利居業界之冠 | gnews_tw_lifers | [連結](https://news.google.com/rss/articles/CBMiVkFVX3lxTFBudjVSZXRyWVU3SHQyNU9SRTA5OUx0NnYxQzM2S0ZCaU9FVGRQdm1kM1dCWEFMVUczdVgzMzVRRkJoN0dqd3hnWTFnVXNjeGNGWFQ5aThR0gFWQVVfeXFMUG52NVJldHJZVTdIdDI1T1JFMDk5THQ2djFDMzZLRkJpT0VUZFB2bWQzV0JYQUxVRzN1WDM
+| 19 | 2026-07-15 | AI實力獲專利驗證 國泰人壽累計突破300件專利居業界之冠 | gnews_tw_lifers | [連結](https://news.google.com/rss/articles/CBMiVkFVX3lxTFBudjVSZXRyWVU3SHQyNU9SRTA5OUx0NnYxQzM2S0ZCaU9FVGRQdm1kM1dCWEFMVUczdVgzMzVRRkJoN0dqd3hnWTFnVXNjeGNGWFQ5aThR0gFWQVVfeXFMUG52NVJldHJZVTdIdDI1T1JFMDk5THQ2djFDMzZLRkJpT0VUZFB2bWQzV0JYQUxVRzN1WDMzNVFGQmg3R2p3eGdZMWdVc2N4Y0ZYVDlpOFE?oc=5) |
+| 20 | 2026-07-15 | AI實力獲專利驗證 國泰人壽累計突破300件專利 | gnews_tw_lifers | [連結](https://news.google.com/rss/articles/CBMiUkFVX3lxTE1fZTVhQWRQZy1iN1NwbjE3OV9YaVRYN0t5dE1MWnJqSVNtM21pNExZQlFmaDRUanVTT3BwclZ3NHNUVkZfZ3o4NHRhRVdhb2lPTVE?oc=5) |
+| 21 | 2026-07-15 | 富邦人壽APP升級健康生活體驗 | gnews_tw_lifers | [連結](https://www.chinatimes.com/newspapers/20260716000486-260209) |
+| 22 | 2026-07-15 | AI實力獲專利驗證，國泰人壽累計突破300件專利居業界之冠 | gnews_tw_lifers | [連結](https://money.udn.com/money/story/5613/9629824) |
+| 23 | 2026-07-15 | 富邦人壽APP升級健康生活體驗 | gnews_tw_lifers | [連結](https://news.google.com/rss/articles/CBMiX0FVX3lxTE1RaWluXzhPR3Vvc2lKb1NUOFFtOG10MFhkY1VMaHBDZ3czRDRvdkx1ZUlDUzVGQnl3c2pRQV9RZWhSNUVoZ0pvTU83VENMcFhhTUs0Nllnd1B0YXhDeGZV?oc=5) |
+| 24 | 2026-07-15 | AI實力獲專利驗證 國泰人壽累計突破300件專利居業界之冠 | gnews_tw_lifers | [連結](https://udn.com/news/story/7239/9629824) |
+| 25 | 2026-07-16 | 中信保誠人壽榮獲“燕梳獎”兩項大獎 以科技賦能服務與創新驅動發展 | gnews_tw_lifers_2 | [連結](https://news.google.com/rss/articles/CBMiZkFVX3lxTE0wWUE2MGo0b29XUUNBN2pwa3JZQmJBdTlKaExDNU45dkhBWHhMemgtWXJtcUJhMGdnRTZPRWo1U0F5aEZpQ3l0OTMtMW1kRHUtQnVTemZmZnJOcHpuX2Nub2ZJUzBWdw?oc=5) |
+| 26 | 2026-07-18 | 富邦人壽APP「幸福more」月均互動人次逾20萬 全新升級抽iPhone！ | gnews_tw_lifers | [連結](https://news.google.com/rss/articles/CBMiUkFVX3lxTE9TbmFycUkwV0JGWVJWLVhrRVVMSmdJZS1GaDJianlCUjlDTk0zd0x2NzQ2Snd3NmFZQ3c1YWtJSFBMMERtWU9UdXozcXBtc0V2TGc?oc=5) |
+| 27 | 2026-07-20 | 保戶快更新！這家APP四大功能升級 回饋一次滿足 | gnews_tw_lifers | [連結](https://inews.setn.com/news/1875332) |
+| 28 | 2026-07-20 | 保戶快更新 富邦壽APP四大功能升級！ | gnews_tw_lifers | [連結](https://www.mirrormedia.mg/external/amp/setn_1875332) |
+| 29 | 2026-07-21 | 環境部攜手南山人壽啟動高溫防護網 AI預警結合社福關懷與微型保單 臺南率先試辦 | gnews_tw_lifers | [連結](https://www.allnews.tw/news/92379) |
+| 30 | 2026-07-21 | 以「保險視圖」重塑售後服務體驗 國泰人壽再獲 ITC Asia 大獎 | gnews_tw_lifers | [連結](https://news.google.com/rss/articles/CBMiVkFVX3lxTE4yMWdSWHhxTUNmWXNEZjI1dzMxaXBSR2lsYjlocWhLV0FOU0xGZFBXd1YzcU9SeEE0b3NfV2JVWkwyVHBmZHFPYUlHYjZ3VUVmVlIwb0hR0gFWQVVfeXFMTjIxZ1JYeHFNQ2ZZc0RmMjV3MzFpcFJHaWxiOWhxaEtXQU5TTEZkUFd3VjNxT1J4QTRvc19XYlVaTDJUcGZkcU9hSUdiNndVRWZWUjBvSFE?oc=5) |
+| 31 | 2026-07-21 | 以「保險視圖」重塑售後服務體驗 國泰人壽再獲ITC Asia大獎 | gnews_tw_lifers | [連結](https://udn.com/news/story/7239/9641647?from=udn-ch1_breaknews-1-0-news) |
+| 32 | 2026-07-21 | 保戶快更新！這家APP四大功能升級回饋一次滿足 | gnews_tw_lifers | [連結](https://www.msn.com/zh-tw/money/topstories/%E4%BF%9D%E6%88%B6%E5%BF%AB%E6%9B%B4%E6%96%B0-%E9%80%99%E5%AE%B6app%E5%9B%9B%E5%A4%A7%E5%8A%9F%E8%83%BD%E5%8D%87%E7%B4%9A-%E5%9B%9E%E9%A5%8B%E4%B8%80%E6%AC%A1%E6%BB%BF%E8%B6%B3/ar-AA28iKDt?apiversion=v2&domshim=1&noservercache=1&noservertelemetry=1&batchservertelemetry=1&renderwebcomponents=1&wcseo=1) |
+| 33 | 2026-07-21 | 保險業導入科技！富邦一鍵簽、全球推AI質檢 | gnews_tw_lifers | [連結](https://news.google.com/rss/articles/CBMirwJBVV95cUxNNFJFeEkyX2hzRUVFWVNfeGNWSlIzX2pUVDFaR0RCb1hkSU13N3lOX0RoNFVSQTh0bXM5QVZibDVBRnF3WGd4R1ltbXUxel80dFBHYmtsRlJhbGVza29aRjQ3REpVS0YyWUFlYXRWMTNTS1ZBS1pha0kyaENXZkw3UVFEQllSdlg1Mmx2T0NFUHJVMnlaZDdETy1fVXIwUzZWOC1rYlZzdHN1SFZzUFdMSVMwOExFbTRiaGtSdTU3TGdYLUVsdDcyNXE4N2c5dWRIT25ib3UyVWszdnB2SjAtVUVhbi1FVlB6OHFlM0NxUTdiTUNaSUxrMVMwaER2ZzBsRE9UR1pfM0NiNU1kT0lyWnNYeDI0TkFXT0k0Wm4xQVM5SVIwOENWZ2FNZWE0ZVU?oc=5) |
+| 34 | 2026-07

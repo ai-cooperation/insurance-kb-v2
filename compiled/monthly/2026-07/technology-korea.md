@@ -4,34 +4,40 @@ period: 2026-07
 category: technology
 region: korea
 articles_count: 600
-compiled_at: 2026-08-01T16:03:44Z
+compiled_at: 2026-08-02T01:22:58Z
 compiled_by: distill-cli
 model: gemini/gemini-3.1-flash-lite
 ---
-這是一份關於 2026 年 7 月韓國保險產業「Technology」主題的月度知識彙整報告。
+這是一份針對 2026 年 7 月份韓國保險產業「Technology」主題的月度知識彙整報告。
 
 ---
 
+# 2026-07 月份保險科技 (Technology) 產業月度知識彙整 - 韓國地區
+
 ### 本月重點
-- **AI 應用全面深化**：韓國保險業者（如三星人壽、KB金融、NH農協人壽）全面推動生成式 AI 轉型，從費率計算自動化、客戶服務優化到員工 AI 能力培訓，AI 已成為提升營運效率的核心驅動力。
-- **數位基礎設施升級**：InnoAX 與三星人壽合作開發保險費率自動化系統，顯著縮短商品開發週期；同時，NH 農協人壽透過「數位夏季週」大規模提升員工的數位轉型（DX）與體驗設計（AX）能力。
-- **身份驗證技術革新**：Hancom WITH 與 NH 農協保險及人壽合作，導入電子身份驗證（eKYC）與人臉識別技術，強化金融服務的安全性與便利性。
-- **資產管理與數位資產創新**：未來資產人壽運用 AI 進行多元化資產配置；三星人壽則跨足數位資產保險領域，展現保險科技在投資與新興風險保障的創新應用。
+1.  **AI 轉型（AX）全面深化：** 韓國保險業已從單純的數位化（DX）轉向人工智慧轉型（AX）。三星人壽與 InnoAX 合作建置保險費率自動化系統，KB金融攜手谷歌雲導入生成式 AI，顯示 AI 技術已深入核心業務流程（定價、數據分析、客戶服務）。
+2.  **企業內部數位培訓潮：** NH農協人壽於 7 月底舉辦「2026 數位夏季週」，透過與 LG CNS、Upstage 等科技公司合作，大規模提升員工在生成式 AI 與數位轉型方面的實務能力，顯示保險公司正積極建立內部的 AI 應用文化。
+3.  **技術合作生態系擴張：** 保險公司不再單打獨鬥，而是透過與專業科技公司（如 Hancom With 提供 eKYC 與人臉識別、InnoAX 提供費率系統）建立緊密合作，快速導入成熟技術以優化營運效率與資安防護。
+4.  **多元化數位服務創新：** 數位應用場景持續擴大，涵蓋健康管理平台（三星人壽）、數位資產保險（三星人壽與 DSRV）、跨境金融服務（NH農協銀行數位領事認證），以及針對特定族群（視障人士、海外韓人）的無障礙與便利化服務。
 
 ### 時間線
-- **07-28**：未來資產人壽發布 AI 時代資產配置策略；KB金融攜手谷歌雲推動生成式 AI；InnoAX 協助三星人壽建置保險費率自動化系統。
-- **07-29**：Hancom WITH 與 NH 農協保險/人壽合作導入 eKYC 與人臉識別；三星人壽與火災保險宣布全面投入 AI 轉型。
-- **07-30**：NH 農協人壽舉辦「2026 數位夏季週」；NH 農協銀行推出數位領事認證金融服務；三星人壽與 DSRV 合作推出數位資產保險。
-- **07-31**：韓華人壽越南分公司加速數位轉型；保險研修院推出 AI 個人化學習平台。
+*   **07-28：** 三星人壽與 InnoAX 合作推出保險費率自動化系統；KB金融與谷歌雲合作推動生成式 AI；未來資產人壽發布 AI 時代資產配置策略；三星人壽預告推出付費版健康平台。
+*   **07-29：** Hancom With 與 NH農協保險/人壽合作推廣 eKYC 與人臉識別技術；三星人壽與火災保險宣布全面投入 AI 轉型；大都會人壽強調技術驅動的銀行保險業務。
+*   **07-30：** NH農協人壽啟動「2026 數位夏季週」，聚焦 AI 培訓與 AX 能力提升；NH農協銀行推出數位領事認證服務；三星人壽與 DSRV 推出數位資產保險。
+*   **07-31：** 韓華人壽越南分公司加速數位轉型；保險研修院推出 AI 個人化學習平台。
 
 ### 趨勢分析
-本月韓國保險科技趨勢呈現「由內而外」的數位轉型特徵。與上月相比，本月重點已從單純的數位化工具導入，轉向「AI 賦能（AI-Enabled）」的組織文化與業務流程重塑。特別是 NH 農協人壽透過長達三週的教育訓練，顯示業者正致力於解決數位轉型中「人才技能落差」的痛點。此外，保險科技的應用場景已從傳統的核保與理賠，延伸至數位資產保障與跨境金融服務，顯示韓國保險業正積極應對金融科技多元化的挑戰。
+*   **從「自動化」到「賦能」：** 上半月焦點在於透過 InnoAX 等技術解決方案實現後台作業自動化（如費率計算），下半月則轉向透過教育訓練（如 NH 農協的數位週）賦能員工，顯示產業已進入「人機協作」的轉型階段。
+*   **與上月對比：** 相比過往零星的數位專案，本月呈現出「集團式」與「系統性」的轉型特徵。大型保險集團（三星、NH、KB）皆有明確的 AI 戰略路徑，且更傾向於與外部科技巨頭或新創公司進行深度技術整合。
+*   **技術應用廣度：** 科技應用已突破傳統保險範疇，延伸至資產管理（未來資產人壽）、數位資產保護（三星人壽）、以及跨境金融服務（NH農協銀行），顯示保險業正試圖透過科技重塑服務邊界。
 
 ### 跨主題關聯
-- **與「監管/法律」關聯**：數位領事認證與 eKYC 的推動，反映了韓國保險業在數位化過程中，正積極與政府法規接軌，以解決跨境金融與身份驗證的法律合規問題。
-- **與「全球化」關聯**：韓華人壽越南分公司的數位轉型動作，顯示韓國保險公司正將國內成熟的數位技術輸出至東南亞市場，作為其海外擴張的競爭優勢。
+*   **人力資源（HR）：** NH農協人壽的「數位夏季週」與保險研修院的「AI 個人化學習平台」，顯示技術導入與人才培訓已密不可分，數位轉型成功與否取決於員工對 AI 工具的掌握度。
+*   **資產管理（Investment）：** 未來資產人壽將 AI 應用於變額保險與資產配置，顯示科技已成為投資績效與風險管理的核心驅動力。
+*   **國際化（Global）：** 韓華人壽在越南的數位轉型佈局，以及 NH 農協銀行針對海外韓人的數位領事服務，顯示韓國保險業正利用數位技術作為跨國市場擴張的基礎設施。
 
 ### 來源文章索引
+
 | # | 日期 | 標題 | 來源 | 連結 |
 |---|------|------|------|------|
 | 1 | 2026-07-28 | AI基礎設施與投資組合多元化：未來資產人壽資產配置解決方案 | gnews_kr_companies_3 | [連結](http://www.00news.co.kr/news/articleView.html?idxno=105455) |
@@ -73,4 +79,19 @@ model: gemini/gemini-3.1-flash-lite
 | 37 | 2026-07-30 | NH農協人壽舉辦2026年「數位夏季週」教育訓練 | gnews_kr_companies_2 | [連結](https://www.nongmin.com/article/20260730500521) |
 | 38 | 2026-07-30 | NH農協銀行推出海外韓人數位領事認證金融委託服務 | gnews_kr_en | [連結](https://mbiz.heraldcorp.com/article/10825784) |
 | 39 | 2026-07-30 | NH農協銀行推出「數位領事認證金融委託書」服務 | gnews_kr_en | [連結](https://www.asiae.co.kr/en/article/2026073014064754481) |
-| 40 | 2026-07-30 | NH農協人壽為員工舉辦「2026數位夏季週」 強化生成式AI與數位轉型能力 | insnews_kr | [連結](https://www.insnews.co.kr/news/articleView.html?idxno=9
+| 40 | 2026-07-30 | NH農協人壽為員工舉辦「2026數位夏季週」 強化生成式AI與數位轉型能力 | insnews_kr | [連結](https://www.insnews.co.kr/news/articleView.html?idxno=92095) |
+| 41 | 2026-07-30 | NH農協人壽強化數位化能力，實施「數位夏季週」 | gnews_kr_companies_2 | [連結](http://www.sisacast.kr/news/articleView.html?idxno=98330) |
+| 42 | 2026-07-30 | Crypto prediction markets see millions in volume as Dplus KIA pulls off stunning LCK comeback agains | gnews_kr_en | [連結](https://cryptobriefing.com/crypto-prediction-markets-esports-lck-comeback/) |
+| 43 | 2026-07-30 | DK's Winning Mentality Since EWC: "We're Confident Against Gen.G" - Inven Global | gnews_kr_en | [連結](https://news.google.com/rss/articles/CBMipAFBVV95cUxOY19lTWVtRGw1N2Nhd0s2eVNxRmp1VHpDWlZkb3E5d0FpR1QxMGFaWUVHS3lwME5NOHE5MVQ1QkJITnVYVXRsMm1nUnJBUjh4XzJfU0RSR0tyZVQyYWt4UXlXZGFCYnU2UW93enNCM2pzNkE1Nmdzc2V2SEFUUkJQVHZrOXVLWUtDN2pNX24tTmhIQ3NHTi0za0dTZFNTUzVMMkY4Rw?oc=5) |
+| 44 | 2026-07-30 | 三星人壽與DSRV合作推出專屬數位資產保險 | gnews_kr_industry | [連結](https://news.google.com/rss/articles/CBMiaEFVX3lxTFBOZXVUNi1UUkl2UHZuVGR6c21MTDhKZWpVYVNMMm1laE5UMTVYdFZTVXlocy13ZVEyMjkzNHNmOEtmNmJNSFpxT3JGRGN1ekFKQnI3dEFZaTk4VktzRy12dE1CdVdka05F?oc=5) |
+| 45 | 2026-07-30 | KakaoPay 損保，寵物保險合約突破 1 萬筆…0 歲말提普比率最高 | gnews_kr_digital | [連結](https://www.sportalkorea.com/news/articleView.html?idxno=2025052909553417624) |
+| 46 | 2026-07-31 | 韓華人壽越南加速保險業務數字化轉型 | gnews_kr_companies_1 | [連結](https://www.theguru.co.kr/news/article.html?no=105198) |
+| 47 | 2026-07-31 | 韓華人壽越南推動保險數字化轉型 | gnews_kr_companies_1 | [連結](https://m.kr.investing.com/news/stock-market-news/article-2038826?ampMode=1) |
+| 48 | 2026-07-31 | Hanwha accelerates 3rd-generation succession with clearer roles among chairman's 3 sons - The Korea | gnews_kr_en | [連結](https://www.koreatimes.co.kr/amp/business/companies/20260731/hanwha-accelerates-3rd-generation-succession-with-clearer-roles-among-chairmans-3-sons) |
+| 49 | 2026-07-31 | 保險研修院推出『AI個人化學習平台』 | insnews_kr | [連結](https://www.insnews.co.kr/news/articleView.html?idxno=92109) |
+| 50 | 2026-07-31 | Hanwha Life Insurance Confirms Preferred Bidder Status for Acuon Capital - Moomoo | gnews_kr_en | [連結](https://www.moomoo.com/news/post/73853152/hanwha-life-insurance-confirms-preferred-bidder-status-for-acuon-capital?futusource=news_newspage_recommend) |
+
+### 知識缺口
+*   **AI 倫理與監管數據：** 儘管 AI 應用激增，本月新聞多聚焦於技術導入與應用層面，缺乏關於 AI 治理、數據隱私保護政策或監管合規性的深度討論。
+*   **量化效益評估：** 大多數報導集中在「導入」與「合作」的宣布，缺乏關於這些技術導入後，對公司財務績效、營運成本降低或客戶滿意度提升的具體量化數據。
+*   **資安防禦機制：** 隨著數位化程度加深，針對保險業的網路安全威脅與防禦策略（如針對 AI 系統的攻擊防護）在本月報導中較為稀缺。

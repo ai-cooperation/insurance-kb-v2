@@ -4,35 +4,41 @@ period: 2026-07
 category: technology
 region: us
 articles_count: 71
-compiled_at: 2026-08-01T16:04:36Z
+compiled_at: 2026-08-02T01:24:23Z
 compiled_by: distill-cli
 model: gemini/gemini-3.1-flash-lite
 ---
-這是一份基於 2026 年 7 月份保險產業「Technology」主題（美國地區）的月度知識彙整報告。
+這是一份針對 2026 年 7 月份美國保險產業「Technology」主題的月度知識彙整報告。
 
 ---
 
-### 本月重點
-*   **HCLTech 與 Guardian 的深度戰略合作**：HCLTech 以 1050 萬美元收購 Guardian 的印度全球交付中心（GCC），並簽署為期 7 年的 AI 現代化協議，標誌著保險業透過 IT 外包與技術併購加速數位轉型的趨勢。
-*   **宏利人壽（Manulife）深化 AI 治理**：宏利人壽與微軟簽署五年 AI 合作協議，並導入 Microsoft Agent 365 平台，強化企業級 AI 監控與風險管理能力。
-*   **保險科技生態系的數位化擴展**：Guardian 與 Rippling 合作簡化行政流程；同時市場研究顯示區塊鏈技術在保險業的應用規模預計達 258.3 億美元，顯示技術應用已從後台營運延伸至業務流程優化。
-*   **AI 採用率與企業生存的關聯性**：麥肯錫合夥人公開警告，保險公司若未能加速 AI 轉型，將面臨嚴峻的生存挑戰，科技應用已成為核心競爭力指標。
+# 2026-07 月份保險科技 (Technology) 產業知識彙整 - 美國地區
 
-### 時間線
-*   **2026-07-16**：HCLTech 與 Guardian 簽署 7 年 AI 合作協議，並收購其印度 GCC。
-*   **2026-07-21**：平安集團於 WAIC 2026 展示保險 AI 創新方案；區塊鏈在保險業的成長潛力報告發布。
-*   **2026-07-22**：宏利人壽與微軟簽署 5 年 AI 合作協議；麥肯錫發布關於 AI 採用與企業生存的警示。
-*   **2026-07-24**：宏利人壽採用 Microsoft Agent 365 進行 AI 監控。
-*   **2026-07-29**：市場分析指出大都會人壽（MetLife）的科技驅動銀行保險策略正改變其投資論點。
+## 本月重點
+1. **HCLTech 與 Guardian 達成深度戰略合作**：本月最重大的產業動態為 HCLTech 與美國保險公司 Guardian 簽署為期 7 年的 AI 現代化合作協議。此案包含 HCLTech 以 1050 萬美元收購 Guardian 位於印度的全球交付中心（GCC），並接收約 2000 名員工。此舉顯示保險公司正透過外包與技術轉移，加速營運的數位轉型與 AI 應用。
+2. **宏利人壽 (Manulife) 加速 AI 治理與應用**：宏利人壽與微軟簽署為期 5 年的 AI 技術合作協議，並導入 Microsoft Agent 365 平台，旨在強化企業內部的 AI 監控能力與數位轉型，顯示大型保險機構正積極建立企業級的 AI 基礎設施。
+3. **保險科技生態系的數位化擴張**：Guardian 與 Rippling 建立合作，透過數位化功能減輕雇主與經紀人的行政負擔；同時，市場研究指出區塊鏈技術在保險市場的潛在規模達 258.3 億美元，顯示數位轉型已從單純的 AI 應用擴展至流程自動化與底層技術架構。
+4. **科技驅動投資價值重估**：市場分析顯示，大都會人壽 (MetLife) 透過科技驅動的銀行保險業務擴展，正改變投資人對其未來成長的評估，科技能力已成為保險公司市值與投資吸引力的關鍵指標。
 
-### 趨勢分析
-本月趨勢顯示，保險公司已從「探索 AI 應用」轉向「深度整合與治理」。相較於上月，本月重點在於**長期戰略合約（5-7 年）**與**基礎設施併購**。保險公司不再僅是購買軟體，而是透過收購交付中心或與科技巨頭（微軟）建立深度夥伴關係，將 AI 監控與治理納入企業核心架構。此外，市場對於「科技驅動」的保險公司給予更高的估值與關注，顯示數位轉型已直接影響資本市場的投資決策。
+## 時間線
+- **2026-07-16**：HCLTech 與 Guardian 簽署 7 年 AI 合作協議，並收購其印度 GCC。
+- **2026-07-17**：市場對 HCLTech 收購案反應正面，股價上漲；同時探討 AI 對 CMO 職務的影響。
+- **2026-07-21**：區塊鏈在保險市場的成長潛力研究報告發布。
+- **2026-07-22**：宏利人壽與微軟簽署 5 年 AI 合作協議；Guardian 與 Rippling 擴展數位合作。
+- **2026-07-24**：宏利人壽宣布採用 Microsoft Agent 365 進行 AI 監控。
+- **2026-07-29**：分析指出大都會人壽的科技驅動策略正在重塑其投資論點。
 
-### 跨主題關聯
-*   **財務與投資**：HCLTech 與宏利人壽的技術合作案直接帶動了相關公司的股價波動，顯示科技投資已成為保險業財務績效的重要指標。
-*   **人力資源**：HCLTech 收購 Guardian 印度 GCC 涉及 2000 名員工的轉移，反映了保險業在數位轉型過程中，對專業 IT 人才的整合與組織重組需求。
+## 趨勢分析
+本月趨勢顯示保險業已從「AI 概念驗證」階段正式邁入「營運深度整合」階段。
+- **與上月對比**：上月討論多集中於 AI 的潛在應用，本月則出現具體的「長期合約」（7年、5年）與「基礎設施收購」（GCC 收購）。這代表保險公司不再僅是購買軟體，而是透過與大型 IT 服務商（如 HCLTech、微軟）深度綁定，將 AI 嵌入核心營運流程。
+- **市場情緒**：科技轉型直接影響股價表現（如 HCLTech 因合作案股價上漲），顯示資本市場已將「數位轉型執行力」視為保險公司核心競爭力的一環。
 
-### 來源文章索引
+## 跨主題關聯
+- **財務與投資**：科技轉型（如大都會人壽的銀行保險科技化）直接影響投資人的多頭論點，科技能力與財務績效的關聯性日益緊密。
+- **人力資源與組織**：AI 的導入不僅是技術問題，更涉及組織變革（如 2000 名員工轉移至 HCLTech、CMO 職責因 AI 而改變），顯示科技轉型對組織架構的深遠影響。
+
+## 來源文章索引
+
 | # | 日期 | 標題 | 來源 | 連結 |
 |---|------|------|------|------|
 | 1 | 2026-07-16 | HCLTech與Guardian簽署擴大合作協議 | gnews_us_guardian | [連結](https://news.google.com/rss/articles/CBMi9wFBVV95cUxNTmRVOXZhN2N2QjZneWFUM3NhNUt4aFJfT0dWNC1SV3BIYU1lY2liQmFwdU40TUlHYUNLMllrR0RQMThXZWpVbHVTRkExUTlKVmoyTm9QR3g2QkEtM1dNQktweUVpSDh0ZEladFZpb2xTM2E4ZHg1WEVjcFlsSmpQWjlNTTlnMTBWbXkwMkl5blJOanZQS1lPV04ya0VDMERLOUxybXhKQzQwVG9wbk16OUtMWXJ1dkhuSWc5akJOa0RmQlY4REUwRVA0Wk4xTk9zTUlOeDJyZ3kxQk9LZjhEbjZjdjQ1RDlLNGpBQjQ0Q3ZtNTM4VTR3?oc=5) |
@@ -52,4 +58,27 @@ model: gemini/gemini-3.1-flash-lite
 | 15 | 2026-07-16 | HCL科技與Guardian簽署擴大合作協議 | gnews_us_guardian | [連結](https://www.kipost.net/news/articleViewAmp.html?idxno=339935) |
 | 16 | 2026-07-16 | HCLTech大手筆！聚焦保險科技，以8.7億盧比收購Guardian India | gnews_us_guardian | [連結](https://www.whalesbook.com/corporate-news/Hindi/technology/HCLTech-Acquires-Guardian-India-for-dollar105-Million-Deepens-Insurance-Tech-Focus/6a58af4e0037f0717261f30f) |
 | 17 | 2026-07-17 | HCL科技擴大與Guardian合作，斥資1050萬美元收購印度GCC | gnews_us_guardian | [連結](https://www.siliconindia.com/news/business/hcltech-expands-guardian-partnership-acquires-india-gcc-for-105-million-nid-241543-cid-3.html) |
-| 18 | 2026-07-17 | HCL科技簽署與Guardian人壽7年合作協議 | gnews_us_guardian | [連結](https://m.economictimes.com/markets/stocks/news/hcl-tech-shares-in-focus-after-signing-7-year-deal
+| 18 | 2026-07-17 | HCL科技簽署與Guardian人壽7年合作協議，股價受關注 | gnews_us_guardian | [連結](https://m.economictimes.com/markets/stocks/news/hcl-tech-shares-in-focus-after-signing-7-year-deal-with-guardian-life-insurance/articleshow/132451629.cms) |
+| 19 | 2026-07-17 | HCL科技擴大與Guardian合作，推動AI領導的數位轉型 | gnews_us_guardian | [連結](https://www.storyboard18.com/brand-marketing/hcltech-expands-guardian-partnership-acquires-india-gcc-to-accelerate-ai-led-transformation-104561.htm) |
+| 20 | 2026-07-17 | HCL科技擴大與Guardian合作，將以1050萬美元收購其印度全球交付中心 | gnews_us_guardian | [連結](https://analyticsindiamag.com/ai-news/hcltech-expands-guardian-partnership-to-acquire-insurers-india-gcc-in-105-million-deal) |
+| 21 | 2026-07-17 | HCL科技擴大與Guardian的AI主導合作，股價上漲 | gnews_us_guardian | [連結](https://www.business-standard.com/amp/markets/capital-market-news/hcl-tech-rises-after-expanding-ai-led-partnership-with-guardian-126071700382_1.html) |
+| 22 | 2026-07-17 | HCL科技與Guardian擴大合作，簽署七年AI現代化協議 | gnews_us_guardian | [連結](https://digitalterminal.in/amp/story/tech-companies/hcltech-expands-guardian-partnership-with-7-year-ai-modernization-deal) |
+| 23 | 2026-07-17 | 大型IT企業簽署七年AI合作協議並以1050萬美元收購Guardian印度GCC | gnews_us_guardian | [連結](https://insights.dsij.in/dsijarticledetail/multibagger-it-major-signs-7-year-ai-partnership-with-guardian-acquires-india-gcc-for-usd-105-million) |
+| 24 | 2026-07-17 | HCL科技因Guardian合作案股價週五上漲 | gnews_us_guardian | [連結](https://www.bizzbuzz.news/technology/hcltech-shares-gain-on-friday-after-deal-win-from-guardian-1397860) |
+| 25 | 2026-07-17 | HCL科技股價飆升逾3%，因收購Guardian印度業務及擴大AI合作 | gnews_us_guardian | [連結](https://www.businessupturn.com/finance/stock-market/hcltech-shares-surge-over-3-after-10-5-million-guardian-india-acquisition-ai-partnership-expansion/) |
+| 26 | 2026-07-17 | HCLTech 股價上漲逾 3%，收購 Guardian India 並擴展 AI 合作 | gnews_us_guardian | [連結](https://businessupturn.com/finance/stock-market/hcltech-shares-surge-over-3-after-10-5-million-guardian-india-acquisition-ai-partnership-expansion/) |
+| 27 | 2026-07-17 | 摒棄虛榮指標：人工智慧如何顛覆首席行銷官職務 | gnews_us_tiaa | [連結](https://fortune.com/media/eed78c76-4003-44c8-b9cf-cc6a67753d6a) |
+| 28 | 2026-07-17 | HCLTech收購守護者印度GCC，設立GIFT城AI中心 | gnews_us_guardian | [連結](https://www.techcircle.in/2026/07/17/hcltech-acquires-guardian-india-gcc-opens-gift-city-ai-hub/) |
+| 29 | 2026-07-20 | GUARDIAN NAMED MOST SUSTAINABLE FINANCIAL INSTITUTION IN INSURANCE | gnews_us_guardian | [連結](https://today.thefinancialexpress.com.bd/print/guardian-named-most-sustainable-financial-institution-in-insurance-1784481801) |
+| 30 | 2026-07-21 | 平安在WAIC 2026展示醫療、保險及支付領域的創新AI解決方案 | gnews_us_pacific_life | [連結](https://news.google.com/rss/articles/CBMijgFBVV95cUxNSG1SZEh3aG8zVjN2enhXWm9ZSkJtUjBCWmZJbFlMWXpaUDhQY3pVRkdvWHZFQjlQRTJTNmdCMXc4ajltQkVwYmNDRUFDOFI2SXc3RGJVbm1pdXZpSWpza0VBMW1xajBwOWVvd3Z5Yzl4bWNRQVdrVUYxUXp3T1d6RnVrUnhicXF5UmNQWDJB?oc=5) |
+| 31 | 2026-07-21 | 保險市場區塊鏈研究揭示258.3億美元成長機會 | gnews_us_metlife | [連結](https://www.openpr.com/news/4582675/blockchain-in-insurance-market-research-explores-growth-within) |
+| 32 | 2026-07-21 | Bank Refunded Insurance Premium After Borrower’s Death, Claim Rejected | gnews_us_metlife | [連結](https://www.outlookmoney.com/personal-finance/bank-refunded-insurance-premium-after-borrowers-death-claim-rejected-consumer-commission-orders-relief) |
+| 33 | 2026-07-22 | 宏利人壽擴大與微軟合作，簽訂五年人工智慧協議 | gnews_us_john_hancock | [連結](https://m.au.investing.com/news/stock-market-news/manulife-expands-microsoft-partnership-with-fiveyear-ai-deal-93CH-4546221?ampMode=1) |
+| 34 | 2026-07-22 | Guardian與Rippling擴展數位能力 | gnews_us_guardian | [連結](https://sg.finance.yahoo.com/news/guardian-rippling-expand-digital-capabilities-133000922.html) |
+| 35 | 2026-07-22 | 宏利人壽擴大與微軟合作，加速企業人工智慧治理與創新 | gnews_us_john_hancock | [連結](https://www.tradingview.com/news/prnewswire:457aaff4fb94b:0) |
+| 36 | 2026-07-22 | 宏利人壽與微軟擴大合作，簽訂五年AI協議 | gnews_us_john_hancock | [連結](https://news.google.com/rss/articles/CBMizgFBVV95cUxNeU5mVFpTQVV1bEhXTDlWdVE2blRLMU1iZmJKUVMtWXhrNVBmSnpFNUxMVzZuTFczYkVybk5XUEljZXZkZFYzSzZKVE5zd3ZVajRyRzJXR1pKdnpPaHItUjJrNFhYTWlfMzhTcHFHZ3BVMFdib195WTZxYXR6MC1ad25TeGVfVGJ0VlY5SVZheUV6ZFh2STJwdDdLWWdiN0EzOW0xalFZekNjelNFZW9RZUkwa2RXT3pkeWdoamJkZGhxOUpRdnhrVHByNzl6QQ?oc=5) |
+| 37 | 2026-07-22 | 宏利人壽與微軟擴大合作，簽訂五年AI合約 | gnews_us_john_hancock | [連結](https://m.uk.investing.com/news/stock-market-news/manulife-expands-microsoft-partnership-with-fiveyear-ai-deal-93CH-4782507?ampMode=1) |
+| 38 | 2026-07-22 | 麥肯錫合夥人警告：緩慢採用AI可能導致企業存亡 | gnews_us_tiaa | [連結](https://fortune.com/media/9942b63b-38a8-4f26-8f9c-b961a4ba127a) |
+| 39 | 2026-07-22 | 守護者與Rippling擴展數位能力 | gnews_us_guardian | [連結](https://www.prnewswire.com/news-releases/guardian-and-rippling-expand-digital-capabilities-easing-administrative-burdens-for-employers-and-brokers-while-supporting-workforce-well-being-302831153.html) |
+| 40 | 2026-07-24 | 宏利人壽採用Microsoft Agent 365進行企業AI監控 | gnews_us_john_hancock | [連結](https://newsbytes.ph/2026/07/24/manulife-adopts-microsoft-agent-365-for-enterprise-ai-oversight/) |
+| 41 | 2026-07-25 | 大都會人壽 settles Tk 13.84b claims in first six months of
