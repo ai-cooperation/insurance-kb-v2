@@ -51,6 +51,8 @@ interface Bindings {
   REPORTS_REPO?: string;          // v3 (2026-06-03) git snapshot pillar — set in [vars]
   REPORTS_GITHUB_PAT?: string;    // fine-grained PAT, set via `wrangler secret put`
   SNAPSHOT_TEST_KEY?: string;     // shared-secret for /api/snapshot-test (debug endpoint)
+  INSURANCE_A_URL?: string;       // research pipeline engine base URL (ba-spec §7) — [vars]
+  RESEARCH_PIPELINE_KEY?: string; // shared-secret for /api/research-pipeline/complete (wrangler secret)
 }
 
 const app = new Hono<{
@@ -269,6 +271,20 @@ app.get("/api/mcp-debug", async (c) => {
   const { readMCPDebugLog } = await import("./mcp");
   const log = await readMCPDebugLog(c.env.KV);
   return c.json({ count: log.length, calls: log });
+});
+
+// POST /api/research-pipeline/complete?key=<secret> — a→b completion
+// callback from the research pipeline engine (ba-spec §7). Phase 1 records
+// the terminal state on research_jobs; Phase 3 extends this to run
+// createReport (D1/R2/git triple-write) from the delivered markdown.
+// Same shared-secret pattern as /api/snapshot-test — the engine is a
+// server, not a Firebase user.
+app.post("/api/research-pipeline/complete", async (c) => {
+  const { handlePipelineComplete } = await import("./research-pipeline");
+  const payload = await c.req.json().catch(() => ({}));
+  const result = await handlePipelineComplete(
+    c.env.REPORTS_DB, c.req.query("key"), c.env.RESEARCH_PIPELINE_KEY, payload);
+  return c.json(result.body, result.status as 200);
 });
 
 app.delete("/api/mcp-debug", async (c) => {

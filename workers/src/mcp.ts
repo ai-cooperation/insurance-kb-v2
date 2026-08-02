@@ -42,6 +42,10 @@ import {
   startResearchSession,
 } from "./research-session";
 import {
+  checkResearchJob,
+  submitToResearchPipeline,
+} from "./research-pipeline";
+import {
   confirmBiweeklyScope,
   generateBiweeklyMarkdown,
   reviseBiweeklySection,
@@ -64,6 +68,7 @@ interface Bindings {
   EXA_API_KEY?: string;       // v3 (2026-05-06) — falls back to DDG scrape if empty
   REPORTS_REPO?: string;      // v3 (2026-06-03) — private snapshot repo (e.g. ai-cooperation/insurance-kb-reports)
   REPORTS_GITHUB_PAT?: string; // fine-grained PAT with contents:write, set via wrangler secret
+  INSURANCE_A_URL?: string;   // research pipeline engine base URL (ba-spec §7) — [vars]
 }
 
 // ─── MCP Protocol Types ───────────────────────────────────────────
@@ -246,6 +251,34 @@ const TOOLS = [
         },
       },
       required: ["session_id", "decisions"],
+    },
+  },
+  {
+    name: "submit_to_research_pipeline",
+    description:
+      "把已收斂的研究 session 提交給後端研究 pipeline 非同步執行（蒐證/寫作/品質檢核/上架全在後端跑，完成會通知）。\n" +
+      "**Triggers**: grill 全部收斂（confirm_scope 完成）且**使用者明確說「提交 / 送出 / 開始跑 / go」之後才可呼叫** — 呼叫前必須先向使用者顯示研究範圍摘要並取得確認。\n" +
+      "**Don't use**: grill 還沒收斂（server 會直接 409 拒絕）；使用者想在 chat 現場逐步做研究（走原本 add_finding / create_report 流程）。\n" +
+      "只傳 session_id — 研究內容 server 端自己組，不經 chat。",
+    inputSchema: {
+      type: "object",
+      properties: {
+        session_id: { type: "string", description: "從 start_research_session 拿到的 ID" },
+      },
+      required: ["session_id"],
+    },
+  },
+  {
+    name: "check_research_job",
+    description:
+      "查詢已提交後端 pipeline 的研究任務進度（running / done / blocked / failed）。\n" +
+      "**Triggers**: 使用者問「報告好了嗎 / 跑到哪了 / 進度」且該 session 已 submit_to_research_pipeline。",
+    inputSchema: {
+      type: "object",
+      properties: {
+        session_id: { type: "string", description: "提交時的 session ID" },
+      },
+      required: ["session_id"],
     },
   },
   {
@@ -1677,6 +1710,20 @@ async function dispatch(
         case "confirm_scope":
           result = await handleConfirmScope(env.KV, user, args as any);
           break;
+        case "submit_to_research_pipeline": {
+          const engineUrl = env.INSURANCE_A_URL;
+          if (!engineUrl) throw new Error("INSURANCE_A_URL not configured");
+          result = await submitToResearchPipeline(
+            env.REPORTS_DB, env.KV, engineUrl, user, (args as any).session_id);
+          break;
+        }
+        case "check_research_job": {
+          const engineUrl = env.INSURANCE_A_URL;
+          if (!engineUrl) throw new Error("INSURANCE_A_URL not configured");
+          result = await checkResearchJob(
+            env.REPORTS_DB, engineUrl, user, (args as any).session_id);
+          break;
+        }
         case "add_finding":
           result = await handleAddFinding(env.KV, user, args as any);
           break;
