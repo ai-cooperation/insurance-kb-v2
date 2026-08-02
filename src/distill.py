@@ -150,6 +150,28 @@ def run_monthly(year_month: str | None = None, force: bool = False) -> None:
         sys.exit(1)
 
 
+_QSEC_HL = re.compile(r"#{2,4}\s*本月重點\s*\n(.*?)(?=\n#{2,4}\s|\Z)", re.DOTALL)
+_QSEC_TREND = re.compile(r"#{2,4}\s*趨勢分析\s*\n(.*?)(?=\n#{2,4}\s|\Z)", re.DOTALL)
+
+
+def _digest_for_quarter(text: str, stem: str) -> str:
+    """Slim a monthly wiki page for quarterly synthesis input.
+
+    The quarterly prompt needs highlights and trend narrative — not the
+    per-article source index tables that dominate page size. Full-page
+    concat blew Gemini free-tier input quota (429) and Groq context (400)
+    on the first 2026-Q2 attempt.
+    """
+    hl = _QSEC_HL.search(text)
+    trend = _QSEC_TREND.search(text)
+    parts = [f"### {stem}"]
+    if hl:
+        parts.append(hl.group(1).strip()[:900])
+    if trend:
+        parts.append("趨勢：" + trend.group(1).strip()[:500])
+    return "\n".join(parts) if len(parts) > 1 else ""
+
+
 def run_quarterly(period: str | None = None) -> None:
     """Generate quarterly overview from existing monthly wikis."""
     if period is None:
@@ -181,9 +203,14 @@ def run_quarterly(period: str | None = None) -> None:
             continue
         combined = []
         for md_file in sorted(month_dir.glob("*.md")):
-            combined.append(md_file.read_text(encoding="utf-8"))
+            combined.append(_digest_for_quarter(md_file.read_text(encoding="utf-8"),
+                                                md_file.stem))
         if combined:
-            monthly_wikis.append({"month": month, "content": "\n\n".join(combined)})
+            block = "\n\n".join(c for c in combined if c)
+            # Hard cap per month — the first Q2 attempt fed full wikis
+            # (~800K chars) and instantly 429'd Gemini free-tier input
+            # quota; Groq can't even fit it in context (2026-08-02).
+            monthly_wikis.append({"month": month, "content": block[:110_000]})
 
     if not monthly_wikis:
         print("[distill] No monthly wikis found, skipping")
