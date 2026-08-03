@@ -350,6 +350,23 @@ grill 收斂（欄位齊 + probe 完成）→ server 回「contract ready + 安�
 - **contract 零實際數據**：只帶 `data_probe: [{dimension, status, source_hint}]` 旗標。實際數字全部是 engine 段蒐證的產出，不是 grill 的輸入
 - **missing 維度在 grill 期攤牌**：probe 標灰 → 問使用者「換角度還是接受缺口」，grill 期收斂，engine 不白跑（直接消解 §13.3 最常見卡點）
 
+### 17.4 交付物形狀規格（REQ-S1~S4，2026-08-02 第三輪補）
+
+v1 首跑產出 8 個扁平章節、0 次級小節、0 表格。根因**不是模型弱項**，是規格兩層皆缺：(a) prompt 只規定內容與品質下限，沒規定交付物形狀；(b) §5 設計的 `sub_questions`（章節骨架）從未實作進 contract。四層都要有，缺一層即失效：
+
+- **REQ-S1 骨架入 contract**：`confirm_scope` 收 4-7 條 sub_questions → contract 帶 → engine intake 缺則 400（stub 豁免）
+- **REQ-S2 prompt 明列形狀**：章節骨架逐條一章順序不變；每章 ≥2 次級小節（depth C）；**表格按內容型態要求不按數量湊**（比較→對照表／藍圖→時程表／建議→決議表）；audience=B 需決策摘要 + 決議事項表；查無一手數據的維度開「資料限制」小節
+- **REQ-S3 gate 逐條驗**：prompt 說的每條形狀都要有機械檢查，否則等於沒寫
+- **REQ-S4 gate 內部識別字不得進交付物**：修復 prompt 會把 problem 字串餵回 session，agent 曾把 `structure_decision_table` 寫進報告內文
+
+**實測驗證（同 contract、僅補骨架與形狀規格）**：章節 8→7（照骨架）、次級小節 0→**20**、表格 0→**5**、量化點 81→**215**、含數字行的引用覆蓋率 **97%**，一輪過關。
+
+### 17.5 稽核層實測缺口（2026-08-02，audit v1 上線後首次真跑暴露）
+
+- **PDF 支援**：第一手證據（年報／投資人簡報／政府統計）幾乎都是 PDF；缺 pdftotext 路由時 18 個來源有 9 個 unverifiable 且**全部是 PDF**——稽核最嚴的地方剛好驗不到最該驗的證據。補上後 9/18 → 17/18
+- **JS 空殼誤判**：SPA 頁 curl 只拿到 `<title>`（32 字元），grounding 對空殼比對 → 把真實主張報成 `grounding_fail`（等同指控捏造）。修法：snapshot < 200 字元標 `thin_content` 不做 grounding
+- **稽核冪等**：狀態轉換時舊鍵未清（可達了仍留 unverifiable、變空殼仍留舊 snapshot），重跑不收斂——資料修復類必驗「跑兩次第二次零變更」
+
 ### 17.3 test_matrix 補列
 
 | REQ | 內容（可判定句） | 驗證方式 | 測試類型 | 落點 |
@@ -357,6 +374,14 @@ grill 收斂（欄位齊 + probe 完成）→ server 回「contract ready + 安�
 | REQ-B4 | session 非 `contract_complete` 狀態的 submit 一律 409 | 各前置狀態打 submit → 只有 complete 通過 | unit + integration | CI + b server 執行期 |
 | REQ-B5 | probe 由 server 執行；chat tool args 無數據內容（只 session_id + 維度 enum） | schema 斷言 + probe 觸發後 ring buffer 無數據字段 | integration | CI |
 | INV-5 | contract JSON 不含實際數據（金額/統計值/引文），只含 probe 三態旗標 | contract serializer 對禁樣式掃描 0 命中 | invariant | CI + submit 前 server 端斷言 |
+| **INV-6** | **contract 帶齊 §5 定義的每個欄位**（含 sub_questions／topic 綁定）——spec 定義了但沒實作的欄位不得默默缺席 | buildContract 輸出對 §5 欄位清單逐項斷言；engine intake 對必填欄位 400 | invariant | CI + engine intake |
+| REQ-S1 | insurance contract 缺 sub_questions 或不在 4-7 條 → 400 | 缺/過少/過多各打一次 | integration | CI + engine intake |
+| REQ-S2 | prompt 逐條列出 sub_questions 作章節骨架且順序不變 | `_shape_spec` 輸出含全部條目且順序正確 | unit | CI |
+| REQ-S3 | 形狀不足（章節/次級小節/表格/決議表）→ block 並退回同 session | 重現 v1 扁平形狀 → 必 block | invariant（fixture truth-table） | CI + 生產 gate |
+| REQ-S4 | 報告內文不得出現 gate 識別字 | 植入 `structure_decision_table` → block | invariant | CI + 生產 gate |
+| INV-A6 | PDF 證據可被稽核（第一手來源多為 PDF） | PDF fixture → 抽出文字並 grounding 成功 | invariant | CI + 生產 audit |
+| INV-A7 | snapshot 過薄（JS 空殼）標 unverifiable，不得報 grounding_fail | 32 字元空殼 → 無 grounding_fail | invariant | CI |
+| INV-A8 | 重跑 audit 冪等：狀態轉換清舊鍵 | 404→200→thin 三段轉換後鍵一致 | 真值源往返 | CI |
 
 ## 關聯
 - 範本：paperlab-kb/workers/src/pipeline.ts（handoff state machine）、ac-2012 `~/paper-job-service/paper_agent/`（B engine harness）、`BUILD_SPEC_BWORKER.md`（worker swap contract）

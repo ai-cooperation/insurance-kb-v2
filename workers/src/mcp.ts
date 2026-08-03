@@ -232,6 +232,7 @@ const TOOLS = [
     description:
       "鎖定研究範圍 / 範圍定了 / 開始查資料 / 確認範圍 / confirm scope / lock scope / proceed with research。\n" +
       "**Triggers**: start_research_session 後用戶把 5 步全選完了（scope/region/timeframe/audience/depth 都有答）。\n" +
+      "**呼叫前必做（第 6 步）**：依用戶主題提出 **4-7 條章節級 sub_questions** 給用戶確認/增刪，確認後一起傳。這是報告的章節骨架（後端一條一章），漏傳會讓報告結構扁平。\n" +
       "**Don't use**: 用戶還沒選完 5 步就呼叫 → server 會接受但 plan 會偏；再叫一次同 session_id 不會 reset 範圍（要新 session 重來）。\n" +
       "Server 回 research plan todo（要查哪些 source / 用哪些 tool / 預估 finding 數量），chat 照 todo 開始 search_articles / list_reports / get_wiki / web(mode=search) 蒐集；找到官方 source URL 後要讀全文/取數字就 web(mode=fetch)。",
     inputSchema: {
@@ -247,6 +248,11 @@ const TOOLS = [
             timeframe: { type: "string", description: "時間（A 30 天 / B 90 天 / C 1 年）" },
             audience: { type: "string", description: "讀者（A 商品設計 / B 高階主管 / C 業務培訓）" },
             depth: { type: "string", description: "深度（A 雙週報 ~5p / B 月報 ~15p / C 完整 ~30p）" },
+            sub_questions: {
+              type: "array",
+              items: { type: "string" },
+              description: "★章節骨架（必帶）：4-7 條章節級抽象問題，每條 12-40 中文字，後端「一條一章」寫報告。禁數字/貨幣/URL/競品名串列。範例：「健康管理服務如何改變壽險公司的價值主張？」不要寫成搜尋查詢。",
+            },
             topic_id: { type: "string", description: "歸檔主題 ID（start_research_session 回的相似主題建議；用戶同意綁定時必帶，報告才不會落未分類）" },
             topic_title: { type: "string", description: "新主題名稱（沒有既有主題可綁時帶這個，server 會自動建主題）" },
             sort_order: { type: "number", description: "主題內排序（start 回的 next_recommended_sort_order）" },

@@ -97,6 +97,12 @@ export interface SessionState {
   topic_id?: string | null;
   topic_title?: string | null;
   sort_order?: number | null;
+  /** Chapter skeleton (ba-spec §5/§12.4): 4-7 abstract chapter-level
+   *  questions from the grill. The engine writes ONE chapter per entry —
+   *  without it the agent invents its own flat structure (2026-08-02:
+   *  first Nanshan run produced 8 sections / 0 sub-sections / 0 tables
+   *  because this field was designed in the spec but never implemented). */
+  sub_questions?: string[] | null;
   findings: Finding[];
   outline_md: string | null;
   finalized_report_id: string | null;
@@ -328,6 +334,12 @@ export async function confirmSessionScope(
   if (typeof d.topic_id === "string" && d.topic_id) state.topic_id = d.topic_id;
   if (typeof d.topic_title === "string" && d.topic_title) state.topic_title = d.topic_title;
   if (typeof d.sort_order === "number") state.sort_order = d.sort_order;
+  if (Array.isArray(d.sub_questions)) {
+    state.sub_questions = d.sub_questions
+      .filter((q): q is string => typeof q === "string" && q.trim().length > 0)
+      .map((q) => q.trim())
+      .slice(0, 7);
+  }
   state.status = "scope_confirmed";
   await writeSession(kv, state);
 

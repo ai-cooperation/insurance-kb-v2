@@ -55,6 +55,10 @@ export function buildContract(state: SessionState): Record<string, unknown> {
     topic_id: state.topic_id ?? null,
     topic_title: state.topic_title ?? null,
     sort_order: state.sort_order ?? null,
+    // Chapter skeleton (ba-spec §5/§12.4) — the engine writes one chapter
+    // per entry. Empty array is valid only for legacy sessions; the engine
+    // intake guard rejects it for new submits.
+    sub_questions: state.sub_questions ?? [],
     session_id: state.session_id,
     author_uid: state.uid,
     author_email: state.email,
