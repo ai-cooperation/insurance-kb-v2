@@ -3,11 +3,11 @@
  *
  * Layout:
  *   ┌─ left tree (240px, lg+ only)  ─┬─ right content (flex-1) ───────┐
- *   │   📖 V1 行銷策略研究            │                                 │
+ *   │   V1 行銷策略研究               │                                 │
  *   │     ├─ V1 主報告（完整版）      │  <selected report content>      │
  *   │     ├─ ch01 研究總覽           │                                 │
  *   │     └─ ...                     │                                 │
- *   │   📖 V2 飛輪策略                │                                 │
+ *   │   V2 飛輪策略                   │                                 │
  *   │     └─ ...                     │                                 │
  *   └────────────────────────────────┴─────────────────────────────────┘
  *
@@ -20,10 +20,13 @@ import remarkGfm from 'remark-gfm';
 import { useReportsTree, useReportDetail } from '../useReports';
 import type { ReportMeta, TopicMeta } from '../types';
 import { Icon } from '../components/Icon';
+import { RESEARCH_CATALOG, type PlannedItem } from '../data/researchCatalog';
 
 interface ReportsPageProps {
   readonly apiFetch: (path: string, init?: RequestInit) => Promise<Response>;
   readonly hasFeature: (key: string) => boolean;
+  /** From URL deep link: /reports/<id> — selects this report on mount */
+  readonly initialReportId?: string | null;
 }
 
 function formatDate(unixSec: number): string {
@@ -52,19 +55,39 @@ function cleanupMarkdown(md: string): string {
   return out.trimStart();
 }
 
+// ── Planned badge (規劃中 marker, ARIA-friendly text not emoji) ─────────
+
+const PlannedBadge: React.FC<{ priority?: number }> = ({ priority }) => (
+  <span
+    className="text-[9.5px] font-semibold px-1.5 py-px rounded shrink-0
+      bg-slate-200 text-slate-500 dark:bg-slate-800 dark:text-slate-400
+      uppercase tracking-wider"
+    aria-label="尚未產出"
+  >
+    {priority && priority <= 5 ? `P${priority}` : '規劃中'}
+  </span>
+);
+
 // ── Tree node (collapsible topic with chapter list) ────────────────────
 
 interface TopicNodeProps {
   readonly topic: TopicMeta;
   readonly reports: readonly ReportMeta[];
+  /** Planned reports that belong inside this live topic (e.g. 印尼 inside 亞洲健康險生態圈) */
+  readonly plannedReports?: readonly PlannedItem[];
   readonly activeId: string | null;
   readonly onSelect: (id: string) => void;
   readonly expanded: boolean;
   readonly onToggle: () => void;
 }
 
-const TopicNode: React.FC<TopicNodeProps> = ({ topic, reports, activeId, onSelect, expanded, onToggle }) => {
+const TopicNode: React.FC<TopicNodeProps> = ({ topic, reports, plannedReports = [], activeId, onSelect, expanded, onToggle }) => {
   const iconName = topic.icon || 'book';
+  const totalCount = reports.length + plannedReports.length;
+  // Planned reports float to top (work-in-flight), sorted by priority asc.
+  // Live reports below, keep sort_order asc (preserves editorial intent —
+  // V1 chapters, 跨市場總結 sort=0 pinning, etc).
+  const sortedPlanned = [...plannedReports].sort((a, b) => a.priority - b.priority);
   return (
     <div>
       <button
@@ -75,10 +98,24 @@ const TopicNode: React.FC<TopicNodeProps> = ({ topic, reports, activeId, onSelec
         <Icon name={expanded ? 'chevD' : 'chevR'} className="w-3.5 h-3.5 text-slate-400 shrink-0" />
         <Icon name={iconName} className="w-4 h-4 text-slate-500 shrink-0" />
         <span className="truncate text-left flex-1 font-medium">{topic.title}</span>
-        <span className="text-[11px] text-slate-400">{topic.report_count ?? reports.length}</span>
+        <span className="text-[11px] text-slate-400">
+          {reports.length}{plannedReports.length > 0 ? `+${plannedReports.length}` : ''}
+        </span>
       </button>
-      {expanded && reports.length > 0 && (
+      {expanded && totalCount > 0 && (
         <div className="ml-5 border-l border-slate-200 dark:border-slate-800 pl-1 mt-0.5 space-y-0.5 pb-1">
+          {sortedPlanned.map(p => (
+            <div
+              key={p.id}
+              title={p.summary}
+              className="px-2 h-7 rounded-md text-[12.5px] flex items-center gap-1.5
+                text-slate-400 dark:text-slate-500 cursor-not-allowed opacity-70"
+              aria-disabled="true"
+            >
+              <span className="truncate flex-1">{p.title}</span>
+              <PlannedBadge priority={p.priority} />
+            </div>
+          ))}
           {reports.map(r => (
             <button
               key={r.id}
@@ -99,6 +136,48 @@ const TopicNode: React.FC<TopicNodeProps> = ({ topic, reports, activeId, onSelec
     </div>
   );
 };
+
+// ── Planned topic node (no backing topic in DB yet) ─────────────────────
+
+const PlannedTopicNode: React.FC<{ readonly item: PlannedItem }> = ({ item }) => (
+  <div
+    title={item.summary}
+    className="w-full flex items-center gap-1.5 px-2 h-9 rounded-md text-[13px]
+      text-slate-400 dark:text-slate-500 cursor-not-allowed opacity-70"
+    aria-disabled="true"
+  >
+    <span className="w-3.5 h-3.5 shrink-0" />
+    <Icon name="book" className="w-4 h-4 shrink-0" />
+    <span className="truncate text-left flex-1">{item.title}</span>
+    <PlannedBadge priority={item.priority} />
+  </div>
+);
+
+// ── Category section header (collapsible) ──────────────────────────────
+
+interface CategoryHeaderProps {
+  readonly title: string;
+  readonly liveCount: number;
+  readonly plannedCount: number;
+  readonly expanded: boolean;
+  readonly onToggle: () => void;
+}
+
+const CategoryHeader: React.FC<CategoryHeaderProps> = ({ title, liveCount, plannedCount, expanded, onToggle }) => (
+  <button
+    onClick={onToggle}
+    className="w-full px-2 pt-3 pb-1 flex items-center gap-1.5 hover:bg-slate-100/50 dark:hover:bg-slate-800/30 rounded-md transition"
+    aria-expanded={expanded}
+  >
+    <Icon name={expanded ? 'chevD' : 'chevR'} className="w-3 h-3 text-slate-400 shrink-0" />
+    <span className="text-[10.5px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 flex-1 truncate text-left">
+      {title}
+    </span>
+    <span className="text-[10px] text-slate-400 dark:text-slate-600 shrink-0 tabular-nums">
+      {liveCount}/{liveCount + plannedCount}
+    </span>
+  </button>
+);
 
 // ── Detail (markdown render + print toolbar) ──────────────────────────
 
@@ -194,6 +273,17 @@ const ReportDetailView: React.FC<DetailProps> = ({ apiFetch, reportId, onOpenTre
             {meta.author_name && <span>{meta.author_name}</span>}
             <span>·</span>
             <span>{formatDate(meta.created_at)}</span>
+            {/* In-place updates (pipeline re-runs) are otherwise invisible —
+                the reader sees the original date and cannot tell the content
+                changed. Show it whenever it differs by more than a day. */}
+            {meta.updated_at - meta.created_at > 86400 && (
+              <>
+                <span>·</span>
+                <span className="text-emerald-600 dark:text-emerald-400">
+                  更新於 {formatDate(meta.updated_at)}
+                </span>
+              </>
+            )}
             <span>·</span>
             <span>{meta.word_count.toLocaleString()} 字</span>
             {meta.finding_count > 0 && (
@@ -267,11 +357,14 @@ const TopicSummary: React.FC<{
 
 // ── Main page ─────────────────────────────────────────────────────────
 
-export const ReportsPage: React.FC<ReportsPageProps> = ({ apiFetch, hasFeature }) => {
+export const ReportsPage: React.FC<ReportsPageProps> = ({ apiFetch, hasFeature, initialReportId }) => {
   const { topics, reports, loading, error, canView } = useReportsTree(apiFetch, hasFeature);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(initialReportId ?? null);
   const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  // Category-level collapse state — all categories collapsed by default so
+  // the nav stays short on first load; user clicks a category to expand.
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
   const [mobileTreeOpen, setMobileTreeOpen] = useState(false);
 
   // Group reports by topic_id
@@ -285,15 +378,22 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({ apiFetch, hasFeature }
     return map;
   }, [reports]);
 
-  // Initial selection: show most-recent topic's summary in main pane,
-  // but **leave all topics collapsed** in sidebar (user opens what they want).
-  // Avoids dump of N topics × ~5 reports each on every page load.
+  // Initial selection: if URL is /reports/<id>, that id wins (already set in
+  // initial state). Otherwise show most-recent topic's summary in main pane.
+  // Either way, leave the tree topics collapsed by default.
   useEffect(() => {
     if (topics.length > 0 && !selectedTopicId && !selectedId) {
       setSelectedTopicId(topics[0].id);
-      // expanded stays as empty Set — user clicks topic to expand
     }
   }, [topics, selectedTopicId, selectedId]);
+
+  // React to deep-link changes (browser back/forward)
+  useEffect(() => {
+    if (initialReportId !== undefined && initialReportId !== null && initialReportId !== selectedId) {
+      setSelectedId(initialReportId);
+      setSelectedTopicId(null);
+    }
+  }, [initialReportId, selectedId]);
 
   if (!canView) {
     return (
@@ -315,10 +415,24 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({ apiFetch, hasFeature }
     });
   };
 
+  const toggleCategory = (id: string) => {
+    setExpandedCategories(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
   const selectReport = (id: string) => {
     setSelectedId(id);
     setSelectedTopicId(null);
     setMobileTreeOpen(false);
+    // Update URL so deep-link/share works + browser back button does the right thing
+    const target = `/reports/${id}`;
+    if (window.location.pathname !== target) {
+      window.history.pushState({}, '', target);
+    }
   };
 
   const selectTopic = (id: string) => {
@@ -327,32 +441,144 @@ export const ReportsPage: React.FC<ReportsPageProps> = ({ apiFetch, hasFeature }
     setExpanded(prev => new Set(prev).add(id));
   };
 
+  // Live topic_id → TopicMeta lookup (for catalog rendering)
+  const topicById = useMemo(() => {
+    const m: Record<string, TopicMeta> = {};
+    for (const t of topics) m[t.id] = t;
+    return m;
+  }, [topics]);
+
+  // Topic IDs already placed under a category in RESEARCH_CATALOG.
+  // Any live topic not in this set falls through to the "未分類主題" section.
+  const categorizedTopicIds = useMemo(
+    () => new Set(RESEARCH_CATALOG.flatMap(c => c.live_topic_ids)),
+    [],
+  );
+  const orphanTopics = useMemo(
+    () => topics.filter(t => !categorizedTopicIds.has(t.id)),
+    [topics, categorizedTopicIds],
+  );
+
+  // Compute "latest live report date" per category for ordering.
+  // Categories with newer activity float to top; planned-only categories sink
+  // to bottom in editorial order.
+  const sortedCategories = useMemo(() => {
+    const withMeta = RESEARCH_CATALOG.map((cat, editorialIdx) => {
+      const liveReports = cat.live_topic_ids.flatMap(id => reportsByTopic[id] || []);
+      const latestCreated = liveReports.reduce(
+        (max, r) => Math.max(max, r.created_at || 0),
+        0,
+      );
+      return { cat, latestCreated, editorialIdx };
+    });
+    // Sort: newer latestCreated first; if both 0 (planned-only), preserve editorial order.
+    withMeta.sort((a, b) => {
+      if (a.latestCreated !== b.latestCreated) return b.latestCreated - a.latestCreated;
+      return a.editorialIdx - b.editorialIdx;
+    });
+    return withMeta.map(m => m.cat);
+  }, [reportsByTopic]);
+
   // Tree component (rendered in both desktop sidebar + mobile drawer)
   const TreeContent: React.FC = () => (
     <div className="space-y-0.5 px-1.5 py-2">
       {loading && <div className="px-2 py-3 text-sm text-slate-400">載入中…</div>}
       {error && <div className="px-2 py-3 text-sm text-red-500">{error}</div>}
-      {!loading && !error && topics.length === 0 && (
+      {!loading && !error && topics.length === 0 && RESEARCH_CATALOG.length === 0 && (
         <div className="px-2 py-3 text-sm text-slate-400">尚無報告主題</div>
       )}
-      {topics.map(t => (
-        <TopicNode
-          key={t.id}
-          topic={t}
-          reports={reportsByTopic[t.id] || []}
-          activeId={selectedId}
-          onSelect={selectReport}
-          expanded={expanded.has(t.id)}
-          onToggle={() => {
-            if (!expanded.has(t.id)) selectTopic(t.id);
-            else toggleTopic(t.id);
-          }}
-        />
-      ))}
-      {/* Orphans (reports without topic) */}
+
+      {/* Catalog-driven categories — collapsed by default; ordered by newest live report.
+          Inside each category: topic-level planned items first (work-in-flight),
+          then live topics (sorted by newest report inside) */}
+      {!loading && !error && sortedCategories.map(cat => {
+        const liveTopicsInCat = cat.live_topic_ids
+          .map(id => topicById[id])
+          .filter((t): t is TopicMeta => !!t);
+        // Sort live topics within category by newest report inside, desc
+        const liveTopicsSorted = [...liveTopicsInCat].sort((a, b) => {
+          const aLatest = (reportsByTopic[a.id] || []).reduce((m, r) => Math.max(m, r.created_at || 0), 0);
+          const bLatest = (reportsByTopic[b.id] || []).reduce((m, r) => Math.max(m, r.created_at || 0), 0);
+          return bLatest - aLatest;
+        });
+        const liveReportCount = liveTopicsInCat.reduce(
+          (sum, t) => sum + (reportsByTopic[t.id]?.length ?? 0),
+          0,
+        );
+        const reportInTopicPlanned = cat.planned.filter(p => p.kind === 'report-in-topic');
+        const topicLevelPlanned = [...cat.planned.filter(p => p.kind === 'topic')]
+          .sort((a, b) => a.priority - b.priority);
+        const totalPlanned = cat.planned.length;
+        const catExpanded = expandedCategories.has(cat.id);
+        return (
+          <div key={cat.id}>
+            <CategoryHeader
+              title={cat.title}
+              liveCount={liveReportCount}
+              plannedCount={totalPlanned}
+              expanded={catExpanded}
+              onToggle={() => toggleCategory(cat.id)}
+            />
+            {catExpanded && (
+              <>
+                {/* Topic-level planned first (work-in-flight floats up) */}
+                {topicLevelPlanned.map(p => <PlannedTopicNode key={p.id} item={p} />)}
+                {/* Then live topics, newest first */}
+                {liveTopicsSorted.map(t => {
+                  const plannedInThisTopic = reportInTopicPlanned.filter(p => p.parent_topic_id === t.id);
+                  return (
+                    <TopicNode
+                      key={t.id}
+                      topic={t}
+                      reports={reportsByTopic[t.id] || []}
+                      plannedReports={plannedInThisTopic}
+                      activeId={selectedId}
+                      onSelect={selectReport}
+                      expanded={expanded.has(t.id)}
+                      onToggle={() => {
+                        if (!expanded.has(t.id)) selectTopic(t.id);
+                        else toggleTopic(t.id);
+                      }}
+                    />
+                  );
+                })}
+              </>
+            )}
+          </div>
+        );
+      })}
+
+      {/* Live topics not yet assigned to any category */}
+      {!loading && !error && orphanTopics.length > 0 && (
+        <div>
+          <CategoryHeader
+            title="未分類主題"
+            liveCount={orphanTopics.length}
+            plannedCount={0}
+            expanded={expandedCategories.has('__orphan_topics__')}
+            onToggle={() => toggleCategory('__orphan_topics__')}
+          />
+          {expandedCategories.has('__orphan_topics__') && orphanTopics.map(t => (
+            <TopicNode
+              key={t.id}
+              topic={t}
+              reports={reportsByTopic[t.id] || []}
+              activeId={selectedId}
+              onSelect={selectReport}
+              expanded={expanded.has(t.id)}
+              onToggle={() => {
+                if (!expanded.has(t.id)) selectTopic(t.id);
+                else toggleTopic(t.id);
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Reports without topic — keep at very bottom */}
       {reportsByTopic.__orphan__ && reportsByTopic.__orphan__.length > 0 && (
         <div className="pt-2 mt-2 border-t border-slate-200 dark:border-slate-800">
-          <div className="px-2 mb-1 text-[10.5px] font-mono uppercase tracking-wider text-slate-400">未分類</div>
+          <div className="px-2 mb-1 text-[10.5px] font-mono uppercase tracking-wider text-slate-400">未分類報告</div>
           {reportsByTopic.__orphan__.map(r => (
             <button
               key={r.id}
