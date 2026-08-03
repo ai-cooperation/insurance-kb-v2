@@ -208,6 +208,10 @@ export interface CompletePayload {
    *  the publish callback runs createReport and returns the new report_id. */
   markdown?: string;
   meta?: { title?: string; summary?: string; finding_count?: number };
+  /** Re-run of an already-published session: update the existing report in
+   *  place instead of refusing as a duplicate. Keeps the one-report-per-
+   *  session invariant (REQ-P1) while letting a strengthened re-run land. */
+  update?: boolean;
 }
 
 export async function handlePipelineComplete(
@@ -228,8 +232,9 @@ export async function handlePipelineComplete(
   if (!job) {
     return { ok: false, status: 404, body: { error: `no job for session ${sessionId}` } };
   }
-  // Idempotency (REQ-P1): a completed job never re-completes.
-  if (job.status === "completed" && job.report_id) {
+  // Idempotency (REQ-P1): a completed job never re-completes — unless the
+  // caller explicitly asks to update the existing report in place.
+  if (job.status === "completed" && job.report_id && !(payload.update && payload.markdown)) {
     return { ok: true, status: 200, body: { status: "already_completed", report_id: job.report_id } };
   }
   if (payload.error) {

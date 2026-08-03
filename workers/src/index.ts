@@ -288,6 +288,17 @@ app.post("/api/research-pipeline/complete", async (c) => {
     c.env.REPORTS_DB, c.req.query("key"), c.env.RESEARCH_PIPELINE_KEY, payload,
     async (job, p) => {
       const contract = JSON.parse(job.contract_json || "{}");
+      // strengthened re-run of a published session: update in place
+      if (p.update && job.report_id) {
+        const { updateReport } = await import("./reports-store");
+        await updateReport(
+          c.env.REPORTS_DB, c.env.REPORTS_BUCKET, job.report_id, job.uid,
+          { markdown: p.markdown!, title: p.meta?.title,
+            finding_count: p.meta?.finding_count, actor_email: job.email ?? undefined },
+          { REPORTS_REPO: c.env.REPORTS_REPO, REPORTS_GITHUB_PAT: c.env.REPORTS_GITHUB_PAT },
+        );
+        return job.report_id;
+      }
       // Topic binding (ba-spec §5): existing topic passes through; a new
       // topic_title is ensured first so pipeline reports never land 未分類.
       let topicId: string | undefined = contract.topic_id || undefined;

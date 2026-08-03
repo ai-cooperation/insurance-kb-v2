@@ -229,6 +229,7 @@ export async function updateReport(
     title?: string;
     tags?: string[];
     summary?: string;
+    finding_count?: number;
     actor_email?: string;
   },
   gitEnv?: GitSnapshotEnv,
@@ -259,6 +260,7 @@ export async function updateReport(
   if (patch.tags !== undefined) { sets.push("tags = ?"); params.push(JSON.stringify(patch.tags)); }
   if (patch.summary !== undefined) { sets.push("summary = ?"); params.push(patch.summary); }
   if (patch.markdown !== undefined) { sets.push("word_count = ?"); params.push(word_count); }
+  if (patch.finding_count !== undefined) { sets.push("finding_count = ?"); params.push(patch.finding_count); }
   params.push(id);
   await db
     .prepare(`UPDATE reports SET ${sets.join(", ")} WHERE id = ?`)
