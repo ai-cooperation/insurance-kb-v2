@@ -37,8 +37,10 @@ KB_PROJECT_ID = "insurance-kb"
 MCP_PUBLIC_URL = "https://insurance-kb-api.alan-chen75.workers.dev/mcp/sse"
 # Telegram notifications on new report publish — set via wrangler secret put.
 # Empty string disables (worker won't crash, just skip notify).
-TG_BOT_TOKEN = ""
-TG_CHAT_ID = ""
+# TG_BOT_TOKEN is a SECRET (wrangler secret put) — never declare it in [vars],
+# a plain var here silently overwrites the secret on every deploy.
+TG_CHAT_ID = "-1003856903916"   # insurance KB group
+TG_TOPIC_ID = "4"
 # v3 (2026-06-03) git snapshot pillar — private repo for VIP reports.
 # The main v2 repo is public, so reports cannot live there. PAT is provisioned
 # separately as a wrangler secret (REPORTS_GITHUB_PAT) with contents:write

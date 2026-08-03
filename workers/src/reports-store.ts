@@ -598,13 +598,13 @@ export async function archiveReport(
  * Notify Telegram about a new published report (best-effort, no-op on failure).
  */
 export async function notifyTelegramNewReport(
-  env: { TG_BOT_TOKEN?: string; TG_CHAT_ID?: string },
+  env: { TG_BOT_TOKEN?: string; TG_CHAT_ID?: string; TG_TOPIC_ID?: string },
   meta: ReportMeta,
   publicUrl: string,
 ): Promise<void> {
   if (!env.TG_BOT_TOKEN || !env.TG_CHAT_ID) return;
   const text =
-    `📑 新研究報告上架\n\n` +
+    `【新研究報告上架】\n\n` +
     `<b>${escapeHtml(meta.title)}</b>\n` +
     (meta.category ? `分類：${escapeHtml(meta.category)}\n` : "") +
     (meta.region ? `地區：${escapeHtml(meta.region)}\n` : "") +
@@ -617,6 +617,8 @@ export async function notifyTelegramNewReport(
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         chat_id: env.TG_CHAT_ID,
+        // forum groups route by topic; omitting it posts to General
+        ...(env.TG_TOPIC_ID ? { message_thread_id: Number(env.TG_TOPIC_ID) } : {}),
         text,
         parse_mode: "HTML",
         disable_web_page_preview: false,

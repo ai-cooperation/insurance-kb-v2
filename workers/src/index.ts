@@ -51,6 +51,7 @@ interface Bindings {
   REPORTS_REPO?: string;          // v3 (2026-06-03) git snapshot pillar — set in [vars]
   REPORTS_GITHUB_PAT?: string;    // fine-grained PAT, set via `wrangler secret put`
   SNAPSHOT_TEST_KEY?: string;     // shared-secret for /api/snapshot-test (debug endpoint)
+  TG_TOPIC_ID?: string;           // forum topic for the insurance KB group — [vars]
   INSURANCE_A_URL?: string;       // research pipeline engine base URL (ba-spec §7) — [vars]
   RESEARCH_PIPELINE_KEY?: string; // shared-secret for /api/research-pipeline/complete (wrangler secret)
 }
@@ -329,7 +330,8 @@ app.post("/api/research-pipeline/complete", async (c) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         chat_id: c.env.TG_CHAT_ID,
-        text: `[research-pipeline] 任務 blocked，需人工裁示\nsession: ${payload.session_id}\n原因: ${err}`,
+        ...(c.env.TG_TOPIC_ID ? { message_thread_id: Number(c.env.TG_TOPIC_ID) } : {}),
+        text: `【研究 pipeline】任務 blocked，需人工裁示\nsession: ${payload.session_id}\n原因: ${err}`,
       }),
     }).catch(() => {});
   }
