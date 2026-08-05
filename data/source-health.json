@@ -77,11 +77,11 @@
  },
  "gnews_jp_companies_3": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_jp_en": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_jp_industry": {
   "status": "ok",
@@ -101,7 +101,7 @@
  },
  "gnews_kr_companies_3": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_kr_en": {
   "status": "ok",
@@ -141,7 +141,7 @@
  },
  "gnews_us_pacific_life": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_us_lincoln": {
   "status": "ok",
@@ -157,7 +157,7 @@
  },
  "gnews_us_tiaa": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_us_mutual_omaha": {
   "status": "ok",
@@ -277,7 +277,7 @@
  },
  "gnews_id_lifers": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_th_lifers": {
   "status": "ok",
@@ -345,7 +345,7 @@
  },
  "sompo_hd": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "munichre_news": {
   "status": "ok",
@@ -361,7 +361,7 @@
  },
  "nissay_news": {
   "status": "ok",
-  "last": "2026-08-03"
+  "last": "2026-08-05"
  },
  "cpic_group": {
   "status": "ok",
