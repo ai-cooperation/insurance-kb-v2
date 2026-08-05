@@ -21,7 +21,7 @@
  },
  "gnews_sg_companies_3": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_sg_regulator": {
   "status": "ok",
@@ -53,7 +53,7 @@
  },
  "gnews_cn_companies_1": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_cn_companies_2": {
   "status": "ok",
@@ -61,7 +61,7 @@
  },
  "gnews_cn_companies_3": {
   "status": "ok",
-  "last": "2026-08-03"
+  "last": "2026-08-05"
  },
  "gnews_cn_industry": {
   "status": "ok",
@@ -85,7 +85,7 @@
  },
  "gnews_jp_industry": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_jp_mini": {
   "status": "ok",
@@ -97,7 +97,7 @@
  },
  "gnews_kr_companies_2": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_kr_companies_3": {
   "status": "ok",
@@ -105,19 +105,19 @@
  },
  "gnews_kr_en": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_kr_digital": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_reinsurers": {
   "status": "ok",
-  "last": "2026-08-03"
+  "last": "2026-08-05"
  },
  "gnews_us_massmutual": {
   "status": "ok",
@@ -185,7 +185,7 @@
  },
  "gnews_sina_insurance": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_esg_insurance": {
   "status": "ok",
@@ -197,7 +197,7 @@
  },
  "gnews_product_launch_zh": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_hive_insurance": {
   "status": "overdue",
@@ -205,7 +205,7 @@
  },
  "gnews_tw_insurance": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_swissre": {
   "status": "ok",
@@ -257,15 +257,15 @@
  },
  "gnews_tw_lifers": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_tw_lifers_2": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_in_lifers": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_in_lifers_2": {
   "status": "ok",
@@ -309,7 +309,7 @@
  },
  "shinnihon_rss": {
   "status": "ok",
-  "last": "2026-08-03"
+  "last": "2026-08-05"
  },
  "shinnihon_rss_p2": {
   "status": "ok",
@@ -317,7 +317,7 @@
  },
  "insnews_kr": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "ib_asia": {
   "status": "ok",
@@ -357,7 +357,7 @@
  },
  "sumitomo_life": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "nissay_news": {
   "status": "ok",
