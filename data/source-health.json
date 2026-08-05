@@ -1,7 +1,7 @@
 {
  "gnews_insurance_asia": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_insurance_global": {
   "status": "ok",
@@ -13,7 +13,7 @@
  },
  "gnews_sg_companies_1": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_sg_companies_2": {
   "status": "ok",
@@ -36,7 +36,7 @@
   "last": "2026-08-04"
  },
  "gnews_hk_companies_3": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-07-23"
  },
  "gnews_hk_companies_4": {
@@ -65,11 +65,11 @@
  },
  "gnews_cn_industry": {
   "status": "ok",
-  "last": "2026-08-03"
+  "last": "2026-08-04"
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_jp_companies_2": {
   "status": "ok",
@@ -93,7 +93,7 @@
  },
  "gnews_kr_companies_1": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_kr_companies_2": {
   "status": "ok",
@@ -137,7 +137,7 @@
  },
  "gnews_us_prudential": {
   "status": "ok",
-  "last": "2026-08-03"
+  "last": "2026-08-04"
  },
  "gnews_us_pacific_life": {
   "status": "ok",
@@ -173,11 +173,11 @@
  },
  "gnews_ratings_2": {
   "status": "ok",
-  "last": "2026-08-03"
+  "last": "2026-08-04"
  },
  "gnews_wsj_insurance": {
   "status": "ok",
-  "last": "2026-08-01"
+  "last": "2026-08-04"
  },
  "gnews_bloomberg_insurance": {
   "status": "ok",
@@ -217,7 +217,7 @@
  },
  "gnews_air": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "gnews_mas": {
   "status": "ok",
@@ -233,7 +233,7 @@
  },
  "gnews_greateastern": {
   "status": "ok",
-  "last": "2026-08-03"
+  "last": "2026-08-04"
  },
  "gnews_pingan": {
   "status": "ok",
@@ -245,7 +245,7 @@
  },
  "gnews_aia_hk": {
   "status": "ok",
-  "last": "2026-08-02"
+  "last": "2026-08-04"
  },
  "gnews_lia_sg": {
   "status": "overdue",
@@ -325,7 +325,7 @@
  },
  "air_news": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-05"
  },
  "lia_sg": {
   "status": "ok",
