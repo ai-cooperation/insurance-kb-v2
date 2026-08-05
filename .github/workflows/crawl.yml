@@ -114,8 +114,30 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: "-1003856903916"
           TELEGRAM_TOPIC_ID: "4"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          MSG=$'\xf0\x9f\x9a\xa8 Insurance KB crawl 失敗\nRun: ${{ github.run_id }}\nTrigger: ${{ github.event_name }}\nURL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+          # Consecutive-failure count: 8 identical alerts looked exactly like
+          # the first one, so a 2-day outage read as routine noise (2026-08-05
+          # incident — the site served stale data for two days while every
+          # alert fired correctly and nobody escalated). Count completed runs
+          # before the most recent success so the Nth alert SAYS it is the Nth.
+          PRIOR=$(gh api "repos/${{ github.repository }}/actions/workflows/crawl.yml/runs?status=completed&per_page=30" \
+                    --jq '[.workflow_runs[].conclusion] | index("success") // 30' 2>/dev/null || echo 0)
+          STREAK=$((PRIOR + 1))
+          HEAD="Insurance KB crawl 失敗"
+          if [ "$STREAK" -ge 3 ]; then
+            HEAD="Insurance KB crawl 連續第 ${STREAK} 次失敗 — 資料已停更，需人工處理"
+          elif [ "$STREAK" -eq 2 ]; then
+            HEAD="Insurance KB crawl 連續第 2 次失敗"
+          fi
+          # Which step actually failed — the outage was in the deploy step
+          # while crawling itself stayed green, and the old alert never said so.
+          FAILED=$(gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs" \
+                     --jq '[.jobs[].steps[] | select(.conclusion=="failure") | .name] | join(", ")' 2>/dev/null || echo "unknown")
+          MSG="【${HEAD}】
+          失敗步驟: ${FAILED}
+          Run: ${{ github.run_id }} (${{ github.event_name }})
+          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             -d chat_id="${TELEGRAM_CHAT_ID}" \
             -d message_thread_id="${TELEGRAM_TOPIC_ID}" \
