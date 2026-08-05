@@ -99,3 +99,30 @@ jobs:
             exit 1
           fi
           git push origin HEAD:main
+
+      - name: Notify Telegram on failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: "-1003856903916"
+          TELEGRAM_TOPIC_ID: "4"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Silent failure = design defect (rules/common/automation.md). This
+          # workflow had NO alert at all until 2026-08-05: the 8/1 distill
+          # failed and only surfaced because someone happened to look.
+          PRIOR=$(gh api "repos/${{ github.repository }}/actions/workflows/reclassify.yml/runs?status=completed&per_page=30" \
+                    --jq '[.workflow_runs[].conclusion] | index("success") // 30' 2>/dev/null || echo 0)
+          STREAK=$((PRIOR + 1))
+          HEAD="Insurance KB reclassify 失敗"
+          [ "$STREAK" -ge 2 ] && HEAD="Insurance KB reclassify 連續第 ${STREAK} 次失敗"
+          FAILED=$(gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs" \
+                     --jq '[.jobs[].steps[] | select(.conclusion=="failure") | .name] | join(", ")' 2>/dev/null || echo "unknown")
+          MSG="【${HEAD}】
+          失敗步驟: ${FAILED}
+          Run: ${{ github.run_id }} (${{ github.event_name }})
+          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d message_thread_id="${TELEGRAM_TOPIC_ID}" \
+            --data-urlencode text="${MSG}" > /dev/null
