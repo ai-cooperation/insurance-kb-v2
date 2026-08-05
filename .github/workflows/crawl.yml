@@ -53,6 +53,7 @@ jobs:
           # Translation cascade: Groq primary (GitHub Models is retiring —
           # brownouts since ~2026-07-29, final shutdown pending)
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MODELS_PAT: ${{ secrets.MODELS_PAT }}
           # Phase 3 failure-rate + Phase 4.5 name-consistency alerts
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

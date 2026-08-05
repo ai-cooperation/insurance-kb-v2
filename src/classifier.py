@@ -665,6 +665,18 @@ TRANSLATE_PROVIDERS = [
         "llama-3.1-8b-instant",
         "openai/gpt-oss-120b",
     ]),
+    # Gemini free tier is a SEPARATE daily quota pool, so it keeps
+    # translation alive after Groq's TPD is spent — which by 2026-08-03
+    # is a nightly event, not an edge case (that run left 149/509 titles
+    # untranslated once every Groq model hit its limit and GitHub Models
+    # answered 401). Placed after Groq because Groq is faster and has the
+    # larger per-minute headroom; before GitHub Models, which is retiring.
+    ("gemini", "https://generativelanguage.googleapis.com/v1beta/openai/",
+     "GEMINI_API_KEY", [
+        "gemini-flash-lite-latest",
+        "gemini-flash-latest",
+        "gemini-3.1-flash-lite",
+    ]),
     ("github-models", "https://models.inference.ai.azure.com", "MODELS_PAT", [
         "gpt-4.1-mini",
         "gpt-4o-mini",

@@ -57,6 +57,7 @@ jobs:
       - name: Run reclassify
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MODELS_PAT: ${{ secrets.MODELS_PAT }}
         run: |
           ARGS="--batch-size 10 --delay 3"
