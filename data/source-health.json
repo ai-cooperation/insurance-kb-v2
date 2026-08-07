@@ -1,7 +1,7 @@
 {
  "gnews_insurance_asia": {
   "status": "ok",
-  "last": "2026-08-06"
+  "last": "2026-08-07"
  },
  "gnews_insurance_global": {
   "status": "ok",
@@ -33,7 +33,7 @@
  },
  "gnews_hk_companies_2": {
   "status": "ok",
-  "last": "2026-08-05"
+  "last": "2026-08-06"
  },
  "gnews_hk_companies_3": {
   "status": "ok",
@@ -45,7 +45,7 @@
  },
  "gnews_hk_regulator": {
   "status": "ok",
-  "last": "2026-08-06"
+  "last": "2026-08-07"
  },
  "gnews_hk_zh": {
   "status": "ok",
@@ -93,7 +93,7 @@
  },
  "gnews_kr_companies_1": {
   "status": "ok",
-  "last": "2026-08-06"
+  "last": "2026-08-07"
  },
  "gnews_kr_companies_2": {
   "status": "ok",
@@ -117,7 +117,7 @@
  },
  "gnews_reinsurers": {
   "status": "ok",
-  "last": "2026-08-06"
+  "last": "2026-08-07"
  },
  "gnews_us_massmutual": {
   "status": "ok",
@@ -125,7 +125,7 @@
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
-  "last": "2026-08-05"
+  "last": "2026-08-06"
  },
  "gnews_us_nyl": {
   "status": "ok",
@@ -133,7 +133,7 @@
  },
  "gnews_us_metlife": {
   "status": "ok",
-  "last": "2026-08-06"
+  "last": "2026-08-07"
  },
  "gnews_us_prudential": {
   "status": "ok",
@@ -153,7 +153,7 @@
  },
  "gnews_us_guardian": {
   "status": "ok",
-  "last": "2026-08-04"
+  "last": "2026-08-06"
  },
  "gnews_us_tiaa": {
   "status": "ok",
@@ -189,7 +189,7 @@
  },
  "gnews_esg_insurance": {
   "status": "ok",
-  "last": "2026-08-05"
+  "last": "2026-08-06"
  },
  "gnews_product_launch_en": {
   "status": "ok",
@@ -217,7 +217,7 @@
  },
  "gnews_air": {
   "status": "ok",
-  "last": "2026-08-06"
+  "last": "2026-08-07"
  },
  "gnews_mas": {
   "status": "ok",
@@ -228,7 +228,7 @@
   "last": "2026-07-21"
  },
  "gnews_liaj": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-07-31"
  },
  "gnews_greateastern": {
@@ -297,7 +297,7 @@
  },
  "gnews_my_lifers": {
   "status": "ok",
-  "last": "2026-08-05"
+  "last": "2026-08-06"
  },
  "gnews_my_lifers_2": {
   "status": "ok",
@@ -325,7 +325,7 @@
  },
  "air_news": {
   "status": "ok",
-  "last": "2026-08-06"
+  "last": "2026-08-07"
  },
  "lia_sg": {
   "status": "ok",
@@ -364,7 +364,7 @@
   "last": "2026-08-06"
  },
  "cpic_group": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-07-28"
  },
  "cpic_health": {
