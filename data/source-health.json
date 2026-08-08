@@ -21,7 +21,7 @@
  },
  "gnews_sg_companies_3": {
   "status": "ok",
-  "last": "2026-08-05"
+  "last": "2026-08-07"
  },
  "gnews_sg_regulator": {
   "status": "ok",
@@ -125,7 +125,7 @@
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
-  "last": "2026-08-06"
+  "last": "2026-08-07"
  },
  "gnews_us_nyl": {
   "status": "ok",
@@ -165,7 +165,7 @@
  },
  "gnews_consultants": {
   "status": "ok",
-  "last": "2026-08-06"
+  "last": "2026-08-07"
  },
  "gnews_ratings_1": {
   "status": "ok",
@@ -173,7 +173,7 @@
  },
  "gnews_ratings_2": {
   "status": "ok",
-  "last": "2026-08-06"
+  "last": "2026-08-07"
  },
  "gnews_wsj_insurance": {
   "status": "ok",
