@@ -57,11 +57,11 @@
  },
  "gnews_cn_companies_2": {
   "status": "ok",
-  "last": "2026-08-07"
+  "last": "2026-08-08"
  },
  "gnews_cn_companies_3": {
   "status": "ok",
-  "last": "2026-08-07"
+  "last": "2026-08-08"
  },
  "gnews_cn_industry": {
   "status": "ok",
@@ -89,7 +89,7 @@
  },
  "gnews_jp_mini": {
   "status": "ok",
-  "last": "2026-08-07"
+  "last": "2026-08-08"
  },
  "gnews_kr_companies_1": {
   "status": "ok",
@@ -177,7 +177,7 @@
  },
  "gnews_wsj_insurance": {
   "status": "ok",
-  "last": "2026-08-07"
+  "last": "2026-08-08"
  },
  "gnews_bloomberg_insurance": {
   "status": "ok",
