@@ -53,11 +53,11 @@
  },
  "gnews_cn_companies_1": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_cn_companies_2": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_cn_companies_3": {
   "status": "ok",
@@ -65,7 +65,7 @@
  },
  "gnews_cn_industry": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
@@ -77,7 +77,7 @@
  },
  "gnews_jp_companies_3": {
   "status": "ok",
-  "last": "2026-08-10"
+  "last": "2026-08-12"
  },
  "gnews_jp_en": {
   "status": "ok",
@@ -97,7 +97,7 @@
  },
  "gnews_kr_companies_2": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_kr_companies_3": {
   "status": "ok",
@@ -109,15 +109,15 @@
  },
  "gnews_kr_digital": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_reinsurers": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_us_massmutual": {
   "status": "ok",
@@ -165,7 +165,7 @@
  },
  "gnews_consultants": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_ratings_1": {
   "status": "ok",
@@ -173,7 +173,7 @@
  },
  "gnews_ratings_2": {
   "status": "ok",
-  "last": "2026-08-10"
+  "last": "2026-08-12"
  },
  "gnews_wsj_insurance": {
   "status": "ok",
@@ -185,11 +185,11 @@
  },
  "gnews_sina_insurance": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_esg_insurance": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_product_launch_en": {
   "status": "ok",
@@ -197,7 +197,7 @@
  },
  "gnews_product_launch_zh": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_hive_insurance": {
   "status": "overdue",
@@ -309,7 +309,7 @@
  },
  "shinnihon_rss": {
   "status": "ok",
-  "last": "2026-08-10"
+  "last": "2026-08-12"
  },
  "shinnihon_rss_p2": {
   "status": "ok",
@@ -317,7 +317,7 @@
  },
  "insnews_kr": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "ib_asia": {
   "status": "ok",
@@ -329,7 +329,7 @@
  },
  "lia_sg": {
   "status": "ok",
-  "last": "2026-07-30"
+  "last": "2026-08-12"
  },
  "greateastern": {
   "status": "ok",
