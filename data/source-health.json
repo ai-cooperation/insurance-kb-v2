@@ -200,8 +200,8 @@
   "last": "2026-08-13"
  },
  "gnews_hive_insurance": {
-  "status": "overdue",
-  "last": "2026-07-23"
+  "status": "ok",
+  "last": "2026-08-13"
  },
  "gnews_tw_insurance": {
   "status": "ok",
@@ -269,7 +269,7 @@
  },
  "gnews_in_lifers_2": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-13"
  },
  "gnews_in_industry": {
   "status": "ok",
