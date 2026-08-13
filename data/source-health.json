@@ -53,11 +53,11 @@
  },
  "gnews_cn_companies_1": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-13"
  },
  "gnews_cn_companies_2": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-13"
  },
  "gnews_cn_companies_3": {
   "status": "ok",
@@ -85,7 +85,7 @@
  },
  "gnews_jp_industry": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-13"
  },
  "gnews_jp_mini": {
   "status": "ok",
@@ -105,7 +105,7 @@
  },
  "gnews_kr_en": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-13"
  },
  "gnews_kr_digital": {
   "status": "ok",
@@ -257,7 +257,7 @@
  },
  "gnews_tw_lifers": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-13"
  },
  "gnews_tw_lifers_2": {
   "status": "ok",
@@ -309,7 +309,7 @@
  },
  "shinnihon_rss": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-13"
  },
  "shinnihon_rss_p2": {
   "status": "ok",
