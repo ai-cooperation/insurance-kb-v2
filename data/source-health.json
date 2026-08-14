@@ -5,7 +5,7 @@
  },
  "gnews_insurance_global": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_insurtech": {
   "status": "ok",
@@ -25,11 +25,11 @@
  },
  "gnews_sg_regulator": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-14"
  },
  "gnews_hk_companies_1": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-14"
  },
  "gnews_hk_companies_2": {
   "status": "ok",
@@ -53,7 +53,7 @@
  },
  "gnews_cn_companies_1": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_cn_companies_2": {
   "status": "ok",
@@ -61,11 +61,11 @@
  },
  "gnews_cn_companies_3": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_cn_industry": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
@@ -77,7 +77,7 @@
  },
  "gnews_jp_companies_3": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_jp_en": {
   "status": "ok",
@@ -85,11 +85,11 @@
  },
  "gnews_jp_industry": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_jp_mini": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-14"
  },
  "gnews_kr_companies_1": {
   "status": "ok",
@@ -97,11 +97,11 @@
  },
  "gnews_kr_companies_2": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_kr_companies_3": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_kr_en": {
   "status": "ok",
@@ -109,11 +109,11 @@
  },
  "gnews_kr_digital": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_reinsurers": {
   "status": "ok",
@@ -185,7 +185,7 @@
  },
  "gnews_sina_insurance": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_esg_insurance": {
   "status": "ok",
@@ -221,15 +221,15 @@
  },
  "gnews_mas": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_hkia": {
   "status": "overdue",
   "last": "2026-07-21"
  },
  "gnews_liaj": {
-  "status": "overdue",
-  "last": "2026-08-07"
+  "status": "ok",
+  "last": "2026-08-14"
  },
  "gnews_greateastern": {
   "status": "ok",
@@ -257,11 +257,11 @@
  },
  "gnews_tw_lifers": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_tw_lifers_2": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_in_lifers": {
   "status": "ok",
@@ -297,7 +297,7 @@
  },
  "gnews_my_lifers": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-14"
  },
  "gnews_my_lifers_2": {
   "status": "overdue",
@@ -317,7 +317,7 @@
  },
  "insnews_kr": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "ib_asia": {
   "status": "ok",
