@@ -9,15 +9,15 @@
  },
  "gnews_insurtech": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_sg_companies_1": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_sg_companies_2": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_sg_companies_3": {
   "status": "ok",
@@ -49,7 +49,7 @@
  },
  "gnews_hk_zh": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_cn_companies_1": {
   "status": "ok",
@@ -57,7 +57,7 @@
  },
  "gnews_cn_companies_2": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_cn_companies_3": {
   "status": "ok",
@@ -69,7 +69,7 @@
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_jp_companies_2": {
   "status": "ok",
@@ -81,7 +81,7 @@
  },
  "gnews_jp_en": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_jp_industry": {
   "status": "ok",
@@ -117,15 +117,15 @@
  },
  "gnews_reinsurers": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_us_massmutual": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_us_nyl": {
   "status": "ok",
@@ -133,7 +133,7 @@
  },
  "gnews_us_metlife": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_us_prudential": {
   "status": "ok",
@@ -141,7 +141,7 @@
  },
  "gnews_us_pacific_life": {
   "status": "ok",
-  "last": "2026-08-11"
+  "last": "2026-08-12"
  },
  "gnews_us_lincoln": {
   "status": "ok",
@@ -157,7 +157,7 @@
  },
  "gnews_us_tiaa": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_us_mutual_omaha": {
   "status": "overdue",
@@ -165,7 +165,7 @@
  },
  "gnews_consultants": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_ratings_1": {
   "status": "ok",
@@ -177,7 +177,7 @@
  },
  "gnews_wsj_insurance": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_bloomberg_insurance": {
   "status": "ok",
@@ -189,7 +189,7 @@
  },
  "gnews_esg_insurance": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_product_launch_en": {
   "status": "ok",
@@ -205,7 +205,7 @@
  },
  "gnews_tw_insurance": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_swissre": {
   "status": "ok",
@@ -213,7 +213,7 @@
  },
  "gnews_munichre": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_air": {
   "status": "ok",
@@ -233,11 +233,11 @@
  },
  "gnews_greateastern": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-14"
  },
  "gnews_pingan": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_sompo": {
   "status": "ok",
@@ -265,11 +265,11 @@
  },
  "gnews_in_lifers": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_in_lifers_2": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_in_industry": {
   "status": "ok",
@@ -277,11 +277,11 @@
  },
  "gnews_id_lifers": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_th_lifers": {
-  "status": "overdue",
-  "last": "2026-08-07"
+  "status": "ok",
+  "last": "2026-08-14"
  },
  "gnews_th_lifers_en": {
   "status": "ok",
@@ -289,11 +289,11 @@
  },
  "gnews_vn_lifers": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_ph_lifers": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-14"
  },
  "gnews_my_lifers": {
   "status": "ok",
@@ -305,7 +305,7 @@
  },
  "hkia_rss": {
   "status": "ok",
-  "last": "2026-07-24"
+  "last": "2026-08-14"
  },
  "shinnihon_rss": {
   "status": "ok",
@@ -345,7 +345,7 @@
  },
  "sompo_hd": {
   "status": "ok",
-  "last": "2026-08-05"
+  "last": "2026-08-14"
  },
  "munichre_news": {
   "status": "overdue",
