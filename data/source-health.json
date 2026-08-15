@@ -41,11 +41,11 @@
  },
  "gnews_hk_companies_4": {
   "status": "overdue",
-  "last": "2026-07-30"
+  "last": "2026-07-31"
  },
  "gnews_hk_regulator": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_hk_zh": {
   "status": "ok",
@@ -129,7 +129,7 @@
  },
  "gnews_us_nyl": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_us_metlife": {
   "status": "ok",
@@ -145,11 +145,11 @@
  },
  "gnews_us_lincoln": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-14"
  },
  "gnews_us_john_hancock": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_us_guardian": {
   "status": "ok",
@@ -160,8 +160,8 @@
   "last": "2026-08-14"
  },
  "gnews_us_mutual_omaha": {
-  "status": "overdue",
-  "last": "2026-08-07"
+  "status": "ok",
+  "last": "2026-08-13"
  },
  "gnews_consultants": {
   "status": "ok",
@@ -169,7 +169,7 @@
  },
  "gnews_ratings_1": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_ratings_2": {
   "status": "ok",
@@ -185,7 +185,7 @@
  },
  "gnews_sina_insurance": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_esg_insurance": {
   "status": "ok",
@@ -197,7 +197,7 @@
  },
  "gnews_product_launch_zh": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_hive_insurance": {
   "status": "ok",
@@ -209,7 +209,7 @@
  },
  "gnews_swissre": {
   "status": "ok",
-  "last": "2026-08-13"
+  "last": "2026-08-14"
  },
  "gnews_munichre": {
   "status": "ok",
@@ -241,7 +241,7 @@
  },
  "gnews_sompo": {
   "status": "ok",
-  "last": "2026-08-10"
+  "last": "2026-08-14"
  },
  "gnews_aia_hk": {
   "status": "ok",
