@@ -53,7 +53,7 @@
  },
  "gnews_cn_companies_1": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_cn_companies_2": {
   "status": "ok",
@@ -133,7 +133,7 @@
  },
  "gnews_us_metlife": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_us_prudential": {
   "status": "ok",
@@ -165,7 +165,7 @@
  },
  "gnews_consultants": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_ratings_1": {
   "status": "ok",
@@ -197,7 +197,7 @@
  },
  "gnews_product_launch_zh": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_hive_insurance": {
   "status": "ok",
@@ -253,7 +253,7 @@
  },
  "gnews_hannover_re": {
   "status": "ok",
-  "last": "2026-08-12"
+  "last": "2026-08-14"
  },
  "gnews_tw_lifers": {
   "status": "ok",
