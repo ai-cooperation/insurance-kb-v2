@@ -13,7 +13,7 @@
  },
  "gnews_sg_companies_1": {
   "status": "ok",
-  "last": "2026-08-15"
+  "last": "2026-08-16"
  },
  "gnews_sg_companies_2": {
   "status": "ok",
@@ -157,7 +157,7 @@
  },
  "gnews_us_tiaa": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-16"
  },
  "gnews_us_mutual_omaha": {
   "status": "ok",
@@ -261,7 +261,7 @@
  },
  "gnews_tw_lifers_2": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-16"
  },
  "gnews_in_lifers": {
   "status": "ok",
