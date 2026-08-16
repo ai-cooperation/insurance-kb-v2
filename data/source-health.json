@@ -69,7 +69,7 @@
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_jp_companies_2": {
   "status": "ok",
@@ -137,7 +137,7 @@
  },
  "gnews_us_prudential": {
   "status": "ok",
-  "last": "2026-08-15"
+  "last": "2026-08-16"
  },
  "gnews_us_pacific_life": {
   "status": "ok",
@@ -185,7 +185,7 @@
  },
  "gnews_sina_insurance": {
   "status": "ok",
-  "last": "2026-08-15"
+  "last": "2026-08-16"
  },
  "gnews_esg_insurance": {
   "status": "ok",
@@ -233,7 +233,7 @@
  },
  "gnews_greateastern": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-16"
  },
  "gnews_pingan": {
   "status": "ok",
