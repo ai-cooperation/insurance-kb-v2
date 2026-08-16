@@ -5,15 +5,15 @@
  },
  "gnews_insurance_global": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_insurtech": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_sg_companies_1": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_sg_companies_2": {
   "status": "ok",
@@ -65,7 +65,7 @@
  },
  "gnews_cn_industry": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
@@ -93,11 +93,11 @@
  },
  "gnews_kr_companies_1": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_kr_companies_2": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_kr_companies_3": {
   "status": "ok",
@@ -117,7 +117,7 @@
  },
  "gnews_reinsurers": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_us_massmutual": {
   "status": "ok",
@@ -149,7 +149,7 @@
  },
  "gnews_us_john_hancock": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_us_guardian": {
   "status": "ok",
@@ -265,11 +265,11 @@
  },
  "gnews_in_lifers": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_in_lifers_2": {
   "status": "ok",
-  "last": "2026-08-14"
+  "last": "2026-08-15"
  },
  "gnews_in_industry": {
   "status": "ok",
@@ -356,11 +356,11 @@
   "last": "2026-04-18"
  },
  "sumitomo_life": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-08-06"
  },
  "nissay_news": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-08-06"
  },
  "cpic_group": {
