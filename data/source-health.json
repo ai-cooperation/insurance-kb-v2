@@ -97,7 +97,7 @@
  },
  "gnews_kr_companies_2": {
   "status": "ok",
-  "last": "2026-08-19"
+  "last": "2026-08-20"
  },
  "gnews_kr_companies_3": {
   "status": "ok",
@@ -105,7 +105,7 @@
  },
  "gnews_kr_en": {
   "status": "ok",
-  "last": "2026-08-19"
+  "last": "2026-08-20"
  },
  "gnews_kr_digital": {
   "status": "ok",
@@ -113,11 +113,11 @@
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-08-19"
+  "last": "2026-08-20"
  },
  "gnews_reinsurers": {
   "status": "ok",
-  "last": "2026-08-19"
+  "last": "2026-08-20"
  },
  "gnews_us_massmutual": {
   "status": "ok",
@@ -157,7 +157,7 @@
  },
  "gnews_us_tiaa": {
   "status": "ok",
-  "last": "2026-08-17"
+  "last": "2026-08-19"
  },
  "gnews_us_mutual_omaha": {
   "status": "ok",
@@ -265,7 +265,7 @@
  },
  "gnews_in_lifers": {
   "status": "ok",
-  "last": "2026-08-19"
+  "last": "2026-08-20"
  },
  "gnews_in_lifers_2": {
   "status": "ok",
@@ -309,7 +309,7 @@
  },
  "shinnihon_rss": {
   "status": "ok",
-  "last": "2026-08-19"
+  "last": "2026-08-20"
  },
  "shinnihon_rss_p2": {
   "status": "overdue",
