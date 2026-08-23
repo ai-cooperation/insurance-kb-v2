@@ -65,7 +65,7 @@
  },
  "gnews_cn_industry": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-23"
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
@@ -93,7 +93,7 @@
  },
  "gnews_kr_companies_1": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-23"
  },
  "gnews_kr_companies_2": {
   "status": "ok",
@@ -117,7 +117,7 @@
  },
  "gnews_reinsurers": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-23"
  },
  "gnews_us_massmutual": {
   "status": "ok",
@@ -213,7 +213,7 @@
  },
  "gnews_munichre": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-23"
  },
  "gnews_air": {
   "status": "ok",
