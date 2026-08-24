@@ -5,11 +5,11 @@
  },
  "gnews_insurance_global": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_insurtech": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-24"
  },
  "gnews_sg_companies_1": {
   "status": "ok",
@@ -17,11 +17,11 @@
  },
  "gnews_sg_companies_2": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_sg_companies_3": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-24"
  },
  "gnews_sg_regulator": {
   "status": "ok",
@@ -49,19 +49,19 @@
  },
  "gnews_hk_zh": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_cn_companies_1": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_cn_companies_2": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-24"
  },
  "gnews_cn_companies_3": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_cn_industry": {
   "status": "ok",
@@ -69,7 +69,7 @@
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_jp_companies_2": {
   "status": "ok",
@@ -77,15 +77,15 @@
  },
  "gnews_jp_companies_3": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_jp_en": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-24"
  },
  "gnews_jp_industry": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-24"
  },
  "gnews_jp_mini": {
   "status": "ok",
@@ -101,11 +101,11 @@
  },
  "gnews_kr_companies_3": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_kr_en": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_kr_digital": {
   "status": "ok",
@@ -125,7 +125,7 @@
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_us_nyl": {
   "status": "ok",
@@ -133,11 +133,11 @@
  },
  "gnews_us_metlife": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_us_prudential": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-24"
  },
  "gnews_us_pacific_life": {
   "status": "ok",
@@ -169,7 +169,7 @@
  },
  "gnews_ratings_1": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_ratings_2": {
   "status": "ok",
@@ -177,7 +177,7 @@
  },
  "gnews_wsj_insurance": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_bloomberg_insurance": {
   "status": "ok",
@@ -185,19 +185,19 @@
  },
  "gnews_sina_insurance": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_esg_insurance": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-24"
  },
  "gnews_product_launch_en": {
   "status": "ok",
-  "last": "2026-08-20"
+  "last": "2026-08-24"
  },
  "gnews_product_launch_zh": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_hive_insurance": {
   "status": "overdue",
@@ -209,7 +209,7 @@
  },
  "gnews_swissre": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-24"
  },
  "gnews_munichre": {
   "status": "ok",
@@ -233,11 +233,11 @@
  },
  "gnews_greateastern": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-24"
  },
  "gnews_pingan": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-24"
  },
  "gnews_sompo": {
   "status": "ok",
@@ -253,11 +253,11 @@
  },
  "gnews_hannover_re": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-24"
  },
  "gnews_tw_lifers": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_tw_lifers_2": {
   "status": "ok",
@@ -269,15 +269,15 @@
  },
  "gnews_in_lifers_2": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_in_industry": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_id_lifers": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-24"
  },
  "gnews_th_lifers": {
   "status": "ok",
@@ -285,7 +285,7 @@
  },
  "gnews_th_lifers_en": {
   "status": "ok",
-  "last": "2026-08-20"
+  "last": "2026-08-24"
  },
  "gnews_vn_lifers": {
   "status": "ok",
@@ -361,7 +361,7 @@
  },
  "nissay_news": {
   "status": "ok",
-  "last": "2026-08-18"
+  "last": "2026-08-24"
  },
  "cpic_group": {
   "status": "overdue",
