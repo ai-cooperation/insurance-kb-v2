@@ -1,7 +1,7 @@
 {
  "gnews_insurance_asia": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_insurance_global": {
   "status": "ok",
@@ -17,7 +17,7 @@
  },
  "gnews_sg_companies_2": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-23"
  },
  "gnews_sg_companies_3": {
   "status": "ok",
@@ -29,7 +29,7 @@
  },
  "gnews_hk_companies_1": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-23"
  },
  "gnews_hk_companies_2": {
   "status": "ok",
@@ -45,7 +45,7 @@
  },
  "gnews_hk_regulator": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-23"
  },
  "gnews_hk_zh": {
   "status": "ok",
@@ -65,7 +65,7 @@
  },
  "gnews_cn_industry": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
@@ -93,7 +93,7 @@
  },
  "gnews_kr_companies_1": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-24"
  },
  "gnews_kr_companies_2": {
   "status": "ok",
@@ -109,11 +109,11 @@
  },
  "gnews_kr_digital": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-23"
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-24"
  },
  "gnews_reinsurers": {
   "status": "ok",
@@ -153,7 +153,7 @@
  },
  "gnews_us_guardian": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-23"
  },
  "gnews_us_tiaa": {
   "status": "ok",
@@ -169,7 +169,7 @@
  },
  "gnews_ratings_1": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-23"
  },
  "gnews_ratings_2": {
   "status": "ok",
@@ -177,7 +177,7 @@
  },
  "gnews_wsj_insurance": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-23"
  },
  "gnews_bloomberg_insurance": {
   "status": "ok",
@@ -205,7 +205,7 @@
  },
  "gnews_tw_insurance": {
   "status": "ok",
-  "last": "2026-08-22"
+  "last": "2026-08-23"
  },
  "gnews_swissre": {
   "status": "ok",
@@ -217,7 +217,7 @@
  },
  "gnews_air": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-24"
  },
  "gnews_mas": {
   "status": "ok",
@@ -241,7 +241,7 @@
  },
  "gnews_sompo": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-23"
  },
  "gnews_aia_hk": {
   "status": "ok",
@@ -261,7 +261,7 @@
  },
  "gnews_tw_lifers_2": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-23"
  },
  "gnews_in_lifers": {
   "status": "ok",
@@ -273,7 +273,7 @@
  },
  "gnews_in_industry": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-23"
  },
  "gnews_id_lifers": {
   "status": "ok",
@@ -301,7 +301,7 @@
  },
  "gnews_my_lifers_2": {
   "status": "ok",
-  "last": "2026-08-19"
+  "last": "2026-08-23"
  },
  "hkia_rss": {
   "status": "ok",
@@ -317,7 +317,7 @@
  },
  "insnews_kr": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-24"
  },
  "ib_asia": {
   "status": "ok",
@@ -325,7 +325,7 @@
  },
  "air_news": {
   "status": "ok",
-  "last": "2026-08-21"
+  "last": "2026-08-24"
  },
  "lia_sg": {
   "status": "ok",
