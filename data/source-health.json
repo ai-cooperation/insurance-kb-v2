@@ -1,7 +1,7 @@
 {
  "gnews_insurance_asia": {
   "status": "ok",
-  "last": "2026-08-25"
+  "last": "2026-08-26"
  },
  "gnews_insurance_global": {
   "status": "ok",
@@ -29,7 +29,7 @@
  },
  "gnews_hk_companies_1": {
   "status": "ok",
-  "last": "2026-08-23"
+  "last": "2026-08-25"
  },
  "gnews_hk_companies_2": {
   "status": "ok",
@@ -49,7 +49,7 @@
  },
  "gnews_hk_zh": {
   "status": "ok",
-  "last": "2026-08-25"
+  "last": "2026-08-26"
  },
  "gnews_cn_companies_1": {
   "status": "ok",
@@ -69,7 +69,7 @@
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
-  "last": "2026-08-25"
+  "last": "2026-08-26"
  },
  "gnews_jp_companies_2": {
   "status": "ok",
@@ -85,11 +85,11 @@
  },
  "gnews_jp_industry": {
   "status": "ok",
-  "last": "2026-08-25"
+  "last": "2026-08-26"
  },
  "gnews_jp_mini": {
   "status": "ok",
-  "last": "2026-08-24"
+  "last": "2026-08-26"
  },
  "gnews_kr_companies_1": {
   "status": "ok",
@@ -97,7 +97,7 @@
  },
  "gnews_kr_companies_2": {
   "status": "ok",
-  "last": "2026-08-25"
+  "last": "2026-08-26"
  },
  "gnews_kr_companies_3": {
   "status": "ok",
@@ -109,7 +109,7 @@
  },
  "gnews_kr_digital": {
   "status": "ok",
-  "last": "2026-08-25"
+  "last": "2026-08-26"
  },
  "gnews_kr_industry": {
   "status": "ok",
@@ -117,7 +117,7 @@
  },
  "gnews_reinsurers": {
   "status": "ok",
-  "last": "2026-08-25"
+  "last": "2026-08-26"
  },
  "gnews_us_massmutual": {
   "status": "ok",
@@ -189,7 +189,7 @@
  },
  "gnews_esg_insurance": {
   "status": "ok",
-  "last": "2026-08-24"
+  "last": "2026-08-25"
  },
  "gnews_product_launch_en": {
   "status": "ok",
@@ -221,7 +221,7 @@
  },
  "gnews_mas": {
   "status": "ok",
-  "last": "2026-08-24"
+  "last": "2026-08-26"
  },
  "gnews_hkia": {
   "status": "overdue",
@@ -265,7 +265,7 @@
  },
  "gnews_in_lifers": {
   "status": "ok",
-  "last": "2026-08-25"
+  "last": "2026-08-26"
  },
  "gnews_in_lifers_2": {
   "status": "ok",
@@ -317,11 +317,11 @@
  },
  "insnews_kr": {
   "status": "ok",
-  "last": "2026-08-25"
+  "last": "2026-08-26"
  },
  "ib_asia": {
   "status": "ok",
-  "last": "2026-08-25"
+  "last": "2026-08-26"
  },
  "air_news": {
   "status": "ok",
