@@ -17,7 +17,7 @@
  },
  "gnews_sg_companies_2": {
   "status": "ok",
-  "last": "2026-08-26"
+  "last": "2026-08-27"
  },
  "gnews_sg_companies_3": {
   "status": "ok",
@@ -137,7 +137,7 @@
  },
  "gnews_us_prudential": {
   "status": "ok",
-  "last": "2026-08-26"
+  "last": "2026-08-27"
  },
  "gnews_us_pacific_life": {
   "status": "ok",
@@ -145,7 +145,7 @@
  },
  "gnews_us_lincoln": {
   "status": "ok",
-  "last": "2026-08-26"
+  "last": "2026-08-27"
  },
  "gnews_us_john_hancock": {
   "status": "ok",
@@ -153,7 +153,7 @@
  },
  "gnews_us_guardian": {
   "status": "ok",
-  "last": "2026-08-26"
+  "last": "2026-08-27"
  },
  "gnews_us_tiaa": {
   "status": "ok",
@@ -169,7 +169,7 @@
  },
  "gnews_ratings_1": {
   "status": "ok",
-  "last": "2026-08-26"
+  "last": "2026-08-27"
  },
  "gnews_ratings_2": {
   "status": "ok",
@@ -245,7 +245,7 @@
  },
  "gnews_aia_hk": {
   "status": "ok",
-  "last": "2026-08-26"
+  "last": "2026-08-27"
  },
  "gnews_lia_sg": {
   "status": "ok",
