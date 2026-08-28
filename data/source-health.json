@@ -17,7 +17,7 @@
  },
  "gnews_sg_companies_2": {
   "status": "ok",
-  "last": "2026-08-27"
+  "last": "2026-08-28"
  },
  "gnews_sg_companies_3": {
   "status": "ok",
@@ -121,7 +121,7 @@
  },
  "gnews_us_massmutual": {
   "status": "ok",
-  "last": "2026-08-26"
+  "last": "2026-08-28"
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
@@ -181,7 +181,7 @@
  },
  "gnews_bloomberg_insurance": {
   "status": "ok",
-  "last": "2026-08-27"
+  "last": "2026-08-28"
  },
  "gnews_sina_insurance": {
   "status": "ok",
@@ -253,7 +253,7 @@
  },
  "gnews_hannover_re": {
   "status": "ok",
-  "last": "2026-08-27"
+  "last": "2026-08-28"
  },
  "gnews_tw_lifers": {
   "status": "ok",
