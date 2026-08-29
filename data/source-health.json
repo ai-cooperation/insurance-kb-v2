@@ -21,7 +21,7 @@
  },
  "gnews_sg_companies_3": {
   "status": "ok",
-  "last": "2026-08-27"
+  "last": "2026-08-28"
  },
  "gnews_sg_regulator": {
   "status": "ok",
@@ -77,7 +77,7 @@
  },
  "gnews_jp_companies_3": {
   "status": "ok",
-  "last": "2026-08-28"
+  "last": "2026-08-29"
  },
  "gnews_jp_en": {
   "status": "ok",
@@ -85,7 +85,7 @@
  },
  "gnews_jp_industry": {
   "status": "ok",
-  "last": "2026-08-28"
+  "last": "2026-08-29"
  },
  "gnews_jp_mini": {
   "status": "ok",
@@ -161,7 +161,7 @@
  },
  "gnews_us_mutual_omaha": {
   "status": "ok",
-  "last": "2026-08-24"
+  "last": "2026-08-26"
  },
  "gnews_consultants": {
   "status": "ok",
@@ -189,7 +189,7 @@
  },
  "gnews_esg_insurance": {
   "status": "ok",
-  "last": "2026-08-28"
+  "last": "2026-08-29"
  },
  "gnews_product_launch_en": {
   "status": "ok",
@@ -197,7 +197,7 @@
  },
  "gnews_product_launch_zh": {
   "status": "ok",
-  "last": "2026-08-28"
+  "last": "2026-08-29"
  },
  "gnews_hive_insurance": {
   "status": "overdue",
