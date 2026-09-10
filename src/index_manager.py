@@ -4,6 +4,7 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
+from src.monthly_store import MonthlyStore
 
 logger = logging.getLogger(__name__)
 
@@ -33,33 +34,24 @@ def _make_entry(article: dict) -> dict:
         "keywords": [],
         "importance": article.get("importance", "medium"),
         "summary": article.get("summary_zh") or article.get("snippet", ""),
+        "source_excerpt": article.get("snippet", ""),
+        "retrieved_at": article.get("retrieved_at"),
+        "content_kind": "ai_summary_with_source_excerpt" if article.get("summary_zh") else "source_excerpt",
         "note_path": article.get("note_path", ""),
         "filter": article.get("filter", ""),
     }
 
 
-def load_index() -> list:
-    """Load the master index. Returns empty list if not found."""
-    if not INDEX_PATH.exists():
-        return []
-    try:
-        data = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
-        if isinstance(data, list):
-            return data
-        return []
-    except (json.JSONDecodeError, TypeError) as exc:
-        logger.warning("Failed to load index: %s", exc)
-        return []
+def load_index(months=None, snapshot_id=None) -> list:
+    """Read complete records; a missing/corrupt shard is an error, never empty."""
+    return MonthlyStore(INDEX_PATH).load(months=months, snapshot_id=snapshot_id)
 
 
-def save_index(entries: list):
-    """Save the master index to disk."""
-    INDEX_PATH.parent.mkdir(parents=True, exist_ok=True)
-    INDEX_PATH.write_text(
-        json.dumps(entries, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-    logger.info("Saved index with %d entries", len(entries))
+def save_index(entries: list, reason="pipeline update"):
+    """Save monthly immutable shards and refresh caller's revision tokens."""
+    store = MonthlyStore(INDEX_PATH)
+    store.save(entries, reason=reason)
+    return store.load()
 
 
 def update_index(articles: list) -> list:
@@ -78,7 +70,7 @@ def update_index(articles: list) -> list:
     if new_count > 0:
         # Sort by date descending
         index.sort(key=lambda e: e.get("date", ""), reverse=True)
-        save_index(index)
+        index = save_index(index)
         logger.info("Added %d new entries (total: %d)", new_count, len(index))
     else:
         logger.info("No new entries to add. Index has %d entries.", len(index))

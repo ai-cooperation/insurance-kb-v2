@@ -24,7 +24,8 @@ def resolve_urls(limit: int = 0, dry_run: bool = False):
         logger.error("googlenewsdecoder not installed: pip install googlenewsdecoder")
         return
 
-    idx = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+    from src.index_manager import load_index, save_index
+    idx = load_index()
     gnews = [(i, a) for i, a in enumerate(idx)
              if "news.google.com/rss/articles" in a.get("source_url", "")]
     logger.info("GNews URLs to resolve: %d / %d total", len(gnews), len(idx))
@@ -58,10 +59,7 @@ def resolve_urls(limit: int = 0, dry_run: bool = False):
     logger.info("Resolved: %d, Failed: %d", resolved, failed)
 
     if not dry_run and resolved > 0:
-        INDEX_PATH.write_text(
-            json.dumps(idx, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
+        save_index(idx, reason="Resolve source URLs")
         logger.info("Saved updated index")
     elif dry_run:
         logger.info("DRY RUN - no changes saved")

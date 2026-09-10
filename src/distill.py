@@ -11,6 +11,8 @@ from pathlib import Path
 from typing import Any
 
 from src import distill_llm
+from src.index_manager import load_index
+from src.agent_publication import candidate_hash, parse_markdown, publish_articles, visible_rows
 from src.distill_llm import distill_annual, distill_monthly, distill_quarterly
 from src.topics import CATEGORY_MAP, CATEGORY_REVERSE, REGION_MAP, REGION_REVERSE
 
@@ -19,13 +21,13 @@ INDEX_PATH = BASE_DIR / "index" / "master-index.json"
 COMPILED_DIR = BASE_DIR / "compiled"
 
 MIN_ARTICLES_PER_GROUP = 3
+PROMPT_VERSION = "monthly-citations-v1"
 
 
 def load_articles() -> list[dict[str, Any]]:
     """Load articles from master index, skipping filtered ones."""
-    with open(INDEX_PATH, encoding="utf-8") as f:
-        articles = json.load(f)
-    return [a for a in articles if not a.get("filter")]
+    articles = load_index()
+    return visible_rows(articles)
 
 
 def filter_by_month(articles: list[dict[str, Any]], year_month: str) -> list[dict[str, Any]]:
@@ -66,6 +68,7 @@ def build_frontmatter(
     category: str | None = None,
     region: str | None = None,
     articles_count: int = 0,
+    provenance: dict | None = None,
 ) -> str:
     """Build YAML frontmatter block."""
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -83,10 +86,23 @@ def build_frontmatter(
         f"compiled_at: {now}",
         f"compiled_by: distill-cli",
         f"model: {distill_llm.LAST_MODEL_USED}",
-        "---",
-        "",
     ])
+    for key, value in (provenance or {}).items():
+        lines.append(f"{key}: {json.dumps(value, ensure_ascii=False)}")
+    lines.extend(["---", ""])
     return "\n".join(lines)
+
+
+def lineage_metadata(candidates: list, selected: list, snapshot_id: str) -> dict:
+    return {"prompt_version": PROMPT_VERSION, "selected_count": len(selected),
+            "candidate_hash": candidate_hash(candidates),
+            "candidate_category": candidates[0].get("category"),
+            "candidate_region": candidates[0].get("region"),
+            "evidence_input": distill_llm._format_articles_for_prompt(selected),
+            "evidence_scope": "selected_saved_summaries_first_100_characters_not_full_source",
+            "revision_reason": "monthly generation from frozen candidate revisions",
+            "source_refs": [{"article_id": r["uid"], "revision_id": r["_lineage"]["revision_id"],
+                             "snapshot_id": snapshot_id} for r in selected]}
 
 
 def run_monthly(year_month: str | None = None, force: bool = False) -> None:
@@ -99,7 +115,8 @@ def run_monthly(year_month: str | None = None, force: bool = False) -> None:
         year_month = f"{year}-{month:02d}"
 
     print(f"[distill] Monthly: {year_month}")
-    articles = filter_by_month(load_articles(), year_month)
+    all_articles = load_articles()
+    articles = filter_by_month(all_articles, year_month)
     print(f"[distill] Found {len(articles)} articles")
 
     groups = group_by_category_region(articles)
@@ -109,6 +126,7 @@ def run_monthly(year_month: str | None = None, force: bool = False) -> None:
 
     out_dir = COMPILED_DIR / "monthly" / year_month
     out_dir.mkdir(parents=True, exist_ok=True)
+    snapshot = publish_articles(all_articles, BASE_DIR / "frontend/public/data/agent")
 
     written = 0
     skipped = 0
@@ -117,18 +135,21 @@ def run_monthly(year_month: str | None = None, force: bool = False) -> None:
         # Skip if already distilled this run (from a previous partial run).
         # --force overwrites: needed to regenerate defective pages in place
         # (2026-08-02: re-run of truncated 2026-07 wikis).
-        if not force and out_path.exists() and out_path.stat().st_size > 500:
+        existing = parse_markdown(out_path.read_text(encoding="utf-8"))[0] if out_path.exists() else {}
+        if (not force and existing.get("candidate_hash") == candidate_hash(group_articles)
+                and existing.get("prompt_version") == PROMPT_VERSION and out_path.stat().st_size > 500):
             print(f"[distill] Skipping {cat_slug}-{region_slug} (already exists)")
             written += 1
             continue
         # Limit to 50 most recent articles to stay within LLM token limits
-        group_articles.sort(key=lambda a: a.get("date", ""), reverse=True)
-        capped = group_articles[:50]
+        recent = sorted(group_articles, key=lambda a: (a.get("date", ""), a["uid"]), reverse=True)[:50]
+        capped = distill_llm.select_articles_for_prompt(recent)
         print(f"[distill] Processing {cat_slug}-{region_slug} ({len(capped)}/{len(group_articles)} articles)")
         try:
             content = distill_monthly(capped, cat_slug, region_slug, year_month)
             frontmatter = build_frontmatter(
-                "monthly", year_month, cat_slug, region_slug, len(group_articles)
+                "monthly", year_month, cat_slug, region_slug, len(group_articles),
+                provenance=lineage_metadata(group_articles, capped, snapshot["snapshot_id"]),
             )
             out_path.write_text(frontmatter + content, encoding="utf-8")
             print(f"[distill] Written: {out_path}")
@@ -142,10 +163,11 @@ def run_monthly(year_month: str | None = None, force: bool = False) -> None:
             print(f"[distill] Error on {cat_slug}-{region_slug}: {exc}")
             skipped += 1
     print(f"[distill] Done: {written} written, {skipped} skipped")
-    if written == 0 and skipped > 0:
+    if skipped > 0:
         # Soft-fail is a silent failure: on 2026-08-01 the monthly run
         # "succeeded" green with 0/81 pages (all cascade slots limited).
         # Exit non-zero so the workflow goes red and alerting fires.
+        # Partial generation is also failure; do not publish a partially refreshed Wiki.
         import sys
         sys.exit(1)
 

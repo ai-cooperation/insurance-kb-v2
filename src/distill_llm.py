@@ -137,6 +137,7 @@ def distill_monthly(
 3. 不要編造文章中沒有的資訊
 4. 保持專業客觀的語調
 5. 直接從「### 本月重點」開始輸出，不要任何開場白或結語（如「這是為您整理的」「以下是根據」）"""
+    prompt += "\n6. 每段具體事實必須以 [1]、[2] 等引用上方文章編號；編號不可自行重排。推論要標明推論，資料不足要明說。這是抽樣摘要，不代表整月全部新聞或已驗證原文。"
 
     return _call_with_cascade(
         system="你是保險產業知識庫編輯，專長將大量新聞文章整理成結構化月度報告。",
@@ -368,21 +369,17 @@ MONTHLY_SECTIONS = [
 ]
 
 
-def _format_articles_for_prompt(articles: list[dict[str, Any]]) -> str:
-    """Format article list into a text block for LLM prompt.
-
-    If more than MAX_ARTICLES_PER_PROMPT, prioritize high-importance and
-    most recent articles. Truncates summaries to keep prompt within limits.
-    """
-    # Sort: high importance first, then by date descending
+def select_articles_for_prompt(articles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """One deterministic selection/order shared by prompt and citation manifest."""
     imp_order = {"高": 0, "high": 0, "中": 1, "medium": 1, "mid": 1, "低": 2, "low": 2}
-    selected = sorted(
-        articles,
-        key=lambda a: (imp_order.get(a.get("importance", "中"), 1), -(a.get("date", "") or "").__hash__()),
-    )[:MAX_ARTICLES_PER_PROMPT]
+    recent = sorted(articles, key=lambda a: (a.get("date", ""), a.get("uid", "")), reverse=True)
+    selected = sorted(recent, key=lambda a: imp_order.get(a.get("importance", "中"), 1))[:MAX_ARTICLES_PER_PROMPT]
+    return sorted(selected, key=lambda a: (a.get("date", ""), a.get("uid", "")))
 
-    # Re-sort by date for chronological output
-    selected.sort(key=lambda a: a.get("date", ""))
+
+def _format_articles_for_prompt(articles: list[dict[str, Any]]) -> str:
+    """Exact saved evidence input; summaries are intentionally capped at 100 characters."""
+    selected = select_articles_for_prompt(articles)
 
     lines = []
     for i, art in enumerate(selected, 1):

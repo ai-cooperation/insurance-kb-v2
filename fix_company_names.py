@@ -158,7 +158,8 @@ def apply_conditional(art: dict) -> bool:
 
 
 def main() -> None:
-    data = json.loads(INDEX.read_text(encoding="utf-8"))
+    from src.index_manager import load_index, save_index
+    data = load_index()
 
     conditional_fixed = 0
     normalized_titles = 0
@@ -179,10 +180,7 @@ def main() -> None:
             art["summary"] = new_summary
             normalized_summaries += 1
 
-    INDEX.write_text(
-        json.dumps(data, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    save_index(data, reason="Company name correction")
 
     print(f"conditional cross-company fixes: {conditional_fixed} articles")
     print(f"dictionary-normalized titles:    {normalized_titles}")

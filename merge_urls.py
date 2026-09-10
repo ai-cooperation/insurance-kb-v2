@@ -19,7 +19,8 @@ def main():
 
     old_path = Path(sys.argv[1])
     old_idx = json.loads(old_path.read_text(encoding="utf-8"))
-    cur_idx = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+    from src.index_manager import load_index, save_index
+    cur_idx = load_index()
 
     # Build UID → resolved URL mapping from old index
     url_map = {}
@@ -37,10 +38,7 @@ def main():
 
     print(f"Updated {updated} URLs in current index")
 
-    INDEX_PATH.write_text(
-        json.dumps(cur_idx, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    save_index(cur_idx, reason="Merge resolved source URLs")
     print("Saved")
 
 

@@ -48,6 +48,7 @@ def _results_to_dicts(results, sources):
             "title": r.title,
             "url": r.url,
             "snippet": r.snippet,
+            "retrieved_at": r.retrieved_at,
             "published": r.published,
             "source_id": r.source_id,
             "region": src.get("region", ""),

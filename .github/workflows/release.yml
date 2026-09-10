@@ -1,0 +1,90 @@
+name: Release Insurance KB
+
+on:
+  workflow_dispatch:
+
+# Deploy only the reviewed main snapshot. No crawl, LLM calls, DB migrations,
+# or changes to secrets. Share the existing lock so data cannot race a release.
+concurrency:
+  group: insurance-kb-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt pytest
+          npm install --prefix frontend --no-audit --no-fund
+          npm install --prefix workers --no-audit --no-fund
+      - name: Verify publication
+        run: |
+          python -m pytest tests -q
+          python -m src.publication_check
+          npm run typecheck --prefix workers
+          cd workers
+          AGENT_PUBLICATION_DIR=../frontend/public/data/agent npm test
+      - name: Verify deployment targets
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          npx --yes --package wrangler@4.130.0 wrangler pages project list --json > /tmp/insurance-pages-projects.json
+          python -c 'import json; p=json.load(open("/tmp/insurance-pages-projects.json")); assert any(x.get("Project Name")=="insurance-kb-v2" for x in p), "Expected Pages project missing; refusing deployment"'
+          npx --yes --package wrangler@4.130.0 wrangler pages deployment list --project-name insurance-kb-v2 --environment production
+          cd workers
+          npx --yes --package wrangler@4.130.0 wrangler deployments list
+          npx --yes --package wrangler@4.130.0 wrangler deploy --dry-run --keep-vars
+      - name: Build frontend
+        run: npm run build --prefix frontend
+      - name: Browser QA before publication
+        working-directory: frontend
+        run: |
+          npm install --no-save --no-audit --no-fund playwright
+          npx playwright install --with-deps chromium
+          node release-browser-qa.mjs
+      - name: Deploy Pages
+        working-directory: frontend
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx --yes --package wrangler@4.130.0 wrangler pages deploy dist --project-name insurance-kb-v2 --branch main --commit-dirty=true
+      - name: Verify published data
+        run: python -m src.publication_check --live
+      - name: Deploy Worker
+        working-directory: workers
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx --yes --package wrangler@4.130.0 wrangler deploy --keep-vars
+      - name: Verify live Worker and website
+        run: |
+          python -c 'import requests; r=requests.get("https://insurance-kb-api.alan-chen75.workers.dev/mcp/manifest",timeout=30); r.raise_for_status(); m=r.json(); assert m["version"]=="0.4.0"; assert {"get_article","list_knowledge"}.issubset({t["name"] for t in m["tools"]}); print("Live MCP 0.4.0 verified")'
+          cd frontend
+          node release-browser-qa.mjs https://insurance-kb.cooperation.tw
+          node release-browser-qa.mjs https://insurance-kb-v2.pages.dev
+      - name: Retain browser QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: insurance-release-browser-qa
+          path: frontend/release-qa/
+      - name: Notify Telegram on failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          curl --fail --silent --show-error --max-time 20 -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="-1003856903916" -d message_thread_id="4" \
+            --data-urlencode text="Insurance KB 發布失敗：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" > /dev/null

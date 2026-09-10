@@ -34,6 +34,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
   reclassify:
@@ -83,13 +84,16 @@ jobs:
           # the post-processing layers.)
           python build_frontend_data.py
           python build_wiki_json.py
+          python -m src.agent_publication
+          python -m src.publication_check
 
       - name: Commit changes
         if: ${{ inputs.dry_run != 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f index/master-index.json frontend/public/data/
+          git add -f index/master-index.json index/objects/ index/snapshots/ frontend/public/data/
+          python -m src.publication_check --staged
           git diff --cached --quiet && echo "No changes" && exit 0
           git commit -m "chore: reclassify articles via LLM"
           # Same rebase-or-fail-loud pattern as crawl.yml / distill.yml.
@@ -99,6 +103,20 @@ jobs:
             exit 1
           fi
           git push origin HEAD:main
+
+      - name: Deploy updated publication
+        if: ${{ inputs.dry_run != 'true' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          cd frontend
+          npm install
+          npx vite build
+          npx wrangler pages deploy dist --project-name insurance-kb-v2 --branch main --commit-dirty=true
+
+      - name: Verify published snapshot
+        if: ${{ inputs.dry_run != 'true' }}
+        run: python -m src.publication_check --live
 
       - name: Notify Telegram on failure
         if: failure()

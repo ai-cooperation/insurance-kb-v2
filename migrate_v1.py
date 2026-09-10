@@ -186,7 +186,8 @@ def is_chinese(text):
 
 def migrate():
     v1 = json.loads(V1_PATH.read_text(encoding="utf-8"))
-    v2 = json.loads(V2_PATH.read_text(encoding="utf-8"))
+    from src.index_manager import load_index, save_index
+    v2 = load_index()
 
     v2_uids = {a["uid"] for a in v2}
     v1_only = [a for a in v1 if a["uid"] not in v2_uids]
@@ -291,10 +292,7 @@ def migrate():
         print(f"  {cat}: {cnt} ({pct:.1f}%)")
 
     # Save
-    V2_PATH.write_text(
-        json.dumps(merged, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    save_index(merged, reason="Import v1 records")
     print(f"\nSaved to {V2_PATH}")
 
 

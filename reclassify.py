@@ -57,7 +57,8 @@ def reclassify(
     untranslated_since: str = "",
 ):
     """Reclassify all articles in the index."""
-    index = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+    from src.index_manager import load_index, save_index
+    index = load_index()
     logger.info("Loaded %d articles from index", len(index))
 
     if untranslated_since:
@@ -214,10 +215,9 @@ def reclassify(
         # Incremental save checkpoint
         batches_since_save += 1
         if not dry_run and batches_since_save >= SAVE_EVERY_BATCHES:
-            INDEX_PATH.write_text(
-                json.dumps(index, ensure_ascii=False, indent=2),
-                encoding="utf-8",
-            )
+            saved = save_index(index, reason="LLM reclassification checkpoint")
+            revisions = {a["uid"]: a["_lineage"] for a in saved}
+            index = [{**a, "_lineage": revisions[a["uid"]]} for a in index]
             logger.info(
                 "[checkpoint] Saved after %d batches (%d articles processed)",
                 batches_since_save, start + len(batch_items),
@@ -239,10 +239,7 @@ def reclassify(
         logger.info("  %s: %d (%.1f%%)", cat, cnt, cnt * 100 / len(index))
 
     if not dry_run:
-        INDEX_PATH.write_text(
-            json.dumps(index, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
+        save_index(index, reason="LLM reclassification")
         logger.info("Saved updated index")
     else:
         logger.info("DRY RUN - no changes saved")

@@ -123,7 +123,8 @@ def status():
 
 def finalize():
     articles = json.loads(WORK.read_text())
-    v2 = json.loads(V2_INDEX.read_text())
+    from src.index_manager import load_index, save_index
+    v2 = load_index()
 
     # Load all results
     result_map = {}
@@ -180,7 +181,7 @@ def finalize():
     for cat, cnt in cats.most_common():
         print(f"  {cat}: {cnt} ({cnt*100/visible:.1f}%)")
 
-    V2_INDEX.write_text(json.dumps(merged, ensure_ascii=False, indent=2))
+    save_index(merged, reason="Batch import")
     print(f"\nSaved to {V2_INDEX}")
 
 

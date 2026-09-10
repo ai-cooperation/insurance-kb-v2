@@ -75,7 +75,8 @@ def check_source_health(today: date | None = None) -> dict:
     today = today or date.today()
     cutoff = (today - timedelta(days=LOOKBACK_DAYS)).isoformat()
 
-    index = _load_json(INDEX_PATH, [])
+    from src.index_manager import load_index
+    index = load_index()
     dates_by_source: dict[str, list[date]] = {}
     for a in index:
         d = (a.get("date") or "")[:10]

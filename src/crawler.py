@@ -6,7 +6,7 @@ import logging
 import re
 import time
 from dataclasses import dataclass, field
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 from urllib.parse import urljoin
@@ -51,6 +51,7 @@ class CrawlResult:
     snippet: str = ""
     published: str = ""
     uid: str = field(default="")
+    retrieved_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
     def __post_init__(self):
         if not self.uid:

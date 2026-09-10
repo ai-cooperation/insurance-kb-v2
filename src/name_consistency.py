@@ -111,7 +111,8 @@ def main() -> None:
     days = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else 30
     from datetime import date, timedelta
     cutoff = (date.today() - timedelta(days=days)).isoformat()
-    index = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+    from src.index_manager import load_index
+    index = load_index()
     recent = [a for a in index if (a.get("date") or "") >= cutoff]
     violations = check_articles(recent)
     print(f"scanned {len(recent)} articles (last {days}d): {len(violations)} violations")

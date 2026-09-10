@@ -7,7 +7,8 @@ import sys
 from pathlib import Path
 from datetime import datetime
 
-BASE = Path("/Users/user/projects/insurance-kb-v2")
+BASE = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(BASE))
 INDEX_FILE = BASE / "index/master-index.json"
 COMPILED = BASE / "compiled/monthly"
 
@@ -70,8 +71,8 @@ PAGES = [
 
 
 def load_index():
-    with open(INDEX_FILE) as f:
-        return json.load(f)
+    from src.index_manager import load_index as read_months
+    return read_months()
 
 
 def find_articles(articles, period, category_zh, region_zh):

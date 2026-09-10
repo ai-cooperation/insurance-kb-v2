@@ -45,6 +45,7 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
 from src.classifier import _detect_kr_sports, _normalize_kr_names  # noqa: E402
+from src.index_manager import load_index
 
 INDEX_PATH = ROOT / "index" / "master-index.json"
 DATA_DIR = ROOT / "frontend" / "public" / "data"
@@ -267,7 +268,7 @@ def write_stats(path: Path, entries: list[dict]) -> None:
 
 
 def build() -> None:
-    idx = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+    idx = load_index()
     slim, skipped = build_slim_entries(idx)
     deduped, dropped = dedup_l2(slim)
 

@@ -24,7 +24,8 @@ HANGUL_RUN_3 = re.compile(r"[가-힯]{3,}")
 
 
 def main() -> None:
-    data = json.loads(INDEX.read_text(encoding="utf-8"))
+    from src.index_manager import load_index, save_index
+    data = load_index()
 
     fixed_titles = 0
     fixed_summaries = 0
@@ -60,10 +61,7 @@ def main() -> None:
             # Small leak still in summary but title clean — count for stats
             still_visible_leaking_titles += 1
 
-    INDEX.write_text(
-        json.dumps(data, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    save_index(data, reason="Korean translation correction")
 
     print(f"Map entries applied:                       {len(_KR_NAME_MAP)}")
     print(f"Titles modified (pass 1 dictionary):       {fixed_titles}")

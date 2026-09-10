@@ -120,7 +120,8 @@ def _cross_validate(articles):
 
 def run_monthly_audit(notify=True):
     """Run monthly quality audit and optionally send Telegram notification."""
-    idx = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+    from src.index_manager import load_index
+    idx = load_index()
     visible = [a for a in idx if not a.get("filter")]
     total = len(visible)
 
