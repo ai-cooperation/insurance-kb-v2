@@ -12,11 +12,17 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from src.classifier import classify_llm_batch, classify_rule
-from src.crawler import CrawlResult, Deduplicator, crawl_all, resolve_gnews_urls
+from src.crawler import (
+    CrawlResult,
+    Deduplicator,
+    crawl_all,
+    resolve_gnews_urls,
+    validate_date_range,
+)
 from src.index_manager import get_stats, update_index
 from src.md_generator import generate_all
 from src.quality_gate import run_quality_gate
-from src.sources import SOURCES
+from src.sources import SOURCES, with_gnews_lookback
 
 LOG_DIR = Path(__file__).resolve().parent / "logs"
 
@@ -135,22 +141,52 @@ def build_card_view(index):
 def main():
     parser = argparse.ArgumentParser(description="Insurance KB v2 crawl pipeline")
     parser.add_argument("--no-ai", action="store_true", help="Skip LLM step")
+    parser.add_argument("--from-date", help="Inclusive backfill start date (YYYY-MM-DD)")
+    parser.add_argument("--to-date", help="Inclusive backfill end date (YYYY-MM-DD)")
+    parser.add_argument(
+        "--lookback-days",
+        type=int,
+        help="Temporarily widen Google News queries for a bounded backfill",
+    )
     args = parser.parse_args()
+
+    try:
+        published_from, published_to = validate_date_range(args.from_date, args.to_date)
+        sources = (
+            with_gnews_lookback(SOURCES, args.lookback_days)
+            if args.lookback_days is not None
+            else SOURCES
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
 
     global logger
     logger = setup_logging()
     logger.info("=" * 60)
     logger.info("Insurance KB v2 - Crawl Pipeline Start")
-    logger.info("Sources: %d | AI: %s", len(SOURCES), "OFF" if args.no_ai else "ON")
+    logger.info("Sources: %d | AI: %s", len(sources), "OFF" if args.no_ai else "ON")
+    if published_from is not None:
+        logger.info(
+            "Bounded backfill: %s through %s | GNews lookback: %s days",
+            published_from,
+            published_to,
+            args.lookback_days or "source default",
+        )
     logger.info("=" * 60)
 
     # Phase 1: Crawl
-    logger.info("Phase 1: Crawling %d sources...", len(SOURCES))
+    logger.info("Phase 1: Crawling %d sources...", len(sources))
     dedup = Deduplicator()
-    results = crawl_all(SOURCES, dedup, delay=1.0)
+    results = crawl_all(
+        sources,
+        dedup,
+        delay=1.0,
+        published_from=published_from,
+        published_to=published_to,
+    )
     # Resolve GNews redirect URLs (batch, max 200 per run to stay under timeout)
     results = resolve_gnews_urls(results, max_resolve=200)
-    articles = _results_to_dicts(results, SOURCES)
+    articles = _results_to_dicts(results, sources)
     logger.info("Phase 1 complete: %d new articles", len(articles))
 
     if not articles:

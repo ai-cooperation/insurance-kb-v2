@@ -355,8 +355,11 @@ def crawl_all(
     sources: list,
     dedup: Optional[Deduplicator] = None,
     delay: float = 1.0,
+    published_from: Optional[str] = None,
+    published_to: Optional[str] = None,
 ) -> list:
     """Crawl all sources, deduplicate, return new articles."""
+    published_from, published_to = validate_date_range(published_from, published_to)
     if dedup is None:
         dedup = Deduplicator()
 
@@ -367,6 +370,11 @@ def crawl_all(
             i + 1, len(sources), source["id"], source["method"],
         )
         raw = crawl_source(source)
+        if published_from is not None:
+            raw = [
+                item for item in raw
+                if _published_in_range(item.published, published_from, published_to)
+            ]
         new = dedup.filter_new(raw)
         all_results.extend(new)
         logger.info("  -> %d new / %d total", len(new), len(raw))
@@ -376,6 +384,33 @@ def crawl_all(
     dedup.save()
     logger.info("Crawl complete: %d new articles total", len(all_results))
     return all_results
+
+
+def validate_date_range(
+    published_from: Optional[str],
+    published_to: Optional[str],
+) -> tuple[Optional[str], Optional[str]]:
+    """Validate an optional inclusive ISO date range for historical backfills."""
+    if published_from is None and published_to is None:
+        return None, None
+    if not published_from or not published_to:
+        raise ValueError("both published_from and published_to are required")
+    try:
+        start = date.fromisoformat(published_from)
+        end = date.fromisoformat(published_to)
+    except (TypeError, ValueError) as exc:
+        raise ValueError("backfill dates must use YYYY-MM-DD") from exc
+    if start > end:
+        raise ValueError("published_from must not be after published_to")
+    return start.isoformat(), end.isoformat()
+
+
+def _published_in_range(value: str, start: str, end: str) -> bool:
+    try:
+        published = date.fromisoformat(value)
+    except (TypeError, ValueError):
+        return False
+    return date.fromisoformat(start) <= published <= date.fromisoformat(end)
 
 
 # ---------------------------------------------------------------------------

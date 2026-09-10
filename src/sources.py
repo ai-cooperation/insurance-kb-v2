@@ -1,6 +1,7 @@
 """News source configurations for Insurance KB v2."""
 
-from urllib.parse import quote
+import re
+from urllib.parse import parse_qsl, quote, urlencode, urlsplit, urlunsplit
 
 
 def _gnews(query, days=7, lang="en", country="US"):
@@ -10,6 +11,33 @@ def _gnews(query, days=7, lang="en", country="US"):
         f"https://news.google.com/rss/search?"
         f"q={encoded}&hl={lang}&gl={country}&ceid={country}:{lang}"
     )
+
+
+def with_gnews_lookback(sources, days):
+    """Return cloned sources with every Google News query widened to ``days``.
+
+    This is intentionally runtime-only: scheduled source policy stays unchanged,
+    while a bounded historical backfill can query a wider retention window.
+    """
+    if type(days) is not int or not 1 <= days <= 90:
+        raise ValueError("Google News lookback must be an integer from 1 to 90")
+
+    widened = []
+    for source in sources:
+        clone = dict(source)
+        parts = urlsplit(clone["url"])
+        if parts.hostname == "news.google.com":
+            query = []
+            for key, value in parse_qsl(parts.query, keep_blank_values=True):
+                if key == "q":
+                    replacement = f"when:{days}d"
+                    value = re.sub(r"\bwhen:\d+d\b", replacement, value)
+                    if replacement not in value:
+                        value = f"{value} {replacement}".strip()
+                query.append((key, value))
+            clone["url"] = urlunsplit(parts._replace(query=urlencode(query)))
+        widened.append(clone)
+    return widened
 
 
 def _src(id_, name, url, method="rss", region="全球", type_="新聞聚合", **extra):

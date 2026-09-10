@@ -6,6 +6,20 @@ on:
     - cron: "30 0 * * *"
     - cron: "30 12 * * *"
   workflow_dispatch:
+    inputs:
+      backfill_from:
+        description: "Inclusive backfill start date (YYYY-MM-DD)"
+        required: false
+        type: string
+      backfill_to:
+        description: "Inclusive backfill end date (YYYY-MM-DD)"
+        required: false
+        type: string
+      lookback_days:
+        description: "Temporary Google News lookback (1-90 days)"
+        required: false
+        default: "14"
+        type: string
 
 # Prevent concurrent crawls. If a scheduled run is in flight, a manual
 # workflow_dispatch (or vice versa) queues behind it instead of racing.
@@ -60,7 +74,19 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: "-1003856903916"
           TELEGRAM_TOPIC_ID: "4"
-        run: python run.py
+          BACKFILL_FROM: ${{ inputs.backfill_from }}
+          BACKFILL_TO: ${{ inputs.backfill_to }}
+          LOOKBACK_DAYS: ${{ inputs.lookback_days }}
+        run: |
+          set -euo pipefail
+          args=()
+          if [ -n "$BACKFILL_FROM" ] || [ -n "$BACKFILL_TO" ]; then
+            args+=(--from-date "$BACKFILL_FROM" --to-date "$BACKFILL_TO")
+            if [ -n "$LOOKBACK_DAYS" ]; then
+              args+=(--lookback-days "$LOOKBACK_DAYS")
+            fi
+          fi
+          python run.py "${args[@]}"
 
       - name: Build frontend data
         run: |
