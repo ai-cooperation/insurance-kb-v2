@@ -25,3 +25,10 @@ def test_pages_only_credential_never_attempts_worker_deployment_by_default():
     steps = flow["jobs"]["release"]["steps"]
     for name in ("Verify Worker deployment target", "Deploy Worker", "Verify live Worker"):
         assert next(s for s in steps if s.get("name") == name)["if"] == "inputs.deploy_worker"
+
+
+def test_browser_readiness_checks_rendered_data_not_global_network_idle():
+    script = (Path(__file__).resolve().parents[1] / "frontend/release-browser-qa.mjs").read_text()
+    assert "waitUntil:'domcontentloaded'" in script
+    assert "stats.total_visible" in script
+    assert "#today-grid h3" in script

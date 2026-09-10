@@ -15,13 +15,17 @@ try {
     catch (e) {if(attempt===2)throw e;await new Promise(r=>setTimeout(r,1000));}
   }
   const expected = await readFile('dist/index.html','utf8');
+  const stats = JSON.parse(await readFile('dist/data/stats.json','utf8'));
   const expectedAssets=[...expected.matchAll(/(?:src|href)="(\/assets\/[^" ]+)"/g)].map(m=>m[1]);
   const rows=[];
   for (const width of [375,768,1280]) {
     const page=await browser.newPage({viewport:{width,height:900}});
-    const response=await page.goto(base,{waitUntil:'networkidle',timeout:60000});
+    // App data readiness, not unrelated persistent auth/analytics connections.
+    const response=await page.goto(base,{waitUntil:'domcontentloaded',timeout:60000});
     assert.equal(response.status(),200);
     await page.waitForSelector('#root h1, #root h2',{timeout:30000});
+    await page.getByText(stats.total_visible.toLocaleString('en-US'),{exact:true}).first().waitFor({timeout:30000});
+    if(stats.latest_date_count>0) await page.waitForSelector('#today-grid h3',{timeout:30000});
     const html=await response.text();
     for(const asset of expectedAssets){assert.ok(html.includes(asset),`Wrong asset version: ${asset}`);const r=await page.request.get(base+asset);assert.equal(r.status(),200);}
     const layout=await page.evaluate(()=>({title:document.title,text:document.querySelector('#root').innerText.slice(0,400),
