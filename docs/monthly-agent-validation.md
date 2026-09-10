@@ -1,6 +1,29 @@
 # 月分片與 Agent 完整讀取交付核對
 
-日期：2026-09-10。狀態：本機實作與離線驗證，尚未 commit、push 或部署。
+日期：2026-09-10。狀態：已推送 main，Pages 與 Worker 已部署並驗證。下方原始實作紀錄保留當時驗證範圍；最新發布結果見本節。
+
+## 正式發布結果（2026-09-10 23:30 Asia/Taipei）
+
+- 程式版本：`cdc2ddc4ea700855ebc64646bcb231c90bd52541`（主要修正 `9347ade`）。
+- Pages 發布：[GitHub Actions 34495620427](https://github.com/ai-cooperation/insurance-kb-v2/actions/runs/34495620427)，結論 success。
+- Pages 版本：`01b996c8`，正式網址、自動網域、版本網址皆 HTTP 200。
+- Worker 版本：`055676d4-23ef-4ba5-b060-8a2739eb58e7`；公開 `/mcp/manifest` HTTP 200、版本 0.4.0，新增工具已出現；未登入 MCP 呼叫維持 HTTP 401。
+- 雲端：33 項 Python 測試、15 項 Worker 測試、型別檢查與建置通過；61,078 筆真實資料全量遍歷 633 次分頁，398 頁 Wiki 可列舉。
+- Linux Chromium：建置預覽、正式網址、Pages 網址各驗 375／768／1280，共 9 張截图；標題與頁面無橫向溢出，文章數與新聞卡片可載入，CSS／JS 版本與建置一致。證據附於該次 Actions artifact。
+- 線上資料：兩個 manifest snapshot 與本機一致；最新、最舊、最大文章分片及兩篇 Wiki（共 5 個物件）的 HTTP 200／SHA-256 均通過。
+- 此次未取用使用者 MCP token，因此沒有宣稱「線上已登入 MCP 工具全量遍歷」；全量讀取是相同正式 reader 對凍結發布資料的離線／CI 驗證。
+- 未補抓新聞、未呼叫 LLM；最新來源日期仍是 2026-09-01。既有每日兩次爬蟲排程未變更。
+
+發布憑證分工：現有 GitHub `CLOUDFLARE_API_TOKEN` 只有 Pages 權限；`release.yml` 的 `deploy_worker` 預設 false。
+本次 Worker 透過使用者授權的 Wrangler OAuth profile `insurance-kb-alan` 部署，未擴權或替換 GitHub secret。
+日後若同時發布兩者，先等 Pages workflow success 並執行 `python -m src.publication_check --live`，
+再於 workers/ 使用 `wrangler deploy --keep-vars --profile insurance-kb-alan`，最後核對公開 MCP 版本。
+只有另備妥具 Worker 權限的 CI 憑證時，才可選 `deploy_worker=true`。
+
+前兩次發布在寫入正式環境前被擋下：Worker token 權限不足、瀏覽器 network-idle 等待逾時；
+後者改為驗證實際文章數與卡片已渲染，沒有略過資料、版本或畫面檢查。失敗通知依既有 Telegram 設定發送。
+若需人工回復程式版本，部署前 Worker 版本為 `072210bf-f1e8-4748-9d76-4d6b2129926f`；
+不應先回退／刪除新版 Pages 分片，以免已發出的 Agent cursor 或引用失去來源。
 
 工作副本：`/Users/user/projects/insurance-kb-v2-monthly-agent`
 分支：`codex/monthly-agent-integrity`
