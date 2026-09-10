@@ -2,6 +2,11 @@ name: Release Insurance KB
 
 on:
   workflow_dispatch:
+    inputs:
+      deploy_worker:
+        description: 'Also deploy Worker (requires a Worker-capable CI token; current token is Pages-only)'
+        type: boolean
+        default: false
 
 # Deploy only the reviewed main snapshot. No crawl, LLM calls, DB migrations,
 # or changes to secrets. Share the existing lock so data cannot race a release.
@@ -45,7 +50,12 @@ jobs:
           npx --yes --package wrangler@4.130.0 wrangler pages project list --json > /tmp/insurance-pages-projects.json
           python -c 'import json; p=json.load(open("/tmp/insurance-pages-projects.json")); assert any(x.get("Project Name")=="insurance-kb-v2" for x in p), "Expected Pages project missing; refusing deployment"'
           npx --yes --package wrangler@4.130.0 wrangler pages deployment list --project-name insurance-kb-v2 --environment production
-          cd workers
+      - name: Verify Worker deployment target
+        if: inputs.deploy_worker
+        working-directory: workers
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
           npx --yes --package wrangler@4.130.0 wrangler deployments list
           npx --yes --package wrangler@4.130.0 wrangler deploy --dry-run --keep-vars
       - name: Build frontend
@@ -53,7 +63,7 @@ jobs:
       - name: Browser QA before publication
         working-directory: frontend
         run: |
-          npm install --no-save --no-audit --no-fund playwright
+          npm install --no-save --no-audit --no-fund playwright@1.63.0
           npx playwright install --with-deps chromium
           node release-browser-qa.mjs
       - name: Deploy Pages
@@ -64,13 +74,17 @@ jobs:
       - name: Verify published data
         run: python -m src.publication_check --live
       - name: Deploy Worker
+        if: inputs.deploy_worker
         working-directory: workers
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: npx --yes --package wrangler@4.130.0 wrangler deploy --keep-vars
-      - name: Verify live Worker and website
+      - name: Verify live Worker
+        if: inputs.deploy_worker
         run: |
           python -c 'import requests; r=requests.get("https://insurance-kb-api.alan-chen75.workers.dev/mcp/manifest",timeout=30); r.raise_for_status(); m=r.json(); assert m["version"]=="0.4.0"; assert {"get_article","list_knowledge"}.issubset({t["name"] for t in m["tools"]}); print("Live MCP 0.4.0 verified")'
+      - name: Verify live website
+        run: |
           cd frontend
           node release-browser-qa.mjs https://insurance-kb.cooperation.tw
           node release-browser-qa.mjs https://insurance-kb-v2.pages.dev

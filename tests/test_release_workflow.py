@@ -16,3 +16,12 @@ def test_release_is_explicit_serialized_data_first_and_fail_loud():
     assert any(s.get("if") == "failure()" and "TELEGRAM_BOT_TOKEN" in s.get("env", {}) for s in steps)
     assert "--keep-vars" in next(s["run"] for s in steps if s.get("name") == "Deploy Worker")
     assert all("python run.py" not in s.get("run", "") for s in steps)
+
+
+def test_pages_only_credential_never_attempts_worker_deployment_by_default():
+    path = Path(__file__).resolve().parents[1] / ".github/workflows/release.yml"
+    flow = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
+    assert flow["on"]["workflow_dispatch"]["inputs"]["deploy_worker"]["default"] == "false"
+    steps = flow["jobs"]["release"]["steps"]
+    for name in ("Verify Worker deployment target", "Deploy Worker", "Verify live Worker"):
+        assert next(s for s in steps if s.get("name") == name)["if"] == "inputs.deploy_worker"
