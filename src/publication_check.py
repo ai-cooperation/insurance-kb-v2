@@ -8,6 +8,7 @@ never automatic deletion of citation targets.
 import argparse
 import json
 import subprocess
+import time
 from collections import Counter
 from pathlib import Path
 
@@ -16,6 +17,10 @@ from src.index_manager import load_index
 from src.monthly_store import StorageError, check_manifest, read_json, read_object
 
 ROOT = Path(__file__).resolve().parents[1]
+LIVE_BASE_URLS = (
+    "https://insurance-kb.cooperation.tw",
+    "https://insurance-kb-v2.pages.dev",
+)
 
 
 def verify_publication(root: Path, rows: list):
@@ -94,15 +99,54 @@ def verify_staged():
                 raise StorageError(f"CAPACITY_ERROR: staged file > 50 MiB: {path.decode()}")
 
 
-def verify_live():
+def verify_live(base_urls=LIVE_BASE_URLS, attempts=9, sleep_seconds=15):
+    """Wait for both production aliases to serve this build's snapshots.
+
+    Wrangler reports a completed upload before Pages aliases necessarily converge.
+    Keep the gate fail-loud, but allow the observed sub-minute propagation window.
+    Nine attempts at 15 seconds cap the wait at two minutes.
+    """
     import requests
-    for name in ("manifest.json", "wiki-manifest.json"):
-        expected = read_json(ROOT / "frontend/public/data/agent" / name)
-        response = requests.get("https://insurance-kb.cooperation.tw/data/agent/" + name,
-                                params={"v": expected["snapshot_id"]}, timeout=30)
-        response.raise_for_status()
-        if check_manifest(response.json())["snapshot_id"] != expected["snapshot_id"]:
-            raise StorageError(f"STALE_PUBLICATION: deployed {name} is not this build")
+
+    if attempts < 1 or sleep_seconds < 0 or not base_urls:
+        raise ValueError("live verification requires origins and a positive attempt count")
+    expected = {
+        name: read_json(ROOT / "frontend/public/data/agent" / name)
+        for name in ("manifest.json", "wiki-manifest.json")
+    }
+    last_error = None
+    for attempt in range(1, attempts + 1):
+        try:
+            for base_url in base_urls:
+                for name, local in expected.items():
+                    url = base_url.rstrip("/") + "/data/agent/" + name
+                    response = requests.get(
+                        url,
+                        params={"v": local["snapshot_id"]},
+                        headers={"Cache-Control": "no-cache"},
+                        timeout=30,
+                    )
+                    response.raise_for_status()
+                    observed = check_manifest(response.json())["snapshot_id"]
+                    if observed != local["snapshot_id"]:
+                        raise StorageError(
+                            f"STALE_PUBLICATION: {url} expected "
+                            f"{local['snapshot_id']} but served {observed}"
+                        )
+            return
+        except (requests.RequestException, TypeError, ValueError) as exc:
+            last_error = exc
+            if attempt < attempts:
+                print(
+                    f"Publication aliases not current on attempt {attempt}/{attempts}; "
+                    f"retrying in {sleep_seconds}s: {exc}",
+                    flush=True,
+                )
+                time.sleep(sleep_seconds)
+    raise StorageError(
+        f"STALE_PUBLICATION: production aliases did not converge after "
+        f"{attempts} attempts ({last_error})"
+    ) from last_error
 
 
 if __name__ == "__main__":

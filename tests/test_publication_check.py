@@ -90,13 +90,76 @@ def test_live_snapshot_check_uses_exact_expected_versions_without_real_network(p
     response = Mock()
     response.json.side_effect = [json.loads((agent / n).read_text()) for n in ("manifest.json", "wiki-manifest.json")]
     with patch("src.publication_check.ROOT", root), patch("requests.get", return_value=response) as get:
-        verify_live()
+        verify_live(base_urls=("https://example.test",), attempts=1)
         assert get.call_count == 2
     response.json.side_effect = None
     response.json.return_value = {"schema_version": 3, "snapshot_id": "wrong"}
     with patch("src.publication_check.ROOT", root), patch("requests.get", return_value=response):
         with pytest.raises(StorageError):
-            verify_live()
+            verify_live(base_urls=("https://example.test",), attempts=1)
+
+
+def test_live_snapshot_check_retries_stale_alias_then_passes(publication):
+    from unittest.mock import Mock
+    from src.monthly_store import digest
+
+    root, rows, agent = publication
+    expected = {
+        name: json.loads((agent / name).read_text())
+        for name in ("manifest.json", "wiki-manifest.json")
+    }
+    stale_body = {
+        key: value
+        for key, value in expected["manifest.json"].items()
+        if key != "snapshot_id"
+    }
+    stale_body["total_records"] += 1
+    stale = {**stale_body, "snapshot_id": digest(stale_body)}
+    responses = []
+    for payload in (stale, expected["manifest.json"], expected["wiki-manifest.json"]):
+        response = Mock()
+        response.json.return_value = payload
+        responses.append(response)
+
+    with (
+        patch("src.publication_check.ROOT", root),
+        patch("requests.get", side_effect=responses) as get,
+        patch("src.publication_check.time.sleep") as sleep,
+    ):
+        verify_live(
+            base_urls=("https://example.test",),
+            attempts=2,
+            sleep_seconds=0.01,
+        )
+
+    assert get.call_count == 3
+    sleep.assert_called_once_with(0.01)
+
+
+def test_live_snapshot_check_verifies_custom_and_pages_aliases(publication):
+    from unittest.mock import Mock
+
+    root, rows, agent = publication
+    payloads = [
+        json.loads((agent / name).read_text())
+        for _base in range(2)
+        for name in ("manifest.json", "wiki-manifest.json")
+    ]
+    responses = []
+    for payload in payloads:
+        response = Mock()
+        response.json.return_value = payload
+        responses.append(response)
+
+    with patch("src.publication_check.ROOT", root), patch(
+        "requests.get", side_effect=responses
+    ) as get:
+        verify_live(attempts=1)
+
+    assert get.call_count == 4
+    called_urls = [call.args[0] for call in get.call_args_list]
+    assert any("insurance-kb.cooperation.tw" in url for url in called_urls)
+    assert any("insurance-kb-v2.pages.dev" in url for url in called_urls)
 
 
 @pytest.mark.parametrize("change,match", [
