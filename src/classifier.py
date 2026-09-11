@@ -635,17 +635,12 @@ def _merge_llm_results(batch: list, translations: list) -> list:
 
 # Provider-aware translation cascade.
 #
-# 2026-07-31: GitHub Models entered scheduled retirement brownouts — the
-# legacy azure endpoint returns 401 "Server Error" and models.github.ai
-# answers "github_models_retirement_brownout". Three days of green runs
-# shipped untranslated titles (14 -> 50 -> 119/day) because the old code
-# only rotated on 429-with-daily-marker; 401 fell through to "log and
-# keep originals". Groq (the original provider; GROQ_API_KEY still in
-# repo secrets) is restored as primary, GitHub Models kept as secondary
-# until final shutdown. ANY per-batch exception now advances the
-# cascade, and a failure-rate alarm goes to Telegram — silent Phase 3
-# death is the exact failure class pipeline-invariant-testing rule 5
-# exists for.
+# 2026-07-31: GitHub Models retirement brownouts caused three days of green
+# runs with untranslated titles. Groq was restored as primary and Gemini was
+# added as the independent fallback quota pool. 2026-09-11: the retired
+# GitHub endpoint was removed after every one of its five slots became a
+# Connection error. Do not add dead providers as "fallbacks": discovery and
+# per-batch retries turn them into latency and alert noise, not resilience.
 #
 # Model notes: gpt-4.1-nano was removed earlier for ignoring Korean
 # naming rules; unknown Groq model IDs rotate harmlessly on 404.
@@ -670,19 +665,12 @@ TRANSLATE_PROVIDERS = [
     # is a nightly event, not an edge case (that run left 149/509 titles
     # untranslated once every Groq model hit its limit and GitHub Models
     # answered 401). Placed after Groq because Groq is faster and has the
-    # larger per-minute headroom; before GitHub Models, which is retiring.
+    # larger per-minute headroom.
     ("gemini", "https://generativelanguage.googleapis.com/v1beta/openai/",
      "GEMINI_API_KEY", [
         "gemini-flash-lite-latest",
         "gemini-flash-latest",
         "gemini-3.1-flash-lite",
-    ]),
-    ("github-models", "https://models.inference.ai.azure.com", "MODELS_PAT", [
-        "gpt-4.1-mini",
-        "gpt-4o-mini",
-        "gpt-4.1",
-        "gpt-4o",
-        "Llama-3.3-70B-Instruct",
     ]),
 ]
 
@@ -739,7 +727,7 @@ def _filter_available(client, models: list, provider: str) -> list:
     return kept
 
 
-def _build_cascade(fallback_github_key: str = "") -> list:
+def _build_cascade() -> list:
     """Flatten TRANSLATE_PROVIDERS into [(label, client, model), ...] for
     every provider whose key is available, filtered to live models."""
     from openai import OpenAI
@@ -747,21 +735,30 @@ def _build_cascade(fallback_github_key: str = "") -> list:
     slots = []
     for name, base_url, env_var, models in TRANSLATE_PROVIDERS:
         key = os.environ.get(env_var, "")
-        if not key and name == "github-models":
-            key = fallback_github_key  # legacy run.py passes MODELS_PAT as arg
         if not key:
             logger.info("Provider %s skipped (no %s)", name, env_var)
             continue
-        client = OpenAI(base_url=base_url, api_key=key)
+        # Rotate immediately on 429/503. The SDK's default hidden retries held
+        # a single Groq slot for 20-40 seconds even when the next live provider
+        # had independent capacity.
+        client = OpenAI(base_url=base_url, api_key=key, max_retries=0)
         for model in _filter_available(client, models, name):
             slots.append((f"{name}/{model}", client, model))
     return slots
 
 
+def completion_budget(model: str, batch_length: int) -> int:
+    """Bound requested output tokens so one free-tier call fits its TPM cap."""
+    if "gpt-oss" in model:
+        # The reasoning model returned empty content below this budget even
+        # with reasoning_effort=low; it remains the last Groq slot.
+        return 4000
+    return max(1200, batch_length * 300)
+
+
 def classify_llm_batch(
     articles: list,
-    api_key: str = "",
-    batch_size: int = 10,
+    batch_size: int = 5,
     delay: float = 3.0,
 ) -> list:
     """Translate titles to Chinese via the provider cascade.
@@ -773,7 +770,7 @@ def classify_llm_batch(
     alarm fires.
     """
     try:
-        slots = _build_cascade(api_key)
+        slots = _build_cascade()
     except ImportError:
         logger.error("openai package not installed, skipping LLM classification")
         return articles
@@ -815,7 +812,7 @@ def classify_llm_batch(
                     temperature=0.3,
                     # Reasoning models spend tokens thinking before the
                     # array; 2000 returned EMPTY content on gpt-oss-120b.
-                    max_tokens=4000,
+                    max_tokens=completion_budget(model, len(batch)),
                     extra_body=extra,
                 )
                 text = (response.choices[0].message.content or "").strip()

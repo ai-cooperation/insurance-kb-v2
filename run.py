@@ -200,14 +200,13 @@ def main():
 
     # Phase 3: LLM classification (Chinese title + summary via GitHub Models)
     if not args.no_ai:
-        api_key = os.environ.get("MODELS_PAT", "")
-        if api_key or os.environ.get("GROQ_API_KEY"):
-            logger.info("Phase 3: LLM classification via provider cascade (batches of 10)...")
-            articles = classify_llm_batch(articles, api_key)
+        if os.environ.get("GROQ_API_KEY") or os.environ.get("GEMINI_API_KEY"):
+            logger.info("Phase 3: LLM classification via provider cascade (batches of 5)...")
+            articles = classify_llm_batch(articles)
             logger.info("Phase 3 complete")
         else:
             logger.warning(
-                "Phase 3 skipped: no GROQ_API_KEY / MODELS_PAT set. "
+                "Phase 3 skipped: no GROQ_API_KEY / GEMINI_API_KEY set. "
                 "Set one for Chinese title/summary generation."
             )
     else:

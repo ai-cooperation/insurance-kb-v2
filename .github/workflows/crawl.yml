@@ -1,10 +1,9 @@
 name: Insurance KB Crawl
 
 on:
-  schedule:
-    # 00:30 UTC = 08:30 UTC+8, 12:30 UTC = 20:30 UTC+8
-    - cron: "30 0 * * *"
-    - cron: "30 12 * * *"
+  # The deployed insurance-kb-cron Worker is the single scheduler. Keeping a
+  # GitHub cron here as well ran the same pipeline four times/day and doubled
+  # translation quota use. Manual and Worker dispatches both use this entry.
   workflow_dispatch:
     inputs:
       backfill_from:
@@ -65,11 +64,9 @@ jobs:
 
       - name: Run crawl pipeline
         env:
-          # Translation cascade: Groq primary (GitHub Models is retiring —
-          # brownouts since ~2026-07-29, final shutdown pending)
+          # Translation cascade: Groq primary, Gemini fallback quota pool.
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          MODELS_PAT: ${{ secrets.MODELS_PAT }}
           # Phase 3 failure-rate + Phase 4.5 name-consistency alerts
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: "-1003856903916"
