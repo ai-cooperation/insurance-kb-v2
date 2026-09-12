@@ -235,10 +235,6 @@ export class AgentReader {
       warning:totalMatches>best.length?`Complete scope scan found ${totalMatches} matches; returning top ${best.length}.`:null};
   }
 
-  private like(value: string): string {
-    return `%${value.replaceAll("\\","\\\\").replaceAll("%","\\%").replaceAll("_","\\_")}%`;
-  }
-
   private async resolveSearchRows(m: Manifest,
     candidates: Array<{uid:string;revision:string;date:string;score:number}>): Promise<Map<string,Row>> {
     const byCatalog = new Map<string,string[]>();
@@ -291,15 +287,18 @@ export class AgentReader {
     const groups=searchTermGroups(String(s.scope.query));
     const scoreParts:string[]=[], scoreParams:string[]=[];
     for(const group of groups) for(const [field,weight] of [["title",3],["title_en",3],["category",2],["summary",1]] as const) {
-      scoreParts.push(`CASE WHEN (${group.map(()=>`f.${field} LIKE ? ESCAPE '\\'`).join(" OR ")}) THEN ${weight} ELSE 0 END`);
-      scoreParams.push(...group.map(term=>this.like(term)));
+      const clauses=group.map(term=>{
+        if(/[%_\\]/.test(term)){scoreParams.push(term);return `instr(f.${field},?)>0`;}
+        scoreParams.push(`%${term}%`);return `f.${field} LIKE ?`;
+      });
+      scoreParts.push(`CASE WHEN (${clauses.join(" OR ")}) THEN ${weight} ELSE 0 END`);
     }
     const filters:string[]=[], filterParams:string[]=[];
     const from=s.scope.date_from as string|undefined,to=s.scope.date_to as string|undefined;
     if(from){filters.push("a.date >= ?");filterParams.push(from);}
     if(to){filters.push("a.date <= ?");filterParams.push(to);}
-    if(s.scope.category){filters.push("a.category LIKE ? ESCAPE '\\'");filterParams.push(this.like(String(s.scope.category).toLowerCase()));}
-    if(s.scope.region){filters.push("a.region LIKE ? ESCAPE '\\'");filterParams.push(this.like(String(s.scope.region).toLowerCase()));}
+    if(s.scope.category){filters.push("instr(a.category,?)>0");filterParams.push(String(s.scope.category).toLowerCase());}
+    if(s.scope.region){filters.push("instr(a.region,?)>0");filterParams.push(String(s.scope.region).toLowerCase());}
     const cte=`WITH scored AS (SELECT a.uid,a.revision_id,a.date,(${scoreParts.join("+")}) AS score
       FROM agent_search_articles a JOIN agent_search_fts f ON f.rowid=a.id
      ${filters.length?` WHERE ${filters.join(" AND ")}`:""})`;

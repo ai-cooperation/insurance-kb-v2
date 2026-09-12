@@ -206,15 +206,17 @@ test('current publication searches D1 then resolves exact monthly revisions',asy
     prepare(sql){return {sql,params:[],bind(...params){this.params=params;return this;},
       async first(){return {snapshot_id:current.snapshot_id,total_records:7};}};},
     async batch(statements){
+      this.lastSql=statements[0].sql;
       assert.equal(statements.length,2);assert.match(statements[0].sql,/agent_search_fts/);
       const row=rows[6];
       return [{results:[{total:1}]},{results:[{uid:row.uid,revision_id:row._lineage.revision_id,date:row.date,score:3}]}];
     },
   };
   const reader=new AgentReader(kv,'d1-user',fetcher,db);
-  const result=await reader.search({query:'old history',limit:5});
+  const result=await reader.search({query:'old_history',limit:5});
   assert.equal(result.complete,true);assert.equal(result.total_matches,1);
   assert.equal(result.results[0].uid,'a6');
   assert.equal(result.results[0].citation.revision_id,rows[6]._lineage.revision_id);
   assert.equal(result.coverage.index_backend,'d1-v1');
+  assert.match(db.lastSql??'',/instr\(f\.title/);
 });
