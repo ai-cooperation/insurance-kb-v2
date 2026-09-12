@@ -93,6 +93,16 @@ test('reader works on the deployed compatibility date without AbortSignal.timeou
     Object.defineProperty(AbortSignal,'timeout',{value:original,configurable:true});
   }
 });
+test('global fetch is invoked without binding it to the reader instance',async()=>{
+  const {kv,fetcher}=fixture();
+  async function bindingSensitiveFetch(...args) {
+    if (this !== undefined) throw new TypeError('Illegal invocation');
+    return fetcher(...args);
+  }
+  const reader=new AgentReader(kv,'binding-test',bindingSensitiveFetch);
+  const r=await reader.search({query:'6'});
+  assert.equal(r.complete,true);assert.equal(r.results[0].uid,'a6');
+});
 test('missing shard fails instead of claiming complete',async()=>{
   const {reader,files,shards}=fixture();files.delete(shards[1].file);
   await assert.rejects(reader.list({all_history:true}),/DATA_UNAVAILABLE/);

@@ -57,7 +57,8 @@ export class AgentReader {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(),15000);
     let response: Response;
-    try { response = await this.fetcher(BASE + path, { signal: controller.signal, headers: {"Cache-Control":"no-cache"} }); }
+    const fetchPublication = this.fetcher;
+    try { response = await fetchPublication(BASE + path, { signal: controller.signal, headers: {"Cache-Control":"no-cache"} }); }
     catch (error) {
       console.error(JSON.stringify({event:"agent_publication_fetch_failed",path,
         reason:error instanceof Error?error.name:typeof error}));
