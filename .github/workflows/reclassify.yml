@@ -78,7 +78,7 @@ jobs:
 
       - name: Rebuild frontend data
         env:
-          AGENT_INDEX_SYNC_PLAN: /tmp/agent-index-sync.json
+          AGENT_INDEX_SYNC_PLAN: ${{ inputs.dry_run != 'true' && '/tmp/agent-index-sync.json' || '' }}
         run: |
           # Use the proper builder so L2 dedup, KR normalization, and slim
           # field selection are applied. (Previously this step did a raw cp
