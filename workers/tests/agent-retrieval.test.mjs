@@ -28,12 +28,13 @@ function fixture() {
     title:`Synthetic insurance ${i}`, summary:'complete saved excerpt '.repeat(900),
     _lineage:{revision_id:String(i).repeat(64),content_kind:'saved_excerpt',verification_status:'unverified'}}));
   const shards = rows.map(r => ({...object([r]),month:r.date.slice(0,7)}));
+  const searchShards = rows.map(r => ({...object([r], 'objects/search'),from_month:r.date.slice(0,7),to_month:r.date.slice(0,7)}));
   const catalogs = Object.fromEntries(rows.map((r,i) => [r.uid,object({[r.uid]:{...shards[i],revision_id:r._lineage.revision_id}},'catalogs')]));
   function snapshot(body, current) {
     const snapshot_id=hash(encode(body)), m={...body,snapshot_id};
     files.set(current,encode(m)); files.set(`snapshots/${snapshot_id}.json`,encode(m));return m;
   }
-  const manifest=snapshot({schema_version:3,kind:'agent_articles',shards,catalogs,total_records:7,
+  const manifest=snapshot({schema_version:3,kind:'agent_articles',shards,search_shards:searchShards,search_records:7,catalogs,total_records:7,
     months:Object.fromEntries(shards.map(s=>[s.month,1])),newest_date:'2026-01-01'},'manifest.json');
   const kv={get:async k=>cursors.get(k)??null,put:async(k,v)=>{cursors.set(k,v);}};
   const fetcher=async url=>{const p=new URL(url).pathname.split('/agent/')[1];return new Response(files.get(p)??'missing',{status:files.has(p)?200:404});};
@@ -50,11 +51,37 @@ test('all-history pagination traverses every shard without duplicates',async()=>
   }
   assert.deepEqual(ids,['a0','a1','a2','a3','a4','a5','a6']);
 });
-test('search continues through no-match shards and finds old history',async()=>{
-  const {reader}=fixture(); let r=await reader.search({query:'6'});
-  assert.equal(r.complete,false);assert.equal(r.results.length,0);
-  r=await reader.search({cursor:r.next_cursor});
-  assert.equal(r.complete,true);assert.equal(r.results[0].uid,'a6');
+test('search scans every search shard and globally finds old history in one call',async()=>{
+  const {reader}=fixture(); const r=await reader.search({query:'6'});
+  assert.equal(r.complete,true);assert.equal(r.next_cursor,null);
+  assert.equal(r.results[0].uid,'a6');
+  assert.equal(r.coverage.selected_shards,7);
+  assert.equal(r.coverage.completed_shards,7);
+  assert.equal(r.coverage.scanned_records,7);
+  assert.equal(r.total_matches,1);
+  assert.equal(r.ordering,'global_relevance_score_then_date_desc_within_snapshot');
+  const ranked=await reader.search({query:'Synthetic',limit:2});
+  assert.deepEqual(ranked.results.map(x=>x.uid),['a0','a1']);
+  assert.equal(ranked.total_matches,7);assert.equal(ranked.result_truncated,true);
+});
+
+test('search fails closed when compact coverage is incomplete',async()=>{
+  const {reader,manifest,snapshot}=fixture();
+  const {snapshot_id,...body}=manifest;
+  snapshot({...body,search_records:6},'manifest.json');
+  await assert.rejects(reader.search({query:'Synthetic'}),/INTEGRITY_ERROR/);
+});
+
+test('search date range fetches only overlapping compact shards',async()=>{
+  const {reader}=fixture();
+  const r=await reader.search({query:'Synthetic',date_from:'2024-01-01',date_to:'2025-12-31'});
+  assert.deepEqual(r.results.map(x=>x.uid),['a1','a2']);
+  assert.equal(r.coverage.selected_shards,2);assert.equal(r.coverage.scanned_records,2);
+});
+
+test('missing compact search shard fails instead of returning partial matches',async()=>{
+  const {reader,files,manifest}=fixture();files.delete(manifest.search_shards[1].file);
+  await assert.rejects(reader.search({query:'Synthetic'}),/DATA_UNAVAILABLE/);
 });
 test('missing shard fails instead of claiming complete',async()=>{
   const {reader,files,shards}=fixture();files.delete(shards[1].file);
@@ -122,6 +149,7 @@ test('partial shard resume neither skips nor duplicates records',async()=>{
   const {reader,rows,object,snapshot,manifest}=fixture();
   const batch=rows.slice(0,3).map(r=>({...r,date:'2026-01-01'}));
   snapshot({schema_version:3,kind:'agent_articles',shards:[{...object(batch),month:'2026-01'}],
+    search_shards:[{...object(batch,'objects/search'),from_month:'2026-01',to_month:'2026-01'}],search_records:3,
     catalogs:manifest.catalogs,months:{'2026-01':3},total_records:3},'manifest.json');
   const first=await reader.list({all_history:true,limit:2});
   assert.equal(first.coverage.completed_shards,0);assert.ok(first.coverage.partial_shard);

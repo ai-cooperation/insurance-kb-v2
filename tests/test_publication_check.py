@@ -5,7 +5,7 @@ from unittest.mock import patch
 import pytest
 
 from src.agent_publication import build_agent_data, parse_markdown, publish_articles, publish_wikis
-from src.monthly_store import MonthlyStore, StorageError, put_object, write_snapshot
+from src.monthly_store import MonthlyStore, StorageError, put_object, read_object, write_snapshot
 from src.publication_check import verify_publication
 from src.publication_check import verify_live, verify_staged
 from scripts.migrate_monthly_index import migrate
@@ -165,6 +165,7 @@ def test_live_snapshot_check_verifies_custom_and_pages_aliases(publication):
 @pytest.mark.parametrize("change,match", [
     ("total", "differs"), ("count", "shard count"), ("duplicate", "duplicate Agent"),
     ("catalog", "wrong record"), ("missing_catalog", "incomplete ID"),
+    ("search_total", "search coverage"), ("search_row", "search projection"),
 ])
 def test_gate_rejects_structurally_valid_but_incomplete_exports(publication, change, match):
     root, rows, agent = publication
@@ -178,6 +179,13 @@ def test_gate_rejects_structurally_valid_but_incomplete_exports(publication, cha
         manifest["shards"].append(manifest["shards"][0])
     elif change == "missing_catalog":
         manifest["catalogs"] = {}
+    elif change == "search_total":
+        manifest["search_records"] = 2
+    elif change == "search_row":
+        batch = read_object(agent, manifest["search_shards"][0])
+        batch[0]["title"] = "incorrect projected title"
+        file, sha, size = put_object(agent, batch, "objects/search")
+        manifest["search_shards"][0].update(file=file, sha256=sha, bytes=size)
     else:
         catalog = {"a1": {**manifest["shards"][0], "revision_id": "f" * 64}}
         file, sha, size = put_object(agent, catalog, "catalogs")

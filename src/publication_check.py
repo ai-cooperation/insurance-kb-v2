@@ -12,7 +12,7 @@ import time
 from collections import Counter
 from pathlib import Path
 
-from src.agent_publication import visible_rows
+from src.agent_publication import project_article, visible_rows
 from src.index_manager import load_index
 from src.monthly_store import StorageError, check_manifest, read_json, read_object
 
@@ -51,6 +51,20 @@ def verify_publication(root: Path, rows: list):
             catalog_ids.add(uid)
     if catalog_ids != set(found):
         raise StorageError("INTEGRITY_ERROR: incomplete ID lookup")
+    if manifest.get("search_records") != manifest["total_records"]:
+        raise StorageError("INTEGRITY_ERROR: search coverage total")
+    search_found = {}
+    for ref in manifest.get("search_shards", []):
+        batch = read_object(agent, ref)
+        if len(batch) != ref.get("count"):
+            raise StorageError("INTEGRITY_ERROR: search coverage shard count")
+        for row in batch:
+            if row.get("uid") in search_found:
+                raise StorageError("INTEGRITY_ERROR: duplicate search projection ID")
+            search_found[row.get("uid")] = row
+    expected_search = {uid: project_article(row) for uid, row in found.items()}
+    if search_found != expected_search:
+        raise StorageError("INTEGRITY_ERROR: search projection differs from Agent records")
     browser = read_json(root / "frontend/public/data/articles-manifest.json")
     browser_ids = set()
     for month in browser["months"]:
@@ -85,6 +99,7 @@ def verify_publication(root: Path, rows: list):
         if file.stat().st_size > 20 * 1024 * 1024:
             raise StorageError(f"CAPACITY_ERROR: public file > 20 MiB: {file}")
     return {"records": len(found), "months": len(month_counts), "agent_shards": len(manifest["shards"]),
+            "search_shards": len(manifest["search_shards"]),
             "wiki_pages": len(wiki["pages"]), "wiki_lineage": dict(statuses),
             "public_files": len(public_files), "snapshot_id": manifest["snapshot_id"]}
 

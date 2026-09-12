@@ -8,10 +8,65 @@ from pathlib import Path
 
 import yaml
 
-from src.monthly_store import (StorageError, digest, put_object, read_object,
-                               validate_rows, write_shards, write_snapshot)
+from src.monthly_store import (StorageError, digest, encode, month_of, put_object,
+                               read_object, validate_rows,
+                               write_shards, write_snapshot)
 
 AGENT_MAX_BYTES = 512 * 1024
+AGENT_SEARCH_MAX_BYTES = 1900 * 1024
+AGENT_SEARCH_MAX_SHARDS = 40
+AGENT_SEARCH_FIELDS = (
+    "uid", "title", "title_en", "date", "source", "source_url",
+    "category", "region", "summary",
+)
+
+
+def project_article(row: dict) -> dict:
+    lineage = row["_lineage"]
+    return {
+        **{key: row.get(key) for key in AGENT_SEARCH_FIELDS},
+        "_lineage": {
+            "revision_id": lineage["revision_id"],
+            "content_kind": lineage.get("content_kind"),
+            "verification_status": lineage.get("verification_status"),
+        },
+    }
+
+
+def write_search_shards(rows: list, root: Path) -> list:
+    """Pack a complete, read-only search projection below the Worker request budget.
+
+    The full saved records remain in monthly shards. This projection exists so
+    one MCP search can rank the entire requested scope without asking the Agent
+    to follow hundreds of article-shard cursors.
+    """
+    # Fixed UID buckets are a Git lifecycle invariant. Sequential packing would
+    # shift nearly every later row after one insertion and rewrite ~56 MiB on
+    # each crawl. A new/revised article must replace only its own bucket.
+    buckets = [[] for _ in range(AGENT_SEARCH_MAX_SHARDS)]
+    for row in rows:
+        projected = project_article(row)
+        buckets[int(digest(row["uid"]), 16) % AGENT_SEARCH_MAX_SHARDS].append(projected)
+    shards = []
+    for part, batch in enumerate(buckets):
+        if not batch:
+            continue
+        size = len(encode(batch))
+        if size > AGENT_SEARCH_MAX_BYTES:
+            raise StorageError(
+                f"INTEGRITY_ERROR: search bucket {part} is {size} bytes; "
+                f"budget is {AGENT_SEARCH_MAX_BYTES}"
+            )
+        file, sha, size = put_object(root, batch, "objects/search")
+        months = [month_of(row) for row in batch if month_of(row) != "unknown"]
+        shards.append({
+            "part": part, "file": file, "sha256": sha, "bytes": size,
+            "count": len(batch),
+            "from_month": min(months) if months else None,
+            "to_month": max(months) if months else None,
+            "has_unknown_dates": any(month_of(row) == "unknown" for row in batch),
+        })
+    return shards
 
 
 def publish_articles(rows: list, root: Path) -> dict:
@@ -20,6 +75,7 @@ def publish_articles(rows: list, root: Path) -> dict:
         raise StorageError("INTEGRITY_ERROR: Agent export requires visible versioned rows")
     rows = sorted(rows, key=lambda r: r.get("date", ""), reverse=True)
     shards = write_shards(root, rows, AGENT_MAX_BYTES)
+    search_shards = write_search_shards(rows, root)
     catalogs = defaultdict(dict)
     months = defaultdict(int)
     for shard in shards:
@@ -50,6 +106,7 @@ def publish_articles(rows: list, root: Path) -> dict:
         "schema_version": 3, "kind": "agent_articles", "total_records": len(rows),
         "visibility_policy": "browser-visible-v1", "content_scope": "full_saved_record_not_source_fulltext",
         "months": dict(months), "shards": shards, "catalogs": links,
+        "search_shards": search_shards, "search_records": len(rows),
         "newest_date": max((r.get("date", "") for r in rows), default=""),
     }, root / "manifest.json")
 

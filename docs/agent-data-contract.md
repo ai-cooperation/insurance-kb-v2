@@ -29,14 +29,26 @@ shards and ID lookup buckets. A source reference is
 `{snapshot_id, article_id, revision_id}`. Reading a historical reference
 requires its snapshot; a revision mismatch is an error, never latest fallback.
 
+The same snapshot also publishes a complete search projection in at most 40
+content-addressed objects. It contains only the fields needed to filter, rank,
+preview and cite; full saved records are not duplicated. Objects use fixed UID
+hash buckets, not sequential packing, so an insert or revision replaces only
+one bucket instead of rewriting the whole projection. The publication gate
+proves the projection has exactly the same visible IDs, search fields and
+revision IDs as the full Agent shards.
+
 ## MCP contracts
 
 - `list_knowledge`: snapshot, coverage, months, file counts and freshness.
-- `list_articles` / `search_articles`: date range, optional legacy days,
-  category, region, limit and opaque cursor. Search walks all selected shards;
-  per-call scanning is bounded. `next_cursor` means more scanning/results.
-  `complete` is true only after all selected shards have been read. Results
-  are deterministic within one immutable snapshot; no global top-k claim.
+- `list_articles`: date range, optional legacy days, category, region, limit
+  and opaque cursor. `next_cursor` means more enumeration remains; clients must
+  continue until `complete=true` when they need every article in the range.
+- `search_articles`: query plus the same scope filters, but no cursor. The
+  server reads every compact search shard overlapping the requested dates in
+  one tool call, then returns a deterministic global relevance ranking.
+  `complete=true` certifies that the selected scope was scanned, while
+  `total_matches` and `result_truncated` distinguish complete coverage from a
+  top-N response limited by `limit`.
 - `get_article`: article ID and optional snapshot/revision; full saved record.
   Long content is returned as bounded text segments with explicit offsets.
 - `get_wiki`: enumerate period pages or read one immutable page, including
@@ -78,13 +90,17 @@ repository snapshot and reports exact comparisons.
 8. Cross-month correction preserves ID and old snapshot readability.
 9. Stale concurrent edits are rejected.
 10. Filtered records survive migration but are not publicly exposed.
-11. Pagination crosses empty/no-match shards and is resumable.
-12. Cursor binds query, date range and snapshot; tampering is rejected.
+11. Article enumeration crosses shards and is resumable without duplicates.
+12. List cursors bind date range and snapshot; tampering is rejected.
 13. Exact old revisions resolve after later edits.
 14. Wiki source changes mark stale; old citations remain resolvable.
 15. Full saved summaries are available; source full text is never implied.
 16. Browser monthly JSON, manifest, stats and legacy Chat JSON match baseline.
 17. Every staged file and deployed artifact respects its size budget.
+18. Search projection IDs, fields and revisions exactly equal the visible
+    article set; any missing, duplicate, corrupt or stale bucket fails closed.
+19. A search scans every selected projection shard in one call and performs
+    global score/date ordering, including old-history hits after empty shards.
 
 ## Release and recovery
 
@@ -103,7 +119,10 @@ review retention/storage before these budgets are approached. Never remove old
 citation targets to make a failing build pass. Browser monthly files retain their
 existing layout; their size is checked, not silently repartitioned by this patch.
 
-Compatibility change for custom MCP clients: list/search return paged matches,
-not a global top-k; get_wiki returns a page catalog then paged JSON text. Clients
-must follow next_cursor/next_offset and pin snapshots. Tool descriptions and MCP
-initialization carry these rules. Web UI and Chat search contracts do not change.
+Compatibility change for custom MCP clients: `search_articles` 0.5.0 no longer
+accepts or emits a continuation cursor; restart old partial searches with the
+original query and scope. `list_articles` still requires `next_cursor`, and
+`get_wiki`/`get_article` still require `next_offset` for long content. Pin
+snapshots when resolving citations. Web UI and Chat search contracts do not
+change. This is exhaustive lexical/alias retrieval, not vector RAG; Wiki remains
+a navigation/derived-evidence layer and is not used to claim source coverage.

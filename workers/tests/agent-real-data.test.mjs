@@ -34,6 +34,10 @@ test('full saved publication traverses once, resolves full records and Wiki page
       }
     }finally{console.info=info;}
     assert.ok(last.complete);assert.deepEqual(ids,new Set(expected.keys()));
+    const exhaustive=await reader.search({query:'__agent_complete_scan_sentinel_no_match__',all_history:true});
+    assert.equal(exhaustive.complete,true);assert.equal(exhaustive.next_cursor,null);
+    assert.equal(exhaustive.total_matches,0);assert.equal(exhaustive.coverage.scanned_records,manifest.total_records);
+    assert.equal(exhaustive.coverage.completed_shards,manifest.search_shards.length);
     const rows=[...expected.values()];
     const sample=[rows[0],rows.at(-1),rows.reduce((a,b)=>JSON.stringify(a).length>JSON.stringify(b).length?a:b)];
     for(const row of sample){
@@ -56,5 +60,6 @@ test('full saved publication traverses once, resolves full records and Wiki page
       do{const r=await reader.wiki({page_id,snapshot_id:wmanifest.snapshot_id,offset});text+=r.content;offset=r.next_offset;}while(offset!==null);
       assert.deepEqual(JSON.parse(text),JSON.parse(readFileSync(join(root,wmanifest.pages[page_id].file),'utf8')));
     }
-    console.log(JSON.stringify({real_records:ids.size,list_calls:calls,wiki_pages:wikiIDs.length,full_record_samples:sample.map(r=>r.uid),snapshot_id:manifest.snapshot_id}));
+    console.log(JSON.stringify({real_records:ids.size,list_calls:calls,search_calls:1,search_shards:manifest.search_shards.length,
+      wiki_pages:wikiIDs.length,full_record_samples:sample.map(r=>r.uid),snapshot_id:manifest.snapshot_id}));
   });

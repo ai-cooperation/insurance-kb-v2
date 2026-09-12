@@ -1,20 +1,24 @@
 /** Complete Agent retrieval over immutable monthly data. Chat stays separate.
- * A page of matches is NOT proof of full coverage: follow next_cursor until
- * complete=true. Failed reads throw; never turn missing data into empty success.
+ * Search proves scope coverage server-side; list pagination still requires its
+ * next_cursor. Failed reads throw; never turn missing data into empty success.
  */
 import { searchArticles, type Article } from "./search";
 
 type Args = Record<string, unknown>;
-type Ref = { file: string; sha256: string; month?: string; count?: number; revision_id?: string; period?: string };
+type Ref = { file: string; sha256: string; month?: string; count?: number; revision_id?: string; period?: string;
+  from_month?: string | null; to_month?: string | null; has_unknown_dates?: boolean };
 type Manifest = { schema_version: number; kind: string; snapshot_id: string; shards: Ref[];
   catalogs: Record<string, Ref>; months: Record<string, number>; total_records: number;
-  newest_date?: string; pages: Record<string, Ref> };
+  newest_date?: string; pages: Record<string, Ref>; search_shards?: Ref[]; search_records?: number };
 type Row = Article & { uid: string; _lineage: { revision_id: string; content_kind?: string; verification_status?: string } };
 type CursorKV = { get(key: string): Promise<string | null>; put(key: string, value: string, options?: {expirationTtl: number}): Promise<unknown> };
 type State = { operation: string; snapshot_id: string; scope: Args; limit: number; shard: number; offset: number };
 const BASE = "https://insurance-kb.cooperation.tw/data/agent/";
 const HASH = /^[a-f0-9]{64}$/;
 const MAX_SHARDS = 4;
+const MAX_SEARCH_SHARDS = 40;
+const SEARCH_CONCURRENCY = 5;
+const MONTH = /^(\d{4}-(0[1-9]|1[0-2])|unknown)$/;
 
 function fail(code: string, message: string): never { throw new Error(`${code}: ${message}`); }
 function stringArg(args: Args, key: string, max = 300): string | undefined {
@@ -69,7 +73,7 @@ export class AgentReader {
     if (kind === "agent_articles") {
       const counts: Record<string, number> = {}, paths = new Set<string>();
       for (const s of m.shards) {
-        if (!s || !/^(\d{4}-(0[1-9]|1[0-2])|unknown)$/.test(s.month) || !HASH.test(s.sha256 ?? "")
+        if (!s || !MONTH.test(s.month ?? "") || !HASH.test(s.sha256 ?? "")
             || typeof s.file !== "string" || !Number.isSafeInteger(s.count) || s.count <= 0 || paths.has(s.file))
           fail("INTEGRITY_ERROR", "shard descriptor");
         paths.add(s.file); counts[s.month] = (counts[s.month] ?? 0) + s.count;
@@ -78,6 +82,24 @@ export class AgentReader {
           || Object.values(counts).reduce((a,b)=>a+b,0) !== m.total_records
           || JSON.stringify(stable(counts)) !== JSON.stringify(stable(m.months)))
         fail("INTEGRITY_ERROR", "manifest coverage totals");
+      if (m.search_shards !== undefined) {
+        if (!Array.isArray(m.search_shards) || m.search_shards.length > MAX_SEARCH_SHARDS
+            || m.search_records !== m.total_records)
+          fail("INTEGRITY_ERROR", "search coverage totals");
+        let searchRecords = 0;
+        const searchPaths = new Set<string>();
+        for (const s of m.search_shards) {
+          const from = s?.from_month, to = s?.to_month;
+          const validRange = (from === null && to === null && s?.has_unknown_dates === true)
+            || (typeof from === "string" && typeof to === "string" && MONTH.test(from) && MONTH.test(to)
+              && from !== "unknown" && to !== "unknown" && from <= to);
+          if (!s || !HASH.test(s.sha256 ?? "") || typeof s.file !== "string"
+              || !Number.isSafeInteger(s.count) || s.count! <= 0 || searchPaths.has(s.file) || !validRange)
+            fail("INTEGRITY_ERROR", "search shard descriptor");
+          searchPaths.add(s.file); searchRecords += s.count!;
+        }
+        if (searchRecords !== m.total_records) fail("INTEGRITY_ERROR", "search coverage totals");
+      }
     }
     if (kind === "agent_wikis" && (!m.pages || typeof m.pages !== "object")) fail("INTEGRITY_ERROR", "wiki manifest");
     return m;
@@ -90,7 +112,8 @@ export class AgentReader {
       date_semantics: "published dates from sources, not collection start date; legacy dates unverified",
       scope: "browser-visible records; filtered and duplicate records remain in backend",
       tools: ["list_articles", "search_articles", "get_article", "get_wiki"],
-      instructions: "Use date_from/date_to or all_history. Continue next_cursor until complete. Cite snapshot_id+article_id+revision_id." };
+      search_mode: m.search_shards ? "server_complete_global_ranking" : "unavailable_for_this_snapshot",
+      instructions: "Search scans its selected scope server-side. Only list_articles needs next_cursor. Cite snapshot_id+article_id+revision_id." };
   }
 
   private async state(args: Args, operation: string): Promise<State> {
@@ -126,11 +149,65 @@ export class AgentReader {
     return {operation,snapshot_id:m.snapshot_id,scope,limit:integer(args.limit,30,1,100),shard:0,offset:0};
   }
 
-  async list(args: Args = {}) { return this.scan(args,"list"); }
-  async search(args: Args = {}) { return this.scan(args,"search"); }
+  async list(args: Args = {}) { return this.scan(args); }
+  async search(args: Args = {}) { return this.completeSearch(args); }
 
-  private async scan(args: Args, operation: string) {
-    const s = await this.state(args,operation);
+  private preview(r: Row, snapshot_id: string, score?: number) {
+    return {uid:r.uid,title:r.title,title_en:r.title_en,date:r.date,source:r.source,
+      source_url:r.source_url,category:r.category,region:r.region,summary:r.summary?.slice(0,200),
+      preview_only:true,score,content_kind:r._lineage.content_kind,verification_status:r._lineage.verification_status,
+      citation:{article_id:r.uid,revision_id:r._lineage.revision_id,snapshot_id}};
+  }
+
+  private async completeSearch(args: Args) {
+    if (args.cursor !== undefined) fail("INVALID_CURSOR", "search is server-complete; restart with query and optional scope");
+    const s = await this.state(args,"search");
+    const m = await this.manifest(s.snapshot_id);
+    if (!m.search_shards) fail("DATA_UNAVAILABLE", "complete search index is unavailable for this snapshot");
+    const from = s.scope.date_from as string | undefined, to = s.scope.date_to as string | undefined;
+    const fromMonth = from?.slice(0,7), toMonth = to?.slice(0,7);
+    const selected = m.search_shards.filter(x =>
+      (!fromMonth || (x.to_month !== null && x.to_month !== undefined && x.to_month >= fromMonth))
+      && (!toMonth || (x.from_month !== null && x.from_month !== undefined && x.from_month <= toMonth)));
+    let scanned = 0, totalMatches = 0;
+    let best: Array<{article: Row; score: number}> = [];
+    for (let start = 0; start < selected.length; start += SEARCH_CONCURRENCY) {
+      const batch = selected.slice(start,start+SEARCH_CONCURRENCY);
+      const loaded = await Promise.all(batch.map(part => this.json(part.file,part.sha256)));
+      for (let index = 0; index < loaded.length; index++) {
+        const rows = loaded[index], part = batch[index];
+        if (!Array.isArray(rows) || rows.length !== part.count
+            || rows.some(r => !r?.uid || !HASH.test(r?._lineage?.revision_id ?? "")))
+          fail("INTEGRITY_ERROR", "search shard shape");
+        scanned += rows.length;
+        const candidates: Row[] = rows.filter((r: Row) => {
+          if ((from && r.date < from) || (to && r.date > to)) return false;
+          if (s.scope.category && !(r.category ?? "").toLowerCase().includes(String(s.scope.category).toLowerCase())) return false;
+          if (s.scope.region && !(r.region ?? "").toLowerCase().includes(String(s.scope.region).toLowerCase())) return false;
+          return true;
+        });
+        const matches = searchArticles(candidates,String(s.scope.query),candidates.length) as Array<{article: Row; score: number}>;
+        totalMatches += matches.length;
+        best = [...best,...matches].sort((a,b) => b.score-a.score
+          || (b.article.date ?? "").localeCompare(a.article.date ?? "")
+          || a.article.uid.localeCompare(b.article.uid)).slice(0,s.limit);
+      }
+    }
+    const trace_id = crypto.randomUUID();
+    const months = Object.keys(m.months).filter(month => month !== "unknown"
+      && (!fromMonth || month >= fromMonth) && (!toMonth || month <= toMonth)).sort().reverse();
+    const coverage = {selected_shards:selected.length,completed_shards:selected.length,remaining_shards:0,
+      scanned_records:scanned,months,excluded_unknown_date_records:(from||to)?(m.months.unknown??0):0};
+    console.info(JSON.stringify({event:"agent_retrieval",trace_id,operation:"search",snapshot_id:m.snapshot_id,
+      complete:true,count:best.length,total_matches:totalMatches,coverage}));
+    return {snapshot_id:m.snapshot_id,trace_id,scope:s.scope,count:best.length,total_matches:totalMatches,
+      results:best.map(x=>this.preview(x.article,m.snapshot_id,x.score)),complete:true,next_cursor:null,coverage,
+      result_truncated:totalMatches>best.length,ordering:"global_relevance_score_then_date_desc_within_snapshot",
+      warning:totalMatches>best.length?`Complete scope scan found ${totalMatches} matches; returning top ${best.length}.`:null};
+  }
+
+  private async scan(args: Args) {
+    const s = await this.state(args,"list");
     const m = await this.manifest(s.snapshot_id);
     const from = s.scope.date_from as string | undefined, to = s.scope.date_to as string | undefined;
     const selected = m.shards.filter(x => (!from || (x.month !== "unknown" && x.month! >= from.slice(0,7))) && (!to || (x.month !== "unknown" && x.month! <= to.slice(0,7))));
@@ -146,12 +223,7 @@ export class AgentReader {
         if ((from && r.date < from) || (to && r.date > to) || r.filter) continue;
         if (s.scope.category && !(r.category ?? "").toLowerCase().includes(String(s.scope.category).toLowerCase())) continue;
         if (s.scope.region && !(r.region ?? "").toLowerCase().includes(String(s.scope.region).toLowerCase())) continue;
-        const score = operation === "search" ? searchArticles([r],String(s.scope.query),1)[0]?.score : undefined;
-        if (operation === "search" && !score) continue;
-        results.push({uid:r.uid,title:r.title,title_en:r.title_en,date:r.date,source:r.source,
-          source_url:r.source_url,category:r.category,region:r.region,summary:r.summary?.slice(0,200),
-          preview_only:true,score,content_kind:r._lineage.content_kind,verification_status:r._lineage.verification_status,
-          citation:{article_id:r.uid,revision_id:r._lineage.revision_id,snapshot_id:m.snapshot_id}});
+        results.push(this.preview(r,m.snapshot_id));
       }
       if (offset >= rows.length) { shard++; offset=0; }
     }
@@ -165,9 +237,9 @@ export class AgentReader {
     const coverage = {selected_shards:selected.length,completed_shards:shard,partial_shard:offset>0?selected[shard]?.file:null,
       months:[...new Set(selected.map(x=>x.month))],remaining_shards:Math.max(0,selected.length-shard),
       excluded_unknown_date_records:(from||to)?(m.months.unknown??0):0};
-    console.info(JSON.stringify({event:"agent_retrieval",trace_id,operation,snapshot_id:m.snapshot_id,complete,count:results.length,coverage}));
+    console.info(JSON.stringify({event:"agent_retrieval",trace_id,operation:"list",snapshot_id:m.snapshot_id,complete,count:results.length,coverage}));
     return {snapshot_id:m.snapshot_id,trace_id,scope:s.scope,count:results.length,
-      articles:operation==="list"?results:undefined,results:operation==="search"?results:undefined,
+      articles:results,
       complete,next_cursor,coverage,ordering:"date_desc_within_snapshot; no global relevance ranking",
       warning:complete?null:"Partial retrieval. Continue next_cursor before claiming all-history coverage or no matches."};
   }
