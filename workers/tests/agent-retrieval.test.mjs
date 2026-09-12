@@ -83,6 +83,16 @@ test('missing compact search shard fails instead of returning partial matches',a
   const {reader,files,manifest}=fixture();files.delete(manifest.search_shards[1].file);
   await assert.rejects(reader.search({query:'Synthetic'}),/DATA_UNAVAILABLE/);
 });
+test('reader works on the deployed compatibility date without AbortSignal.timeout',async()=>{
+  const original=AbortSignal.timeout;
+  Object.defineProperty(AbortSignal,'timeout',{value:undefined,configurable:true});
+  try {
+    const {reader}=fixture();const r=await reader.search({query:'6'});
+    assert.equal(r.complete,true);assert.equal(r.results[0].uid,'a6');
+  } finally {
+    Object.defineProperty(AbortSignal,'timeout',{value:original,configurable:true});
+  }
+});
 test('missing shard fails instead of claiming complete',async()=>{
   const {reader,files,shards}=fixture();files.delete(shards[1].file);
   await assert.rejects(reader.list({all_history:true}),/DATA_UNAVAILABLE/);

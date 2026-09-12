@@ -52,10 +52,21 @@ export class AgentReader {
 
   private async json(path: string, expected?: string): Promise<any> {
     if (!/^(manifest|wiki-manifest)\.json$/.test(path) && !/^(snapshots|catalogs|objects(?:\/[a-z0-9-]+)?)\/[a-f0-9]{64}\.json$/.test(path)) fail("INTEGRITY_ERROR", "invalid publication path");
+    // compatibility_date=2024-10-18 does not expose AbortSignal.timeout.
+    // Keep the explicit deadline without requiring a broad runtime upgrade.
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(),15000);
     let response: Response;
-    try { response = await this.fetcher(BASE + path, { signal: AbortSignal.timeout(15000), headers: {"Cache-Control":"no-cache"} }); }
-    catch { return fail("DATA_UNAVAILABLE", path); }
-    if (!response.ok) fail("DATA_UNAVAILABLE", `${path} HTTP ${response.status}`);
+    try { response = await this.fetcher(BASE + path, { signal: controller.signal, headers: {"Cache-Control":"no-cache"} }); }
+    catch (error) {
+      console.error(JSON.stringify({event:"agent_publication_fetch_failed",path,
+        reason:error instanceof Error?error.name:typeof error}));
+      return fail("DATA_UNAVAILABLE", path);
+    } finally { clearTimeout(timeout); }
+    if (!response.ok) {
+      console.error(JSON.stringify({event:"agent_publication_fetch_failed",path,status:response.status}));
+      fail("DATA_UNAVAILABLE", `${path} HTTP ${response.status}`);
+    }
     const text = await response.text();
     if (new TextEncoder().encode(text).length > 2 * 1024 * 1024) fail("INTEGRITY_ERROR", "publication object exceeds budget");
     if (expected && await hash(text) !== expected) fail("INTEGRITY_ERROR", `checksum ${path}`);
