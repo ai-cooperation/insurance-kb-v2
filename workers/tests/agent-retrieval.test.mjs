@@ -28,13 +28,16 @@ function fixture() {
     title:`Synthetic insurance ${i}`, summary:'complete saved excerpt '.repeat(900),
     _lineage:{revision_id:String(i).repeat(64),content_kind:'saved_excerpt',verification_status:'unverified'}}));
   const shards = rows.map(r => ({...object([r]),month:r.date.slice(0,7)}));
-  const searchShards = rows.map(r => ({...object([r], 'objects/search'),from_month:r.date.slice(0,7),to_month:r.date.slice(0,7)}));
+  const searchRows = rows.map((r,i) => [r.uid,r._lineage.revision_id,i,r.date,
+    r.title.toLowerCase(),(r.title_en??'').toLowerCase(),(r.category??'').toLowerCase(),
+    (r.region??'').toLowerCase(),(r.summary??'').toLowerCase()]);
+  const searchShards = searchRows.map(r => ({...object([r], 'objects/search'),from_month:r[3].slice(0,7),to_month:r[3].slice(0,7)}));
   const catalogs = Object.fromEntries(rows.map((r,i) => [r.uid,object({[r.uid]:{...shards[i],revision_id:r._lineage.revision_id}},'catalogs')]));
   function snapshot(body, current) {
     const snapshot_id=hash(encode(body)), m={...body,snapshot_id};
     files.set(current,encode(m)); files.set(`snapshots/${snapshot_id}.json`,encode(m));return m;
   }
-  const manifest=snapshot({schema_version:3,kind:'agent_articles',shards,search_shards:searchShards,search_records:7,catalogs,total_records:7,
+  const manifest=snapshot({schema_version:3,kind:'agent_articles',shards,search_format:'compact-v2',search_shards:searchShards,search_records:7,catalogs,total_records:7,
     months:Object.fromEntries(shards.map(s=>[s.month,1])),newest_date:'2026-01-01'},'manifest.json');
   const kv={get:async k=>cursors.get(k)??null,put:async(k,v)=>{cursors.set(k,v);}};
   const fetcher=async url=>{const p=new URL(url).pathname.split('/agent/')[1];return new Response(files.get(p)??'missing',{status:files.has(p)?200:404});};
@@ -169,7 +172,7 @@ test('partial shard resume neither skips nor duplicates records',async()=>{
   const {reader,rows,object,snapshot,manifest}=fixture();
   const batch=rows.slice(0,3).map(r=>({...r,date:'2026-01-01'}));
   snapshot({schema_version:3,kind:'agent_articles',shards:[{...object(batch),month:'2026-01'}],
-    search_shards:[{...object(batch,'objects/search'),from_month:'2026-01',to_month:'2026-01'}],search_records:3,
+    search_format:'compact-v2',search_shards:[{...object(batch.map((r,i)=>[r.uid,r._lineage.revision_id,0,r.date,r.title.toLowerCase(),'', '', '',(r.summary??'').toLowerCase()]),'objects/search'),from_month:'2026-01',to_month:'2026-01'}],search_records:3,
     catalogs:manifest.catalogs,months:{'2026-01':3},total_records:3},'manifest.json');
   const first=await reader.list({all_history:true,limit:2});
   assert.equal(first.coverage.completed_shards,0);assert.ok(first.coverage.partial_shard);
@@ -186,4 +189,32 @@ test('invalid scope arguments and missing lookups are explicit failures',async()
   await assert.rejects(reader.article({article_id:'../x'}),/INVALID_ARGUMENT/);
   await assert.rejects(reader.article({article_id:'absent'}),/NOT_FOUND/);
   await assert.rejects(reader.catalog({snapshot_id:'bad'}),/INVALID_ARGUMENT/);
+});
+
+test('search caps previews at 20 while still reporting the full match count',async()=>{
+  const {reader}=fixture();
+  await assert.rejects(reader.search({query:'Synthetic',limit:21}),/INVALID_ARGUMENT/);
+  const r=await reader.search({query:'Synthetic',limit:7});
+  assert.equal(r.total_matches,7);assert.equal(r.results.length,7);
+});
+
+test('current publication searches D1 then resolves exact monthly revisions',async()=>{
+  const {manifest,snapshot,rows,kv,fetcher}=fixture();
+  const {snapshot_id,search_shards,search_format,...body}=manifest;
+  const current=snapshot({...body,search_backend:'d1-v1',search_records:7},'manifest.json');
+  const db={
+    prepare(sql){return {sql,params:[],bind(...params){this.params=params;return this;},
+      async first(){return {snapshot_id:current.snapshot_id,total_records:7};}};},
+    async batch(statements){
+      assert.equal(statements.length,2);assert.match(statements[0].sql,/agent_search_fts/);
+      const row=rows[6];
+      return [{results:[{total:1}]},{results:[{uid:row.uid,revision_id:row._lineage.revision_id,date:row.date,score:3}]}];
+    },
+  };
+  const reader=new AgentReader(kv,'d1-user',fetcher,db);
+  const result=await reader.search({query:'old history',limit:5});
+  assert.equal(result.complete,true);assert.equal(result.total_matches,1);
+  assert.equal(result.results[0].uid,'a6');
+  assert.equal(result.results[0].citation.revision_id,rows[6]._lineage.revision_id);
+  assert.equal(result.coverage.index_backend,'d1-v1');
 });

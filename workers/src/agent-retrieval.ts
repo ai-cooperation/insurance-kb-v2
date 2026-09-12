@@ -2,21 +2,25 @@
  * Search proves scope coverage server-side; list pagination still requires its
  * next_cursor. Failed reads throw; never turn missing data into empty success.
  */
-import { searchArticles, type Article } from "./search";
+import { scoreNormalizedArticle, searchArticles, searchTermGroups, type Article } from "./search";
 
 type Args = Record<string, unknown>;
 type Ref = { file: string; sha256: string; month?: string; count?: number; revision_id?: string; period?: string;
   from_month?: string | null; to_month?: string | null; has_unknown_dates?: boolean };
 type Manifest = { schema_version: number; kind: string; snapshot_id: string; shards: Ref[];
   catalogs: Record<string, Ref>; months: Record<string, number>; total_records: number;
-  newest_date?: string; pages: Record<string, Ref>; search_shards?: Ref[]; search_records?: number };
+  newest_date?: string; pages: Record<string, Ref>; search_backend?: string; search_format?: string;
+  search_shards?: Ref[]; search_records?: number };
 type Row = Article & { uid: string; _lineage: { revision_id: string; content_kind?: string; verification_status?: string } };
+type SearchRow = [string,string,number,string,string,string,string,string,string];
 type CursorKV = { get(key: string): Promise<string | null>; put(key: string, value: string, options?: {expirationTtl: number}): Promise<unknown> };
 type State = { operation: string; snapshot_id: string; scope: Args; limit: number; shard: number; offset: number };
 const BASE = "https://insurance-kb.cooperation.tw/data/agent/";
 const HASH = /^[a-f0-9]{64}$/;
 const MAX_SHARDS = 4;
 const MAX_SEARCH_SHARDS = 40;
+const COMPACT_SEARCH_SHARDS = 20;
+const MAX_SEARCH_RESULTS = 20;
 const SEARCH_CONCURRENCY = 5;
 const MONTH = /^(\d{4}-(0[1-9]|1[0-2])|unknown)$/;
 
@@ -48,7 +52,8 @@ async function hash(text: string): Promise<string> {
 }
 
 export class AgentReader {
-  constructor(private kv: CursorKV, private owner: string, private fetcher: typeof fetch = fetch) {}
+  constructor(private kv: CursorKV, private owner: string, private fetcher: typeof fetch = fetch,
+    private searchDb?: D1Database) {}
 
   private async json(path: string, expected?: string): Promise<any> {
     if (!/^(manifest|wiki-manifest)\.json$/.test(path) && !/^(snapshots|catalogs|objects(?:\/[a-z0-9-]+)?)\/[a-f0-9]{64}\.json$/.test(path)) fail("INTEGRITY_ERROR", "invalid publication path");
@@ -94,8 +99,12 @@ export class AgentReader {
           || Object.values(counts).reduce((a,b)=>a+b,0) !== m.total_records
           || JSON.stringify(stable(counts)) !== JSON.stringify(stable(m.months)))
         fail("INTEGRITY_ERROR", "manifest coverage totals");
+      if (m.search_backend !== undefined
+          && (m.search_backend !== "d1-v1" || m.search_records !== m.total_records))
+        fail("INTEGRITY_ERROR", "search backend totals");
       if (m.search_shards !== undefined) {
-        if (!Array.isArray(m.search_shards) || m.search_shards.length > MAX_SEARCH_SHARDS
+        const shardLimit = m.search_format === "compact-v2" ? COMPACT_SEARCH_SHARDS : MAX_SEARCH_SHARDS;
+        if (!Array.isArray(m.search_shards) || m.search_shards.length > shardLimit
             || m.search_records !== m.total_records)
           fail("INTEGRITY_ERROR", "search coverage totals");
         let searchRecords = 0;
@@ -124,7 +133,8 @@ export class AgentReader {
       date_semantics: "published dates from sources, not collection start date; legacy dates unverified",
       scope: "browser-visible records; filtered and duplicate records remain in backend",
       tools: ["list_articles", "search_articles", "get_article", "get_wiki"],
-      search_mode: m.search_shards ? "server_complete_global_ranking" : "unavailable_for_this_snapshot",
+      search_mode: m.search_backend === "d1-v1" ? "d1_complete_global_ranking"
+        : m.search_shards ? "server_complete_global_ranking" : "unavailable_for_this_snapshot",
       instructions: "Search scans its selected scope server-side. Only list_articles needs next_cursor. Cite snapshot_id+article_id+revision_id." };
   }
 
@@ -155,10 +165,14 @@ export class AgentReader {
     if (date_from && date_to && date_from > date_to) fail("INVALID_ARGUMENT", "reversed date range");
     const query = stringArg(args,"query");
     if (operation === "search" && !query) fail("INVALID_ARGUMENT", "query is required on first search");
+    if (operation === "search" && query!.trim().split(/\s+/).length > 8)
+      fail("INVALID_ARGUMENT", "query has more than 8 terms");
     const scope = Object.fromEntries(Object.entries({date_from,date_to,query,
       category:stringArg(args,"category"),region:stringArg(args,"region"),all_history:args.all_history,days:args.days}).filter(([,v])=>v !== undefined));
     const m = await this.manifest(args.snapshot_id);
-    return {operation,snapshot_id:m.snapshot_id,scope,limit:integer(args.limit,30,1,100),shard:0,offset:0};
+    const defaultLimit = operation === "search" ? MAX_SEARCH_RESULTS : 30;
+    const maxLimit = operation === "search" ? MAX_SEARCH_RESULTS : 100;
+    return {operation,snapshot_id:m.snapshot_id,scope,limit:integer(args.limit,defaultLimit,1,maxLimit),shard:0,offset:0};
   }
 
   async list(args: Args = {}) { return this.scan(args); }
@@ -175,12 +189,15 @@ export class AgentReader {
     if (args.cursor !== undefined) fail("INVALID_CURSOR", "search is server-complete; restart with query and optional scope");
     const s = await this.state(args,"search");
     const m = await this.manifest(s.snapshot_id);
+    if (m.search_backend === "d1-v1") return this.d1Search(s,m);
     if (!m.search_shards) fail("DATA_UNAVAILABLE", "complete search index is unavailable for this snapshot");
     const from = s.scope.date_from as string | undefined, to = s.scope.date_to as string | undefined;
     const fromMonth = from?.slice(0,7), toMonth = to?.slice(0,7);
     const selected = m.search_shards.filter(x =>
       (!fromMonth || (x.to_month !== null && x.to_month !== undefined && x.to_month >= fromMonth))
       && (!toMonth || (x.from_month !== null && x.from_month !== undefined && x.from_month <= toMonth)));
+    if (m.search_format === "compact-v2")
+      return this.compactSearch(s,m,selected,from,to,fromMonth,toMonth);
     let scanned = 0, totalMatches = 0;
     let best: Array<{article: Row; score: number}> = [];
     for (let start = 0; start < selected.length; start += SEARCH_CONCURRENCY) {
@@ -214,6 +231,168 @@ export class AgentReader {
       complete:true,count:best.length,total_matches:totalMatches,coverage}));
     return {snapshot_id:m.snapshot_id,trace_id,scope:s.scope,count:best.length,total_matches:totalMatches,
       results:best.map(x=>this.preview(x.article,m.snapshot_id,x.score)),complete:true,next_cursor:null,coverage,
+      result_truncated:totalMatches>best.length,ordering:"global_relevance_score_then_date_desc_within_snapshot",
+      warning:totalMatches>best.length?`Complete scope scan found ${totalMatches} matches; returning top ${best.length}.`:null};
+  }
+
+  private like(value: string): string {
+    return `%${value.replaceAll("\\","\\\\").replaceAll("%","\\%").replaceAll("_","\\_")}%`;
+  }
+
+  private async resolveSearchRows(m: Manifest,
+    candidates: Array<{uid:string;revision:string;date:string;score:number}>): Promise<Map<string,Row>> {
+    const byCatalog = new Map<string,string[]>();
+    for (const candidate of candidates) {
+      const prefix = Object.keys(m.catalogs).filter(p=>candidate.uid.startsWith(p)).sort((a,b)=>b.length-a.length)[0];
+      if (!prefix) fail("INTEGRITY_ERROR", "search result has no catalog bucket");
+      if (!byCatalog.has(prefix)) byCatalog.set(prefix,[]);
+      byCatalog.get(prefix)!.push(candidate.uid);
+    }
+    const articleRefs = new Map<string,Ref>();
+    const catalogs = [...byCatalog.entries()];
+    for (let start=0; start<catalogs.length; start+=SEARCH_CONCURRENCY) {
+      const batch=catalogs.slice(start,start+SEARCH_CONCURRENCY);
+      const loaded=await Promise.all(batch.map(([prefix])=>this.json(m.catalogs[prefix].file,m.catalogs[prefix].sha256)));
+      for(let i=0;i<batch.length;i++) for(const uid of batch[i][1]) {
+        const ref=loaded[i]?.[uid]; if(!ref) fail("INTEGRITY_ERROR", "search catalog lookup");
+        articleRefs.set(uid,ref);
+      }
+    }
+    const byFile = new Map<string,{ref:Ref;uids:Set<string>}>();
+    for (const [uid,ref] of articleRefs) {
+      if (!byFile.has(ref.file)) byFile.set(ref.file,{ref,uids:new Set()});
+      byFile.get(ref.file)!.uids.add(uid);
+    }
+    const full = new Map<string,Row>(), files=[...byFile.values()];
+    for(let start=0;start<files.length;start+=SEARCH_CONCURRENCY) {
+      const batch=files.slice(start,start+SEARCH_CONCURRENCY);
+      const loaded=await Promise.all(batch.map(x=>this.json(x.ref.file,x.ref.sha256)));
+      for(let i=0;i<batch.length;i++) {
+        if(!Array.isArray(loaded[i])) fail("INTEGRITY_ERROR", "article shard after D1 search");
+        for(const row of loaded[i] as Row[]) if(batch[i].uids.has(row.uid)) full.set(row.uid,row);
+      }
+    }
+    for(const candidate of candidates) {
+      const row=full.get(candidate.uid), ref=articleRefs.get(candidate.uid);
+      if(!row?._lineage || row._lineage.revision_id!==candidate.revision
+          || ref?.revision_id!==candidate.revision)
+        fail("INTEGRITY_ERROR", "D1 result revision differs from monthly source");
+    }
+    return full;
+  }
+
+  private async d1Search(s: State, m: Manifest) {
+    if (!this.searchDb) fail("DATA_UNAVAILABLE", "D1 search binding is unavailable");
+    const meta = await this.searchDb.prepare(
+      "SELECT snapshot_id,total_records FROM agent_search_meta WHERE singleton=1"
+    ).first<{snapshot_id:string;total_records:number}>();
+    if (!meta || meta.snapshot_id !== m.snapshot_id || meta.total_records !== m.total_records)
+      fail("DATA_UNAVAILABLE", "D1 index snapshot does not match publication");
+    const groups=searchTermGroups(String(s.scope.query));
+    const scoreParts:string[]=[], scoreParams:string[]=[];
+    for(const group of groups) for(const [field,weight] of [["title",3],["title_en",3],["category",2],["summary",1]] as const) {
+      scoreParts.push(`CASE WHEN (${group.map(()=>`f.${field} LIKE ? ESCAPE '\\'`).join(" OR ")}) THEN ${weight} ELSE 0 END`);
+      scoreParams.push(...group.map(term=>this.like(term)));
+    }
+    const filters:string[]=[], filterParams:string[]=[];
+    const from=s.scope.date_from as string|undefined,to=s.scope.date_to as string|undefined;
+    if(from){filters.push("a.date >= ?");filterParams.push(from);}
+    if(to){filters.push("a.date <= ?");filterParams.push(to);}
+    if(s.scope.category){filters.push("a.category LIKE ? ESCAPE '\\'");filterParams.push(this.like(String(s.scope.category).toLowerCase()));}
+    if(s.scope.region){filters.push("a.region LIKE ? ESCAPE '\\'");filterParams.push(this.like(String(s.scope.region).toLowerCase()));}
+    const cte=`WITH scored AS (SELECT a.uid,a.revision_id,a.date,(${scoreParts.join("+")}) AS score
+      FROM agent_search_articles a JOIN agent_search_fts f ON f.rowid=a.id
+     ${filters.length?` WHERE ${filters.join(" AND ")}`:""})`;
+    const params=[...scoreParams,...filterParams];
+    const [countResult,topResult]=await this.searchDb.batch([
+      this.searchDb.prepare(`${cte} SELECT COUNT(*) AS total FROM scored WHERE score>0`).bind(...params),
+      this.searchDb.prepare(`${cte} SELECT uid,revision_id,date,score FROM scored WHERE score>0
+        ORDER BY score DESC,date DESC,uid ASC LIMIT ?`).bind(...params,s.limit),
+    ]);
+    const total=Number((countResult.results?.[0] as {total?:number}|undefined)?.total??0);
+    const candidates=(topResult.results??[]).map((row:any)=>({uid:String(row.uid),revision:String(row.revision_id),
+      date:String(row.date),score:Number(row.score)}));
+    const full=await this.resolveSearchRows(m,candidates);
+    const fromMonth=from?.slice(0,7),toMonth=to?.slice(0,7);
+    const months=Object.keys(m.months).filter(month=>month!=="unknown"&&(!fromMonth||month>=fromMonth)&&(!toMonth||month<=toMonth)).sort().reverse();
+    const trace_id=crypto.randomUUID();
+    const coverage={index_backend:"d1-v1",selected_shards:1,completed_shards:1,remaining_shards:0,
+      scanned_records:meta.total_records,months,excluded_unknown_date_records:(from||to)?(m.months.unknown??0):0};
+    console.info(JSON.stringify({event:"agent_retrieval",trace_id,operation:"search",snapshot_id:m.snapshot_id,
+      complete:true,count:candidates.length,total_matches:total,coverage}));
+    return {snapshot_id:m.snapshot_id,trace_id,scope:s.scope,count:candidates.length,total_matches:total,
+      results:candidates.map(x=>this.preview(full.get(x.uid)!,m.snapshot_id,x.score)),complete:true,next_cursor:null,coverage,
+      result_truncated:total>candidates.length,ordering:"global_relevance_score_then_date_desc_within_snapshot",
+      warning:total>candidates.length?`Complete scope search found ${total} matches; returning top ${candidates.length}.`:null};
+  }
+
+  private async compactSearch(s: State, m: Manifest, selected: Ref[], from?: string, to?: string,
+    fromMonth?: string, toMonth?: string) {
+    const termGroups = searchTermGroups(String(s.scope.query));
+    const category = String(s.scope.category ?? "").toLowerCase();
+    const region = String(s.scope.region ?? "").toLowerCase();
+    let scanned = 0, totalMatches = 0;
+    let best: Array<{uid:string;revision:string;articleShard:number;date:string;score:number}> = [];
+    for (let start = 0; start < selected.length; start += SEARCH_CONCURRENCY) {
+      const batch = selected.slice(start,start+SEARCH_CONCURRENCY);
+      const loaded = await Promise.all(batch.map(part => this.json(part.file,part.sha256)));
+      for (let index = 0; index < loaded.length; index++) {
+        const rows = loaded[index], part = batch[index];
+        if (!Array.isArray(rows) || rows.length !== part.count)
+          fail("INTEGRITY_ERROR", "compact search shard shape");
+        scanned += rows.length;
+        for (const value of rows) {
+          if (!Array.isArray(value) || value.length !== 9 || typeof value[0] !== "string"
+              || !HASH.test(value[1] ?? "") || !Number.isSafeInteger(value[2])
+              || value[2] < 0 || value[2] >= m.shards.length
+              || value.slice(3).some(field => typeof field !== "string"))
+            fail("INTEGRITY_ERROR", "compact search row shape");
+          const row = value as SearchRow;
+          if ((from && row[3] < from) || (to && row[3] > to)
+              || (category && !row[6].includes(category)) || (region && !row[7].includes(region))) continue;
+          const score = scoreNormalizedArticle(row[4],row[5],row[6],row[8],termGroups);
+          if (score <= 0) continue;
+          totalMatches++;
+          best.push({uid:row[0],revision:row[1],articleShard:row[2],date:row[3],score});
+          best.sort((a,b) => b.score-a.score || b.date.localeCompare(a.date) || a.uid.localeCompare(b.uid));
+          if (best.length > s.limit) best.pop();
+        }
+      }
+    }
+
+    const needed = new Map<number,Set<string>>();
+    for (const candidate of best) {
+      if (!needed.has(candidate.articleShard)) needed.set(candidate.articleShard,new Set());
+      needed.get(candidate.articleShard)!.add(candidate.uid);
+    }
+    const full = new Map<string,Row>();
+    const entries = [...needed.entries()];
+    for (let start = 0; start < entries.length; start += SEARCH_CONCURRENCY) {
+      const batch = entries.slice(start,start+SEARCH_CONCURRENCY);
+      const loaded = await Promise.all(batch.map(([shard]) => {
+        const ref = m.shards[shard]; return this.json(ref.file,ref.sha256);
+      }));
+      for (let index = 0; index < loaded.length; index++) {
+        const [shard,wanted] = batch[index], rows = loaded[index];
+        if (!Array.isArray(rows) || rows.length !== m.shards[shard].count)
+          fail("INTEGRITY_ERROR", "article shard shape after search");
+        for (const row of rows as Row[]) if (wanted.has(row.uid)) full.set(row.uid,row);
+      }
+    }
+    for (const candidate of best) {
+      const row = full.get(candidate.uid);
+      if (!row?._lineage || row._lineage.revision_id !== candidate.revision)
+        fail("INTEGRITY_ERROR", "compact search pointer/revision mismatch");
+    }
+    const trace_id = crypto.randomUUID();
+    const months = Object.keys(m.months).filter(month => month !== "unknown"
+      && (!fromMonth || month >= fromMonth) && (!toMonth || month <= toMonth)).sort().reverse();
+    const coverage = {selected_shards:selected.length,completed_shards:selected.length,remaining_shards:0,
+      scanned_records:scanned,months,excluded_unknown_date_records:(from||to)?(m.months.unknown??0):0};
+    console.info(JSON.stringify({event:"agent_retrieval",trace_id,operation:"search",search_format:m.search_format,
+      snapshot_id:m.snapshot_id,complete:true,count:best.length,total_matches:totalMatches,coverage}));
+    return {snapshot_id:m.snapshot_id,trace_id,scope:s.scope,count:best.length,total_matches:totalMatches,
+      results:best.map(x=>this.preview(full.get(x.uid)!,m.snapshot_id,x.score)),complete:true,next_cursor:null,coverage,
       result_truncated:totalMatches>best.length,ordering:"global_relevance_score_then_date_desc_within_snapshot",
       warning:totalMatches>best.length?`Complete scope scan found ${totalMatches} matches; returning top ${best.length}.`:null};
   }

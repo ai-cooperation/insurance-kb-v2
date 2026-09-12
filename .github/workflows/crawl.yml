@@ -86,6 +86,8 @@ jobs:
           python run.py "${args[@]}"
 
       - name: Build frontend data
+        env:
+          AGENT_INDEX_SYNC_PLAN: /tmp/agent-index-sync.json
         run: |
           python build_frontend_data.py
           python build_wiki_json.py
@@ -139,6 +141,12 @@ jobs:
 
       - name: Verify published snapshot
         run: python -m src.publication_check --live
+
+      - name: Synchronize Agent D1 search index
+        env:
+          AGENT_INDEX_SYNC_PLAN: /tmp/agent-index-sync.json
+          AGENT_INDEX_SYNC_TOKEN: ${{ secrets.AGENT_INDEX_SYNC_TOKEN }}
+        run: python -m src.agent_search_sync
 
       - name: Notify Telegram on failure
         if: failure()

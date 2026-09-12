@@ -1421,7 +1421,7 @@ async function dispatch(
         result: {
           protocolVersion: "2024-11-05",
           capabilities: { tools: {} },
-          serverInfo: { name: "insurance-kb", version: "0.5.0" },
+          serverInfo: { name: "insurance-kb", version: "0.5.1" },
           instructions: [
             "# Insurance KB — 保險業界知識庫 + VIP 研究報告產出系統",
             "Agent 讀取契約 v3：先 list_knowledge 確認日期範圍與快照；search 一次完成範圍掃描，只有 list 的 next_cursor 必須續讀至 complete=true。",
@@ -1574,7 +1574,7 @@ async function dispatch(
     if (req.method === "tools/call") {
       const params = req.params as { name: string; arguments?: Record<string, unknown> };
       const args = params.arguments || {};
-      const agentReader = new AgentReader(env.KV, user.uid);
+      const agentReader = new AgentReader(env.KV, user.uid, fetch, env.REPORTS_DB);
       let result;
       const debugEntry: MCPDebugEntry = {
         ts: Math.floor(Date.now() / 1000),
@@ -1796,7 +1796,7 @@ export async function handleMCPRPC(c: Ctx) {
 export async function handleMCPManifest(c: Context<{ Bindings: Bindings }>) {
   return c.json({
     name: "insurance-kb",
-    version: "0.5.0",
+    version: "0.5.1",
     description:
       "Insurance KB MCP — 保險業新聞 + 研究報告 + 月度蒸餾 + 研究會話協助。" +
       "供商品設計團隊透過 claude.ai 進行市場調查與報告產出。",

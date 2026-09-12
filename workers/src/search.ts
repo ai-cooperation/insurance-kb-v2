@@ -118,17 +118,37 @@ function fieldMatches(field: string, termGroup: string[]): boolean {
   return termGroup.some((t) => field.includes(t));
 }
 
+export function searchTermGroups(query: string): string[][] {
+  return query.toLowerCase().split(/\s+/).filter(Boolean).map(expandTerm);
+}
+
+/** Score fields that were normalized once when the immutable index was built. */
+export function scoreNormalizedArticle(
+  titleLower: string,
+  titleEnLower: string,
+  categoryLower: string,
+  summaryLower: string,
+  termGroups: string[][],
+): number {
+  let score = 0;
+  for (const group of termGroups) {
+    if (fieldMatches(titleLower, group)) score += 3;
+    if (fieldMatches(titleEnLower, group)) score += 3;
+    if (fieldMatches(categoryLower, group)) score += 2;
+    if (fieldMatches(summaryLower, group)) score += 1;
+  }
+  return score;
+}
+
 export function searchArticles(
   articles: Article[],
   query: string,
   topN: number = 10,
 ): SearchResult[] {
-  const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
-  if (terms.length === 0) {
+  const termGroups = searchTermGroups(query);
+  if (termGroups.length === 0) {
     return [];
   }
-
-  const termGroups = terms.map(expandTerm);
   const scored: SearchResult[] = [];
 
   for (const article of articles) {
@@ -136,26 +156,14 @@ export function searchArticles(
       continue;
     }
 
-    let score = 0;
     const titleLower = (article.title || "").toLowerCase();
     const titleEnLower = (article.title_en || "").toLowerCase();
     const categoryLower = (article.category || "").toLowerCase();
     const summaryLower = (article.summary || "").toLowerCase();
 
-    for (const group of termGroups) {
-      if (fieldMatches(titleLower, group)) {
-        score += 3;
-      }
-      if (fieldMatches(titleEnLower, group)) {
-        score += 3;
-      }
-      if (fieldMatches(categoryLower, group)) {
-        score += 2;
-      }
-      if (fieldMatches(summaryLower, group)) {
-        score += 1;
-      }
-    }
+    const score = scoreNormalizedArticle(
+      titleLower, titleEnLower, categoryLower, summaryLower, termGroups,
+    );
 
     if (score > 0) {
       scored.push({ article, score });

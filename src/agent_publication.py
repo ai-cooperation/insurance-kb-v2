@@ -2,71 +2,19 @@
 from __future__ import annotations
 
 import re
+import json
+import os
 from datetime import date, datetime
 from collections import defaultdict
 from pathlib import Path
 
 import yaml
 
-from src.monthly_store import (StorageError, digest, encode, month_of, put_object,
+from src.monthly_store import (StorageError, atomic_write, digest, encode, month_of, put_object,
                                read_object, validate_rows,
                                write_shards, write_snapshot)
 
 AGENT_MAX_BYTES = 512 * 1024
-AGENT_SEARCH_MAX_BYTES = 1900 * 1024
-AGENT_SEARCH_MAX_SHARDS = 40
-AGENT_SEARCH_FIELDS = (
-    "uid", "title", "title_en", "date", "source", "source_url",
-    "category", "region", "summary",
-)
-
-
-def project_article(row: dict) -> dict:
-    lineage = row["_lineage"]
-    return {
-        **{key: row.get(key) for key in AGENT_SEARCH_FIELDS},
-        "_lineage": {
-            "revision_id": lineage["revision_id"],
-            "content_kind": lineage.get("content_kind"),
-            "verification_status": lineage.get("verification_status"),
-        },
-    }
-
-
-def write_search_shards(rows: list, root: Path) -> list:
-    """Pack a complete, read-only search projection below the Worker request budget.
-
-    The full saved records remain in monthly shards. This projection exists so
-    one MCP search can rank the entire requested scope without asking the Agent
-    to follow hundreds of article-shard cursors.
-    """
-    # Fixed UID buckets are a Git lifecycle invariant. Sequential packing would
-    # shift nearly every later row after one insertion and rewrite ~56 MiB on
-    # each crawl. A new/revised article must replace only its own bucket.
-    buckets = [[] for _ in range(AGENT_SEARCH_MAX_SHARDS)]
-    for row in rows:
-        projected = project_article(row)
-        buckets[int(digest(row["uid"]), 16) % AGENT_SEARCH_MAX_SHARDS].append(projected)
-    shards = []
-    for part, batch in enumerate(buckets):
-        if not batch:
-            continue
-        size = len(encode(batch))
-        if size > AGENT_SEARCH_MAX_BYTES:
-            raise StorageError(
-                f"INTEGRITY_ERROR: search bucket {part} is {size} bytes; "
-                f"budget is {AGENT_SEARCH_MAX_BYTES}"
-            )
-        file, sha, size = put_object(root, batch, "objects/search")
-        months = [month_of(row) for row in batch if month_of(row) != "unknown"]
-        shards.append({
-            "part": part, "file": file, "sha256": sha, "bytes": size,
-            "count": len(batch),
-            "from_month": min(months) if months else None,
-            "to_month": max(months) if months else None,
-            "has_unknown_dates": any(month_of(row) == "unknown" for row in batch),
-        })
-    return shards
 
 
 def publish_articles(rows: list, root: Path) -> dict:
@@ -75,7 +23,6 @@ def publish_articles(rows: list, root: Path) -> dict:
         raise StorageError("INTEGRITY_ERROR: Agent export requires visible versioned rows")
     rows = sorted(rows, key=lambda r: r.get("date", ""), reverse=True)
     shards = write_shards(root, rows, AGENT_MAX_BYTES)
-    search_shards = write_search_shards(rows, root)
     catalogs = defaultdict(dict)
     months = defaultdict(int)
     for shard in shards:
@@ -106,7 +53,7 @@ def publish_articles(rows: list, root: Path) -> dict:
         "schema_version": 3, "kind": "agent_articles", "total_records": len(rows),
         "visibility_policy": "browser-visible-v1", "content_scope": "full_saved_record_not_source_fulltext",
         "months": dict(months), "shards": shards, "catalogs": links,
-        "search_shards": search_shards, "search_records": len(rows),
+        "search_backend": "d1-v1", "search_records": len(rows),
         "newest_date": max((r.get("date", "") for r in rows), default=""),
     }, root / "manifest.json")
 
@@ -195,12 +142,65 @@ def visible_rows(rows: list) -> list:
     return [r for r in rows if r["uid"] in ids]
 
 
+def search_sync_row(row: dict) -> dict:
+    text = lambda key: str(row.get(key) or "").lower()
+    return {
+        "uid": row["uid"], "revision_id": row["_lineage"]["revision_id"],
+        "date": str(row.get("date") or ""), "title": text("title"),
+        "title_en": text("title_en"), "category": text("category"),
+        "region": text("region"), "summary": text("summary"),
+    }
+
+
+def write_search_sync_plan(path: Path, before_manifest: dict, before_rows: list,
+                           after_manifest: dict, after_rows: list) -> dict:
+    """Write the bounded, idempotent D1 delta consumed after Pages publishes.
+
+    D1 is only the current query accelerator. Monthly immutable files remain
+    the source of truth and Citation Lineage target. Snapshot preconditions
+    prevent an out-of-order workflow from silently indexing the wrong build.
+    """
+    before = {row["uid"]: search_sync_row(row) for row in before_rows}
+    after = {row["uid"]: search_sync_row(row) for row in after_rows}
+    upserts = [row for uid, row in after.items() if before.get(uid) != row]
+    deletes = sorted(set(before) - set(after))
+    if len(upserts) + len(deletes) > 400:
+        raise StorageError(
+            "CAPACITY_ERROR: Agent D1 delta exceeds 400 records; run a reviewed full reindex"
+        )
+    plan = {
+        "schema_version": 1,
+        "from_snapshot_id": before_manifest.get("snapshot_id"),
+        "to_snapshot_id": after_manifest["snapshot_id"],
+        "total_records": len(after),
+        "upserts": sorted(upserts, key=lambda row: row["uid"]),
+        "deletes": deletes,
+    }
+    payload = encode(plan)
+    if len(payload) > 10 * 1024 * 1024:
+        raise StorageError("CAPACITY_ERROR: Agent D1 delta exceeds 10 MiB")
+    atomic_write(path, payload)
+    return plan
+
+
 def build_agent_data():
     from src.index_manager import load_index
     root = Path(__file__).resolve().parent.parent
     selected = visible_rows(load_index())
-    articles = publish_articles(selected, root / "frontend/public/data/agent")
+    agent_root = root / "frontend/public/data/agent"
+    before_manifest = None
+    before_rows = []
+    if (agent_root / "manifest.json").exists():
+        before_manifest = json.loads((agent_root / "manifest.json").read_text())
+        for shard in before_manifest.get("shards", []):
+            before_rows.extend(read_object(agent_root, shard))
+    articles = publish_articles(selected, agent_root)
     wiki = publish_wikis(root / "compiled/monthly", root / "frontend/public/data/agent", selected)
+    sync_plan = os.environ.get("AGENT_INDEX_SYNC_PLAN")
+    if sync_plan:
+        if not before_manifest:
+            raise StorageError("DATA_UNAVAILABLE: cannot build D1 delta without prior manifest")
+        write_search_sync_plan(Path(sync_plan), before_manifest, before_rows, articles, selected)
     print(f"Agent publication: {articles['total_records']} records, {len(articles['shards'])} shards; "
           f"{len(wiki['pages'])} Wiki pages; snapshot={articles['snapshot_id']}")
     return articles, wiki

@@ -16,6 +16,7 @@ const revision = {
   offset: {type:"integer",minimum:0,description:"前次 next_offset；同時保留 snapshot_id 和 ID"},
 };
 const searchRange = Object.fromEntries(Object.entries(range).filter(([key]) => key !== "cursor"));
+searchRange.limit = {type:"integer",minimum:1,maximum:20,description:"回傳全域前 N 筆，預設 20；完整命中數另見 total_matches"};
 
 export const AGENT_TOOLS = [
   {name:"list_knowledge",description:"查看保險 KB 可讀資料目錄、月份、筆數、最新文章日期、快照版本。月份是來源發布日期分桶，不是網站營運月數。所有資料限公開可見集合，非完整網頁全文。",inputSchema:{type:"object",properties:{snapshot_id:range.snapshot_id}}},

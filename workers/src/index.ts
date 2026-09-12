@@ -54,12 +54,71 @@ interface Bindings {
   TG_TOPIC_ID?: string;           // forum topic for the insurance KB group — [vars]
   INSURANCE_A_URL?: string;       // research pipeline engine base URL (ba-spec §7) — [vars]
   RESEARCH_PIPELINE_KEY?: string; // shared-secret for /api/research-pipeline/complete (wrangler secret)
+  AGENT_INDEX_SYNC_TOKEN?: string; // shared-secret for immutable-publication -> D1 delta sync
 }
 
 const app = new Hono<{
   Bindings: Bindings;
   Variables: { user: UserInfo; fbUser: FirebaseUser };
 }>();
+
+// D1 is a replaceable query accelerator. The caller publishes monthly JSON
+// first, then advances this index under an exact from/to snapshot precondition.
+// A mismatch leaves MCP search fail-closed instead of mixing two publications.
+app.post("/internal/agent-index/sync", async (c) => {
+  const expected = c.env.AGENT_INDEX_SYNC_TOKEN;
+  const supplied = c.req.header("Authorization");
+  if (!expected || supplied !== `Bearer ${expected}`) return c.json({error:"Unauthorized"},401);
+  const contentLength=Number(c.req.header("Content-Length")??0);
+  if(!Number.isFinite(contentLength)||contentLength>10*1024*1024)
+    return c.json({error:"Sync plan too large"},413);
+  const plan:any = await c.req.json().catch(()=>null);
+  const hash=/^[a-f0-9]{64}$/;
+  if(!plan || plan.schema_version!==1 || !hash.test(plan.from_snapshot_id??"")
+      || !hash.test(plan.to_snapshot_id??"") || !Number.isSafeInteger(plan.total_records)
+      || plan.total_records<0 || !Array.isArray(plan.upserts) || !Array.isArray(plan.deletes)
+      || plan.upserts.length+plan.deletes.length>400)
+    return c.json({error:"Invalid sync plan"},400);
+  const validText=(value:unknown,max:number)=>typeof value==="string"&&value.length<=max;
+  const validRow=(row:any)=>row&&validText(row.uid,128)&&hash.test(row.revision_id??"")
+    && validText(row.date,10)&&validText(row.title,5000)&&validText(row.title_en,5000)
+    && validText(row.category,500)&&validText(row.region,500)&&validText(row.summary,500000);
+  if(plan.upserts.some((row:any)=>!validRow(row))
+      || plan.deletes.some((uid:any)=>!validText(uid,128)))
+    return c.json({error:"Invalid sync row"},400);
+  const current=await c.env.REPORTS_DB.prepare(
+    "SELECT snapshot_id,total_records FROM agent_search_meta WHERE singleton=1"
+  ).first<{snapshot_id:string;total_records:number}>();
+  if(current && current.snapshot_id===plan.to_snapshot_id&&current.total_records===plan.total_records)
+    return c.json(current);
+  if(!current || current.snapshot_id!==plan.from_snapshot_id)
+    return c.json({error:"Snapshot precondition failed",current_snapshot_id:current?.snapshot_id??null},409);
+  const statements:D1PreparedStatement[]=[];
+  for(const uid of plan.deletes) statements.push(c.env.REPORTS_DB.prepare(
+    "DELETE FROM agent_search_articles WHERE uid=?"
+  ).bind(uid));
+  for(const row of plan.upserts) statements.push(c.env.REPORTS_DB.prepare(`
+    INSERT INTO agent_search_articles(uid,revision_id,date,title,title_en,category,region,summary)
+    VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(uid) DO UPDATE SET revision_id=excluded.revision_id,
+      date=excluded.date,title=excluded.title,title_en=excluded.title_en,category=excluded.category,
+      region=excluded.region,summary=excluded.summary
+  `).bind(row.uid,row.revision_id,row.date,row.title,row.title_en,row.category,row.region,row.summary));
+  statements.push(c.env.REPORTS_DB.prepare(`
+    INSERT INTO agent_search_meta(singleton,snapshot_id,total_records,indexed_at)
+    SELECT 1,?,?,? WHERE (SELECT COUNT(*) FROM agent_search_articles)=?
+    ON CONFLICT(singleton) DO UPDATE SET snapshot_id=excluded.snapshot_id,
+      total_records=excluded.total_records,indexed_at=excluded.indexed_at
+  `).bind(plan.to_snapshot_id,plan.total_records,Math.floor(Date.now()/1000),plan.total_records));
+  await c.env.REPORTS_DB.batch(statements);
+  const verified=await c.env.REPORTS_DB.prepare(`
+    SELECT m.snapshot_id,m.total_records,(SELECT COUNT(*) FROM agent_search_articles) AS actual_records
+    FROM agent_search_meta m WHERE singleton=1
+  `).first<{snapshot_id:string;total_records:number;actual_records:number}>();
+  if(!verified || verified.snapshot_id!==plan.to_snapshot_id
+      || verified.total_records!==plan.total_records || verified.actual_records!==plan.total_records)
+    return c.json({error:"D1 sync verification failed"},409);
+  return c.json({snapshot_id:verified.snapshot_id,total_records:verified.total_records});
+});
 
 // --- CORS ---
 app.use("/api/*", async (c, next) => {

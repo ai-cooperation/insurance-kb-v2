@@ -165,7 +165,7 @@ def test_live_snapshot_check_verifies_custom_and_pages_aliases(publication):
 @pytest.mark.parametrize("change,match", [
     ("total", "differs"), ("count", "shard count"), ("duplicate", "duplicate Agent"),
     ("catalog", "wrong record"), ("missing_catalog", "incomplete ID"),
-    ("search_total", "search coverage"), ("search_row", "search projection"),
+    ("search_total", "search coverage"), ("search_backend", "search coverage"),
 ])
 def test_gate_rejects_structurally_valid_but_incomplete_exports(publication, change, match):
     root, rows, agent = publication
@@ -181,11 +181,8 @@ def test_gate_rejects_structurally_valid_but_incomplete_exports(publication, cha
         manifest["catalogs"] = {}
     elif change == "search_total":
         manifest["search_records"] = 2
-    elif change == "search_row":
-        batch = read_object(agent, manifest["search_shards"][0])
-        batch[0]["title"] = "incorrect projected title"
-        file, sha, size = put_object(agent, batch, "objects/search")
-        manifest["search_shards"][0].update(file=file, sha256=sha, bytes=size)
+    elif change == "search_backend":
+        manifest["search_backend"] = "static"
     else:
         catalog = {"a1": {**manifest["shards"][0], "revision_id": "f" * 64}}
         file, sha, size = put_object(agent, catalog, "catalogs")

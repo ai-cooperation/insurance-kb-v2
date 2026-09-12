@@ -1,8 +1,8 @@
 # Monthly storage and Agent evidence contract
 
-Scope: Git-backed monthly storage, immutable article/wiki revisions, complete
-MCP retrieval. Existing browser payloads and Chat search remain compatible.
-No D1/R2/Queues migration, no reconstruction of missing historical evidence.
+Scope: Git-backed monthly source storage, D1 search acceleration, immutable
+article/wiki revisions and complete MCP retrieval. Existing browser payloads
+and Chat search remain compatible. No reconstruction of missing evidence.
 
 ## Storage and ownership
 
@@ -29,13 +29,15 @@ shards and ID lookup buckets. A source reference is
 `{snapshot_id, article_id, revision_id}`. Reading a historical reference
 requires its snapshot; a revision mismatch is an error, never latest fallback.
 
-The same snapshot also publishes a complete search projection in at most 40
-content-addressed objects. It contains only the fields needed to filter, rank,
-preview and cite; full saved records are not duplicated. Objects use fixed UID
-hash buckets, not sequential packing, so an insert or revision replaces only
-one bucket instead of rewriting the whole projection. The publication gate
-proves the projection has exactly the same visible IDs, search fields and
-revision IDs as the full Agent shards.
+The current snapshot is mirrored into a D1 FTS5 trigram index for search only.
+Monthly immutable files remain the source of truth: every D1 result is resolved
+through the snapshot catalog and its revision is checked against the saved
+record before it is returned. A snapshot mismatch fails closed. After Pages is
+verified, the workflow applies a bounded, idempotent delta under an exact
+from/to snapshot precondition and checks the D1 row count. More than 400
+changes stops the workflow for a reviewed full reindex rather than silently
+publishing a partial index. This avoids both a full-history Git search object
+and a full JSON scan inside the Worker CPU budget.
 
 ## MCP contracts
 
@@ -43,9 +45,10 @@ revision IDs as the full Agent shards.
 - `list_articles`: date range, optional legacy days, category, region, limit
   and opaque cursor. `next_cursor` means more enumeration remains; clients must
   continue until `complete=true` when they need every article in the range.
-- `search_articles`: query plus the same scope filters, but no cursor. The
-  server reads every compact search shard overlapping the requested dates in
-  one tool call, then returns a deterministic global relevance ranking.
+- `search_articles`: query plus the same scope filters, but no cursor. D1
+  searches the complete current visible set in one tool call, then the server
+  resolves the top results from immutable monthly files and returns a
+  deterministic global relevance ranking (up to 20 previews).
   `complete=true` certifies that the selected scope was scanned, while
   `total_matches` and `result_truncated` distinguish complete coverage from a
   top-N response limited by `limit`.
@@ -97,16 +100,17 @@ repository snapshot and reports exact comparisons.
 15. Full saved summaries are available; source full text is never implied.
 16. Browser monthly JSON, manifest, stats and legacy Chat JSON match baseline.
 17. Every staged file and deployed artifact respects its size budget.
-18. Search projection IDs, fields and revisions exactly equal the visible
-    article set; any missing, duplicate, corrupt or stale bucket fails closed.
-19. A search scans every selected projection shard in one call and performs
-    global score/date ordering, including old-history hits after empty shards.
+18. D1 snapshot ID and count exactly equal the current visible publication;
+    any missing, partial or stale index fails closed.
+19. Search performs global score/date ordering over the current snapshot,
+    including old-history hits, and rechecks every returned revision in Git.
 
 ## Release and recovery
 
 Run migration in an isolated checkout after small heterogeneous samples pass.
-Publish new data before deploying MCP code that requires it. The app receives
-new data during its existing Pages deployment; no extra infrastructure.
+Deploy MCP code and the D1 schema before publishing a manifest that requires
+them. The app receives source data during its existing Pages deployment; D1 is
+advanced only after both production aliases serve that exact snapshot.
 Do not push or deploy without the user's release authorization. Retain old
 snapshots; no automatic garbage collection in this change. Restore a prior
 manifest for storage rollback; deploy prior code/data together for rollback.
@@ -119,9 +123,9 @@ review retention/storage before these budgets are approached. Never remove old
 citation targets to make a failing build pass. Browser monthly files retain their
 existing layout; their size is checked, not silently repartitioned by this patch.
 
-Compatibility change for custom MCP clients: `search_articles` 0.5.0 no longer
+Compatibility change for custom MCP clients: `search_articles` 0.5.1 no longer
 accepts or emits a continuation cursor; restart old partial searches with the
-original query and scope. `list_articles` still requires `next_cursor`, and
+original query and scope, and request at most 20 previews. `list_articles` still requires `next_cursor`, and
 `get_wiki`/`get_article` still require `next_offset` for long content. Pin
 snapshots when resolving citations. Web UI and Chat search contracts do not
 change. This is exhaustive lexical/alias retrieval, not vector RAG; Wiki remains

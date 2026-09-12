@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from src.monthly_store import MonthlyStore, read_json, read_object
-from src.agent_publication import publish_articles, publish_wikis
+from src.agent_publication import publish_articles, publish_wikis, write_search_sync_plan
 from test_monthly_store import article
 
 
@@ -27,35 +27,28 @@ class PublicationTests(unittest.TestCase):
         shard = read_object(self.out, catalog["a1"])
         self.assertEqual(shard[0]["summary"], rows[0]["summary"])
 
-    def test_search_projection_covers_every_visible_revision(self):
+    def test_search_backend_covers_every_visible_revision(self):
         self.store.save([
             article("a1", "2026-08-01", source="Synthetic", category="market", region="TW"),
             article("b2", "2013-05-21", source="Archive", category="regulation", region="JP"),
         ])
         manifest = publish_articles(self.store.load(), self.out)
         self.assertEqual(manifest["search_records"], manifest["total_records"])
-        self.assertLessEqual(len(manifest["search_shards"]), 40)
-        projected = []
-        for ref in manifest["search_shards"]:
-            self.assertLessEqual(ref["bytes"], 1900 * 1024)
-            self.assertIn("from_month", ref)
-            self.assertIn("to_month", ref)
-            projected.extend(read_object(self.out, ref))
-        self.assertEqual(
-            {(row["uid"], row["_lineage"]["revision_id"]) for row in projected},
-            {(row["uid"], row["_lineage"]["revision_id"]) for row in self.store.load()},
-        )
-        self.assertEqual(projected[0]["source_url"], "https://example.test/article")
+        self.assertEqual(manifest["search_backend"], "d1-v1")
+        self.assertNotIn("search_shards", manifest)
 
-    def test_new_article_rewrites_only_one_stable_search_bucket(self):
-        self.store.save([article(f"a{i}") for i in range(100)])
-        first = publish_articles(self.store.load(), self.out)
-        before = {ref["part"]: ref["file"] for ref in first["search_shards"]}
-        self.store.save([*self.store.load(), article("new101")])
-        second = publish_articles(self.store.load(), self.out)
-        after = {ref["part"]: ref["file"] for ref in second["search_shards"]}
-        changed = {part for part in set(before) | set(after) if before.get(part) != after.get(part)}
-        self.assertEqual(len(changed), 1)
+    def test_new_article_produces_one_bounded_d1_delta(self):
+        before_rows = [article(f"a{i}") for i in range(100)]
+        self.store.save(before_rows)
+        first_rows = self.store.load()
+        first = publish_articles(first_rows, self.out)
+        self.store.save([*first_rows, article("new101")])
+        second_rows = self.store.load()
+        second = publish_articles(second_rows, self.out)
+        plan = write_search_sync_plan(self.root / "sync.json", first, first_rows, second, second_rows)
+        self.assertEqual([row["uid"] for row in plan["upserts"]], ["new101"])
+        self.assertEqual(plan["deletes"], [])
+        self.assertEqual(plan["from_snapshot_id"], first["snapshot_id"])
 
     def test_reject_filtered_publication(self):
         self.store.save([article(filter="irrelevant")])

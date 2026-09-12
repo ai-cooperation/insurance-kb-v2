@@ -82,7 +82,7 @@ jobs:
       - name: Verify live Worker
         if: inputs.deploy_worker
         run: |
-          python -c 'import requests; r=requests.get("https://insurance-kb-api.alan-chen75.workers.dev/mcp/manifest",timeout=30); r.raise_for_status(); m=r.json(); assert m["version"]=="0.5.0"; assert {"get_article","list_knowledge"}.issubset({t["name"] for t in m["tools"]}); s=next(t for t in m["tools"] if t["name"]=="search_articles"); assert "cursor" not in s["inputSchema"]["properties"]; print("Live MCP 0.5.0 complete-search contract verified")'
+          python -c 'import requests; r=requests.get("https://insurance-kb-api.alan-chen75.workers.dev/mcp/manifest",timeout=30); r.raise_for_status(); m=r.json(); assert m["version"]=="0.5.1"; assert {"get_article","list_knowledge"}.issubset({t["name"] for t in m["tools"]}); s=next(t for t in m["tools"] if t["name"]=="search_articles"); assert "cursor" not in s["inputSchema"]["properties"] and s["inputSchema"]["properties"]["limit"]["maximum"]==20; print("Live MCP 0.5.1 compact complete-search contract verified")'
       - name: Verify live website
         run: |
           cd frontend

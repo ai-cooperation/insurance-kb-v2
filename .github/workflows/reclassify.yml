@@ -77,6 +77,8 @@ jobs:
           python reclassify.py $ARGS
 
       - name: Rebuild frontend data
+        env:
+          AGENT_INDEX_SYNC_PLAN: /tmp/agent-index-sync.json
         run: |
           # Use the proper builder so L2 dedup, KR normalization, and slim
           # field selection are applied. (Previously this step did a raw cp
@@ -117,6 +119,13 @@ jobs:
       - name: Verify published snapshot
         if: ${{ inputs.dry_run != 'true' }}
         run: python -m src.publication_check --live
+
+      - name: Synchronize Agent D1 search index
+        if: ${{ inputs.dry_run != 'true' }}
+        env:
+          AGENT_INDEX_SYNC_PLAN: /tmp/agent-index-sync.json
+          AGENT_INDEX_SYNC_TOKEN: ${{ secrets.AGENT_INDEX_SYNC_TOKEN }}
+        run: python -m src.agent_search_sync
 
       - name: Notify Telegram on failure
         if: failure()
