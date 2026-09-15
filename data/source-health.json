@@ -5,7 +5,7 @@
  },
  "gnews_insurance_global": {
   "status": "ok",
-  "last": "2026-09-14"
+  "last": "2026-09-15"
  },
  "gnews_insurtech": {
   "status": "ok",
@@ -73,7 +73,7 @@
  },
  "gnews_jp_companies_2": {
   "status": "ok",
-  "last": "2026-09-14"
+  "last": "2026-09-15"
  },
  "gnews_jp_companies_3": {
   "status": "ok",
@@ -113,7 +113,7 @@
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-09-14"
+  "last": "2026-09-15"
  },
  "gnews_reinsurers": {
   "status": "ok",
@@ -149,7 +149,7 @@
  },
  "gnews_us_john_hancock": {
   "status": "ok",
-  "last": "2026-09-14"
+  "last": "2026-09-15"
  },
  "gnews_us_guardian": {
   "status": "ok",
@@ -177,7 +177,7 @@
  },
  "gnews_wsj_insurance": {
   "status": "ok",
-  "last": "2026-09-14"
+  "last": "2026-09-15"
  },
  "gnews_bloomberg_insurance": {
   "status": "ok",
@@ -361,7 +361,7 @@
  },
  "nissay_news": {
   "status": "ok",
-  "last": "2026-09-10"
+  "last": "2026-09-15"
  },
  "cpic_group": {
   "status": "overdue",
