@@ -3,6 +3,8 @@
  * next_cursor. Failed reads throw; never turn missing data into empty success.
  */
 import { scoreNormalizedArticle, searchArticles, searchTermGroups, type Article } from "./search";
+import {buildSearchQuery} from './agent-search-query';
+import {cachedSearch,withD1QuotaGuard} from './agent-d1-guard';
 
 type Args = Record<string, unknown>;
 type Ref = { file: string; sha256: string; month?: string; count?: number; revision_id?: string; period?: string;
@@ -279,46 +281,46 @@ export class AgentReader {
 
   private async d1Search(s: State, m: Manifest) {
     if (!this.searchDb) fail("DATA_UNAVAILABLE", "D1 search binding is unavailable");
-    const meta = await this.searchDb.prepare(
-      "SELECT snapshot_id,total_records FROM agent_search_meta WHERE singleton=1"
-    ).first<{snapshot_id:string;total_records:number}>();
-    if (!meta || meta.snapshot_id !== m.snapshot_id || meta.total_records !== m.total_records)
-      fail("DATA_UNAVAILABLE", "D1 index snapshot does not match publication");
-    const groups=searchTermGroups(String(s.scope.query));
-    const scoreParts:string[]=[], scoreParams:string[]=[];
-    for(const group of groups) for(const [field,weight] of [["title",3],["title_en",3],["category",2],["summary",1]] as const) {
-      const clauses=group.map(term=>{
-        if(/[%_\\]/.test(term)){scoreParams.push(term);return `instr(f.${field},?)>0`;}
-        scoreParams.push(`%${term}%`);return `f.${field} LIKE ?`;
-      });
-      scoreParts.push(`CASE WHEN (${clauses.join(" OR ")}) THEN ${weight} ELSE 0 END`);
-    }
-    const filters:string[]=[], filterParams:string[]=[];
     const from=s.scope.date_from as string|undefined,to=s.scope.date_to as string|undefined;
-    if(from){filters.push("a.date >= ?");filterParams.push(from);}
-    if(to){filters.push("a.date <= ?");filterParams.push(to);}
-    if(s.scope.category){filters.push("instr(a.category,?)>0");filterParams.push(String(s.scope.category).toLowerCase());}
-    if(s.scope.region){filters.push("instr(a.region,?)>0");filterParams.push(String(s.scope.region).toLowerCase());}
-    const cte=`WITH scored AS (SELECT a.uid,a.revision_id,a.date,(${scoreParts.join("+")}) AS score
-      FROM agent_search_articles a JOIN agent_search_fts f ON f.rowid=a.id
-     ${filters.length?` WHERE ${filters.join(" AND ")}`:""})`;
-    const params=[...scoreParams,...filterParams];
-    const [countResult,topResult]=await this.searchDb.batch([
-      this.searchDb.prepare(`${cte} SELECT COUNT(*) AS total FROM scored WHERE score>0`).bind(...params),
-      this.searchDb.prepare(`${cte} SELECT uid,revision_id,date,score FROM scored WHERE score>0
-        ORDER BY score DESC,date DESC,uid ASC LIMIT ?`).bind(...params,s.limit),
-    ]);
-    const total=Number((countResult.results?.[0] as {total?:number}|undefined)?.total??0);
-    const candidates=(topResult.results??[]).map((row:any)=>({uid:String(row.uid),revision:String(row.revision_id),
-      date:String(row.date),score:Number(row.score)}));
+    const query=buildSearchQuery({query:String(s.scope.query),date_from:from,date_to:to,
+      category:s.scope.category as string|undefined,region:s.scope.region as string|undefined},s.limit);
+    const db=this.searchDb;
+    const key=JSON.stringify(['agent-query-v2',m.snapshot_id,m.total_records,query.sql,query.params]);
+    const cached=await cachedSearch(key,()=>withD1QuotaGuard(this.kv,async()=>{
+      // One D1 batch gives metadata + matches the same transaction snapshot.
+      // Never cache a partially indexed publication or accept total_records alone
+      // as evidence that its actual SQL matches are correct.
+      const [metadata,result]=await db.batch([
+        db.prepare('SELECT snapshot_id,total_records FROM agent_search_meta WHERE singleton=1'),
+        db.prepare(query.sql).bind(...query.params),
+      ]);
+      const meta=metadata.results?.[0] as {snapshot_id:string;total_records:number}|undefined;
+      if(!metadata.success || !meta || meta.snapshot_id!==m.snapshot_id || meta.total_records!==m.total_records)
+        fail('DATA_UNAVAILABLE','D1 index snapshot does not match publication');
+      const total=(result.results?.[0] as {total?:number}|undefined)?.total;
+      if(!result.success || typeof total!=='number' || !Number.isSafeInteger(total) || total<0)
+        fail('INTEGRITY_ERROR','D1 search returned no verified total');
+      const candidates=(result.results??[]).filter((row:any)=>row.uid!==null).map((row:any)=>({uid:String(row.uid),revision:String(row.revision_id),
+        date:String(row.date),score:Number(row.score)}));
+      if(candidates.length!==Math.min(total,s.limit) || candidates.some(row=>!HASH.test(row.revision)
+          || !Number.isFinite(row.score) || row.score<=0) || new Set(candidates.map(row=>row.uid)).size!==candidates.length)
+        fail('INTEGRITY_ERROR','D1 search candidates differ from verified total');
+      return {total,candidates,rows_read:metadata.meta?.rows_read!==undefined && result.meta?.rows_read!==undefined
+        ?metadata.meta.rows_read+result.meta.rows_read:null,
+        rows_written:metadata.meta?.rows_written!==undefined && result.meta?.rows_written!==undefined
+          ?metadata.meta.rows_written+result.meta.rows_written:null};
+    }));
+    const {total,candidates}=cached.value;
     const full=await this.resolveSearchRows(m,candidates);
     const fromMonth=from?.slice(0,7),toMonth=to?.slice(0,7);
     const months=Object.keys(m.months).filter(month=>month!=="unknown"&&(!fromMonth||month>=fromMonth)&&(!toMonth||month<=toMonth)).sort().reverse();
     const trace_id=crypto.randomUUID();
     const coverage={index_backend:"d1-v1",selected_shards:1,completed_shards:1,remaining_shards:0,
-      scanned_records:meta.total_records,months,excluded_unknown_date_records:(from||to)?(m.months.unknown??0):0};
+      scanned_records:cached.hit?0:null,indexed_records:m.total_records,months,
+      excluded_unknown_date_records:(from||to)?(m.months.unknown??0):0};
     console.info(JSON.stringify({event:"agent_retrieval",trace_id,operation:"search",snapshot_id:m.snapshot_id,
-      complete:true,count:candidates.length,total_matches:total,coverage}));
+      complete:true,count:candidates.length,total_matches:total,coverage,query_mode:query.mode,
+      cache_hit:cached.hit,rows_read:cached.hit?0:cached.value.rows_read,rows_written:cached.hit?0:cached.value.rows_written}));
     return {snapshot_id:m.snapshot_id,trace_id,scope:s.scope,count:candidates.length,total_matches:total,
       results:candidates.map(x=>this.preview(full.get(x.uid)!,m.snapshot_id,x.score)),complete:true,next_cursor:null,coverage,
       result_truncated:total>candidates.length,ordering:"global_relevance_score_then_date_desc_within_snapshot",

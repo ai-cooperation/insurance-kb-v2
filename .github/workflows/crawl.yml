@@ -148,6 +148,15 @@ jobs:
           AGENT_INDEX_SYNC_TOKEN: ${{ secrets.AGENT_INDEX_SYNC_TOKEN }}
         run: python -m src.agent_search_sync
 
+      - name: Preserve failed Agent sync plan
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-sync-plan-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/agent-index-sync.json
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Notify Telegram on failure
         if: failure()
         env:

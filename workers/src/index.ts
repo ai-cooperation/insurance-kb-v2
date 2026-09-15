@@ -16,6 +16,7 @@ import {
 import { getFirebaseUser, type FirebaseUser } from "./auth-firebase";
 import { handleChat } from "./chat";
 import { checkRateLimit } from "./rate-limit";
+import {isD1QuotaError,withD1QuotaGuard} from './agent-d1-guard';
 import { loadArticles, searchArticles } from "./search";
 import { deleteSession, getMessages, listSessions } from "./sessions";
 import {
@@ -86,6 +87,7 @@ app.post("/internal/agent-index/sync", async (c) => {
   if(plan.upserts.some((row:any)=>!validRow(row))
       || plan.deletes.some((uid:any)=>!validText(uid,128)))
     return c.json({error:"Invalid sync row"},400);
+  try {return await withD1QuotaGuard(c.env.KV,async()=>{
   const current=await c.env.REPORTS_DB.prepare(
     "SELECT snapshot_id,total_records FROM agent_search_meta WHERE singleton=1"
   ).first<{snapshot_id:string;total_records:number}>();
@@ -118,6 +120,13 @@ app.post("/internal/agent-index/sync", async (c) => {
       || verified.total_records!==plan.total_records || verified.actual_records!==plan.total_records)
     return c.json({error:"D1 sync verification failed"},409);
   return c.json({snapshot_id:verified.snapshot_id,total_records:verified.total_records});
+  });} catch(error) {
+    if(!isD1QuotaError(error))throw error;
+    const reset=(Math.floor(Date.now()/86400000)+1)*86400000;
+    c.header('Retry-After',String(Math.ceil((reset-Date.now())/1000)));
+    return c.json({error:'D1_QUOTA_EXCEEDED',retry_at:new Date(reset).toISOString(),
+      message:'Agent index sync paused; retain this delta for recovery after the daily reset.'},503);
+  }
 });
 
 // --- CORS ---

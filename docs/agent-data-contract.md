@@ -52,6 +52,11 @@ and a full JSON scan inside the Worker CPU budget.
   `complete=true` certifies that the selected scope was scanned, while
   `total_matches` and `result_truncated` distinguish complete coverage from a
   top-N response limited by `limit`.
+  D1 `coverage.indexed_records` is the snapshot's indexed corpus size, NOT a
+  billable scan count. `scanned_records` is null when the engine does not report
+  article-level scan counts, or zero on an in-memory candidate-cache hit.
+  Structured logs report actual D1 `rows_read` / `rows_written` separately;
+  unavailable metrics remain null, never a fabricated corpus-size estimate.
 - `get_article`: article ID and optional snapshot/revision; full saved record.
   Long content is returned as bounded text segments with explicit offsets.
 - `get_wiki`: enumerate period pages or read one immutable page, including
@@ -130,3 +135,59 @@ original query and scope, and request at most 20 previews. `list_articles` still
 snapshots when resolving citations. Web UI and Chat search contracts do not
 change. This is exhaustive lexical/alias retrieval, not vector RAG; Wiki remains
 a navigation/derived-evidence layer and is not used to claim source coverage.
+
+## 2026-09-12 quota repair (local validation; production validation pending)
+
+The query in 738e3bb evaluated LIKE inside scoring expressions and repeated
+that work for count and top-N. The repair preserves literal substring OR,
+alias expansions, exact totals and score/date/UID ordering. If every term
+and alias contains at least three Unicode characters, FTS MATCH supplies a
+candidate set, followed by exact literal scoring. If ANY term or alias is
+shorter, the source table is scanned once without joining FTS. Do not silently
+discard short terms (including `17` in `IFRS 17`) or change OR to AND.
+Count and top-N consume one materialized scored set; LIMIT alone is not a
+scan budget. This fixes duplicate work but does not make broad searches free.
+
+Successful public-snapshot candidate IDs/counts are cached in Worker memory
+for five minutes, at most 64 entries. Concurrent identical requests share one
+query. Keys include the snapshot, SQL, all filters and limit. Results still
+resolve and validate their immutable source revisions on every request.
+Cache eviction/cold isolates can miss; no persistent result-cache writes or
+availability guarantee is implied. Metadata and matches are read in one D1
+batch so they cannot straddle two committed index versions.
+
+A confirmed D1 daily-quota error opens an Agent-only KV circuit until midnight
+UTC. Search and sync check it before new D1 calls. A cached exact-snapshot
+result can still be served; otherwise return D1_QUOTA_EXCEEDED, never empty
+success or an untested full-JSON fallback. KV propagation is eventual, so this
+is repeated-failure suppression, not an account-wide hard budget. Existing
+Report authorization/storage paths are unchanged and still share account quota.
+Sync returns HTTP 503 with retry_at and Retry-After; existing workflow failure
+notifications remain active. Quota, auth, precondition and verification errors
+stop retries. Transient errors keep at most three attempts, honoring Retry-After;
+a cooldown over 60 seconds stops the process instead of retrying early.
+
+Failed workflows retain the public-data-only delta as an artifact for 14 days.
+It contains no authentication token. After the reset, recover the failed delta
+in snapshot order using the existing authenticated sync command; do not rerun
+the crawler as a substitute, clear the index, or rebuild it. A successfully
+applied delta is an idempotent replay; a 409 requires reconciling the actual
+indexed snapshot before replaying later deltas. Automatic multi-snapshot
+catch-up and serving an older Agent publication are NOT implemented here.
+The existing mismatch gate remains fail-closed; preserved artifacts prevent
+losing the recovery input when a GitHub runner exits.
+
+No schema migration, full import, production query or quota-reset operation
+is required for these source edits. Before approving production availability,
+measure actual D1 rows_read/rows_written, cold Worker CPU and concurrent cache
+misses with the intended daily request volume. Short-term scans remain a known
+budget risk. Do not advertise permanent free-tier availability on these tests.
+
+Local acceptance runs actual SQLite/FTS5 SQL (not canned D1 results): literal
+short/long/Unicode terms, mixed terms, aliases, wildcard literals, dates and
+filters, no matches/empty corpus, deterministic top-N and totals, input binding
+limits, query plans, duplicate-cache requests, changed scope, failed/corrupt
+source reads, quota suppression/reset, permanent vs transient retry, and
+idempotent sync replay. The optional real-publication test compares six queries
+against an independent full-corpus literal oracle and traverses all saved IDs.
+Local SQLite metrics are not Cloudflare billable usage or Worker CPU evidence.

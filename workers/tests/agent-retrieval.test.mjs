@@ -7,6 +7,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import {sqliteD1} from './helpers/sqlite-d1.mjs';
 
 const out = join(mkdtempSync(join(tmpdir(), 'insurance-agent-test-')), 'reader.mjs');
 execFileSync('node_modules/.bin/esbuild', ['src/agent-retrieval.ts', '--bundle', '--platform=node', '--format=esm', `--outfile=${out}`]);
@@ -206,10 +207,11 @@ test('current publication searches D1 then resolves exact monthly revisions',asy
     prepare(sql){return {sql,params:[],bind(...params){this.params=params;return this;},
       async first(){return {snapshot_id:current.snapshot_id,total_records:7};}};},
     async batch(statements){
-      this.lastSql=statements[0].sql;
-      assert.equal(statements.length,2);assert.match(statements[0].sql,/agent_search_fts/);
+      this.lastSql=statements[1].sql;
+      assert.equal(statements.length,2);assert.match(statements[1].sql,/agent_search_fts/);
       const row=rows[6];
-      return [{results:[{total:1}]},{results:[{uid:row.uid,revision_id:row._lineage.revision_id,date:row.date,score:3}]}];
+      return [{success:true,results:[{snapshot_id:current.snapshot_id,total_records:7}]},
+        {success:true,results:[{uid:row.uid,revision_id:row._lineage.revision_id,date:row.date,score:3,total:1}]}];
     },
   };
   const reader=new AgentReader(kv,'d1-user',fetcher,db);
@@ -218,5 +220,53 @@ test('current publication searches D1 then resolves exact monthly revisions',asy
   assert.equal(result.results[0].uid,'a6');
   assert.equal(result.results[0].citation.revision_id,rows[6]._lineage.revision_id);
   assert.equal(result.coverage.index_backend,'d1-v1');
-  assert.match(db.lastSql??'',/instr\(f\.title/);
+  assert.match(db.lastSql??'',/instr\(a\.title/);
+  assert.equal(result.coverage.indexed_records,7);
+  assert.equal(result.coverage.scanned_records,null);
+});
+
+test('real SQL cache is bound to scope, revalidates source revisions, and avoids repeat D1 calls',async(t)=>{
+  const {manifest,snapshot,rows,kv,fetcher,files,shards}=fixture();
+  const {snapshot_id,search_shards,search_format,...body}=manifest;
+  const current=snapshot({...body,search_backend:'d1-v1',search_records:7},'manifest.json');
+  const db=sqliteD1(rows,current.snapshot_id);t.after(()=>db.close());
+  const reader=new AgentReader(kv,'cache-test-user',fetcher,db);
+  const first=await reader.search({query:'Synthetic',limit:5});
+  const second=await reader.search({query:'Synthetic',limit:5});
+  assert.deepEqual(second.results,first.results);assert.equal(db.batchCalls,1);
+  assert.equal(second.coverage.scanned_records,0);
+  const filtered=await reader.search({query:'Synthetic',limit:5,date_from:'2026-01-01'});
+  assert.equal(filtered.total_matches,1);assert.equal(db.batchCalls,2);
+  // Even a cached hit cannot bypass a missing/corrupt immutable source.
+  files.delete(shards[0].file);
+  await assert.rejects(reader.search({query:'Synthetic',limit:5}),/DATA_UNAVAILABLE/);
+});
+
+test('quota exhaustion never returns an empty successful search',async()=>{
+  const {manifest,snapshot,kv,fetcher}=fixture();
+  const {snapshot_id,search_shards,search_format,...body}=manifest;
+  snapshot({...body,search_backend:'d1-v1',search_records:7},'manifest.json');
+  let calls=0;
+  const db={prepare:sql=>({sql,bind(){return this;}}),async batch(){calls++;throw new Error("Your account has exceeded D1's free tier daily row read limit.");}};
+  const reader=new AgentReader(kv,'quota-test-user',fetcher,db);
+  await assert.rejects(reader.search({query:'quota-test-not-cached'}),/D1_QUOTA_EXCEEDED/);
+  await assert.rejects(reader.search({query:'quota-test-not-cached'}),/D1_QUOTA_EXCEEDED/);
+  assert.equal(calls,1);
+});
+
+test('invalid totals and mismatched snapshots cannot be cached as empty success',async()=>{
+  const {manifest,snapshot,kv,fetcher}=fixture();
+  const {snapshot_id,search_shards,search_format,...body}=manifest;
+  const current=snapshot({...body,search_backend:'d1-v1',search_records:7},'manifest.json');
+  let total=null,actualSnapshot=current.snapshot_id;
+  const db={prepare:sql=>({sql,bind(){return this;}}),async batch(){return [
+    {success:true,results:[{snapshot_id:actualSnapshot,total_records:7}]},
+    {success:true,results:[{uid:null,total}]},
+  ];}};
+  const reader=new AgentReader(kv,'invalid-total-user',fetcher,db);
+  await assert.rejects(reader.search({query:'invalid-total-not-cached'}),/INTEGRITY_ERROR/);
+  total=0;actualSnapshot='f'.repeat(64);
+  await assert.rejects(reader.search({query:'invalid-total-not-cached'}),/DATA_UNAVAILABLE/);
+  actualSnapshot=current.snapshot_id;
+  assert.equal((await reader.search({query:'invalid-total-not-cached'})).total_matches,0);
 });
