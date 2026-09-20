@@ -5,11 +5,11 @@
  },
  "gnews_insurance_global": {
   "status": "ok",
-  "last": "2026-09-18"
+  "last": "2026-09-19"
  },
  "gnews_insurtech": {
   "status": "ok",
-  "last": "2026-09-18"
+  "last": "2026-09-19"
  },
  "gnews_sg_companies_1": {
   "status": "ok",
@@ -57,7 +57,7 @@
  },
  "gnews_cn_companies_2": {
   "status": "ok",
-  "last": "2026-09-18"
+  "last": "2026-09-19"
  },
  "gnews_cn_companies_3": {
   "status": "ok",
@@ -81,7 +81,7 @@
  },
  "gnews_jp_en": {
   "status": "ok",
-  "last": "2026-09-18"
+  "last": "2026-09-19"
  },
  "gnews_jp_industry": {
   "status": "ok",
@@ -113,7 +113,7 @@
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-09-18"
+  "last": "2026-09-19"
  },
  "gnews_reinsurers": {
   "status": "ok",
@@ -149,7 +149,7 @@
  },
  "gnews_us_john_hancock": {
   "status": "ok",
-  "last": "2026-09-18"
+  "last": "2026-09-19"
  },
  "gnews_us_guardian": {
   "status": "ok",
@@ -169,7 +169,7 @@
  },
  "gnews_ratings_1": {
   "status": "ok",
-  "last": "2026-09-18"
+  "last": "2026-09-19"
  },
  "gnews_ratings_2": {
   "status": "ok",
@@ -205,7 +205,7 @@
  },
  "gnews_tw_insurance": {
   "status": "ok",
-  "last": "2026-09-17"
+  "last": "2026-09-19"
  },
  "gnews_swissre": {
   "status": "ok",
@@ -281,7 +281,7 @@
  },
  "gnews_th_lifers": {
   "status": "ok",
-  "last": "2026-09-18"
+  "last": "2026-09-19"
  },
  "gnews_th_lifers_en": {
   "status": "ok",
