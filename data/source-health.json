@@ -45,7 +45,7 @@
  },
  "gnews_hk_regulator": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_hk_zh": {
   "status": "ok",
@@ -57,7 +57,7 @@
  },
  "gnews_cn_companies_2": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_cn_companies_3": {
   "status": "ok",
@@ -97,11 +97,11 @@
  },
  "gnews_kr_companies_2": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_kr_companies_3": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_kr_en": {
   "status": "ok",
@@ -113,7 +113,7 @@
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_reinsurers": {
   "status": "ok",
@@ -121,11 +121,11 @@
  },
  "gnews_us_massmutual": {
   "status": "ok",
-  "last": "2026-09-20"
+  "last": "2026-09-21"
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
-  "last": "2026-09-20"
+  "last": "2026-09-21"
  },
  "gnews_us_nyl": {
   "status": "ok",
@@ -137,11 +137,11 @@
  },
  "gnews_us_prudential": {
   "status": "ok",
-  "last": "2026-09-20"
+  "last": "2026-09-21"
  },
  "gnews_us_pacific_life": {
   "status": "ok",
-  "last": "2026-09-18"
+  "last": "2026-09-21"
  },
  "gnews_us_lincoln": {
   "status": "ok",
@@ -153,7 +153,7 @@
  },
  "gnews_us_guardian": {
   "status": "ok",
-  "last": "2026-09-20"
+  "last": "2026-09-21"
  },
  "gnews_us_tiaa": {
   "status": "ok",
@@ -189,7 +189,7 @@
  },
  "gnews_esg_insurance": {
   "status": "ok",
-  "last": "2026-09-20"
+  "last": "2026-09-21"
  },
  "gnews_product_launch_en": {
   "status": "ok",
@@ -205,7 +205,7 @@
  },
  "gnews_tw_insurance": {
   "status": "ok",
-  "last": "2026-09-20"
+  "last": "2026-09-21"
  },
  "gnews_swissre": {
   "status": "ok",
@@ -217,7 +217,7 @@
  },
  "gnews_air": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_mas": {
   "status": "ok",
@@ -257,7 +257,7 @@
  },
  "gnews_tw_lifers": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_tw_lifers_2": {
   "status": "ok",
@@ -293,7 +293,7 @@
  },
  "gnews_ph_lifers": {
   "status": "ok",
-  "last": "2026-09-18"
+  "last": "2026-09-21"
  },
  "gnews_my_lifers": {
   "status": "overdue",
@@ -317,7 +317,7 @@
  },
  "insnews_kr": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "ib_asia": {
   "status": "ok",
@@ -325,7 +325,7 @@
  },
  "air_news": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "lia_sg": {
   "status": "ok",
