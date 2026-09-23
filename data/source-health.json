@@ -1,7 +1,7 @@
 {
  "gnews_insurance_asia": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_insurance_global": {
   "status": "ok",
@@ -45,11 +45,11 @@
  },
  "gnews_hk_regulator": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_hk_zh": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_cn_companies_1": {
   "status": "ok",
@@ -73,7 +73,7 @@
  },
  "gnews_jp_companies_2": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_jp_companies_3": {
   "status": "ok",
@@ -101,7 +101,7 @@
  },
  "gnews_kr_companies_3": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_kr_en": {
   "status": "ok",
@@ -125,7 +125,7 @@
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_us_nyl": {
   "status": "ok",
@@ -137,7 +137,7 @@
  },
  "gnews_us_prudential": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_us_pacific_life": {
   "status": "ok",
@@ -145,7 +145,7 @@
  },
  "gnews_us_lincoln": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_us_john_hancock": {
   "status": "ok",
@@ -153,7 +153,7 @@
  },
  "gnews_us_guardian": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_us_tiaa": {
   "status": "ok",
@@ -173,11 +173,11 @@
  },
  "gnews_ratings_2": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_wsj_insurance": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_bloomberg_insurance": {
   "status": "ok",
@@ -189,10 +189,10 @@
  },
  "gnews_esg_insurance": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_product_launch_en": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-09-17"
  },
  "gnews_product_launch_zh": {
@@ -200,7 +200,7 @@
   "last": "2026-09-22"
  },
  "gnews_hive_insurance": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-09-16"
  },
  "gnews_tw_insurance": {
@@ -217,7 +217,7 @@
  },
  "gnews_air": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_mas": {
   "status": "ok",
@@ -240,12 +240,12 @@
   "last": "2026-09-22"
  },
  "gnews_sompo": {
-  "status": "overdue",
-  "last": "2026-09-15"
+  "status": "ok",
+  "last": "2026-09-21"
  },
  "gnews_aia_hk": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-22"
  },
  "gnews_lia_sg": {
   "status": "ok",
@@ -253,7 +253,7 @@
  },
  "gnews_hannover_re": {
   "status": "ok",
-  "last": "2026-09-17"
+  "last": "2026-09-22"
  },
  "gnews_tw_lifers": {
   "status": "ok",
@@ -317,7 +317,7 @@
  },
  "insnews_kr": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "ib_asia": {
   "status": "ok",
@@ -325,7 +325,7 @@
  },
  "air_news": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "lia_sg": {
   "status": "ok",
