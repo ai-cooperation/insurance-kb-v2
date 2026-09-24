@@ -9,7 +9,7 @@
  },
  "gnews_insurtech": {
   "status": "ok",
-  "last": "2026-09-23"
+  "last": "2026-09-24"
  },
  "gnews_sg_companies_1": {
   "status": "ok",
@@ -41,7 +41,7 @@
  },
  "gnews_hk_companies_4": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_hk_regulator": {
   "status": "ok",
@@ -69,7 +69,7 @@
  },
  "gnews_jp_companies_ja": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_jp_companies_2": {
   "status": "ok",
@@ -77,7 +77,7 @@
  },
  "gnews_jp_companies_3": {
   "status": "ok",
-  "last": "2026-09-21"
+  "last": "2026-09-23"
  },
  "gnews_jp_en": {
   "status": "ok",
@@ -85,7 +85,7 @@
  },
  "gnews_jp_industry": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_jp_mini": {
   "status": "ok",
@@ -125,7 +125,7 @@
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_us_nyl": {
   "status": "ok",
@@ -145,7 +145,7 @@
  },
  "gnews_us_lincoln": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_us_john_hancock": {
   "status": "ok",
@@ -157,10 +157,10 @@
  },
  "gnews_us_tiaa": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_us_mutual_omaha": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-09-17"
  },
  "gnews_consultants": {
@@ -169,11 +169,11 @@
  },
  "gnews_ratings_1": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_ratings_2": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_wsj_insurance": {
   "status": "ok",
@@ -189,7 +189,7 @@
  },
  "gnews_esg_insurance": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_product_launch_en": {
   "status": "ok",
@@ -217,7 +217,7 @@
  },
  "gnews_air": {
   "status": "ok",
-  "last": "2026-09-23"
+  "last": "2026-09-24"
  },
  "gnews_mas": {
   "status": "ok",
@@ -245,7 +245,7 @@
  },
  "gnews_aia_hk": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_lia_sg": {
   "status": "ok",
@@ -308,7 +308,7 @@
   "last": "2026-09-16"
  },
  "shinnihon_rss": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-09-18"
  },
  "shinnihon_rss_p2": {
@@ -325,7 +325,7 @@
  },
  "air_news": {
   "status": "ok",
-  "last": "2026-09-23"
+  "last": "2026-09-24"
  },
  "lia_sg": {
   "status": "ok",
