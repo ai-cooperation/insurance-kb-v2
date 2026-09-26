@@ -1,7 +1,7 @@
 {
  "gnews_insurance_asia": {
   "status": "ok",
-  "last": "2026-09-25"
+  "last": "2026-09-26"
  },
  "gnews_insurance_global": {
   "status": "ok",
@@ -25,7 +25,7 @@
  },
  "gnews_sg_regulator": {
   "status": "ok",
-  "last": "2026-09-24"
+  "last": "2026-09-25"
  },
  "gnews_hk_companies_1": {
   "status": "ok",
@@ -93,7 +93,7 @@
  },
  "gnews_kr_companies_1": {
   "status": "ok",
-  "last": "2026-09-24"
+  "last": "2026-09-25"
  },
  "gnews_kr_companies_2": {
   "status": "ok",
@@ -101,7 +101,7 @@
  },
  "gnews_kr_companies_3": {
   "status": "ok",
-  "last": "2026-09-24"
+  "last": "2026-09-25"
  },
  "gnews_kr_en": {
   "status": "ok",
@@ -113,7 +113,7 @@
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-09-24"
+  "last": "2026-09-25"
  },
  "gnews_reinsurers": {
   "status": "ok",
@@ -121,7 +121,7 @@
  },
  "gnews_us_massmutual": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
@@ -157,7 +157,7 @@
  },
  "gnews_us_tiaa": {
   "status": "ok",
-  "last": "2026-09-24"
+  "last": "2026-09-25"
  },
  "gnews_us_mutual_omaha": {
   "status": "overdue",
@@ -169,7 +169,7 @@
  },
  "gnews_ratings_1": {
   "status": "ok",
-  "last": "2026-09-24"
+  "last": "2026-09-25"
  },
  "gnews_ratings_2": {
   "status": "ok",
@@ -205,15 +205,15 @@
  },
  "gnews_tw_insurance": {
   "status": "ok",
-  "last": "2026-09-24"
+  "last": "2026-09-25"
  },
  "gnews_swissre": {
   "status": "ok",
-  "last": "2026-09-24"
+  "last": "2026-09-25"
  },
  "gnews_munichre": {
   "status": "ok",
-  "last": "2026-09-24"
+  "last": "2026-09-25"
  },
  "gnews_air": {
   "status": "ok",
@@ -261,7 +261,7 @@
  },
  "gnews_tw_lifers_2": {
   "status": "ok",
-  "last": "2026-09-24"
+  "last": "2026-09-25"
  },
  "gnews_in_lifers": {
   "status": "ok",
@@ -297,7 +297,7 @@
  },
  "gnews_my_lifers": {
   "status": "ok",
-  "last": "2026-09-22"
+  "last": "2026-09-23"
  },
  "gnews_my_lifers_2": {
   "status": "ok",
@@ -340,7 +340,7 @@
   "last": "2026-08-31"
  },
  "pingan": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-09-10"
  },
  "sompo_hd": {
