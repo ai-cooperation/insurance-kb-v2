@@ -5,7 +5,7 @@
  },
  "gnews_insurance_global": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-09-30"
  },
  "gnews_insurtech": {
   "status": "ok",
@@ -40,12 +40,12 @@
   "last": "2026-08-29"
  },
  "gnews_hk_companies_4": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-09-24"
  },
  "gnews_hk_regulator": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-09-30"
  },
  "gnews_hk_zh": {
   "status": "ok",
@@ -93,7 +93,7 @@
  },
  "gnews_kr_companies_1": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-09-30"
  },
  "gnews_kr_companies_2": {
   "status": "ok",
@@ -121,7 +121,7 @@
  },
  "gnews_us_massmutual": {
   "status": "ok",
-  "last": "2026-09-28"
+  "last": "2026-09-29"
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
@@ -137,7 +137,7 @@
  },
  "gnews_us_prudential": {
   "status": "ok",
-  "last": "2026-09-28"
+  "last": "2026-09-29"
  },
  "gnews_us_pacific_life": {
   "status": "ok",
@@ -153,7 +153,7 @@
  },
  "gnews_us_guardian": {
   "status": "ok",
-  "last": "2026-09-28"
+  "last": "2026-09-29"
  },
  "gnews_us_tiaa": {
   "status": "ok",
@@ -173,7 +173,7 @@
  },
  "gnews_ratings_2": {
   "status": "ok",
-  "last": "2026-09-28"
+  "last": "2026-09-29"
  },
  "gnews_wsj_insurance": {
   "status": "ok",
@@ -185,7 +185,7 @@
  },
  "gnews_sina_insurance": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-09-30"
  },
  "gnews_esg_insurance": {
   "status": "ok",
@@ -217,7 +217,7 @@
  },
  "gnews_air": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-09-30"
  },
  "gnews_mas": {
   "status": "ok",
@@ -241,7 +241,7 @@
  },
  "gnews_sompo": {
   "status": "ok",
-  "last": "2026-09-28"
+  "last": "2026-09-29"
  },
  "gnews_aia_hk": {
   "status": "ok",
@@ -273,7 +273,7 @@
  },
  "gnews_in_industry": {
   "status": "ok",
-  "last": "2026-09-28"
+  "last": "2026-09-29"
  },
  "gnews_id_lifers": {
   "status": "ok",
@@ -317,7 +317,7 @@
  },
  "insnews_kr": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-09-30"
  },
  "ib_asia": {
   "status": "ok",
@@ -325,7 +325,7 @@
  },
  "air_news": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-09-30"
  },
  "lia_sg": {
   "status": "ok",
@@ -357,7 +357,7 @@
  },
  "sumitomo_life": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-09-30"
  },
  "nissay_news": {
   "status": "ok",
