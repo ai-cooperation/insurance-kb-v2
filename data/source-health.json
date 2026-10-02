@@ -29,7 +29,7 @@
  },
  "gnews_hk_companies_1": {
   "status": "ok",
-  "last": "2026-09-28"
+  "last": "2026-10-01"
  },
  "gnews_hk_companies_2": {
   "status": "overdue",
@@ -53,7 +53,7 @@
  },
  "gnews_cn_companies_1": {
   "status": "ok",
-  "last": "2026-09-30"
+  "last": "2026-10-01"
  },
  "gnews_cn_companies_2": {
   "status": "ok",
@@ -85,7 +85,7 @@
  },
  "gnews_jp_industry": {
   "status": "ok",
-  "last": "2026-10-01"
+  "last": "2026-10-02"
  },
  "gnews_jp_mini": {
   "status": "ok",
@@ -97,11 +97,11 @@
  },
  "gnews_kr_companies_2": {
   "status": "ok",
-  "last": "2026-10-01"
+  "last": "2026-10-02"
  },
  "gnews_kr_companies_3": {
   "status": "ok",
-  "last": "2026-10-01"
+  "last": "2026-10-02"
  },
  "gnews_kr_en": {
   "status": "ok",
@@ -125,7 +125,7 @@
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
-  "last": "2026-09-30"
+  "last": "2026-10-01"
  },
  "gnews_us_nyl": {
   "status": "ok",
@@ -137,19 +137,19 @@
  },
  "gnews_us_prudential": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-10-01"
  },
  "gnews_us_pacific_life": {
   "status": "ok",
-  "last": "2026-09-30"
+  "last": "2026-10-01"
  },
  "gnews_us_lincoln": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-10-01"
  },
  "gnews_us_john_hancock": {
   "status": "ok",
-  "last": "2026-09-30"
+  "last": "2026-10-01"
  },
  "gnews_us_guardian": {
   "status": "ok",
@@ -173,7 +173,7 @@
  },
  "gnews_ratings_2": {
   "status": "ok",
-  "last": "2026-09-30"
+  "last": "2026-10-01"
  },
  "gnews_wsj_insurance": {
   "status": "ok",
@@ -189,7 +189,7 @@
  },
  "gnews_esg_insurance": {
   "status": "ok",
-  "last": "2026-09-30"
+  "last": "2026-10-01"
  },
  "gnews_product_launch_en": {
   "status": "ok",
@@ -200,7 +200,7 @@
   "last": "2026-10-01"
  },
  "gnews_hive_insurance": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-09-25"
  },
  "gnews_tw_insurance": {
@@ -284,8 +284,8 @@
   "last": "2026-10-01"
  },
  "gnews_th_lifers_en": {
-  "status": "overdue",
-  "last": "2026-09-23"
+  "status": "ok",
+  "last": "2026-10-01"
  },
  "gnews_vn_lifers": {
   "status": "ok",
@@ -293,7 +293,7 @@
  },
  "gnews_ph_lifers": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-10-01"
  },
  "gnews_my_lifers": {
   "status": "ok",
