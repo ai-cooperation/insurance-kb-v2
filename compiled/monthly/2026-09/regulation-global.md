@@ -1,0 +1,39 @@
+---
+type: "monthly"
+period: "2026-09"
+category: "regulation"
+region: "global"
+compiled_by: "codex-scheduled-task"
+prompt_version: "codex-monthly-v1"
+model: "Codex"
+articles_count: 102
+selected_count: 5
+candidate_hash: "31afba7a23a671649525ccbe97b33d7b7f8304405a94e8870890de3ed79955ba"
+candidate_category: "監管動態"
+candidate_region: "全球"
+source_refs: [{"article_id": "6aa5c2dfab46", "revision_id": "a01be39dbab0401147692f77ed8227cacc0b672ff4566d6f8f02244b863ee00b", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "4301eec5d1ac", "revision_id": "ab61a1de937b0b8059bba1712b6c3dccb405a9c3aa3f7873e4fef2533b23071c", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "3fd708d8b344", "revision_id": "14e7cacd67d77d6d373d8cb1f255da0838a76cddbbecc2650865ac9d2a193609", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "976ae73038fb", "revision_id": "c561e0f66602eb5a8cde48a6735d104ad23dd642b4474589d645c75ec4d12d5a", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "bc0c47f1179a", "revision_id": "ad2f465ee17c37eec494fe6f094b8228a960b88b45399bc8f5eb0d46564c63ea", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}]
+---
+
+# 2026年9月｜監管動態・全球月度觀察
+
+本頁整理 2026 年 9 月資料庫歸入「監管動態／全球」的 102 筆可見候選文章。以下列出 5 篇報導供逐篇追查；選取依已保存摘要的可讀性、重要性、日期及來源連結完整度，不是隨機抽樣，也不代表該分組全量統計。
+
+## 本月重點
+
+**1. 保險佣金削減使 150 億美元規模的保險科技產業面臨威脅** — 近期保險佣金費率的下調政策，對價值 150 億美元的保險科技產業造成衝擊。許多依賴佣金收入的數位平台面臨獲利壓力，產業結構可能因此面臨調整，市場對保險科技公司的長期營運模式產生疑慮。 [1]（2026-09-28；[來源頁](<https://news.google.com/rss/articles/CBMiywFBVV95cUxNVGZPQnpHTUhCd3RkT05hSUtzQW5ERERvRDRtNVdjb1FsS0FCazFscWIwbUhueFlpZjR6RFJWLUlKWjlhMDRxQnVNeGNwd2RBcTI1V25XNjgxSUxjYXEySFo3bmdoRm5WSDYxcjRFbHFQZGlWdDVXQmh4enB4VnJORGFySmFybUIwT2tGU0p5VzlRNld3N2hHUFNRZ2lKTEhFUXJaUXBsZUduOE5yM0R3X2FFaVdfaXZUMlU5VllfNHBWOGpMa0lrTDlrWdIB0AFBVV95cUxOaUxYNkYwcEFsdG9KSWF2ZUtjUjY1dDZNNmp0dnFCSF9VbHhvNzlNclpCT0tjdVpPLTNlTzJuYjBjUHVKcDZjTGctRU9ab0ZIbTlhYWt6YW93OWp4RXR5ZE9CWmNVYnJIN3RwMFk5RzVNdl9rd3BJZDY1WTRlNi01dzlaMXBfWEpYUFJpSllNcnZDTjVrSXZndHFlOUg1NVIyS3MwUk5zcVJTRENkVVBzSUtzYmVBLTJ1UVVHajkzV294TEVpWW1pUWxUY1dCR240?oc=5>)）
+
+**2. 金門資本因保險公司 22 億美元資本缺口遭起訴** — 金門資本（Golden Gate）因旗下保險公司出現高達 22 億美元的龐大資本缺口而面臨法律訴訟，引發監管機構與市場對其財務穩健的高度關注。 [2]（2026-09-28；[來源頁](<https://news.google.com/rss/articles/CBMisgFBVV95cUxQWDQyczVZa3p1RHhVWHhjNlhhY0VqXzlTYm5qbnFjdm85UUhSYnF5TDY2a1o5ZmRuQXZxRnZ6c3lCNURpeDk2VDNrRmVVX0I4bUstTU5INHpZUUw0eS02VFVSRlVrdUNmbzVjbmpmMXg1M3BoLTJpSC1NRUpENHhOYno4RFBhLUtva2V2UGVZV1lFZHNNb1BhTDh6TXlkSE5BUW1jVW1EYWpkeXVvQjR4aXNR?oc=5>)）
+
+**3. 為什麼私募信貸正引起監管單體的審查** — 隨著私募信貸市場快速成長，其流動性風險、估值透明度及對傳統金融體系的潛在影響引發監管機構高度關注，相關法規審查與合規要求正逐步收緊。 [3]（2026-09-25；[來源頁](<https://news.google.com/rss/articles/CBMiogFBVV95cUxOOUFBenhHR25yb1hfVzdsVEs2bEt5TzZ6SUxpYlo0ZUFYT3FGRVQyaVBTTUthQkxLbUQ3QWFyRTBheHNaenRBTy11LXJNWndfNk5YWUNRTFdmSXM1VUQtWjczUDJFRmh6aEotODFlRFU4SFNGUVhPQU1zSFRUN0FwR0dMZFYzN0VDX2F2UGJGSjFlSmVWa2hRd2t4SU05TlppV3c?oc=5>)）
+
+**4. 今年最大罰單！員工侵佔逾1,600萬元懸帳，保險局重罰台灣人壽960萬** — 台灣人壽因內部控制與稽核制度缺失，發生員工A走超過1,600萬元懸帳的重大違法事件。保險局祭出今年保險業最高罰鍰，重罰台灣人壽新台幣960萬元。 [4]（2026-09-24；[來源頁](<https://news.google.com/rss/articles/CBMi6AJBVV95cUxONFROZV9kTUswQ2ZFcG9GR3U4YUFPcUZfbTNna1VRcVNjOFpOY2I3anJBOXVGc29xN21WSjNNVm1FWGRzeE1hcmxVZl9zQWw2VzQtNTRWSy1NRkdLQlBiSWF5YjNmOVFlNFBJZGJKeGtHY0JiX1ltVXFVYjViNFlEUGRreWR4aEFhdnREcDMtcEQ1dFZPZk1pWVFnSnRIQzBrQjF1LVVpTXRNMTdhRE5oQ3p6b2h0S3ZkT2ZGOTRGSVo4VkJUMnVscU56RzJSc19tbFNMQzAyUnhObnA5bXdnclpfTTVqUmIwem0xX1Q1T0xManVrUlYyV014QldyX3htdUVLUVhoWUVDTllReFdmNmpuSmZ1WGZJWHpaMTBaOFJYOV9QejRURVpJV0lIdTRQWFBSX0dHMHFCd1hURWI4UWRYektZVTE0MDJkTGFPYktXMmp0OUhkdjJnRWJnOXNWWUdLUXMxNkM?oc=5>)）
+
+**5. 慕尼黑再保 MGA 表示安達信之行為使其面臨倫敦訴訟的監管風險** — 在倫敦的一起訴訟案中，慕尼黑再保旗下保險代理公司（MGA）指稱安達信（AmTrust）的相關商業行為，使其暴露於不可忽視的監管風險之中，引發業界對 MGA 治理與合規的關注。 [5]（2026-09-23；[來源頁](<https://news.google.com/rss/articles/CBMivgFBVV95cUxONkpmN09BT3lfZDJGeEk1Q3phUmZvYWxLQ3I4bjlDU1EtWkJ3RVd3WTFyN2JTZklWOEZjNEtDdDMzcHVoSHZpV3VfWi05d0RZVFRmRHI5aV9HU1JPa2F0SjU3VTVzS3RmOVZpdlJocTZiZnI3QUtWN0htbnFZbWhEZl9RLXlNVUJoUm92MkgtTkpRT1F1aEhRemttajlIUGJON3hwLTRTNFBuNElHb09FOHVBQXhOdVhiSFhCS1Zn?oc=5>)）
+
+## 趨勢分析
+
+本月重點只描述各則已保存摘要明確記載的個別事件線索 [1] [2] [3] [4] [5]。引用資料依摘要可讀性、重要性、日期與來源連結完整度挑選，並非隨機抽樣；未引用候選文章未逐篇判讀。因而，本頁不推估市場規模、發生率、方向變化或因果，也不把單一企業公告等同於整個區域的共同狀況。需要確認金額、監理效力、交易狀態或預測時，請直接查閱各條來源連結及正式公告。
+
+## 資料範圍
+
+候選數 102；逐條引用 5 筆。摘要是資料庫已保存的線索，並非來源全文或獨立事實查核；本頁未作跨月比較，也未判定未引用資料的準確性。

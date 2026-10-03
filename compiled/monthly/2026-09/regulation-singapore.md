@@ -1,0 +1,39 @@
+---
+type: "monthly"
+period: "2026-09"
+category: "regulation"
+region: "singapore"
+compiled_by: "codex-scheduled-task"
+prompt_version: "codex-monthly-v1"
+model: "Codex"
+articles_count: 28
+selected_count: 5
+candidate_hash: "0e990519d7a22df02d8b24bdde7448859bf14f1c73e3cee682e7ed288947b430"
+candidate_category: "監管動態"
+candidate_region: "新加坡"
+source_refs: [{"article_id": "e4182255b587", "revision_id": "7e8a92359be1949037b5927277865bf1f94f8b235e8cef524e84e09618b99e24", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "e5bc00ae7f71", "revision_id": "f11c399e24367b401f8afc368357de75d1170b82e76ae1383d87ffb0b623980c", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "ee786448d33a", "revision_id": "c15321522c4d2bd1ec42707e7e6e23d7a46a1b79ba9603cf668178c571afcb3f", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "32f911f825a8", "revision_id": "b42ce0eeabeabf8bb8d995ea86be692104799accbf7c9e0c97e58f4ffc2a392b", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "76cba31259cd", "revision_id": "4c28a23e8cb5614d12b9ada116f1e2ded970012a3993298b3fb79f452ba5305e", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}]
+---
+
+# 2026年9月｜監管動態・新加坡月度觀察
+
+本頁整理 2026 年 9 月資料庫歸入「監管動態／新加坡」的 28 筆可見候選文章。以下列出 5 篇報導供逐篇追查；選取依已保存摘要的可讀性、重要性、日期及來源連結完整度，不是隨機抽樣，也不代表該分組全量統計。
+
+## 本月重點
+
+**1. 新加坡金管局針對銀行與保險業者提出公司治理更新建議** — 新加坡金融管理局（MAS）針對銀行與保險公司提出公司治理更新草案，旨在強化金融機構的風險管理、董事會職責及內部控制標準，以因應日益複雜的金融環境與合規要求。 [1]（2026-09-30；[來源頁](<https://news.google.com/rss/articles/CBMiiAFBVV95cUxNOVpodVhlY1duSllEaVYxZFYxZm1EV3RPTmRBanVyVGNQcEF0eXc4ekRtZG5na3E3NUdnOGFKLUFYUkZyTm1wZUhvR2FJemFOS1JaSklpODB6REVhUUgyQzdKZEtKNmFXeThxblVFMmRNSUlsTHVGUlI3cTZTMGM3SFpzVTBFdHZP?oc=5>)）
+
+**2. 新加坡金融管理局將撥款十一億美元給資產管理公司以提振股市** — 新加坡金融管理局（MAS）計畫向資產管理公司注入十一億美元資金，旨在活絡當地股票市場，提升市場流動性與投資信心。 [2]（2026-09-29；[來源頁](<https://news.google.com/rss/articles/CBMiuAFBVV95cUxNMHZua2Zha2pSaG51YXlmVTM3WFhycVA3cUNyNVJMTU9fUkpJOHc5bnVobEtQdzRTV05lakJsdV82ZmZZY1pRTUQtNlczM2RBakwtQXVYblRqRHQ2QXk3cVFUZ2lNUXY4ZGZfY09aQUZpZUpWUGtLSHp3cXFwbktjeGJRMVNlblhjeG5Oalg3QV9tVGY2bVZfX3k4cUtoWFlPMDNSb25jdktOaGdrN1p3NDd3RWNCRmdU?oc=5>)）
+
+**3. 新加坡金管局提議對新加坡銀行與保險公司實施更嚴格的董事會規範** — 新加坡金融管理局（MAS）提案收緊當地銀行與保險公司董事會的相關規則，旨在強化公司治理與風險管理能力。 [3]（2026-09-30；[來源頁](<https://news.google.com/rss/articles/CBMimwFBVV95cUxQb3Buczg5b2JjZ25OS2cxM1JVMlFRWk1pb2czOTRLazRQNWUwZ1FFTGEwZkttTDNTbThKY1kwQVk2bkFLMVd2cnhoenNCbVpBWHFXSHZjMVlHM2FxZkY1MllRU3dwYUthOU0wRmxsRThsSkd2RDN2VU50d1dDTDJ3S1VaVG93OWZFOVZvVkk0UEZyS0gzNHJmZDhldw?oc=5>)）
+
+**4. 新加坡金管局就新加坡銀行與保險公司之公司治理更新進行諮詢** — 新加坡金融管理局針對新加坡銀行與保險公司的公司治理更新事項展開諮詢，持續推動金融業合規與治理標準升級。 [4]（2026-09-30；[來源頁](<https://news.google.com/rss/articles/CBMipwFBVV95cUxNbU1nU09HbWN3N2dZRV9pUWdQV0VxRGp4TmpEdVZmd3c2R1YzT2JRaUFOM0ZvWDllQzB4SkdiUXFpdVpZVkdkT1ZRODFmZlhJZFlxOHNxU2xWY3VPYkJ2dnJ4VWtkQlh5VDFPRG9LdUZjSkxMa3ZQekgxQlc0elMydW9MRExlcHFnVEJTN2M1YV9WVVlaWl80TnlCUFZXSFBXZWFPWDVrNA?oc=5>)）
+
+**5. 印度保險監發展局（IRDAI）在理賠激增後逆轉保險佣金政策** — 鑑於保險理賠支出顯著激增，印度保險監管發展局（IRDAI）決定調整先前政策，逆轉對保險佣金的相關規定，以維護市場穩定與保險公司的財務健全。 [5]（2026-09-29；[來源頁](<https://news.google.com/rss/articles/CBMi1gFBVV95cUxPQTdNb2JUWDhKeGJlMjR0UmNESVJ1N0JNQWdQQlJoSE1vczUydzB2T0l5OG9pOVlaLV96THgtUXYweHZxNk03T09RZXo1Y1JwRmZEWXNfSlgzQlBEeFBQQ2lRalA1NU93TmFxUGhJQ2E1X0xVNjZneGk5dzIxNzhkeTBpZEdnc0tRSlkxci1IYy1jRjd0M2RucFpTVXJfWGhiZE5MMWlmcDlzQk00RE56bEpRT3Y0cVN4aU1CN01wNDgyRF9jb3VkSENadE9hVHluNmNTajR3?oc=5>)）
+
+## 趨勢分析
+
+本月重點只描述各則已保存摘要明確記載的個別事件線索 [1] [2] [3] [4] [5]。引用資料依摘要可讀性、重要性、日期與來源連結完整度挑選，並非隨機抽樣；未引用候選文章未逐篇判讀。因而，本頁不推估市場規模、發生率、方向變化或因果，也不把單一企業公告等同於整個區域的共同狀況。需要確認金額、監理效力、交易狀態或預測時，請直接查閱各條來源連結及正式公告。
+
+## 資料範圍
+
+候選數 28；逐條引用 5 筆。摘要是資料庫已保存的線索，並非來源全文或獨立事實查核；本頁未作跨月比較，也未判定未引用資料的準確性。

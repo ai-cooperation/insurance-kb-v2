@@ -1,0 +1,39 @@
+---
+type: "monthly"
+period: "2026-09"
+category: "consumer"
+region: "asia-pacific"
+compiled_by: "codex-scheduled-task"
+prompt_version: "codex-monthly-v1"
+model: "Codex"
+articles_count: 23
+selected_count: 5
+candidate_hash: "af08beefc8bc91ad532ea8b00d9caedf64a36189982a20ce5b8c34bc1f3b8c79"
+candidate_category: "消費者保護"
+candidate_region: "亞太"
+source_refs: [{"article_id": "e5da8091d9fb", "revision_id": "1ba6fa88110c818455f94e4446050c2492709e5998aeaed7f13ca9fd3a8fc218", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "4e80fd6ad8c9", "revision_id": "f6fa183e56f0d9a6cac76992586e9db58fa0ea2a81e8043dd538fbcacdc8bba4", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "607c4894c930", "revision_id": "c662b8ae8818f68e823f69acb790d2fc3b35c4535741845dc6b95c1df3b6f7fb", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "2406ef99a14b", "revision_id": "8a6583b5e276963e9c5d1bb116324f959cab5fc1a7acf497787a673f37951390", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "056ad0e5fde4", "revision_id": "c6d7d0615189e2a1676c72ad29e298df111f494d28c73ed56e67f25336ed87d7", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}]
+---
+
+# 2026年9月｜消費者保護・亞太月度觀察
+
+本頁整理 2026 年 9 月資料庫歸入「消費者保護／亞太」的 23 筆可見候選文章。以下列出 5 篇報導供逐篇追查；選取依已保存摘要的可讀性、重要性、日期及來源連結完整度，不是隨機抽樣，也不代表該分組全量統計。
+
+## 本月重點
+
+**1. 韓國：監管機構揭露汽車保險領域的大規模保險詐欺** — 韓國金融監管機構近期查獲多起涉及汽車保險的大規模詐欺案件，強調將加強審查機制，並針對不實理賠行為採取更嚴格的執法手段以維護市場秩序。 [1]（2026-09-30；[來源頁](<https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/97039/Type/eDaily/South-Korea-Regulator-flags-massive-insurance-fraud-in-motor-insurance>)）
+
+**2. 南韓：面對申訴激增，監管機構發起消費者保護行動** — 由於保險消費者申訴案件持續攀升，南韓金融監管機構決定全面啟動消費者保護專案，加大對保險公司的稽查與規範力度，以維護保戶權益。 [2]（2026-09-30；[來源頁](<https://news.google.com/rss/articles/CBMi5gFBVV95cUxQQzJwOEdHWVg4OU1wN29OMFlQNjR5UEZUMnVpeVMzdlY0Z1VmV2J4d05PbkE1OFFCNl84clJkVFZ3WDJNVGlWT3FSVEhCVktwWDV1TG1BTE9nSHBsM3M0RWthNHFHS2xrWGJsZGJ3X3NmSzRZVzB1STBFZjQ3RG9qWHZ3alY5NWxVTm9BSmlDUHRNZUNlYUNpWXNPSjdfTm9ObXU1WVZOT1ZWc1JmNnlSV0h5LWczdnE1a1A5M3hOWHBzQjlqOG5fWUZQbHZmU0VHd09TbFZOSlZ6MTNlRmNMU0lJeGQydw?oc=5>)）
+
+**3. 韓國保險詐欺案件頻傳，經紀人銷售通路成重災區** — 韓國上半年保險詐欺數據顯示，詐欺案件高度集中於經紀人與業務員銷售最為活躍的產品線。監管機構正密切關注此現象，並針對相關銷售通路加強審查，以遏止保險詐欺行為對市場造成的損失。 [3]（2026-09-29；[來源頁](<https://www.insurancebusinessmag.com/asia/news/breaking-news/korea-flags-rising-fraud-in-the-lines-brokers-sell-most-591607.aspx>)）
+
+**4. 理賠資料不完整致亞洲成本驅動因素未被檢視** — 報導指出亞洲保險公司理賠資料缺漏，使得成本結構與風險因素難以精準分析，呼籲提升資料完整性以改善風險管理。 [4]（2026-09-28；[來源頁](<https://news.google.com/rss/articles/CBMi0wFBVV95cUxPWkJMUWxxUjJOQ1psQko4V1JUZDFqZWNzazVZd1ktZWxnblNrNzRPc05yQWJnRmJtQ1JGSVo5V0xlUUtyYUFiMmdmLWtZaFp3LXdGamhrWmc2LWs3bnNRNmRyenJqb0JZSkxXYWhUVDBPc2FnWkd0YS14cE1uTUdQUlg2U3pMWmNaZ0dYZVNBc3E2aE83S205Zkd3cGx3aWFWUVkxd3ZXcnpDMXVvLVZiMzdCbE91ckQ1OGNNcTVHcXlHV2RESGt3VU1qOVBwelRkVWxn?oc=5>)）
+
+**5. 澳洲證券投資委員會因誤導性保險比較聲明起訴某公司** — 澳洲證券投資委員會（ASIC）對某家公司採取法律行動，指控其在保險比較業務中涉及誤導性聲明，未能保護消費者權益並違反相關金融法規。 [5]（2026-09-25；[來源頁](<https://www.asiainsurancereview.com/News/View-NewsLetter-Article/id/96990/Type/eDaily/ASIC-sues-company-over-misleading-insurance-comparison-claims>)）
+
+## 趨勢分析
+
+本月重點只描述各則已保存摘要明確記載的事件線索 [1] [2] [3] [4] [5]。引用資料依摘要可讀性、重要性、日期與來源連結完整度挑選；未引用候選文章未逐篇判讀。因而，本頁不推估市場規模、發生率、方向變化或因果，也不把單一企業公告等同於整個區域的共同狀況。需要確認金額、監理效力、交易狀態或預測時，請直接查閱各條來源連結及正式公告。
+
+## 資料範圍
+
+候選數 23；逐條引用 5 筆。摘要是資料庫已保存的線索，並非來源全文或獨立事實查核；本頁未作跨月比較，也未判定未引用資料的準確性。

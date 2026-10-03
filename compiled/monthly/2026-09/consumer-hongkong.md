@@ -1,0 +1,39 @@
+---
+type: "monthly"
+period: "2026-09"
+category: "consumer"
+region: "hongkong"
+compiled_by: "codex-scheduled-task"
+prompt_version: "codex-monthly-v1"
+model: "Codex"
+articles_count: 14
+selected_count: 5
+candidate_hash: "284f37f4ea65704d391775ecdc94a7a9fe1f47fa0d2fab3ce362b28cad91eec9"
+candidate_category: "消費者保護"
+candidate_region: "香港"
+source_refs: [{"article_id": "10e8b203e5df", "revision_id": "d4aef1e2408d5cd8d1aa159be0fb58e1cd464b2432a0c4aaebcab5e250b9c710", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "a271d4087862", "revision_id": "dfb600071bacf342ae89924dc381c61b502a67d9328e0dcc0bc6173d4110195f", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "43b7c280c443", "revision_id": "c62ed16cba4c02f7987ec3da9155c1b0d0961e8c8274733ed23895b4649e2ba7", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "1b068ddb8eb6", "revision_id": "9d069c382e9e1df3cac62fc5a697ebe9dcaf31d5926e6264282bd44e9acc37dd", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "b32bf597b825", "revision_id": "653dd738d712ebc8270adb0f63d1128c999bfd644ddd2d1efa5f8eb7cbc2b77d", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}]
+---
+
+# 2026年9月｜消費者保護・香港月度觀察
+
+本頁整理 2026 年 9 月資料庫歸入「消費者保護／香港」的 14 筆可見候選文章。以下列出 5 篇報導供逐篇追查；選取依已保存摘要的可讀性、重要性、日期及來源連結完整度，不是隨機抽樣，也不代表該分組全量統計。
+
+## 本月重點
+
+**1. 澳洲保險集團同意就瑞士信貸Greensill二十億美元訴訟達成和解** — 澳洲保險集團已同意就瑞士信貸與Greensill相關的二十億美元訴訟達成和解協議，結束這起備受關注的法律糾紛，有助於降低該集團的法律風險與潛在財務不確定性。 [1]（2026-09-25；[來源頁](<https://news.google.com/rss/articles/CBMizwNBVV95cUxPVG5LMkdRLU51WWxMYnJGc0pXNkZqTUYwRXV1Qjd3bzJDUXdocDR0cTdVQ3BtMEk5cko4RGxSQ3NQSkJTMTJNN3J4dFZmNWFieVgtSFI2OUtPUUNFUUphcXJtNEQ2cktqTjJOR0U0X2NYY3h3bDhrU0Z5WVFNQ2Z0Y1BqMG5tZkZMZkprOWF0czY3eDl3UzlSMmdLTjI2WEJCWEhtc1VLdVY0UHBFdV9XM2FvaTUwRk8wcGtXMU9VaFJKakpaQzRKaVUzeXlUdzBUM2hfbXkxdkMzMzVsSWtKUUF4SzhHUzhocWNlUkhIT3hLbFlwZENtcWotLVNrcnNudGpzXzlWUmZzUXM2Z01WM1I3OFlCS2dvMHB0ejRzVk9TT0ttUGtvcElQMWw1VmlKRUxRQzVhdlhlYXIxcHJiQV9KTGRaSVRENW5CMmR3MmtLRWc4bGNxOUV3dWVWSGhtWmpYbUpqVFBJN2N3dlFUaFEyRlFuUDRGZjBQOE9EUGNXV01BMUpGVC1OZEZiSFgzME5EYkNNNnl4Q3N1QVV5QjR1MUw5V1NCa0ctUWRqSkpvNWZEMzdmT2dxbElWZFlfU1Rhd1RRM1hWTllDRzE4?oc=5>)）
+
+**2. 客戶信賴Canara銀行31年卻被推銷93歲才給付的壽險保單；印度保險監管發展局（IRDAI）發布裁決** — 一名長期客戶信任某銀行長達31年，卻被不當銷售一張需至93歲方能獲得給付的壽險保單。印度保險監管發展局（IRDAI）針對此銷售不當事件做出裁決，凸顯金融機構通路合規與資訊揭露的重要性。 [2]（2026-09-16；[來源頁](<https://m.economictimes.com/news/new-updates/he-trusted-canara-bank-for-31-years-then-was-sold-a-life-insurance-plan-that-pays-at-age-93-irdai-orders-rs-4-lakh-refund-and-1-crore-fine-for-misselling-policy/amp_articleshow/134279762.cms>)）
+
+**3. 聯合責任裁決使印度銀行保險通路受到嚴格審查** — 印度近期一項關於聯合責任的法律裁決，導致銀行保險通路面臨更嚴格的監管審查。監管機構正檢視銀行在銷售保險產品時的合規性與責任歸屬問題。 [3]（2026-09-09；[來源頁](<https://news.google.com/rss/articles/CBMi4wFBVV95cUxPUy1EYy1SVFFfc2pPWm1BOU5WcmFMYWdKZ1d1ekY1R2U1XzRrWGw2VVMwNkhjQU1Oa0NHOTVKOWJUa2o2RDRrcjFyUVY4azI3amtRUHNZblUxSkRtS3p1VWdzS0VLcVotWlBUVWhjR1ZpWGszTG1nMURhV0JxZHN1VFplclh6V1QzVDNtVmpaTThONFF2SUh3NG9OcVA0SDloMWVpZjlnakl4bEpLM0M3QWcyaWdrWldaYW1NaVE2enBGVzhJZ2tLVVF1czJrRXpUY3FtVDhCZVpDcmdyVERNamxTWQ?oc=5>)）
+
+**4. 孟加拉監管機構在理賠文化崩潰下發放支票** — 面對孟加拉保險市場理賠文化失靈的困境，監管機構介入並直接發放理賠支票，以維護保戶權益並重建市場信心。 [4]（2026-09-08；[來源頁](<https://news.google.com/rss/articles/CBMizwFBVV95cUxOcFFhTmk4WVU2cG9aOTdlWnJHdnUwOVEzV3JFZTQ3aEliVjluaVVLdHloWExNZkJNUzh4RXk5bV9JVlVaeWM3d2FUYnRTRTZ1SjJHd3hJM0xZS0Jjdnc0WlVzSFJtekxzaGdiNV9JZV81cnd6bFduSzhSQmg4c0NRa3ZwWkhZbkR1alRSX0xPcDlRZmtCUHhITjRNYjdDbUdsVVhBZ2xTLUFXVFdpdnUwOWFWWS0tcUpjbVRtYzlfYmlwdUdwZTBZYVhPdFhBUE0?oc=5>)）
+
+**5. 香港保險監管機構聯合警方展開行動逮捕 15 人** — 香港保險監管局與警方合作，突襲查緝非法保險活動，當場逮捕 15 名涉案人員，顯示執法力度加強。 [5]（2026-09-03；[來源頁](<https://www.asiainsurancereview.com/News/ViewNewsLetterArticle/id/96763/Type/eDaily/Hong-Kong-Insurance-regulator-and-police-force-arrest-15-in-operation>)）
+
+## 趨勢分析
+
+本月重點只描述各則已保存摘要明確記載的個別事件線索 [1] [2] [3] [4] [5]。引用資料依摘要可讀性、重要性、日期與來源連結完整度挑選，並非隨機抽樣；未引用候選文章未逐篇判讀。因而，本頁不推估市場規模、發生率、方向變化或因果，也不把單一企業公告等同於整個區域的共同狀況。需要確認金額、監理效力、交易狀態或預測時，請直接查閱各條來源連結及正式公告。
+
+## 資料範圍
+
+候選數 14；逐條引用 5 筆。摘要是資料庫已保存的線索，並非來源全文或獨立事實查核；本頁未作跨月比較，也未判定未引用資料的準確性。

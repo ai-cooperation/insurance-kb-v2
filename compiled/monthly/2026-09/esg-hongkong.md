@@ -1,0 +1,39 @@
+---
+type: "monthly"
+period: "2026-09"
+category: "esg"
+region: "hongkong"
+compiled_by: "codex-scheduled-task"
+prompt_version: "codex-monthly-v1"
+model: "Codex"
+articles_count: 6
+selected_count: 5
+candidate_hash: "90aa6275c554222b6d6b430a682876a028351dfb96556a97a451bc4af2c855ce"
+candidate_category: "ESG永續"
+candidate_region: "香港"
+source_refs: [{"article_id": "64df0f672bb7", "revision_id": "0747a583e101cc6676dee7bdc6450d512a0bdf41e4c08fdd26ea3ef5e1b6c249", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "89c0b2997870", "revision_id": "fc926ec49243c850c79ca9b8e29ae268fb04dbd33ac34128d8834221574e9f04", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "e3b1db2c8a9d", "revision_id": "457127fff6f40c176cf74a36ac5bf0b3a3df8875f4640f91c961edd05c6f37fe", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "6e06dfb82df1", "revision_id": "0f5ffb23c9e9a206d7de1c3af21e792de2af986f9569ecb7e7075b278bfc76f2", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "d74e6c14712c", "revision_id": "a5ed695ac66ca46c7417fb432611a2e5a21102d98b33e7991972a1857530c064", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}]
+---
+
+# 2026年9月｜ESG永續・香港月度觀察
+
+本頁整理 2026 年 9 月資料庫歸入「ESG永續／香港」的 6 筆可見候選文章。以下列出 5 篇報導供逐篇追查；選取依已保存摘要的可讀性、重要性、日期及來源連結完整度，不是隨機抽樣，也不代表該分組全量統計。
+
+## 本月重點
+
+**1. 香港金融管理局設定銀行業2030年淨零轉型規劃時間表** — 香港金融管理局宣佈為本地銀行業設定2030年的淨零轉型規劃時間表，推動金融機構加速落實減碳與永續發展目標，應對氣候變遷風險。 [1]（2026-09-24；[來源頁](<https://news.google.com/rss/articles/CBMikAFBVV95cUxNZ3JxRHdVbUY5Tm1fZkdQdHpuU2IxWXA2OHRESWczR3pqcHFXZTh5eTlMUlc1RzR6ZlJLemxIdjNMQVR5Tm05cnUwa2FiSG9WVjY3U0tIYVVRU0lpanpSOXN3TXVUa3hKZlNSLS1fdURtUGdDQnp0dzhuaHNoaFhrOFhwOE1QRUtQOW5qNW1CTzc?oc=5>)）
+
+**2. 香港計畫於2030年前建立5條綠色能源走廊** — 香港特區政府與相關機構計畫在2030年前設立五條綠色能源走廊，推動低碳轉型與永續發展，預期將帶動綠色金融與相關基礎設施投資機會。 [2]（2026-09-16；[來源頁](<https://news.google.com/rss/articles/CBMiggFBVV95cUxQR1VkdkJTSUp1djJpc29GaUVlZ2UzQTdIZzgwc0N0R3dCR3l0dmoxWWhBZ3Q4Rk9VTzBkUEIzOFR0REJETUZpdlc1bDNsWXo2aG1sN05BMXgwSzdJN1BHY19ocXZNeERhcy1UU0R2WERkemZiMGFVOFNSMTRQN1dYN1VR?oc=5>)）
+
+**3. Pertamina keeps oil, gas output as it builds low-carbon business - asianbusinessreview.com** — 印尼國家石油公司（Pertamina）在積極發展低碳與永續業務、推動綠色轉型的同時，仍維持穩定的石油與天然氣產量以確保能源供應。 [3]（2026-09-14；[來源頁](<https://asianbusinessreview.com/exclusive/pertamina-keeps-oil-gas-output-it-builds-low-carbon-business>)）
+
+**4. 香港：監管機構促進跨產業合作以提升氣候韌性** — 香港監管機構積極推動跨產業合作，旨在應對氣候變遷帶來的挑戰，進一步提升整體金融與保險市場的氣候韌性與風險管理能力。 [4]（2026-09-23；[來源頁](<https://news.google.com/rss/articles/CBMi_wFBVV95cUxPMWgxNnF3dDd2dC1pV25QeWZXWjE1UjJZbWRrWHJBN2kzZlFZTnkwT0MxZ3RCdzJ1TTBERzBhNzJheFJfRHVnZF9lbndzSG5fSmVSN2hRcjZIYVExVjB4QkdCQlZJUWF1cnBaWmt1NTY1U1JGZ3J4eUJwS1dOV3haYXBvT1FOcDFCM21VRXFVVTliNTZGdDBwSWU4a3NzbVQxVWFXc1dhWDhadm9PU2pNWElFeV8wQUxLNDIyY3hqVU91SDBWRWVXTDg5aWVNRkMzODIwZkw5NVJvQTBtbzlXOVBBek9rTTQ4VElMUWtQUUdtdGxOSE1nOFQyRXFiUkE?oc=5>)）
+
+**5. 成本考量削弱香港對氣候政策的支持力度** — 最新分析指出，由於企業與社會面臨轉型成本與財務負擔的考量，香港在推動多項雄心勃勃的氣候與永續政策時出現放緩或保守態度，平衡經濟發展與減碳目標成為一大挑戰。 [5]（2026-09-14；[來源頁](<https://hongkongbusiness.hk/in-focus/cost-concerns-temper-hong-kong-support-climate-policies>)）
+
+## 趨勢分析
+
+本月重點只描述各則已保存摘要明確記載的個別事件線索 [1] [2] [3] [4] [5]。引用資料依摘要可讀性、重要性、日期與來源連結完整度挑選，並非隨機抽樣；未引用候選文章未逐篇判讀。因而，本頁不推估市場規模、發生率、方向變化或因果，也不把單一企業公告等同於整個區域的共同狀況。需要確認金額、監理效力、交易狀態或預測時，請直接查閱各條來源連結及正式公告。
+
+## 資料範圍
+
+候選數 6；逐條引用 5 筆。摘要是資料庫已保存的線索，並非來源全文或獨立事實查核；本頁未作跨月比較，也未判定未引用資料的準確性。

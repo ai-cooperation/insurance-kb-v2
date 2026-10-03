@@ -1,0 +1,39 @@
+---
+type: "monthly"
+period: "2026-09"
+category: "talent"
+region: "china"
+compiled_by: "codex-scheduled-task"
+prompt_version: "codex-monthly-v1"
+model: "Codex"
+articles_count: 121
+selected_count: 5
+candidate_hash: "cbac4f53069b361be5e1bc960d068b9863414ca0dc688f6cad2cd80d2fa1b485"
+candidate_category: "人才與組織"
+candidate_region: "中國"
+source_refs: [{"article_id": "441d62db0701", "revision_id": "a75dadb2a42cca60345f3b25794373513edb08380a6dc73019617c40cd240a62", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "b0a733a5a82d", "revision_id": "a6f6d06e092414208afc51336877ff862bab19e7282b3b12f21f36f80385e8b0", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "c618e00d012b", "revision_id": "6606f5afdb672ec09e3ad9ef6200fdefbdf4b4762145c5d8bd2030a3e14883ef", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "8ca638210c63", "revision_id": "0cce916ad5160de796fb0194534252a18e1ba302cbc2d71a89ae5dfafb0ea51e", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "c2b355d11376", "revision_id": "fd9306b49c0dca2c23a3b638d332991806cf969d8e7eb37871181d8f50dad435", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}]
+---
+
+# 2026年9月｜人才與組織・中國月度觀察
+
+本頁整理 2026 年 9 月資料庫歸入「人才與組織／中國」的 121 筆可見候選文章。以下列出 5 篇報導供逐篇追查；選取依已保存摘要的可讀性、重要性、日期及來源連結完整度，不是隨機抽樣，也不代表該分組全量統計。
+
+## 本月重點
+
+**1. 壽險、財險、養老、基金全換將，中國太平在下什麼棋？** — 中國太平近期針對旗下壽險、財險、養老險及基金等核心業務板塊進行高層人事大調動，引發市場對其未來戰略佈局與發展走向的高度關注。 [1]（2026-09-30；[來源頁](<https://news.google.com/rss/articles/CBMirAFBVV95cUxQaVpXTkl1MmpNemZ4Z2pBRGJOZ0JIRGpRTWEtRjNIcXJoQ2dWcnNIcm5sM1ZkakozRWlkR0txUjYzU3JUb0wzVzJzV2xudWRPOHU3VmlQY2ZGZlBTcFg4Ni1GWEtxT1RwU0d2M3dqcDZDUTFaNm81VHlWUlNpbFpHN2lRTEozWFRfQmVKbkNpc3FoRmVhbEt6MnhwNlBkV25sZENabGVXbTVCRXl2?oc=5>)）
+
+**2. 中國人壽提名淡新虎任首席市場官 該職位為首次設置** — 中國人壽發布高管人事變動，提名淡新虎擔任首席市場官一職。這是該公司歷史上首次設立此一重要管理職位，備受市場關注。 [2]（2026-09-29；[來源頁](<https://news.google.com/rss/articles/CBMijgFBVV95cUxPN1BYZUFSYl93YnFaQklmZmlmMnBjaFdPa1JsUUFYMF9lT282NDRMU0lvLW5JZmRyanpobTRBRnAwQmVTUDV4OTJRLUtYQTJENkw5VXQ5MjBGU3NxdWE1UUlfQjkzYjhXTzR2YmhmbFBXcXVSVDR4eWFzSG84NkhZS3ZZSnB3OXNSR2I5aF9B?oc=5>)）
+
+**3. 重磅！平安人壽即將迎來「85後」新任董事長** — 中國平安人壽高層人事迎來重大變革，即將正式迎來一位「85後」的年輕董事長，顯示保險業領導階層逐步走向年輕化與專業化接班。 [3]（2026-09-26；[來源頁](<https://news.google.com/rss/articles/CBMijAFBVV95cUxQT0Jxd1BpbWpncFhrWDJ2NjVsQkE2M3ZQeDdvYUhhakRJVm8tdDQ1N2JCTFFKNHdNQmlQWVV3Y3pERzZkaXBjMGlLa1lycHpIb00tUGxxNm13a3VqZVRnMF9yaFJOeHBkR0E3TFdXNGFLOE95MkhobVNWWm13YWhaYnRnY1hVOFdMdl82cw?oc=5>)）
+
+**4. 八五後蔡霆擬升任平安人壽董事長** — 中國平安人壽迎來高層人事變動，八五後年輕少壯派代表蔡霆擬將升任平安人壽董事長，引發業界對保險公司高管年輕化與領導層交替的高度關注。 [4]（2026-09-25；[來源頁](<https://news.google.com/rss/articles/CBMihAFBVV95cUxQNEhyZFRBMUpwTXNXOUt3dW1qZU04YUFWWDctNE1PdnBMeUNINE1odmtuTzZWYnJHdXl6YWJwbllBeUh3VlB4dUFpT3ZabGtkUTdCZnVoT2poUFdBbHdLdW1DWC1IVDdVQ0pLS2ZOcTRtODRfR1U0QWloaHZBbUpZaVUtVl8?oc=5>)）
+
+**5. 排名第二！「金融副省長」調任國家金融監管總局！** — 中國國家金融監督管理總局迎來高層人事調動，具備地方金融監管經驗的「金融副省長」調任要職，預期將強化金融系統風險防範與監管力度。 [5]（2026-09-21；[來源頁](<https://news.google.com/rss/articles/CBMif0FVX3lxTE1RN3B4dzEyMVRIeXFSaEJsS0hRLV84dkxITkhxb2RWSWtwU3NwN2E4cnFXNHZCclpCcVRJR1ZyUTNvWVVCTW1aYzhBYTQ4enp0OFVCQW42TUJSZ1hKQTFEbUE3Z3E5cVFzNzkzUXdxTVhMODhORG9zaHBlVTFhSFE?oc=5>)）
+
+## 趨勢分析
+
+本月重點只描述各則已保存摘要明確記載的個別事件線索 [1] [2] [3] [4] [5]。引用資料依摘要可讀性、重要性、日期與來源連結完整度挑選，並非隨機抽樣；未引用候選文章未逐篇判讀。因而，本頁不推估市場規模、發生率、方向變化或因果，也不把單一企業公告等同於整個區域的共同狀況。需要確認金額、監理效力、交易狀態或預測時，請直接查閱各條來源連結及正式公告。
+
+## 資料範圍
+
+候選數 121；逐條引用 5 筆。摘要是資料庫已保存的線索，並非來源全文或獨立事實查核；本頁未作跨月比較，也未判定未引用資料的準確性。

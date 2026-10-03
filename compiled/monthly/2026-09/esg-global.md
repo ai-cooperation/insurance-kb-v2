@@ -1,0 +1,39 @@
+---
+type: "monthly"
+period: "2026-09"
+category: "esg"
+region: "global"
+compiled_by: "codex-scheduled-task"
+prompt_version: "codex-monthly-v1"
+model: "Codex"
+articles_count: 71
+selected_count: 5
+candidate_hash: "8490baf8d81b750e814425b064234c086c94befb1eb835501e6b3da0b7bcbd15"
+candidate_category: "ESG永續"
+candidate_region: "全球"
+source_refs: [{"article_id": "94afbed16a2a", "revision_id": "c087a53fee1a1d48e51effe73a357de81c931a4344f041723271ac63c64880f2", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "f9116756e74b", "revision_id": "d76c74a83312d22a815fcefc61dd7a92bbccaf58921eec877149ea9925f378f3", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "f73f843e4e0b", "revision_id": "04be164be4a82a0b649e906db706f1c26a6bd164b599ca8d5307095803f5a360", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "129cff60255f", "revision_id": "bbc0e44c4726a8678ab874777a03a44481386fe56e1eb8b4b458913216da9445", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "7f1b317d0737", "revision_id": "dd3feeaa348afedafb098767e8cf0169e63130309c1137cbfbf5880bb1867dbb", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}]
+---
+
+# 2026年9月｜ESG永續・全球月度觀察
+
+本頁整理 2026 年 9 月資料庫歸入「ESG永續／全球」的 71 筆可見候選文章。以下列出 5 篇報導供逐篇追查；選取依已保存摘要的可讀性、重要性、日期及來源連結完整度，不是隨機抽樣，也不代表該分組全量統計。
+
+## 本月重點
+
+**1. 英國FCA放棄強制實施基於IFRS的氣候相關財務揭露計劃** — 英國金融行為監理總署（FCA）宣佈放棄原定強制推動基於國際財務報導準則（IFRS）的氣候相關財務資訊揭露計劃，此舉調整了企業在永續報告與氣候風險揭露方面的監管合規要求。 [1]（2026-09-30；[來源頁](<https://news.google.com/rss/articles/CBMikgFBVV95cUxNc0lFR1JrbEJEVlBkSHF6QmFvZVdwdDEyS2N3YXc0cGp2Q2hHZW14UjV3NC1LRG1xX0RjV1ZYR3RLRlNnNGdxSWxFS2I2OGFBUUhrNlAtd0RiNXA1RFdJMEpDampHQVlldlpwWGJmYjhFcTVUVDFfLTFJaGJyVkI5M3ZiYXpubkZ0SF9UY0Y2c0FyZw?oc=5>)）
+
+**2. 保險業者面臨氣候指標落差的挑戰** — 最新產業報導指出，保險公司在評估與揭露氣候風險時，仍面臨氣候數據與相關計量指標不足的落差，亟需建立更完善的評估標準。 [2]（2026-09-23；[來源頁](<https://news.google.com/rss/articles/CBMirAFBVV95cUxPOUdhcmpCREVoUHYwSURKZ004LWxwMlNhVnVMc0FFazB4WHp0Zmp5bFVGOEpUZE5Bd0lGbWMyZFpld05jQmJOUUwwLW5qY1BhMU1xQzJla0VqYmQ4emVhTVVSeFltQ3A4ZjBMX3BFM1FVcGk4ckxxWEc3eGp4UERWbEJyblI3TDJmaU5wRHVJNi1JamZXeGRzTWNHTEVRS1dRME4wQmdodU02UUtw?oc=5>)）
+
+**3. 「真實之夏」：歐洲計畫透過全新聯盟應對氣候保險保障缺口** — 歐洲正籌組全新聯盟來應對日益嚴峻的氣候變遷風險，並計畫在這個被稱為「真實之夏」的時期，全力縮小氣候保險保障缺口，提升社會韌性。 [3]（2026-09-16；[來源頁](<https://news.google.com/rss/articles/CBMitwFBVV95cUxPQUZjNWFfWUdZMHAzZ0p0b3VrclRrNFRQaEJWYWk2eEJHR3VCU1Zla1J5cDVtdUNDSWpJUGhWVGhBY1c2d1ptU3Vyai11b1ZVTDZMWFVrd2RyYlA0Y3BoSW41a0xfZWRnVm5Mcmh4NURza180TDJtRmM1RkV4bGJ6Wl9PTHVmNkFBeEhKT25VdjV1MTZkbHZVdGlwS2lyb2ZkY2ViRjJSUjVaUzVWUkpNRmZtR0FESG8?oc=5>)）
+
+**4. 瑞士再保險基金會尋求韌性創業家獎申請** — 瑞士再保險基金會（Swiss Re Foundation）開放「韌性創業家獎」申請，旨在支持透過創新商業模式提升微型、小型和中型企業（MSME）與社區氣候或經濟韌性的社會企業。 [4]（2026-09-30；[來源頁](<https://news.google.com/rss/articles/CBMiswFBVV95cUxNN0lHS3psSTJ6SDQwYVFqNmRXODBGaTVNS1hJaDU1WGZlbUdTWVlRUmFwVmswX19CSHZtTzFGQzRVbUVheWppdTU4b2F2dERydGF6eUtubVh5V19aSWxHcnFqVGtUeE9xdG15M1JiX0tIT1lhbEJrMnhWbkdWUXBSMWtqTUxIMjBJSUV3QWJuTGJxZldral80c2ZBUUNhcG5FOVh0UlBUaHRzeUszN25yc2VGRQ?oc=5>)）
+
+**5. 全球風險在金融、人工智慧與基礎設施領域的關聯性日益緊密** — 最新分析指出，隨著金融市場、人工智慧技術與關鍵基礎設施的深度融合，全球面臨的系統性風險正變得高度互聯，促使保險與風險管理業界必須重新評估跨領域的潛在威脅。 [5]（2026-09-29；[來源頁](<https://news.google.com/rss/articles/CBMiZEFVX3lxTFBNaU50YmN3WXFodjRMWXlMQ1V3TmtvM0NIVzd6dEU2d0RLNnVjOG9ZeU05Q3pEUE9DQVdPdXBETXFtbUx6enNpNG5EenlfdHBjZmNHVXFabXlOVXBsQnA4QlRuMW4?oc=5>)）
+
+## 趨勢分析
+
+本月重點只描述各則已保存摘要明確記載的個別事件線索 [1] [2] [3] [4] [5]。引用資料依摘要可讀性、重要性、日期與來源連結完整度挑選，並非隨機抽樣；未引用候選文章未逐篇判讀。因而，本頁不推估市場規模、發生率、方向變化或因果，也不把單一企業公告等同於整個區域的共同狀況。需要確認金額、監理效力、交易狀態或預測時，請直接查閱各條來源連結及正式公告。
+
+## 資料範圍
+
+候選數 71；逐條引用 5 筆。摘要是資料庫已保存的線索，並非來源全文或獨立事實查核；本頁未作跨月比較，也未判定未引用資料的準確性。
