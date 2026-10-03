@@ -1,42 +1,75 @@
-name: Monthly Knowledge Distillation
+name: Monthly Wiki Publication
 
 on:
-  schedule:
-    - cron: '0 2 1 * *'  # 1st of each month at 02:00 UTC
+  pull_request:
+    branches: [main]
+    paths:
+      - 'compiled/monthly/**/*.md'
+      - 'src/monthly_draft.py'
+      - 'tests/test_monthly_draft.py'
+      - '.github/workflows/distill.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'compiled/monthly/**/*.md'
   workflow_dispatch:
     inputs:
       period:
-        description: 'Period to distill (e.g. 2026-03 monthly / 2026-Q2 quarterly / 2026 annual)'
-        required: false
+        description: '月報期間（YYYY-MM）'
+        required: true
         type: string
-      mode:
-        description: 'Distill mode'
-        required: false
-        type: choice
-        options: [monthly, quarterly, annual]
-        default: monthly
-      force:
-        description: 'Regenerate pages even if they already exist'
-        required: false
-        type: boolean
-        default: false
 
-# Same lock as crawl.yml (set 2026-06-04 commit fc4b552). Both workflows
-# mutate compiled/ and master-index.json via git push; concurrent runs
-# would hit rebase conflicts on push, abort into detached HEAD, and
-# fail with "not currently on a branch". Distill only runs monthly so
-# the lock rarely fires, but the cost of having it is zero.
+# Keep serialization with the crawler: both publication paths update generated
+# data, and overlapping runs could otherwise publish against different snapshots.
 concurrency:
   group: insurance-kb-pipeline
   cancel-in-progress: false
 
 permissions:
-  contents: write
-  actions: read
+  contents: read
 
 jobs:
-  distill:
+  validate-draft:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Test monthly draft validator
+        run: python -m pytest tests/test_monthly_draft.py -q
+
+      - name: Validate complete monthly draft set
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          MONTH_PERIOD: ${{ inputs.period }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          PUSH_BASE: ${{ github.event.before }}
+          PUSH_HEAD: ${{ github.sha }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            python -m src.monthly_draft validate --period "$MONTH_PERIOD"
+          elif [ "$EVENT_NAME" = "pull_request" ]; then
+            python -m src.monthly_draft validate-changed --base "$PR_BASE" --head "$PR_HEAD"
+          else
+            python -m src.monthly_draft validate-changed --base "$PUSH_BASE" --head "$PUSH_HEAD"
+          fi
+
+  publish:
+    needs: validate-draft
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -50,31 +83,25 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Revalidate draft against the publication snapshot
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          MONTH_PERIOD: ${{ inputs.period }}
+          PUSH_BASE: ${{ github.event.before }}
+          PUSH_HEAD: ${{ github.sha }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            python -m src.monthly_draft validate --period "$MONTH_PERIOD"
+          else
+            python -m src.monthly_draft validate-changed --base "$PUSH_BASE" --head "$PUSH_HEAD"
+          fi
+
       - name: Monthly quality audit
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: "-1003856903916"
           TELEGRAM_TOPIC_ID: "4"
         run: python -m src.monthly_audit
-
-      - name: Run monthly distillation
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          MODELS_PAT: ${{ secrets.MODELS_PAT }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          FORCE=""
-          if [ "${{ inputs.force }}" = "true" ]; then
-            FORCE="--force"
-          fi
-          MODE="${{ inputs.mode }}"
-          MODE="${MODE:-monthly}"
-          if [ -n "${{ inputs.period }}" ]; then
-            python -m src.distill --$MODE "${{ inputs.period }}" $FORCE
-          else
-            python -m src.distill --$MODE $FORCE
-          fi
 
       - name: Build and validate Wiki publication
         env:
@@ -84,23 +111,33 @@ jobs:
           python -m src.agent_publication
           python -m src.publication_check
 
-      - name: Commit and push compiled output
+      - name: Verify published monthly Wiki pages
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          MONTH_PERIOD: ${{ inputs.period }}
+          PUSH_BASE: ${{ github.event.before }}
+          PUSH_HEAD: ${{ github.sha }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            python -m src.monthly_draft verify-published --period "$MONTH_PERIOD"
+          else
+            python -m src.monthly_draft verify-changed --base "$PUSH_BASE" --head "$PUSH_HEAD"
+          fi
+
+      - name: Commit and push publication artifacts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add compiled/ frontend/public/data/
           python -m src.publication_check --staged
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "No publication artifacts changed"
             exit 0
           fi
-          git commit -m "chore: monthly distillation $(date +%Y-%m)"
-          # Same rebase-or-fail-loud pattern as crawl.yml: a content
-          # conflict here means a concurrent crawl committed compiled
-          # changes; abort cleanly rather than enter detached HEAD.
+          git commit -m "chore: publish monthly Wiki $(date +%Y-%m)"
           if ! git pull --rebase origin main; then
             git rebase --abort
-            echo "ERROR: rebase conflict in compiled/ — concurrent crawl detected." >&2
+            echo "ERROR: publication rebase conflict; concurrent crawl detected." >&2
             exit 1
           fi
           git push origin HEAD:main
@@ -140,21 +177,18 @@ jobs:
           TELEGRAM_TOPIC_ID: "4"
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Silent failure = design defect (rules/common/automation.md). This
-          # workflow had NO alert at all until 2026-08-05: the 8/1 distill
-          # failed and only surfaced because someone happened to look.
           PRIOR=$(gh api "repos/${{ github.repository }}/actions/workflows/distill.yml/runs?status=completed&per_page=30" \
                     --jq '[.workflow_runs[].conclusion] | index("success") // 30' 2>/dev/null || echo 0)
           STREAK=$((PRIOR + 1))
-          HEAD="Insurance KB 月蒸餾 失敗"
-          [ "$STREAK" -ge 2 ] && HEAD="Insurance KB 月蒸餾 連續第 ${STREAK} 次失敗"
+          HEAD="Insurance KB 月 Wiki 發布失敗"
+          [ "$STREAK" -ge 2 ] && HEAD="Insurance KB 月 Wiki 連續第 ${STREAK} 次失敗"
           FAILED=$(gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs" \
                      --jq '[.jobs[].steps[] | select(.conclusion=="failure") | .name] | join(", ")' 2>/dev/null || echo "unknown")
           MSG="【${HEAD}】
           失敗步驟: ${FAILED}
           Run: ${{ github.run_id }} (${{ github.event_name }})
           ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+          curl --fail-with-body --silent --show-error -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             -d chat_id="${TELEGRAM_CHAT_ID}" \
             -d message_thread_id="${TELEGRAM_TOPIC_ID}" \
-            --data-urlencode text="${MSG}" > /dev/null
+            --data-urlencode text="${MSG}" | jq -e '.ok == true' > /dev/null
