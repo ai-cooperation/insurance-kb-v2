@@ -1,7 +1,7 @@
 {
  "gnews_insurance_asia": {
   "status": "ok",
-  "last": "2026-10-02"
+  "last": "2026-10-03"
  },
  "gnews_insurance_global": {
   "status": "ok",
@@ -113,7 +113,7 @@
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-10-02"
+  "last": "2026-10-03"
  },
  "gnews_reinsurers": {
   "status": "ok",
@@ -121,7 +121,7 @@
  },
  "gnews_us_massmutual": {
   "status": "ok",
-  "last": "2026-10-01"
+  "last": "2026-10-02"
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
@@ -141,11 +141,11 @@
  },
  "gnews_us_pacific_life": {
   "status": "ok",
-  "last": "2026-10-01"
+  "last": "2026-10-02"
  },
  "gnews_us_lincoln": {
   "status": "ok",
-  "last": "2026-10-01"
+  "last": "2026-10-02"
  },
  "gnews_us_john_hancock": {
   "status": "ok",
@@ -173,11 +173,11 @@
  },
  "gnews_ratings_2": {
   "status": "ok",
-  "last": "2026-10-01"
+  "last": "2026-10-02"
  },
  "gnews_wsj_insurance": {
   "status": "ok",
-  "last": "2026-10-01"
+  "last": "2026-10-02"
  },
  "gnews_bloomberg_insurance": {
   "status": "ok",
@@ -185,7 +185,7 @@
  },
  "gnews_sina_insurance": {
   "status": "ok",
-  "last": "2026-10-01"
+  "last": "2026-10-02"
  },
  "gnews_esg_insurance": {
   "status": "ok",
@@ -213,7 +213,7 @@
  },
  "gnews_munichre": {
   "status": "ok",
-  "last": "2026-10-01"
+  "last": "2026-10-02"
  },
  "gnews_air": {
   "status": "ok",
@@ -241,7 +241,7 @@
  },
  "gnews_sompo": {
   "status": "ok",
-  "last": "2026-09-29"
+  "last": "2026-10-02"
  },
  "gnews_aia_hk": {
   "status": "ok",
