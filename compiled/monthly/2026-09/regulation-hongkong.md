@@ -1,0 +1,39 @@
+---
+type: "monthly"
+period: "2026-09"
+category: "regulation"
+region: "hongkong"
+compiled_by: "codex-scheduled-task"
+prompt_version: "codex-monthly-v1"
+model: "Codex"
+articles_count: 105
+selected_count: 5
+candidate_hash: "19a62377bbadb7474f1e21daea9d11a612bc85bc0ba664dac88c3c0cff8afe78"
+candidate_category: "監管動態"
+candidate_region: "香港"
+source_refs: [{"article_id": "77ef4d3e0899", "revision_id": "cd32e65592addd83ba6feb8eab57402f18a9dfdf1547ae7599a05ffcb04f0907", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "30686a27d634", "revision_id": "1f2d6597ab113e059c314f9ccfc3bb1c060c83110a8159e5791b1064c3b6ce88", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "081904d3d9c1", "revision_id": "e31d136e4ebcab96f4c7bb5c81bb34791dacda33f9e638058967cc2ca3db4f7a", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "cd881efe47b5", "revision_id": "1020ab5477e4b6779d19aa2d689db640282422247d715427d692b5154fd1f275", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "bfe1fc1f669d", "revision_id": "495780e9e732d36ed4279dbc7a31f40b0575bac2b47789d40d5c14d8dc003ee4", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}]
+---
+
+# 2026年9月｜監管動態・香港月度觀察
+
+本頁整理 2026 年 9 月資料庫歸入「監管動態／香港」的 105 筆可見候選文章。以下列出 5 篇報導供逐篇追查；選取依已保存摘要的可讀性、重要性、日期及來源連結完整度，不是隨機抽樣，也不代表該分組全量統計。
+
+## 本月重點
+
+**1. 最新一期《監管通訊》探討與保險相關的社交媒體趨勢及中介人操守事宜** — 香港保監局發布最新一期《監管通訊》，深入探討保險業在社交媒體上的最新發展趨勢，並針對保險中介人的市場操守與合規要求提出指導。 [1]（2026-09-30；[來源頁](<https://www.ia.org.hk/tc/infocenter/press_releases/20260930.html>)）
+
+**2. 中國禁止私人經紀商進行線上金融宣傳以遏止貸款挪用** — 為防止貸款資金遭到違規挪用，中國官方宣佈禁止私人經紀商透過網路進行各類金融服務的宣傳推廣活動。 [2]（2026-09-30；[來源頁](<https://news.google.com/rss/articles/CBMi0AFBVV95cUxPd2VlRVphZVRjS1JYSTEta3VyOVNqMXliY1ZVR3ZwSmc2Z0l5dUNqak8tUUJZWkxtN3JYN3ItLW50b3dEYTNfS2pka3hJNER6cUFZY3RBN096MXJyYUdUekJxSEhNT0ctdl9PcUlSLThIVXhBYTFqNHJ4VTRDc1pwTnA1cjVEY3g4S19GOWhYaG1qaG8xVUNlSnRUeEVLUGxYUHlQZXFmWUZkQUhKaFpNN1FRYmpfdl9OQTdGZENGZjRZdm00WVprUmJEZnI4bnBC0gHQAUFVX3lxTE93ZWVFWmFlVGNLUlhJMS1rdXI5U2oxeWJjVlVHdnBKZzZnSXl1Q2pqTy1RQllaTG03clg3ci0tbnRvd0RhM19LamRreEk0RHpxQVljdEE3T3oxcnJhR1R6QnFISE1PRy12X09xSVItOEhVeEFhMWo0cnhVNENzWnBOcDVyNURjeDhLX0Y5aFhobWpobzFVQ2VKdFR4RUtQbFhQeVBlcWZZRmRBSEpoWk03UVFial92X05BN0ZkQ0ZmNFl2bTRZWmtSYkRmcjhucEI?oc=5>)）
+
+**3. 富衛集團因反洗錢管控不力被香港保監局罰款港幣1,950萬** — 香港保監局對富衛集團進行審查後，認定其反洗錢及恐怖分子資金籌集內部管控存在缺失，依法處以港幣1,950萬元罰款，並要求限期改善合規機制。 [3]（2026-09-25；[來源頁](<https://news.google.com/rss/articles/CBMilAFBVV95cUxNSDZKSHVLbzdxejRkd3FkdlpvMjVSMHl0YmpfLUs2V2xuaTY2VUNvVTRodFpvQ3hZR2RLYjZ4bU5ueTNmaWEyNXp5SmNlNmRtdEhwV0NCTE1SU0VwUHdQaHdqVEtya3RFaDhzTlp5QmN0dTR3bkdYOWh6QnkxLUlDRl9ac29ZQnBfOW1mWGlZWTF4MDE1?oc=5>)）
+
+**4. 香港友邦保險歡迎香港首個五年規劃與2026年施政報告** — 香港友邦保險（AIA Hong Kong）公開表態歡迎香港特區政府發布的首個五年規劃及2026年施政報告，並強調將積極配合政策，推動保險業與香港整體經濟的長期繁榮發展。 [4]（2026-09-16；[來源頁](<https://www.bastillepost.com/global/article/6160567-aia-hong-kong-welcomes-hong-kongs-first-five-year-plan-and-the-2026-policy-address>)）
+
+**5. 香港推出十項中小企業措施以紓解融資與數位化障礙** — 香港政府及相關機構推出十項針對中小企業的支援措施，旨在協助企業緩解融資壓力，並加速推動中小企業的數位轉型與科技應用。 [5]（2026-09-18；[來源頁](<https://news.google.com/rss/articles/CBMirAFBVV95cUxQR3NSRXRRTzR6VVNjQ2FJYWFJRzVhWEl4ejJpWUh6NmIxRUVkODhDNTQzQ0dhOG1sSEw3S2ZqOVZjTjdHLTlOSkZPZXJLdG1yeFZjQmNYODBHOW16Nk9FWGpTOXZXWXRTbVNpVXVoUDZ0QkZudThaWWk5MXBXZGcyMGFVTDhUUlZLMkU4d1Y1OWVuOV92SFJIVDllaU90MkVKUWZDOFB3azRmRzFB?oc=5>)）
+
+## 趨勢分析
+
+本月重點只描述各則已保存摘要明確記載的個別事件線索 [1] [2] [3] [4] [5]。引用資料依摘要可讀性、重要性、日期與來源連結完整度挑選，並非隨機抽樣；未引用候選文章未逐篇判讀。因而，本頁不推估市場規模、發生率、方向變化或因果，也不把單一企業公告等同於整個區域的共同狀況。需要確認金額、監理效力、交易狀態或預測時，請直接查閱各條來源連結及正式公告。
+
+## 資料範圍
+
+候選數 105；逐條引用 5 筆。摘要是資料庫已保存的線索，並非來源全文或獨立事實查核；本頁未作跨月比較，也未判定未引用資料的準確性。

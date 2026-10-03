@@ -1,0 +1,39 @@
+---
+type: "monthly"
+period: "2026-09"
+category: "esg"
+region: "us"
+compiled_by: "codex-scheduled-task"
+prompt_version: "codex-monthly-v1"
+model: "Codex"
+articles_count: 7
+selected_count: 5
+candidate_hash: "218f2aa04614ac62d28af81db2467b9d297f2a5078abee32523df82b24bf225e"
+candidate_category: "ESG永續"
+candidate_region: "美國"
+source_refs: [{"article_id": "ccde77cd2819", "revision_id": "e9d41a1aa3323c2ae6ba26ad40285dcb411a610fb5399fb0239ff1ca0c06c7f7", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "26c870ae327a", "revision_id": "af8cc6bb5b277c14a4481dc3429ccf762fa6f6bd2503617616aeba68252334d5", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "48cdcfdf0ac0", "revision_id": "08a3f6a9e9ff38270025b71a3c43d8e8e5c95a1ffcb775524e25abb86ea69cd1", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "e9c9fb2dcf16", "revision_id": "2af75a74656419681ecca7c88dc6e755a50f2392e153bd38b2bf709040e9eb7e", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "edee9c4addc6", "revision_id": "da5b3c0ce4e72d414a7a19387fb6c18150eaa7e7ab297d3b43be08284c966f28", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}]
+---
+
+# 2026年9月｜ESG永續・美國月度觀察
+
+本頁整理 2026 年 9 月資料庫歸入「ESG永續／美國」的 7 筆可見候選文章。以下列出 5 篇報導供逐篇追查；選取依已保存摘要的可讀性、重要性、日期及來源連結完整度，不是隨機抽樣，也不代表該分組全量統計。
+
+## 本月重點
+
+**1. 氣候風險模型正被「推向極限」** — 風險市場新聞指出，隨著極端氣候事件頻發與強度增加，現有的氣候風險評估模型面臨前所未有的考驗，正被推向預測能力的極限，促使保險業重新評估巨災風險建模方式。 [1]（2026-09-14；[來源頁](<https://www.riskmarketnews.com/climate-risk-models-are-being-pushed-to-their-limits/>)）
+
+**2. 第一生命買進蘋果股票，使這家科技巨頭成為其最大押注** — 日本第一生命近期大舉買進美國蘋果公司股票，將這家科技巨頭納入其投資組合，成為其最大規模的單一股票押注，此舉展現大型機構投資人對美國大型科技股的信心。 [2]（2026-09-24；[來源頁](<https://news.google.com/rss/articles/CBMijwFBVV95cUxOcEtOZWRSdXA2ekM5VWdlZFJtRThUaWlIR3NhcGdHaHlIeDZvMEpjc2tDWVdqTFFUS3gwNXRTTmg2UmFTWVpfZDVjcGFWOG1CTXpIbXNhbHNVdXRtOUlTQTNidnY1QmhFV0hteHhtcVRSN29pRGF2VzhSUWtVYnpXVHlaNURSd1pic1AtS2tZTQ?oc=5>)）
+
+**3. Nuveen推出旨在追求超額報酬與永續性的影響力債券ETF（NUIB）** — Nuveen宣布推出全新的影響力債券ETF（代號：NUIB），旨在兼顧投資超額報酬（Alpha）與環境社會永續目標，為投資人提供更多元且具社會責任的固定收益配置選擇。 [3]（2026-09-21；[來源頁](<https://news.google.com/rss/articles/CBMilAFBVV95cUxQTkRmQWFXSXVHVHpIOS1MWWFtQmhJX1Y3cnp5NVdGamJvSFBrcTlFd0dPeVIwS0VsRnBFbWd0dFRYWEFLdDc2blRGRjQzZGF0d2FCQ1NiMjVHdTdhT0o1OXRZc2NLTEZDWkZ6WUtheVlUN1pQTElxd1dNcTFsYnlDUDNjcVlTMkh2ZGxVSEw1YlZ3eDNk?oc=5>)）
+
+**4. 萬通人壽看好紐西蘭再生能源產業潛力** — 美國萬通人壽看好紐西蘭再生能源領域的投資潛力，展現其在永續基礎設施與綠能資產配置上的長期佈局與投資策略。 [4]（2026-09-18；[來源頁](<https://news.google.com/rss/articles/CBMinAFBVV95cUxQc0YzRjUtMGtTNjJENWh6VjR6RDdqN3dwY3pNQXZwTnJaU3VISFlXbDBRczBYYk9DUGg5bnA0Qk01SlZLNXlzWFdUR0twWENZc2JlYlJicVZvamlKTjRwZmZ0R2sxWG5EQVBmbkd2bW1Td1IyQXhFQVBXWW5aRHhmNGx0MTJ2SDVGRktDR1NEVjF6MGJBR2tReTkxdFY?oc=5>)）
+
+**5. 平安發布「紅綠燈」道路安全風險減量公益計畫報告** — 平安集團正式對外發布「紅綠燈」道路安全風險減量公益計畫的執行成果報告，展現保險業結合社會公益與風險預防的具體成效。 [5]（2026-09-16；[來源頁](<https://news.google.com/rss/articles/CBMiigFBVV95cUxQOGNPMmFQWm9mZmZRdjBFTUY2NzJvd3VLakVpUW5QMXk4bHJoUldsR2MxbnlBZjJhOXJmdjRZRnF5NjBBd29vajQwN1pxYVk2VUdiVzBLZEdlRTFuSTN0TlJnbUNZY05jZjM5WGZuUUtrcXFmZVNmbXk0UWxEOU5ROTN3ZFhiOHR3enc?oc=5>)）
+
+## 趨勢分析
+
+本月重點只描述各則已保存摘要明確記載的個別事件線索 [1] [2] [3] [4] [5]。引用資料依摘要可讀性、重要性、日期與來源連結完整度挑選，並非隨機抽樣；未引用候選文章未逐篇判讀。因而，本頁不推估市場規模、發生率、方向變化或因果，也不把單一企業公告等同於整個區域的共同狀況。需要確認金額、監理效力、交易狀態或預測時，請直接查閱各條來源連結及正式公告。
+
+## 資料範圍
+
+候選數 7；逐條引用 5 筆。摘要是資料庫已保存的線索，並非來源全文或獨立事實查核；本頁未作跨月比較，也未判定未引用資料的準確性。

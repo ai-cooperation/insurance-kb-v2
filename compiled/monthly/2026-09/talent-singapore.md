@@ -1,0 +1,39 @@
+---
+type: "monthly"
+period: "2026-09"
+category: "talent"
+region: "singapore"
+compiled_by: "codex-scheduled-task"
+prompt_version: "codex-monthly-v1"
+model: "Codex"
+articles_count: 21
+selected_count: 5
+candidate_hash: "4852dade844866dc2d088f5436be4696e987baaa67831c855a5741471b29238c"
+candidate_category: "人才與組織"
+candidate_region: "新加坡"
+source_refs: [{"article_id": "6fde9b046bdc", "revision_id": "70b65a8056fc39dbf0a94d69e0ea1e77fd2c3f6fffc559d72ac3ab68043427ed", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "df23b991813a", "revision_id": "3ad82dd822b6f0d80606ee1d791658db21521e20ca623233c181196f27778932", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "62b44d60115b", "revision_id": "a65eabb376d8c998305f644b81de3da304806efb2d3ceca219229115198c988f", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "a673f7da7b03", "revision_id": "8cc1370a018b91d89e08f8ce9e9d5e66f5f292f70c2c7fb8dcdd6ff9ba02385e", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "0de281990da4", "revision_id": "aadc1488033ce0ee96e1da37f1ebaf96287186db6f79194e519056a6d93b8ba7", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}]
+---
+
+# 2026年9月｜人才與組織・新加坡月度觀察
+
+本頁整理 2026 年 9 月資料庫歸入「人才與組織／新加坡」的 21 筆可見候選文章。以下列出 5 篇報導供逐篇追查；選取依已保存摘要的可讀性、重要性、日期及來源連結完整度，不是隨機抽樣，也不代表該分組全量統計。
+
+## 本月重點
+
+**1. Income Insurance 拔擢邱家祥（Khoo Kah Siang）擔任下任執行長** — 新加坡保險巨頭 Income Insurance 正式宣布，由前宏利新加坡高層邱家祥（Khoo Kah Siang）接任新執行長職務，強化領導團隊陣容。 [1]（2026-09-25；[來源頁](<https://news.google.com/rss/articles/CBMivwFBVV95cUxNVDhuYnlYMnlqbDBycEdsRHJ5cDh4X0toNFVSZGdZcTRPUUJJYjZ5XzJ5Y29wRmdtRlNpaTlhZm9EeS1Bdm4xM2NNdEU4X0p2RnNhQzRLcW5iYW5LX0NKTU5pYWZmN05nMU9MdXhVdDRmQ1pSSUNVS2FXc0VqMW5KZjV2empjNVA0dzhJV19ZbXhQdWVNSV85Ql9YNUtMY3RuLVQtaEJzR3VIRzJXRTNvdEZQQ1BIOGRPTEZmOEFyRQ?oc=5>)）
+
+**2. Income Insurance 任命前新加坡宏利高管擔任新執行長** — 新加坡 Income Insurance 宣布任命曾任職於新加坡宏利的高階主管為新任執行長，期盼借重其豐富經驗帶領公司迎向下一個發展階段。 [2]（2026-09-25；[來源頁](<https://news.google.com/rss/articles/CBMiugFBVV95cUxPUzFIc3Y4amdxTkc5S2tkU0tLUkt1bG9zTUNQeFRHaVJLa282M0dpSmpCcVVEY0tteUdoV0lHSmhnTGNsOFdtdmhKRTUwWkE3LWFYbS11dzdCUGVHUTVsYmhlUjlkZHAwSmxwTnZ2XzNBbnJidV9rV0JEVVBDbmlnTE1mV3Q4cTJOblJGLXV0akptQkZETW04ZkdobmVyMXcyMEYwVnFlemdfNU5NT2sxMVF6ejhnVXNvM2c?oc=5>)）
+
+**3. 新加坡超過 8 萬名金融業員工將於 2028 年前接受 AI 培訓** — 根據新加坡最新的金融業 workforce 轉型倡議，預計至 2028 年底，將有超過 8 萬名金融及保險部門員工接受系統性的人工智慧（AI）培訓，全面強化數位技能。 [3]（2026-09-24；[來源頁](<https://news.google.com/rss/articles/CBMiygFBVV95cUxOZmx6TWpxdWJuZVUzWmhZbnVxRTJ0QkQwRVBiVnJtb0dYM2I3OTV0TUNlakp1TloxUEUteC1vbGt5MWM5dm5peFBfU2FQMGJSZXBpczFXczhfbENDSTlYTzRWaGxpeWpMd3E5ajdWdERCcWZaUzk0ekk0VFlEbzJDLWZDWlY4bnVrTjFHSm5udHUtZzZnLXM2VFBRYUhDQTB1VlhEM0VfNDI4M0xGLWh0X3FDOHVhVHRrVUhpMi05ZFdnckRYTnB1MENB?oc=5>)）
+
+**4. 大東方任命 Adeline Sum 為獨立董事** — 新加坡大東方控股宣布任命 Adeline Sum 為公司獨立董事，此項人事異動旨在強化董事會的治理結構與專業監督能力。 [4]（2026-09-28；[來源頁](<https://news.google.com/rss/articles/CBMikwFBVV95cUxNYXY5YlQ1NFYxSG8xUXRtRXI3SzE0MXNJTjJMbjNJZ3pSTjBSRzk0REtRelZCalNCTlNCYUZqUHZtWXdjNnltRTdqaGo3MjhwYkNrUjFWT2F2QVVMWU14ZlVCYlJGVU5iOEpFbzRpbXk1RzQtMDdHQmFQRTBySGFneEN4RG4tR014YmE3Ml9ZaEUzNkk?oc=5>)）
+
+**5. InsuranceAUM™ 宣佈高層人事異動，以支持業務持續成長與產業參與** — InsuranceAUM™ 近期發布高階主管任命，旨在強化領導團隊陣容，全面支持公司未來的業務擴展計畫，並深化與保險資產管理產業的交流與合作。 [5]（2026-09-17；[來源頁](<https://news.google.com/rss/articles/CBMiogFBVV95cUxNNHcwSkhzX1MzU2xpQy15RzdGanktUDNZQUVyc216WUU3Uko3Zkx4X0tadmY2b21uYlRnMFgyc21uZVJmdVRndEFJeE95VzRUQ2d4QzYweENhdXktUTlOLWFsSmRkR0ViU2FRX0FHTUdjOWRrcGVMZnl5TjRJS1J2NG9uRXFtTUdQQTVPTTBUTWZfeUxEVUJDQlRzVi1BOGl1N1E?oc=5>)）
+
+## 趨勢分析
+
+本月重點只描述各則已保存摘要明確記載的個別事件線索 [1] [2] [3] [4] [5]。引用資料依摘要可讀性、重要性、日期與來源連結完整度挑選，並非隨機抽樣；未引用候選文章未逐篇判讀。因而，本頁不推估市場規模、發生率、方向變化或因果，也不把單一企業公告等同於整個區域的共同狀況。需要確認金額、監理效力、交易狀態或預測時，請直接查閱各條來源連結及正式公告。
+
+## 資料範圍
+
+候選數 21；逐條引用 5 筆。摘要是資料庫已保存的線索，並非來源全文或獨立事實查核；本頁未作跨月比較，也未判定未引用資料的準確性。

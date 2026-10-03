@@ -1,0 +1,39 @@
+---
+type: "monthly"
+period: "2026-09"
+category: "products"
+region: "singapore"
+compiled_by: "codex-scheduled-task"
+prompt_version: "codex-monthly-v1"
+model: "Codex"
+articles_count: 28
+selected_count: 5
+candidate_hash: "ce7349e848933ca21606cbe699b5d10d3a6bf7b09d7de6edb8cc0491c94193b1"
+candidate_category: "產品創新"
+candidate_region: "新加坡"
+source_refs: [{"article_id": "abfb03c1e018", "revision_id": "217e4f615a4db8498c2eb3f9a08f0f74b2f2589d6cac4a5c7d4dd923c294469c", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "a29a3be3e893", "revision_id": "c38a64562100f1d1662c4a0f4e95d0f7cba115176383c49d472324dd5482d4be", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "91dcd5c3742f", "revision_id": "cf6f74149e58a33c5da84c7b31d5991e2cdac373cc8e1083d99d3f0409a442f6", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "3043ebf0054f", "revision_id": "6498f1bc88b654db45a6c44c651f04b1713d5c8ead89477c8d4c2a031c2758cf", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}, {"article_id": "6a9d19ad079b", "revision_id": "ff5c69bc4d6c243d30c3200c9548204a50b3a6a27e7666ad5eda57f6fdcb61e3", "snapshot_id": "a483a15abab75fdb2435a870a22390fbb1c8ee1e3564dee1c209cdd8519ed87a"}]
+---
+
+# 2026年9月｜產品創新・新加坡月度觀察
+
+本頁整理 2026 年 9 月資料庫歸入「產品創新／新加坡」的 28 筆可見候選文章。以下列出 5 篇報導供逐篇追查；選取依已保存摘要的可讀性、重要性、日期及來源連結完整度，不是隨機抽樣，也不代表該分組全量統計。
+
+## 本月重點
+
+**1. 香港推動將氣候數據轉化為可保險產品** — 香港正積極推動氣候數據的應用，旨在將氣候風險量化，並開發出具體的氣候保險產品，以應對日益嚴峻的氣候變遷挑戰。 [1]（2026-09-09；[來源頁](<https://news.google.com/rss/articles/CBMi2AFBVV95cUxNN2JvSjFHU2FRRFVIZF92bVFQWU4wZ1k2amNBdmFXWExOY2VORnhQbzA0SnVhajYzTVVJa0lPdUl3R1hFa0RpODFGS0oya3ppNVZPYjVlcWhwcEJYb0p0SkE0bHpXUFZRbmxYeG9wREIyQnh3TFFuNzR6M1hKWlhBcm5SaEpiTl80bHppNmEzLTFXVnF3eDlMWllaTXh4ZVZaYzQ2WXlEVEtTRFpwcVNON1FnSjItNkVQYjk0OV96QU9BT0wya01UOXhzNGc3VXZtMkRIb3JIXzI?oc=5>)）
+
+**2. Monee與大東方在Shopee平台上推出旅遊與汽車保險** — 保險科技Monee與大東方攜手合作，在電子商務平台Shopee上正式推出旅遊與汽車保險商品，透過數位通路拓展嵌入式保險業務，提升消費者投保便利性。 [2]（2026-09-30；[來源頁](<https://news.google.com/rss/articles/CBMiowFBVV95cUxONTFsbzRkYmI5Y1hYQmVMVzVCYW1WTlh4a0lJenJLakY5YmdaS2pnYnNmSHJtSEQ3T3FIRXQ1UTVCbDRSOVBFZ29XU01OMlFNbjVJeGNhNUVvOWlJVzBmbjR6b2hEMm5OX2c0N0kxT2V6bjZWc0lnbUdfMkI0VUhobjNwbXZVaGxTMGtLM2NNM3NMUDRlRHB2M3BGNVQ5WkpsOEs4?oc=5>)）
+
+**3. Singlife 推出全新 388 年世代傳承保障計畫** — Singlife 最新推出獨特的世代傳承保險計畫，主打長遠的資產與保障規劃，協助保戶將財富與保障延續至未來多個世代。 [3]（2026-09-29；[來源頁](<https://news.google.com/rss/articles/CBMiXkFVX3lxTE1RcFk5OFhObFVOa3VBY2MxNmpONENSREdJT3VBODdybFl0Z19rYmR2TzdlN2gtdWVRYnFwYzZkeGg5b05zaVpJLUVkSmJOdXM3TDJiRjdkM1FJRl9CaHc?oc=5>)）
+
+**4. 新加坡 Etiqa Insurance 推出旅遊通行證體驗，將旅遊保險消費與分級回饋相結合** — 新加坡 Etiqa Insurance 推出全新的旅遊通行證體驗，將保戶的旅遊保險消費金額與多層級的專屬獎勵回饋機制相結合，提升客戶黏著度與數位投保體驗。 [4]（2026-09-23；[來源頁](<https://news.google.com/rss/articles/CBMi1wFBVV95cUxQb01kX3V0Yl9CZjNZdEhrd2VWT1FVcTFPdFNYcHNjd0hkcUJ5Q182TmQ5MXFKZVl6T0hnTi1RX2poYl9ZdklTc09QTy1aeXBUNVNpUGpsTUVfeVJkdS1mUF85T0hEamFPaER6RlNqV1BEZFZGakJjRnYtQlhfWXRscWs1a1NiQjBkR3VkZTRTd3hOdkRmV2pPRGM4OXpUdGR1T3llNFQxSmFNbllRWXF5cW5NV2tsMGk1a3RMWVY5eWtlY2ZWTXRLbEVhQ2JGS1oxSWw5UGxyaw?oc=5>)）
+
+**5. 匯豐人壽擴展保障與資產傳承解決方案產品線** — 匯豐人壽近日宣佈擴展其產品組合，推出全新的保障與資產傳承解決方案，旨在滿足高淨值客戶在財富保護與世代交替方面日益增長的需求。 [5]（2026-09-11；[來源頁](<https://thedigitalbanker.com/hsbc-life-expands-suite-with-protection-and-legacy-solutions/>)）
+
+## 趨勢分析
+
+本月重點只描述各則已保存摘要明確記載的個別事件線索 [1] [2] [3] [4] [5]。引用資料依摘要可讀性、重要性、日期與來源連結完整度挑選，並非隨機抽樣；未引用候選文章未逐篇判讀。因而，本頁不推估市場規模、發生率、方向變化或因果，也不把單一企業公告等同於整個區域的共同狀況。需要確認金額、監理效力、交易狀態或預測時，請直接查閱各條來源連結及正式公告。
+
+## 資料範圍
+
+候選數 28；逐條引用 5 筆。摘要是資料庫已保存的線索，並非來源全文或獨立事實查核；本頁未作跨月比較，也未判定未引用資料的準確性。
