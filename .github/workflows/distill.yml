@@ -41,7 +41,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt pytest
 
       - name: Test monthly draft validator
         run: python -m pytest tests/test_monthly_draft.py -q
