@@ -6,7 +6,7 @@ from src.agent_search_sync import sync
 
 
 def test_sync_retries_and_verifies_destination(tmp_path, monkeypatch):
-    plan = {"to_snapshot_id": "a" * 64, "total_records": 2}
+    plan = {"to_snapshot_id": "a" * 64, "total_records": 2, "note": "修補測試"}
     path = tmp_path / "plan.json"
     path.write_text(json.dumps(plan))
     calls = []
@@ -29,6 +29,19 @@ def test_sync_retries_and_verifies_destination(tmp_path, monkeypatch):
     assert result["total_records"] == 2
     assert len(calls) == 2
     assert calls[0][1]["headers"]["Authorization"] == "Bearer secret"
+    assert calls[0][1]["headers"]["Content-Type"] == "application/json"
+    assert json.loads(calls[0][1]["data"].decode("utf-8")) == plan
+
+
+def test_oversized_serialized_plan_stops_before_network(tmp_path, monkeypatch):
+    from src.agent_search_sync import SyncStopped
+    path = tmp_path / "large-plan.json"
+    path.write_text(json.dumps({"to_snapshot_id": "a" * 64, "total_records": 2,
+                                "padding": "x" * (10 * 1024 * 1024)}))
+    monkeypatch.setattr("src.agent_search_sync.requests.post",
+                        lambda *a, **k: pytest.fail("oversized plans must not be sent"))
+    with pytest.raises(SyncStopped, match="10 MiB"):
+        sync(path, "https://example.test/sync", "secret")
 
 
 @pytest.mark.parametrize("status,body", [

@@ -47,10 +47,10 @@ def load_index(months=None, snapshot_id=None) -> list:
     return MonthlyStore(INDEX_PATH).load(months=months, snapshot_id=snapshot_id)
 
 
-def save_index(entries: list, reason="pipeline update"):
+def save_index(entries: list, reason="pipeline update", actor="pipeline"):
     """Save monthly immutable shards and refresh caller's revision tokens."""
     store = MonthlyStore(INDEX_PATH)
-    store.save(entries, reason=reason)
+    store.save(entries, reason=reason, actor=actor)
     return store.load()
 
 

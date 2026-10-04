@@ -2,7 +2,7 @@
 import tempfile
 import unittest
 from pathlib import Path
-from src.monthly_store import MonthlyStore, read_json, read_object
+from src.monthly_store import MonthlyStore, StorageError, read_json, read_object
 from src.agent_publication import publish_articles, publish_wikis, write_search_sync_plan
 from test_monthly_store import article
 
@@ -49,6 +49,25 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual([row["uid"] for row in plan["upserts"]], ["new101"])
         self.assertEqual(plan["deletes"], [])
         self.assertEqual(plan["from_snapshot_id"], first["snapshot_id"])
+
+    def test_search_sync_plan_accepts_reusable_batches_over_400_rows(self):
+        self.store.save([article(f"batch-{i}") for i in range(401)])
+        rows = self.store.load()
+        plan = write_search_sync_plan(
+            self.root / "large-sync.json",
+            {"snapshot_id": "a" * 64}, rows[:0],
+            {"snapshot_id": "b" * 64}, rows,
+        )
+        self.assertEqual(len(plan["upserts"]), 401)
+
+    def test_search_sync_plan_rejects_more_than_10000_operations(self):
+        rows = [{"uid": f"batch-{i}", "_lineage": {"revision_id": "c" * 64}}
+                for i in range(10_001)]
+        path = self.root / "too-large-sync.json"
+        with self.assertRaisesRegex(StorageError, "10,000"):
+            write_search_sync_plan(path, {"snapshot_id": "a" * 64}, [],
+                                   {"snapshot_id": "b" * 64}, rows)
+        self.assertFalse(path.exists())
 
     def test_reject_filtered_publication(self):
         self.store.save([article(filter="irrelevant")])

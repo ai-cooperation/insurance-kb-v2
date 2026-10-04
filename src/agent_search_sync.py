@@ -10,6 +10,8 @@ from pathlib import Path
 
 import requests
 
+MAX_SYNC_PLAN_BYTES = 10 * 1024 * 1024
+
 
 class SyncStopped(RuntimeError):
     """Retrying cannot repair this failure; preserve the plan for recovery."""
@@ -34,14 +36,17 @@ def retry_delay(response, attempt: int) -> float:
 
 def sync(plan_path: Path, endpoint: str, token: str) -> dict:
     plan = json.loads(plan_path.read_text())
+    payload = json.dumps(plan, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    if len(payload) > MAX_SYNC_PLAN_BYTES:
+        raise SyncStopped("D1 sync plan exceeds the 10 MiB request limit")
     last_error = None
     for attempt in range(3):
         response = None
         try:
             response = requests.post(
                 endpoint,
-                json=plan,
-                headers={"Authorization": f"Bearer {token}"},
+                data=payload,
+                headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
                 timeout=60,
             )
             # 2026-09-12 quota incident: all failures were retried, including

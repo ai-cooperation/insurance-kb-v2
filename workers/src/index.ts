@@ -63,6 +63,35 @@ const app = new Hono<{
   Variables: { user: UserInfo; fbUser: FirebaseUser };
 }>();
 
+const MAX_AGENT_SYNC_BYTES = 10 * 1024 * 1024;
+const MAX_AGENT_SYNC_OPERATIONS = 10_000;
+const MAX_AGENT_SYNC_CHUNK_ITEMS = 200;
+// D1 limits bound strings to 2 MB. Leave headroom for SQL/runtime overhead.
+const MAX_AGENT_SYNC_CHUNK_BYTES = 1_800_000;
+const utf8 = new TextEncoder();
+
+function jsonChunks<T>(items: T[]): string[] {
+  const chunks: string[] = [];
+  let current: T[] = [];
+  let currentBytes = 2; // []
+  for (const item of items) {
+    const itemBytes = utf8.encode(JSON.stringify(item)).byteLength;
+    const separatorBytes = current.length ? 1 : 0;
+    if (itemBytes + 2 > MAX_AGENT_SYNC_CHUNK_BYTES)
+      throw new RangeError("A sync row exceeds the D1 batch size limit");
+    if (current.length && (current.length >= MAX_AGENT_SYNC_CHUNK_ITEMS
+        || currentBytes + separatorBytes + itemBytes > MAX_AGENT_SYNC_CHUNK_BYTES)) {
+      chunks.push(JSON.stringify(current));
+      current = [];
+      currentBytes = 2;
+    }
+    currentBytes += (current.length ? 1 : 0) + itemBytes;
+    current.push(item);
+  }
+  if (current.length) chunks.push(JSON.stringify(current));
+  return chunks;
+}
+
 // D1 is a replaceable query accelerator. The caller publishes monthly JSON
 // first, then advances this index under an exact from/to snapshot precondition.
 // A mismatch leaves MCP search fail-closed instead of mixing two publications.
@@ -70,23 +99,38 @@ app.post("/internal/agent-index/sync", async (c) => {
   const expected = c.env.AGENT_INDEX_SYNC_TOKEN;
   const supplied = c.req.header("Authorization");
   if (!expected || supplied !== `Bearer ${expected}`) return c.json({error:"Unauthorized"},401);
-  const contentLength=Number(c.req.header("Content-Length")??0);
-  if(!Number.isFinite(contentLength)||contentLength>10*1024*1024)
+  const contentLengthHeader=c.req.header("Content-Length");
+  const contentLength=contentLengthHeader===undefined?null:Number(contentLengthHeader);
+  if(contentLength!==null&&(!Number.isSafeInteger(contentLength)||contentLength<0||contentLength>MAX_AGENT_SYNC_BYTES))
     return c.json({error:"Sync plan too large"},413);
-  const plan:any = await c.req.json().catch(()=>null);
+  const rawPlan=await c.req.text().catch(()=>null);
+  if(rawPlan===null)return c.json({error:"Invalid sync plan"},400);
+  if(utf8.encode(rawPlan).byteLength>MAX_AGENT_SYNC_BYTES)
+    return c.json({error:"Sync plan too large"},413);
+  let plan:any;
+  try {plan=JSON.parse(rawPlan);} catch {return c.json({error:"Invalid sync plan"},400);}
   const hash=/^[a-f0-9]{64}$/;
   if(!plan || plan.schema_version!==1 || !hash.test(plan.from_snapshot_id??"")
       || !hash.test(plan.to_snapshot_id??"") || !Number.isSafeInteger(plan.total_records)
-      || plan.total_records<0 || !Array.isArray(plan.upserts) || !Array.isArray(plan.deletes)
-      || plan.upserts.length+plan.deletes.length>400)
+      || plan.total_records<0 || !Array.isArray(plan.upserts) || !Array.isArray(plan.deletes))
     return c.json({error:"Invalid sync plan"},400);
+  if(plan.upserts.length+plan.deletes.length>MAX_AGENT_SYNC_OPERATIONS)
+    return c.json({error:"Sync plan exceeds the 10,000-operation limit"},413);
   const validText=(value:unknown,max:number)=>typeof value==="string"&&value.length<=max;
-  const validRow=(row:any)=>row&&validText(row.uid,128)&&hash.test(row.revision_id??"")
+  const validRow=(row:any)=>row&&validText(row.uid,128)&&row.uid.length>0&&hash.test(row.revision_id??"")
     && validText(row.date,10)&&validText(row.title,5000)&&validText(row.title_en,5000)
     && validText(row.category,500)&&validText(row.region,500)&&validText(row.summary,500000);
   if(plan.upserts.some((row:any)=>!validRow(row))
-      || plan.deletes.some((uid:any)=>!validText(uid,128)))
+      || plan.deletes.some((uid:any)=>!validText(uid,128)||uid.length===0))
     return c.json({error:"Invalid sync row"},400);
+  const upsertIds=new Set(plan.upserts.map((row:any)=>row.uid));
+  const deleteIds=new Set(plan.deletes);
+  if(upsertIds.size!==plan.upserts.length||deleteIds.size!==plan.deletes.length
+      || [...deleteIds].some((uid)=>upsertIds.has(uid)))
+    return c.json({error:"Duplicate or conflicting sync row"},400);
+  let deleteChunks:string[],upsertChunks:string[];
+  try {deleteChunks=jsonChunks(plan.deletes);upsertChunks=jsonChunks(plan.upserts);}
+  catch {return c.json({error:"A sync row exceeds the D1 batch size limit"},413);}
   try {return await withD1QuotaGuard(c.env.KV,async()=>{
   const current=await c.env.REPORTS_DB.prepare(
     "SELECT snapshot_id,total_records FROM agent_search_meta WHERE singleton=1"
@@ -95,22 +139,28 @@ app.post("/internal/agent-index/sync", async (c) => {
     return c.json(current);
   if(!current || current.snapshot_id!==plan.from_snapshot_id)
     return c.json({error:"Snapshot precondition failed",current_snapshot_id:current?.snapshot_id??null},409);
+  // Keep every JSON chunk and the final snapshot marker in this one D1 batch.
+  // Splitting this into multiple batch() calls would expose mixed snapshots.
   const statements:D1PreparedStatement[]=[];
-  for(const uid of plan.deletes) statements.push(c.env.REPORTS_DB.prepare(
-    "DELETE FROM agent_search_articles WHERE uid=?"
-  ).bind(uid));
-  for(const row of plan.upserts) statements.push(c.env.REPORTS_DB.prepare(`
+  for(const payload of deleteChunks) statements.push(c.env.REPORTS_DB.prepare(
+    "DELETE FROM agent_search_articles WHERE uid IN (SELECT value FROM json_each(?))"
+  ).bind(payload));
+  for(const payload of upsertChunks) statements.push(c.env.REPORTS_DB.prepare(`
     INSERT INTO agent_search_articles(uid,revision_id,date,title,title_en,category,region,summary)
-    VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(uid) DO UPDATE SET revision_id=excluded.revision_id,
+    SELECT json_extract(value,'$.uid'),json_extract(value,'$.revision_id'),json_extract(value,'$.date'),
+      json_extract(value,'$.title'),json_extract(value,'$.title_en'),json_extract(value,'$.category'),
+      json_extract(value,'$.region'),json_extract(value,'$.summary')
+    FROM json_each(?) WHERE true
+    ON CONFLICT(uid) DO UPDATE SET revision_id=excluded.revision_id,
       date=excluded.date,title=excluded.title,title_en=excluded.title_en,category=excluded.category,
       region=excluded.region,summary=excluded.summary
-  `).bind(row.uid,row.revision_id,row.date,row.title,row.title_en,row.category,row.region,row.summary));
+  `).bind(payload));
   statements.push(c.env.REPORTS_DB.prepare(`
     INSERT INTO agent_search_meta(singleton,snapshot_id,total_records,indexed_at)
-    SELECT 1,?,?,? WHERE (SELECT COUNT(*) FROM agent_search_articles)=?
+    VALUES(1,?,?,?)
     ON CONFLICT(singleton) DO UPDATE SET snapshot_id=excluded.snapshot_id,
       total_records=excluded.total_records,indexed_at=excluded.indexed_at
-  `).bind(plan.to_snapshot_id,plan.total_records,Math.floor(Date.now()/1000),plan.total_records));
+  `).bind(plan.to_snapshot_id,plan.total_records,Math.floor(Date.now()/1000)));
   await c.env.REPORTS_DB.batch(statements);
   const verified=await c.env.REPORTS_DB.prepare(`
     SELECT m.snapshot_id,m.total_records,(SELECT COUNT(*) FROM agent_search_articles) AS actual_records

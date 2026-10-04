@@ -7,6 +7,11 @@ on:
         description: 'Also deploy Worker (requires a Worker-capable CI token; current token is Pages-only)'
         type: boolean
         default: false
+      agent_sync_plan:
+        description: 'Optional checked-in Agent D1 sync plan JSON path'
+        type: string
+        required: false
+        default: ''
 
 # Deploy only the reviewed main snapshot. No crawl, LLM calls, DB migrations,
 # or changes to secrets. Share the existing lock so data cannot race a release.
@@ -66,13 +71,12 @@ jobs:
           npm install --no-save --no-audit --no-fund playwright@1.63.0
           npx playwright install --with-deps chromium
           node release-browser-qa.mjs
-      - name: Deploy Pages
-        working-directory: frontend
+      - name: Apply Worker D1 migrations
+        if: inputs.deploy_worker
+        working-directory: workers
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        run: npx --yes --package wrangler@4.130.0 wrangler pages deploy dist --project-name insurance-kb-v2 --branch main --commit-dirty=true
-      - name: Verify published data
-        run: python -m src.publication_check --live
+        run: npx --yes --package wrangler@4.130.0 wrangler d1 migrations apply insurance-kb-reports --remote
       - name: Deploy Worker
         if: inputs.deploy_worker
         working-directory: workers
@@ -83,6 +87,29 @@ jobs:
         if: inputs.deploy_worker
         run: |
           python -c 'import requests; r=requests.get("https://insurance-kb-api.alan-chen75.workers.dev/mcp/manifest",timeout=30); r.raise_for_status(); m=r.json(); assert m["version"]=="0.5.1"; assert {"get_article","list_knowledge"}.issubset({t["name"] for t in m["tools"]}); s=next(t for t in m["tools"] if t["name"]=="search_articles"); assert "cursor" not in s["inputSchema"]["properties"] and s["inputSchema"]["properties"]["limit"]["maximum"]==20; print("Live MCP 0.5.1 compact complete-search contract verified")'
+      - name: Deploy Pages
+        working-directory: frontend
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx --yes --package wrangler@4.130.0 wrangler pages deploy dist --project-name insurance-kb-v2 --branch main --commit-dirty=true
+      - name: Verify published data
+        run: python -m src.publication_check --live
+      - name: Synchronize Agent D1 search index
+        if: inputs.agent_sync_plan != ''
+        env:
+          AGENT_INDEX_SYNC_PLAN: ${{ inputs.agent_sync_plan }}
+          AGENT_INDEX_SYNC_TOKEN: ${{ secrets.AGENT_INDEX_SYNC_TOKEN }}
+        run: |
+          python -c 'import os; from pathlib import Path; p=Path(os.environ["AGENT_INDEX_SYNC_PLAN"]).resolve(); assert p.is_file() and p.is_relative_to((Path.cwd() / "repairs").resolve()), "Sync plan must be inside repairs/"'
+          python -m src.agent_search_sync
+      - name: Retain failed Agent sync plan
+        if: failure() && inputs.agent_sync_plan != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-sync-plan-${{ github.run_id }}-${{ github.run_attempt }}
+          path: repairs/agent-index-sync-*.json
+          if-no-files-found: ignore
+          retention-days: 14
       - name: Verify live website
         run: |
           cd frontend

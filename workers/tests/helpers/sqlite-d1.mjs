@@ -6,6 +6,7 @@ import {readFileSync} from 'node:fs';
 export function sqliteD1(rows,snapshot_id) {
   const connection=new DatabaseSync(':memory:');
   connection.exec(readFileSync('migrations/0004_agent_search.sql','utf8'));
+  connection.exec(readFileSync('migrations/0005_agent_search_meta_count_guard.sql','utf8'));
   const insert=connection.prepare('INSERT INTO agent_search_articles(uid,revision_id,date,title,title_en,category,region,summary) VALUES(?,?,?,?,?,?,?,?)');
   connection.exec('BEGIN');
   try {

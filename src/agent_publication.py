@@ -10,6 +10,8 @@ from pathlib import Path
 
 import yaml
 
+MAX_SEARCH_SYNC_OPERATIONS = 10_000
+
 from src.monthly_store import (StorageError, atomic_write, digest, encode, month_of, put_object,
                                read_object, validate_rows,
                                write_shards, write_snapshot)
@@ -164,9 +166,9 @@ def write_search_sync_plan(path: Path, before_manifest: dict, before_rows: list,
     after = {row["uid"]: search_sync_row(row) for row in after_rows}
     upserts = [row for uid, row in after.items() if before.get(uid) != row]
     deletes = sorted(set(before) - set(after))
-    if len(upserts) + len(deletes) > 400:
+    if len(upserts) + len(deletes) > MAX_SEARCH_SYNC_OPERATIONS:
         raise StorageError(
-            "CAPACITY_ERROR: Agent D1 delta exceeds 400 records; run a reviewed full reindex"
+            f"CAPACITY_ERROR: Agent D1 delta exceeds {MAX_SEARCH_SYNC_OPERATIONS:,} records"
         )
     plan = {
         "schema_version": 1,
