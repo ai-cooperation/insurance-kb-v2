@@ -5,7 +5,7 @@
  },
  "gnews_insurance_global": {
   "status": "ok",
-  "last": "2026-10-07"
+  "last": "2026-10-08"
  },
  "gnews_insurtech": {
   "status": "ok",
@@ -45,7 +45,7 @@
  },
  "gnews_hk_regulator": {
   "status": "ok",
-  "last": "2026-10-07"
+  "last": "2026-10-08"
  },
  "gnews_hk_zh": {
   "status": "ok",
@@ -85,7 +85,7 @@
  },
  "gnews_jp_industry": {
   "status": "ok",
-  "last": "2026-10-06"
+  "last": "2026-10-08"
  },
  "gnews_jp_mini": {
   "status": "ok",
@@ -101,7 +101,7 @@
  },
  "gnews_kr_companies_3": {
   "status": "ok",
-  "last": "2026-10-07"
+  "last": "2026-10-08"
  },
  "gnews_kr_en": {
   "status": "ok",
@@ -125,11 +125,11 @@
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
-  "last": "2026-10-06"
+  "last": "2026-10-07"
  },
  "gnews_us_nyl": {
   "status": "ok",
-  "last": "2026-10-06"
+  "last": "2026-10-07"
  },
  "gnews_us_metlife": {
   "status": "ok",
@@ -149,11 +149,11 @@
  },
  "gnews_us_john_hancock": {
   "status": "ok",
-  "last": "2026-10-06"
+  "last": "2026-10-07"
  },
  "gnews_us_guardian": {
   "status": "ok",
-  "last": "2026-10-06"
+  "last": "2026-10-07"
  },
  "gnews_us_tiaa": {
   "status": "ok",
@@ -173,7 +173,7 @@
  },
  "gnews_ratings_2": {
   "status": "ok",
-  "last": "2026-10-06"
+  "last": "2026-10-07"
  },
  "gnews_wsj_insurance": {
   "status": "ok",
@@ -185,7 +185,7 @@
  },
  "gnews_sina_insurance": {
   "status": "ok",
-  "last": "2026-10-07"
+  "last": "2026-10-08"
  },
  "gnews_esg_insurance": {
   "status": "ok",
@@ -200,8 +200,8 @@
   "last": "2026-10-07"
  },
  "gnews_hive_insurance": {
-  "status": "overdue",
-  "last": "2026-09-25"
+  "status": "ok",
+  "last": "2026-10-07"
  },
  "gnews_tw_insurance": {
   "status": "ok",
@@ -217,7 +217,7 @@
  },
  "gnews_air": {
   "status": "ok",
-  "last": "2026-10-07"
+  "last": "2026-10-08"
  },
  "gnews_mas": {
   "status": "ok",
@@ -240,7 +240,7 @@
   "last": "2026-10-07"
  },
  "gnews_sompo": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-10-02"
  },
  "gnews_aia_hk": {
@@ -280,7 +280,7 @@
   "last": "2026-10-07"
  },
  "gnews_th_lifers": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-10-02"
  },
  "gnews_th_lifers_en": {
@@ -317,7 +317,7 @@
  },
  "insnews_kr": {
   "status": "ok",
-  "last": "2026-10-07"
+  "last": "2026-10-08"
  },
  "ib_asia": {
   "status": "ok",
@@ -325,7 +325,7 @@
  },
  "air_news": {
   "status": "ok",
-  "last": "2026-10-07"
+  "last": "2026-10-08"
  },
  "lia_sg": {
   "status": "ok",
