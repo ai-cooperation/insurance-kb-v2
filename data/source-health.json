@@ -321,7 +321,7 @@
  },
  "ib_asia": {
   "status": "ok",
-  "last": "2026-10-16"
+  "last": "2026-10-19"
  },
  "air_news": {
   "status": "ok",
@@ -356,8 +356,8 @@
   "last": "2026-10-14"
  },
  "sumitomo_life": {
-  "status": "overdue",
-  "last": "2026-10-09"
+  "status": "ok",
+  "last": "2026-10-19"
  },
  "nissay_news": {
   "status": "ok",
