@@ -3,7 +3,14 @@ from __future__ import annotations
 
 import re
 
-ALLOWED_FIELDS = {"uid", "title", "summary", "source_excerpt"}
+ALLOWED_FIELDS = {
+    "uid",
+    "title",
+    "expected_title",
+    "summary",
+    "expected_summary",
+    "source_excerpt",
+}
 _HAN = re.compile(r"[\u3400-\u9fff]")
 _HANGUL = re.compile(r"[\u1100-\u11ff\u3130-\u318f\uac00-\ud7af]")
 _KANA = re.compile(r"[\u3040-\u30ff\u31f0-\u31ff]")
@@ -25,13 +32,14 @@ def _has_source_cjk_script(value: str) -> bool:
 def apply_repairs(entries: list[dict], repairs: list[dict]) -> tuple[list[dict], int]:
     """Apply reviewed fields only; preserve originals and reject ambiguous edits.
 
-    Titles may only change from their untranslated original, or be identical to
-    a repair already applied. A blank summary requires a source excerpt in the
-    same repair. Existing summaries are only replaceable when they contain no
-    Han characters (i.e. an untranslated source-language summary); Korean and
-    Japanese snippets may contain Han alongside Hangul or kana. An existing
-    translated CJK summary is never silently overwritten. Source excerpts are
-    immutable once present.
+    Titles may only change from their untranslated original, an exact reviewed
+    ``expected_title``, or be identical to a repair already applied. A blank
+    summary requires a source excerpt in the same repair. Existing summaries
+    are only replaceable when they contain no Han characters (i.e. an
+    untranslated source-language summary), contain Korean/Japanese source
+    script, or exactly match ``expected_summary``. An existing translated CJK
+    summary is never silently overwritten. Source excerpts are immutable once
+    present.
     """
     by_uid = {}
     for row in entries:
@@ -64,7 +72,14 @@ def apply_repairs(entries: list[dict], repairs: list[dict]) -> tuple[list[dict],
             raise RepairError(f"missing translated title for {uid}")
         if title != row.get("title"):
             source_title = row.get("title_en") or row.get("title", "")
-            if row.get("title") != source_title:
+            expected_title = repair.get("expected_title")
+            if "expected_title" in repair and (
+                not isinstance(expected_title, str) or not expected_title.strip()
+            ):
+                raise RepairError(f"invalid expected title for {uid}")
+            if expected_title is not None and row.get("title") != expected_title:
+                raise RepairError(f"title changed since review for {uid}")
+            if expected_title is None and row.get("title") != source_title:
                 raise RepairError(f"refusing to overwrite an existing title for {uid}")
             if title == source_title:
                 raise RepairError(f"repair does not translate the title for {uid}")
@@ -88,7 +103,13 @@ def apply_repairs(entries: list[dict], repairs: list[dict]) -> tuple[list[dict],
                 raise RepairError(f"empty repaired summary for {uid}")
             current_summary = row.get("summary") or ""
             if current_summary != summary:
-                if (_has_han(current_summary)
+                expected_summary = repair.get("expected_summary")
+                if "expected_summary" in repair and not isinstance(expected_summary, str):
+                    raise RepairError(f"invalid expected summary for {uid}")
+                if expected_summary is not None and current_summary != expected_summary:
+                    raise RepairError(f"summary changed since review for {uid}")
+                if (expected_summary is None
+                        and _has_han(current_summary)
                         and not _has_source_cjk_script(current_summary)):
                     raise RepairError(f"refusing to overwrite an existing CJK summary for {uid}")
                 if not current_summary and not excerpt:

@@ -46,6 +46,30 @@ class ManualRepairTests(unittest.TestCase):
                 [{"uid": "a1", "title": "中文標題", "summary": "另一段摘要"}],
             )
 
+    def test_replaces_partial_translation_only_when_expected_values_match(self):
+        original = article(
+            title="中文標題夾帶한국어",
+            summary="中文摘要夾帶한국어",
+        )
+        repair = {
+            "uid": "a1",
+            "expected_title": original["title"],
+            "title": "完整中文標題",
+            "expected_summary": original["summary"],
+            "summary": "完整中文摘要",
+        }
+
+        updated, changed = apply_repairs([original], [repair])
+
+        self.assertEqual(changed, 2)
+        self.assertEqual(updated[0]["title"], "完整中文標題")
+        self.assertEqual(updated[0]["summary"], "完整中文摘要")
+        with self.assertRaises(RepairError):
+            apply_repairs(
+                [article(title="欄位已被其他修訂更新")],
+                [repair],
+            )
+
     def test_can_translate_a_korean_summary_that_contains_one_hanja(self):
         updated, changed = apply_repairs(
             [article(summary="보험 안내 前 사전심사")],
