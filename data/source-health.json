@@ -5,11 +5,11 @@
  },
  "gnews_insurance_global": {
   "status": "ok",
-  "last": "2026-11-06"
+  "last": "2026-11-09"
  },
  "gnews_insurtech": {
   "status": "ok",
-  "last": "2026-11-07"
+  "last": "2026-11-08"
  },
  "gnews_sg_companies_1": {
   "status": "ok",
@@ -45,7 +45,7 @@
  },
  "gnews_hk_regulator": {
   "status": "ok",
-  "last": "2026-11-06"
+  "last": "2026-11-08"
  },
  "gnews_hk_zh": {
   "status": "ok",
@@ -53,7 +53,7 @@
  },
  "gnews_cn_companies_1": {
   "status": "ok",
-  "last": "2026-11-07"
+  "last": "2026-11-08"
  },
  "gnews_cn_companies_2": {
   "status": "ok",
@@ -61,7 +61,7 @@
  },
  "gnews_cn_companies_3": {
   "status": "ok",
-  "last": "2026-11-07"
+  "last": "2026-11-08"
  },
  "gnews_cn_industry": {
   "status": "ok",
@@ -85,11 +85,11 @@
  },
  "gnews_jp_industry": {
   "status": "ok",
-  "last": "2026-11-06"
+  "last": "2026-11-08"
  },
  "gnews_jp_mini": {
   "status": "ok",
-  "last": "2026-11-07"
+  "last": "2026-11-08"
  },
  "gnews_kr_companies_1": {
   "status": "ok",
@@ -97,7 +97,7 @@
  },
  "gnews_kr_companies_2": {
   "status": "ok",
-  "last": "2026-11-08"
+  "last": "2026-11-09"
  },
  "gnews_kr_companies_3": {
   "status": "ok",
@@ -109,11 +109,11 @@
  },
  "gnews_kr_digital": {
   "status": "ok",
-  "last": "2026-11-08"
+  "last": "2026-11-09"
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-11-07"
+  "last": "2026-11-08"
  },
  "gnews_reinsurers": {
   "status": "ok",
@@ -133,7 +133,7 @@
  },
  "gnews_us_metlife": {
   "status": "ok",
-  "last": "2026-11-06"
+  "last": "2026-11-08"
  },
  "gnews_us_prudential": {
   "status": "ok",
@@ -169,7 +169,7 @@
  },
  "gnews_ratings_1": {
   "status": "ok",
-  "last": "2026-11-06"
+  "last": "2026-11-09"
  },
  "gnews_ratings_2": {
   "status": "ok",
@@ -212,12 +212,12 @@
   "last": "2026-11-08"
  },
  "gnews_munichre": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-11-03"
  },
  "gnews_air": {
   "status": "ok",
-  "last": "2026-11-06"
+  "last": "2026-11-09"
  },
  "gnews_mas": {
   "status": "ok",
@@ -317,15 +317,15 @@
  },
  "insnews_kr": {
   "status": "ok",
-  "last": "2026-11-06"
+  "last": "2026-11-09"
  },
  "ib_asia": {
   "status": "ok",
-  "last": "2026-11-06"
+  "last": "2026-11-08"
  },
  "air_news": {
   "status": "ok",
-  "last": "2026-11-06"
+  "last": "2026-11-09"
  },
  "lia_sg": {
   "status": "ok",
