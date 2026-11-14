@@ -57,7 +57,7 @@
  },
  "gnews_cn_companies_2": {
   "status": "ok",
-  "last": "2026-11-13"
+  "last": "2026-11-14"
  },
  "gnews_cn_companies_3": {
   "status": "ok",
@@ -85,7 +85,7 @@
  },
  "gnews_jp_industry": {
   "status": "ok",
-  "last": "2026-11-13"
+  "last": "2026-11-14"
  },
  "gnews_jp_mini": {
   "status": "ok",
@@ -117,7 +117,7 @@
  },
  "gnews_reinsurers": {
   "status": "ok",
-  "last": "2026-11-13"
+  "last": "2026-11-14"
  },
  "gnews_us_massmutual": {
   "status": "ok",
@@ -125,11 +125,11 @@
  },
  "gnews_us_northwestern_mutual": {
   "status": "ok",
-  "last": "2026-11-12"
+  "last": "2026-11-13"
  },
  "gnews_us_nyl": {
   "status": "ok",
-  "last": "2026-11-12"
+  "last": "2026-11-13"
  },
  "gnews_us_metlife": {
   "status": "ok",
@@ -137,7 +137,7 @@
  },
  "gnews_us_prudential": {
   "status": "ok",
-  "last": "2026-11-12"
+  "last": "2026-11-13"
  },
  "gnews_us_pacific_life": {
   "status": "ok",
@@ -149,7 +149,7 @@
  },
  "gnews_us_john_hancock": {
   "status": "ok",
-  "last": "2026-11-12"
+  "last": "2026-11-13"
  },
  "gnews_us_guardian": {
   "status": "ok",
@@ -157,7 +157,7 @@
  },
  "gnews_us_tiaa": {
   "status": "ok",
-  "last": "2026-11-12"
+  "last": "2026-11-13"
  },
  "gnews_us_mutual_omaha": {
   "status": "ok",
@@ -169,11 +169,11 @@
  },
  "gnews_ratings_1": {
   "status": "ok",
-  "last": "2026-11-12"
+  "last": "2026-11-13"
  },
  "gnews_ratings_2": {
   "status": "ok",
-  "last": "2026-11-12"
+  "last": "2026-11-13"
  },
  "gnews_wsj_insurance": {
   "status": "ok",
@@ -321,7 +321,7 @@
  },
  "ib_asia": {
   "status": "ok",
-  "last": "2026-11-12"
+  "last": "2026-11-13"
  },
  "air_news": {
   "status": "ok",
