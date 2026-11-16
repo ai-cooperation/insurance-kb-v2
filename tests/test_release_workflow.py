@@ -13,7 +13,9 @@ def test_release_is_explicit_serialized_data_first_and_fail_loud():
     assert names.index("Verify publication") < names.index("Deploy Pages")
     assert names.index("Verify published data") < names.index("Deploy Worker")
     assert names.index("Verify deployment targets") < names.index("Deploy Pages")
-    assert any(s.get("if") == "failure()" and "TELEGRAM_BOT_TOKEN" in s.get("env", {}) for s in steps)
+    # Failure alert goes to the ops-inbox (ai-cooperation/ops-inbox), not Telegram.
+    assert any(s.get("if") == "failure()" and "OPS_INBOX_TOKEN" in s.get("env", {}) for s in steps)
+    assert all("api.telegram.org" not in s.get("run", "") for s in steps)
     assert "--keep-vars" in next(s["run"] for s in steps if s.get("name") == "Deploy Worker")
     assert all("python run.py" not in s.get("run", "") for s in steps)
 

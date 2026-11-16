@@ -54,7 +54,7 @@ import {
   type BiweeklyDecisions,
   type BiweeklySectionType,
 } from "./biweekly-session";
-import { createReport, updateReport, notifyTelegramNewReport } from "./reports-store";
+import { createReport, updateReport, notifyNewReport } from "./reports-store";
 
 interface Bindings {
   KV: KVNamespace;
@@ -64,8 +64,7 @@ interface Bindings {
   ADMIN_EMAIL: string;        // wrangler.toml [vars] — admin override for update_report etc.
   HUB_PROJECT_ID: string;
   KB_PROJECT_ID: string;
-  TG_BOT_TOKEN?: string;
-  TG_CHAT_ID?: string;
+  OPS_INBOX_TOKEN?: string;   // wrangler secret — ops-inbox (GitHub Issues) notifications
   EXA_API_KEY?: string;       // v3 (2026-05-06) — falls back to DDG scrape if empty
   REPORTS_REPO?: string;      // v3 (2026-06-03) — private snapshot repo (e.g. ai-cooperation/insurance-kb-reports)
   REPORTS_GITHUB_PAT?: string; // fine-grained PAT with contents:write, set via wrangler secret
@@ -1225,7 +1224,7 @@ async function handleFinalizeReport(
   await finalizeSession(env.KV, user.uid, args.session_id, meta.id);
 
   const publicUrl = `${env.CORS_ORIGIN}/reports/${meta.id}`;
-  await notifyTelegramNewReport(env, meta, publicUrl);
+  await notifyNewReport(env, meta, publicUrl);
 
   return {
     meta,

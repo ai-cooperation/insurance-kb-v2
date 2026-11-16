@@ -680,23 +680,9 @@ _PHASE3_ALARM_THRESHOLD = 0.2
 
 
 def _send_phase3_alarm(message: str) -> None:
-    """Best-effort Telegram alert (same env contract as the other detectors)."""
-    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
-    topic_id = os.environ.get("TELEGRAM_TOPIC_ID", "")
-    if not token or not chat_id:
-        return
-    try:
-        import requests as _rq
-        payload = {"chat_id": chat_id, "text": message}
-        if topic_id:
-            payload["message_thread_id"] = topic_id
-        _rq.post(
-            f"https://api.telegram.org/bot{token}/sendMessage",
-            data=payload, timeout=15,
-        )
-    except Exception as exc:  # noqa: BLE001 — alarm must never kill the pipeline
-        logger.warning("Phase 3 alarm send failed: %s", exc)
+    """Best-effort ops-inbox alert (same contract as the other detectors)."""
+    from src.ops_inbox import send_event
+    send_event("翻譯 Phase 3 失敗率告警", message, "warn")
 
 
 def _filter_available(client, models: list, provider: str) -> list:

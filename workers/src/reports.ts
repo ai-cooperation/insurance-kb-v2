@@ -21,7 +21,7 @@ import {
   incrementViewCount,
   listReports,
   listTopics,
-  notifyTelegramNewReport,
+  notifyNewReport,
   type CreateReportInput,
 } from "./reports-store";
 
@@ -148,15 +148,9 @@ export async function handleCreateReport(c: Ctx) {
     REPORTS_GITHUB_PAT: c.env.REPORTS_GITHUB_PAT,
   });
 
-  // Best-effort TG notify (won't block / fail)
+  // Best-effort ops-inbox notify (won't block / fail)
   const publicUrl = `${c.env.CORS_ORIGIN}/reports/${meta.id}`;
-  c.executionCtx.waitUntil(
-    notifyTelegramNewReport(
-      { TG_BOT_TOKEN: c.env.TG_BOT_TOKEN, TG_CHAT_ID: c.env.TG_CHAT_ID },
-      meta,
-      publicUrl,
-    ),
-  );
+  c.executionCtx.waitUntil(notifyNewReport(c.env, meta, publicUrl));
 
   return c.json({ meta, url: publicUrl }, 201);
 }

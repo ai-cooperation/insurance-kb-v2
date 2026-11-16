@@ -4,7 +4,7 @@ Checks:
 1. Category-keyword cross-validation: flag articles whose keywords don't match category
 2. Distribution anomaly: compare with expected range
 3. Noise leak: articles that slipped through quality gate
-4. Generate report and optionally notify via Telegram
+4. Generate report and optionally post it to the ops-inbox
 """
 
 import json
@@ -14,7 +14,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-import requests
+from src.ops_inbox import send_event
 
 logger = logging.getLogger(__name__)
 
@@ -119,7 +119,7 @@ def _cross_validate(articles):
 
 
 def run_monthly_audit(notify=True):
-    """Run monthly quality audit and optionally send Telegram notification."""
+    """Run monthly quality audit and optionally post the report to the ops-inbox."""
     from src.index_manager import load_index
     idx = load_index()
     visible = [a for a in idx if not a.get("filter")]
@@ -198,9 +198,9 @@ def run_monthly_audit(notify=True):
     report = "\n".join(report_lines)
     logger.info("\n%s", report)
 
-    # Telegram notification
+    # Routine monthly report, not an anomaly → sev:info (digest only, no email).
     if notify:
-        _send_telegram(report)
+        send_event("月度品質稽核報告", report, "info")
 
     return {
         "score": score,
@@ -213,34 +213,8 @@ def run_monthly_audit(notify=True):
     }
 
 
-def _send_telegram(message):
-    """Send message to Telegram bot (Insurance KB topic in AC系統監控 group)."""
-    bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "-1003856903916")
-    topic_id = int(os.environ.get("TELEGRAM_TOPIC_ID", "4"))  # Insurance KB topic
-    if not bot_token:
-        logger.info("TELEGRAM_BOT_TOKEN not set, skipping notification")
-        return
-    try:
-        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-        payload = {
-            "chat_id": chat_id,
-            "text": message,
-            "parse_mode": "HTML",
-        }
-        if topic_id:
-            payload["message_thread_id"] = topic_id
-        resp = requests.post(url, json=payload, timeout=10)
-        if resp.ok:
-            logger.info("Telegram notification sent")
-        else:
-            logger.warning("Telegram send failed: %s", resp.text[:100])
-    except Exception as exc:
-        logger.warning("Telegram error: %s", exc)
-
-
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     import os
-    should_notify = bool(os.environ.get("TELEGRAM_BOT_TOKEN"))
+    should_notify = bool(os.environ.get("OPS_INBOX_TOKEN"))
     run_monthly_audit(notify=should_notify)

@@ -121,11 +121,21 @@ jobs:
         with:
           name: insurance-release-browser-qa
           path: frontend/release-qa/
-      - name: Notify Telegram on failure
+      - name: Report failure to ops-inbox
         if: failure()
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          OPS_INBOX_TOKEN: ${{ secrets.OPS_INBOX_TOKEN }}
         run: |
-          curl --fail --silent --show-error --max-time 20 -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            -d chat_id="-1003856903916" -d message_thread_id="4" \
-            --data-urlencode text="Insurance KB 發布失敗：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" > /dev/null
+          MSG="Insurance KB 發布失敗：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          R=ai-cooperation/ops-inbox
+          SRC=insurance-kb-v2
+          export TITLE="Insurance KB 發布失敗"
+          SEV=warn; MENTION=""
+          N=$(GH_TOKEN="$OPS_INBOX_TOKEN" gh api "repos/$R/issues?state=open&labels=src:$SRC&per_page=100" \
+                --jq "[.[] | select(.title==env.TITLE)][0].number // empty")
+          if [ -n "$N" ]; then
+            GH_TOKEN="$OPS_INBOX_TOKEN" gh api "repos/$R/issues/$N/comments" -f body="${MENTION}${MSG}" --silent
+          else
+            GH_TOKEN="$OPS_INBOX_TOKEN" gh api "repos/$R/issues" -f title="$TITLE" -f body="${MENTION}${MSG}" \
+              -f "labels[]=sev:$SEV" -f "labels[]=src:$SRC" --silent
+          fi

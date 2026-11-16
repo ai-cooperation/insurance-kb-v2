@@ -11,6 +11,7 @@
  * archive; failure is logged but does not roll back the report).
  */
 
+import { opsNotify, type OpsInboxEnv } from "./ops-inbox";
 import { snapshotReportToGit, type GitSnapshotEnv } from "./github-reports";
 
 export type ReportStatus = "draft" | "published" | "archived";
@@ -597,43 +598,20 @@ export async function archiveReport(
 }
 
 /**
- * Notify Telegram about a new published report (best-effort, no-op on failure).
+ * Record a newly published report in the ops-inbox (sev:info — shows up in
+ * the daily digest, no email). Best-effort: never throws, non-delivery is
+ * logged inside opsNotify.
  */
-export async function notifyTelegramNewReport(
-  env: { TG_BOT_TOKEN?: string; TG_CHAT_ID?: string; TG_TOPIC_ID?: string },
+export async function notifyNewReport(
+  env: OpsInboxEnv,
   meta: ReportMeta,
   publicUrl: string,
 ): Promise<void> {
-  if (!env.TG_BOT_TOKEN || !env.TG_CHAT_ID) return;
-  const text =
-    `【新研究報告上架】\n\n` +
-    `<b>${escapeHtml(meta.title)}</b>\n` +
-    (meta.category ? `分類：${escapeHtml(meta.category)}\n` : "") +
-    (meta.region ? `地區：${escapeHtml(meta.region)}\n` : "") +
-    (meta.author_name ? `作者：${escapeHtml(meta.author_name)}\n` : "") +
+  const body =
+    (meta.category ? `分類：${meta.category}\n` : "") +
+    (meta.region ? `地區：${meta.region}\n` : "") +
+    (meta.author_name ? `作者：${meta.author_name}\n` : "") +
     `字數：${meta.word_count} | 引用：${meta.finding_count}\n\n` +
     `${publicUrl}`;
-  try {
-    await fetch(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: env.TG_CHAT_ID,
-        // forum groups route by topic; omitting it posts to General
-        ...(env.TG_TOPIC_ID ? { message_thread_id: Number(env.TG_TOPIC_ID) } : {}),
-        text,
-        parse_mode: "HTML",
-        disable_web_page_preview: false,
-      }),
-    });
-  } catch {
-    // Best effort — don't fail the request because TG is down.
-  }
-}
-
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+  await opsNotify(env, "info", `新研究報告上架：${meta.title}`, body);
 }

@@ -5,7 +5,7 @@ Every proper-noun incident so far (라이나생명 → 萊茵/賴納/麗娜, ア
 by a user's failed search, a manual sweep, or luck during review. This
 module closes the loop: after each crawl, articles whose ORIGINAL title
 (title_en) names a watchlisted company but whose translation lacks every
-accepted canonical token get flagged to Telegram in the same run.
+accepted canonical token get flagged to the ops-inbox in the same run.
 
 Alert-only by design — the wrong rendering is often another company's
 genuine name (宏利 = real Manulife elsewhere), so repairs stay manual:
@@ -23,7 +23,7 @@ import re
 import sys
 from pathlib import Path
 
-import requests
+from src.ops_inbox import send_event
 
 from src.classifier import _ENTITY_WATCHLIST
 
@@ -68,29 +68,8 @@ def check_articles(articles: list[dict]) -> list[dict]:
     return violations
 
 
-def _send_telegram(message: str) -> bool:
-    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
-    topic_id = os.environ.get("TELEGRAM_TOPIC_ID", "")
-    if not token or not chat_id:
-        return False
-    payload = {"chat_id": chat_id, "text": message}
-    if topic_id:
-        payload["message_thread_id"] = topic_id
-    try:
-        resp = requests.post(
-            f"https://api.telegram.org/bot{token}/sendMessage",
-            data=payload,
-            timeout=15,
-        )
-        return resp.ok
-    except requests.RequestException as exc:
-        logger.warning("Telegram send failed: %s", exc)
-        return False
-
-
 def notify_violations(violations: list[dict]) -> None:
-    """Log violations and push a Telegram alert (best-effort)."""
+    """Log violations and push an ops-inbox alert (best-effort)."""
     lines = ["[Insurance KB] 譯名一致性告警 — LLM 可能把公司譯成別的名字"]
     for v in violations[:10]:
         lines.append(
@@ -103,8 +82,8 @@ def notify_violations(violations: list[dict]) -> None:
     msg = "\n".join(lines)
     for v in violations:
         logger.warning("NAME DRIFT %s: %s -> %s", v["uid"], v["title_en"], v["title"])
-    sent = _send_telegram(msg)
-    logger.info("name-consistency alert: %s", "sent" if sent else "no TG creds")
+    sent = send_event("譯名一致性告警", msg, "warn")
+    logger.info("name-consistency alert: %s", "sent" if sent else "NOT delivered")
 
 
 def main() -> None:

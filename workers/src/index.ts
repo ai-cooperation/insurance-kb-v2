@@ -47,12 +47,10 @@ interface Bindings {
   REPORTS_DB: D1Database;
   REPORTS_BUCKET: R2Bucket;
   MCP_PUBLIC_URL: string;
-  TG_BOT_TOKEN?: string;
-  TG_CHAT_ID?: string;
+  OPS_INBOX_TOKEN?: string;       // wrangler secret — ops-inbox (GitHub Issues) notifications
   REPORTS_REPO?: string;          // v3 (2026-06-03) git snapshot pillar — set in [vars]
   REPORTS_GITHUB_PAT?: string;    // fine-grained PAT, set via `wrangler secret put`
   SNAPSHOT_TEST_KEY?: string;     // shared-secret for /api/snapshot-test (debug endpoint)
-  TG_TOPIC_ID?: string;           // forum topic for the insurance KB group — [vars]
   INSURANCE_A_URL?: string;       // research pipeline engine base URL (ba-spec §7) — [vars]
   RESEARCH_PIPELINE_KEY?: string; // shared-secret for /api/research-pipeline/complete (wrangler secret)
   AGENT_INDEX_SYNC_TOKEN?: string; // shared-secret for immutable-publication -> D1 delta sync
@@ -400,7 +398,8 @@ app.get("/api/mcp-debug", async (c) => {
 // server, not a Firebase user.
 app.post("/api/research-pipeline/complete", async (c) => {
   const { handlePipelineComplete } = await import("./research-pipeline");
-  const { createReport, notifyTelegramNewReport } = await import("./reports-store");
+  const { createReport, notifyNewReport } = await import("./reports-store");
+  const { opsNotify } = await import("./ops-inbox");
   const payload = await c.req.json().catch(() => ({}));
   const result = await handlePipelineComplete(
     c.env.REPORTS_DB, c.req.query("key"), c.env.RESEARCH_PIPELINE_KEY, payload,
@@ -447,22 +446,17 @@ app.post("/api/research-pipeline/complete", async (c) => {
         { REPORTS_REPO: c.env.REPORTS_REPO, REPORTS_GITHUB_PAT: c.env.REPORTS_GITHUB_PAT },
       );
       const publicUrl = `${c.env.CORS_ORIGIN}/reports/${meta.id}`;
-      await notifyTelegramNewReport(c.env, meta, publicUrl).catch(() => {});
+      await notifyNewReport(c.env, meta, publicUrl);
       return meta.id;
     });
   // blocked/failed deliveries alert the user (ba-spec REQ-A3): the pipeline
   // asks a human only when the gate could not be satisfied.
-  if ((result.body as any).status === "failed_recorded" && c.env.TG_BOT_TOKEN && c.env.TG_CHAT_ID) {
+  if ((result.body as any).status === "failed_recorded") {
     const err = String(payload.error ?? "").slice(0, 300);
-    await fetch(`https://api.telegram.org/bot${c.env.TG_BOT_TOKEN}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: c.env.TG_CHAT_ID,
-        ...(c.env.TG_TOPIC_ID ? { message_thread_id: Number(c.env.TG_TOPIC_ID) } : {}),
-        text: `【研究 pipeline】任務 blocked，需人工裁示\nsession: ${payload.session_id}\n原因: ${err}`,
-      }),
-    }).catch(() => {});
+    await opsNotify(
+      c.env, "warn", "研究 pipeline 任務 blocked，需人工裁示",
+      `session: ${payload.session_id}\n原因: ${err}`,
+    );
   }
   return c.json(result.body, result.status as 200);
 });

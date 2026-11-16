@@ -14,8 +14,9 @@ Design:
 - Alerts fire on STATE TRANSITIONS only (ok -> overdue, overdue -> ok),
   tracked in data/source-health.json, so a dead source pings once, not
   every crawl.
-- Telegram creds come from the environment (same secrets as the crawl
-  failure alert); without them the report prints to stdout (dry-run).
+- Alerts go to the ops-inbox (src/ops_inbox.py, env OPS_INBOX_TOKEN);
+  without the token the report still prints to stdout and the
+  non-delivery is logged.
 
 Run: python -m src.source_health [--dry-run]
 """
@@ -28,7 +29,7 @@ from datetime import date, timedelta
 from pathlib import Path
 from statistics import median
 
-import requests
+from src.ops_inbox import send_event
 
 logger = logging.getLogger(__name__)
 
@@ -113,27 +114,6 @@ def check_source_health(today: date | None = None) -> dict:
     return report
 
 
-def _send_telegram(message: str) -> bool:
-    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
-    topic_id = os.environ.get("TELEGRAM_TOPIC_ID", "")
-    if not token or not chat_id:
-        return False
-    payload = {"chat_id": chat_id, "text": message}
-    if topic_id:
-        payload["message_thread_id"] = topic_id
-    try:
-        resp = requests.post(
-            f"https://api.telegram.org/bot{token}/sendMessage",
-            data=payload,
-            timeout=15,
-        )
-        return resp.ok
-    except requests.RequestException as exc:
-        logger.warning("Telegram send failed: %s", exc)
-        return False
-
-
 def main() -> None:
     dry_run = "--dry-run" in sys.argv
     report = check_source_health()
@@ -174,8 +154,8 @@ def main() -> None:
             lines.append("已復活：")
             for sid, info in recovered:
                 lines.append(f"  - {sid}：{info['last']} 恢復產出")
-        sent = _send_telegram("\n".join(lines))
-        print(f"telegram alert: {'sent' if sent else 'skipped (no creds)'}")
+        sent = send_event("資訊源健康告警", "\n".join(lines), "warn")
+        print(f"ops-inbox alert: {'sent' if sent else 'NOT delivered (see log)'}")
 
     if not dry_run:
         STATE_PATH.write_text(
