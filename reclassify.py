@@ -12,6 +12,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import sys
 import time
 from collections import Counter
@@ -25,6 +26,40 @@ from src.classifier import (
     _build_cascade,
     _merge_llm_results,
 )
+
+from src.sources import ZH_HANT_SOURCE_IDS
+
+_HAN = re.compile(r"[\u4e00-\u9fff]")
+_KANA_HANGUL = re.compile(r"[\u3040-\u30ff\u31f0-\u31ff\uac00-\ud7af]")
+
+
+def needs_retranslation(art: dict, zh_hant_sources=ZH_HANT_SOURCE_IDS) -> bool:
+    """Backfill selector: is this row still in its source language?
+
+    The original selector (title == title_en OR any kana/hangul in title)
+    re-selected finished rows forever, so the backlog count never reached
+    zero (2026-11-21, two false positives after three full backfill runs):
+      * hkia_rss — the source is Traditional Chinese, so title == title_en
+        is the normal, finished state;
+      * a translated Nissay headline that keeps the product name
+        「ぴたほ」 in kana.
+    """
+    title = art.get("title") or ""
+    original = art.get("title_en") or ""
+    if not (art.get("summary") or "").strip():
+        return True
+    if title == original:
+        return art.get("source") not in zh_hant_sources
+    foreign = len(_KANA_HANGUL.findall(title))
+    if not original:
+        # Legacy rows with no stored original: any kana/hangul means the
+        # source-language headline is still sitting in `title`.
+        return foreign > 0
+    # title differs from the stored original, i.e. it was translated. Proper
+    # nouns kept in kana/hangul are fine (max 43% of CJK chars across the
+    # 2026-11 index); only a headline that is still mostly kana/hangul counts.
+    return foreign > len(_HAN.findall(title))
+
 
 INDEX_PATH = Path(__file__).resolve().parent / "index" / "master-index.json"
 
@@ -65,17 +100,11 @@ def reclassify(
         # Backfill mode (2026-07-31 GitHub Models retirement outage):
         # articles that shipped with untranslated titles or empty
         # summaries because every translation batch 401'd.
-        import re as _re
-        cjk_src = _re.compile(r"[가-힯ァ-ヶぁ-ん]")
         to_reclassify = [
             (i, art) for i, art in enumerate(index)
             if (art.get("date") or "") >= untranslated_since
             and not art.get("filter")
-            and (
-                (art.get("title") or "") == (art.get("title_en") or "")
-                or cjk_src.search(art.get("title") or "")
-                or not (art.get("summary") or "").strip()
-            )
+            and needs_retranslation(art)
         ]
         logger.info(
             "Untranslated-since-%s mode: %d articles need re-translation",

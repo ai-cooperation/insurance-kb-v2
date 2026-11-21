@@ -490,3 +490,13 @@ _HTTP_BACKUP = [
 # nissay json)
 # ---------------------------------------------------------------------------
 SOURCES = _GNEWS_EXISTING + _GNEWS_NEW + _GNEWS_ASIA_LIFE + _OFFICIAL_RSS + _HTTP_BACKUP
+
+# Sources whose ORIGINAL language is already Traditional Chinese: Google
+# News queries with hl=zh-TW / zh-Hant, plus first-party feeds listed
+# here. For these, title == title_en is normal (nothing to translate) and
+# must not be read as "untranslated" (reclassify.needs_retranslation).
+_ZH_HANT_FIRST_PARTY = frozenset({"hkia_rss"})   # ia.org.hk/tc/ feed
+ZH_HANT_SOURCE_IDS = frozenset(
+    src["id"] for src in SOURCES
+    if "hl=zh-TW" in src["url"] or "hl=zh-Hant" in src["url"]
+) | _ZH_HANT_FIRST_PARTY
