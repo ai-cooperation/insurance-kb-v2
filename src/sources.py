@@ -434,13 +434,24 @@ _HTTP_BACKUP = [
     _src("pingan", "中國平安",
          "https://www.pingan.cn/news/index.shtml",
          method="http", region="中國", type_="保險公司"),
+    # 2026-11-21 (ops-inbox #19): both newsrooms are unreachable from
+    # Actions with plain HTTP — sompo-hd.com is behind Akamai (403 for any
+    # non-browser client, last output 10-16) and Munich Re renders its
+    # listing with JavaScript (static HTML has no release links, last
+    # output 10-01 while 4+ releases were published). A fixed browser
+    # script on ac-mac (repo web-capture-private, SPEC REQ-28~33) now reads
+    # the listings and publishes {date,title,link} to the public repo
+    # ai-cooperation/web-capture-feeds. DO NOT point these back at the
+    # original pages with method="http" — it silently yields nothing.
+    # Sompo's feed may lag: Akamai also blocks ac-mac intermittently.
     _src("sompo_hd", "Sompo HD",
-         "https://www.sompo-hd.com/en/news/",
-         method="http", region="日本", type_="保險公司"),
+         "https://raw.githubusercontent.com/ai-cooperation/"
+         "web-capture-feeds/main/feeds/sompo_hd.json",
+         method="json", region="日本", type_="保險公司"),
     _src("munichre_news", "Munich Re",
-         "https://www.munichre.com/en/company/media-relations/"
-         "media-information-and-corporate-news.html",
-         method="http", region="全球", type_="再保公司"),
+         "https://raw.githubusercontent.com/ai-cooperation/"
+         "web-capture-feeds/main/feeds/munichre_news.json",
+         method="json", region="全球", type_="再保公司"),
     _src("mas_media", "MAS 新聞稿",
          "https://www.mas.gov.sg/news/media-releases",
          method="http", region="新加坡", type_="監管機構"),
