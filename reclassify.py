@@ -110,7 +110,10 @@ def reclassify(
 
     # Provider-aware cascade (Groq primary since GitHub Models retirement)
     try:
-        slots = _build_cascade(api_key)
+        # _build_cascade() reads provider keys from env and takes no args
+        # (signature changed after the 2026-08-05 run; passing api_key
+        # crashed the 2026-11-21 backfill with TypeError before any batch).
+        slots = _build_cascade()
     except ImportError:
         logger.error("openai package not installed")
         return
