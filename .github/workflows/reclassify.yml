@@ -23,6 +23,11 @@ on:
         required: false
         default: ''
         type: string
+      translations_file:
+        description: 'Apply reviewed translations from this checked-in JSON (under repairs/) instead of calling the LLM; needs untranslated_since'
+        required: false
+        default: ''
+        type: string
 
 # Share the pipeline lock with crawl.yml + distill.yml. Reclassify is a
 # heavy job that mutates master-index.json across thousands of entries
@@ -73,6 +78,12 @@ jobs:
           fi
           if [ -n "${{ inputs.untranslated_since }}" ]; then
             ARGS="$ARGS --untranslated-since ${{ inputs.untranslated_since }}"
+          fi
+          if [ -n "${{ inputs.translations_file }}" ]; then
+            case "${{ inputs.translations_file }}" in
+              repairs/*.json) ARGS="$ARGS --translations-file ${{ inputs.translations_file }}" ;;
+              *) echo "translations_file must be a .json under repairs/" >&2; exit 1 ;;
+            esac
           fi
           python reclassify.py $ARGS
 
