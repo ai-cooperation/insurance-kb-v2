@@ -1,12 +1,3596 @@
 {
- "0660865e7bad": {"title_zh": "韓國：推出全國首張教師專屬保險方案", "summary_zh": "韓國推出全國首張專為教師設計的保險方案，針對教職人員在工作中面臨的風險提供專屬保障。", "category": "產品創新", "importance": "中"},
- "89d584ce2230": {"title_zh": "制定《損害查定士法》之議再起，監理機關研議整頓制度", "summary_zh": "韓國保險業界再度出現制定《損害查定士法》的呼聲，監理機關正研議整頓損害查定相關制度。", "category": "監管動態", "importance": "中"},
- "4eb02b5feef9": {"title_zh": "DB損害保險舉辦「心意相連」志工活動，為消防人員加油", "summary_zh": "DB損害保險7日在首爾江南區DB金融中心舉辦「心意相連」志工活動，百餘名員工與家屬參與，向投入火災預防與人命救助的消防人員表達感謝。", "category": "行銷推廣", "importance": "低"},
- "af71d56ab9e0": {"title_zh": "金融保安院舉辦「2026金融AI Challenge」，大獎由韓華損保「模擬櫃檯」奪得", "summary_zh": "金融保安院舉辦「2026金融AI Challenge」，韓華損保員工開發的金融商品說明書事前檢核服務獲得大獎。本屆競賽聚焦以AI保護金融消費者與防範金融詐騙。", "category": "科技應用", "importance": "中"},
- "de4de3b587f8": {"title_zh": "Max Financial Services 估值風險升高，股票獲「賣出」評等", "summary_zh": "印度 Max Financial Services 因估值風險升高，股票被給予「賣出」評等。", "category": "市場趨勢", "importance": "低"},
- "968d909333c9": {"title_zh": "2026年11月12日印度股市漲跌幅排行：HDFC人壽領漲", "summary_zh": "印度股市11月12日下午3時30分漲跌幅排行出爐，HDFC人壽保險居漲幅之首。", "category": "市場趨勢", "importance": "低"},
- "5e43e83e1c1d": {"title_zh": "保德信金融集團宣布發放普通股季度股息", "summary_zh": "美國保德信金融集團（Prudential Financial）宣布發放普通股季度股息。", "category": "市場趨勢", "importance": "低"},
- "fba5814a68eb": {"title_zh": "Gallagher Re 的 Bowen：2026年巨災保險損失突破1,000億美元，已不足以撼動市場", "summary_zh": "Gallagher Re 的 Bowen 指出，2026年全球巨災保險損失已突破1,000億美元，但這樣的規模已不足以明顯左右再保市場走勢。", "category": "再保市場", "importance": "中"},
- "dd1f9a3181d1": {"title_zh": "印度壽險業10月新契約保費成長26%至4,291.4億盧比，LIC領先成長", "summary_zh": "印度壽險公司10月新契約保費年增26%，達4,291.4億盧比（42,914克若爾），其中印度人壽保險公司（LIC）帶動成長。", "category": "市場趨勢", "importance": "中"},
- "ec8a009cfa36": {"title_zh": "AI時代的董事會人力資本治理", "summary_zh": "德勤（Deloitte）發表觀點，探討在AI時代董事會應如何治理人力資本。", "category": "人才與組織", "importance": "低"}
+"008266a38dc6": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "Hokan集團啟動「Hokan Accelerator」，為專門針對保險業的實作陪跑型新創支援計畫。",
+"title_zh": "Hokan集團啟動專攻保險業的實作陪跑型新創支援計畫「Hokan Accelerator」"
+},
+"0087e17f0e5a": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "產險公司展開與地方社區共榮的活動，包括捐助農村與在醫院設置休息空間。",
+"title_zh": "產險公司推動地方社區共榮活動…捐助農村、設置醫院休息空間"
+},
+"0116d446d2a7": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "Toss Insurance完成韓國全國6大廣域市的營業據點布局，並擴大培育無從業經驗的保險業務員。",
+"title_zh": "Toss Insurance完成全國6大廣域市營業據點布局…擴大培育無經驗保險業務員"
+},
+"01b1b39016f5": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "報導介紹SOMPO控股的「職涯自律型」職務型人事制度，說明如何以「MY Purpose」為起點推動職涯自律與人才流動。",
+"title_zh": "SOMPO控股實踐的「職涯自律型」職務型人事是什麼？以「MY Purpose」為起點，如何推動職涯自律與人才流動"
+},
+"01dbdc52709d": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "損保Japan為進一步提升福井縣越前町的地區防災力，10月29日與越前町簽訂「提升地區防災力全面合作協定」。",
+"title_zh": "損保Japan與越前町簽訂「提升地區防災力全面合作協定」"
+},
+"02fc1b0f1569": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "AM Best將在奧克蘭舉辦紐西蘭保險市場說明會，會中安排AI主題座談。",
+"title_zh": "AM Best將在奧克蘭舉辦紐西蘭保險市場說明會，並設有AI座談"
+},
+"03b9463702ee": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "瑞士再保發布2026年第三季營運更新。",
+"title_zh": "瑞士再保2026年第三季營運更新"
+},
+"0533fc64827f": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB人壽為支援閱讀弱勢兒童，舉辦「童話朗讀聲音志工活動」。",
+"title_zh": "DB人壽舉辦「童話朗讀聲音志工活動」，支援閱讀弱勢兒童"
+},
+"05349f069a64": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "報導指出三星火災已紓解對併購的渴望，海外投資的接力棒接下來交到三星人壽手上。",
+"title_zh": "三星火災解了併購之渴…海外投資的接力棒交給三星人壽"
+},
+"06571ccd799d": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "慕尼黑再保旗下Munich Re Specialty進入澳洲市場。",
+"title_zh": "Munich Re Specialty進軍澳洲市場"
+},
+"0660865e7bad": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "韓國推出全國首張專為教師設計的保險方案，針對教職人員在工作中面臨的風險提供專屬保障。",
+"title_zh": "韓國：推出全國首張教師專屬保險方案"
+},
+"06f0dec59582": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Intact Financial Corporation（TSX:IFC）的人均營收偏高，凸顯其保險營運效率、人力生產力與長期成長潛力。",
+"title_zh": "Intact Financial Corporation（TSX:IFC）：高人均營收凸顯保險效率、人力生產力與長期成長潛力"
+},
+"07f08c9cd1f4": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "印度保險經紀人會見 Sitharaman 及總理辦公室（PMO）官員，請求出面介入，反對 IRDAI 提出的銷售通路改革提案。",
+"title_zh": "保險經紀人會見 Sitharaman 與總理辦公室官員，尋求介入反對 IRDAI 的通路改革提案"
+},
+"085200288d4c": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽在越南進行「愛之家」興建活動，並擴大居住與教育方面的志工服務。",
+"title_zh": "【一起走吧，我們的ESG】教保人壽在越南興建「愛之家」…擴大居住與教育志工服務"
+},
+"09561960cc36": {
+"category": "產品創新",
+"importance": "低",
+"summary_zh": "友邦（AIA）在印尼擴大針對高端客群的服務。",
+"title_zh": "友邦擴大對高端客戶的服務"
+},
+"099a80934955": {
+"category": "人才與組織",
+"importance": "中",
+"summary_zh": "新華保險表示，劉智勇因工作變動辭去董事會秘書職務。",
+"title_zh": "新華保險：劉智勇因工作變動辭任董事會秘書"
+},
+"09a613beb3d5": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Groupama 的Hayik Afsar 的人物簡介與經歷頁面。",
+"title_zh": "Hayik Afsar，Caisse Nationale de Reassurance Mutuelle Agricole Groupama：人物簡介與經歷"
+},
+"0a468c8bfcc4": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽在越南進行居住與教育支援的志工服務，與當地孩子分享希望。",
+"title_zh": "與越南孩子分享希望…教保人壽進行居住與教育支援志工服務"
+},
+"0a554fd9dd3a": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "奈及利亞媒體報導，Buni州長將400名弱勢民眾納入健康保險計畫。",
+"title_zh": "Buni州長將400名弱勢民眾納入健康保險計畫"
+},
+"0af01027d1da": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "印度坎普爾一名女子駕駛 Thar 撞死 LIC 業務員，於排燈節當天獲准保釋，死者的兒子對此表達憤怒。",
+"title_zh": "坎普爾女子駕 Thar 撞死 LIC 業務員，排燈節當天獲保釋，死者之子憤怒"
+},
+"0b6c34e49c02": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "印尼 Sequis Life 強化行銷人員在保險教育上的角色，以落實其「Protecting Indonesian Lives」的承諾。",
+"title_zh": "Sequis Life 強化行銷人員在保險教育中的角色，落實「Protecting Indonesian Lives」承諾"
+},
+"0ba0cc10ee5d": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "報導整理2026年第三季保險公司償付能力的排行榜。",
+"title_zh": "2026年第三季保險公司償付能力排行榜"
+},
+"0cd12059a33a": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "排球賽事中，IBK企業銀行以3比0完勝興國人壽，開季4連勝並居於領先。",
+"title_zh": "IBK企業銀行3比0完勝興國人壽…開季4連勝居首"
+},
+"0cddeb84d513": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB人壽為閱讀資源匱乏的兒童進行童話朗讀志工活動。",
+"title_zh": "【照片】DB人壽為閱讀資源匱乏兒童進行童話朗讀志工活動"
+},
+"0d22e8831c6a": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "友利金融在規模55兆的保險公司合併前，面臨資訊系統整合時差的負擔，2300億的IT投資將受到考驗。",
+"title_zh": "友利金融在55兆保險公司合併前，面臨「資訊系統整合時差」負擔…2300億IT投資迎來考驗"
+},
+"0d79bda0d65d": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "三星人壽與韓華損保的淨利增加，三星火災的淨利則減少，韓華人壽出現虧損。",
+"title_zh": "三星人壽、韓華損保淨利增加…三星火災減少、韓華人壽虧損"
+},
+"0da19945d502": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "教保Lifeplanet人壽向Atommerce提供「Laplay」的健康管理功能。",
+"title_zh": "教保Lifeplanet人壽向Atommerce供應「Laplay」健康管理功能"
+},
+"0e2740d53697": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "Vantage Group推出臨時再保險（facultative reinsurance）業務，由Lisa Pickard負責領導。",
+"title_zh": "Vantage Group成立臨時再保險業務，由Lisa Pickard領軍"
+},
+"0e5474f15aa2": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "印度人壽保險公司（LIC）執行長表示，公司第二季表現強勁，IDBI Bank 的釋股不太可能影響銀行保險通路業務。",
+"title_zh": "執行長：LIC 第二季表現強勁，IDBI Bank 釋股不太可能衝擊銀行保險業務"
+},
+"0e5a8c8513eb": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "泛亞保險公司富衛（FWD）新業務利潤率上升22%，其業績顯示區域內客戶正由短期儲蓄商品轉向保障、退休與財富規劃方案。",
+"title_zh": "富衛新業務利潤率上升22%，亞洲經紀通路承接財富規劃需求"
+},
+"0e6dbf0673d7": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "瑞士再保指出，在經濟成長趨緩的同時，中國推動科技發展正在重塑保險業的機會。",
+"title_zh": "瑞士再保：經濟成長放緩之際，中國的科技推進正重塑保險商機"
+},
+"0e8ef6fd0581": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "2026年11月人壽保險品牌評價出爐，排名依序為教保人壽、未來資產人壽、三星人壽。",
+"title_zh": "人壽保險2026年11月品牌評價…依序為教保人壽、未來資產人壽、三星人壽"
+},
+"0e9ad171a4ac": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "AM Best表示，亞洲保險公司正利用走軟的再保險市場，取得範圍更廣、期間更長的保障。",
+"title_zh": "AM Best：亞洲保險公司利用走軟的再保市場，取得更廣泛且長期的保障"
+},
+"0ed01eff8972": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "勤業眾信（Deloitte）將停止給付減重用途的 GLP-1 藥物，並提高美國員工的健康保險負擔。",
+"title_zh": "勤業眾信將取消減重用 GLP-1 藥物給付，並調高美國員工的健康保險費用"
+},
+"0eefbb3a7ec1": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "瑞士再保將其在南非的企業保險業務組合轉移給Old Mutual Insure。",
+"title_zh": "瑞士再保將南非企業保險業務組合轉移給Old Mutual Insure"
+},
+"0f06bc575a3a": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "11月10日保險業動向彙整，涵蓋三星火災、現代海上與DB人壽。",
+"title_zh": "【保險業動向】三星火災、現代海上、DB人壽（11.10）"
+},
+"0fbb77d6ca8b": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "文章比較 HDFC AMC 與 ICICI Prudential AMC 兩家資產管理公司，分析兩者本益比差距的來源。",
+"title_zh": "HDFC AMC 與 ICICI Prudential AMC：本益比差距從何而來"
+},
+"0fc32acbeea4": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽代表郭熙弼表示，金融的真正價值在於守護人們的生活。",
+"title_zh": "ABL人壽代表郭熙弼：「金融的真正價值在於守護生活」"
+},
+"0fdbb9c46f5d": {
+"category": "人才與組織",
+"importance": "中",
+"summary_zh": "保險協會會長的遴選時程已經啟動，人壽保險協會的會長候選人推薦委員會即將組成。",
+"title_zh": "保險協會會長遴選時程啟動…壽險會長候選人推薦委員會即將組成"
+},
+"103be0067c7a": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "教保Lifeplanet人壽將「Laplay」供應給Atommerce。",
+"title_zh": "教保Lifeplanet人壽向Atommerce供應「Laplay」"
+},
+"112d215ceee2": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "瑞士再保在前九個月獲利成長後，維持其2026年目標不變，報導聚焦其股票表現。",
+"title_zh": "瑞士再保前九個月獲利成長後維持2026年目標"
+},
+"116b41853475": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "英雄聯盟世界大賽中，DK不敵中國BLG，在8強遭淘汰，是繼韓華人壽戰隊之後的第二個壞消息。",
+"title_zh": "【英雄聯盟世界大賽】「繼韓華人壽後第二個壞消息」…DK未能跨越中國BLG這道牆，遺憾止步8強（綜合）"
+},
+"123c75772e19": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Mohandes Insurance Co 的 Moataz Mahmoud Talaba Mohamed Al Ragaby 的人物簡介與經歷頁面。",
+"title_zh": "Moataz Mahmoud Talaba Mohamed Al Ragaby，Mohandes Insurance Co：人物簡介與經歷"
+},
+"12758fefb39e": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "新加坡壽險業在2026年前九個月給付超過150億新元，主要為滿期保單給付，其次是健康險理賠。",
+"title_zh": "新加坡壽險業2026年前九個月給付逾150億新元，以滿期保單為主，其次為健康險理賠"
+},
+"12f5609d0121": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "三井住友海上表示，受託辦理部分汽車保險道路救援等業務的Prestige Core Solution公司（PCS）遭未經授權存取，通報該公司客戶資訊外洩。",
+"title_zh": "三井住友海上：業務委託廠商遭未經授權存取致資訊外洩"
+},
+"13c0df8a50e5": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "Iberdrola 為 2027 至 2030 年的西班牙電網訂定 60 億歐元預算，並召集 300 家供應商。",
+"title_zh": "Iberdrola 訂定 2027 至 2030 年西班牙電網預算 60 億歐元，召集 300 家供應商"
+},
+"13d71e182f0f": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "報導整理林肯國民（Lincoln National，代號LNC）在第三季法說會上的發言內容。",
+"title_zh": "林肯國民（LNC）在第三季法說會上說了什麼"
+},
+"147e46dcbb30": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "友邦保險（AIA）業績未達市場預期，中國的改革措施對其成長造成壓力。",
+"title_zh": "中國改革拖累成長，友邦保險業績不如預期"
+},
+"14aff045bbf5": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "日刊工業新聞「挑戰的企業」專題介紹日本生命保險，以「安心的多面體」支撐社會。",
+"title_zh": "挑戰的企業・日本生命保險…以「安心的多面體」支撐社會"
+},
+"151c0a8e97d2": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "Old Mutual Insure與瑞士再保企業解決方案（Swiss Re Corporate Solutions）宣布在南非進行策略合作。",
+"title_zh": "Old Mutual Insure與瑞士再保企業解決方案宣布在南非展開策略合作"
+},
+"1520f21181fc": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "AM Best確認The American Road Insurance Company的信用評等。",
+"title_zh": "AM Best確認The American Road Insurance Company的信用評等"
+},
+"153159dcea4c": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "現代海上12日表示已改版推出2款直營商品；其中11日上市的癌症方案涵蓋癌症診斷金、手術、抗癌藥物與放射線治療及轉移癌等保障。",
+"title_zh": "現代海上擴大保障，從癌症治療到胎兒與兒童健康"
+},
+"15b490064b08": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "信評機構KBRA授予BX 2026-AIRC初步評等。",
+"title_zh": "KBRA授予BX 2026-AIRC初步評等"
+},
+"16682120d553": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "MassMutual Ascend宣布推出名為「Cap Control」的功能。",
+"title_zh": "MassMutual Ascend宣布推出「Cap Control」"
+},
+"16db780ca787": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "教保證券（Kyobo Securities）在10兆韓元的總括申報額度下，新增多檔股權連結債券的發行。",
+"title_zh": "教保證券在10兆韓元的總括申報額度下新增股權連結債券發行"
+},
+"173d73dddd79": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "紐西蘭因保險保障缺口，使病患被迫轉向療效較差的治療方式。",
+"title_zh": "紐西蘭：保險保障不足迫使病患改採療效較差的治療"
+},
+"174635ba4099": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽與受保護兒童一同在越南進行蓋屋志工活動。",
+"title_zh": "【照片】教保人壽與受保護兒童在越南進行蓋屋志工活動"
+},
+"178e272deb70": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB人壽為閱讀資源匱乏的兒童舉辦「童話朗讀聲音志工活動」。",
+"title_zh": "DB人壽為閱讀資源匱乏兒童舉辦「童話朗讀聲音志工活動」"
+},
+"182bb75451ea": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "Morningstar評析漢諾威再保財報指出，大型損失偏低，持續使其業績優於市場共識預期。",
+"title_zh": "漢諾威再保財報：大型損失偏低，業績持續優於市場共識"
+},
+"185f5b428dbf": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "KakaoPay損保瞄準駕駛人保險的利基市場，新增「子女保障」，其效果受到關注。",
+"title_zh": "KakaoPay損保主攻駕駛人保險「利基」市場…新增「子女保障」的效果如何"
+},
+"1877a3fe61d8": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "日本生命與常陽銀行簽訂推動地區永續發展的夥伴協定，雙方將相互運用常陽銀行與日本生命集團的網路與專業知識。",
+"title_zh": "日本生命與常陽銀行簽訂推動地區永續發展的夥伴協定"
+},
+"190a2d08185c": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "文章說明 ICICI Prudential Value Fund 的 2025 年更名、費用、淨值（NAV）規則，以及 2024 年 7 月之後的資本利得稅。",
+"title_zh": "ICICI Prudential Value Fund：2025 年更名、費用、淨值規則與 2024 年 7 月後的資本利得稅"
+},
+"1910481f7e60": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "報導指出，漢諾威再保的獲利表現背後，產物與意外險新業務的利潤率正在縮小。",
+"title_zh": "漢諾威再保的獲利掩蓋了產險新業務利潤率的萎縮"
+},
+"19415dc6a81b": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "三星人壽的「Sa-cheom-sa」年金，可讓1億韓元在10年內增值為1.5億韓元。",
+"title_zh": "三星人壽「Sa-cheom-sa」年金，1億韓元10年增值為1.5億韓元"
+},
+"196a8fce9c10": {
+"category": "消費者保護",
+"importance": "低",
+"summary_zh": "泰康人壽在「優化消費環境月」期間開展金融知識與反詐騙宣導活動。",
+"title_zh": "優化消費環境月｜泰康人壽為民辦實事：金融知識送到手，反詐宣導暖「騎」心"
+},
+"196d85e8b41a": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "教保Lifeplanet人壽將「Laplay」供應給Atommerce。",
+"title_zh": "教保Lifeplanet人壽向Atommerce供應「Laplay」"
+},
+"1a70a0b0b1a2": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "新加坡金融管理局（MAS）宣布多項措施，支持保險公司投資基礎建設及證券化資產。",
+"title_zh": "新加坡：金管局宣布措施，支持保險公司投資基礎建設與證券化資產"
+},
+"1b23b9953817": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB人壽向閱讀資源匱乏的兒童捐贈童話朗讀的聲音。",
+"title_zh": "DB人壽向閱讀資源匱乏兒童捐贈「童話聲音」"
+},
+"1b517a73fb09": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "文章介紹 Acko 如何在印度打造以數位為優先的保險購買與理賠體驗。",
+"title_zh": "Acko：在印度打造數位優先的保險購買與理賠體驗"
+},
+"1b6d6784d7e1": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "John Hancock變額保險信託旗下Lifestyle Conservative MVP（JAISX）基金的季節性報酬圖表頁面。",
+"title_zh": "John Hancock變額保險信託－Lifestyle Conservative MVP（JAISX）季節性報酬圖表"
+},
+"1b94ca6c6c0c": {
+"category": "人才與組織",
+"importance": "中",
+"summary_zh": "NIA任命Chandra Kwaske出任核保長（Chief Underwriting Officer）。",
+"title_zh": "NIA任命Chandra Kwaske為核保長"
+},
+"1ba261f83aba": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "教保Lifeplanet人壽與Atommerce合作，擴大「Laplay」在韓國國內的供應。",
+"title_zh": "教保Lifeplanet人壽攜手Atommerce，擴大「Laplay」國內供應"
+},
+"1bef936fcd4d": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "航運公司Great Eastern Shipping第二季營收成長46.9%，船舶收購持續推進；該公司為航運業者，與保險無關。",
+"title_zh": "Great Eastern Shipping第二季營收成長46.9%，船舶收購持續推進"
+},
+"1c901cf4a995": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "ICICI人壽（ICICI Life）與 HDFC人壽股價最多上漲 5%，報導探討帶動保險類股的因素。",
+"title_zh": "ICICI人壽、HDFC人壽股價最多上漲 5%，是什麼帶動保險股？"
+},
+"1dbefd84a148": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "明年壽險業的獲利能力恐將轉弱，產險業則預估小幅改善。",
+"title_zh": "明年壽險獲利能力恐轉弱…產險預估小幅改善"
+},
+"1f26e3fafc0c": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "Mapfre 文章探討從嵌入式保險到人工智慧等保險銷售通路的新型數位介面。",
+"title_zh": "從嵌入式保險到 AI：保險通路的新數位介面"
+},
+"1f3b3e3977da": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "港股保險類股漲幅擴大，其中中國太保上漲超過4%。",
+"title_zh": "港股保險股漲幅擴大，中國太保漲逾4%"
+},
+"1f83ca695382": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "文章探討Snowflake為何要讓自主式AI以企業資料為基礎。",
+"title_zh": "Snowflake為何要讓自主式AI扎根於企業資料？"
+},
+"1fc2b40efd4b": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "報導指出，氣候融資忽略了處於弱勢的農村女性。",
+"title_zh": "氣候融資忽略弱勢的農村女性"
+},
+"207073d86841": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽由25名員工與5名受保護兒童成長支援計畫的受惠學生組成志工團，在越南永隆省協助低收入家庭興建住宅，並為小學生提供教育服務。",
+"title_zh": "教保人壽與受保護兒童在越南支援興建「愛之家」，推廣分享的價值"
+},
+"20df102f52c9": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "友邦保險（AIA）帶領7,000名亞洲粉絲前往韓國，參加專屬的K-Pop活動。",
+"title_zh": "友邦保險（AIA）帶7,000名亞洲粉絲赴韓國參加專屬K-Pop活動"
+},
+"21915106a22a": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "信評機構KBRA授予SunStrong Napoleon Issuer 2026-1 LLC初步評等，內容未涉及保險業務。",
+"title_zh": "KBRA授予SunStrong Napoleon Issuer 2026-1 LLC初步評等"
+},
+"21a77768969b": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "慕尼黑再保旗下Munich Re Specialty在澳洲推出商業保險保障。",
+"title_zh": "Munich Re Specialty在澳洲推出商業保險保障"
+},
+"22a828ec4ba2": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "Talanx 2026 年前九個月淨利達到創紀錄的 22 億歐元，主要受再保險部門支撐。",
+"title_zh": "Talanx 2026 年前九個月淨利創紀錄達 22 億歐元，再保險部門為支撐"
+},
+"231151acdaad": {
+"category": "市場趨勢",
+"importance": "高",
+"summary_zh": "三星火災以2兆2647億韓元追加取得Fortuna Topco的股份。",
+"title_zh": "三星火災以2兆2647億韓元追加取得Fortuna Topco股份"
+},
+"24277f866781": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "韓國保險學會6日在首爾舉辦研討會，與會者建議從損害查定人的僱用主體、消費者選任權、費用負擔到醫療諮詢透明度與報酬制度全面改善。",
+"title_zh": "要確保損害查定的公正性……從選任權到醫療諮詢都需改善"
+},
+"24c09558bbf6": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "未來資產人壽第三季淨損339億韓元，健康保險新契約CSM則成長10.6%。",
+"title_zh": "未來資產人壽第三季淨損339億韓元…健康保險新契約CSM增加10.6%"
+},
+"25c29558992d": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "蘇黎世保險（Zurich）表示，歐洲的風暴是其巨災損失的主要來源。",
+"title_zh": "蘇黎世保險表示歐洲風暴推升巨災損失"
+},
+"25c509caca09": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "文章回顧從「扁擔銀行」到「保險驛站」的歷程，強調九十年來金融為民的初心未變。",
+"title_zh": "從「扁擔銀行」到「保險驛站」：九十年金融為民初心不改"
+},
+"263a4d75d172": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽與受保護兒童一同在越南興建「愛之家」，共支援4棟住宅。",
+"title_zh": "教保人壽與受保護兒童一起在越南興建「愛之家」…支援4棟住宅"
+},
+"26eefaab9c08": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "2026年中東保險財務長高峰會（Middle East Insurance CFO Summit 2026）的活動資訊。",
+"title_zh": "2026年中東保險財務長高峰會"
+},
+"272e8689da41": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "John Hancock推出新的固定指數年金系列商品，以因應壽命延長與持續變化的財務規劃需求。",
+"title_zh": "John Hancock推出全新固定指數年金系列，因應壽命延長與不斷演變的規劃需求"
+},
+"274239d73ed0": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "慕尼黑再保在公布第三季最終業績之前，釋出新的業務細節，報導聚焦其股票表現。",
+"title_zh": "慕尼黑再保在第三季最終業績公布前釋出新的業務細節"
+},
+"2768df666944": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽10日表示，已參與庶民金融振興院主辦的「救人的金融」接力活動，宣導預防非法私人借貸受害與保護金融弱勢族群。",
+"title_zh": "ABL人壽響應預防非法私人借貸的「救人的金融」活動"
+},
+"278ce9a9a4a2": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "住友生命為進一步強化財務基礎、使籌資管道多元化並擴大海外投資人層，將首次發行歐元計價附次順位特約公司債。",
+"title_zh": "住友生命首次發行歐元計價次順位公司債"
+},
+"27d007b6cf41": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "MSCI 指數調整後，印度人壽保險公司（LIC）、Meesho 與 Coforge 可望因納入指數受惠，報導估算可能吸引的資金流入規模。",
+"title_zh": "MSCI 指數調整：LIC、Meesho、Coforge 可望因納入指數受惠，能吸引多少資金流入？"
+},
+"27ef2ec9c68a": {
+"category": "消費者保護",
+"importance": "低",
+"summary_zh": "教保人壽客服中心的20秒內應答率達到90%。",
+"title_zh": "教保人壽客服中心20秒內應答率達90%"
+},
+"2801e7daf25a": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽與受保護兒童在越南支援「愛之家」的興建，藉此擴散分享的價值。",
+"title_zh": "教保人壽與受保護兒童在越南支援興建「愛之家」…擴散分享的價值"
+},
+"2854def1e879": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "韓國金融保安院在電話詐騙資訊共享分析平台「ASAP」搭載判斷可疑交易風險的AI模型，金融公司無須自建AI基礎設施即可用於偵測。",
+"title_zh": "金融保安院在「ASAP」搭載電話詐騙偵測AI，支援金融業因應"
+},
+"28d78621e8ff": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "報導談及保險融入新質生產力發展的全過程。",
+"title_zh": "保險融入新質生產力全過程"
+},
+"29dcaab1a988": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "J.P. Morgan認為再保險定價將轉弱，漢諾威再保與慕尼黑再保股價下跌4%。",
+"title_zh": "摩根大通預期再保險費率走弱，漢諾威再保與慕尼黑再保下跌4%"
+},
+"29ef1cfbf19d": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "馬來西亞中央銀行發布一份關於伊斯蘭教法（Shariah）契約應用的策略文件。",
+"title_zh": "馬來西亞：央行發布伊斯蘭教法契約應用策略文件"
+},
+"29fd3fc8fa05": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Mohandes Insurance Co 的 Mona Makram Ebeid George Makram Ebeid 的人物簡介與經歷頁面。",
+"title_zh": "Mona Makram Ebeid George Makram Ebeid，Mohandes Insurance Co：人物簡介與經歷"
+},
+"2b26e7ff0d53": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "體育照片新聞，主角為興國人壽排球隊的球員Kindelan，標題形容其高度不同。",
+"title_zh": "【照片】興國人壽Kindelan，「高度就是不一樣」"
+},
+"2bd1bf921b19": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "S&P Global 提供的 TRYT Inc. ESG 評分頁面。",
+"title_zh": "TRYT Inc. 的 ESG 評分"
+},
+"2c514c305c9f": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "NH農協人壽前往京畿道安城的農家，進行協助農務的農村人力支援活動。",
+"title_zh": "NH農協人壽走訪京畿道安城農家，展開農村人力支援活動"
+},
+"2d7147020324": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "AM Best確認Fortegra Belgium Insurance Company NV的信用評等。",
+"title_zh": "AM Best確認Fortegra Belgium Insurance Company NV的信用評等"
+},
+"2d928181ff00": {
+"category": "消費者保護",
+"importance": "低",
+"summary_zh": "日本生命保險協會提供以影片說明生命保險費扣除額的內容。",
+"title_zh": "看影片了解生命保險費扣除額"
+},
+"2db2ef8be3d8": {
+"category": "監管動態",
+"importance": "低",
+"summary_zh": "日本生命保險協會刊載的行政函文：年管管發0328第5號、金監第632號（平成29年3月28日），最終修正為年管管發1102第1號。",
+"title_zh": "年管管發0328第5號、金監第632號（平成29年3月28日），最終修正：年管管發1102第1號、金資"
+},
+"2f5250005c0a": {
+"category": "消費者保護",
+"importance": "低",
+"summary_zh": "工銀安盛人壽安陽中心支公司走進老年公寓，舉辦養老金融宣導教育活動，強調長者權益保障。",
+"title_zh": "強化權益保障 守護銀齡安全——工銀安盛人壽安陽中支走進老年公寓開展養老金融宣導教育"
+},
+"2f861a0ac2d3": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "週四印度股市盤後總結：HDFC人壽、Shriram Finance、ONGC 與 HUL 名列 Nifty 與 Sensex 的主要上漲與下跌個股。",
+"title_zh": "盤後總結：HDFC人壽、Shriram Finance、ONGC、HUL 名列週四 Nifty 與 Sensex 漲跌幅前段"
+},
+"301f0925a24c": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "11 月 12 日印度股市漲跌幅排行：HDFC LIC（原文如此）與 Shriram Finance 上漲 4%，Bajaj Finance 上漲 3%，Nestle 下跌 2%。",
+"title_zh": "11 月 12 日漲跌幅排行：HDFC LIC、Shriram Finance 漲 4%，Bajaj Finance 漲 3%，Nestle 跌 2%"
+},
+"306a39e36633": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "友邦保險集團（股票代號1299）當日股價、即時走勢圖及相關新聞的資訊頁面。",
+"title_zh": "友邦保險集團（1299）今日股價、即時走勢圖與新聞"
+},
+"315fc7f5f93d": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "漢諾威再保（Hannover Re）前九個月獲利提升至 21 億歐元。",
+"title_zh": "漢諾威再保前九個月獲利提升至 21 億歐元"
+},
+"3228982d8dbb": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "住友生命與 JMDC 分析 1 千萬人的資料發現，5 人以上家戶的流感家庭內感染比例超過五成，首發病例集中於 5 至 14 歲兒童。",
+"title_zh": "流感家庭內感染：5 人以上家戶逾五成，首發病例集中在 5 至 14 歲兒童，住友生命與 JMDC 分析 1 千萬人資料"
+},
+"3239b732becc": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "Souhoola宣布與大都會人壽建立獨家合作關係，將為Souhoola的客戶提供保險保障。",
+"title_zh": "Souhoola宣布與大都會人壽獨家合作，為其客戶提供保險保障"
+},
+"32ae1aec27d1": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽參與「救人的金融」活動，支援弱勢族群。",
+"title_zh": "ABL人壽參與「救人的金融」…支援弱勢族群"
+},
+"32d2161fdb88": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "漢諾威再保（Hannover Rueck SE，代號 HNRB.HM）的股價、新聞、報價與歷史資料頁面。",
+"title_zh": "漢諾威再保（Hannover Rueck SE，HNRB.HM）股價、新聞、報價與歷史資料"
+},
+"32f40fbf1cf5": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "LIC Housing Finance 第二季自個人貸款組合收回 55.3 億盧比（Rs.553 crore），並以撥貸金額成長 14% 至 15% 為目標。",
+"title_zh": "LIC Housing Finance 第二季自個人貸款組合收回 55.3 億盧比，放款撥貸目標成長 14% 至 15%"
+},
+"33c3a62e609a": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "慕尼黑再保第三季獲利強勁，將全年獲利財測上調至66億歐元，但續約與準備金方面仍有不確定性。",
+"title_zh": "慕尼黑再保：第三季獲利強勁，全年獲利財測上調至66億歐元，續約與準備金仍存不確定性"
+},
+"33d8d208e2cf": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "RBC在漢諾威再保公布第三季業績後，微調對該公司的預測。",
+"title_zh": "RBC在第三季業績後微調對漢諾威再保的預測"
+},
+"33fc827755d5": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "SAS發布文章，談如何把氣候風險轉化為有把握的保險決策。",
+"title_zh": "將氣候風險轉化為有信心的保險決策"
+},
+"350121540ff5": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "一篇以中國平安半年利潤接近千億為題的宣傳文章，邀請讀者共享時代機遇。",
+"title_zh": "中國平安半年利潤近千億，誠邀您共享時代機遇！"
+},
+"353f5330ed37": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "郵政生命以評選委員身分參與Commons投信營運的社會課題解決計畫「コモれび」捐贈對象評選委員會，第4屆捐贈對象已選定為一家特定非營利活動法人。",
+"title_zh": "郵政生命：社會課題解決計畫第4屆「コモれび」捐贈對象出爐"
+},
+"35b9655d0298": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "印度保險監理機關 IRDAI 成立多個工作小組，讓風險基礎資本（RBC）制度與 Ind AS 會計準則接軌。",
+"title_zh": "IRDAI 成立工作小組，使風險基礎資本制度與 Ind AS 接軌"
+},
+"3635dc822b79": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "平安人壽與平安產險斥資9億元認購主動型ETF。",
+"title_zh": "平安人壽、平安產險出手，斥資9億元認購主動ETF"
+},
+"3647fae7f453": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "文章以「長征接力」為題，介紹中國人壽在寧夏從喬家渠窯洞到普惠保險第一線的故事。",
+"title_zh": "從喬家渠窯洞到普惠保險一線：中國人壽在寧夏的「長征接力」"
+},
+"36644e406c8a": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "Jefferies 指出，友邦保險泰國業務的市場主導地位有助於支撐其獲利前景。",
+"title_zh": "Jefferies：友邦泰國的市場主導地位支撐獲利展望"
+},
+"374bb94f24d6": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "信評機構AM Best將Anchor General Insurance Company及其子公司的評等展望調整為正向。",
+"title_zh": "AM Best將Anchor General保險公司及其子公司的展望調整為正向"
+},
+"37b4764e499a": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽在越南興建4棟「愛之家」，表示目的在於支援居住弱勢家庭。",
+"title_zh": "教保人壽在越南興建4棟「愛之家」…「支援居住弱勢家庭」"
+},
+"37f335fc4524": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "信評機構KBRA發布研究報告，探討在AI熱潮之外，AI對保險公司信用代表的意義。",
+"title_zh": "KBRA發布研究報告：AI熱潮之外，對保險公司信用的意義"
+},
+"38329ae86dee": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "三星人壽12日公告，今年前三季歸屬母公司合併淨利為2兆6859億韓元，較去年同期2兆1170億韓元成長26.9%；投資損益增加，新契約CSM呈兩位數成長。",
+"title_zh": "三星人壽第三季累計淨利2兆6859億韓元，年增26.9%"
+},
+"392c051d8d84": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "新華保險推出「盛世榮耀」系列新產品。",
+"title_zh": "榮耀賡續啟新程 盛世雙金鑫未來 新華保險盛世榮耀系列新產品上市"
+},
+"393b08d6ea04": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "印尼 Sequis Life 鼓勵民眾在投保之前，先了解五項重點。",
+"title_zh": "Sequis Life 呼籲民眾投保前先了解五件事"
+},
+"395701827c5f": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB人壽20名員工為閱讀有困難的孩子朗讀童話。",
+"title_zh": "DB人壽20名員工為閱讀有困難的孩子朗讀童話"
+},
+"3a57fbee6cb5": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "MarketsMojo 將印度人壽保險公司（LIC）的股票評等列為「賣出」。",
+"title_zh": "印度人壽保險公司（LIC）獲評為「賣出」"
+},
+"3a7a34da9b66": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "信評機構KBRA授予Avant Loans Funding Trust 2026-REV2初步評等，內容未涉及保險業務。",
+"title_zh": "KBRA授予Avant Loans Funding Trust 2026-REV2初步評等"
+},
+"3aadcae3cf95": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "印度人壽保險公司（LIC）董事總經理暨執行長 R Doraiswamy 表示，LIC 目前的股票估值令他感到不悅。",
+"title_zh": "LIC 董事總經理暨執行長 R Doraiswamy：LIC 的股票估值讓我不悅"
+},
+"3b6f6d7b5d1c": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "中國平安2026年支教行動青海站在剛察縣啟動。",
+"title_zh": "中國平安2026支教行動（青海站）在剛察縣啟動"
+},
+"3bb29911954d": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "佛羅里達州聯邦參議員選戰中，Ashley Moody以政績應戰，Angie Nixon則主打可負擔性訴求。",
+"title_zh": "佛羅里達州參議員選戰：Ashley Moody的政績對上Angie Nixon的可負擔性訴求"
+},
+"3c0080a6c557": {
+"category": "監管動態",
+"importance": "高",
+"summary_zh": "新加坡金融管理局（MAS）提議，調降保險公司投資基礎建設與證券化商品所需的資本計提。",
+"title_zh": "新加坡金融管理局（MAS）提議調降保險公司基礎建設與證券化投資的資本計提"
+},
+"3c76dd0d472c": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "安永（EY）文章介紹一家保險公司如何藉由「AI 工廠」把分析作業搬遷到 Azure。",
+"title_zh": "一家保險公司如何透過 AI 工廠將分析作業遷移至 Azure"
+},
+"3d5712791373": {
+"category": "消費者保護",
+"importance": "高",
+"summary_zh": "住友生命「Vitality」發生約8萬人個人資料外洩，其中約1000人的卡號也在外洩範圍內。",
+"title_zh": "住友生命「Vitality」約8萬人個資外洩，其中約1000人連卡號也受影響"
+},
+"3dbb89c00c53": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Amalgamated Life Insurance Company連續第50次獲得A.M. Best的「A」（優良）評等。",
+"title_zh": "Amalgamated Life Insurance Company連續第50次獲得A.M. Best「A」（優良）評等"
+},
+"3dd806420963": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "報導介紹新加坡金融科技節（Singapore FinTech Festival）上新創公司的獲獎情況。",
+"title_zh": "新加坡金融科技節上的新創公司：獎項"
+},
+"3df9d4c4c3e7": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "原中國銀保監會城市商業銀行監管部一級巡視員李世謙受賄案，一審已宣判。",
+"title_zh": "原中國銀行保險監督管理委員會城市商業銀行監管部一級巡視員李世謙受賄案一審宣判"
+},
+"3e2a8c8d7146": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "SOMPO向日葵生命與個人高爾夫健身房「RIZAP GOLF」合作，將於12月19日邀請所屬職業高爾夫選手金谷拓實舉辦「Premium高爾夫教室」。",
+"title_zh": "SOMPO向日葵生命舉辦金谷拓實職業選手的「Premium高爾夫教室」"
+},
+"3e5d0513f89e": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "中國航運保險迎來頂層設計層級的「施工圖」。",
+"title_zh": "航運保險迎來頂層「施工圖」"
+},
+"3fcd77a30555": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "Tata AIA人壽在印度全國舉辦消防安全宣導活動，共有超過 4 萬人參與。",
+"title_zh": "Tata AIA人壽舉辦全國性消防安全宣導活動，吸引逾 4 萬人參與"
+},
+"400f6e085713": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "壽險公司的投資額度使用率為46.3%，其中教保人壽高達89.1%。",
+"title_zh": "壽險公司投資額度使用率46.3%…教保人壽高達89.1%"
+},
+"40d98f25f835": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "GEICO損失激增，使波克夏出現多年來最大的核保獲利下滑；背後的侵權訴訟與損失幅度資料，對準備一月續約的經紀人是一項警訊。",
+"title_zh": "波克夏第三季核保獲利跌幅居主要保險公司之冠"
+},
+"411337799f69": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "娛樂新聞報導，Wonderdogs在第3局以10比0展開反擊，這是與興國人壽的第5度交手。",
+"title_zh": "Wonderdogs第3局以10比0反擊…與興國人壽第5度交手"
+},
+"41d7f051b449": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "樂天損害保險9日表示將推出「停車日數折扣特約」，依車輛未行駛的天數提供最高15%的汽車保險費折扣，減輕低使用頻率客戶的保費。",
+"title_zh": "樂天損保依車輛停放天數折扣保費，推出業界首創停車日數特約"
+},
+"420614aa4312": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Groupama 的Jean-Christophe Mandard 的人物簡介與經歷頁面。",
+"title_zh": "Jean-Christophe Mandard，Caisse Nationale de Reassurance Mutuelle Agricole Groupama：人物簡介與經歷"
+},
+"4270cd73c256": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "漢諾威再保計劃在2027年讓其轉分保（retro）結構維持穩定。",
+"title_zh": "漢諾威再保計劃2027年維持轉分保結構穩定"
+},
+"43b97464d90f": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "《華爾街日報》刊出以AI轉型「最後一哩路」為題的文章。",
+"title_zh": "AI轉型的最後一哩路"
+},
+"43dc01d4c338": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "SBI人壽（SBI Life Insurance Company）股價上漲 3.06%，逼近 200 日均線壓力區，接下來將面臨關鍵的技術面考驗。",
+"title_zh": "SBI人壽股價上漲 3.06%，逼近 200 日均線壓力，面臨關鍵技術面考驗"
+},
+"43e8aab748ce": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽在越南永隆省進行居住與教育志工服務，支援4棟住宅及教學器材。",
+"title_zh": "教保人壽在越南永隆省進行居住與教育志工服務…支援4棟住宅與教學器材"
+},
+"4436e5648e2b": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Howden發布文章，探討治理壓力如何重塑亞洲企業的董事會，並視其為風險的下一個前線。",
+"title_zh": "風險的下一個前線：治理壓力正重塑亞洲董事會"
+},
+"44b5ea536001": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "三井住友海上愛和誼生命所屬的2名選手出賽世界攀岩帕拉系列賽福岡2026，其中會田祥選手獲得冠軍。",
+"title_zh": "三井住友海上愛和誼生命：會田祥選手在「世界攀岩帕拉系列賽」奪冠"
+},
+"44c536d041c6": {
+"category": "ESG永續",
+"importance": "中",
+"summary_zh": "報導指出有聲音要求三星人壽說明將於何時、以何種方式停止煤炭投資。",
+"title_zh": "【氣候・滅絕重點】「請說明三星人壽何時、如何停止煤炭投資」"
+},
+"451f95549d06": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "Toss Insurance向新進保險業務員發放500萬韓元的培育補助金。",
+"title_zh": "Toss Insurance向新進保險業務員發放500萬韓元培育補助金"
+},
+"46ab968e0137": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "節目《新人教練金軟景2》中，Wonderdogs擊敗興國人壽，連續上演逆轉橫掃，收視率隨之上升。",
+"title_zh": "【TOP評論】《新人教練金軟景2》Wonderdogs擊敗興國人壽…連續逆轉橫掃帶動收視率上升"
+},
+"48cdbe16833c": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "印尼保誠（Prudential Indonesia）持續維持長期投資的分散配置。",
+"title_zh": "印尼保誠維持長期投資的分散配置"
+},
+"48e72ee120e6": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "由於初年度保費收入較去年同期成長 26%，HDFC人壽及其他壽險公司的股價最多上漲 4%。",
+"title_zh": "初年度保費收入年增 26%，HDFC人壽等壽險公司股價最多上漲 4%"
+},
+"49437cf94f56": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "AM Best將Texas Farm Bureau Insurance Group旗下成員公司的評等展望調整為穩定。",
+"title_zh": "AM Best將Texas Farm Bureau Insurance Group成員公司的展望調整為穩定"
+},
+"497aa90e5b7c": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "選舉民調顯示Donalds領先Jolly 4個百分點、Moody領先Nixon 6個百分點，共和黨在選前最後幾天聲勢上揚。",
+"title_zh": "民調：Donalds領先Jolly 4個百分點，Moody領先Nixon 6個百分點，共和黨選前最後幾天聲勢上揚"
+},
+"4a206fe9f332": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "三星人壽獲機構法人連續16個交易日淨買超，盤中股價上漲1.07%。",
+"title_zh": "【盤中籌碼捕捉】三星人壽獲法人連續16日買超…股價上漲1.07%"
+},
+"4aa70dbb86c0": {
+"category": "產品創新",
+"importance": "低",
+"summary_zh": "《華爾街日報》依不同職涯階段解說年金商品。",
+"title_zh": "依職涯階段解讀年金"
+},
+"4af8a6c3dfbb": {
+"category": "產品創新",
+"importance": "低",
+"summary_zh": "《華爾街日報》介紹人壽保險附約，說明如何客製保單以取得額外保障。",
+"title_zh": "壽險附約：為保單量身加上額外保障"
+},
+"4b8eb5c07341": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "碾斃 LIC 業務員的女孩，其父親出面道歉；報導標題另提及一起以磚塊砸死兄長的命案。",
+"title_zh": "碾斃 LIC 業務員的女孩之父道歉；另有以磚塊砸死兄長的命案"
+},
+"4c27765fcc5c": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "KakaoPay損保推出駕駛人保險，保障範圍擴及同乘的子女。",
+"title_zh": "KakaoPay損保推出連同乘子女也保障的駕駛人保險"
+},
+"4c2a0b36d46d": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽代表郭熙弼參與以根絕非法民間借貸為主題的公益宣導活動。",
+"title_zh": "ABL人壽代表郭熙弼響應根絕非法民間借貸公益宣導活動"
+},
+"4c447cfd2657": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "新加坡住宅火災增加；許多組屋屋主實際承擔的未投保風險，遠高於強制保單所涵蓋的範圍。",
+"title_zh": "新加坡住宅火災增加，凸顯保障缺口"
+},
+"4cb6e4aaffb2": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "John Hancock變額保險信託旗下Core Disciplined Diversification Trust（JCDTX）基金的季節性報酬圖表頁面。",
+"title_zh": "John Hancock變額保險信託－Core Disciplined Diversification Trust（JCDTX）季節性報酬圖表"
+},
+"4de965e64b87": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "未來資產人壽獲外資連續6個交易日淨買超，盤中股價上漲5.04%。",
+"title_zh": "【盤中籌碼捕捉】未來資產人壽獲外資連續6日買超…股價上漲5.04%"
+},
+"4e228bd44590": {
+"category": "行銷推廣",
+"importance": "中",
+"summary_zh": "「退休年金長長久久」活動正式啟動，目標是引導規模558兆的養老資金進行長期投資。",
+"title_zh": "「退休年金長長久久」活動啟動…引導558兆養老資金長期投資"
+},
+"4e4fb4e4cfcc": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "MS&AD保險集團控股（59M.DU）股票的季節性報酬圖表頁面。",
+"title_zh": "MS&AD保險集團控股（59M.DU）季節性報酬圖表"
+},
+"4ea88adc1742": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Berenberg給予漢諾威再保「買進」評等。",
+"title_zh": "漢諾威再保：Berenberg給予買進評等"
+},
+"4eb02b5feef9": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB損害保險7日在首爾江南區DB金融中心舉辦「心意相連」志工活動，百餘名員工與家屬參與，向投入火災預防與人命救助的消防人員表達感謝。",
+"title_zh": "DB損害保險舉辦「心意相連」志工活動，為消防人員加油"
+},
+"4f3a22b6cee2": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "漢諾威再保（Hannover Re）股價在盤前交易下跌 1.05%，來到 291.50 歐元。",
+"title_zh": "漢諾威再保股價盤前下跌 1.05% 至 291.50 歐元"
+},
+"4f717c7dbe65": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Mohandes Insurance Co 的 Karim Mohamed Abdel Hamid Ibrahim Mohamed Al Kassar 的人物簡介與經歷頁面。",
+"title_zh": "Karim Mohamed Abdel Hamid Ibrahim Mohamed Al Kassar，Mohandes Insurance Co：人物簡介與經歷"
+},
+"4fab936c26a9": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "印度人壽保險公司（LIC）、Coforge、Adani Green 與 Meesho 納入 MSCI 全球標準指數，印度在指數中的權重升至 13.1%。",
+"title_zh": "LIC、Coforge、Adani Green、Meesho 納入 MSCI 全球標準指數，印度權重升至 13.1%"
+},
+"4fb760bbd07f": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "瑞典人把寵物當家人投保，美國人總支出居全球之冠，澳洲人每隻寵物花費最高；對保險公司而言，疼愛與保障之間的落差就是商機。",
+"title_zh": "哪些國家最愛寵物？看錢（和保單）流向就知道"
+},
+"4fe06abe486a": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "印度人壽保險公司（LIC）預期 IRDAI 擬議的佣金調降對其影響有限，並指出自身費用率較低。",
+"title_zh": "LIC 預期 IRDAI 擬議的佣金調降影響有限，理由是費用率較低"
+},
+"50fa88e3a3a6": {
+"category": "監管動態",
+"importance": "低",
+"summary_zh": "文章探討當監管機關開始追究個人責任時，保險公司高階主管應如何避免觸犯規定。",
+"title_zh": "當監管開始「找人」，保險高階主管如何避免踩雷"
+},
+"5160da40d09f": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "安永（EY）在 CrowdStrike 之上建立前沿 AI 與網路韌性業務，並承諾用 Falcon 平台培訓資安人才。",
+"title_zh": "安永以 CrowdStrike 為基礎建立前沿 AI 與網路韌性業務，並承諾以 Falcon 平台培訓資安人力"
+},
+"5162e36ff79b": {
+"category": "產品創新",
+"importance": "低",
+"summary_zh": "U.S. News刊出2026年版Trupanion與Fetch兩家寵物保險的比較文章。",
+"title_zh": "Trupanion與Fetch寵物保險比較（2026年）"
+},
+"517a6ecbc446": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "新加坡金融管理局（MAS）針對經紀商發布防範詐騙措施的新指引。",
+"title_zh": "新加坡金融管理局針對經紀商發布防詐騙措施新指引"
+},
+"532f324ffe33": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "文章列出三檔可能因利率走高而受惠的美國保險類股。",
+"title_zh": "三檔可能受惠於利率走高的美國保險股"
+},
+"533074830fb1": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "大樹生命與「第21屆湘南國際馬拉松」簽訂贊助契約；本屆延續去年以不製造垃圾為目標，全馬與10公里歡樂跑的參加者須自備水瓶或杯子。",
+"title_zh": "大樹生命與「第21屆湘南國際馬拉松」簽訂贊助契約"
+},
+"5356684c697e": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "印度 NIFTY Capital Market 指數攀上歷史新高，Motilal Oswal Financial、Aditya Birla Sun Life AMC 與 CDSL 股價領漲。",
+"title_zh": "NIFTY Capital Market 指數飆上歷史新高：Motilal Oswal Financial、Aditya Birla Sun Life AMC、CDSL 領漲"
+},
+"5358c7cb763e": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "MLB Gameday 比賽結果頁面：2026 年 11 月 8 日 Tigres 以 5 比 4 擊敗 Leones。",
+"title_zh": "MLB Gameday：Tigres 5 比 4 擊敗 Leones，終場比數（2026/11/08）"
+},
+"53a5c1f1823d": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "NH農協損害保險10日表示，三百餘名員工參與「故鄉愛捐贈制」，持續推動與農村共榮及分享文化。",
+"title_zh": "NH農協損保三百餘名員工響應「故鄉愛捐贈制」"
+},
+"540c178f22fa": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "住友生命表示，受託辦理其系統相關業務的NTT DATA公司，系統遭第三方未經授權存取，導致客戶資訊外洩。",
+"title_zh": "住友生命：業務委託廠商系統遭未經授權存取致客戶資訊外洩"
+},
+"548661a16c1a": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "奈及利亞媒體報導，保險承保能量不足，使航空與海運部門每年付出5,000億奈拉（₦500bn）的代價。",
+"title_zh": "保險承保能量缺口使航空與海運業每年損失5,000億奈拉"
+},
+"551fbbfa6768": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "人壽保險協會會長金哲周參與「救人的金融」接力活動。",
+"title_zh": "人壽保險協會會長金哲周響應「救人的金融」接力活動"
+},
+"553202d016d6": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "漢諾威再保（Hannover Re）第三季的集團淨利與再保險收入均較前期成長。",
+"title_zh": "漢諾威再保第三季集團淨利與再保險收入雙雙成長"
+},
+"556c2ccdd468": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "AM Best表示，收購Canopius將強化三星火災（Samsung Fire & Marine）的全球擴張與業務多元化。",
+"title_zh": "AM Best：收購Canopius將強化三星火災的全球擴張與多元化"
+},
+"55897602d515": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "DZ Bank對瑞士再保的看法不如先前樂觀。",
+"title_zh": "瑞士再保：DZ Bank看法轉趨保守"
+},
+"55bdaa95638b": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "安永（EY）文章探討過去沿用的假設為何可能演變成未來的氣候風險。",
+"title_zh": "為何昨日的假設可能成為明日的氣候風險"
+},
+"5672ca2edbbd": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "日本冰球聯盟公布太陽生命杯2026全日本女子國中、高中生冰球大賽的舉辦要點。",
+"title_zh": "【舉辦要點】太陽生命杯2026全日本女子國中、高中生冰球大賽"
+},
+"56ceb24dc05e": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "瑞士再保（SSREY）在德意志銀行線上投資人會議上發表簡報，報導提供簡報投影片。",
+"title_zh": "瑞士再保（SSREY）於德意志銀行線上投資人會議發表簡報"
+},
+"572b4d6c7d92": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "The Fidelis Partnership 任命新的企業業務主管（Head of Corporate）。",
+"title_zh": "全球：The Fidelis Partnership 任命新任企業業務主管"
+},
+"585dd30dc995": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "匹茲堡聯邦住宅貸款銀行（FHLBank Pittsburgh）公布2026年董事會選舉結果。",
+"title_zh": "匹茲堡聯邦住宅貸款銀行公布2026年董事會選舉結果"
+},
+"592c9bd4f9d3": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "券商研究報告顯示，太平洋給予中國平安「買入」評級。",
+"title_zh": "太平洋：給予中國平安買入評級"
+},
+"5940f7fbf232": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "損保Japan作為「健康經營」的一環，首度以員工及其家人為對象舉辦睡眠改善計畫「睡眠學校 Summer 2026」，並公布實施結果。",
+"title_zh": "損保Japan首度舉辦「睡眠學校 Summer 2026」，員工與家人一起養成好眠習慣"
+},
+"5aba0a57126f": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "印度人壽保險公司（LIC）董事總經理暨執行長 R Doraiswamy 表示，在民眾認知提升之前，保險仍會是需要主動推銷的商品。",
+"title_zh": "LIC 董事總經理暨執行長 R Doraiswamy：在認知提升之前，保險仍將是需要主動推銷的商品"
+},
+"5b334ebfd694": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "《亞洲保險評論》文章，探討東協（ASEAN）如何面對未來。",
+"title_zh": "東協迎向未來"
+},
+"5c708431e46c": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "南韓逮捕被控教唆保險詐欺的多名嫌疑人。",
+"title_zh": "南韓：涉嫌教唆保險詐欺的嫌犯落網"
+},
+"5c89459e7ea8": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "慕尼黑再保發布內容，說明天氣災害對20個國家國民所得的影響。",
+"title_zh": "天氣災害對20個國家國民所得的影響"
+},
+"5d2f8ccfd468": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "今日保險消息彙整，涵蓋教保人壽、現代海上、ABL人壽的動態。",
+"title_zh": "【The Value簡報】今日保險消息…教保人壽、現代海上、ABL人壽"
+},
+"5d9c4b61bbf2": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "CORSIA 碳權的供給量可能只夠涵蓋航空公司需求的四分之一。",
+"title_zh": "CORSIA 碳權供給恐僅能滿足航空公司四分之一的需求"
+},
+"5e34815a92fa": {
+"category": "再保市場",
+"importance": "低",
+"summary_zh": "在SIRC 2026上，瑞士再保的區域產物與意外險主管強調對風險的理解以及業務組合的品質。",
+"title_zh": "SIRC 2026：瑞士再保區域產險主管強調風險理解與業務組合品質"
+},
+"5e43e83e1c1d": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "美國保德信金融集團（Prudential Financial）宣布發放普通股季度股息。",
+"title_zh": "保德信金融集團宣布發放普通股季度股息"
+},
+"5ee418ada13a": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "韓國金融研究院10日在研討會上預測明年韓國經濟成長3.1%，並預期保險與銀行等金融業將面臨資本監管強化、獲利管理與健全性確保等課題。",
+"title_zh": "韓國金融研究院預測明年經濟成長3.1%"
+},
+"5ef08768a395": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "GeekyAnts將在SFF 2026上展示以AI驅動的金融產品工程能力。",
+"title_zh": "GeekyAnts將於SFF 2026展示AI驅動的金融產品工程"
+},
+"5f0b148834d7": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "韓國生命保險協會10日表示將參與庶民金融振興院主辦的「救人的金融」接力活動；會長金哲周是受KB人壽社長鄭文哲點名而參加。",
+"title_zh": "生命保險協會會長金哲周以尊重生命的價值響應「救人的金融」活動"
+},
+"5f2826eef2c6": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "韓國服務出口企業使用貿易保險等出口支援制度時，另行提交證明資料的負擔可望減輕；韓國貿易保險公社等6個機構10日在首爾就服務貿易合作體系展開合作。",
+"title_zh": "服務出口實績與貿易保險連結，減輕企業舉證負擔"
+},
+"5f8f4bfbd767": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "The Fidelis Partnership 任命新的企業業務主管（Head of Corporate）。",
+"title_zh": "全球：The Fidelis Partnership 任命新任企業業務主管"
+},
+"5fc0e6ba37f1": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "Kathleen Warden 重新加入安達保險（Chubb），任職於澳洲與紐西蘭地區。",
+"title_zh": "澳紐：Kathleen Warden 重返安達保險（Chubb）"
+},
+"5fc95a0728ad": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "2026年中國平安駐山東地區「一家親」羽毛球交流賽順利結束。",
+"title_zh": "2026中國平安駐山東地區「一家親」羽毛球交流賽圓滿落幕"
+},
+"5fefc8b49e07": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "信評機構KBRA授予Benchmark 2026-V25初步評等，內容未涉及保險業務。",
+"title_zh": "KBRA授予Benchmark 2026-V25初步評等"
+},
+"5ffc7eaa6e2d": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "全球財產保險公司FM 9日強調，為因應電力與再生能源領域的風險變化，應自專案初期就納入工程專業，在選址、技術與設備階段預先掌握風險。",
+"title_zh": "FM：「因應能源基礎設施風險，工程專業及早參與很重要」"
+},
+"6020e7321164": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽與受保護兒童一起在越南進行志工活動。",
+"title_zh": "教保人壽與受保護兒童一同在越南進行志工活動"
+},
+"60367bb59fee": {
+"category": "人才與組織",
+"importance": "中",
+"summary_zh": "宏利香港及澳門拔擢三位最高管理層（C-suite）主管，以推動區域業務成長。",
+"title_zh": "宏利香港及澳門拔擢三位最高管理層主管，推動區域成長"
+},
+"604639922edb": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "Aon與慕尼黑再保合作，針對兩個市場的流行病保險保障缺口提出因應方案。",
+"title_zh": "Aon與慕尼黑再保鎖定兩個市場的流行病保險缺口"
+},
+"60ac38ab825e": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "安侯建業（KPMG）文章探討如何在保險業發揮人工智慧的價值。",
+"title_zh": "釋放 AI 在保險業的價值"
+},
+"610b44860479": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "R Doraiswamy 表示，印度人壽保險公司（LIC）未來五年將擴大保障型業務，並強化數位能力。",
+"title_zh": "R Doraiswamy：LIC 未來五年將擴大保障型業務並強化數位能力"
+},
+"618cd18f801f": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "文章闡述推動氣候調適的理由，主張應肯定調適與韌性融資的價值。",
+"title_zh": "氣候調適的理由：肯定調適與韌性融資的價值"
+},
+"61b9245addb4": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "宏利人壽連續4年贊助2026年10月17日舉行的慈善健走活動「東京Yamathon 2026」，共76隊、含員工及其家人朋友275人參加，為該公司歷來最多。",
+"title_zh": "宏利人壽：東京Yamathon 2026參加隊伍達76隊，創歷年新高"
+},
+"621a009b5590": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "綜藝節目《新人教練金軟景2》在擊敗興國人壽的一集中，連續5週拿下週日綜藝收視第1名。",
+"title_zh": "《新人教練金軟景2》擊敗興國人壽，連續5週奪下週日綜藝第1名"
+},
+"621e6c5a8087": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "大都會人壽與Wellness醫療資訊中心合作，開始提供專為長照設計的AI諮詢聊天服務。",
+"title_zh": "大都會人壽與Wellness醫療資訊中心開始提供長照專用AI諮詢聊天服務"
+},
+"6297da27d052": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Simply Wall St分析文章探討瑞士再保股價的上漲，以及持有者當初必須相信的前提。",
+"title_zh": "錯過瑞士再保的漲勢？持股者當初必須相信什麼"
+},
+"631507c72425": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "SBTi 的個案研究說明，Google 與 Terradot 的交易如何平衡 100 萬噸二氧化碳所造成的暖化。",
+"title_zh": "SBTi 個案研究說明 Google 與 Terradot 的交易如何抵銷 100 萬噸二氧化碳造成的暖化"
+},
+"63a07ae2751c": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "明治安田生命向廣島市捐贈165萬日圓，款項將用於增進市民健康與育兒相關政策。",
+"title_zh": "明治安田生命向廣島市捐贈165萬日圓，將用於市民健康促進與育兒政策"
+},
+"64227d66303b": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "報導稱保險業將迎來重大變化，並以「重拳出擊」形容相關舉措。",
+"title_zh": "重拳出擊！保險將迎來大變化"
+},
+"64e2921da9f4": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "報導指出，漢諾威再保獲利優於預期，但產物與意外險新業務的利潤率正在縮小。",
+"title_zh": "漢諾威再保獲利優於預期，卻掩蓋了產險新業務利潤率的萎縮"
+},
+"64ec3615dae3": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "文章介紹友邦保險（AIA）如何重新定義保障，並重塑健康的未來。",
+"title_zh": "重新定義保障：友邦保險（AIA）如何重塑健康的未來"
+},
+"65abf396cee5": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "航運業者Great Eastern因出售油輪而獲利上升，旗下氣體運輸船已全數被預訂；此為航運新聞，與保險無關。",
+"title_zh": "出售油輪推升Great Eastern獲利，氣體運輸船已全數訂滿"
+},
+"65dc33690f0c": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "孟買企業在「2026 年印度最佳女性職場」排名中表現突出，包括 HDFC人壽、P&G 與 Tech Mahindra。",
+"title_zh": "孟買企業在 2026 年印度最佳女性職場排名中表現亮眼：HDFC人壽、P&G 與 Tech Mahindra"
+},
+"664e6a9e5d04": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "三井Direct損保表示，其系統遭第三方未經授權存取，部分客戶資訊外洩；目前尚未確認有客戶資訊遭不當使用等二次受害情形。",
+"title_zh": "三井Direct損保：系統遭未經授權存取致資訊外洩"
+},
+"66f1d03b55e9": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "Igloo 與 M Lhuillier 建立合作，向菲律賓民眾提供災害保障保險。",
+"title_zh": "菲律賓：Igloo 與 M Lhuillier 合作，為菲律賓民眾提供災害保障保險"
+},
+"683d079981a9": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "太陽生命與3個地方政府共同舉辦森林市集，以支援地方活化。",
+"title_zh": "太陽生命與3個地方政府舉辦森林市集，支援地方活化"
+},
+"689b8e320d6b": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "三星火災12日公布，今年第三季累計淨利為1兆8655億韓元；長期與一般保險損益改善、汽車保險累計獲利，保險損益與投資損益同步增加。",
+"title_zh": "三星火災第三季累計淨利1兆8655億韓元，年增4.6%"
+},
+"68f70fc86009": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "損保Japan在11月11日「照護日」之前，以全國30歲以上男女1,048人為對象，實施有關父母照護的實態與意識調查。",
+"title_zh": "損保Japan實施父母照護實態與意識調查：約8成在職子女世代對照護父母感到不安，7成未與父母談過"
+},
+"69a0bc0c795a": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "奈及利亞媒體報導，一主管機構將保險合規與取得政府合約掛鉤，並把醫療提供者的收費標準調高378%。",
+"title_zh": "主管機構將保險合規與政府合約掛鉤，並調高醫療提供者費率378%"
+},
+"69df5ddc9297": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "面對歐洲各地的暴動風險，保險公司以限制承保額度的方式因應。",
+"title_zh": "保險公司以設定承保上限因應歐洲各地的暴動風險"
+},
+"6a517b1b50c1": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "韓華損保11日公布，今年第三季本期淨利為961億韓元，較去年同期716億韓元成長34.1%；投資損益減少，但以長期保險為主的保險損益大幅增加。",
+"title_zh": "韓華損保第三季淨利961億韓元，年增34.1%"
+},
+"6af619665fae": {
+"category": "科技應用",
+"importance": "高",
+"summary_zh": "未來資產人壽發生駭客事故，令保險業繃緊神經，資安投資與人力擴充成為待解課題。",
+"title_zh": "保險業因未來資產人壽駭客事故而「緊張」…資安投資與人力擴充成課題"
+},
+"6b7b90f60168": {
+"category": "ESG永續",
+"importance": "中",
+"summary_zh": "聖嬰現象將持續至2027年，保險損失每年成長5至7%，在高曝險市場安排財產保險的經紀人可用的時間與空間所剩無幾。",
+"title_zh": "2026年成為有紀錄以來最熱的一年，保障缺口也達歷來最大"
+},
+"6bb5fb12936f": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "SurancePlus 將第三方再保險風險代幣化，這在結構上屬於首例。",
+"title_zh": "SurancePlus 將第三方再保險風險代幣化，為結構上的首例"
+},
+"6bb68936b3bf": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "平安產險一家支公司因虛假承保與理賠遭到處罰，另有兩人被禁止從業5年。",
+"title_zh": "虛假承保理賠！平安產險一支公司被罰，兩人遭禁業5年"
+},
+"6bc2c89c54cc": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "韓華人壽確定發行7800億的後順位債，以預先維護資本健全性。",
+"title_zh": "韓華人壽後順位債確定發行7800億…先行防守資本健全性"
+},
+"6c6006334601": {
+"category": "消費者保護",
+"importance": "低",
+"summary_zh": "文章從持牌合規與長期服務的角度，探討保險中介如何回應消費者在選擇上的困惑。",
+"title_zh": "持牌合規與長期服務：保險中介如何回應消費者的選擇困惑"
+},
+"6cfa90df7fb6": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "主要保險代理公司（GA）10月平均業績較前月減少15.2%，受「700終身」停售影響，壽險業績驟減22%。",
+"title_zh": "主要GA 10月平均業績較前月減少15.2%…受「700終身」停售影響，壽險驟減22%"
+},
+"6d2e5b378943": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "印度人壽保險公司（LIC）在 IRDAI 提出提案後重新調整策略，同時為出售 IDBI 做準備。",
+"title_zh": "LIC 在 IRDAI 提案後調整策略，並為出售 IDBI 做準備"
+},
+"6d5b22311fce": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽代表郭熙弼參與「救人的金融」宣導活動。",
+"title_zh": "【照片新聞】ABL人壽代表郭熙弼響應「救人的金融」宣導活動"
+},
+"6d8cb6e57a06": {
+"category": "消費者保護",
+"importance": "高",
+"summary_zh": "住友生命的健康服務發生約8萬人個人資料外洩，起因是NTT DATA受託營運的系統遭到非法存取。",
+"title_zh": "住友生命健康服務約8萬人個資外洩，NTT DATA受託系統遭非法存取"
+},
+"6e6f1ef6adb9": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "教保證券（Kyobo Securities）公告兩檔高風險股權連結證券（ELS）商品的配售情形。",
+"title_zh": "教保證券公告兩檔高風險ELS商品的配售結果"
+},
+"6eaad0f35f3c": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽在越南興建「愛之家」，受保護兒童也一同參與。",
+"title_zh": "【公告欄】教保人壽在越南蓋「愛之家」…受保護兒童也參與"
+},
+"7120124f8d79": {
+"category": "市場趨勢",
+"importance": "高",
+"summary_zh": "Chesnara已同意收購大都會人壽英國公司（MetLife UK）。",
+"title_zh": "Chesnara同意收購大都會人壽英國公司"
+},
+"713c2d9965c5": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "John Hancock推出新的固定指數年金系列商品，以因應壽命延長與持續變化的財務規劃需求。",
+"title_zh": "John Hancock推出全新固定指數年金系列，因應壽命延長與不斷演變的規劃需求"
+},
+"719877c1674f": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽的「教保Dasomi全球志工團」在越南永隆省進行志工服務，支援住宅興建。",
+"title_zh": "教保人壽「教保Dasomi全球志工團」赴越南永隆省進行志工服務…支援住宅興建"
+},
+"7205af001382": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "印度壽險業 10 月數據顯示，HDFC人壽以 16% 的成長幅度居冠，SBI人壽則表現疲軟，僅成長 2%。",
+"title_zh": "壽險 10 月數據：HDFC人壽成長最快達 16%，SBI人壽疲軟僅 2%"
+},
+"72da1391a7b3": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "信評機構KBRA授予OnDeck Asset Securitization IV, LLC 2026-2系列證券化商品初步評等，內容未涉及保險業務。",
+"title_zh": "KBRA授予OnDeck Asset Securitization IV, LLC 2026-2系列初步評等"
+},
+"72f82378e894": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Yahoo財經加拿大站刊載John Hancock變額保險信託旗下「管理波動平衡投資組合」（代號JAIYX）的基金資訊頁。",
+"title_zh": "John Hancock變額保險信託－管理波動平衡投資組合（JAIYX）"
+},
+"736716a89ef6": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "南亞地區人口老化速度加快，人口紅利正逐漸縮小。",
+"title_zh": "南亞：人口老化加速，人口紅利正在縮減"
+},
+"73724e80d90f": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "越南胡志明市提出方案，擬為60至64歲的長者全額補助健康保險。",
+"title_zh": "越南：胡志明市提議為60至64歲長者全額補助健康保險"
+},
+"744c91ab4471": {
+"category": "消費者保護",
+"importance": "高",
+"summary_zh": "NTT DATA受託的系統遭非法存取，導致住友生命「Vitality」約8萬名用戶的資料外洩。",
+"title_zh": "NTT DATA受託系統遭非法存取，住友生命「Vitality」約8萬名用戶資料外洩"
+},
+"74db65624b89": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "市場消息指出，中國人壽正在洽談出售其持有的倫敦辦公大樓股份。",
+"title_zh": "市場消息：中國人壽正洽談出售其在倫敦辦公大樓的股份"
+},
+"75a6cad9685d": {
+"category": "產品創新",
+"importance": "低",
+"summary_zh": "文章以 30 歲投保定期壽險為例，比較各方案的保費、保障內容與繳費方式。",
+"title_zh": "30 歲買定期壽險：比較保費、保障與繳費方式"
+},
+"75ab00cf1fe4": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "Morningstar評析慕尼黑再保財報，認為綜合各項因素來看，數字表現良好。",
+"title_zh": "慕尼黑再保財報：綜合考量下數字表現良好"
+},
+"76327f89e419": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "AM Best 在市場區隔報告中，維持對授權核保機構（Delegated Underwriting Authority Enterprises）業別的穩定展望。",
+"title_zh": "Best 市場區隔報告：AM Best 維持授權核保機構業別的穩定展望"
+},
+"765c8d49cfad": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "HDFC人壽推出一部共四集的微短劇，用來推廣定期壽險。",
+"title_zh": "HDFC人壽推出四集微短劇，推廣定期壽險"
+},
+"767e47b04e88": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "安聯（Allianz）前九個月營業利益達156.2億美元，創下歷史新高，並上調2026年展望。",
+"title_zh": "安聯前九個月營業利益創紀錄達156.2億美元，上調2026年展望"
+},
+"77322ac311d0": {
+"category": "再保市場",
+"importance": "低",
+"summary_zh": "報導指出，漢諾威再保的準備金可能有助於在市場週期走軟時平緩衝擊。",
+"title_zh": "漢諾威再保的準備金或有助於緩和走軟的市場週期"
+},
+"77381840a615": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "印度Canara HSBC人壽保險將Indu Swaroop升任為財務長。",
+"title_zh": "Canara HSBC人壽保險拔擢Indu Swaroop為財務長"
+},
+"781804edb966": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Groupama 的Delphine Letendart 的人物簡介與經歷頁面。",
+"title_zh": "Delphine Letendart，Caisse Nationale de Reassurance Mutuelle Agricole Groupama：人物簡介與經歷"
+},
+"784bc88db6f8": {
+"category": "ESG永續",
+"importance": "中",
+"summary_zh": "印尼金融服務管理局（OJK）計畫對進行綠色投資的保險公司提供資本要求減免的誘因。",
+"title_zh": "印尼：OJK 計畫為從事綠色投資的保險公司提供資本減免誘因"
+},
+"785c5511d225": {
+"category": "消費者保護",
+"importance": "低",
+"summary_zh": "教保人壽的「20秒應答」比率達90%，並調整了客戶申訴的引導體系。",
+"title_zh": "教保人壽「20秒應答」達90%…調整客戶申訴引導體系"
+},
+"78c933219226": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "林肯金融（Lincoln Financial，代號LNC）舉行2026年第三季法說會，重點為年金業務成長與恢復股票回購。",
+"title_zh": "林肯金融（LNC）2026年第三季法說會：年金業務成長、恢復股票回購"
+},
+"796e9f4b44fb": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "印度人壽保險公司（LIC）希望從減持 IDBI Bank 股權中進一步獲益，並可能視前景保留 0 至 15% 的持股。",
+"title_zh": "LIC 盼從 IDBI Bank 減持中進一步獲益，視前景可能持有 0 至 15%"
+},
+"7b0cfa54df79": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "三星人壽的退休年金規模達57兆，報導指出仍待解決的課題是對關係企業的依賴度與手續費門檻。",
+"title_zh": "三星人壽退休年金57兆…剩下的課題是「對關係企業的依賴度與手續費之牆」"
+},
+"7b562926706b": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "印尼 Sequis Life 在棉蘭強化保險識讀推廣，並以行銷人員作為教育民眾的第一線主力。",
+"title_zh": "在棉蘭強化保險識讀，Sequis Life 讓行銷人員成為教育的先鋒"
+},
+"7b8555a05721": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "《富比士》刊出2026年最佳平價健康保險公司評選。",
+"title_zh": "2026年最佳平價健康保險公司"
+},
+"7bf1c36a5731": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "勤業眾信（Deloitte）宣布收購 Flipside Crypto 的人工智慧業務，並推出 Edisyl，協助縮小企業 AI 的脈絡落差。",
+"title_zh": "勤業眾信宣布收購 Flipside Crypto 的 AI 業務，並推出 Edisyl 協助弭平企業 AI 的脈絡落差"
+},
+"7c3ca6f62929": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "保險業協會發布醫療保險示範條款，以及首版商業保險藥品推薦清單。",
+"title_zh": "保險業協會發布醫療險示範條款與首版商保藥品推薦清單"
+},
+"7d6f81dd1fcc": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "西北互助人壽（Northwestern Mutual）安納波利斯據點為安妮阿倫德爾郡食物銀行募得17,000美元。",
+"title_zh": "西北互助人壽安納波利斯據點為安妮阿倫德爾郡食物銀行募得1.7萬美元"
+},
+"7d96fe02f512": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Groupama 的Stephanie Staddon-Cesbron 的人物簡介與經歷頁面。",
+"title_zh": "Stephanie Staddon-Cesbron，Caisse Nationale de Reassurance Mutuelle Agricole Groupama：人物簡介與經歷"
+},
+"7df8784bf712": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "穆迪（Moody's）表示，資料治理是美國保險業採用AI的根基。",
+"title_zh": "穆迪：資料治理是美國保險業採用AI的基礎"
+},
+"7ea0a7fc465a": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "大都會人壽（代號MET）在業務組合調整中，將於2027年退出旗下英國封閉型保單（closed book）保險公司。",
+"title_zh": "大都會人壽（MET）調整業務組合，將於2027年退出英國封閉型保單業務"
+},
+"7fa0cc6ef4ba": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "在 Mahurat Trading 交易時段，分析師 Mitessh Thakkar 推薦 Crompton、HDFC人壽、Asian Paints 與 Adani Power 四檔股票。",
+"title_zh": "Mahurat Trading：Mitessh Thakkar 推薦 Crompton、HDFC人壽、Asian Paints 與 Adani Power"
+},
+"7fecb8a81e47": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "印度人壽保險公司（LIC）執行長表示，如果相關規定有所改變，公司可能重新考慮進入銀行業。",
+"title_zh": "執行長：若規定改變，印度 LIC 可能重新考慮進軍銀行業"
+},
+"7fed45a58ae7": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "ICICI保誠共同基金旗下 ICICI Prudential Growth Fund Series 6（代號 538892.BO）的行情頁面。",
+"title_zh": "ICICI保誠共同基金－ICICI Prudential Growth Fund Series 6（538892.BO）"
+},
+"8004b11adf96": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "SOMPO控股與日本國立長壽醫療研究中心老化流行病學研究部的研究團隊進行共同研究，驗證中年期有無運動習慣對健康壽命的影響。",
+"title_zh": "SOMPO控股與國立長壽醫療研究中心共同研究：中年期有無運動習慣，「健康壽命相差3.76年」"
+},
+"8096b5eaa5b1": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "文章指出，唯有將專業能力發揮到極致，承保能量才能獲得有效運用。",
+"title_zh": "必須將能力發揮到極致，承保能量才能有效運用"
+},
+"80b808029574": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "評論指出，AI的作用不只在風險預測，還能讓保險更具預防性與包容性。",
+"title_zh": "不只是風險預測，AI能讓保險更具預防性與包容性"
+},
+"81237e108e6c": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "報導整理 10 月份 HDFC、SBI、ICICI Prudential 與 Mirae Asset 旗下靈活市值型（flexi-cap）基金新增與出清的持股。",
+"title_zh": "10 月靈活市值型基金動向：HDFC、SBI、ICICI Prudential 與 Mirae Asset 加碼及出清了哪些股票？"
+},
+"8247f3538317": {
+"category": "人才與組織",
+"importance": "中",
+"summary_zh": "宏利人壽菲律賓（Manulife Philippines）任命Amy Gochuico出任總裁兼執行長。",
+"title_zh": "宏利人壽菲律賓任命Amy Gochuico為總裁兼執行長"
+},
+"82e324671115": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB人壽舉辦「童話朗讀聲音志工活動」，對象為閱讀資源匱乏的兒童。",
+"title_zh": "DB人壽為閱讀資源匱乏兒童舉辦「童話朗讀聲音志工活動」"
+},
+"836362075974": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Lumos Insurance與illumifin宣布建立策略夥伴關係。",
+"title_zh": "Lumos Insurance與illumifin宣布建立策略夥伴關係"
+},
+"83b5f37f9607": {
+"category": "產品創新",
+"importance": "低",
+"summary_zh": "Kakao集團動態彙整：公開與OpenAI合作的動畫、Kakao Page網路漫畫4部，以及KakaoPay損保駕駛人保險的4種方案。",
+"title_zh": "【Kakao】公開與OpenAI合作的動畫、Kakao Page網路漫畫4部、KakaoPay損保駕駛人保險4種方案"
+},
+"846c8def980f": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Radian Group Inc 的 Craig Knightley 的人物簡介與經歷頁面。",
+"title_zh": "Craig Knightley，Radian Group Inc：人物簡介與經歷"
+},
+"8493e42e1a34": {
+"category": "人才與組織",
+"importance": "中",
+"summary_zh": "CIRL任命Ashish Sardesai擔任董事總經理（MD）暨執行長（CEO）。",
+"title_zh": "CIRL任命Ashish Sardesai為董事總經理暨執行長"
+},
+"84b0b00f5249": {
+"category": "消費者保護",
+"importance": "低",
+"summary_zh": "日照醫保小課堂說明長期護理保險與基本醫療保險之間的差異。",
+"title_zh": "日照醫保小課堂｜長期護理保險與基本醫療保險有什麼區別？"
+},
+"84b272144fd7": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "排球賽事中，興國人壽完勝正官庄取得2連勝，OK儲蓄銀行則擊敗KB損保拿下首勝。",
+"title_zh": "興國人壽完勝正官庄取得2連勝…OK儲蓄銀行擊敗KB損保拿下首勝"
+},
+"84d5488b047d": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "報導指出，台灣的免費健康保險方案可能反而對最貧困的長者造成不利影響。",
+"title_zh": "台灣：免費健保方案恐傷害最貧困的長者"
+},
+"86a3fcec3009": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "BHEL、ONGC、印度人壽保險公司（LIC）、Indian Bank、SAIL 與 BOM 等印度國營企業，連續四季獲外資機構投資人（FII）買進。",
+"title_zh": "BHEL、ONGC、LIC、Indian Bank、SAIL 與 BOM 等國營企業連續四季獲外資機構買超"
+},
+"86e5af3d72e8": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "AM Best將參加在倫敦舉行的Parametric Insurer Conference座談會。",
+"title_zh": "AM Best將參與倫敦參數型保險會議的座談"
+},
+"878d58dd9a96": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "Gallagher Re 表示，亞洲海上險續約的價格可望出現顯著下調。",
+"title_zh": "Gallagher Re：亞洲海上險續約料將出現明顯降價"
+},
+"88764438e5c8": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "Igloo 與 M Lhuillier 建立合作，向菲律賓民眾提供災害保障保險。",
+"title_zh": "菲律賓：Igloo 與 M Lhuillier 合作，為菲律賓民眾提供災害保障保險"
+},
+"88fd15289270": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "Sentry Insurance的Jeff Cole分享如何因應人力方面的壓力，以及高階主管承受的壓力。",
+"title_zh": "Sentry Insurance的Jeff Cole談如何因應人力壓力與高階主管壓力"
+},
+"89b24ad75583": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "報導介紹平安產險青海分公司以風險減量服務落實金融為民的作為。",
+"title_zh": "平安產險青海分公司以風險減量書寫金融為民答卷"
+},
+"89d584ce2230": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "韓國保險業界再度出現制定《損害查定士法》的呼聲，監理機關正研議整頓損害查定相關制度。",
+"title_zh": "制定《損害查定士法》之議再起，監理機關研議整頓制度"
+},
+"8a2a375eae24": {
+"category": "市場趨勢",
+"importance": "高",
+"summary_zh": "三星火災9日與KKR運用的基金及韓國投資公社（KIC）簽約，共同收購英國勞合社保險公司Canopius剩餘60%股權，加速擴大海外保險事業。",
+"title_zh": "三星火災取得英國勞合社保險公司Canopius經營權，持股擴大至80.6%"
+},
+"8a4c9110ef6b": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "John Hancock變額保險信託旗下Health Sciences Trust（JEHSX）基金的季節性報酬圖表頁面。",
+"title_zh": "John Hancock變額保險信託－Health Sciences Trust（JEHSX）季節性報酬圖表"
+},
+"8a9f241952d0": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "明治安田生命捐贈165萬日圓給廣島市，將運用於市民健康促進及育兒政策。",
+"title_zh": "明治安田生命向廣島市捐贈165萬日圓，將用於市民健康促進與育兒政策"
+},
+"8b1d902dfb90": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "東亞銀行與友邦（BEA-AIA）的保險保費自2021年以來每年成長超過60%。",
+"title_zh": "東亞銀行—友邦（BEA-AIA）保險保費自2021年以來每年成長逾60%"
+},
+"8b1e6db018c3": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "韓國保險研究院將與瑞士聖加侖大學就AI、自駕車、網路風險等新興風險展開保險研究合作；該校保險經濟研究所所長Martin Eling教授7日到訪交流。",
+"title_zh": "保險研究院與瑞士聖加侖大學展開「保險研究」合作"
+},
+"8c25f2bfe5fb": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "《華爾街日報》每日簡報指出，A-CAP對777的押注使其保險投資組合陷入風險。",
+"title_zh": "每日簡報：A-CAP押注777，危及其保險投資組合"
+},
+"8cf002dd846a": {
+"category": "市場趨勢",
+"importance": "高",
+"summary_zh": "幣安的事件報告指出，北韓歷時五個月以假招募人員與遭竄改的開發工具發動攻擊；該交易所沒有資安險，創紀錄的損失由自有準備金吸收。",
+"title_zh": "幣安63億美元駭客事件始於假職缺，且未投保資安險"
+},
+"8d1d8be866f0": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "NH農協人壽經營企劃部門前往京畿道安城的洋蔥農家，協助農務人力。",
+"title_zh": "「揮汗增添共生的溫暖」…NH農協人壽經營企劃部門在京畿道安城洋蔥農家揮汗協助農務"
+},
+"8d2dce822394": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "一項針對外籍人員入境的全域、多場景保險方案在進博會首次發表，並於上海落地。",
+"title_zh": "進博會首發，外籍人員入境全域多場景保險方案落地上海"
+},
+"8dc17ec2709b": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "人壽保險協會參與預防非法私人金融受害的宣導活動。",
+"title_zh": "人壽保險協會響應預防非法私人金融受害活動"
+},
+"8e63e6122de2": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽與受保護兒童一同在越南興建「愛之家」。",
+"title_zh": "【照片新聞】教保人壽與受保護兒童一起在越南蓋「愛之家」"
+},
+"8e77f7a0131f": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "印尼 Sequis Life 強化保險業務員的角色，藉此提升棉蘭民眾的金融識讀。",
+"title_zh": "Sequis Life 強化保險業務員角色，推動棉蘭民眾的金融識讀"
+},
+"8e7c7412fda2": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "日本生命保險協會刊載的內容，介紹育兒家庭在保險與金錢方面的實際情況。",
+"title_zh": "育兒家庭的保險與金錢實況"
+},
+"9062eb5edd1e": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Groupama 的Guillaume Pierron 的人物簡介與經歷頁面。",
+"title_zh": "Guillaume Pierron，Caisse Nationale de Reassurance Mutuelle Agricole Groupama：人物簡介與經歷"
+},
+"90cc7783ec48": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "第30屆亞洲保險業大獎（Asia Insurance Industry Awards 2026）公布得獎名單。",
+"title_zh": "2026年第30屆亞洲保險業大獎得獎名單揭曉"
+},
+"91214488ce6e": {
+"category": "監管動態",
+"importance": "低",
+"summary_zh": "文章以法國養老金困境為借鏡，對中國基本養老保險體系提出啟示與建議。",
+"title_zh": "宏觀市場｜中國基本養老保險體系：法國養老金困境的啟示與建議"
+},
+"91c793e69563": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "陽光保險6.74億股股權首次拍賣流標，「阜興系」涉案資產的處置反應冷淡。",
+"title_zh": "陽光保險6.74億股首拍流標，「阜興系」涉案資產處置遇冷"
+},
+"92b7416a1211": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "法國總統馬克宏與波斯灣國家洽談提供荷莫茲海峽相關保險的事宜。",
+"title_zh": "馬克宏與波斯灣國家商談提供荷莫茲海峽保險"
+},
+"92e456398804": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Mohandes Insurance Co 的 Hesham Mohamed Ameen 的人物簡介與經歷頁面。",
+"title_zh": "Hesham Mohamed Ameen，Mohandes Insurance Co：人物簡介與經歷"
+},
+"932b5733da8b": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "NN生命在11月22日「好夫婦日」之前，以全國800名已婚女性（中小企業經營者之妻與上班族之妻各400名）為對象，調查生成式AI的使用實態。",
+"title_zh": "NN生命：有生成式AI使用經驗者中46.1%表示與生成式AI的「心理距離」比丈夫更近"
+},
+"93f94c9f3f23": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽與受保護兒童在越南進行興建「愛之家」的志工活動。",
+"title_zh": "教保人壽與受保護兒童在越南進行「愛之家」興建志工活動"
+},
+"947d9f6ee886": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "李澤楷（Richard Li）旗下的富衛（FWD）售出一張3.18億美元的人壽保單，創下世界紀錄。",
+"title_zh": "李澤楷旗下富衛售出3.18億美元壽險保單，創下世界紀錄"
+},
+"949ad2ac6afa": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "瑞士再保出席德意志銀行線上投資人會議，資本實力成為關注焦點。",
+"title_zh": "瑞士再保出席德意志銀行線上投資人會議：資本實力成焦點"
+},
+"9557010b7ae9": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "新韓投資證券對保險類股提出「加碼」的投資意見，偏好個股為三星人壽、三星火災與DB損保。",
+"title_zh": "新韓投資證券：「保險類股投資意見『加碼』，偏好個股為三星人壽、三星火災、DB損保」"
+},
+"965be6d0827d": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "Aon與慕尼黑再保共同啟動一項流行病再保險計畫。",
+"title_zh": "Aon與慕尼黑再保啟動流行病再保險計畫"
+},
+"968d909333c9": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "印度股市11月12日下午3時30分漲跌幅排行出爐，HDFC人壽保險居漲幅之首。",
+"title_zh": "2026年11月12日印度股市漲跌幅排行：HDFC人壽領漲"
+},
+"9694f6e5811c": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "麥肯錫全球研究院指出，到2050年氣候調適每年可能需要1.2兆美元，其中6,900億美元陷入停滯。",
+"title_zh": "麥肯錫全球研究院：2050年氣候調適每年恐需1.2兆美元，其中6,900億美元卡關"
+},
+"972913887513": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "AM Best確認StarStone Insurance SE的信用評等。",
+"title_zh": "AM Best確認StarStone Insurance SE的信用評等"
+},
+"976962d69f13": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "AM Best 表示，健康險與財產險是香港非壽險業務成長的主要動力。",
+"title_zh": "香港：AM Best 指健康險與財產險帶動非壽險成長"
+},
+"9769d60bc8a8": {
+"category": "消費者保護",
+"importance": "高",
+"summary_zh": "NTT DATA受住友生命委託的系統遭到非法存取，「Vitality」約8萬名用戶的資料外洩。",
+"title_zh": "NTT DATA受住友生命委託的系統遭非法存取，「Vitality」約8萬名用戶資料外洩"
+},
+"97b2b8e0cfd4": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "PERILS 公布澳洲東岸強對流風暴（SCS）的最終產業損失估計，金額為16.2億澳元。",
+"title_zh": "澳洲：PERILS 估計東岸強對流風暴最終產業損失為16.2億澳元"
+},
+"982a42a5963d": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "友利銀行10日表示，將在高功能ATM「智慧自助服務機」導入AI業務搜尋與語音交易服務，客戶只用語音就能找到並辦理所需金融業務。",
+"title_zh": "友利銀行自助服務機可用語音辦理存摺掛失到補發"
+},
+"98bd382bc1c2": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "慕尼黑再保旗下Munich Re Specialty宣布正式進入澳洲市場。",
+"title_zh": "Munich Re Specialty宣布正式進入澳洲市場"
+},
+"98dcb6fa628a": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Anicom損保在Oricon公布的2026年顧客滿意度調查寵物保險排行中，於「貓」「窗口結算」2個部門及「保險金・給付金」「投保手續」2個項目共4項獲第1名。",
+"title_zh": "Anicom損保在2026年Oricon顧客滿意度調查寵物保險「保險金・給付金」項目連續10年獲第1名"
+},
+"98ea55359b0e": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "隨著三星人壽加入，資產負債管理（ALM）重新受到關注。",
+"title_zh": "【Digging Note】三星人壽加入後重新受矚目的「ALM」"
+},
+"99f84cc334bf": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "被控撞死 LIC 業務員的女子在排燈節當天獲保釋，死者家屬要求相關單位說明。",
+"title_zh": "被控撞死 LIC 業務員的女子於排燈節獲保釋，家屬要求給個說法"
+},
+"9c14f7801ef7": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "隨著住宅火災持續增加，安聯保險新加坡（Allianz Insurance Singapore）呼籲屋主強化居家保障。",
+"title_zh": "住宅火災持續增加，安聯保險新加坡呼籲屋主強化居家保障"
+},
+"9d53c15b28bd": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Seeking Alpha分析文章認為，瑞士再保核保表現強勁且投資收益上升，因此維持看多立場。",
+"title_zh": "瑞士再保：核保表現強勁與投資收益上升，讓我們維持看多（OTCMKTS:SSREF）"
+},
+"9e30048d3246": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "澳洲保險協會（ICA）主席說明產業在監管、保費、氣候及人工智慧等面向的優先事項。",
+"title_zh": "澳洲：ICA 主席闡述產業在監管、保費、氣候與 AI 方面的優先要務"
+},
+"9e5f62804a73": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "AM Best將Texas Farm Bureau Insurance Group旗下成員公司的發行人信用評等展望調整為穩定。",
+"title_zh": "AM Best將Texas Farm Bureau Insurance Group成員公司的發行人信用評等展望調整為穩定"
+},
+"9e8134d6ac78": {
+"category": "消費者保護",
+"importance": "低",
+"summary_zh": "一起涉及兩項定罪與一人死亡的案件中，保險公司未能追回任何款項。",
+"title_zh": "兩項定罪、一人死亡，保險公司求償金額為零"
+},
+"9ed5032c1d65": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "印尼 Sequis Life 強化行銷人員的角色，以教育民眾了解保險的重要性。",
+"title_zh": "Sequis Life 強化行銷人員角色，向民眾宣導保險的重要性"
+},
+"9fc3d0d18364": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "慕尼黑再保與Wawanesa、WWF-Canada合作，推出參數型河川洪水保障解決方案。",
+"title_zh": "慕尼黑再保攜手Wawanesa與WWF-Canada推出參數型河川洪水解決方案"
+},
+"a0437ec09935": {
+"category": "ESG永續",
+"importance": "中",
+"summary_zh": "歐盟要求信用評等機構說明其評等中的重大 ESG 因素。",
+"title_zh": "歐盟要求信用評等機構說明重大 ESG 因素"
+},
+"a12dd658c89d": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "韓華人壽在公布業績前面臨雙重壓力，一是市場預期將出現虧損，二是股價淨值比（PBR）偏低。",
+"title_zh": "韓華人壽業績公布前面臨「雙重壓力」…虧損預期加上低PBR"
+},
+"a13caa02194d": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "保險業首起駭客事故暫時告一段落，但資訊安全方面的課題仍然存在。",
+"title_zh": "保險業首起駭客事故暫告一段落…資訊安全課題依舊"
+},
+"a1877961db31": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "Old Mutual將接手瑞士再保企業解決方案（Swiss Re CorSo）在南非的保險業務組合。",
+"title_zh": "Old Mutual將接手瑞士再保企業解決方案的南非保險業務組合"
+},
+"a18845344a67": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "新韓人壽從AI照護實證到擴大居住設施，跨出保險本業，提升高端銀髮事業的競爭力。",
+"title_zh": "【創刊22週年特輯：超越保險邁向未來】③ 新韓人壽，從AI照護實證到擴大居住設施…超越保險，提升高端銀髮事業競爭力"
+},
+"a242bde6d1e6": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "永明（Sun Life）為其亞洲各地的顧問導入內建 Gemini 的 Google Workspace。",
+"title_zh": "永明（Sun Life）為亞洲各地顧問導入搭載 Gemini 的 Google Workspace"
+},
+"a2bb94b11837": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "AIG損保表示，受託辦理其汽車保險道路救援業務的廠商之一Prestige Core Solution公司（PCS），業務系統遭第三方未經授權存取。",
+"title_zh": "AIG損保：道路救援業務委託廠商遭未經授權存取"
+},
+"a34d2ee457ce": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽參與以預防非法民間借貸為目的的「救人的金融」活動。",
+"title_zh": "ABL人壽響應預防非法民間借貸的「救人的金融」活動"
+},
+"a393fe943ef1": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "T&D控股於2026年11月13日以適時揭露方式公告2027年3月期第2季財報。",
+"title_zh": "T&D控股[8795]：2027年3月期第2季財報公告（2026年11月13日適時揭露）"
+},
+"a3bf74666db6": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "第一Neo生命將在癌症保險給付金申請中，開始由系統自動判定部分給付可否確認作業的「機械核定」，適用於符合一定條件的給付金申請。",
+"title_zh": "第一Neo生命開始在癌症保險給付金申請中採用「機械核定」"
+},
+"a41fb56f329b": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "《華爾街日報》刊載Verisk Analytics Inc.（代號VRSK）的今日股價資訊頁。",
+"title_zh": "Verisk Analytics（VRSK）今日股價"
+},
+"a48b7f50f2d6": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "John Hancock變額保險信託旗下Mid Cap Stock Trust（JAEVX）基金的季節性報酬圖表頁面。",
+"title_zh": "John Hancock變額保險信託－Mid Cap Stock Trust（JAEVX）季節性報酬圖表"
+},
+"a4c5858339c9": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "ICICI PRUDENTIAL BSE POWER ETF 的價格、NSE／BSE 預測、新聞與即時報價頁面。",
+"title_zh": "ICICI PRUDENTIAL BSE POWER ETF 股價、NSE／BSE 預測、新聞與即時報價"
+},
+"a5732df4736d": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "中國平安11月9日融券賣出7.07萬股，融資融券餘額為345.38億元。",
+"title_zh": "中國平安：11月9日融券賣出7.07萬股，融資融券餘額345.38億元"
+},
+"a58a8d3a3b0f": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "一家保險公司請求法院裁定，被控涉及Fall City命案的青少年是否應領取其母親50萬美元的人壽保險金。",
+"title_zh": "保險公司請求法院裁定：涉Fall City命案的青少年能否領取母親50萬美元壽險金"
+},
+"a59a0ec69adf": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "紐約皇后區一位旅宿業大亨以 1,240 萬美元買下長島市（Long Island City）的一處飯店用地。",
+"title_zh": "皇后區旅宿業大亨以 1,240 萬美元收購長島市飯店用地"
+},
+"a59f34d29905": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "印尼保誠（Prudential Indonesia）在芝利翁河（Ciliwung）推動共同行動，主張河川乾淨能讓民眾更健康、更有能力。",
+"title_zh": "河川乾淨，民眾更健康、更有能力：印尼保誠在芝利翁河推動共同行動"
+},
+"a6d8486d581f": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "《富比士》公布2027年美國各州最佳保險公司榜單。",
+"title_zh": "2027年美國各州最佳保險公司"
+},
+"a759fec8e93a": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "11月10日港股保險類股放空（沽空）數據顯示，友邦保險、中國人壽、中國平安的放空金額位居行業前三名。",
+"title_zh": "11月10日港股保險業放空數據盤點，友邦保險、中國人壽、中國平安放空金額居行業前三"
+},
+"a7d9fa370810": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "慕尼黑再保在澳洲展開業務，目標為財產保險、營造、礦業與保證保險領域。",
+"title_zh": "慕尼黑再保進軍澳洲，鎖定財產、營造、礦業與保證保險"
+},
+"a7fc68f643e3": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽代表郭熙弼參與「救人的金融」宣導活動，主題為預防非法民間借貸。",
+"title_zh": "ABL人壽代表郭熙弼參與預防非法民間借貸的「救人的金融」宣導活動"
+},
+"a81dc7579e3c": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "瑞士再保在獲利成長後，維持45億美元的目標不變，報導聚焦其股票表現。",
+"title_zh": "瑞士再保獲利成長後維持45億美元目標"
+},
+"a83ac58bd76d": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "保險公司動態彙整，包括教保人壽在越南打造「愛之家」等消息。",
+"title_zh": "【保險公司風向標】教保人壽在越南打造「愛之家」等"
+},
+"a861e480daf0": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB人壽20名員工為閱讀資源匱乏的兒童進行童話朗讀志工服務。",
+"title_zh": "DB人壽20名員工為閱讀資源匱乏兒童進行童話朗讀志工服務"
+},
+"a8e0810811d3": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "文章探討保險預定利率是否將再度調降。",
+"title_zh": "保險預定利率又又又又要調降了？"
+},
+"a930d1181578": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "麥肯錫文章探討年金改革，以及對壽險公司而言有如警鐘的「1%」課題。",
+"title_zh": "年金改革與給壽險公司的「1%警鐘」"
+},
+"a954f5adc5b2": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "在Enstar Group Limited與Markel Group Inc.達成交易後，AM Best就Cavello Bay Reinsurance Limited的信用評等發表意見。",
+"title_zh": "AM Best就Enstar Group與Markel Group交易後Cavello Bay Reinsurance的信用評等發表意見"
+},
+"a99a5b1dd251": {
+"category": "消費者保護",
+"importance": "高",
+"summary_zh": "住友生命的健康服務約8萬人個人資料外洩，原因為NTT DATA受託系統遭非法存取。",
+"title_zh": "住友生命健康服務約8萬人個資外洩，NTT DATA受託系統遭非法存取"
+},
+"aa78597c1cb6": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "教保證券（Kyobo Securities）發行規模994萬美元、連結KOSPI200的債券。",
+"title_zh": "教保證券發行994萬美元的KOSPI200連結債券"
+},
+"aa788cc6e8ef": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "AdOasis自教保證券（Kyobo Securities）等投資方募得40億韓元資金。",
+"title_zh": "AdOasis自教保證券等機構募得40億韓元"
+},
+"aa8edf7627c1": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "AM Best確認Philadelphia Insurance Companies旗下成員公司的信用評等。",
+"title_zh": "AM Best確認Philadelphia Insurance Companies成員公司的信用評等"
+},
+"aaedc20766de": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "印度人壽保險業以到2029會計年度為止，年化保費等值（APE）年複合成長率13%至18%為目標。",
+"title_zh": "印度壽險業目標至2029會計年度APE年複合成長率達13%至18%"
+},
+"ab1c35bbdc68": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "評論文章主張，數位治理可以為保險業解決困境。",
+"title_zh": "數位治理為保險業解圍"
+},
+"ad0dc2f547fd": {
+"category": "產品創新",
+"importance": "低",
+"summary_zh": "《華爾街日報》說明定期壽險保單即將到期時保戶可以採取的做法。",
+"title_zh": "定期壽險保單即將到期？你可以這樣做"
+},
+"ad2711b99bed": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "SBI生命公布2026年度上半期業績：團體保險有效契約額為14兆5,205億日圓（為上年度末的108.8%），個人保險有效契約額為1兆1,143億日圓。",
+"title_zh": "SBI生命公布2026年度第2季（上半期）業績"
+},
+"ad65d8926ca8": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "由於申報內容與實際執行更趨一致，壽險業前九個月的收入出現下滑。",
+"title_zh": "申報與執行更趨一致，壽險前九個月收入下滑"
+},
+"ad8acdaf08d0": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "人壽保險協會加入推廣普惠金融的行動，並點名NH農協人壽代表朴炳熙為下一位參與者。",
+"title_zh": "人壽保險協會響應推廣普惠金融…點名NH農協人壽代表朴炳熙為下一位參與者"
+},
+"ae66bd3bce39": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "KDB人壽在被保險人罹患失智症或進入長期照護狀態時，額外給付50%的年金。",
+"title_zh": "KDB人壽：罹患失智症或需長期照護時，年金加發50%"
+},
+"ae8d09ad9780": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "大韓癌症協會與韓華人壽舉辦「WeCare Reset團隊運動會」，由有罹癌經驗的青年與家人共同參加。",
+"title_zh": "大韓癌症協會與韓華人壽舉辦「WeCare Reset團隊運動會」，癌症經驗青年與家人一同奔跑"
+},
+"aea01132d56c": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "印尼 Sequis Life 強化行銷人員在棉蘭地區保險教育中所扮演的角色。",
+"title_zh": "Sequis Life 強化行銷人員在棉蘭保險教育中的角色"
+},
+"aec1e023c26e": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "韓華人壽今年第三季累計合併本期淨利為8656億韓元，年增12.6%；但第三季單季因匯率與股價波動造成投資損失擴大而轉為虧損。",
+"title_zh": "韓華人壽第三季累計淨利8656億韓元，年增12.6%，單季轉為虧損"
+},
+"af06488f3125": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "Souhoola與大都會人壽合作，將為30萬名客戶提供總額70億埃及鎊（EGP）的保險保障。",
+"title_zh": "Souhoola與大都會人壽合作，為30萬名客戶提供70億埃及鎊保險保障"
+},
+"af71d56ab9e0": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "金融保安院舉辦「2026金融AI Challenge」，韓華損保員工開發的金融商品說明書事前檢核服務獲得大獎。本屆競賽聚焦以AI保護金融消費者與防範金融詐騙。",
+"title_zh": "金融保安院舉辦「2026金融AI Challenge」，大獎由韓華損保「模擬櫃檯」奪得"
+},
+"afd688094131": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "印尼保誠（Prudential Indonesia）強化其長期投資策略。",
+"title_zh": "印尼保誠強化長期投資策略"
+},
+"b0138ecb25e0": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "彭博報導 Apollo 如何憑藉與軟銀（SoftBank）的關係，促成一筆前所未有的 OpenAI 投資。",
+"title_zh": "Apollo 與軟銀的關係如何促成一筆前所未見的 OpenAI 押注"
+},
+"b075c2268b0a": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "多家保險公司接連展開對醫療、兒童與在地社區的支援行動。",
+"title_zh": "【保險Pick】保險公司接連支援醫療、兒童與在地社區"
+},
+"b0a4d14ea646": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "綠色氣候基金（Green Climate Fund）承諾對 21 項計畫投入 19.7 億美元，使年度核准金額升至創紀錄的 32 億美元。",
+"title_zh": "綠色氣候基金承諾投入 19.7 億美元於 21 項計畫，年度核准金額升至創紀錄的 32 億美元"
+},
+"b16b0902c943": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽員工與受保護兒童一同在越南興建「愛之家」。",
+"title_zh": "教保人壽員工與受保護兒童一起在越南蓋「愛之家」"
+},
+"b48f8c9bf255": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "Penn River推出TotalityOne，目標是簡化壽險與年金業務所使用的技術。",
+"title_zh": "Penn River推出TotalityOne，簡化壽險與年金技術"
+},
+"b4ba72c88a30": {
+"category": "產品創新",
+"importance": "低",
+"summary_zh": "印尼 AXA Mandiri 與 Primaya 及 Satu Dental 合作，以擴大客戶取得醫療服務的管道。",
+"title_zh": "擴大醫療服務可近性，AXA Mandiri 與 Primaya、Satu Dental 合作"
+},
+"b504761c7f9a": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "富德生命人壽寧夏分公司走進充電場站，進行「兩員兩司」常態化宣導活動。",
+"title_zh": "富德生命人壽寧夏分公司「兩員兩司」常態化宣導——走進充電場站"
+},
+"b51a19d48245": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "Ancep 募得850萬美元資金，目標是協助經紀人釋放尚未開發的營收來源。",
+"title_zh": "Ancep 募資850萬美元，協助保險經紀人開發尚未挖掘的營收"
+},
+"b5559fe5ec45": {
+"category": "監管動態",
+"importance": "低",
+"summary_zh": "保險代理店有不同種類，文章說明產險、壽險與第三保險的營業範圍如何區分。",
+"title_zh": "保險代理店也有種類之分…產險、壽險、第三保險的營業範圍如何區分"
+},
+"b67032cab3d7": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "保險消息彙整，包括壽險協會參與「救心的金融」接力宣導活動等。",
+"title_zh": "【保險簡報】壽險協會響應「救心的金融」接力宣導活動等"
+},
+"b6f4fc281a3a": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "澳洲野火季節即將來臨，文章強調及早進行風險預防的重要性。",
+"title_zh": "澳洲：野火季將至，及早預防風險至關重要"
+},
+"b72ec3e943ea": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "信評機構KBRA授予Research-Driven Pagaya旗下兩檔2026-6汽車貸款信託初步評等，內容未涉及保險業務。",
+"title_zh": "KBRA授予Research-Driven Pagaya Motor Asset Trust 2026-6與Research-Driven Pagaya Motor Trust 2026-6初步評等"
+},
+"b819f6d23d32": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "HDFC人壽、Tata Steel Long Products 與 Sai Silks 今日公布第二季財報，報導整理市場的獲利預估。",
+"title_zh": "HDFC人壽、Tata Steel Long Products、Sai Silks 今日公布第二季財報：獲利預估"
+},
+"b8424a19aff4": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "韓華人壽（股票代號088350.KS）的季節性報酬圖表頁面。",
+"title_zh": "韓華人壽（088350.KS）季節性報酬圖表"
+},
+"b8e3b56cc680": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "香港保險業監管局舉辦2026年國際保險監督官協會（IAIS）年會。",
+"title_zh": "保險業監管局舉辦國際保險監督官協會年會2026"
+},
+"b95dcb215c0b": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "友邦保險集團股價在第三季面臨下跌，但9月的反彈走勢轉強。",
+"title_zh": "友邦保險集團股價第三季下跌，9月反彈力道增強"
+},
+"ba66237d0327": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "印尼保誠（Prudential Indonesia）為員工舉辦疫苗接種日（Vaccine Day）活動。",
+"title_zh": "印尼保誠為員工舉辦疫苗接種日"
+},
+"bacefa4e0f58": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "韓國貿易保險公社12日與KOTRA、友利銀行合作，協助材料、零件、設備中小與中堅企業籌措原料進口資金，進口保險額度最高擴大為兩倍，並提供貸款利率等優惠。",
+"title_zh": "支援材料、零件、設備業進口資金籌措，韓國貿易保險公社保險額度最高加倍"
+},
+"bb5fe9d37bb8": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "日本生命印度資產管理公司（NAM-INDIA.BO）股票的季節性報酬圖表頁面。",
+"title_zh": "日本生命印度資產管理公司（NAM-INDIA.BO）季節性報酬圖表"
+},
+"bc48470a24bf": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "慕尼黑再保第三季獲利優於預期，股價隨後上漲3.1%。",
+"title_zh": "慕尼黑再保第三季獲利優於預期，股價跳漲3.1%"
+},
+"bc828e56abcc": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "美國保德信金融集團（Prudential Financial）宣布發放普通股季度股息。",
+"title_zh": "保德信金融集團宣布發放普通股季度股息"
+},
+"bd4698c251cd": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽12日公開客戶參與型遊戲內容「ABL人壽FC挑戰」，結合遊戲化元素，讓客戶透過遊戲體驗財務顧問（FC）的工作與成長過程。",
+"title_zh": "ABL人壽公開客戶參與型遊戲內容「FC挑戰」"
+},
+"bdd9551481dd": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "雷朋（Ray-Ban）家族的內部紛爭，可能打亂其對忠利保險（Generali）的布局。",
+"title_zh": "雷朋家族內鬨恐使其對忠利保險的布局受挫"
+},
+"be45fdf9269f": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "三星人壽（股票代號032830.KS）的股價、新聞、報價與歷史資料頁面。",
+"title_zh": "三星人壽（032830.KS）股價、新聞、報價與歷史資料"
+},
+"bee45db35e5c": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "教保人壽合併淨利雖增加，但保險本業表現不振，收購儲蓄銀行也加重了資本健全性的負擔。",
+"title_zh": "【診斷保險業界⑦教保人壽】合併淨利增加但保險本業不振…收購儲蓄銀行加重資本健全性負擔"
+},
+"bf2237d5c583": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "《華爾街日報》整理2026年印第安納州最便宜的汽車保險。",
+"title_zh": "2026年印第安納州最便宜的汽車保險"
+},
+"bfafb7143b51": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "教保人壽在退休年金非保本型商品報酬率方面，確定提撥型（DC）與個人型退休年金（IRP）皆居第一，近一年與長期報酬率均領先提存金規模居前的業者。",
+"title_zh": "教保人壽退休年金DC、IRP報酬率同列第一，長短期操作表現突出"
+},
+"c052dcc157d2": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Baldwin Insurance Group獲惠譽（Fitch）授予B+的發行人評等。",
+"title_zh": "Baldwin Insurance Group獲惠譽授予B+發行人評等"
+},
+"c0588c47f6e0": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "文章介紹一家小型再保險公司，如何在沒有龐大開發團隊的情況下導入自動化。",
+"title_zh": "一家小型再保公司如何在沒有大型開發團隊的情況下導入自動化"
+},
+"c194adbd61dd": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Mohandes Insurance Co 的 Hanan Fawzy Abdel Fattah Salem 的人物簡介與經歷頁面。",
+"title_zh": "Hanan Fawzy Abdel Fattah Salem，Mohandes Insurance Co：人物簡介與經歷"
+},
+"c1a494e81cf5": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "巴克萊（Barclays）重申對漢諾威再保的「賣出」評等。",
+"title_zh": "漢諾威再保：巴克萊重申賣出評等"
+},
+"c242c9d047ff": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "漢諾威再保的獲利小幅上升。",
+"title_zh": "漢諾威再保獲利小幅成長"
+},
+"c29f6fe6b817": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "慕尼黑再保推出規模10億美元的非洲貿易風險保障，同時其股票回購數量已超過319萬股。",
+"title_zh": "慕尼黑再保推出10億美元非洲貿易風險保障，同時股票回購已逾319萬股"
+},
+"c2f88cac91f3": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "AM Best將Funeral Directors Life Insurance Company的評等展望調整為正向。",
+"title_zh": "AM Best將Funeral Directors Life Insurance Company的展望調整為正向"
+},
+"c31a77918a2a": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "住友生命計畫在JR札幌站南口附近興建複合大樓，目標2028年動工，並可能與地下街直接連通。",
+"title_zh": "JR札幌站南口附近將建複合大樓，住友生命力拚2028年動工，可能與地下街直通"
+},
+"c35855f65d69": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "三星人壽第三季累計淨利為2兆7,916億韓元，較去年同期成長8.3%。",
+"title_zh": "三星人壽第三季累計淨利2兆7,916億韓元…年增8.3%"
+},
+"c383c6211e13": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB人壽10日表示，5日舉辦「童話朗讀聲音志工活動」，為閱讀弱勢兒童說故事；該公司自2023年起與社會企業合作持續進行聲音捐贈。",
+"title_zh": "DB人壽為閱讀弱勢兒童舉辦「童話朗讀聲音志工活動」"
+},
+"c38c70114f89": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "文章比較股票代號ALL、MET、AFL與PRI四家保險公司，探討哪一家在第三季財報最有機會優於預期。",
+"title_zh": "ALL、MET、AFL或PRI：哪家保險公司第三季最有機會優於預期？"
+},
+"c4e29d0097b8": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "印度人壽保險公司（LIC）希望 IRDAI 擬議的佣金規範能審慎分階段實施，並提出業務員權益的顧慮。",
+"title_zh": "LIC 籲 IRDAI 擬議的佣金規範循序漸進上路，並點出業務員權益問題"
+},
+"c5001617f675": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "穆迪（Moody's）介紹其Scenario Generator Cloud，主打能以市場速度產生情境。",
+"title_zh": "穆迪Scenario Generator Cloud：以市場速度產生情境"
+},
+"c54d4a338d5d": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "郵政生命開始提供法人「經營諮詢服務」，因應法人客戶日益多元的經營課題，透過協助解決課題來強化與法人客戶的關係。",
+"title_zh": "郵政生命開始提供法人「經營諮詢服務」"
+},
+"c5b217ef10b5": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "雷朋（Ray-Ban）家族的內部紛爭，可能打亂該家族的下一項投資計畫。",
+"title_zh": "雷朋家族內鬨恐使其下一項投資布局受挫"
+},
+"c661bc36cf21": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "Aon與慕尼黑再保在亞洲推出流行病再保險解決方案。",
+"title_zh": "Aon與慕尼黑再保在亞洲推出流行病再保險方案"
+},
+"c67fcc16f06f": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "2026 年 10 月份英國、歐盟與國際 ESG 法規動態的每月彙整。",
+"title_zh": "ESG 焦點：英國／歐盟／國際 ESG 法規每月彙整（2026 年 10 月）"
+},
+"c6ce2be30e03": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "隨著股市漲勢延續，印度重新躋身全球五大股票市場。",
+"title_zh": "漲勢延續，印度重返全球前五大股市之列"
+},
+"c6df7e89b6a5": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "華泰人壽獲得新浪保險鼎元獎的年度企業社會責任獎，報導關鍵詞涵蓋公益、鄉村與教育。",
+"title_zh": "踐行責任、傳遞保險溫度　華泰人壽獲新浪保險鼎元獎年度企業社會責任獎"
+},
+"c7080d466a25": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽代表郭熙弼參與「救人的金融」宣導活動。",
+"title_zh": "ABL人壽代表郭熙弼參與「救人的金融」宣導活動"
+},
+"c71b10ee0e2b": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "瑞士再保前九個月淨利較前期成長3%。",
+"title_zh": "瑞士再保前九個月淨利成長3%"
+},
+"c7642f651aa7": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "印度人壽保險公司（LIC）董事總經理暨執行長 R Doraiswamy 表示，LIC 的股票估值「真的讓」他感到不悅。",
+"title_zh": "LIC 董事總經理暨執行長 R Doraiswamy：LIC 的股票估值「真的讓我不悅」"
+},
+"c7e0ba2ac33a": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "平安消金的工商登記資訊發生變更，由總經理賀靜出任法定代表人。",
+"title_zh": "平安消金工商資訊變更，總經理賀靜出任法定代表人"
+},
+"c7e179a40cc0": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "動畫《鬼滅之刃》與 JR-PLUS 首次合作，主打搭乘東海道新幹線的日本旅遊。",
+"title_zh": "搭東海道新幹線遊日本：動畫《鬼滅之刃》與 JR-PLUS 首度合作！"
+},
+"c8a79a851cea": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "John Hancock變額保險信託旗下Global Trust（JAJGX）基金的季節性報酬圖表頁面。",
+"title_zh": "John Hancock變額保險信託－Global Trust（JAJGX）季節性報酬圖表"
+},
+"c8d0c9709392": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "今日金融業ESG消息彙整，涵蓋Hana金融、友利銀行、教保人壽、DB人壽與現代海上。",
+"title_zh": "【今日金融ESG】Hana金融、友利銀行、教保人壽、DB人壽、現代海上"
+},
+"c9dac478f94c": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "MLB Gameday 比賽結果頁面：2026 年 11 月 9 日 Tigres 以 8 比 6 擊敗 Aguilas。",
+"title_zh": "MLB Gameday：Tigres 8 比 6 擊敗 Aguilas，終場比數（2026/11/09）"
+},
+"c9dfa2d84d9c": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "瑞士再保（SREN.SW）2026會計年度第三季財報電話會議的逐字稿。",
+"title_zh": "瑞士再保（SREN.SW）2026會計年度第三季財報電話會議逐字稿"
+},
+"ca3d1b370820": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "Axis Max人壽在印度諾伊達成立數位能力中心，以推進由 AI 主導的創新與數位轉型。",
+"title_zh": "Axis Max人壽在諾伊達成立數位能力中心，推進 AI 主導的創新與數位轉型"
+},
+"cb2b867a3898": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "KakaoPay損保依駕駛習慣改版保險商品，並擴大子女保障。",
+"title_zh": "KakaoPay損保依駕駛習慣改版保險…擴大子女保障"
+},
+"cb52faff0f6a": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "John Hancock變額保險信託旗下Equity Income Trust（JAEFX）基金的季節性報酬圖表頁面。",
+"title_zh": "John Hancock變額保險信託－Equity Income Trust（JAEFX）季節性報酬圖表"
+},
+"cc66d6ee0800": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "Lifenet生命與2026年10月2日迎來開播10週年的「假面騎士EX-AID」合作，由6名演員演出的特別電視廣告自11月8日起播出。",
+"title_zh": "Lifenet生命開播紀念「假面騎士EX-AID」10週年的特別聯名廣告"
+},
+"cc6d85266f03": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "文章探討亞洲各市場各自面臨的不同考驗。",
+"title_zh": "亞洲：不同市場，不同考驗"
+},
+"cd0bb8eae135": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "一名 LIC 業務員帶著給妻子的排燈節紗麗返家途中，遭 Thar 撞擊身亡；駕駛獲准保釋一事引發爭論。",
+"title_zh": "LIC 業務員帶著妻子的排燈節紗麗返家途中遭 Thar 撞死，駕駛獲保釋引發爭論"
+},
+"cd31d87e0adf": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "Octopus Energy 成立規模 6 億美元的亞洲基金，並以菲律賓的太陽能交易作為首筆投資案。",
+"title_zh": "Octopus Energy 成立 6 億美元亞洲基金，首筆交易為菲律賓太陽能案"
+},
+"cd383a7997eb": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽代表郭熙弼帶頭保護金融弱勢族群，實踐普惠金融。",
+"title_zh": "ABL人壽代表郭熙弼帶頭保護金融弱勢族群…實踐普惠金融"
+},
+"cd52e233cebb": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽與受保護兒童在越南興建「愛之家」，實踐全球性的分享行動。",
+"title_zh": "教保人壽與受保護兒童在越南蓋「愛之家」…實踐全球分享"
+},
+"cd748918f2cf": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "文章指出 KOKO Networks 的倒下是對全球碳市場的一記警訊。",
+"title_zh": "KOKO Networks 的倒下：給全球碳市場的警訊"
+},
+"cdfc5e6d9d6b": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "印尼警方針對與 AXA Mandiri 投資有關的報案，正與銀行領域專家進行協調。",
+"title_zh": "警方就 AXA Mandiri 投資相關報案與銀行專家協調"
+},
+"cecab93342c9": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "蘇黎世保險（Zurich）表示，歐洲的風暴是其第三季巨災損失的主要來源。",
+"title_zh": "蘇黎世保險表示歐洲風暴推升第三季巨災損失"
+},
+"cf047d754bec": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "在火災案件增加之際，安聯保險新加坡（Allianz Insurance Singapore）發布安全指引。",
+"title_zh": "火災增加之際，安聯保險新加坡發布安全指引"
+},
+"cf87120993f3": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "澳洲宣布一項新的合作夥伴關係，目標是強化新南威爾斯州社區的災後復原能力。",
+"title_zh": "澳洲：新合作夥伴關係將強化新南威爾斯州社區的災後復原"
+},
+"d042f36a68ee": {
+"category": "監管動態",
+"importance": "低",
+"summary_zh": "令和8年11月2日發給一般社團法人生命保險協會的行政函文，文號為年管管發1102第1號、金資保第359號。",
+"title_zh": "年管管發1102第1號、金資保第359號（令和8年11月2日）致一般社團法人生命保險協會"
+},
+"d04583fa0c97": {
+"category": "人才與組織",
+"importance": "中",
+"summary_zh": "宏利人壽菲律賓（Manulife Philippines）任命該公司首位女性總裁。",
+"title_zh": "宏利人壽菲律賓任命首位女性總裁"
+},
+"d0ad30afc277": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "南韓展開全國性活動，協助民眾領回尚未申領的保險給付。",
+"title_zh": "南韓：啟動全國性未領取保險金宣導活動"
+},
+"d111197f0b67": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "《富比士》刊出最佳家庭人壽保險公司評選。",
+"title_zh": "最佳家庭人壽保險公司"
+},
+"d11c53dc234c": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "文章分析投資連結型保單（ULIP）面臨逆風的原因：市場波動與 IRDAI 的佣金上限使銷售承壓。",
+"title_zh": "ULIP 為何面臨逆風：市場波動與 IRDAI 佣金上限拖累銷售"
+},
+"d1d18f393041": {
+"category": "人才與組織",
+"importance": "中",
+"summary_zh": "保險協會會長的任期將於年底屆滿，下任會長的對政府機關溝通能力受到關注。",
+"title_zh": "保險協會會長任期年底屆滿…下任掌門人的「對政府溝通能力」受矚目"
+},
+"d21c93329759": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Groupama 的Valerie Buffard 的人物簡介與經歷頁面。",
+"title_zh": "Valerie Buffard，Caisse Nationale de Reassurance Mutuelle Agricole Groupama：人物簡介與經歷"
+},
+"d251f3d22ada": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "南亞地區人口老化速度加快，人口紅利正逐漸縮小。",
+"title_zh": "南亞：人口老化加速，人口紅利正在縮減"
+},
+"d2a2b9673282": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "2026年前九個月全球巨災造成的保險損失達到910億美元。",
+"title_zh": "全球：2026年前九個月巨災保險損失達910億美元"
+},
+"d2f8009af1cd": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "COP31 氣候談判之際，彭博報導指出全球暖化使各界對其影響的預測屢屢落空。",
+"title_zh": "COP31 氣候談判：全球暖化的影響難以預測"
+},
+"d318536537a0": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "印度人壽保險公司（LIC）表示，其銷售通路已與 IRDAI 新規範的影響隔離開來，不致受到衝擊。",
+"title_zh": "LIC：銷售通路不受 IRDAI 新規範衝擊"
+},
+"d390aa826a2d": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "Lina人壽12日表示，1日上市的神經系統疾病綜合診斷特約取得排他性使用權；該特約為業界首度將神經系統疾病（G代碼）診斷保障整合為單一特約。",
+"title_zh": "Lina人壽「神經系統疾病診斷綜合保障」取得排他性使用權"
+},
+"d3d2e4f0846f": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "彭博（Bloomberg）以 37 項資金配置與影響力指標，對 8,000 檔永續債券進行對照整理。",
+"title_zh": "彭博以 37 項資金配置與影響力指標整理 8,000 檔永續債券"
+},
+"d3ff4222ccac": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "《華爾街日報》私募股權日報：高盛領投資安公司Daylight的成長型投資。",
+"title_zh": "PE Daily：高盛領投資安公司Daylight的成長型投資"
+},
+"d4297d805cfd": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "教保證券（Kyobo Securities）計畫發行規模994萬美元、連結KOSPI200的債券。",
+"title_zh": "教保證券計畫發行994萬美元的KOSPI200連結債券"
+},
+"d4bf1bbd2ca2": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "Massimore 加入顧問公司 Alvarez & Marsal，出任總監（director）一職。",
+"title_zh": "Massimore 加入 Alvarez & Marsal 擔任總監"
+},
+"d5302c8518d6": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "大都會人壽的一項研究指出，人們對自身福利保障存在錯誤的安全感。",
+"title_zh": "大都會人壽研究揭示對福利保障的錯誤安全感"
+},
+"d5bda2f4bb9c": {
+"category": "市場趨勢",
+"importance": "高",
+"summary_zh": "三星火災簽署收購英國Canopius經營權的合約。",
+"title_zh": "三星火災簽約收購英國Canopius經營權"
+},
+"d608ff27ca35": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽社長郭熙弼參與「救人的金融」活動。",
+"title_zh": "【照片】ABL人壽社長郭熙弼響應「救人的金融」"
+},
+"d62edc64976d": {
+"category": "監管動態",
+"importance": "低",
+"summary_zh": "新加坡金融管理局（MAS）媒體專區發布一則標題為「黃金保管服務」的訊息，輸入資料未提供內文。",
+"title_zh": "黃金保管服務"
+},
+"d697de4201bc": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "教保Lifeplanet人壽10日表示，與經營心理諮商平台的Atommerce策略合作，以SaaS方式供應自家健康管理平台「Laplay」的點數累積功能。",
+"title_zh": "教保Lifeplanet人壽向Atommerce供應「Laplay」健康管理功能"
+},
+"d6daf5f48d1e": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "彭博報導，魔術強森（Magic Johnson）旗下備受矚目的保險公司與 Mark Walter 的事業網路糾纏在一起。",
+"title_zh": "魔術強森的指標性保險公司捲入 Mark Walter 的關係網"
+},
+"d752ead1142e": {
+"category": "再保市場",
+"importance": "低",
+"summary_zh": "報導指出，漢諾威再保的股票表現受到費率價格壓力與穩健需求兩股力量相互權衡。",
+"title_zh": "漢諾威再保股票：價格壓力與穩健需求相互拉鋸"
+},
+"d7d14ebc45f4": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "文章探討印度最大的第三方管理機構（TPA）Medi Assist，以及它在個人（零售）理賠業務上面臨的問題。",
+"title_zh": "Medi Assist：印度最大第三方管理機構及其個人理賠業務的難題"
+},
+"d80712dda341": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "瑞士再保前九個月獲利成長3%，並維持2026年目標不變，報導聚焦其股票表現。",
+"title_zh": "瑞士再保前九個月獲利成長3%，維持2026年目標"
+},
+"d8c29dce6492": {
+"category": "消費者保護",
+"importance": "低",
+"summary_zh": "SBI損保於2026年11月改版的汽車保險滿期通知明信片，取得一般社團法人通用溝通設計協會（UCDA）的「易懂設計」認證。",
+"title_zh": "SBI損保【汽車保險首例】滿期通知明信片取得UCDA「易懂設計」認證"
+},
+"d99902e0ab3c": {
+"category": "人才與組織",
+"importance": "中",
+"summary_zh": "Bharti AXA人壽任命Amreesh Kher擔任合作夥伴長（Chief Partnership Officer），負責新銀行保險與策略聯盟業務。",
+"title_zh": "Bharti AXA人壽任命Amreesh Kher為合作夥伴長，負責新銀行保險與策略聯盟"
+},
+"da83b407d9cc": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "平安產險獲准發行10年期可贖回資本補充債券，發行規模不超過人民幣60億元（含60億元）。",
+"title_zh": "平安產險獲准發行10年期可贖回資本補充債券，發行規模不超過人民幣60億元（含60億元）"
+},
+"da83dae03357": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽與「夢想鬼怪」的受保護兒童一同為越南低收入家庭興建「愛之家」。",
+"title_zh": "教保人壽與「夢想鬼怪」受保護兒童為越南低收入家庭蓋「愛之家」"
+},
+"db2de80bcb33": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "京都府舞鶴市與住友生命共同主辦的活動發生個人資料外洩，流出內容包括姓名、電話號碼與任職單位等。",
+"title_zh": "京都府舞鶴市與住友生命共同主辦的活動發生「個資外洩」，姓名、電話、任職單位等流出"
+},
+"db541defecbd": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "MassMutual Ascend為旗下註冊指數連結型年金（RILA）推出名為「Cap Control」的新功能。",
+"title_zh": "MassMutual Ascend為註冊指數連結型年金推出「Cap Control」功能"
+},
+"dc51664827fe": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "報導介紹小額短期保險「流感慰問金」，只要一支智慧型手機即可完成從看診到申請保險金的流程。",
+"title_zh": "一支手機從看診到申請保險金全搞定！小額短期保險「流感慰問金」帶來的安心"
+},
+"dcefe225ec45": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "多個政府機關發布指導方針，以加快航運保險的發展。",
+"title_zh": "政府部門發布指引，加速航運保險發展"
+},
+"dd1f9a3181d1": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "印度壽險公司10月新契約保費年增26%，達4,291.4億盧比（42,914克若爾），其中印度人壽保險公司（LIC）帶動成長。",
+"title_zh": "印度壽險業10月新契約保費成長26%至4,291.4億盧比，LIC領先成長"
+},
+"dd5fe8b29002": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "Goltermann將加入瑞士再保企業解決方案（Swiss Re Corporate Solutions），擔任商務長（chief commercial officer）。",
+"title_zh": "Goltermann將加入瑞士再保企業解決方案擔任商務長"
+},
+"de4de3b587f8": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "印度 Max Financial Services 因估值風險升高，股票被給予「賣出」評等。",
+"title_zh": "Max Financial Services 估值風險升高，股票獲「賣出」評等"
+},
+"de6279ac453a": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "HDFC人壽排定於 11 月 16 日至 30 日，在孟買與杜拜舉行投資人會議。",
+"title_zh": "HDFC人壽排定 11 月 16 日至 30 日於孟買與杜拜舉行投資人會議"
+},
+"de6f3041ac83": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "文章探討日本的動態解約風險，以及如何管理保戶行為與資產負債表風險。",
+"title_zh": "日本的動態解約風險：管理保戶行為與資產負債表風險"
+},
+"de725958f19d": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "AI保險知識庫於2026年11月10日的更新內容。",
+"title_zh": "AI保險知識庫2026年11月10日更新內容"
+},
+"decfe715926f": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "中國鼓勵靈活就業人員參加職工養老保險。",
+"title_zh": "鼓勵靈活就業人員參加職工養老保險"
+},
+"df5c8b9c3c34": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽為改善兒童福利機構的環境，舉辦「DIY家具製作」志工活動。",
+"title_zh": "ABL人壽展開「DIY家具製作」志工活動，改善兒童福利機構環境"
+},
+"df7cacc2d1ca": {
+"category": "監管動態",
+"importance": "高",
+"summary_zh": "巴基斯坦參議院通過一項法案，為國營人壽保險公司（State Life Insurance Corporation）可能的民營化鋪路。",
+"title_zh": "巴基斯坦：參議院通過法案，國營人壽保險公司可能民營化"
+},
+"df935ea74dbc": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "紐西蘭因保險保障缺口，使病患被迫轉向療效較差的治療方式。",
+"title_zh": "紐西蘭：保險保障不足迫使病患改採療效較差的治療"
+},
+"e02866949a55": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB人壽為缺乏閱讀資源的兒童舉辦童話朗讀志工活動。",
+"title_zh": "DB人壽為閱讀弱勢兒童舉辦童話朗讀志工活動"
+},
+"e0e0c882e42b": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽代表郭熙弼參與「救人的金融」接力活動。",
+"title_zh": "ABL人壽代表郭熙弼響應「救人的金融」接力活動"
+},
+"e101e1cfe316": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "麥肯錫（McKinsey）的 Sternfels 談企業危機管理以及 AI 帶來的影響。",
+"title_zh": "麥肯錫的 Sternfels 談企業危機管理與 AI 的影響"
+},
+"e114bb2dddd4": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "澳洲壽險公司 Acenda Life 宣布新的領導層人事安排。",
+"title_zh": "澳洲：Acenda Life 宣布新領導團隊"
+},
+"e131baa22559": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "德國保險公司安聯連續第八年在Interbrand 2026年榜單居保險業之首，品牌價值達307億美元，並縮小與全球最大消費品牌的差距。",
+"title_zh": "安聯品牌價值創307億美元新高，蟬聯保險業排名第一"
+},
+"e1794ee5663f": {
+"category": "市場趨勢",
+"importance": "高",
+"summary_zh": "三星火災海上保險將與 KKR 及 KIC 一同收購 Canopius 的剩餘股權。",
+"title_zh": "三星火災海上保險將與 KKR、KIC 共同收購 Canopius 剩餘股權"
+},
+"e19fa05417d3": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "富德生命人壽與騰訊簽署戰略合作協議，雙方將共同建構保險AI新生態。",
+"title_zh": "富德生命人壽與騰訊簽署戰略合作協議 共建保險AI新生態"
+},
+"e1e9bf5a6249": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "「挑戰的企業」專題報導日本生命保險，以「安心的多面體」支撐社會。",
+"title_zh": "挑戰的企業・日本生命保險…以「安心的多面體」支撐社會"
+},
+"e1fe49fb4dc7": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "富德生命人壽與騰訊簽署戰略合作，雙方將攜手建構保險AI新生態。",
+"title_zh": "富德生命人壽與騰訊簽署戰略合作 攜手共建保險AI新生態"
+},
+"e21253b8f65b": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "Sphera推出新的產品永續合規解決方案。",
+"title_zh": "Sphera推出新的產品永續合規解決方案"
+},
+"e26ce3ca8149": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "麥肯錫指出，人工智慧最多可取代銀行七成的人工風險管理作業，讓人力轉向策略性工作。",
+"title_zh": "麥肯錫：AI 可望消除銀行最多70%的人工風險作業，釋出人力轉任策略性職務"
+},
+"e31344a4dbab": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "教保Lifeplanet人壽將健康照護SaaS事業擴大至韓國國內市場。",
+"title_zh": "教保Lifeplanet將健康照護SaaS事業擴大至國內"
+},
+"e316e484b79c": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "券商研究報告顯示，太平洋給予中國人壽「買入」評級。",
+"title_zh": "太平洋：給予中國人壽買入評級"
+},
+"e3ee4afb9e9a": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "首爾市與NH農協人壽合作，街友農村短期工作體驗計畫正式起步。",
+"title_zh": "首爾市與NH農協人壽啟動街友農村短期工作體驗計畫"
+},
+"e404a35a30de": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽參與「救人的金融」接力活動。",
+"title_zh": "ABL人壽響應「救人的金融」接力活動"
+},
+"e4746e969047": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "報導指出，義大利的保險業者仍然相信永續發展。",
+"title_zh": "永續發展：義大利保險業者依然相信"
+},
+"e4e0d6369353": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "慕尼黑再保加拿大（人壽）公司任命Rebecca Rycroft擔任財務長。",
+"title_zh": "慕尼黑再保加拿大（人壽）任命Rebecca Rycroft為財務長"
+},
+"e4f70de58914": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "Aflac生命與Hatch Healthcare公司因癌症保險服務「Aflac貼心癌症諮詢支援」使用者達到1萬人，發行該服務的使用實績報告。",
+"title_zh": "Aflac生命「Aflac貼心癌症諮詢支援」使用者達1萬人，發行使用實績報告"
+},
+"e514cb2da4c0": {
+"category": "消費者保護",
+"importance": "低",
+"summary_zh": "教保人壽將客服中心的「20秒內應答率」改善至90%。",
+"title_zh": "教保人壽客服中心「20秒內應答率」改善至90%"
+},
+"e51d438bad23": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "中國人保11月9日融券淨賣出3900股，連續3日累計淨賣出13.04萬股。",
+"title_zh": "中國人保：11月9日融券淨賣出3900股，連續3日累計淨賣出13.04萬股"
+},
+"e5974155307d": {
+"category": "人才與組織",
+"importance": "中",
+"summary_zh": "Marsh任命Marcus Baker為海事業務主席，Walls轉任全球職務；交接之際，市場波動與荷莫茲海峽受阻正迫使海事保險經紀人盡快找出解方。",
+"title_zh": "Marsh任命Marcus Baker為海事業務主席，Walls轉任全球職務"
+},
+"e5a8bf870441": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "KBRA確認ClearBridge Energy Midstream Opportunity Fund Inc.所發行優先票據與MRPS的評等，並授予MRPS S、T、U系列「A」評等，內容未涉及保險業務。",
+"title_zh": "KBRA確認ClearBridge Energy Midstream Opportunity Fund Inc.優先票據與MRPS評等，並授予MRPS S、T、U系列「A」評等"
+},
+"e6593f847ff5": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "Vantage Group Holdings成立臨時再保險（facultative reinsurance）業務，並任命Lisa Pickard為總裁。",
+"title_zh": "Vantage Group Holdings成立臨時再保險業務，並任命Lisa Pickard為總裁"
+},
+"e6a7cb86d5ac": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "Consumer Intelligence公布最新的住宅保險保費數據。",
+"title_zh": "Consumer Intelligence公布最新住宅保險保費數據"
+},
+"e80de5d6a102": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "宏利人壽推出針對高資產客戶的專屬計畫。",
+"title_zh": "宏利人壽推出高資產客戶專屬計畫"
+},
+"e818f89c7b61": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "信評機構KBRA授予Navient Refinance Loan Trust 2026-C初步評等，內容未涉及保險業務。",
+"title_zh": "KBRA授予Navient Refinance Loan Trust 2026-C初步評等"
+},
+"e86a56d266db": {
+"category": "再保市場",
+"importance": "低",
+"summary_zh": "Berenberg認為，在再保險市場走軟的環境下漢諾威再保仍可望成長，並更新了獲利預估與目標價。",
+"title_zh": "Berenberg：再保市場走軟下漢諾威再保仍可望成長，並更新預估與目標價"
+},
+"e870cdb81b5a": {
+"category": "ESG永續",
+"importance": "低",
+"summary_zh": "施耐德電機（Schneider Electric）認為，若太陽能、電池與需求同步擴大規模，電力系統成本最多可降低 40%。",
+"title_zh": "施耐德電機：太陽能、電池與需求若同步擴大，電力系統成本最多可降 40%"
+},
+"e8c543bcbcc3": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "友利金融集團旗下的ABL人壽參與「救人的金融」接力活動。",
+"title_zh": "友利金融集團旗下ABL人壽響應「救人的金融」接力活動"
+},
+"e91f8b63d0c0": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "AM Best將Georgia Farm Bureau Group旗下成員公司的發行人信用評等展望調整為正向。",
+"title_zh": "AM Best將Georgia Farm Bureau Group成員公司的發行人信用評等展望調整為正向"
+},
+"e93978b4345d": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "DB損保12日表示，今年第三季累計本期淨利為1兆5605億韓元，較去年同期1兆4118億韓元成長10.5%；投資損益減少，但長期保險獲利能力改善。",
+"title_zh": "DB損保第三季累計淨利1兆5605億韓元，年增10.5%"
+},
+"e991d21f1108": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽在越南永隆進行志工服務，內容包括興建住宅與支援小學教育。",
+"title_zh": "教保人壽在越南永隆進行住宅興建與小學教育支援志工服務"
+},
+"ea063e6483a3": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "Alex Eala 在驚險的準決賽中以 7-5、3-6、6-4 擊敗希臘選手 Maria Sakkari，晉級 2026 年保誠香港網球公開賽決賽。",
+"title_zh": "距離冠軍更近一步！Alex Eala 在準決賽以 7-5、3-6、6-4 擊敗希臘的 Maria Sakkari，晉級 2026 年保誠香港網球公開賽決賽"
+},
+"ea4e944092fa": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "一張3.18億美元的保單再度刷新紀錄，文章探討保險如何化解「富不過三代」的焦慮。",
+"title_zh": "3.18億美元保單再破紀錄，一份保險如何化解「富不過三代」的焦慮"
+},
+"eadf6c2a247b": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "11月人壽保險品牌評價由教保人壽居首，未來資產人壽與三星人壽分居第2、3名。",
+"title_zh": "人壽保險11月品牌評價第1名為教保人壽…第2、3名為未來資產人壽、三星人壽"
+},
+"eae73d1b62b1": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB人壽為缺乏閱讀資源的兒童舉辦「童話朗讀聲音志工」活動。",
+"title_zh": "DB人壽為閱讀弱勢兒童舉辦「童話朗讀聲音志工」活動"
+},
+"eb28042eb854": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "印度航運公司Great Eastern Shipping Co Ltd（GESHIP6.BO）的季節性報酬圖表頁面，該公司為航運業者，並非保險公司大東方。",
+"title_zh": "Great Eastern Shipping Co Ltd（GESHIP6.BO）季節性報酬圖表"
+},
+"eb5d5242ead0": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "教保證券（Kyobo Securities）在股權連結商品的發行中，募得的資金有限。",
+"title_zh": "教保證券股權連結商品發行募得資金有限"
+},
+"eb62f6383339": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "YouGov 調查顯示，友邦（AIA）是新加坡消費者最願意考慮的保險品牌第一名。",
+"title_zh": "YouGov：友邦居新加坡消費者最願意考慮的保險品牌之首"
+},
+"ec4d9cd9253f": {
+"category": "科技應用",
+"importance": "低",
+"summary_zh": "南韓保險研究院將與一所瑞士大學就人工智慧風險展開合作。",
+"title_zh": "南韓：保險研究院將與瑞士大學合作研究 AI 風險"
+},
+"ec73a55a9dcc": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "教保Lifeplanet人壽擴大「Laplay」SaaS事業，並與Atommerce在健康照護領域合作。",
+"title_zh": "教保Lifeplanet人壽擴大「Laplay」SaaS事業…與Atommerce展開健康照護合作"
+},
+"ec8a009cfa36": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "德勤（Deloitte）發表觀點，探討在AI時代董事會應如何治理人力資本。",
+"title_zh": "AI時代的董事會人力資本治理"
+},
+"ecc22478bd9d": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "Aon與慕尼黑再保針對印尼與菲律賓推出參數型流行病保障解決方案。",
+"title_zh": "Aon與慕尼黑再保為印尼與菲律賓推出參數型流行病解決方案"
+},
+"ece251592602": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "印度 SBI人壽（SBI Life Insurance Company）公布上半年稅後淨利（PAT）成長 17%。",
+"title_zh": "SBI人壽上半年稅後淨利成長 17%"
+},
+"eda79b749d07": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽參與「救人的金融」活動。",
+"title_zh": "ABL人壽響應「救人的金融」活動"
+},
+"ee53c53219fc": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "NH農協人壽在農忙期前往人手不足的農家，揮汗協助農務。",
+"title_zh": "【一起走吧，我們的ESG】NH農協人壽揮汗支援農忙期人手不足的農家"
+},
+"ee9496ba52b0": {
+"category": "科技應用",
+"importance": "中",
+"summary_zh": "教保Lifeplanet人壽與心理諮商平台Atommerce在健康照護領域展開合作。",
+"title_zh": "教保Lifeplanet人壽與心理諮商平台Atommerce展開健康照護合作"
+},
+"ef277ac9342b": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "明治安田生命向關市捐贈131萬日圓，用於增進健康。",
+"title_zh": "明治安田生命向關市捐贈131萬日圓，用於增進健康"
+},
+"f016d0508b39": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "日本生命印度資產管理公司宣布推出多樣化的投資方案。",
+"title_zh": "日本生命印度資產管理公司公布多樣化的投資方案"
+},
+"f1e47f8c3fa2": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "金軟景在節目《新人教練2》中擊敗老東家興國人壽，最高收視率達到7%。",
+"title_zh": "金軟景擊敗老東家興國人壽，最高收視率衝上7%（《新人教練2》）"
+},
+"f2f564af232b": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "教保證券（Kyobo Securities）申報發行規模100億韓元、連結SK海力士的債券。",
+"title_zh": "教保證券申報100億韓元的SK海力士連結債券"
+},
+"f364e6614eb5": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "HDFC人壽改以微短劇作為溝通方式，希望讓定期壽險與年輕消費者更有關聯。",
+"title_zh": "HDFC人壽以微短劇讓定期壽險貼近年輕消費者"
+},
+"f3a0ca086bc6": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "瑞士再保任命Pierre-Albert Bouard負責領導東南亞的人壽與健康險（L&H）再保險業務。",
+"title_zh": "瑞士再保任命Pierre-Albert Bouard領導東南亞人壽與健康險再保業務"
+},
+"f4cec9ce717e": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "三井住友海上愛和誼生命表示，在調查同集團三井住友海上、愛和誼日生同和損保系統遭第三方未經授權存取的影響時，確認發生資訊外洩。",
+"title_zh": "三井住友海上愛和誼生命：集團公司遭未經授權存取致資訊外洩"
+},
+"f5366b415984": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "東京海上在英國的人形機器人保險領域取得立足點，報導從其股票角度切入。",
+"title_zh": "東京海上股票：在英國人形機器人保險領域取得立足點"
+},
+"f539e1c01ecb": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "Optio 任命 Jamie Jeffers 擔任其亞洲業務的董事總經理。",
+"title_zh": "Optio 任命 Jamie Jeffers 為亞洲業務董事總經理"
+},
+"f5d03d38eda9": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "友利金融集團旗下的ABL人壽參與「救人的金融」活動，藉此實踐普惠金融。",
+"title_zh": "友利金融集團旗下ABL人壽響應「救人的金融」活動…實踐普惠金融"
+},
+"f653f1178e63": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "芝加哥Wacker Drive一棟辦公大樓以75%的折價售出。",
+"title_zh": "Wacker Drive辦公大樓以75%折價售出"
+},
+"f6a0b678aa01": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "保險業簡訊彙整，涵蓋現代海上、農協損保、ABL人壽與DB人壽的動態。",
+"title_zh": "【保險簡訊】現代海上、農協損保、ABL人壽、DB人壽"
+},
+"f6e87d2a83ee": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "教保人壽透過改善客戶引導與申訴處理流程，強化消費者保護。",
+"title_zh": "教保人壽改善客戶引導與申訴處理，強化消費者保護"
+},
+"f7563cab1c97": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Godrej Properties、SBI人壽以及另外 4 檔 Nifty 500 成分股，股價突破 200 日指數移動平均線。",
+"title_zh": "Godrej Properties、SBI人壽等 6 檔 Nifty 500 成分股突破 200 日指數移動平均線"
+},
+"f7722b44668f": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "新加坡壽險公司在2026年前9個月的給付金額超過150億元。",
+"title_zh": "新加坡壽險公司2026年前9個月給付逾150億元"
+},
+"f8f09ec00395": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "ABL人壽參與「救人的金融」接力活動。",
+"title_zh": "ABL人壽參與「救人的金融」接力活動"
+},
+"f96ee948028e": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "DB人壽向孩子們致贈「聲音童話」。",
+"title_zh": "DB人壽送給孩子們「聲音童話」"
+},
+"f985780bdee1": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "教保人壽精進金融消費者保護體系，涵蓋客戶溝通到申訴解決，獲金融監督院選為模範案例。",
+"title_zh": "「從客戶溝通到申訴解決都完善」…教保人壽精進金融消費者保護體系，獲金融監督院選為模範案例"
+},
+"f99c4a6f43b0": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "東洋人壽開始接受金融監督院的定期檢查，財務健全性的檢視結果受到關注。",
+"title_zh": "東洋人壽進入金融監督院定期檢查…財務健全性檢視受矚目"
+},
+"f9e38aca0d62": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "ICICI保誠共同基金旗下 ICICI Prudential Value Fund Series 1（代號 536806.BO）的行情頁面。",
+"title_zh": "ICICI保誠共同基金－ICICI Prudential Value Fund Series 1（536806.BO）"
+},
+"fa1c2a40f958": {
+"category": "無關",
+"importance": "低",
+"summary_zh": "信評機構KBRA授予Pizza Hut Issuer LLC 2026-1系列初步評等，內容未涉及保險業務。",
+"title_zh": "KBRA授予Pizza Hut Issuer LLC 2026-1系列初步評等"
+},
+"fa8827aa25db": {
+"category": "消費者保護",
+"importance": "中",
+"summary_zh": "愛和誼日生同和損保表示，在針對2026年11月4日公布的系統遭第三方未經授權存取事件進行影響調查時，確認已發生資訊外洩。",
+"title_zh": "愛和誼日生同和損保：系統遭未經授權存取致資訊外洩"
+},
+"faea5280a7fe": {
+"category": "再保市場",
+"importance": "低",
+"summary_zh": "在SIRC 2026上，隨著風險環境變得複雜，金融險種的費率適足性成為關注焦點。",
+"title_zh": "SIRC 2026：風險環境日趨複雜，金融險費率適足性成焦點"
+},
+"fb1394d93296": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "生命保險文化中心以日本全國中學生為對象舉辦的第64屆中學生作文比賽，得獎者已經選出；該比賽獲文部科學省、金融廳等後援及生命保險協會協辦。",
+"title_zh": "生命保險文化中心：第64屆中學生作文比賽「我們的生活與生命保險」得獎者出爐"
+},
+"fb29afb6911d": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "河北成立中國全國第一個OPC科技保險共保體。",
+"title_zh": "河北成立全國首個OPC科技保險共保體"
+},
+"fba3046d0cf9": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "教保人壽在越南興建「愛之家」，進行居住與教育支援的志工服務。",
+"title_zh": "教保人壽在越南蓋「愛之家」…居住與教育支援志工服務"
+},
+"fba5814a68eb": {
+"category": "再保市場",
+"importance": "中",
+"summary_zh": "Gallagher Re 的 Bowen 指出，2026年全球巨災保險損失已突破1,000億美元，但這樣的規模已不足以明顯左右再保市場走勢。",
+"title_zh": "Gallagher Re 的 Bowen：2026年巨災保險損失突破1,000億美元，已不足以撼動市場"
+},
+"fc472a92ed52": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "Starr Chile獲AM Best授予A評等。",
+"title_zh": "Starr Chile獲AM Best授予A評等"
+},
+"fc620fd888ae": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "Anicom損保將自2027年4月起修訂寵物保險「どうぶつ健保」的商品與附帶服務；該公司提供健康諮詢、走失協尋等多項保險附帶服務。",
+"title_zh": "Anicom損保將於2027年4月修訂寵物保險「どうぶつ健保」的商品與附帶服務"
+},
+"fc9f00529fef": {
+"category": "人才與組織",
+"importance": "低",
+"summary_zh": "彭博關於 Groupama 的Stephane Cools 的人物簡介與經歷頁面。",
+"title_zh": "Stephane Cools，Caisse Nationale de Reassurance Mutuelle Agricole Groupama：人物簡介與經歷"
+},
+"fcbc29d02823": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "RBC對漢諾威再保維持「中立」評等。",
+"title_zh": "漢諾威再保：RBC維持中立評等"
+},
+"fd87088a30c7": {
+"category": "市場趨勢",
+"importance": "低",
+"summary_zh": "印尼保誠（Prudential Indonesia）表示將維持其長期投資策略。",
+"title_zh": "印尼保誠維持長期投資策略"
+},
+"fe592641686a": {
+"category": "監管動態",
+"importance": "中",
+"summary_zh": "香港監管機構就檢討年費與保費徵費事宜展開公眾諮詢。",
+"title_zh": "香港：監管機構就檢討年費與保費徵費展開公眾諮詢"
+},
+"fe66cafd75f1": {
+"category": "行銷推廣",
+"importance": "低",
+"summary_zh": "印尼 Sequis Life 鼓勵民眾在購買保險之前，先了解保單內容。",
+"title_zh": "Sequis Life 呼籲民眾購買保險前先了解保單"
+},
+"fe9f92ac0d29": {
+"category": "ESG永續",
+"importance": "中",
+"summary_zh": "瑞士再保研究院（Swiss Re Institute）的研究發現，氣候調適計畫每支出1美元可帶來2美元的效益。",
+"title_zh": "瑞士再保研究院：氣候調適計畫每投入1美元可帶來2美元效益"
+},
+"ff4b803fd3e4": {
+"category": "產品創新",
+"importance": "中",
+"summary_zh": "Aon與慕尼黑再保在印尼與菲律賓推出針對餐旅業風險的疫情保障。",
+"title_zh": "Aon與慕尼黑再保在印尼、菲律賓推出餐旅業風險的疫情保障"
+},
+"ffb0f8fac138": {
+"category": "市場趨勢",
+"importance": "中",
+"summary_zh": "瑞士再保公布前九個月淨利成長3%，達42億美元。",
+"title_zh": "瑞士再保前九個月淨利成長3%至42億美元"
+},
+"fff41dd38b1e": {
+"category": "消費者保護",
+"importance": "高",
+"summary_zh": "Tama Home被發現有保險金不實請領情事，大型產險公司受到強烈衝擊，報導探討是否會演變成第二個「Big Motor事件」。",
+"title_zh": "Tama Home爆出保險金不實請領，大型產險業者大受震盪，會成為第二個「Big Motor事件」嗎"
+}
 }
