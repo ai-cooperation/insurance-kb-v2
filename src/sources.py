@@ -100,7 +100,9 @@ _GNEWS_EXISTING = [
          region="香港"),
     _src("gnews_hk_companies_3", "香港保險公司 3",
          _gnews('"China Taiping" Hong Kong OR "BOC Life" '
-                'OR "中銀人壽" OR "中國人壽香港"', lang="zh-Hant", country="HK"),
+                'OR "中銀人壽" OR "中國人壽香港"',
+                days=30,   # sparse: 0 items/7d, 2 items/30d (2026-11-21, ops-inbox #19)
+                lang="zh-Hant", country="HK"),
          region="香港"),
     _src("gnews_hk_companies_4", "香港保險公司 4 (CTF / FTLife / new entrants)",
          _gnews('"CTF Life" OR "周大福人壽" OR "FTLife" '
