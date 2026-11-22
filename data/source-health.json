@@ -40,7 +40,7 @@
   "last": "2026-11-02"
  },
  "gnews_hk_companies_4": {
-  "status": "ok",
+  "status": "overdue",
   "last": "2026-11-16"
  },
  "gnews_hk_regulator": {
@@ -113,7 +113,7 @@
  },
  "gnews_kr_industry": {
   "status": "ok",
-  "last": "2026-11-20"
+  "last": "2026-11-21"
  },
  "gnews_reinsurers": {
   "status": "ok",
@@ -197,7 +197,7 @@
  },
  "gnews_product_launch_zh": {
   "status": "ok",
-  "last": "2026-11-20"
+  "last": "2026-11-21"
  },
  "gnews_hive_insurance": {
   "status": "ok",
@@ -269,19 +269,19 @@
  },
  "gnews_in_lifers_2": {
   "status": "ok",
-  "last": "2026-11-20"
+  "last": "2026-11-21"
  },
  "gnews_in_industry": {
   "status": "ok",
-  "last": "2026-11-20"
+  "last": "2026-11-21"
  },
  "gnews_id_lifers": {
   "status": "ok",
   "last": "2026-11-21"
  },
  "gnews_th_lifers": {
-  "status": "overdue",
-  "last": "2026-11-13"
+  "status": "ok",
+  "last": "2026-11-20"
  },
  "gnews_th_lifers_en": {
   "status": "ok",
