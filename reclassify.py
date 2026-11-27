@@ -261,6 +261,8 @@ def reclassify(
                     temperature=0.3,
                     max_tokens=2000,
                 )
+                from src.translation_usage import log_usage
+                log_usage(label, current_model, response, len(batch_articles))
                 text = response.choices[0].message.content.strip()
                 if text.startswith("```"):
                     text = text.split("\n", 1)[1] if "\n" in text else text[3:]

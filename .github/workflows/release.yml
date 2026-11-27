@@ -1,6 +1,9 @@
 name: Release Insurance KB
 
 on:
+  push:
+    branches: [main]
+    paths: ['repairs/translation-batch-*.json']
   workflow_dispatch:
     inputs:
       deploy_worker:
@@ -24,12 +27,20 @@ permissions:
 
 jobs:
   release:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Verify release head
+        env:
+          RELEASE_SHA: ${{ github.sha }}
+        run: |
+          CURRENT_MAIN=$(git ls-remote origin refs/heads/main | cut -f1)
+          test "$CURRENT_MAIN" = "$RELEASE_SHA" || { echo 'Stale release; re-review against current main'; exit 1; }
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -41,6 +52,12 @@ jobs:
           pip install -r requirements.txt pytest
           npm install --prefix frontend --no-audit --no-fund
           npm install --prefix workers --no-audit --no-fund
+      - name: Verify translation batch
+        id: translation
+        if: github.event_name == 'push'
+        env:
+          BASE_SHA: ${{ github.event.before }}
+        run: python -m src.translation_batch_check --base "$BASE_SHA" --required
       - name: Verify publication
         run: |
           python -m pytest tests -q
@@ -95,15 +112,15 @@ jobs:
         run: |
           python -c 'import requests; r=requests.get("https://insurance-kb-api.alan-chen75.workers.dev/mcp/manifest",timeout=30); r.raise_for_status(); m=r.json(); assert m["version"]=="0.5.1"; assert {"get_article","list_knowledge"}.issubset({t["name"] for t in m["tools"]}); s=next(t for t in m["tools"] if t["name"]=="search_articles"); assert "cursor" not in s["inputSchema"]["properties"] and s["inputSchema"]["properties"]["limit"]["maximum"]==20; print("Live MCP 0.5.1 compact complete-search contract verified")'
       - name: Synchronize Agent D1 search index
-        if: inputs.agent_sync_plan != ''
+        if: github.event_name == 'push' || inputs.agent_sync_plan != ''
         env:
-          AGENT_INDEX_SYNC_PLAN: ${{ inputs.agent_sync_plan }}
+          AGENT_INDEX_SYNC_PLAN: ${{ steps.translation.outputs.plan || inputs.agent_sync_plan }}
           AGENT_INDEX_SYNC_TOKEN: ${{ secrets.AGENT_INDEX_SYNC_TOKEN }}
         run: |
           python -c 'import os; from pathlib import Path; p=Path(os.environ["AGENT_INDEX_SYNC_PLAN"]).resolve(); assert p.is_file() and p.is_relative_to((Path.cwd() / "repairs").resolve()), "Sync plan must be inside repairs/"'
           python -m src.agent_search_sync
       - name: Retain failed Agent sync plan
-        if: failure() && inputs.agent_sync_plan != ''
+        if: failure() && (github.event_name == 'push' || inputs.agent_sync_plan != '')
         uses: actions/upload-artifact@v4
         with:
           name: agent-sync-plan-${{ github.run_id }}-${{ github.run_attempt }}

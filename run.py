@@ -198,17 +198,12 @@ def main():
     articles = [classify_rule(art) for art in articles]
     logger.info("Phase 2 complete")
 
-    # Phase 3: LLM classification (Chinese title + summary via GitHub Models)
+    # Always enter the cascade when AI is enabled: missing credentials must
+    # record explicit pending fields and alert, not silently bypass tracking.
     if not args.no_ai:
-        if os.environ.get("GROQ_API_KEY") or os.environ.get("GEMINI_API_KEY"):
-            logger.info("Phase 3: LLM classification via provider cascade (batches of 5)...")
-            articles = classify_llm_batch(articles)
-            logger.info("Phase 3 complete")
-        else:
-            logger.warning(
-                "Phase 3 skipped: no GROQ_API_KEY / GEMINI_API_KEY set. "
-                "Set one for Chinese title/summary generation."
-            )
+        logger.info("Phase 3: LLM classification via provider cascade (batches of 5)...")
+        articles = classify_llm_batch(articles)
+        logger.info("Phase 3 complete")
     else:
         logger.info("Phase 3 skipped (--no-ai flag)")
 

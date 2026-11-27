@@ -62,6 +62,7 @@ jobs:
 
       - name: Run reclassify
         env:
+          GEMINI_CLOUD_API_KEY: ${{ secrets.GEMINI_CLOUD_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MODELS_PAT: ${{ secrets.MODELS_PAT }}

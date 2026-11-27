@@ -6,10 +6,14 @@ import yaml
 def test_release_is_explicit_serialized_data_first_and_fail_loud():
     path = Path(__file__).resolve().parents[1] / ".github/workflows/release.yml"
     flow = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
-    assert set(flow["on"]) == {"workflow_dispatch"}
+    assert set(flow["on"]) == {"workflow_dispatch", "push"}
+    assert flow["on"]["push"]["branches"] == ["main"]
+    assert flow["on"]["push"]["paths"] == ["repairs/translation-batch-*.json"]
     assert flow["concurrency"]["group"] == "insurance-kb-pipeline"
     steps = flow["jobs"]["release"]["steps"]
     names = [s.get("name", "") for s in steps]
+    assert names.index("Verify translation batch") < names.index("Deploy Pages")
+    assert steps[0]["with"]["ref"] == "${{ github.sha }}"
     assert names.index("Verify publication") < names.index("Deploy Pages")
     assert names.index("Verify published data") < names.index("Deploy Worker")
     assert names.index("Verify deployment targets") < names.index("Deploy Pages")

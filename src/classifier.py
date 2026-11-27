@@ -620,14 +620,15 @@ def _merge_llm_results(batch: list, translations: list) -> list:
                 if _detect_kr_sports(title_zh, src_title):
                     filter_reason = "noise_sports"
 
-            merged.append({
+            from src.translation_queue import mark_result
+            merged.append(mark_result({
                 **art,
                 "title_zh": title_zh,
                 "summary_zh": summary_zh,
                 "category": llm_cat,
                 "importance": importance,
                 "filter": filter_reason,
-            })
+            }, t))
         else:
             merged.append(art)
     return merged
@@ -719,7 +720,13 @@ def _build_cascade() -> list:
     from openai import OpenAI
 
     slots = []
-    for name, base_url, env_var, models in TRANSLATE_PROVIDERS:
+    # 2026-11-27: a separate key binds usage to the user's Cloud-credit
+    # project. The API endpoint stays Gemini Developer API, not Vertex AI.
+    # Credit eligibility is a billing setting; this code cannot guarantee it.
+    gemini = next(p for p in TRANSLATE_PROVIDERS if p[0] == "gemini")
+    providers = [("gemini-cloud", gemini[1], "GEMINI_CLOUD_API_KEY", gemini[3]),
+                 *TRANSLATE_PROVIDERS]
+    for name, base_url, env_var, models in providers:
         key = os.environ.get(env_var, "")
         if not key:
             logger.info("Provider %s skipped (no %s)", name, env_var)
@@ -755,6 +762,8 @@ def classify_llm_batch(
     exhausted, remaining articles stay untranslated and the failure-rate
     alarm fires.
     """
+    from src.translation_queue import mark_attempts
+    articles = mark_attempts(articles)
     try:
         slots = _build_cascade()
     except ImportError:
@@ -801,6 +810,8 @@ def classify_llm_batch(
                     max_tokens=completion_budget(model, len(batch)),
                     extra_body=extra,
                 )
+                from src.translation_usage import log_usage
+                log_usage(label, model, response, len(batch))
                 text = (response.choices[0].message.content or "").strip()
                 translations = _parse_llm_json(text)
                 if translations is not None:

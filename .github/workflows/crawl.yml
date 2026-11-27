@@ -64,7 +64,8 @@ jobs:
 
       - name: Run crawl pipeline
         env:
-          # Translation cascade: Groq primary, Gemini fallback quota pool.
+          # Credit-project Gemini first when configured; legacy keys are fallback.
+          GEMINI_CLOUD_API_KEY: ${{ secrets.GEMINI_CLOUD_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # Phase 3 failure-rate + Phase 4.5 name-consistency alerts
