@@ -22,7 +22,7 @@ def _make_entry(article: dict) -> dict:
         # backfill overwrote `title` with zh, silently destroying the
         # original for 54 articles (broke original-language search,
         # cross-source dedup, and name-consistency checks for them).
-        # title == title_en simply marks an untranslated row.
+        # Equality does not prove a failed translation: originals may be Chinese.
         "title_en": article.get("title", ""),
         "date": article.get("published") or datetime.now().strftime("%Y-%m-%d"),
         "source": article.get("source_id", ""),
@@ -75,6 +75,10 @@ def update_index(articles: list) -> list:
     else:
         logger.info("No new entries to add. Index has %d entries.", len(index))
 
+    # Persist only explicit attempt results, separately from content hashes.
+    # A queue write failure aborts crawl before its git commit/publication.
+    from src.translation_queue import record_attempts
+    record_attempts(articles, index, INDEX_PATH.parent / "translation-queue.json")
     return index
 
 

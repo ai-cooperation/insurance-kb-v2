@@ -40,6 +40,7 @@ concurrency:
 permissions:
   contents: write
   actions: read
+  id-token: write
 
 jobs:
   crawl:
@@ -62,9 +63,24 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Authenticate Google Cloud translation
+        id: vertex-auth
+        # 2026-11-27: Cloud HTTP passed, translation quality failed. Keep opt-in
+        # disabled until reviewed samples and main-only OIDC validation pass.
+        if: github.ref == 'refs/heads/main' && vars.VERTEX_TRANSLATION_ENABLED == 'true' && vars.VERTEX_PROJECT_ID != ''
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
+        with:
+          project_id: ${{ vars.VERTEX_PROJECT_ID }}
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_VERTEX_SERVICE_ACCOUNT }}
+          create_credentials_file: true
+          export_environment_variables: true
+
       - name: Run crawl pipeline
         env:
-          # Translation cascade: Groq primary, Gemini fallback quota pool.
+          VERTEX_PROJECT_ID: ${{ vars.VERTEX_TRANSLATION_ENABLED == 'true' && vars.VERTEX_PROJECT_ID || '' }}
+          VERTEX_LOCATION: global
+          VERTEX_MODEL: ${{ vars.VERTEX_MODEL || 'gemini-3.5-flash-lite' }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # Phase 3 failure-rate + Phase 4.5 name-consistency alerts
@@ -103,7 +119,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
+          # auth creates short-lived WIF configuration, never commit it.
+          git add -A -- . ':!gha-creds-*.json'
           # index/ is ignored: force-add every new immutable shard and snapshot.
           git add -f index/master-index.json index/objects/ index/snapshots/
           python -m src.publication_check --staged

@@ -40,6 +40,7 @@ concurrency:
 permissions:
   contents: write
   actions: read
+  id-token: write
 
 jobs:
   reclassify:
@@ -60,8 +61,23 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Authenticate Google Cloud translation
+        id: vertex-auth
+        # Same quality gate as crawl; see validation/cloud-translation-20261127.json.
+        if: github.ref == 'refs/heads/main' && vars.VERTEX_TRANSLATION_ENABLED == 'true' && vars.VERTEX_PROJECT_ID != '' && inputs.translations_file == ''
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
+        with:
+          project_id: ${{ vars.VERTEX_PROJECT_ID }}
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_VERTEX_SERVICE_ACCOUNT }}
+          create_credentials_file: true
+          export_environment_variables: true
+
       - name: Run reclassify
         env:
+          VERTEX_PROJECT_ID: ${{ vars.VERTEX_TRANSLATION_ENABLED == 'true' && vars.VERTEX_PROJECT_ID || '' }}
+          VERTEX_LOCATION: global
+          VERTEX_MODEL: ${{ vars.VERTEX_MODEL || 'gemini-3.5-flash-lite' }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MODELS_PAT: ${{ secrets.MODELS_PAT }}

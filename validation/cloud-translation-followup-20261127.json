@@ -1,0 +1,378 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-27",
+  "base_commit": "96423ffc0ec0be3294eec6577d956fabcbf813e9",
+  "project": "gen-lang-client-0158989334",
+  "synthetic_input": true,
+  "auth": "Local user short-lived OAuth, not GitHub OIDC",
+  "rounds": [
+    {
+      "round": 4,
+      "review": "FAIL",
+      "reason": "Still mistranslated Synthetic and invented claim amounts",
+      "original_report": {
+        "synthetic_input": true,
+        "project": "gen-lang-client-0158989334",
+        "checks": {
+          "two_cloud_calls": true,
+          "both_titles_chinese": true,
+          "both_summaries_chinese": true,
+          "both_completed": true,
+          "quantity_preserved": true,
+          "claim_measure_not_invented": false,
+          "location_preserved": true,
+          "no_unstated_context": true,
+          "synthetic_title_preserved": false,
+          "fictional_insurer_preserved": true
+        },
+        "cloud_calls": [
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2243,
+              "completion_tokens": 70,
+              "total_tokens": 2313
+            }
+          },
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2243,
+              "completion_tokens": 66,
+              "total_tokens": 2309
+            }
+          }
+        ],
+        "translations": [
+          {
+            "uid": "synthetic-en",
+            "title": "Synthetic insurance report: claims fell 12 percent",
+            "snippet": "Synthetic for testing only. An insurer reported that claims fell 12 percent.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "綜合保險報告：理賠下降百分之十二",
+            "summary_zh": "一家保險公司報告指出，理賠金額下降百分之十二。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          },
+          {
+            "uid": "synthetic-ja",
+            "title": "架空の保険会社が台北に支店を開設",
+            "snippet": "Synthetic for testing only. A fictional insurer opened a branch in Taipei.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "架空保險公司在台北開設分公司",
+            "summary_zh": "一家架空保險公司在台北開設分公司。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "review": "FAIL",
+      "reason": "Original checks passed but source metadata/excerpt leaked into titles and summary omitted qualifier",
+      "original_report": {
+        "synthetic_input": true,
+        "project": "gen-lang-client-0158989334",
+        "checks": {
+          "two_cloud_calls": true,
+          "both_titles_chinese": true,
+          "both_summaries_chinese": true,
+          "both_completed": true,
+          "quantity_preserved": true,
+          "claim_measure_not_invented": true,
+          "location_preserved": true,
+          "no_unstated_context": true,
+          "synthetic_title_preserved": true,
+          "fictional_insurer_preserved": true
+        },
+        "cloud_calls": [
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2347,
+              "completion_tokens": 81,
+              "total_tokens": 2428
+            }
+          },
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2347,
+              "completion_tokens": 88,
+              "total_tokens": 2435
+            }
+          }
+        ],
+        "translations": [
+          {
+            "uid": "synthetic-en",
+            "title": "Synthetic insurance report: claims fell 12 percent",
+            "snippet": "Synthetic for testing only. An insurer reported that claims fell 12 percent.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "合成保險報告：理賠下降 12 % - 未知 - 僅供測試用的合成。",
+            "summary_zh": "一家保險公司報告指出，理賠下降 12 %。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          },
+          {
+            "uid": "synthetic-ja",
+            "title": "架空の保険会社が台北に支店を開設",
+            "snippet": "Synthetic for testing only. A fictional insurer opened a branch in Taipei.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "架空保險公司在台北開設分公司 - unknown - 僅供測試合成。一家虛構保險公司在台北開設了分公司。",
+            "summary_zh": "一家虛構保險公司在台北開設了分公司。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "review": "FAIL",
+      "reason": "JSON fields fixed title boundaries, but first summary still omitted testing qualifier",
+      "original_report": {
+        "synthetic_input": true,
+        "project": "gen-lang-client-0158989334",
+        "checks": {
+          "two_cloud_calls": true,
+          "both_titles_chinese": true,
+          "both_summaries_chinese": true,
+          "both_completed": true,
+          "source_metadata_not_in_title": true,
+          "quantity_preserved": true,
+          "claim_measure_not_invented": true,
+          "location_preserved": true,
+          "no_unstated_context": true,
+          "synthetic_title_preserved": true,
+          "fictional_insurer_preserved": true,
+          "summary_qualifiers_preserved": false
+        },
+        "cloud_calls": [
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2444,
+              "completion_tokens": 70,
+              "total_tokens": 2514
+            }
+          },
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2444,
+              "completion_tokens": 75,
+              "total_tokens": 2519
+            }
+          }
+        ],
+        "translations": [
+          {
+            "uid": "synthetic-en",
+            "title": "Synthetic insurance report: claims fell 12 percent",
+            "snippet": "Synthetic for testing only. An insurer reported that claims fell 12 percent.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "合成保險報告：理賠下降 12%",
+            "summary_zh": "一家保險公司報告指出，理賠下降 12%。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          },
+          {
+            "uid": "synthetic-ja",
+            "title": "架空の保険会社が台北に支店を開設",
+            "snippet": "Synthetic for testing only. A fictional insurer opened a branch in Taipei.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "架空保險公司在台北開設分公司",
+            "summary_zh": "僅供測試用的合成資料。一家虛構的保險公司在台北開設了分公司。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          }
+        ]
+      }
+    },
+    {
+      "round": 7,
+      "review": "PASS for these two fixtures",
+      "reason": "Both titles and summaries faithful to saved synthetic sources",
+      "original_report": {
+        "synthetic_input": true,
+        "project": "gen-lang-client-0158989334",
+        "checks": {
+          "two_cloud_calls": true,
+          "both_titles_chinese": true,
+          "both_summaries_chinese": true,
+          "both_completed": true,
+          "source_metadata_not_in_title": true,
+          "quantity_preserved": true,
+          "claim_measure_not_invented": true,
+          "location_preserved": true,
+          "no_unstated_context": true,
+          "synthetic_title_preserved": true,
+          "fictional_insurer_preserved": true,
+          "summary_qualifiers_preserved": true
+        },
+        "cloud_calls": [
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2490,
+              "completion_tokens": 72,
+              "total_tokens": 2562
+            }
+          },
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2490,
+              "completion_tokens": 70,
+              "total_tokens": 2560
+            }
+          }
+        ],
+        "translations": [
+          {
+            "uid": "synthetic-en",
+            "title": "Synthetic insurance report: claims fell 12 percent",
+            "snippet": "Synthetic for testing only. An insurer reported that claims fell 12 percent.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "合成保險報告：理賠下降 12%",
+            "summary_zh": "測試資料指出，一家保險公司回報理賠下降 12%。",
+            "category": "科技應用",
+            "importance": "低",
+            "filter": ""
+          },
+          {
+            "uid": "synthetic-ja",
+            "title": "架空の保険会社が台北に支店を開設",
+            "snippet": "Synthetic for testing only. A fictional insurer opened a branch in Taipei.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "虛構保險公司在台北開設分公司",
+            "summary_zh": "測試資料指出，一家虛構保險公司在台北開設了分公司。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": "irrelevant"
+          }
+        ]
+      }
+    }
+  ],
+  "minimal_prompt_diagnostic": {
+    "calls": 1,
+    "total_tokens": 252,
+    "result": "FAIL: Synthetic still translated as 綜合 with a short standalone prompt; cannot attribute lexical error solely to prompt length"
+  },
+  "holdout": {
+    "review": "PASS for all three synthetic fixtures",
+    "criteria": [
+      "USD 2 million → 200萬美元 and no announced layoffs preserved",
+      "Japanese non-reduction and Osaka preserved",
+      "Korean considering a Busan branch and unset opening date preserved",
+      "Fictional/hypothetical qualifiers retained; ordered batch alignment preserved"
+    ],
+    "original_report": {
+      "synthetic_input": true,
+      "purpose": "New multilingual holdout batch, not used for prompt tuning",
+      "project": "gen-lang-client-0158989334",
+      "classifier_sha256": "ff756ac1e7466320987288003ecd316bd1c3409efe4c7107424e531745c44cfa",
+      "cloud_calls": [
+        {
+          "model": "gemini-3.5-flash-lite",
+          "http_status": 200,
+          "usage": {
+            "prompt_tokens": 2621,
+            "completion_tokens": 245,
+            "total_tokens": 2866
+          },
+          "raw_content": "[\n  {\n    \"title_zh\": \"假設保險公司報告 200 萬美元保費；未宣佈裁員\",\n    \"summary_zh\": \"測試資料指出，一家假設保險公司回報保費為 200 萬美元；其未宣佈裁員。\",\n    \"category\": \"市場趨勢\",\n    \"importance\": \"低\"\n  },\n  {\n    \"title_zh\": \"虛構的保險公司未調降保費\",\n    \"summary_zh\": \"測試資料指出，虛構的保險公司未宣佈調降保費。分公司位於大阪。\",\n    \"category\": \"市場趨勢\",\n    \"importance\": \"低\"\n  },\n  {\n    \"title_zh\": \"虛構保險公司考慮開設釜山分公司\",\n    \"summary_zh\": \"測試資料指出，一家虛構的保險公司正在考慮於釜山設立分公司；尚未設定開幕日期。\",\n    \"category\": \"市場趨勢\",\n    \"importance\": \"低\"\n  }\n]"
+        }
+      ],
+      "translations": [
+        {
+          "uid": "holdout-en",
+          "title": "Hypothetical insurer reports USD 2 million in premiums; no layoffs announced",
+          "snippet": "Synthetic for testing only. A hypothetical insurer reported premiums of USD 2 million; it did not announce layoffs.",
+          "source_id": "synthetic-source-en",
+          "_translation_state": {
+            "title": "completed",
+            "summary": "completed"
+          },
+          "title_zh": "假設保險公司報告 200 萬美元保費；未宣佈裁員",
+          "summary_zh": "測試資料指出，一家假設保險公司回報保費為 200 萬美元；其未宣佈裁員。",
+          "category": "市場趨勢",
+          "importance": "低",
+          "filter": ""
+        },
+        {
+          "uid": "holdout-ja",
+          "title": "仮想の保険会社、保険料を引き下げず",
+          "snippet": "Synthetic for testing only. 架空の保険会社は保険料の引き下げを発表していない。支店は大阪にある。",
+          "source_id": "synthetic-source-ja",
+          "_translation_state": {
+            "title": "completed",
+            "summary": "completed"
+          },
+          "title_zh": "虛構的保險公司未調降保費",
+          "summary_zh": "測試資料指出，虛構的保險公司未宣佈調降保費。分公司位於大阪。",
+          "category": "市場趨勢",
+          "importance": "低",
+          "filter": ""
+        },
+        {
+          "uid": "holdout-ko",
+          "title": "가상 보험사, 부산 지점 개설 검토",
+          "snippet": "Synthetic for testing only. A fictional insurer is considering a branch in Busan; no opening date has been set.",
+          "source_id": "synthetic-source-ko",
+          "_translation_state": {
+            "title": "completed",
+            "summary": "completed"
+          },
+          "title_zh": "虛構保險公司考慮開設釜山分公司",
+          "summary_zh": "測試資料指出，一家虛構的保險公司正在考慮於釜山設立分公司；尚未設定開幕日期。",
+          "category": "市場趨勢",
+          "importance": "低",
+          "filter": ""
+        }
+      ]
+    }
+  },
+  "limitations": "Five distinct synthetic examples; no general quality guarantee, no production article writes, no billing credit settlement verified."
+}

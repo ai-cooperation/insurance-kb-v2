@@ -1,0 +1,58 @@
+name: Validate translation backfill
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - '.github/workflows/**'
+      - 'index/**'
+      - 'repairs/translation-batch-*.json'
+      - 'repairs/agent-index-sync-*.json'
+      - 'frontend/public/data/**'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt pytest
+      - run: python -m pytest tests -q
+      - name: Verify reviewed batch and exact D1 delta
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: python -m src.translation_batch_check --base "$BASE_SHA"
+      - run: python -m src.publication_check
+      - name: Verify deterministic derived data
+        run: |
+          python build_frontend_data.py
+          python build_wiki_json.py
+          python -m src.agent_publication
+          git diff --exit-code -- frontend/public/data
+          test -z "$(git ls-files --others --exclude-standard frontend/public/data)"
+          git diff --check
+  notify:
+    needs: verify
+    if: failure() && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      # Separate runner: never expose notification credentials to PR code.
+      - name: Report validation failure to ops-inbox
+        env:
+          GH_TOKEN: ${{ secrets.OPS_INBOX_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh api repos/ai-cooperation/ops-inbox/issues \
+            -f title='Insurance KB 補譯驗證失敗' -f body="$RUN_URL" \
+            -f 'labels[]=sev:warn' -f 'labels[]=src:insurance-kb-v2'
