@@ -11,7 +11,7 @@
 
 本次修復提供真正的 pending/apply/verify CLI、獨立佇列、PR 驗證與 main push 發布入口。
 未授權時不合併、不部署；基礎 PR 合併前排程仍須回報等待基礎流程，不得宣稱補譯成功。
-每月 Wiki 排程維持獨立。每日 crawl 的 Gemini key 切換依本次後續使用者授權，見下節。
+每月 Wiki 排程維持獨立。每日 crawl 的 Cloud 備援依本次後續使用者授權，見下節。
 
 ## 來源與狀態契約
 
@@ -103,23 +103,59 @@ Gemini 順序為 gemini-flash-lite-latest、gemini-flash-latest、gemini-3.1-fla
 | 11/21 12:40 / [44867260020](https://github.com/ai-cooperation/insurance-kb-v2/actions/runs/44867260020) | 無 chat/completions 紀錄 | 無 chat/completions 紀錄 | 讀 599 筆人工譯文檔、命中 589 筆，其餘 10 筆先前已套用 |
 
 Groq 429 明示 TPM=8000；不是每次都能推定為每日額度耗盡。
-目前 classifier 沒有持久化 response.usage，無法從這些 log 得出總 token 數或費用。
+上述基準的 classifier 沒有持久化 response.usage，無法從這些歷史 log 得出總 token 數或費用。
 GitHub workflow 成功只代表整條 job 結束；不保證每篇有譯文，這正是獨立 pending 佇列要補上的缺口。
 
-## Gemini 抵用額專案切換
+## 獨立 Cloud 專案與停用中的備援
 
-2026-11-27 使用者選擇沿用 Gemini Developer API，新增綁定抵用額專案的 key。
-在 GitHub Actions repository secret 設定 `GEMINI_CLOUD_API_KEY`；程式設定後順序為
-gemini-cloud → Groq → 舊 Gemini。未設定時沿用原順序，不把缺憑證當成功。
-不讀取或搬運舊 secret；不能把 key 貼進程式、測試、log 或聊天。
+2026-11-27 改採使用者提供的 meeting-capture-studio Cloud 原生端點架構
+（[驗收 run 46003781573](https://github.com/ai-cooperation/meeting-capture-studio/actions/runs/46003781573)，
+程式版本 3c9f3a496b561c1aa1a1e0bd03e62737d90c90a2）。Insurance KB 使用自己的專案與身分：
 
-端點仍是 `generativelanguage.googleapis.com/v1beta/openai/`，沒有增加 Vertex AI、ADC
-或地端模型。每週 Codex 待補譯仍不呼叫任何模型 API。每月 US$10 是帳務抵用額，
-不是每把 key 各自的額度，也不是用量硬上限；需確認 key 所屬專案連到已領取額度的帳務帳戶。
-官方資格與預付條件：[Google Developer Program FAQ](https://developers.google.com/profile/help/faq)。
-切換前需確認正確專案及以小樣本驗證，實際抵扣需以 Cloud Billing 查回為準。
+- 專案 `gen-lang-client-0158989334`（Insurance KB Translation），編號 `419553420544`。
+- 帳務帳戶 `011655-216503-7ECC9A`，billingEnabled=true；共用已領取抵用額的帳戶。
+- 服務帳號 `insurance-kb-translate@gen-lang-client-0158989334.iam.gserviceaccount.com`。
+- 自訂角色 `insuranceKbTranslate` 只有 `aiplatform.endpoints.predict`、`serviceusage.services.use`。
+- WIF provider：`projects/419553420544/locations/global/workloadIdentityPools/insurance-kb-github/providers/repo`。
+  限 GitHub repo ID `1213606151`、owner ID `258149792`、main 分支，及 crawl/reclassify/
+  translation-cloud-smoke 三個指定 workflow。沒有服務帳號私鑰或長期 Cloud API key。
+- 預算 `34e5b828-27f9-46f5-ba82-75a6c2f98fe6`：本專案每月 NT$100、抵免前成本，
+  50%/90%/100% 以預設帳務管理員／使用者電子郵件提醒。已讀回設定，未驗證郵件實際送達；不是停機上限。
+
+每日流程保留 Groq → Gemini，選配 Cloud 在最後。原生 Cloud 端點為
+`aiplatform.googleapis.com/v1/projects/.../locations/global/publishers/google/models/...:generateContent`。
+GitHub 變數 `VERTEX_TRANSLATION_ENABLED=false` 已讀回確認；**目前正式 Cloud 備援未啟用**。
+`VERTEX_PROJECT_ID`、`VERTEX_MODEL`、`GCP_WORKLOAD_IDENTITY_PROVIDER`、`GCP_VERTEX_SERVICE_ACCOUNT`
+已設定，但只有 enable=true 才進入正式流程。每週 Codex 補譯仍不呼叫任何模型 API。
+
+crawl/reclassify 使用可更新的 WIF 憑證，避免長工作超過一小時後權杖失效。
+crawl 的 git add 排除 `gha-creds-*.json`；auth action 在結束時清理暫存憑證。
+獨立手動 smoke workflow 只在 main 執行，以短效權杖跑兩筆合成資料，模擬主層 429 後測 Cloud，
+不改文章、不寫 D1，失敗通知既有 ops-inbox。**Insurance KB 的 GitHub OIDC 實際交換與呼叫仍待驗收**；
+本次本機呼叫用登入者短效 OAuth，不能拿來證明服務帳號的 OIDC 已通過。
+
+### 實際驗收未通過品質門檻
+
+原始輸出與監控查回保存在 `validation/cloud-translation-20261127.json`。
+三輪、每輪兩個合成案例，共六次 HTTP 200、13,099 tokens；Cloud Monitoring 數字相符。
+四次 3.5 Flash-Lite 為 8,701 tokens，兩次 3.8 Flash 為 4,398 tokens。
+這證明原生 Cloud 呼叫路徑可用，不代表翻譯正確或帳務抵免已核銷。
+
+- 第一輪舊 prompt 要求固定 80 字，輸出加入未提供的跨國業務／監管背景，且把 Synthetic 譯為「綜合」。
+- 第二輪限制只寫來源事實、最多 80 字，仍將 Synthetic 譯為「綜合」、架空譯為「架構」。
+  當時七項機械檢查全過，但人工審核判定失敗，因此擴充檢查；不採用早期的全過結果。
+- 第三輪較強模型仍將 Synthetic 譯為「綜合」。兩輪新 prompt 也將未明示金額的 claims 收窄成「理賠金額」。
+
+機械檢查只是這兩個案例的回歸條件，不能證明一般新聞品質。沒有把樣本寫回文章。
+停止追加付費試跑；保持 enable=false，後續需解決上述錯譯、人工審核新樣本，
+並在合併後以 GitHub OIDC 跑 smoke 通過，才能另行啟用。程式測試通過不等於此品質門檻通過。
+
+此 Cloud 路徑已在沒有購買 AI Studio NT$150 預付點數的情況下成功呼叫；
+先前 AI Studio 的 Prepay 畫面不是領取抵用額的必要付款。沒有執行付款。
+每月訂閱抵用額屬共用帳務帳戶，不是每把 key 各有一份；實際抵扣仍須以 Cloud Billing 查回為準。
+官方資格：[Google Developer Program FAQ](https://developers.google.com/profile/help/faq)。
 
 新增 `translation_usage` JSON log：provider、實際模型、文章數、prompt/completion/total tokens。
 每天 crawl 與手動 reclassify 都在解析模型輸出前記錄，因此無效 JSON 仍計入觀測用量。
 缺 usage 保持 null；HTTP 失敗沿用狀態碼 log，不能假設零費用。這些不是歷史帳單回填，
-也沒有設定或宣稱費用上限；紀錄保存期依 GitHub Actions log retention。
+也沒有設定或宣稱費用硬上限；紀錄保存期依 GitHub Actions log retention。

@@ -159,7 +159,10 @@ _CATEGORIES = [
 _LLM_SYSTEM = (
     "你是保險產業分析師。對每篇新聞做三件事：\n"
     "1. 將標題翻譯為繁體中文（title_zh）\n"
-    "2. 用繁體中文寫 80 字摘要（summary_zh）\n"
+    "2. 僅依所附來源節錄的明示事實寫繁體中文摘要（summary_zh），最多 80 字，"
+    "資料少就寫短，不補背景、目的、影響、監管情況或常識來湊字數；"
+    "節錄沒有可支持的事實時回傳空字串。標題與摘要都必須忠於來源，"
+    "數字與地點照原文，原文語意不明就保留其模糊程度。\n"
     "3. 分類（category）：從以下 9 類選 1\n"
     "   - 監管動態：法規、監管機構政策、罰款、牌照、IFRS 17、RBC\n"
     "   - 科技應用：InsurTech、AI、區塊鏈、數位轉型、平台、自動化\n"
@@ -720,13 +723,7 @@ def _build_cascade() -> list:
     from openai import OpenAI
 
     slots = []
-    # 2026-11-27: a separate key binds usage to the user's Cloud-credit
-    # project. The API endpoint stays Gemini Developer API, not Vertex AI.
-    # Credit eligibility is a billing setting; this code cannot guarantee it.
-    gemini = next(p for p in TRANSLATE_PROVIDERS if p[0] == "gemini")
-    providers = [("gemini-cloud", gemini[1], "GEMINI_CLOUD_API_KEY", gemini[3]),
-                 *TRANSLATE_PROVIDERS]
-    for name, base_url, env_var, models in providers:
+    for name, base_url, env_var, models in TRANSLATE_PROVIDERS:
         key = os.environ.get(env_var, "")
         if not key:
             logger.info("Provider %s skipped (no %s)", name, env_var)
@@ -737,6 +734,15 @@ def _build_cascade() -> list:
         client = OpenAI(base_url=base_url, api_key=key, max_retries=0)
         for model in _filter_available(client, models, name):
             slots.append((f"{name}/{model}", client, model))
+    project = os.environ.get("VERTEX_PROJECT_ID", "")
+    if project:
+        from src.vertex_translation import VertexTranslationClient
+        client = VertexTranslationClient(project=project,
+            location=os.environ.get("VERTEX_LOCATION", "global"),
+            model=os.environ.get("VERTEX_MODEL") or "gemini-3.5-flash-lite")
+        # Cloud uses an explicitly configured publisher model, not /models
+        # discovery. Failure keeps explicit pending state and triggers alarm.
+        slots.append((f"vertex/{client.model}", client, client.model))
     return slots
 
 

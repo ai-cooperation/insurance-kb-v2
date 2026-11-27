@@ -1,0 +1,48 @@
+name: Validate Cloud translation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  validate:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Authenticate independent Cloud identity
+        id: vertex-auth
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
+        with:
+          project_id: ${{ vars.VERTEX_PROJECT_ID }}
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_VERTEX_SERVICE_ACCOUNT }}
+          token_format: access_token
+          create_credentials_file: false
+          export_environment_variables: false
+      - name: Exercise synthetic primary failure and two real Cloud requests
+        env:
+          VERTEX_PROJECT_ID: ${{ vars.VERTEX_PROJECT_ID }}
+          VERTEX_MODEL: ${{ vars.VERTEX_MODEL }}
+          VERTEX_ACCESS_TOKEN: ${{ steps.vertex-auth.outputs.access_token }}
+        run: python -m src.translation_cloud_smoke --output validation/cloud-translation.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cloud-translation-validation
+          path: validation/cloud-translation.json
+          if-no-files-found: ignore
+      - name: Report failure
+        if: failure()
+        env:
+          OPS_INBOX_TOKEN: ${{ secrets.OPS_INBOX_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python -c 'import os; from src.ops_inbox import send_event; send_event("Insurance KB Cloud 翻譯驗收失敗", os.environ["RUN_URL"], "warn")'

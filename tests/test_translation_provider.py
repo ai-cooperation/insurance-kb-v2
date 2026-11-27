@@ -10,11 +10,11 @@ from src import classifier
 
 
 @pytest.mark.parametrize("cloud", [True, False])
-def test_billing_key_is_prioritized_without_breaking_legacy(monkeypatch, cloud):
-    for name in ("GEMINI_CLOUD_API_KEY", "GEMINI_API_KEY", "GROQ_API_KEY"):
+def test_cloud_fallback_keeps_legacy_and_uses_independent_project(monkeypatch, cloud):
+    for name in ("VERTEX_PROJECT_ID", "GEMINI_API_KEY", "GROQ_API_KEY"):
         monkeypatch.delenv(name, raising=False)
     if cloud:
-        monkeypatch.setenv("GEMINI_CLOUD_API_KEY", "synthetic-cloud")
+        monkeypatch.setenv("VERTEX_PROJECT_ID", "test-project")
     monkeypatch.setenv("GEMINI_API_KEY", "synthetic-old")
     monkeypatch.setenv("GROQ_API_KEY", "synthetic-groq")
     clients = []
@@ -25,10 +25,10 @@ def test_billing_key_is_prioritized_without_breaking_legacy(monkeypatch, cloud):
     monkeypatch.setattr(classifier, "_filter_available", lambda c, models, name: models[:1])
     slots = classifier._build_cascade()
     assert [s[0].split("/")[0] for s in slots] == (
-        ["gemini-cloud", "groq", "gemini"] if cloud else ["groq", "gemini"])
+        ["groq", "gemini", "vertex"] if cloud else ["groq", "gemini"])
     if cloud:
-        assert clients[0] == dict(base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
-                                  api_key="synthetic-cloud", max_retries=0)
+        assert slots[-1][1].project == "test-project"
+        assert len(clients) == 2
 
 
 def test_crawl_logs_usage_even_when_model_output_is_invalid(monkeypatch, caplog):

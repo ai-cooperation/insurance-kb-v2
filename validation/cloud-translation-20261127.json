@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-11-27",
+  "project": "gen-lang-client-0158989334",
+  "production_enabled": false,
+  "auth_method": "Local signed-in user short-lived OAuth; GitHub WIF/SA inference NOT tested",
+  "overall_quality": "FAIL",
+  "article_writes": 0,
+  "billing_credit_settlement": "UNVERIFIED",
+  "scope": "Two synthetic fixtures repeated across three rounds; not a production translation quality estimate.",
+  "rounds": [
+    {
+      "round": 1,
+      "prompt_variant": "fixed 80-character summary",
+      "review_result": "FAIL",
+      "review_findings": [
+        "Synthetic mistranslated as 綜合",
+        "Unstated cross-border and regulatory context added"
+      ],
+      "original_report": {
+        "synthetic_input": true,
+        "project": "gen-lang-client-0158989334",
+        "checks": {
+          "two_cloud_calls": true,
+          "both_titles_chinese": true,
+          "both_summaries_chinese": true,
+          "both_completed": true,
+          "quantity_preserved": false,
+          "location_preserved": true
+        },
+        "cloud_calls": [
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2051,
+              "completion_tokens": 94,
+              "total_tokens": 2145
+            }
+          },
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2051,
+              "completion_tokens": 108,
+              "total_tokens": 2159
+            }
+          }
+        ],
+        "translations": [
+          {
+            "uid": "synthetic-en",
+            "title": "Synthetic insurance report: claims fell 12 percent",
+            "snippet": "Synthetic for testing only. An insurer reported that claims fell 12 percent.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "綜合保險報告：理賠金額下降百分之十二",
+            "summary_zh": "這是一份用於測試的綜合保險報告，內容指出某家保險公司的理賠金額下降了百分之十二。本篇為系統測試用途的虛構資料。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          },
+          {
+            "uid": "synthetic-ja",
+            "title": "架空の保険会社が台北に支店を開設",
+            "snippet": "Synthetic for testing only. A fictional insurer opened a branch in Taipei.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "虛構保險公司於台北開設分公司",
+            "summary_zh": "一家虛構的保險公司宣布在台北正式開設分公司，這是一則用於系統測試的模擬新聞，旨在驗證跨國業務擴展與市場佈局的處理流程，不涉及真實的商業營運或監管審批。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "prompt_variant": "source-only, at most 80 characters",
+      "review_result": "FAIL",
+      "review_findings": [
+        "Synthetic mistranslated as 綜合",
+        "架空 mistranslated as 架構",
+        "Ambiguous claims narrowed to claim amounts",
+        "Original seven mechanical checks passed; human review invalidated acceptance"
+      ],
+      "original_report": {
+        "synthetic_input": true,
+        "project": "gen-lang-client-0158989334",
+        "checks": {
+          "two_cloud_calls": true,
+          "both_titles_chinese": true,
+          "both_summaries_chinese": true,
+          "both_completed": true,
+          "quantity_preserved": true,
+          "location_preserved": true,
+          "no_unstated_context": true
+        },
+        "cloud_calls": [
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2129,
+              "completion_tokens": 72,
+              "total_tokens": 2201
+            }
+          },
+          {
+            "model": "gemini-3.5-flash-lite",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2129,
+              "completion_tokens": 67,
+              "total_tokens": 2196
+            }
+          }
+        ],
+        "translations": [
+          {
+            "uid": "synthetic-en",
+            "title": "Synthetic insurance report: claims fell 12 percent",
+            "snippet": "Synthetic for testing only. An insurer reported that claims fell 12 percent.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "綜合保險報告：理賠下降 12%",
+            "summary_zh": "一家保險公司報告指出，理賠金額下降了 12%。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          },
+          {
+            "uid": "synthetic-ja",
+            "title": "架空の保険会社が台北に支店を開設",
+            "snippet": "Synthetic for testing only. A fictional insurer opened a branch in Taipei.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "架構保險公司於台北開設分公司",
+            "summary_zh": "一家架構保險公司在台北開設了分公司。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "prompt_variant": "source-only, at most 80 characters",
+      "review_result": "FAIL",
+      "review_findings": [
+        "Synthetic mistranslated as 綜合",
+        "Ambiguous claims narrowed to claim amounts"
+      ],
+      "original_report": {
+        "synthetic_input": true,
+        "project": "gen-lang-client-0158989334",
+        "checks": {
+          "two_cloud_calls": true,
+          "both_titles_chinese": true,
+          "both_summaries_chinese": true,
+          "both_completed": true,
+          "quantity_preserved": true,
+          "location_preserved": true,
+          "no_unstated_context": true,
+          "synthetic_title_preserved": false,
+          "fictional_insurer_preserved": true
+        },
+        "cloud_calls": [
+          {
+            "model": "gemini-3.8-flash",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2129,
+              "completion_tokens": 72,
+              "total_tokens": 2201
+            }
+          },
+          {
+            "model": "gemini-3.8-flash",
+            "http_status": 200,
+            "usage": {
+              "prompt_tokens": 2129,
+              "completion_tokens": 68,
+              "total_tokens": 2197
+            }
+          }
+        ],
+        "translations": [
+          {
+            "uid": "synthetic-en",
+            "title": "Synthetic insurance report: claims fell 12 percent",
+            "snippet": "Synthetic for testing only. An insurer reported that claims fell 12 percent.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "綜合保險報告：理賠下降 12%",
+            "summary_zh": "一家保險公司報告指出，理賠金額下降了 12%。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          },
+          {
+            "uid": "synthetic-ja",
+            "title": "架空の保険会社が台北に支店を開設",
+            "snippet": "Synthetic for testing only. A fictional insurer opened a branch in Taipei.",
+            "_translation_state": {
+              "title": "completed",
+              "summary": "completed"
+            },
+            "title_zh": "虛構保險公司於台北開設分公司",
+            "summary_zh": "一家虛構的保險公司在台北開設了分公司。",
+            "category": "市場趨勢",
+            "importance": "低",
+            "filter": ""
+          }
+        ]
+      }
+    }
+  ],
+  "monitoring": [
+    {
+      "metric": "model_invocation_count",
+      "query_end": "2026-11-27T13:35:42.270263+00:00",
+      "series": [
+        {
+          "metric": {
+            "labels": {
+              "method": "GenerateContent",
+              "shared_request_type": "standard",
+              "source": "global",
+              "response_code": "200",
+              "request_type": "shared",
+              "output_token_size": "OUTPUT_TOKEN_BUCKETIZED_SIZE_100_TO_200",
+              "input_token_size": "INPUT_TOKEN_BUCKETIZED_SIZE_2K_TO_5K"
+            },
+            "type": "aiplatform.googleapis.com/publisher/online_serving/model_invocation_count"
+          },
+          "resource": {
+            "type": "aiplatform.googleapis.com/PublisherModel",
+            "labels": {
+              "publisher": "google",
+              "project_id": "gen-lang-client-0158989334",
+              "location": "global",
+              "model_user_id": "gemini-3.5-flash-lite",
+              "model_version_id": ""
+            }
+          },
+          "sum": 1
+        },
+        {
+          "metric": {
+            "labels": {
+              "source": "global",
+              "output_token_size": "OUTPUT_TOKEN_BUCKETIZED_SIZE_50_TO_100",
+              "method": "GenerateContent",
+              "response_code": "200",
+              "input_token_size": "INPUT_TOKEN_BUCKETIZED_SIZE_2K_TO_5K",
+              "shared_request_type": "standard",
+              "request_type": "shared"
+            },
+            "type": "aiplatform.googleapis.com/publisher/online_serving/model_invocation_count"
+          },
+          "resource": {
+            "type": "aiplatform.googleapis.com/PublisherModel",
+            "labels": {
+              "model_user_id": "gemini-3.5-flash-lite",
+              "location": "global",
+              "project_id": "gen-lang-client-0158989334",
+              "publisher": "google",
+              "model_version_id": ""
+            }
+          },
+          "sum": 3
+        },
+        {
+          "metric": {
+            "labels": {
+              "response_code": "200",
+              "output_token_size": "OUTPUT_TOKEN_BUCKETIZED_SIZE_50_TO_100",
+              "method": "GenerateContent",
+              "shared_request_type": "standard",
+              "request_type": "shared",
+              "source": "global",
+              "input_token_size": "INPUT_TOKEN_BUCKETIZED_SIZE_2K_TO_5K"
+            },
+            "type": "aiplatform.googleapis.com/publisher/online_serving/model_invocation_count"
+          },
+          "resource": {
+            "type": "aiplatform.googleapis.com/PublisherModel",
+            "labels": {
+              "publisher": "google",
+              "project_id": "gen-lang-client-0158989334",
+              "model_user_id": "gemini-3.8-flash",
+              "model_version_id": "",
+              "location": "global"
+            }
+          },
+          "sum": 2
+        }
+      ]
+    },
+    {
+      "metric": "token_count",
+      "query_end": "2026-11-27T13:35:42.270263+00:00",
+      "series": [
+        {
+          "metric": {
+            "labels": {
+              "type": "input",
+              "request_type": "shared",
+              "source": "global",
+              "shared_request_type": "standard"
+            },
+            "type": "aiplatform.googleapis.com/publisher/online_serving/token_count"
+          },
+          "resource": {
+            "type": "aiplatform.googleapis.com/PublisherModel",
+            "labels": {
+              "publisher": "google",
+              "model_version_id": "",
+              "location": "global",
+              "project_id": "gen-lang-client-0158989334",
+              "model_user_id": "gemini-3.5-flash-lite"
+            }
+          },
+          "sum": 8360
+        },
+        {
+          "metric": {
+            "labels": {
+              "request_type": "shared",
+              "source": "global",
+              "shared_request_type": "standard",
+              "type": "output"
+            },
+            "type": "aiplatform.googleapis.com/publisher/online_serving/token_count"
+          },
+          "resource": {
+            "type": "aiplatform.googleapis.com/PublisherModel",
+            "labels": {
+              "publisher": "google",
+              "location": "global",
+              "model_version_id": "",
+              "project_id": "gen-lang-client-0158989334",
+              "model_user_id": "gemini-3.5-flash-lite"
+            }
+          },
+          "sum": 341
+        },
+        {
+          "metric": {
+            "labels": {
+              "shared_request_type": "standard",
+              "request_type": "shared",
+              "type": "input",
+              "source": "global"
+            },
+            "type": "aiplatform.googleapis.com/publisher/online_serving/token_count"
+          },
+          "resource": {
+            "type": "aiplatform.googleapis.com/PublisherModel",
+            "labels": {
+              "model_user_id": "gemini-3.8-flash",
+              "location": "global",
+              "model_version_id": "",
+              "publisher": "google",
+              "project_id": "gen-lang-client-0158989334"
+            }
+          },
+          "sum": 4258
+        },
+        {
+          "metric": {
+            "labels": {
+              "shared_request_type": "standard",
+              "source": "global",
+              "request_type": "shared",
+              "type": "output"
+            },
+            "type": "aiplatform.googleapis.com/publisher/online_serving/token_count"
+          },
+          "resource": {
+            "type": "aiplatform.googleapis.com/PublisherModel",
+            "labels": {
+              "publisher": "google",
+              "model_version_id": "",
+              "location": "global",
+              "project_id": "gen-lang-client-0158989334",
+              "model_user_id": "gemini-3.8-flash"
+            }
+          },
+          "sum": 140
+        }
+      ]
+    }
+  ]
+}
