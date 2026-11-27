@@ -106,7 +106,7 @@ Groq 429 明示 TPM=8000；不是每次都能推定為每日額度耗盡。
 上述基準的 classifier 沒有持久化 response.usage，無法從這些歷史 log 得出總 token 數或費用。
 GitHub workflow 成功只代表整條 job 結束；不保證每篇有譯文，這正是獨立 pending 佇列要補上的缺口。
 
-## 獨立 Cloud 專案與停用中的備援
+## 獨立 Cloud 專案與啟用門檻
 
 2026-11-27 改採使用者提供的 meeting-capture-studio Cloud 原生端點架構
 （[驗收 run 46003781573](https://github.com/ai-cooperation/meeting-capture-studio/actions/runs/46003781573)，
@@ -124,7 +124,7 @@ GitHub workflow 成功只代表整條 job 結束；不保證每篇有譯文，�
 
 每日流程保留 Groq → Gemini，選配 Cloud 在最後。原生 Cloud 端點為
 `aiplatform.googleapis.com/v1/projects/.../locations/global/publishers/google/models/...:generateContent`。
-GitHub 變數 `VERTEX_TRANSLATION_ENABLED=false` 已讀回確認；**目前正式 Cloud 備援未啟用**。
+首次整合時 GitHub 變數 `VERTEX_TRANSLATION_ENABLED=false` 已讀回確認，先保持停用。
 `VERTEX_PROJECT_ID`、`VERTEX_MODEL`、`GCP_WORKLOAD_IDENTITY_PROVIDER`、`GCP_VERTEX_SERVICE_ACCOUNT`
 已設定，但只有 enable=true 才進入正式流程。每週 Codex 補譯仍不呼叫任何模型 API。
 
@@ -134,7 +134,7 @@ crawl 的 git add 排除 `gha-creds-*.json`；auth action 在結束時清理暫�
 不改文章、不寫 D1，失敗通知既有 ops-inbox。**Insurance KB 的 GitHub OIDC 實際交換與呼叫仍待驗收**；
 本次本機呼叫用登入者短效 OAuth，不能拿來證明服務帳號的 OIDC 已通過。
 
-### 實際驗收未通過品質門檻
+### 首輪驗收未通過品質門檻（歷史紀錄）
 
 原始輸出與監控查回保存在 `validation/cloud-translation-20261127.json`。
 三輪、每輪兩個合成案例，共六次 HTTP 200、13,099 tokens；Cloud Monitoring 數字相符。
@@ -147,13 +147,32 @@ crawl 的 git add 排除 `gha-creds-*.json`；auth action 在結束時清理暫�
 - 第三輪較強模型仍將 Synthetic 譯為「綜合」。兩輪新 prompt 也將未明示金額的 claims 收窄成「理賠金額」。
 
 機械檢查只是這兩個案例的回歸條件，不能證明一般新聞品質。沒有把樣本寫回文章。
-停止追加付費試跑；保持 enable=false，後續需解決上述錯譯、人工審核新樣本，
+該輪停止追加試跑並保持 enable=false，後續需解決上述錯譯、人工審核新樣本，
 並在合併後以 GitHub OIDC 跑 smoke 通過，才能另行啟用。程式測試通過不等於此品質門檻通過。
 
 此 Cloud 路徑已在沒有購買 AI Studio NT$150 預付點數的情況下成功呼叫；
 先前 AI Studio 的 Prepay 畫面不是領取抵用額的必要付款。沒有執行付款。
 每月訂閱抵用額屬共用帳務帳戶，不是每把 key 各有一份；實際抵扣仍須以 Cloud Billing 查回為準。
 官方資格：[Google Developer Program FAQ](https://developers.google.com/profile/help/faq)。
+
+### 使用者要求繼續後的修正與驗收
+
+2026-11-27 後續紀錄見 `validation/cloud-translation-followup-20261127.json`，保留中途失敗輸出，
+不覆寫首輪紀錄。修正兩個可觀察缺口：
+
+- `_build_llm_prompt` 原本將標題、來源、節錄用連字號串在同一行；實測模型將 unknown
+  和節錄一起放入 title_zh。改為具名 JSON 欄位，明定標題只譯 title、摘要只用 source_excerpt。
+- 沿用既有術語表補上 synthetic/comprehensive、架空/架構與 claims 度量差異；
+  明定摘要可獨立閱讀，必須保留來源的虛構、假設、否定與測試性質。沒有在輸出端硬改答案。
+
+最後本機回歸兩筆案例通過 12 項檢查及人工語意審核；另一次批次測三筆未用來調整提示的
+英／日／韓合成案例，人工核對金額、否定、地點、考慮中／未定日期、多篇對齊均符合來源。
+這五筆共三次 Cloud 呼叫、7,988 tokens，只能證明該樣本範圍，不能宣稱未來翻譯零錯誤。
+
+啟用順序：PR CI 通過 → 合併 main → 執行 `translation-cloud-smoke.yml` → 人工查看 artifact
+及查回 Cloud Monitoring → 才設 `VERTEX_TRANSLATION_ENABLED=true`。手動 smoke 在開關 false 時
+也可執行，且不呼叫真實主層、不改正式文章。若失敗，保持 false；啟用後要停用也只需將此變數設 false。
+該開關僅控制每日／手動外部 API 備援，週一 Codex 離線補譯規則不變。
 
 新增 `translation_usage` JSON log：provider、實際模型、文章數、prompt/completion/total tokens。
 每天 crawl 與手動 reclassify 都在解析模型輸出前記錄，因此無效 JSON 仍計入觀測用量。

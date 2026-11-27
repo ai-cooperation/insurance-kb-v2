@@ -42,7 +42,11 @@ def validate(client):
         "both_titles_chinese": all(re.search(r"[\u3400-\u9fff]", r.get("title_zh", "")) for r in rows),
         "both_summaries_chinese": all(re.search(r"[\u3400-\u9fff]", r.get("summary_zh", "")) for r in rows),
         "both_completed": all(r["_translation_state"] == {"title": "completed", "summary": "completed"} for r in rows),
+        "source_metadata_not_in_title": not any(term in r.get("title_zh", "").lower()
+                                                for r in rows for term in ("unknown", "未知", "僅供測試")),
         "quantity_preserved": bool(re.search(r"12|百分之十二", rows[0].get("title_zh", "") + rows[0].get("summary_zh", ""))),
+        "claim_measure_not_invented": not any(term in rows[0].get("title_zh", "") + rows[0].get("summary_zh", "")
+                                              for term in ("金額", "件數", "賠款", "索賠額")),
         "location_preserved": "台北" in rows[1].get("title_zh", "") + rows[1].get("summary_zh", ""),
         "no_unstated_context": not any(term in " ".join(r.get("summary_zh", "") for r in rows)
                                       for term in ("跨國業務", "市場佈局", "監管審批")),
@@ -50,6 +54,9 @@ def validate(client):
                                          for term in ("合成", "模擬", "虛構", "測試")),
         "fictional_insurer_preserved": any(term in rows[1].get("title_zh", "")
                                            for term in ("虛構", "假想", "架空", "模擬", "虛擬")),
+        "summary_qualifiers_preserved": any(term in rows[0].get("summary_zh", "")
+                                             for term in ("合成", "模擬", "虛構", "測試"))
+            and any(term in rows[1].get("summary_zh", "") for term in ("虛構", "架空", "假想", "模擬", "虛擬")),
     }
     return {"synthetic_input": True, "project": client.project, "checks": checks,
             "cloud_calls": calls, "translations": rows}

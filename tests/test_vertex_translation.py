@@ -136,6 +136,7 @@ def test_smoke_rejects_observed_unsupported_background():
 @pytest.mark.parametrize("title,failed_check", [
     ("綜合保險報告：理賠下降 12%", "synthetic_title_preserved"),
     ("架構保險公司於台北開設分公司", "fictional_insurer_preserved"),
+    ("模擬保險報告：理賠下降12% - unknown - 僅供測試", "source_metadata_not_in_title"),
 ])
 def test_smoke_rejects_observed_mistranslations(title, failed_check):
     import json
@@ -146,3 +147,16 @@ def test_smoke_rejects_observed_mistranslations(title, failed_check):
         "title_zh": title, "summary_zh": "測試保險公司在台北的理賠減少 12%。"}])}]
     session.post.return_value = Mock(status_code=200, json=lambda: data)
     assert not validate(c)["checks"][failed_check]
+
+
+def test_smoke_rejects_unstated_claim_amount_even_with_correct_title():
+    import json
+    from src.translation_cloud_smoke import validate
+    c, session = client()
+    data = payload()
+    data["candidates"][0]["content"]["parts"] = [{"text": json.dumps([{
+        "title_zh": "模擬保險報告：理賠下降12%", "summary_zh": "保險公司的理賠金額下降12%。"}])}]
+    session.post.return_value = Mock(status_code=200, json=lambda: data)
+    checks = validate(c)["checks"]
+    assert not checks["claim_measure_not_invented"]
+    assert not checks["summary_qualifiers_preserved"]
